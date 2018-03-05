@@ -178,7 +178,7 @@ namespace Admeli.Compras
             loadState(true);
             try
             {
-                RootObject<Proveedor> ordenCompra = await proveedorModel.proveedoreslike(paginacion.currentPage, paginacion.speed, textBuscar.Text);
+               RootObject<Proveedor> ordenCompra = await proveedorModel.proveedoreslike(paginacion.currentPage, paginacion.speed, textBuscar.Text);
 
                 // actualizando datos de páginacón
                 paginacion.itemsCount = ordenCompra.nro_registros;
@@ -433,6 +433,7 @@ namespace Admeli.Compras
 
         #endregion
 
+
         private async void textBuscar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -440,5 +441,6 @@ namespace Admeli.Compras
                 await cargarRegistrosBuscados();
             }
         }
+       
     }
 }

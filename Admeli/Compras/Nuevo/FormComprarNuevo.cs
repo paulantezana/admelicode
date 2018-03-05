@@ -257,7 +257,8 @@ namespace Admeli.Compras.Nuevo
         private async void cargarPresentaciones()
         {
             if (cbxCodigoProducto.SelectedIndex == -1 || cbxDescripcion.SelectedIndex == -1) return; /// validacion
-            /// Cargar las precentaciones
+                                                                                                     /// Cargar las precentaciones
+            string f = cbxCodigoProducto.SelectedValue.ToString();
             presentaciones = await presentacionModel.presentacionVentas(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
             presentacionBindingSource.DataSource = presentaciones;
             cbxPresentacion.SelectedIndex = -1;

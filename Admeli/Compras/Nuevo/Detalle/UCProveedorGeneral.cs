@@ -24,6 +24,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         private List<LabelUbicacion> labelUbicaciones { get; set; }
         private UbicacionGeografica ubicacionGeografica { get; set; }
         private SunatModel sunatModel=new SunatModel();
+        private bool bandera;
         private DataSunat dataSunat;
         private RespuestaSunat respuestaSunat;
 
@@ -441,6 +442,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
                     try
                     {
+                        
                         respuestaSunat = await sunatModel.obtenerDatos(aux);
                     }
                     catch (Exception ex)
@@ -449,17 +451,41 @@ namespace Admeli.Compras.Nuevo.Detalle
                     }
                     
                    // Ver(aux);
-                    int i = 0;
+                    
                 }
             if (respuestaSunat != null)
             {
+                
                 dataSunat = respuestaSunat.result;
                 textNIdentificacion.Text = dataSunat.RUC;
                 textTelefono.Text = dataSunat.Telefono;
                 textNombreEmpresa.Text = dataSunat.RazonSocial;
                 textActividadPrincipal.Text = dataSunat.Tipo;
                 
+                textDireccion.Text = concidencias(dataSunat.Direccion);
+                respuestaSunat = null;
+            
             }
+           
+
+        }
+
+
+        private string concidencias(string direccion)
+        {
+            int lenght = direccion.Length;
+            int i = direccion.LastIndexOf('-');
+
+            string ff = direccion.Substring(0, i);
+            i = ff.LastIndexOf('-');
+            string ff1 = ff.Substring(0, i);
+
+
+            i = ff1.LastIndexOf(' ');
+            string hhh = ff1.Substring(0, i);
+            i = hhh.LastIndexOf(' ');
+            string hh1 = hhh.Substring(0, i);
+            return hh1;
 
         }
         public async void Ver(string aux)
