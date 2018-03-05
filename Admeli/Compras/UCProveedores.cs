@@ -192,11 +192,14 @@ namespace Admeli.Compras
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+
             }
             finally
             {
                 loadState(false);
             }
+
         }
         #endregion
 
@@ -430,9 +433,14 @@ namespace Admeli.Compras
 
         #endregion
 
-        private  async void textBuscar_OnValueChanged(object sender, EventArgs e)
+
+        private async void textBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            await cargarRegistrosBuscados();
+            if (e.KeyCode == Keys.Enter)
+            {
+                await cargarRegistrosBuscados();
+            }
         }
+       
     }
 }
