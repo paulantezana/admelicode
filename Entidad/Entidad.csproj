@@ -91,6 +91,8 @@
     <Compile Include="NotaSalida.cs" />
     <Compile Include="Oferta.cs" />
     <Compile Include="OrdenCompra.cs" />
+    <Compile Include="OrdenCompraModificar.cs" />
+    <Compile Include="OrdenCompraTotal.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="PagoCompra.cs" />
     <Compile Include="Personal.cs" />
@@ -106,7 +108,6 @@
     <Compile Include="Stock.cs" />
     <Compile Include="Sucursal.cs" />
     <Compile Include="UnidadMedida.cs" />
-    <Compile Include="Util\vinetas.cs" />
     <Compile Include="Util\Fecha.cs" />
     <Compile Include="Variante.cs" />
     <Compile Include="Venta.cs" />

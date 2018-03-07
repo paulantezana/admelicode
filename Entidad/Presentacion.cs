@@ -15,5 +15,6 @@ namespace Entidad
         public bool presentacionPorDefecto { get; set; }
         public string simboloPresentacion { get; set; }
         public int estado { get; set; }
+
     }
 }

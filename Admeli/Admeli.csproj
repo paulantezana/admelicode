@@ -226,6 +226,12 @@
     <Compile Include="Compras\Buscar\BuscarProveedor.Designer.cs">
       <DependentUpon>BuscarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\Buscar\formGeografia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\Buscar\formGeografia.Designer.cs">
+      <DependentUpon>formGeografia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\Modificar\FormCuentaPagarModificar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,12 @@
     </Compile>
     <Compile Include="Compras\Nuevo\FormCompraProveedorNuevo.Designer.cs">
       <DependentUpon>FormCompraProveedorNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\Nuevo\FormOrdenComprarNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\Nuevo\FormOrdenComprarNuevo.Designer.cs">
+      <DependentUpon>FormOrdenComprarNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\Nuevo\FormComprarNuevo.cs">
       <SubType>Form</SubType>
@@ -845,6 +857,9 @@
     <EmbeddedResource Include="Compras\Buscar\BuscarProveedor.resx">
       <DependentUpon>BuscarProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\Buscar\formGeografia.resx">
+      <DependentUpon>formGeografia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\Modificar\FormCuentaPagarModificar.resx">
       <DependentUpon>FormCuentaPagarModificar.cs</DependentUpon>
     </EmbeddedResource>
@@ -859,6 +874,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\Nuevo\FormCompraProveedorNuevo.resx">
       <DependentUpon>FormCompraProveedorNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\Nuevo\FormOrdenComprarNuevo.resx">
+      <DependentUpon>FormOrdenComprarNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\Nuevo\FormComprarNuevo.resx">
       <DependentUpon>FormComprarNuevo.cs</DependentUpon>

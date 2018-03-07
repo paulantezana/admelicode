@@ -17,4 +17,10 @@ namespace Entidad
         public int estado { get; set; }
         public bool enUso { get; set; }
     }
+
+    public class OrdenCompraImpuesto
+    {
+        public int idProducto { get; set; }
+        public List<Impuesto> impuestos { get; set; }
+    }
 }

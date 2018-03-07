@@ -14,7 +14,28 @@ namespace Modelo
 
         public void guardar()
         {
+            //  
+            //compra
+            //detalle
+            //ordencompra
+            //pago
 
+
+
+
+        }
+
+        public async Task<Response> guardar(OrdenCompraTotal param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/ordencompra/guardartodo
+                return await webService.POST<OrdenCompraTotal, Response>("ordencompra", "guardartodo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public void modificar()
         {
@@ -46,9 +67,34 @@ namespace Modelo
             throw new NotImplementedException();
         }
 
-        public Task<Response> eliminar(OrdenCompra currentOrdenCompra)
+        public async Task<Response> eliminar(OrdenCompraElimnar currentOrdenCompra)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/ocompras/eliminar
+                return await webService.POST<OrdenCompraElimnar, Response>("ocompras", "eliminar", currentOrdenCompra);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
         }
+        public async Task<List<OrdenCompraModificar>> dcomprasordencompra(int idOrdenCompra)
+        {
+            try
+            {
+                List<OrdenCompraModificar> ordenCompra = await webService.GET<List<OrdenCompraModificar>>("dcomprasordencompra", String.Format("{0}", idOrdenCompra));
+                return ordenCompra;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
     }
 }

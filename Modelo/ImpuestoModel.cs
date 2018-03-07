@@ -94,5 +94,22 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        //impcompraproductoordencompra
+
+        public async Task<List<OrdenCompraImpuesto>> impcompraproductoordencompra(int idordenCompra, int idSucursal)
+        {
+            try
+            {
+                // http://localhost:8080/admeli/xcore/services.php/impcompraproductoordencompra/ordencomp/5/suc/1
+                List<OrdenCompraImpuesto> impuestos = await webService.GET<List<OrdenCompraImpuesto>>("impcompraproductoordencompra", String.Format("ordencomp/{0}/suc/{1}", idordenCompra, idSucursal));
+                return impuestos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

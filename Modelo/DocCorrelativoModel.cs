@@ -48,5 +48,20 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        public async Task<List< Sucursal_correlativo>> listarNroDocumentoSucursal(int idTipoDocumento,int idSucursal)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/succorrelativo/tipodoc/1/suc/1
+                return await webService.GET<List<Sucursal_correlativo>>(String.Format("succorrelativo/tipodoc/{0}", idTipoDocumento), String.Format("suc/{0}", idSucursal));
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

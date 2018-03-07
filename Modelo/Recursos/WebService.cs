@@ -87,7 +87,6 @@ namespace Modelo.Recursos
                 /// Serializando el objeto
                 string request = JsonConvert.SerializeObject(param);
                 StringContent content = new StringContent(request, Encoding.UTF8, "application/json");
-
                 /// Creando un nuevo cliente
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(this.domainName);

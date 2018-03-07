@@ -17,4 +17,10 @@ namespace Entidad
         public int idUbicacionGeografica { get; set; }
         public string tieneRegistros { get; set; }
     }
+    public class Sucursal_correlativo
+    {
+        public string serie { get; set; }
+        public string correlativoActual { get; set; }
+
+    }
 }

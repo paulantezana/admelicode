@@ -22,7 +22,7 @@ namespace Admeli.Compras
 
         private List<OrdenCompra> ordenCompras { get; set; }
         private OrdenCompra currentOrdenCompra { get; set; }
-
+        public Sucursal sucursal;
         private Paginacion paginacion;
         private OrdenCompraModel ordenCompraModel = new OrdenCompraModel();
         private PersonalModel personalModel = new PersonalModel();
@@ -114,6 +114,7 @@ namespace Admeli.Compras
             try
             {
                 sucursalBindingSource.DataSource = await sucursalModel.listarSucursalesActivos();
+               
             }
             catch (Exception ex)
             {
@@ -320,8 +321,14 @@ namespace Admeli.Compras
 
         private void executeNuevo()
         {
-            FormCompraProveedorNuevo formCompraProveedor = new FormCompraProveedorNuevo();
+            int i = cbxPersonales.SelectedIndex;
+            Personal personal = personalBindingSource.List[i] as Personal;
+           
+            FormOrdenComprarNuevo formCompraProveedor = new FormOrdenComprarNuevo(ConfigModel.sucursal,personal );
+
+            
             formCompraProveedor.ShowDialog();
+            //formCompraProveedor.currentPagoCompra=model
             cargarRegistros();
         }
 
@@ -340,7 +347,9 @@ namespace Admeli.Compras
             currentOrdenCompra = ordenCompras.Find(x => x.idOrdenCompra == idOrdenCompra); // Buscando la registro especifico en la lista de registros
 
             // Mostrando el formulario de modificacion
-            FormCompraProveedorNuevo formCompraProveedor = new FormCompraProveedorNuevo(currentOrdenCompra);
+            int i = cbxPersonales.SelectedIndex;
+            Personal personal = personalBindingSource.List[i] as Personal;
+            FormOrdenComprarNuevo formCompraProveedor = new FormOrdenComprarNuevo (currentOrdenCompra, ConfigModel.sucursal, personal);
             formCompraProveedor.ShowDialog();
             cargarRegistros(); // recargando loas registros en el datagridview
         }
@@ -367,7 +376,13 @@ namespace Admeli.Compras
                 currentOrdenCompra.idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
 
                 loadState(true); // cambiando el estado
-                Response response = await ordenCompraModel.eliminar(currentOrdenCompra); // Eliminando con el webservice correspondiente
+
+                OrdenCompraElimnar elimnarorden = new OrdenCompraElimnar();
+                elimnarorden.idCompra = currentOrdenCompra.idCompra;
+                elimnarorden.idOrdenCompra = currentOrdenCompra.idOrdenCompra;
+                elimnarorden.idPago = currentOrdenCompra.idPago;
+                
+                Response response = await ordenCompraModel.eliminar(elimnarorden); // Eliminando con el webservice correspondiente
                 MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cargarRegistros(); // recargando el datagridview
             }
