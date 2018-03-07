@@ -14,20 +14,13 @@ namespace Modelo
         private WebService webService = new WebService();
 
 
-        public async Task<Response> ralizarCompra(Compra compra, List<DetalleCompra> detalleCompra, NotaEntrada notaEntrada, Pago pago, PagoCompra pagoCompra)
+        public async Task<Response> ralizarCompra(compraTotal total)
         {
             try
             {
-                string stringCompra = JsonConvert.SerializeObject(compra);
-                string stringDetalleCompra = JsonConvert.SerializeObject(detalleCompra);
-                string stringNotaEntrada = JsonConvert.SerializeObject(notaEntrada);
-                string stringPago = JsonConvert.SerializeObject(pago);
-                string stringPagoCompra = JsonConvert.SerializeObject(pagoCompra);
-
-                String sendData = "{" + string.Format("{0,2,3,4}", stringCompra, stringDetalleCompra, stringNotaEntrada, stringPago, stringPagoCompra) +  "}";
-
+                
                 // localhost:8080/admeli/xcore2/xcore/services.php/compra/guardartotal
-                return await webService.POST<String, Response>("compra", "guardartotal", sendData);
+                return await webService.POST<compraTotal,Response>("compra", "guardartotal", total);
             }
             catch (Exception ex)
             {

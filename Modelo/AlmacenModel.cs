@@ -129,5 +129,20 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<List<AlmacenComra>> almacenesCompra(int idPersonal ,int idSucursal)
+        {
+            try
+            {
+                // http://localhost:8080/admeli/xcore/services.php/personalalmacenes/per/1/suc/1
+                List<AlmacenComra> list = await webService.GET<List<AlmacenComra>>("personalalmacenes", String.Format("per/{0}/suc/{1}", idPersonal, idSucursal));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }

@@ -42,7 +42,13 @@ namespace Admeli
         // Modelos
         private SucursalModel sucursalModel = new SucursalModel();
         private ConfigModel configModel = new ConfigModel();
+        private PersonalModel personalModel = new PersonalModel();
         private SunatModel sunatModel = new SunatModel();
+
+
+        //datos generales usados por todos los uc
+        public static Asignacion asignacion;
+        
         // Metodos
         private bool notCloseApp { get; set; }
 
@@ -337,6 +343,8 @@ namespace Admeli
 
             // Cargando datos en el panel derecho
             cargarDatosAsideRight();
+            cargarAsignacion();
+
         }
 
         private void cargarDatosAsideRight()
@@ -357,6 +365,13 @@ namespace Admeli
                 createElements(y, cambio);
                 y += 22;
             }
+        }
+
+        private async void cargarAsignacion()
+        {
+
+            asignacion = await personalModel.asignar(PersonalModel.personal.idPersonal, ConfigModel.sucursal.idSucursal);
+
         }
         #endregion
 

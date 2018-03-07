@@ -336,7 +336,11 @@ namespace Admeli.Compras
 
         private void executeNuevo()
         {
-            FormComprarNuevo comprarNuevo = new FormComprarNuevo();
+            int i = cbxPersonales.SelectedIndex;
+            Personal personal = personalBindingSource.List[i] as Personal;
+         
+            // personalBindingSource.Current
+            FormComprarNuevo comprarNuevo = new FormComprarNuevo(ConfigModel.sucursal, personal);
             comprarNuevo.ShowDialog();
             cargarRegistros();
         }
@@ -356,9 +360,9 @@ namespace Admeli.Compras
             currentCompra = compras.Find(x => x.idCompra == idCompra); // Buscando la registro especifico en la lista de registros
 
             // Mostrando el formulario de modificacion
-            FormComprarNuevo formComprar = new FormComprarNuevo(currentCompra);
-            formComprar.ShowDialog();
-            cargarRegistros(); // recargando loas registros en el datagridview
+         //   FormComprarNuevo formComprar = new FormComprarNuevo(currentCompra);
+            //formComprar.ShowDialog();
+            //cargarRegistros(); // recargando loas registros en el datagridview
         }
 
         private async void executeAnular()

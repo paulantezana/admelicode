@@ -18,15 +18,24 @@ namespace Admeli.Compras.Nuevo
     public partial class FormComprarNuevo : Form
     {
 
+        // compra 
+        PagoC pagoC;
+        CompraC compraC;
+        List< DetalleC> detalleC;
+        PagocompraC pagocompraC;
+        List< DatoNotaEntradaC> datoNotaEntradaC;
+        NotaentradaC notaentrada;
+        compraTotal compraTotal;
+
         private MonedaModel monedaModel = new MonedaModel();
         private TipoDocumentoModel tipoDocumentoModel = new TipoDocumentoModel();
         private ProductoModel productoModel = new ProductoModel();
-        private AlternativaModel alternativaModel = new AlternativaModel(); 
+        private AlternativaModel alternativaModel = new AlternativaModel();
         private PresentacionModel presentacionModel = new PresentacionModel();
         private FechaModel fechaModel = new FechaModel();
         private CompraModel compraModel = new CompraModel();
         private MedioPagoModel medioPagoModel = new MedioPagoModel();
-
+        private AlmacenModel almacenModel = new AlmacenModel();
         /// Sus datos se cargan al abrir el formulario
         private List<Moneda> monedas { get; set; }
         private List<TipoDocumento> tipoDocumentos { get; set; }
@@ -38,6 +47,8 @@ namespace Admeli.Compras.Nuevo
         private List<Presentacion> presentaciones { get; set; }
         private Producto currentProducto { get; set; }
         private Proveedor currentProveedor { get; set; }
+        private Sucursal sucursal { get; set; }
+        private Personal personal { get; set; }
 
         /// Se preparan para realizar la compra de productos
         private List<DetalleCompra> detalleCompras { get; set; }
@@ -47,17 +58,28 @@ namespace Admeli.Compras.Nuevo
         private PagoCompra currentPagoCompra { get; set; }
 
 
+        private AlmacenComra currentAlmacenCompra { get; set; }
+        private List<AlmacenComra> Almacen { get; set; }
         private bool nuevo { get; set; }
 
         #region ============================ Constructor ============================
-        public FormComprarNuevo()
+        public FormComprarNuevo(Sucursal sucursal, Personal personal)
         {
             InitializeComponent();
             this.nuevo = true;
             cargarFechaSistema();
+            this.personal = personal;
+            this.sucursal = sucursal;
+            pagoC=new PagoC();
+             compraC=new CompraC();
+             detalleC=new List<DetalleC>();
+             pagocompraC = new PagocompraC() ;
+            datoNotaEntradaC = new List<DatoNotaEntradaC>();
+             notaentrada=new NotaentradaC();
+             compraTotal=new compraTotal();
         }
 
-        public FormComprarNuevo(Compra currentCompra)
+        public FormComprarNuevo(Compra currentCompra, Sucursal sucursal, Personal personal)
         {
             InitializeComponent();
             this.currentCompra = currentCompra;
@@ -86,6 +108,7 @@ namespace Admeli.Compras.Nuevo
             cargarFechaSistema();
             cargarProductos();
             cargarMedioPago();
+            cargarAlmacen();
         }
         #endregion
 
@@ -158,6 +181,13 @@ namespace Admeli.Compras.Nuevo
             }
         }
         #endregion
+        private async void cargarAlmacen()
+        {
+
+           Almacen = await almacenModel.almacenesCompra(sucursal.idSucursal,personal.idPersonal);
+           currentAlmacenCompra = Almacen[0];
+        }
+
 
         #region ============================  Agregar Producto Al Carro ============================
         private void cbxCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -364,6 +394,7 @@ namespace Admeli.Compras.Nuevo
             if (currentProveedor != null)
             {
                 textNombreEmpresa.Text = currentProveedor.razonSocial;
+                textDireccion.Text = currentProveedor.direccion;
             }
         }
 
@@ -386,11 +417,130 @@ namespace Admeli.Compras.Nuevo
         }
 
         #region =============================== Realizar La Compra ===============================
-        private void btnRealizarCompra_Click(object sender, EventArgs e)
+        private async void   btnRealizarCompra_Click(object sender, EventArgs e)
         {
-            //compraModel.ralizarCompra(compra,detalleCompras,notaEntrada,pago,pagoCompra);
-        } 
 
+            //pago
+            pagoC.estado = 8;// ver que significado
+            pagoC.estadoPago = 1;//ver que significado
+
+            // Moneda aux = monedaBindingSource.;
+            int i = cbxMoneda.SelectedIndex;
+            //  Moneda aux = monedaBindingSource.List[i] as Moneda;
+            pagoC.idMoneda = monedas[i].idMoneda;
+
+            pagoC.idPago = 0;
+            pagoC.motivo = "COMPRA";
+            pagoC.saldo = Convert.ToDouble(textTotal.Text);
+            pagoC.valorPagado = 0;
+            pagoC.valorTotal = Convert.ToDouble(textTotal.Text);
+            // compra
+            string date1 = String.Format("{0:u}", dtpEmision.Value);
+            date1 = date1.Substring(0, date1.Length - 1);
+            string date= String.Format("{0:u}", dtpPago.Value);
+            date = date.Substring(0, date.Length - 1);
+
+            compraC.idCompra = 0;
+            compraC.numeroDocumento = "0";
+            compraC.rucDni = currentProveedor.ruc;
+            compraC.direccion = currentProveedor.direccion;
+            compraC.formaPago = "EFECTIVO";
+            compraC.fechaPago = date;
+            compraC.fechaFacturacion = date1;
+            compraC.descuento = textDescuento.Text;
+            compraC.tipoCompra = "Con productos";
+            compraC.subTotal = Convert.ToDouble(textSubTotal.Text);
+            compraC.total = Convert.ToDouble(textTotal.Text);
+            compraC.observacion = textObservacion.Text;
+            compraC.estado = 1;
+            compraC.idProveedor = currentProveedor.idProveedor;
+            compraC.nombreProveedor = currentProveedor.razonSocial;
+            compraC.idPago = 0;
+            compraC.idPersonal = PersonalModel.personal.idPersonal;
+            compraC.tipoCambio = 1;
+            int j = cbxTipoDocumento.SelectedIndex;
+            TipoDocumento aux = cbxTipoDocumento.Items[j] as TipoDocumento;
+            compraC.idTipoDocumento = (aux.idTipoDocumento);
+            compraC.idSucursal = ConfigModel.sucursal.idSucursal;
+            compraC.nombreLabel = aux.nombreLabel;
+            compraC.vendedor = PersonalModel.personal.nombres;
+            compraC.nroOrdenCompra = "";
+            compraC.moneda = monedas[i].moneda;
+            compraC.idCompra= monedas[i].idMoneda;
+            //detalle
+
+
+            foreach (DetalleCompra detalle in detalleCompras)
+            {
+                DetalleC aux1 = new DetalleC();
+
+                aux1.cantidad = Convert.ToInt32(detalle.cantidad);
+                aux1.cantidadUnitaria = Convert.ToInt32(detalle.cantidadUnitaria);
+                aux1.codigoProducto = detalle.codigoProducto;
+                aux1.descripcion = detalle.descripcion;
+                aux1.descuento = detalle.descuento;
+                aux1.estado = detalle.estado;
+                aux1.idCombinacionAlternativa = detalle.idCombinacionAlternativa;
+                aux1.idCompra = detalle.idCompra;
+                aux1.idDetalleCompra = detalle.idDetalleCompra;
+                aux1.idPresentacion = detalle.idPresentacion;
+                aux1.idProducto = detalle.idProducto;
+                aux1.idSucursal = detalle.idSucursal;
+                aux1.nombreCombinacion = detalle.nombreCombinacion;
+                aux1.nombreMarca = detalle.nombreMarca;
+                aux1.nombrePresentacion = detalle.nombrePresentacion;
+                aux1.nro = detalle.nro;
+                aux1.precioUnitario = detalle.precioUnitario;
+                aux1.total = detalle.total;
+                detalleC.Add(aux1);
+
+                DatoNotaEntradaC aux2 = new DatoNotaEntradaC();
+                aux2.idProducto = detalle.idProducto;
+                aux2.cantidad = detalle.cantidad;
+                aux2.idCombinacionAlternativa = detalle.idCombinacionAlternativa;
+                aux2.idAlmacen = currentAlmacenCompra.idAlmacen;
+                aux2.descripcion = detalle.descripcion;
+
+                datoNotaEntradaC.Add(aux2);
+
+                
+
+            }
+
+
+
+
+            pagocompraC.idCaja = FormPrincipal.asignacion.idCaja;
+            pagocompraC.idPago = 0;
+            pagocompraC.moneda = monedas[i].moneda;
+            pagocompraC.idMoneda = monedas[i].idMoneda;
+            pagocompraC.idMedioPago = medioPagos[0].idMedioPago;
+            pagocompraC.idCajaSesion = ConfigModel.cajaSesion.idCajaSesion;
+            pagocompraC.pagarCompra = 1;
+
+            notaentrada.datoNotaEntrada = datoNotaEntradaC;
+            notaentrada.generarNotaEntrada = chbxNotaEntrada.Checked == true ? 1 : 0;
+            notaentrada.idCompra = 0;
+            notaentrada.idTipoDocumento = aux.idTipoDocumento;
+            notaentrada.idPersonal = PersonalModel.personal.idPersonal;
+
+
+            compraTotal = new compraTotal();
+            compraTotal.detalle = detalleC;
+            compraTotal.compra = compraC;
+            compraTotal.notaentrada = notaentrada;
+            compraTotal.pago = pagoC;
+            compraTotal.pagocompra = pagocompraC;
+
+
+
+
+             await compraModel.ralizarCompra(compraTotal);
+
+
+        }
+
+        
         private void crearObjetoCompra()
         {
             Compra compra = new Compra();

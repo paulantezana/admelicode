@@ -95,14 +95,14 @@ namespace Admeli.Navigation.SubMenu
                 case "ventas":
                     if (uCVentas == null)
                     {
-                        this.uCVentas = new Admeli.Ventas.UCVentas(this.formPrincipal);
-                        this.formPrincipal.panelMain.Controls.Add(uCVentas);
-                        this.uCVentas.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCVentas.Location = new System.Drawing.Point(0, 0);
-                        this.uCVentas.Name = "uCVentas";
-                        this.uCVentas.Size = new System.Drawing.Size(250, 776);
-                        this.uCVentas.TabIndex = 0;
-                    }
+                            this.uCVentas = new Admeli.Ventas.UCVentas(this.formPrincipal);
+                            this.formPrincipal.panelMain.Controls.Add(uCVentas);
+                            this.uCVentas.Dock = System.Windows.Forms.DockStyle.Fill;
+                            this.uCVentas.Location = new System.Drawing.Point(0, 0);
+                            this.uCVentas.Name = "uCVentas";
+                            this.uCVentas.Size = new System.Drawing.Size(250, 776);
+                            this.uCVentas.TabIndex = 0;
+                        }
                     else
                     {
                         this.formPrincipal.panelMain.Controls.Add(uCVentas);

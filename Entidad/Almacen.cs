@@ -20,4 +20,14 @@ namespace Entidad
 
         public int idPersonalAlmacen { get; set; }
     }
+
+    public class AlmacenComra
+    {
+
+        public int idAlmacen { get; set; }
+        public string nombre { get; set; }
+        public int idPersonalAlmacen { get; set; }
+        public bool principal { get; set; }
+
+    }
 }

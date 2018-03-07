@@ -164,5 +164,22 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        public async Task<Asignacion> asignar(int idPersonal , int idSucursal)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/personales/asignacionpersonal/per/1/suc/1
+                Asignacion list = await webService.GET<Asignacion>("personales/asignacionpersonal", String.Format("per/{0}/suc/{1}",idPersonal, idSucursal));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
     }
 }

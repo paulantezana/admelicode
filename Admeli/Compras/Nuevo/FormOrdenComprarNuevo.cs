@@ -544,8 +544,8 @@ namespace Admeli.Compras.Nuevo
            
 
             //pago
-            pagoA.estado = 8;
-            pagoA.estadoPago = 1;
+            pagoA.estado = 8;// ver que significado
+            pagoA.estadoPago = 1;//ver que significado
 
             // Moneda aux = monedaBindingSource.;
             int i = cbxMoneda.SelectedIndex;
