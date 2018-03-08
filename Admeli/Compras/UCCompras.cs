@@ -358,11 +358,13 @@ namespace Admeli.Compras
             int idCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
 
             currentCompra = compras.Find(x => x.idCompra == idCompra); // Buscando la registro especifico en la lista de registros
+            int i = cbxPersonales.SelectedIndex;
+            Personal personal = personalBindingSource.List[i] as Personal;
 
-            // Mostrando el formulario de modificacion
-         //   FormComprarNuevo formComprar = new FormComprarNuevo(currentCompra);
-            //formComprar.ShowDialog();
-            //cargarRegistros(); // recargando loas registros en el datagridview
+            //Mostrando el formulario de modificacion
+              FormComprarNuevo formComprar = new FormComprarNuevo(currentCompra ,ConfigModel.sucursal, personal);
+            formComprar.ShowDialog();
+            cargarRegistros(); // recargando loas registros en el datagridview
         }
 
         private async void executeAnular()

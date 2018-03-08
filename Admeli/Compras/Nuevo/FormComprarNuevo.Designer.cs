@@ -59,7 +59,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.textTotalNeto = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnRealizarCompra = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chbxPagarCompra = new System.Windows.Forms.CheckBox();
             this.chbxNotaEntrada = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
@@ -77,9 +77,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textDescuentoCompra = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label14 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox8 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.textNroOrdenCompra = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label13 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox7 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtTipoCambio = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label12 = new System.Windows.Forms.Label();
             this.textDireccion = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label11 = new System.Windows.Forms.Label();
@@ -335,7 +335,7 @@
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.textTotalNeto);
             this.panel4.Controls.Add(this.btnRealizarCompra);
-            this.panel4.Controls.Add(this.checkBox2);
+            this.panel4.Controls.Add(this.chbxPagarCompra);
             this.panel4.Controls.Add(this.chbxNotaEntrada);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 718);
@@ -446,17 +446,17 @@
             this.btnRealizarCompra.UseVisualStyleBackColor = false;
             this.btnRealizarCompra.Click += new System.EventHandler(this.btnRealizarCompra_Click);
             // 
-            // checkBox2
+            // chbxPagarCompra
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.checkBox2.Location = new System.Drawing.Point(783, 38);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(119, 21);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Pagar compra";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chbxPagarCompra.AutoSize = true;
+            this.chbxPagarCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.chbxPagarCompra.Location = new System.Drawing.Point(783, 38);
+            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.chbxPagarCompra.Name = "chbxPagarCompra";
+            this.chbxPagarCompra.Size = new System.Drawing.Size(119, 21);
+            this.chbxPagarCompra.TabIndex = 3;
+            this.chbxPagarCompra.Text = "Pagar compra";
+            this.chbxPagarCompra.UseVisualStyleBackColor = true;
             // 
             // chbxNotaEntrada
             // 
@@ -486,9 +486,9 @@
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.textDescuentoCompra);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.bunifuMetroTextbox8);
+            this.panel1.Controls.Add(this.textNroOrdenCompra);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.bunifuMetroTextbox7);
+            this.panel1.Controls.Add(this.txtTipoCambio);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.textDireccion);
             this.panel1.Controls.Add(this.label11);
@@ -749,24 +749,24 @@
             this.label14.TabIndex = 93;
             this.label14.Text = "Nro. orden compra   |";
             // 
-            // bunifuMetroTextbox8
+            // textNroOrdenCompra
             // 
-            this.bunifuMetroTextbox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.bunifuMetroTextbox8.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.bunifuMetroTextbox8.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.bunifuMetroTextbox8.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.bunifuMetroTextbox8.BorderThickness = 1;
-            this.bunifuMetroTextbox8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox8.isPassword = false;
-            this.bunifuMetroTextbox8.Location = new System.Drawing.Point(693, 94);
-            this.bunifuMetroTextbox8.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuMetroTextbox8.Name = "bunifuMetroTextbox8";
-            this.bunifuMetroTextbox8.Padding = new System.Windows.Forms.Padding(153, 0, 8, 0);
-            this.bunifuMetroTextbox8.Size = new System.Drawing.Size(228, 32);
-            this.bunifuMetroTextbox8.TabIndex = 9;
-            this.bunifuMetroTextbox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textNroOrdenCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.textNroOrdenCompra.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.textNroOrdenCompra.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.textNroOrdenCompra.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.textNroOrdenCompra.BorderThickness = 1;
+            this.textNroOrdenCompra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textNroOrdenCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNroOrdenCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textNroOrdenCompra.isPassword = false;
+            this.textNroOrdenCompra.Location = new System.Drawing.Point(693, 94);
+            this.textNroOrdenCompra.Margin = new System.Windows.Forms.Padding(5);
+            this.textNroOrdenCompra.Name = "textNroOrdenCompra";
+            this.textNroOrdenCompra.Padding = new System.Windows.Forms.Padding(153, 0, 8, 0);
+            this.textNroOrdenCompra.Size = new System.Drawing.Size(228, 32);
+            this.textNroOrdenCompra.TabIndex = 9;
+            this.textNroOrdenCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label13
             // 
@@ -780,24 +780,24 @@
             this.label13.TabIndex = 91;
             this.label13.Text = "Tipo cambio   |";
             // 
-            // bunifuMetroTextbox7
+            // txtTipoCambio
             // 
-            this.bunifuMetroTextbox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.bunifuMetroTextbox7.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.bunifuMetroTextbox7.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.bunifuMetroTextbox7.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.bunifuMetroTextbox7.BorderThickness = 1;
-            this.bunifuMetroTextbox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox7.isPassword = false;
-            this.bunifuMetroTextbox7.Location = new System.Drawing.Point(355, 94);
-            this.bunifuMetroTextbox7.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuMetroTextbox7.Name = "bunifuMetroTextbox7";
-            this.bunifuMetroTextbox7.Padding = new System.Windows.Forms.Padding(107, 0, 8, 0);
-            this.bunifuMetroTextbox7.Size = new System.Drawing.Size(316, 32);
-            this.bunifuMetroTextbox7.TabIndex = 8;
-            this.bunifuMetroTextbox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtTipoCambio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.txtTipoCambio.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.txtTipoCambio.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.txtTipoCambio.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.txtTipoCambio.BorderThickness = 1;
+            this.txtTipoCambio.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTipoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoCambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTipoCambio.isPassword = false;
+            this.txtTipoCambio.Location = new System.Drawing.Point(355, 94);
+            this.txtTipoCambio.Margin = new System.Windows.Forms.Padding(5);
+            this.txtTipoCambio.Name = "txtTipoCambio";
+            this.txtTipoCambio.Padding = new System.Windows.Forms.Padding(107, 0, 8, 0);
+            this.txtTipoCambio.Size = new System.Drawing.Size(316, 32);
+            this.txtTipoCambio.TabIndex = 8;
+            this.txtTipoCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label12
             // 
@@ -1254,9 +1254,9 @@
         private System.Windows.Forms.Label label12;
         private Bunifu.Framework.UI.BunifuMetroTextbox textDireccion;
         private System.Windows.Forms.Label label14;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox8;
+        private Bunifu.Framework.UI.BunifuMetroTextbox textNroOrdenCompra;
         private System.Windows.Forms.Label label13;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox7;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtTipoCambio;
         private System.Windows.Forms.Label label15;
         private Bunifu.Framework.UI.BunifuMetroTextbox textDescuentoCompra;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
@@ -1270,7 +1270,7 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.BindingSource detalleCompraBindingSource;
         private System.Windows.Forms.Button btnRealizarCompra;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chbxPagarCompra;
         private System.Windows.Forms.CheckBox chbxNotaEntrada;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;

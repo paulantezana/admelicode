@@ -94,5 +94,36 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<List<CompraModificar>> dCompras(int idCompra)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php//dcompras/:id
+                List<CompraModificar> comprasultimas = await webService.GET< List<CompraModificar >> ("dcompras", String.Format("{0}", idCompra));
+                return comprasultimas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<CompraRecuperar>> Compras(int idCompra)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php//compras/:id
+                List<CompraRecuperar> comprasultimas = await webService.GET<List<CompraRecuperar>>("compras", String.Format("{0}", idCompra));
+                return comprasultimas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
     }
 }

@@ -21,11 +21,16 @@ namespace Admeli.Compras.Nuevo
         // compra 
         PagoC pagoC;
         CompraC compraC;
-        List< DetalleC> detalleC;
+        List<DetalleC> detalleC;
         PagocompraC pagocompraC;
-        List< DatoNotaEntradaC> datoNotaEntradaC;
+        List<DatoNotaEntradaC> datoNotaEntradaC;
         NotaentradaC notaentrada;
         compraTotal compraTotal;
+
+        // para modificar compra
+        List<CompraModificar> list;
+        List<CompraRecuperar> datosProveedor;
+
 
         private MonedaModel monedaModel = new MonedaModel();
         private TipoDocumentoModel tipoDocumentoModel = new TipoDocumentoModel();
@@ -36,6 +41,7 @@ namespace Admeli.Compras.Nuevo
         private CompraModel compraModel = new CompraModel();
         private MedioPagoModel medioPagoModel = new MedioPagoModel();
         private AlmacenModel almacenModel = new AlmacenModel();
+        private CompraModel compra = new CompraModel();
         /// Sus datos se cargan al abrir el formulario
         private List<Moneda> monedas { get; set; }
         private List<TipoDocumento> tipoDocumentos { get; set; }
@@ -70,13 +76,13 @@ namespace Admeli.Compras.Nuevo
             cargarFechaSistema();
             this.personal = personal;
             this.sucursal = sucursal;
-            pagoC=new PagoC();
-             compraC=new CompraC();
-             detalleC=new List<DetalleC>();
-             pagocompraC = new PagocompraC() ;
+            pagoC = new PagoC();
+            compraC = new CompraC();
+            detalleC = new List<DetalleC>();
+            pagocompraC = new PagocompraC();
             datoNotaEntradaC = new List<DatoNotaEntradaC>();
-             notaentrada=new NotaentradaC();
-             compraTotal=new compraTotal();
+            notaentrada = new NotaentradaC();
+            compraTotal = new compraTotal();
         }
 
         public FormComprarNuevo(Compra currentCompra, Sucursal sucursal, Personal personal)
@@ -85,6 +91,17 @@ namespace Admeli.Compras.Nuevo
             this.currentCompra = currentCompra;
 
             this.nuevo = false;
+
+            cargarFechaSistema();
+            this.personal = personal;
+            this.sucursal = sucursal;
+            pagoC = new PagoC();
+            compraC = new CompraC();
+            detalleC = new List<DetalleC>();
+            pagocompraC = new PagocompraC();
+            datoNotaEntradaC = new List<DatoNotaEntradaC>();
+            notaentrada = new NotaentradaC();
+            compraTotal = new compraTotal();
         }
         #endregion
 
@@ -92,13 +109,27 @@ namespace Admeli.Compras.Nuevo
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
             executeBuscarProveedor();
-        } 
+        }
         #endregion
 
         #region ================================ Root Load ================================
         private void FormComprarNuevo_Load(object sender, EventArgs e)
         {
-            this.reLoad();
+            if (nuevo == true)
+                this.reLoad();
+            else
+            {
+                this.reLoad();
+                listarDetalleCompraByIdCompra();
+                listarDatosProveedorCompra();
+                //this.cargarOrden();
+                //cargarImpuesto();
+                //cargarubigeoActual();
+                //cargarProductos();
+                //cargarProveedor();
+
+                btnRealizarCompra.Text = "Modificar compra";
+            }
         }
 
         private void reLoad()
@@ -113,6 +144,66 @@ namespace Admeli.Compras.Nuevo
         #endregion
 
         #region ============================== Load ==============================
+
+
+        private async void listarDetalleCompraByIdCompra()
+        {
+
+            list = await compra.dCompras(currentCompra.idCompra);
+            // cargar datos correpondienetes
+            if (detalleCompras == null) detalleCompras = new List<DetalleCompra>();
+            foreach (CompraModificar C in list)
+            {
+                DetalleCompra aux = new DetalleCompra();
+                aux.idCompra = C.idCompra;
+                aux.cantidad = C.cantidad;
+                aux.cantidadUnitaria = C.cantidadUnitaria;
+                aux.codigoProducto = C.codigoProducto;
+                aux.descripcion = C.descripcion;
+                aux.descuento = C.descuento;
+                aux.estado = C.estado;
+                aux.idCombinacionAlternativa = C.idCombinacionAlternativa;
+                aux.idDetalleCompra = C.idDetalleCompra;
+                aux.idPresentacion = C.idPresentacion;
+                aux.idProducto = C.idProducto;
+                aux.idSucursal = C.idSucursal;
+                aux.nombreCombinacion = C.nombreCombinacion;
+                aux.nombreMarca = C.nombreMarca;
+                aux.nombrePresentacion = C.nombrePresentacion;
+                aux.nro = C.nro;
+                aux.precioUnitario = C.precioUnitario;
+                aux.total = C.total;
+                detalleCompras.Add(aux);
+
+              
+            }
+                 // Refrescando la tabla
+                detalleCompraBindingSource.DataSource = null;
+                detalleCompraBindingSource.DataSource = detalleCompras;
+                dataGridView.Refresh();
+
+                // Calculo de totales y subtotales
+                calculoSubtotal();
+        }
+
+
+
+
+        private async void listarDatosProveedorCompra()
+        {
+
+            datosProveedor = await compraModel.Compras(currentCompra.idCompra);
+            textNombreEmpresa.Text = datosProveedor[0].nombreProveedor;
+            textDireccion.Text = datosProveedor[0].direccion;
+            dtpEmision.Value = datosProveedor[0].fechaFacturacion.date;
+            dtpPago.Value = datosProveedor[0].fechaPago.date;
+            textSubTotal.Text=Convert.ToString(  datosProveedor[0].subTotal);
+            textTotal.Text= Convert.ToString(datosProveedor[0].total);
+            cbxMoneda.Text = datosProveedor[0].moneda;
+
+            txtTipoCambio.Text = "1";
+
+        }
         private async void cargarMonedas()
         {
             try
@@ -429,7 +520,7 @@ namespace Admeli.Compras.Nuevo
             //  Moneda aux = monedaBindingSource.List[i] as Moneda;
             pagoC.idMoneda = monedas[i].idMoneda;
 
-            pagoC.idPago = 0;
+            pagoC.idPago =currentCompra !=null ? currentCompra.idPago: 0;
             pagoC.motivo = "COMPRA";
             pagoC.saldo = Convert.ToDouble(textTotal.Text);
             pagoC.valorPagado = 0;
@@ -440,10 +531,10 @@ namespace Admeli.Compras.Nuevo
             string date= String.Format("{0:u}", dtpPago.Value);
             date = date.Substring(0, date.Length - 1);
 
-            compraC.idCompra = 0;
+            compraC.idCompra = currentCompra != null ? currentCompra.idCompra : 0; ;
             compraC.numeroDocumento = "0";
-            compraC.rucDni = currentProveedor.ruc;
-            compraC.direccion = currentProveedor.direccion;
+            compraC.rucDni = currentProveedor != null ? currentProveedor.ruc: currentCompra.rucDni;
+            compraC.direccion = currentProveedor != null ? currentProveedor.direccion : currentCompra.direccion;
             compraC.formaPago = "EFECTIVO";
             compraC.fechaPago = date;
             compraC.fechaFacturacion = date1;
@@ -453,9 +544,9 @@ namespace Admeli.Compras.Nuevo
             compraC.total = Convert.ToDouble(textTotal.Text);
             compraC.observacion = textObservacion.Text;
             compraC.estado = 1;
-            compraC.idProveedor = currentProveedor.idProveedor;
-            compraC.nombreProveedor = currentProveedor.razonSocial;
-            compraC.idPago = 0;
+            compraC.idProveedor =currentProveedor !=null ? currentProveedor.idProveedor: currentCompra.idProveedor;
+            compraC.nombreProveedor = currentProveedor != null ? currentProveedor.razonSocial: currentCompra.nombreProveedor;
+            compraC.idPago = currentCompra != null ? currentCompra.idPago : 0; ;
             compraC.idPersonal = PersonalModel.personal.idPersonal;
             compraC.tipoCambio = 1;
             int j = cbxTipoDocumento.SelectedIndex;
@@ -466,7 +557,8 @@ namespace Admeli.Compras.Nuevo
             compraC.vendedor = PersonalModel.personal.nombres;
             compraC.nroOrdenCompra = "";
             compraC.moneda = monedas[i].moneda;
-            compraC.idCompra= monedas[i].idMoneda;
+            compraC.idCompra= currentCompra != null ? currentCompra.idCompra : 0; ;
+            
             //detalle
 
 
@@ -511,17 +603,17 @@ namespace Admeli.Compras.Nuevo
 
 
             pagocompraC.idCaja = FormPrincipal.asignacion.idCaja;
-            pagocompraC.idPago = 0;
+            pagocompraC.idPago = currentCompra != null ? currentCompra.idPago : 0; ;
             pagocompraC.moneda = monedas[i].moneda;
             pagocompraC.idMoneda = monedas[i].idMoneda;
             pagocompraC.idMedioPago = medioPagos[0].idMedioPago;
-            pagocompraC.idCajaSesion = ConfigModel.cajaSesion.idCajaSesion;
-            pagocompraC.pagarCompra = 1;
+            pagocompraC.idCajaSesion = ConfigModel.cajaSesion!= null ? ConfigModel.cajaSesion.idCajaSesion:0;
+            pagocompraC.pagarCompra = chbxPagarCompra.Checked == true ? 1 : 0;
 
             notaentrada.datoNotaEntrada = datoNotaEntradaC;
             notaentrada.generarNotaEntrada = chbxNotaEntrada.Checked == true ? 1 : 0;
-            notaentrada.idCompra = 0;
-            notaentrada.idTipoDocumento = aux.idTipoDocumento;
+            notaentrada.idCompra = currentCompra != null ? currentCompra.idPago : 0; ;
+            notaentrada.idTipoDocumento = 7;
             notaentrada.idPersonal = PersonalModel.personal.idPersonal;
 
 
@@ -537,8 +629,17 @@ namespace Admeli.Compras.Nuevo
 
              await compraModel.ralizarCompra(compraTotal);
 
-
+            if (nuevo)
+                MessageBox.Show("Datos Guardados", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Datos  modificador", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
         }
+
+
+        
+
+
 
         
         private void crearObjetoCompra()
