@@ -37,6 +37,18 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<Response> comprarOrdenCompra(CompraOrdenCompra param)
+        {
+            try
+            {
+                // http://localhost:8080/admeli/xcore/services.php/compraordencompra/guardar
+                return await webService.POST<CompraOrdenCompra, Response>("compraordencompra", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void modificar()
         {
 

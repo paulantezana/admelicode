@@ -40,5 +40,23 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
+        public async Task<List<Pago>> getPagoById(int idPago)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/pago/:idp/estado
+                List<Pago> porcobrar = await webService.GET<List<Pago>>("pago", String.Format("{0}/estado", idPago));
+                return porcobrar;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
     }
 }

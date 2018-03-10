@@ -62,10 +62,10 @@
             // 
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 329);
+            this.panelFooter.Location = new System.Drawing.Point(0, 343);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(322, 49);
+            this.panelFooter.Size = new System.Drawing.Size(335, 49);
             this.panelFooter.TabIndex = 56;
             // 
             // panel1
@@ -73,7 +73,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(-40, 0);
+            this.panel1.Location = new System.Drawing.Point(-34, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(362, 49);
             this.panel1.TabIndex = 6;
@@ -123,7 +123,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panelHeader.Size = new System.Drawing.Size(322, 49);
+            this.panelHeader.Size = new System.Drawing.Size(335, 49);
             this.panelHeader.TabIndex = 55;
             // 
             // label4
@@ -269,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 378);
+            this.ClientSize = new System.Drawing.Size(335, 392);
             this.Controls.Add(this.cbxNivel3);
             this.Controls.Add(this.lblNivel3);
             this.Controls.Add(this.cbxNivel2);
