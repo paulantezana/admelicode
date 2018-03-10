@@ -105,7 +105,18 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<List<OrdenCompraSinComprar >> listarOrdenCompraSinCompra(int idSucursal) { 
 
+            try
+            {
+                List<OrdenCompraSinComprar> ordenCompra = await webService.GET<List<OrdenCompraSinComprar>>("ocompras/sincompra/sucursal", String.Format("{0}", idSucursal));
+                return ordenCompra;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
     }

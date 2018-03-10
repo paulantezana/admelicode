@@ -220,6 +220,12 @@
     <Compile Include="Compras\Buscar\BuscarProducto.Designer.cs">
       <DependentUpon>BuscarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\Buscar\buscarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\Buscar\buscarOrden.Designer.cs">
+      <DependentUpon>buscarOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\Buscar\BuscarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -854,6 +860,9 @@
     <EmbeddedResource Include="Compras\Buscar\BuscarProducto.resx">
       <DependentUpon>BuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\Buscar\buscarOrden.resx">
+      <DependentUpon>buscarOrden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\Buscar\BuscarProveedor.resx">
       <DependentUpon>BuscarProveedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -1200,6 +1209,7 @@
     <None Include="Properties\DataSources\Entidad.NotaSalida.datasource" />
     <None Include="Properties\DataSources\Entidad.Oferta.datasource" />
     <None Include="Properties\DataSources\Entidad.OrdenCompra.datasource" />
+    <None Include="Properties\DataSources\Entidad.OrdenCompraSinComprar.datasource" />
     <None Include="Properties\DataSources\Entidad.Pago.datasource" />
     <None Include="Properties\DataSources\Entidad.Personal.datasource" />
     <None Include="Properties\DataSources\Entidad.Precio.datasource" />
@@ -1249,6 +1259,9 @@
   <ItemGroup>
     <Folder Include="Navigation\SubMenuConfig\" />
     <Folder Include="Navigation\SubMenuMessage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,7 +58,7 @@ namespace Entidad
         public string moneda { get; set; }
         public string fechaFacturacion { get; set; }
         public string fechaPago { get; set; }
-        public string descuento { get; set; }
+        public double descuento { get; set; }
         public string tipoCompra { get; set; }
         public double subTotal { get; set; }
         public double total { get; set; }

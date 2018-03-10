@@ -31,6 +31,11 @@ namespace Admeli.Compras.Nuevo
         List<CompraModificar> list;
         List<CompraRecuperar> datosProveedor;
 
+        // datos de proveedor
+        List<Proveedor>  ListProveedores=new List<Proveedor>();
+            
+
+
 
         private MonedaModel monedaModel = new MonedaModel();
         private TipoDocumentoModel tipoDocumentoModel = new TipoDocumentoModel();
@@ -42,6 +47,7 @@ namespace Admeli.Compras.Nuevo
         private MedioPagoModel medioPagoModel = new MedioPagoModel();
         private AlmacenModel almacenModel = new AlmacenModel();
         private CompraModel compra = new CompraModel();
+        private ProveedorModel proveedormodel = new ProveedorModel();
         /// Sus datos se cargan al abrir el formulario
         private List<Moneda> monedas { get; set; }
         private List<TipoDocumento> tipoDocumentos { get; set; }
@@ -130,6 +136,8 @@ namespace Admeli.Compras.Nuevo
 
                 btnRealizarCompra.Text = "Modificar compra";
             }
+
+            AddButtonColumn();
         }
 
         private void reLoad()
@@ -145,7 +153,27 @@ namespace Admeli.Compras.Nuevo
 
         #region ============================== Load ==============================
 
+        private void AddButtonColumn()
+        {
+            DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
+            {
+                buttons.HeaderText = "Acciones";
+                buttons.Text = "Eliminar";
+                buttons.UseColumnTextForButtonValue = true;
+                //buttons.AutoSizeMode =
+                //   DataGridViewAutoSizeColumnMode.AllCells;
+                buttons.FlatStyle = FlatStyle.Popup;
+                buttons.CellTemplate.Style.BackColor = Color.Red;
+                buttons.CellTemplate.Style.ForeColor = Color.White;
 
+                buttons.Name = "acciones";
+
+                //buttons.DisplayIndex = 0;
+            }
+
+            dataGridView.Columns.Add(buttons);
+
+        }
         private async void listarDetalleCompraByIdCompra()
         {
 
@@ -512,7 +540,7 @@ namespace Admeli.Compras.Nuevo
         {
 
             //pago
-            pagoC.estado = 8;// ver que significado
+            pagoC.estado = 1;// activo
             pagoC.estadoPago = 1;//ver que significado
 
             // Moneda aux = monedaBindingSource.;
@@ -538,7 +566,7 @@ namespace Admeli.Compras.Nuevo
             compraC.formaPago = "EFECTIVO";
             compraC.fechaPago = date;
             compraC.fechaFacturacion = date1;
-            compraC.descuento = textDescuento.Text;
+            compraC.descuento =textDescuento.Text.Trim()!="" ? Convert.ToDouble(textDescuento.Text):0;
             compraC.tipoCompra = "Con productos";
             compraC.subTotal = Convert.ToDouble(textSubTotal.Text);
             compraC.total = Convert.ToDouble(textTotal.Text);
@@ -555,9 +583,9 @@ namespace Admeli.Compras.Nuevo
             compraC.idSucursal = ConfigModel.sucursal.idSucursal;
             compraC.nombreLabel = aux.nombreLabel;
             compraC.vendedor = PersonalModel.personal.nombres;
-            compraC.nroOrdenCompra = "";
+            compraC.nroOrdenCompra = textNroOrdenCompra.Text.Trim();
             compraC.moneda = monedas[i].moneda;
-            compraC.idCompra= currentCompra != null ? currentCompra.idCompra : 0; ;
+            compraC.idCompra= currentCompra != null ? currentCompra.idCompra : 0; 
             
             //detalle
 
@@ -636,12 +664,6 @@ namespace Admeli.Compras.Nuevo
             return;
         }
 
-
-        
-
-
-
-        
         private void crearObjetoCompra()
         {
             Compra compra = new Compra();
@@ -656,5 +678,159 @@ namespace Admeli.Compras.Nuevo
 
 
         #endregion
+
+        private void btnAddMarca_Click(object sender, EventArgs e)
+        {
+            buscarOrden importarOrden = new buscarOrden();
+            importarOrden.ShowDialog();
+            OrdenCompraSinComprarM aux = importarOrden.compraSinComprarM;
+            // datos del proveedor
+
+            if (aux != null)
+            {
+                textNroOrdenCompra.Text = aux.serie + " - " + aux.correlativo;
+                textDireccion.Text = aux.direccionProveedor;
+                textNombreEmpresa.Text = aux.nombreProveedor;
+
+
+                currentCompra = new Compra();
+
+                currentCompra.idSucursal = ConfigModel.sucursal.idSucursal;
+                currentCompra.descuento = textDescuento.Text;
+
+                currentCompra.direccion = textDireccion.Text;
+
+                currentCompra.estado = 1;
+                //currentCompra.fechaFacturacion = " ";
+
+                currentCompra.formaPago = "EFECTIVO";
+                currentCompra.idCajaSesion = ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
+                currentCompra.idCompra = aux.idCompra;
+                currentCompra.idPago = aux.idPago;
+                currentCompra.idPersonal = personal.idPersonal;
+                //currentCompra.idProveedor = aux.;
+                currentCompra.idTipoDocumento = aux.idTipoDocumento;
+                currentCompra.moneda = aux.moneda;
+                currentCompra.nombreProveedor = aux.nombreProveedor;
+                currentCompra.nroOrdenCompra = textNroOrdenCompra.Text;
+                currentCompra.numeroDocumento = "";// falta definir o entender para q sirve
+                currentCompra.observacion = aux.observacion;
+                currentCompra.rucDni = aux.rucDni;
+                currentCompra.tipoCompra = "con productos";
+                currentCompra.vendedor = personal.nombres;
+                if (detalleCompras != null)
+                    detalleCompras.Clear();// limpiamos la lista de detalle productos
+                detalleCompras = new List<DetalleCompra>();
+
+                detalleCompraBindingSource.DataSource = null;
+
+                dataGridView.Refresh();
+                this.reLoad();
+                listarDetalleCompraByIdCompra();
+                listarDatosProveedorCompra();
+                // Calculo de totales y subtotales
+                calculoSubtotal();
+
+                Ruc ruc = new Ruc();
+                ruc.nroDocumento = aux.rucDni;
+
+                obtenerid(ruc);
+
+            }
+        }
+
+        private async void obtenerid(Ruc ruc)
+        {
+
+            ListProveedores =  await  proveedormodel.buscarPorDni(ruc);
+
+            currentCompra.idProveedor = ListProveedores[0].idProveedor;
+
+        }
+
+        private void textTotal_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+
+
+            // Verificando la existencia de datos en el datagridview
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
+            DetalleCompra aux = detalleCompras.Find(x => x.idPresentacion == idOrdenCompra);
+            aux.cantidad = Convert.ToDouble(textCantidad.Text);
+            aux.precioUnitario = Convert.ToDouble(textPrecioUnidario.Text);
+            aux.total = Convert.ToDouble(textTotal.Text);
+            detalleCompraBindingSource.DataSource = null;
+            detalleCompraBindingSource.DataSource = detalleCompras;
+            dataGridView.Refresh();
+
+            // Calculo de totales y subtotales
+            calculoSubtotal();
+        }
+
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            // Verificando la existencia de datos en el datagridview
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
+            DetalleCompra aux = detalleCompras.Find(x => x.idPresentacion == idOrdenCompra); // Buscando la registro especifico en la lista de registros
+            cbxCodigoProducto.Text = aux.codigoProducto;
+            cbxDescripcion.Text = aux.descripcion;
+            cbxCombinacion.Text = aux.nombreCombinacion;
+            cbxPresentacion.Text = aux.nombrePresentacion;
+            textCantidad.Text = Convert.ToString(aux.cantidad);
+            textPrecioUnidario.Text = Convert.ToString(aux.precioUnitario);
+            textDescuento.Text = Convert.ToString(aux.descuento);
+            textTotal.Text = Convert.ToString(aux.total);
+          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int y = e.ColumnIndex;
+
+            if (dataGridView.Columns[y].Name == "acciones")
+            {
+                if (dataGridView.Rows.Count == 0)
+                {
+                    MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+                int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
+                DetalleCompra aux = detalleCompras.Find(x => x.idPresentacion == idOrdenCompra);
+
+                dataGridView.Rows.RemoveAt(index);
+
+                detalleCompras.Remove(aux);
+            }
+
+        }
     }
 }

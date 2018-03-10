@@ -20,4 +20,11 @@ namespace Entidad
         public int idUbicacionGeografica { get; set; }
         public string NroCompras { get; set; }
     }
+
+   public  class Ruc
+    {
+        public string nroDocumento { get; set; }
+
+
+    }
 }
