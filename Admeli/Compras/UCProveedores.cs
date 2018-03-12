@@ -434,13 +434,13 @@ namespace Admeli.Compras
         #endregion
 
 
-        private async void textBuscar_KeyDown(object sender, KeyEventArgs e)
+        
+        private async void textBuscar_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 await cargarRegistrosBuscados();
             }
         }
-       
     }
 }

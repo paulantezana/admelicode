@@ -24,6 +24,7 @@ namespace Entidad
             public string Oficio { get; set; }
             public string EmisionElectronica { get; set; }
             public string PLE { get; set; }
+            public string Pais { get; set; }
             public List<object> representantes_legales { get; set; }
             public List<object> cantidad_trabajadores { get; set; }
         }
