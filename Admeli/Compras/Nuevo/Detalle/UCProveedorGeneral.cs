@@ -275,6 +275,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         private void cbxPaises_SelectedIndexChanged(object sender, EventArgs e)
         {
             crearNivelesPais();
+
         }
 
         private void cbxNivel1_SelectedIndexChanged(object sender, EventArgs e)
@@ -462,25 +463,47 @@ namespace Admeli.Compras.Nuevo.Detalle
                 textNombreEmpresa.Text = dataSunat.RazonSocial;
                 textActividadPrincipal.Text = dataSunat.Tipo;
                 
+
                 textDireccion.Text = concidencias(dataSunat.Direccion);
+                //cbxPaises.Text = concidencias(dataSunat.Pais);
+
+
                 respuestaSunat = null;
             
             }
            
 
         }
+        //metodo para cargar la coleccion de datos para el autocomplete
+        
 
+        //private string concidenciapais(string pais)
+        //{
+        //    int lenght = pais.Length;
+        //    int i1 = pais.LastIndexOf('-');
+
+        //    string ff = pais.Substring(0, i1);
+        //    i1 = ff.LastIndexOf('-');
+        //    string ff1 = ff.Substring(0, i1);
+
+            
+        //    i1 = ff1.LastIndexOf(' ');
+        //    string hhh = ff1.Substring(0, i1);
+        //    i1 = hhh.LastIndexOf(' ');
+        //    string hh1 = hhh.Substring(0, i1);
+        //    return hh1;
+        //}
 
         private string concidencias(string direccion)
         {
             int lenght = direccion.Length;
             int i = direccion.LastIndexOf('-');
 
+                                
             string ff = direccion.Substring(0, i);
             i = ff.LastIndexOf('-');
             string ff1 = ff.Substring(0, i);
-
-
+            
             i = ff1.LastIndexOf(' ');
             string hhh = ff1.Substring(0, i);
             i = hhh.LastIndexOf(' ');
@@ -502,5 +525,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
 
         }
+
+        
     }
 }
