@@ -526,7 +526,7 @@
             this.textBuscar.Size = new System.Drawing.Size(275, 49);
             this.textBuscar.TabIndex = 15;
             this.textBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-
+            this.textBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBuscar_KeyDown_1);
             // 
             // panelCrud
             // 

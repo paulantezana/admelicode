@@ -275,6 +275,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         private void cbxPaises_SelectedIndexChanged(object sender, EventArgs e)
         {
             crearNivelesPais();
+
         }
 
         private void cbxNivel1_SelectedIndexChanged(object sender, EventArgs e)
@@ -462,14 +463,36 @@ namespace Admeli.Compras.Nuevo.Detalle
                 textNombreEmpresa.Text = dataSunat.RazonSocial;
                 textActividadPrincipal.Text = dataSunat.Oficio;
                 
+
                 textDireccion.Text = concidencias(dataSunat.Direccion);
+                //cbxPaises.Text = concidencias(dataSunat.Pais);
+
+
                 respuestaSunat = null;
             
             }
            
 
         }
+        //metodo para cargar la coleccion de datos para el autocomplete
+        
 
+        //private string concidenciapais(string pais)
+        //{
+        //    int lenght = pais.Length;
+        //    int i1 = pais.LastIndexOf('-');
+
+        //    string ff = pais.Substring(0, i1);
+        //    i1 = ff.LastIndexOf('-');
+        //    string ff1 = ff.Substring(0, i1);
+
+            
+        //    i1 = ff1.LastIndexOf(' ');
+        //    string hhh = ff1.Substring(0, i1);
+        //    i1 = hhh.LastIndexOf(' ');
+        //    string hh1 = hhh.Substring(0, i1);
+        //    return hh1;
+        //}
 
         private string concidencias(string direccion)
         {
@@ -478,6 +501,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             {
                 int i = direccion.LastIndexOf('-');
 
+<<<<<<< HEAD
                 string ff = direccion.Substring(0, i);
                 i = ff.LastIndexOf('-');
                 string ff1 = ff.Substring(0, i);
@@ -491,6 +515,18 @@ namespace Admeli.Compras.Nuevo.Detalle
             }
             else
                 return "";
+=======
+                                
+            string ff = direccion.Substring(0, i);
+            i = ff.LastIndexOf('-');
+            string ff1 = ff.Substring(0, i);
+            
+            i = ff1.LastIndexOf(' ');
+            string hhh = ff1.Substring(0, i);
+            i = hhh.LastIndexOf(' ');
+            string hh1 = hhh.Substring(0, i);
+            return hh1;
+>>>>>>> a4bc168adf32487fcb5436bec59716c4bf3be15d
 
         }
         public async void Ver(string aux)
@@ -507,5 +543,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
 
         }
+
+        
     }
 }
