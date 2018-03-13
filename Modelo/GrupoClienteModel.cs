@@ -91,6 +91,19 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<Response> VerificarNombreGCliente(string nombreGrupo)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/gclientes/nombre/:nom
+               Response respuesta = await webService.GET<Response>("gclientes", String.Format("nombre/{0}", nombreGrupo));
+               return respuesta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

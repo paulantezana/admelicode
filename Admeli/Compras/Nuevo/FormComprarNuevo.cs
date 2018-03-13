@@ -33,10 +33,6 @@ namespace Admeli.Compras.Nuevo
 
         // datos de proveedor
         List<Proveedor>  ListProveedores=new List<Proveedor>();
-            
-
-
-
         private MonedaModel monedaModel = new MonedaModel();
         private TipoDocumentoModel tipoDocumentoModel = new TipoDocumentoModel();
         private ProductoModel productoModel = new ProductoModel();
@@ -89,6 +85,7 @@ namespace Admeli.Compras.Nuevo
             datoNotaEntradaC = new List<DatoNotaEntradaC>();
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
+
         }
 
         public FormComprarNuevo(Compra currentCompra, Sucursal sucursal, Personal personal)
@@ -108,6 +105,10 @@ namespace Admeli.Compras.Nuevo
             datoNotaEntradaC = new List<DatoNotaEntradaC>();
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
+
+            textNombreEmpresa.Enabled = false;
+            textDireccion.Enabled = false;
+            btnAddMarca.Visible = false;
         }
         #endregion
 
@@ -148,6 +149,14 @@ namespace Admeli.Compras.Nuevo
             cargarProductos();
             cargarMedioPago();
             cargarAlmacen();
+            int i=ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
+            if (i == 0)
+            {
+
+
+                chbxPagarCompra.Enabled = false;
+                chbxPagarCompra.Checked = false;
+            }
         }
         #endregion
 
@@ -213,9 +222,6 @@ namespace Admeli.Compras.Nuevo
                 // Calculo de totales y subtotales
                 calculoSubtotal();
         }
-
-
-
 
         private async void listarDatosProveedorCompra()
         {
@@ -622,14 +628,7 @@ namespace Admeli.Compras.Nuevo
                 aux2.descripcion = detalle.descripcion;
 
                 datoNotaEntradaC.Add(aux2);
-
-                
-
-            }
-
-
-
-
+         }
             pagocompraC.idCaja = FormPrincipal.asignacion.idCaja;
             pagocompraC.idPago = currentCompra != null ? currentCompra.idPago : 0; ;
             pagocompraC.moneda = monedas[i].moneda;

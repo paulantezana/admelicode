@@ -119,8 +119,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1576, 190);
+            this.panel1.Size = new System.Drawing.Size(1576, 232);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // comboBox4
             // 
@@ -336,7 +337,7 @@
             this.panel2.Controls.Add(this.comboBox5);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 190);
+            this.panel2.Location = new System.Drawing.Point(0, 232);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1576, 50);
             this.panel2.TabIndex = 1;
@@ -635,10 +636,10 @@
             // 
             this.panel5.Controls.Add(this.dataGridView1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 240);
+            this.panel5.Location = new System.Drawing.Point(0, 282);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(10);
-            this.panel5.Size = new System.Drawing.Size(1576, 408);
+            this.panel5.Size = new System.Drawing.Size(1576, 366);
             this.panel5.TabIndex = 3;
             // 
             // dataGridView1
@@ -648,7 +649,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(10, 10);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1556, 388);
+            this.dataGridView1.Size = new System.Drawing.Size(1556, 346);
             this.dataGridView1.TabIndex = 0;
             // 
             // FormVentaNuevo

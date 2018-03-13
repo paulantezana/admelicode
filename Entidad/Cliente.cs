@@ -28,4 +28,10 @@ namespace Entidad
         public string nombre { get; set; }
         public string tipoDocumento { get; set; }
     }
+    public class GrupoClienteC
+    {
+        public int idGrupoCliente { get; set; }
+        public string nombreGrupo { get; set; }
+    }
+
 }

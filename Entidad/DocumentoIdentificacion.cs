@@ -13,5 +13,6 @@ namespace Entidad
         public int numeroDigitos { get; set; }
         public string tipoDocumento { get; set; }
         public int estado { get; set; }
+
     }
 }

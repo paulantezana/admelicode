@@ -782,17 +782,29 @@
     <Compile Include="Ventas\Modificar\FormCuentaPagarModificar.Designer.cs">
       <DependentUpon>FormCuentaPagarModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\Nuevo\FormClienteNuevo.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Ventas\Nuevo\Detalle\UCClienteGeneral.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ventas\Nuevo\FormClienteNuevo.Designer.cs">
-      <DependentUpon>FormClienteNuevo.cs</DependentUpon>
+    <Compile Include="Ventas\Nuevo\Detalle\UCClienteGeneral.Designer.cs">
+      <DependentUpon>UCClienteGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Nuevo\Detalle\UCNuevoGrupo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ventas\Nuevo\Detalle\UCNuevoGrupo.Designer.cs">
+      <DependentUpon>UCNuevoGrupo.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventas\Nuevo\FormCotizacionNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventas\Nuevo\FormCotizacionNuevo.Designer.cs">
       <DependentUpon>FormCotizacionNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Nuevo\FormClienteNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Nuevo\FormClienteNuevo.Designer.cs">
+      <DependentUpon>FormClienteNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventas\Nuevo\FormVentaNuevo.cs">
       <SubType>Form</SubType>
@@ -1149,11 +1161,17 @@
     <EmbeddedResource Include="Ventas\Modificar\FormCuentaPagarModificar.resx">
       <DependentUpon>FormCuentaPagarModificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas\Nuevo\FormClienteNuevo.resx">
-      <DependentUpon>FormClienteNuevo.cs</DependentUpon>
+    <EmbeddedResource Include="Ventas\Nuevo\Detalle\UCClienteGeneral.resx">
+      <DependentUpon>UCClienteGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Nuevo\Detalle\UCNuevoGrupo.resx">
+      <DependentUpon>UCNuevoGrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Nuevo\FormCotizacionNuevo.resx">
       <DependentUpon>FormCotizacionNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Nuevo\FormClienteNuevo.resx">
+      <DependentUpon>FormClienteNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Nuevo\FormVentaNuevo.resx">
       <DependentUpon>FormVentaNuevo.cs</DependentUpon>
@@ -1196,6 +1214,7 @@
     <None Include="Properties\DataSources\Entidad.DocumentoIdentificacion.datasource" />
     <None Include="Properties\DataSources\Entidad.Egreso.datasource" />
     <None Include="Properties\DataSources\Entidad.GrupoCliente.datasource" />
+    <None Include="Properties\DataSources\Entidad.GrupoClienteC.datasource" />
     <None Include="Properties\DataSources\Entidad.GuiaRemision.datasource" />
     <None Include="Properties\DataSources\Entidad.Impuesto.datasource" />
     <None Include="Properties\DataSources\Entidad.Ingreso.datasource" />

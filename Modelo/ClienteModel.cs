@@ -62,5 +62,32 @@ namespace Modelo
         {
             throw new NotImplementedException();
         }
+        public async Task<List<GrupoCliente>> listarGrupoClienteIdGCNombreByActivos()
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/gclientes21
+                List<GrupoCliente> clientes = await webService.GET<List<GrupoCliente>>("gclientes21");
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+   
+         public async Task<List<GrupoClienteC>> documentoidentificaciones()
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/gclientes21
+                List<GrupoClienteC> clientes = await webService.GET<List<GrupoClienteC>>("gclientes21", "");
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

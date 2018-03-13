@@ -67,7 +67,7 @@ namespace Admeli.Compras.Nuevo
         public PagoCompra currentPagoCompra { get; set; }
         public Sucursal idSucursal { get; set; }
         public Personal personal;
-
+        public int nroNuevo=0;
         public UbicacionGeografica ubicacionGeografica;
         private bool nuevo { get; set; }
 
@@ -86,7 +86,8 @@ namespace Admeli.Compras.Nuevo
             detalleA = new List<DetalleA>();
             compraTotal = new OrdenCompraTotal();
             this.personal = personal;
-           
+            
+
         }
 
         public FormOrdenComprarNuevo(OrdenCompra currentOrdenCompra, Sucursal idSucursal, Personal personal)
@@ -143,7 +144,7 @@ namespace Admeli.Compras.Nuevo
             }
 
             AddButtonColumn();
-
+         
 
         }
 
@@ -625,133 +626,138 @@ namespace Admeli.Compras.Nuevo
         private async void btnRealizarCompra_Click(object sender, EventArgs e)
         {
 
-           
-
-            //pago
-            pagoA.estado = 1;// 8 si
-            pagoA.estadoPago = 1;//ver que significado
-
-            // Moneda aux = monedaBindingSource.;
-            int i = cbxMoneda.SelectedIndex;
-            //  Moneda aux = monedaBindingSource.List[i] as Moneda;
-            pagoA.idMoneda = monedas[i].idMoneda;
-
-            pagoA.idPago = currentOrdenCompra!=null ? currentOrdenCompra.idPago :0;
-            pagoA.motivo = "COMPRA";
-            pagoA.saldo = Convert.ToDouble(textTotal.Text);
-            pagoA.valorPagado = 0;
-            pagoA.valorTotal = Convert.ToDouble(textTotal.Text);
-            // compra
-            string date = String.Format("{0:u}", dtpEmision.Value);
-            date = date.Substring(0, date.Length - 1);
-            compraA.descuento = 0;//CAMBIAR SEGUN DATOS
-
-           
-            compraA.direccion = currentProveedor != null ? currentProveedor.direccion : currentOrdenCompra.direccionProveedor;
-            compraA.direccionEntrega = txtDireccionEntrega.Text;
-            compraA.estado = 8;//es una orden de compra que no ha sido asignado a una compra
-            compraA.fechaFacturacion = date;
-            compraA.fechaPago = date;
-            compraA.formaPago = "EFECTIVO";
-            compraA.idCompraValor = currentOrdenCompra != null ? currentOrdenCompra.idCompra : 0; 
-        
-            compraA.idPersonal = personal.idPersonal;
-            compraA.idProveedor = currentProveedor != null ? currentProveedor.idProveedor: currentOrdenCompra.idProveedor;
-            compraA.idSucursal = idSucursal.idSucursal;
-            compraA.idTipoDocumento = 1;// orden compra
-          
-            compraA.moneda = cbxMoneda.Text;// ver si es correcto
-           
-            compraA.numeroDocumento = "";//
-            compraA.observacion = textObservacion.Text;
-            compraA.plazoEntrega = date; // ver si es correcto
-            compraA.rucDni = currentProveedor != null ? currentProveedor.ruc: currentOrdenCompra.rucDni;
-            compraA.subTotal = Convert.ToDouble(textSubTotal.Text);
-            compraA.tipoCambio = Convert.ToInt32(monedas[i].tipoCambio);
-            compraA.tipoCompra = "Con productos";
-            compraA.total = Convert.ToDouble(textTotal.Text);
-            compraA.ubicacion = txtLugarEntrega.Text;
-            compraA.nombreProveedor = currentProveedor != null ? currentProveedor.razonSocial:currentOrdenCompra.nombreProveedor;
-
-
-
-            //detalle
-
-
-            foreach (DetalleCompra detalle in detalleCompras)
+            if (nroNuevo != 1)
             {
-                DetalleA aux1 = new DetalleA();
-               
-                aux1.cantidad = Convert.ToInt32(detalle.cantidad);
-                aux1.cantidadUnitaria = Convert.ToInt32(detalle.cantidadUnitaria);
-                aux1.codigoProducto = detalle.codigoProducto;
-                aux1.descripcion = detalle.descripcion;
-                aux1.descuento =  detalle.descuento;
-                aux1.estado = detalle.estado;
-                aux1.idCombinacionAlternativa = detalle.idCombinacionAlternativa;
-                aux1.idCompra = currentOrdenCompra != null ? currentOrdenCompra.idCompra : 0; ;
-                aux1.idDetalleCompra = detalle.idDetalleCompra;
-                aux1.idPresentacion = detalle.idPresentacion;
-                aux1.idProducto = detalle.idProducto;
-                aux1.idSucursal = detalle.idSucursal;
-                aux1.nombreCombinacion = detalle.nombreCombinacion;
-                aux1.nombreMarca = detalle.nombreMarca;
-                aux1.nombrePresentacion = detalle.nombrePresentacion;
-                aux1.nro = detalle.nro;
-                aux1.precioUnitario = detalle.precioUnitario;
-                aux1.total =  detalle.total;
-                detalleA.Add(aux1);
-                
+                //pago
+                pagoA.estado = 1;// 8 si
+                pagoA.estadoPago = 1;//ver que significado
 
+                // Moneda aux = monedaBindingSource.;
+                int i = cbxMoneda.SelectedIndex;
+                //  Moneda aux = monedaBindingSource.List[i] as Moneda;
+                pagoA.idMoneda = monedas[i].idMoneda;
+
+                pagoA.idPago = currentOrdenCompra != null ? currentOrdenCompra.idPago : 0;
+                pagoA.motivo = "COMPRA";
+                pagoA.saldo = Convert.ToDouble(textTotalNeto.Text);
+                pagoA.valorPagado = 0;
+                pagoA.valorTotal = Convert.ToDouble(textTotalNeto.Text);
+                // compra
+                string date = String.Format("{0:u}", dtpEmision.Value);
+                date = date.Substring(0, date.Length - 1);
+                compraA.descuento = 0;//CAMBIAR SEGUN DATOS
+
+
+                compraA.direccion = currentProveedor != null ? currentProveedor.direccion : currentOrdenCompra.direccionProveedor;
+                compraA.direccionEntrega = txtDireccionEntrega.Text;
+                compraA.estado = 8;//es una orden de compra que no ha sido asignado a una compra
+                compraA.fechaFacturacion = date;
+                compraA.fechaPago = date;
+                compraA.formaPago = "EFECTIVO";
+                compraA.idCompraValor = currentOrdenCompra != null ? currentOrdenCompra.idCompra : 0;
+
+                compraA.idPersonal = personal.idPersonal;
+                compraA.idProveedor = currentProveedor != null ? currentProveedor.idProveedor : currentOrdenCompra.idProveedor;
+                compraA.idSucursal = idSucursal.idSucursal;
+                compraA.idTipoDocumento = 1;// orden compra
+
+                compraA.moneda = cbxMoneda.Text;// ver si es correcto
+
+                compraA.numeroDocumento = "";//
+                compraA.observacion = textObservacion.Text;
+                compraA.plazoEntrega = date; // ver si es correcto
+                compraA.rucDni = currentProveedor != null ? currentProveedor.ruc : currentOrdenCompra.rucDni;
+                compraA.subTotal = Convert.ToDouble(textSubTotal.Text);
+                compraA.tipoCambio = Convert.ToInt32(monedas[i].tipoCambio);
+                compraA.tipoCompra = "Con productos";
+                compraA.total = Convert.ToDouble(textTotalNeto.Text);
+                compraA.ubicacion = txtLugarEntrega.Text;
+                compraA.nombreProveedor = currentProveedor != null ? currentProveedor.razonSocial : currentOrdenCompra.nombreProveedor;
+
+
+
+                //detalle
+
+
+                foreach (DetalleCompra detalle in detalleCompras)
+                {
+                    DetalleA aux1 = new DetalleA();
+
+                    aux1.cantidad = Convert.ToInt32(detalle.cantidad);
+                    aux1.cantidadUnitaria = Convert.ToInt32(detalle.cantidadUnitaria);
+                    aux1.codigoProducto = detalle.codigoProducto;
+                    aux1.descripcion = detalle.descripcion;
+                    aux1.descuento = detalle.descuento;
+                    aux1.estado = detalle.estado;
+                    aux1.idCombinacionAlternativa = detalle.idCombinacionAlternativa;
+                    aux1.idCompra = currentOrdenCompra != null ? currentOrdenCompra.idCompra : 0; ;
+                    aux1.idDetalleCompra = detalle.idDetalleCompra;
+                    aux1.idPresentacion = detalle.idPresentacion;
+                    aux1.idProducto = detalle.idProducto;
+                    aux1.idSucursal = detalle.idSucursal;
+                    aux1.nombreCombinacion = detalle.nombreCombinacion;
+                    aux1.nombreMarca = detalle.nombreMarca;
+                    aux1.nombrePresentacion = detalle.nombrePresentacion;
+                    aux1.nro = detalle.nro;
+                    aux1.precioUnitario = detalle.precioUnitario;
+                    aux1.total = detalle.total;
+                    detalleA.Add(aux1);
+
+
+                }
+
+                //orden de compra
+                ordenCompraA.ubicacion = txtLugarEntrega.Text;
+                ordenCompraA.total = Convert.ToDouble(textTotalNeto.Text);
+
+
+                ordenCompraA.direccion = textDireccion.Text;
+                ordenCompraA.estado = 1;
+                ordenCompraA.direccionEntrega = txtDireccionEntrega.Text;
+                ordenCompraA.moneda = cbxMoneda.Text;
+                ordenCompraA.observacion = textObservacion.Text;
+                ordenCompraA.tipoCambio = Convert.ToInt32(monedas[i].tipoCambio);
+                ordenCompraA.formaPago = "EFECTIVO";
+                ordenCompraA.nombreProveedor = textNombreProveedor.Text;
+                ordenCompraA.rucDni = currentProveedor != null ? currentProveedor.ruc : currentOrdenCompra.rucDni;
+                ordenCompraA.direccion = currentProveedor != null ? currentProveedor.direccion : currentOrdenCompra.direccionProveedor;
+                ordenCompraA.plazoEntrega = date;
+                ordenCompraA.idCompraValor = currentOrdenCompra != null ? currentOrdenCompra.idCompra : 0;
+                ordenCompraA.numeroDocumento = "";
+                ordenCompraA.idProveedor = currentProveedor != null ? currentProveedor.idProveedor : currentOrdenCompra.idProveedor;
+                ordenCompraA.tipoCompra = "con productos";
+                ordenCompraA.subTotal = Convert.ToDouble(textSubTotal.Text);
+
+                ordenCompraA.estado = 1;
+                ordenCompraA.idPersonal = personal.idPersonal;
+                ordenCompraA.idTipoDocumento = 1;// orden compra
+                ordenCompraA.idSucursal = idSucursal.idSucursal;
+                ordenCompraA.fechaFacturacion = date;
+                ordenCompraA.fechaPago = date;
+                ordenCompraA.idUbicacionGeografica = ubicacionGeografica.idUbicacionGeografica;
+                ordenCompraA.idOrdenCompra = currentOrdenCompra != null ? currentOrdenCompra.idOrdenCompra : 0;
+
+                compraTotal.compra = compraA;
+                compraTotal.detalle = detalleA;
+                compraTotal.ordencompra = ordenCompraA;
+                compraTotal.pago = pagoA;
+                //
+
+                await ordenCompraModel.guardar(compraTotal);
+
+
+                if (nuevo)
+                {
+                    MessageBox.Show("Datos Guardados", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    nroNuevo = 1;
+                }
+                else
+                    MessageBox.Show("Datos  modificador", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-
-            //orden de compra
-             ordenCompraA.ubicacion= txtLugarEntrega.Text;
-            ordenCompraA.total =Convert.ToDouble( textTotalNeto.Text);
-            
-
-            ordenCompraA.direccion = textDireccion.Text;
-            ordenCompraA.estado = 1;
-            ordenCompraA.direccionEntrega = txtDireccionEntrega.Text;
-            ordenCompraA.moneda = cbxMoneda.Text;
-            ordenCompraA.observacion = textObservacion.Text;
-            ordenCompraA.tipoCambio = Convert.ToInt32(monedas[i].tipoCambio);
-            ordenCompraA.formaPago = "EFECTIVO";
-            ordenCompraA.nombreProveedor = textNombreProveedor.Text;
-            ordenCompraA.rucDni = currentProveedor != null ? currentProveedor.ruc : currentOrdenCompra.rucDni;
-            ordenCompraA.direccion = currentProveedor != null ? currentProveedor.direccion : currentOrdenCompra.direccionProveedor;
-            ordenCompraA.plazoEntrega = date;
-            ordenCompraA.idCompraValor = currentOrdenCompra != null ? currentOrdenCompra.idCompra : 0;
-            ordenCompraA.numeroDocumento = "";
-            ordenCompraA.idProveedor = currentProveedor != null ? currentProveedor.idProveedor : currentOrdenCompra.idProveedor;
-            ordenCompraA.tipoCompra = "con productos";
-            ordenCompraA.subTotal = Convert.ToDouble(textSubTotal.Text);
-          
-            ordenCompraA.estado = 1;
-            ordenCompraA.idPersonal = personal.idPersonal;
-            ordenCompraA.idTipoDocumento = 1;// orden compra
-            ordenCompraA.idSucursal = idSucursal.idSucursal;
-            ordenCompraA.fechaFacturacion = date;
-            ordenCompraA.fechaPago = date;
-            ordenCompraA.idUbicacionGeografica =ubicacionGeografica.idUbicacionGeografica;
-            ordenCompraA.idOrdenCompra = currentOrdenCompra != null ? currentOrdenCompra.idOrdenCompra : 0;
-
-            compraTotal.compra = compraA;
-            compraTotal.detalle = detalleA;
-            compraTotal.ordencompra = ordenCompraA;
-            compraTotal.pago = pagoA;
-            //
-           
-            await ordenCompraModel.guardar(compraTotal);
-
-
-            if( nuevo)
-                 MessageBox.Show("Datos Guardados", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Datos  modificador", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
-        
-            
+                btnAddCard.Enabled = false;
         } 
 
         private void crearObjetoCompra()
@@ -828,11 +834,16 @@ namespace Admeli.Compras.Nuevo
                 await ordenCompraModel.comprarOrdenCompra(compra);
                 MessageBox.Show("Orden de compra realizada", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnComprarOrden.Enabled = false;
-
+                btnOrdenCompra.Enabled = false;
             }
                 
             else
                 MessageBox.Show("no exite orden de compra", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+         
+
+
             return;
 
 

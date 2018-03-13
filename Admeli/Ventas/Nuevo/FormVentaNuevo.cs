@@ -29,5 +29,10 @@ namespace Admeli.Ventas.Nuevo
         {
             
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
