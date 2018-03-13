@@ -47,6 +47,7 @@
     <Compile Include="Alternativa.cs" />
     <Compile Include="AlternativaCombinacion.cs" />
     <Compile Include="Asignacion.cs" />
+    <Compile Include="DescuentosOfertas.cs" />
     <Compile Include="DetalleCompra.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaProducto.cs" />

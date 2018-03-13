@@ -770,6 +770,12 @@
     <Compile Include="UCHome.Designer.cs">
       <DependentUpon>UCHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventas\DescuentosOfertas\Descuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\DescuentosOfertas\Descuento.Designer.cs">
+      <DependentUpon>Descuento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventas\FormVentaTouch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -817,6 +823,12 @@
     </Compile>
     <Compile Include="Ventas\UCCuentaCobrar.Designer.cs">
       <DependentUpon>UCCuentaCobrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\DescuentosOfertas\UCDescuentosOfertas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ventas\DescuentosOfertas\UCDescuentosOfertas.Designer.cs">
+      <DependentUpon>UCDescuentosOfertas.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventas\UCVentas.cs">
       <SubType>UserControl</SubType>
@@ -1143,6 +1155,9 @@
     <EmbeddedResource Include="UCHome.resx">
       <DependentUpon>UCHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\DescuentosOfertas\Descuento.resx">
+      <DependentUpon>Descuento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\FormVentaTouch.resx">
       <DependentUpon>FormVentaTouch.cs</DependentUpon>
     </EmbeddedResource>
@@ -1167,6 +1182,9 @@
     <EmbeddedResource Include="Ventas\UCCuentaCobrar.resx">
       <DependentUpon>UCCuentaCobrar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\DescuentosOfertas\UCDescuentosOfertas.resx">
+      <DependentUpon>UCDescuentosOfertas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\UCVentas.resx">
       <DependentUpon>UCVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1189,8 +1207,16 @@
     <None Include="Properties\DataSources\Entidad.Configuracion.TipoDocumento.datasource" />
     <None Include="Properties\DataSources\Entidad.Contacto.datasource" />
     <None Include="Properties\DataSources\Entidad.Cotizacion.datasource" />
+    <None Include="Properties\DataSources\Entidad.Dato.datasource" />
+    <None Include="Properties\DataSources\Entidad.Datosconvertidos.datasource" />
+    <None Include="Properties\DataSources\Entidad.DatosDescuentosOfertas.datasource" />
     <None Include="Properties\DataSources\Entidad.Denominacion.datasource" />
     <None Include="Properties\DataSources\Entidad.Descuento.datasource" />
+    <None Include="Properties\DataSources\Entidad.DescuentosOfertas+Dato.datasource" />
+    <None Include="Properties\DataSources\Entidad.DescuentosOfertas+FechaFin.datasource" />
+    <None Include="Properties\DataSources\Entidad.DescuentosOfertas+FechaInicio.datasource" />
+    <None Include="Properties\DataSources\Entidad.DescuentosOfertas+RootObject.datasource" />
+    <None Include="Properties\DataSources\Entidad.DescuentosOfertas.datasource" />
     <None Include="Properties\DataSources\Entidad.DetalleCompra.datasource" />
     <None Include="Properties\DataSources\Entidad.DocCorrelativo.datasource" />
     <None Include="Properties\DataSources\Entidad.DocumentoIdentificacion.datasource" />
@@ -1238,6 +1264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admeli.ico" />
+    <Content Include="Ventas\admeli.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidad\Entidad.csproj">
