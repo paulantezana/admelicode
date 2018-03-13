@@ -17,6 +17,7 @@ namespace Admeli.Navigation.SubMenu
         private UCCotizacionCliente uCCotizacionCliente;
         private UCCuentaCobrar uCCuentaCobrar;
         private UCVentas uCVentas;
+        private UCDescuentosOfertas uCDescuentosOfertas;
 
         private FormPrincipal formPrincipal;
         private UCTiendaRoot uCTiendaRoot;
@@ -113,6 +114,24 @@ namespace Admeli.Navigation.SubMenu
                 case "ventaTouch":
                     FormVentaTouch ventaTouch = new FormVentaTouch();
                     ventaTouch.ShowDialog();
+                    break;
+                case "descuentoOferta":
+                    if(uCDescuentosOfertas == null)
+                    {
+                        this.uCDescuentosOfertas = new Admeli.Ventas.UCDescuentosOfertas(this.formPrincipal);
+                        this.formPrincipal.panelMain.Controls.Add(uCDescuentosOfertas);
+                        this.uCDescuentosOfertas.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCDescuentosOfertas.Location = new System.Drawing.Point(0, 0);
+                        this.uCDescuentosOfertas.Name = "UCDescuentosOfertas";
+                        this.uCDescuentosOfertas.Size = new System.Drawing.Size(250, 776);
+                        this.uCDescuentosOfertas.TabIndex = 0;
+                    }
+                    else
+                    {
+                        this.formPrincipal.panelMain.Controls.Add(uCDescuentosOfertas);
+                        //this.uCDescuentosOfertas.reLoad();
+                    }
+                    formPrincipal.lblTitlePage.Text = "Descuentos - Ofertas"; /// Titulo en el encabezado
                     break;
                 default:
                     break;
