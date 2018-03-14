@@ -186,6 +186,18 @@
     <Compile Include="CajaBox\UCCierreCaja.Designer.cs">
       <DependentUpon>UCCierreCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="CajaBox\UCCuentaCobrar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CajaBox\UCCuentaCobrar.Designer.cs">
+      <DependentUpon>UCCuentaCobrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CajaBox\UCCuentasPagar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CajaBox\UCCuentasPagar.Designer.cs">
+      <DependentUpon>UCCuentasPagar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CajaBox\UCEgresos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -869,6 +881,12 @@
     <EmbeddedResource Include="CajaBox\UCCierreCaja.resx">
       <DependentUpon>UCCierreCaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CajaBox\UCCuentaCobrar.resx">
+      <DependentUpon>UCCuentaCobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CajaBox\UCCuentasPagar.resx">
+      <DependentUpon>UCCuentasPagar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CajaBox\UCEgresos.resx">
       <DependentUpon>UCEgresos.cs</DependentUpon>
     </EmbeddedResource>
@@ -1225,7 +1243,9 @@
     <None Include="Properties\DataSources\Entidad.Configuracion.TipoDocumento.datasource" />
     <None Include="Properties\DataSources\Entidad.Contacto.datasource" />
     <None Include="Properties\DataSources\Entidad.Cotizacion.datasource" />
+    <None Include="Properties\DataSources\Entidad.CuentasPagar.datasource" />
     <None Include="Properties\DataSources\Entidad.Dato.datasource" />
+    <None Include="Properties\DataSources\Entidad.DatoCuentaCobrar.datasource" />
     <None Include="Properties\DataSources\Entidad.Datosconvertidos.datasource" />
     <None Include="Properties\DataSources\Entidad.DatosDescuentosOfertas.datasource" />
     <None Include="Properties\DataSources\Entidad.Denominacion.datasource" />

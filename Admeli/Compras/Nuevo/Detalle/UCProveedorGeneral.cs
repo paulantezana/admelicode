@@ -501,7 +501,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             {
                 int i = direccion.LastIndexOf('-');
 
-<<<<<<< HEAD
+
                 string ff = direccion.Substring(0, i);
                 i = ff.LastIndexOf('-');
                 string ff1 = ff.Substring(0, i);
@@ -515,18 +515,9 @@ namespace Admeli.Compras.Nuevo.Detalle
             }
             else
                 return "";
-=======
+
                                 
-            string ff = direccion.Substring(0, i);
-            i = ff.LastIndexOf('-');
-            string ff1 = ff.Substring(0, i);
-            
-            i = ff1.LastIndexOf(' ');
-            string hhh = ff1.Substring(0, i);
-            i = hhh.LastIndexOf(' ');
-            string hh1 = hhh.Substring(0, i);
-            return hh1;
->>>>>>> a4bc168adf32487fcb5436bec59716c4bf3be15d
+     
 
         }
         public async void Ver(string aux)

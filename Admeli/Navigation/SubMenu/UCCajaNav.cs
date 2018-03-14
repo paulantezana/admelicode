@@ -17,6 +17,8 @@ namespace Admeli.Navigation.SubMenu
         private UCEgresos uCEgresos;
         private UCIngresos uCIngresos;
         private UCIniciarCaja uCIniciarCaja;
+        private UCCuentaCobrar uCCuentasCobrar;
+        private UCCuentasPagar uCCuentasPagar;
 
         private FormPrincipal formPrincipal;
         private UCTiendaRoot uCTiendaRoot;
@@ -109,6 +111,42 @@ namespace Admeli.Navigation.SubMenu
                         this.uCIniciarCaja.reLoad();
                     }
                     this.formPrincipal.lblTitlePage.Text = "Caja - Iniciar caja";
+                    break;
+                case "cuentaPorCobrar":
+                    if (uCCuentasCobrar == null)
+                    {
+                        this.uCCuentasCobrar = new Admeli.CajaBox.UCCuentaCobrar(this.formPrincipal);
+                        this.formPrincipal.panelMain.Controls.Add(uCCuentasCobrar);
+                        this.uCCuentasCobrar.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCCuentasCobrar.Location = new System.Drawing.Point(0, 0);
+                        this.uCCuentasCobrar.Name = "uCCuentaCobrar";
+                        this.uCCuentasCobrar.Size = new System.Drawing.Size(250, 776);
+                        this.uCCuentasCobrar.TabIndex = 0;
+                    }
+                    else
+                    {
+                        this.formPrincipal.panelMain.Controls.Add(uCCuentasCobrar);
+                        this.uCCuentasCobrar.reLoad();
+                    }
+                    this.formPrincipal.lblTitlePage.Text = "Cuentas - Cobrar";
+                    break;
+                case "cuentaPorPagar":
+                    if (uCCuentasPagar == null)
+                    {
+                        this.uCCuentasPagar = new Admeli.CajaBox.UCCuentasPagar(this.formPrincipal);
+                        this.formPrincipal.panelMain.Controls.Add(uCCuentasPagar);
+                        this.uCCuentasPagar.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCCuentasPagar.Location = new System.Drawing.Point(0, 0);
+                        this.uCCuentasPagar.Name = "uCCuentaCobrar";
+                        this.uCCuentasPagar.Size = new System.Drawing.Size(250, 776);
+                        this.uCCuentasPagar.TabIndex = 0;
+                    }
+                    else
+                    {
+                        this.formPrincipal.panelMain.Controls.Add(uCCuentasCobrar);
+                        this.uCCuentasCobrar.reLoad();
+                    }
+                    this.formPrincipal.lblTitlePage.Text = "Cuentas - Pagar";
                     break;
                 default:
                     break;
