@@ -19,9 +19,12 @@ namespace Admeli.Ventas
         public bool lisenerKeyEvents { get; set; }
         private DescuentoModel descuentoModel = new DescuentoModel();
         private Paginacion paginacion;
-        private List<DatosDescuentosOfertas> listaDescuentos { get; set; }
+        private List<DatoCuentaCobrar> listaCuentasCobrar { get; set; }
+        private List<DatosDescuentosOfertas> listaDescuentos;
+
         private DatosDescuentosOfertas currentDatosDescuentosOfertas { get; set; }
         private List<Datosconvertidos> datosconvertidos { get; set; }
+
         #region =================================== CONSTRUCTOR ===================================
         public UCDescuentosOfertas()
         {
@@ -37,11 +40,11 @@ namespace Admeli.Ventas
             this.formPrincipal = formPrincipal;
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
             this.reLoad();
-
-          
+                     
 
         }
         #endregion
+
         #region =========================== Estados ===========================
         private void loadState(bool state)
         {
@@ -62,7 +65,6 @@ namespace Admeli.Ventas
         }
 
         #endregion
-
 
         #region ======================= Loads =======================
         private void cargarComponentes()
