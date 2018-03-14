@@ -27,6 +27,19 @@ namespace Modelo
             }
         }
 
+        public async Task<Response> guardarUbigeo(UbicacionGeograficaG param)
+        {
+            try
+            {
+                // www.admeli.com/demo2/services.php/ubigeo
+                Response response = await webService.POST<UbicacionGeograficaG, Response>("ubigeo", param);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void modificar()
         {
 

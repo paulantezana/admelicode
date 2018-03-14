@@ -43,6 +43,7 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblGrupo = new System.Windows.Forms.Label();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -243,14 +244,25 @@
             this.label2.Location = new System.Drawing.Point(342, 206);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 157);
+            this.label2.Size = new System.Drawing.Size(134, 157);
             this.label2.TabIndex = 115;
             this.label2.Text = "Campo utilizado para detallar por que se creo este grupo";
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.lblGrupo.Location = new System.Drawing.Point(342, 82);
+            this.lblGrupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(134, 65);
+            this.lblGrupo.TabIndex = 116;
             // 
             // UCNuevoGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblGrupo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtDescripcion);
@@ -293,5 +305,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblGrupo;
     }
 }

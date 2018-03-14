@@ -12,19 +12,30 @@ namespace Modelo
     {
         private WebService webService = new WebService();
 
-        public async Task<Response> guardar(GrupoCliente param)
+        public async Task<Response> guardar(GrupoClienteG param)
         {
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/gcliente/guardar
-                return await webService.POST<GrupoCliente,Response>("gcliente", "guardar", param);
+                return await webService.POST<GrupoClienteG,Response>("gcliente", "guardar", param);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
+        public async Task<Response> guardar(GrupoCliente param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/gcliente/guardar
+                return await webService.POST<GrupoCliente, Response>("gcliente", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<Response> modificar(GrupoCliente param)
         {
             try

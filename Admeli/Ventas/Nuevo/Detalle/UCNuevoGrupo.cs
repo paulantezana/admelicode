@@ -28,7 +28,8 @@ namespace Admeli.Ventas.Nuevo.Detalle
         private SunatModel sunatModel = new SunatModel();
         Response respuesta;
         UCClienteGeneral uCClienteGeneral;
-
+        GrupoClienteG grupoClienteG;
+        public  List<GrupoCliente> grupoClientes;
         private List<DocumentoIdentificacion> documentoIdentificaciones;
         public UCNuevoGrupo()
         {
@@ -49,10 +50,31 @@ namespace Admeli.Ventas.Nuevo.Detalle
 
 
         #region ========================== SAVE AND UPDATE ===========================
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         {
+            // guarda el grupo
+            grupoClienteG = new GrupoClienteG();
+            grupoClienteG.descripcion = txtDescripcion.Text;
+            grupoClienteG.estado = chkEstado.Checked;
+            grupoClienteG.minimoOrden = Convert.ToInt32(txtMinimoOrden.Text);
+            grupoClienteG.nombreGrupo = txtNombreGrupo.Text;
+
+
+            respuesta = await grupoClienteModel.guardar(grupoClienteG);
+            if (respuesta.id > 0)
+            {
+                txtDescripcion.Text="";
+                txtMinimoOrden.Text = "";
+                txtNombreGrupo.Text="";
+            }
+           grupoClientes = await clienteModel.listarGrupoClienteIdGCNombreByActivos();
+            this.formClienteNuevo.togglePanelMain("general");
+            // actuliza  grupos 
+
             
-        }
+                
+
+         }
 
         private async void VerificarNombreGCliente(string nombreGrupo)
         {
@@ -91,24 +113,21 @@ namespace Admeli.Ventas.Nuevo.Detalle
             
         }
 
-        private void UCNuevoGrupo_Click(object sender, EventArgs e)
+        private  async void UCNuevoGrupo_Click(object sender, EventArgs e)
         {
-
-            if (txtNombreGrupo.Text == "ddd")
-                txtNombreGrupo.Text = "fff";
-            else
-                if (txtNombreGrupo.Text == "fff")
-                txtNombreGrupo.Text = "ddd";
+            if (txtNombreGrupo.Text.Length > 5) { 
+                respuesta = await grupoClienteModel.VerificarNombreGCliente(txtNombreGrupo.Text);
+                
+                lblGrupo.Text = respuesta.msj;
+            }
         }
 
-        private void txtNombreGrupo_Leave(object sender, EventArgs e)
+        private async void txtNombreGrupo_Leave(object sender, EventArgs e)
         {
-
-            if(txtNombreGrupo.Text=="ddd")
-                txtNombreGrupo.Text = "fff";
-            else
-                if(txtNombreGrupo.Text == "fff")
-                txtNombreGrupo.Text = "ddd";
+            if (txtNombreGrupo.Text.Length >5) { 
+                respuesta = await grupoClienteModel.VerificarNombreGCliente(txtNombreGrupo.Text);
+                lblGrupo.Text = respuesta.msj;
+            }
         }
 
         // TAREA hacer los cambios en todos los formularios de clientes y proveedores ver lo de paises 

@@ -66,7 +66,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.textTelefono = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxDocumento = new System.Windows.Forms.ComboBox();
             this.documentoIdentificacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtNombreCliente = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label10 = new System.Windows.Forms.Label();
@@ -195,7 +195,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label7.Location = new System.Drawing.Point(19, 190);
+            this.label7.Location = new System.Drawing.Point(19, 127);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(136, 19);
@@ -213,7 +213,7 @@
             this.textNIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNIdentificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNIdentificacion.isPassword = false;
-            this.textNIdentificacion.Location = new System.Drawing.Point(20, 212);
+            this.textNIdentificacion.Location = new System.Drawing.Point(20, 149);
             this.textNIdentificacion.Margin = new System.Windows.Forms.Padding(4);
             this.textNIdentificacion.Name = "textNIdentificacion";
             this.textNIdentificacion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -539,21 +539,21 @@
             this.textTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTelefono_KeyPress);
             // 
-            // comboBox1
+            // cbxDocumento
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DataSource = this.documentoIdentificacionBindingSource;
-            this.comboBox1.DisplayMember = "nombre";
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(20, 149);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(300, 32);
-            this.comboBox1.TabIndex = 107;
-            this.comboBox1.ValueMember = "idDocumento";
+            this.cbxDocumento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbxDocumento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxDocumento.DataSource = this.documentoIdentificacionBindingSource;
+            this.cbxDocumento.DisplayMember = "nombre";
+            this.cbxDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDocumento.FormattingEnabled = true;
+            this.cbxDocumento.Location = new System.Drawing.Point(20, 86);
+            this.cbxDocumento.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxDocumento.Name = "cbxDocumento";
+            this.cbxDocumento.Size = new System.Drawing.Size(300, 32);
+            this.cbxDocumento.TabIndex = 107;
+            this.cbxDocumento.ValueMember = "idDocumento";
             // 
             // documentoIdentificacionBindingSource
             // 
@@ -570,7 +570,7 @@
             this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombreCliente.isPassword = false;
-            this.txtNombreCliente.Location = new System.Drawing.Point(20, 84);
+            this.txtNombreCliente.Location = new System.Drawing.Point(20, 212);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -583,7 +583,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label10.Location = new System.Drawing.Point(19, 61);
+            this.label10.Location = new System.Drawing.Point(19, 189);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(144, 19);
@@ -596,7 +596,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label12.Location = new System.Drawing.Point(19, 130);
+            this.label12.Location = new System.Drawing.Point(22, 67);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(127, 19);
@@ -678,7 +678,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtNombreCliente);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxDocumento);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textTelefono);
             this.Controls.Add(this.label6);
@@ -768,7 +768,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtNombreCliente;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxDocumento;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtDatosEnvio;
         private System.Windows.Forms.BindingSource documentoIdentificacionBindingSource;

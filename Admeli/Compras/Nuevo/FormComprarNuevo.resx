@@ -123,6 +123,9 @@
   <metadata name="detalleCompraBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>480, 59</value>
   </metadata>
+  <metadata name="productoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>618, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -135,20 +138,25 @@
         HLLQ+l4znSLJeLiviobihQsnj+d9AwK92QgX/ljQAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="productoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>618, 17</value>
+  <data name="btnAddCard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAShJREFUOE+1
+        VNFKAkEUHT8hg/okH1Zt56FHIQKl7KWiAr8jFPwFH3ZVBOnVT1D7ilgi+4DpnN0rjNPdfQg7cNjZueec
+        mTvMrvlX2MSeRml820zjOZ7vZDOxM/CmMbmsi6wCztQgfkbADnQl/ILmURw6Wmk8VowqoR2J7RCt6cWT
+        ZqgiWr4Xe4H2rH2Ownco7Cyv3OZjm5PjsA7ucJ5nElO+m+u3ntuDY00D74PE5EELv8jVaXxZDSTG5WPO
+        KTubS4wxeNn4RbZSBtZ8LQ59LTEISuzWL/456HitJfYuKOakcQ+ONQ1vu8QUnwQmP0MRV2crpLITMosW
+        0YnEFEB7fUVYSVzIntgPgcJQM5TwVWw62DNEWWDymUHTFXk12Dd2p/5Gfp3JcWHMD2KPCd2QtdVyAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="presentacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>20, 59</value>
   </metadata>
-  <metadata name="productoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>618, 17</value>
+  <metadata name="alternativaCombinacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>221, 59</value>
   </metadata>
   <metadata name="monedaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>233, 17</value>
-  </metadata>
-  <metadata name="monedaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>233, 17</value>
-  </metadata>
-  <metadata name="tipoDocumentoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
   </metadata>
   <metadata name="tipoDocumentoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -165,25 +173,17 @@
         AQYGAEkLavpN2Cc4AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnAddCard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAShJREFUOE+1
-        VNFKAkEUHT8hg/okH1Zt56FHIQKl7KWiAr8jFPwFH3ZVBOnVT1D7ilgi+4DpnN0rjNPdfQg7cNjZueec
-        mTvMrvlX2MSeRml820zjOZ7vZDOxM/CmMbmsi6wCztQgfkbADnQl/ILmURw6Wmk8VowqoR2J7RCt6cWT
-        ZqgiWr4Xe4H2rH2Ownco7Cyv3OZjm5PjsA7ucJ5nElO+m+u3ntuDY00D74PE5EELv8jVaXxZDSTG5WPO
-        KTubS4wxeNn4RbZSBtZ8LQ59LTEISuzWL/456HitJfYuKOakcQ+ONQ1vu8QUnwQmP0MRV2crpLITMosW
-        0YnEFEB7fUVYSVzIntgPgcJQM5TwVWw62DNEWWDymUHTFXk12Dd2p/5Gfp3JcWHMD2KPCd2QtdVyAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="alternativaCombinacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>221, 59</value>
+  <metadata name="productoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>618, 17</value>
+  </metadata>
+  <metadata name="monedaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>233, 17</value>
+  </metadata>
+  <metadata name="tipoDocumentoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="alternativaCombinacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>221, 59</value>
-  </metadata>
-  <metadata name="presentacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>20, 59</value>
   </metadata>
   <metadata name="presentacionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>20, 59</value>

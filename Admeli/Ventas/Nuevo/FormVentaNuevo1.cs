@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.Compras.Buscar;
+using Admeli.Ventas.Buscar;
 using Entidad;
 using Entidad.Configuracion;
 using Modelo;
 
-namespace Admeli.Compras.Nuevo
+namespace Admeli.Ventas.Nuevo
 {
-    public partial class FormComprarNuevo : Form
+    public partial class FormVentaNuevo1 : Form
     {
 
         // compra 
@@ -71,7 +72,7 @@ namespace Admeli.Compras.Nuevo
         private bool nuevo { get; set; }
 
         #region ============================ Constructor ============================
-        public FormComprarNuevo(Sucursal sucursal, Personal personal)
+        public FormVentaNuevo1(Sucursal sucursal, Personal personal)
         {
             InitializeComponent();
             this.nuevo = true;
@@ -85,10 +86,10 @@ namespace Admeli.Compras.Nuevo
             datoNotaEntradaC = new List<DatoNotaEntradaC>();
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
-
+           
         }
 
-        public FormComprarNuevo(Compra currentCompra, Sucursal sucursal, Personal personal)
+        public FormVentaNuevo1(Compra currentCompra, Sucursal sucursal, Personal personal)
         {
             InitializeComponent();
             this.currentCompra = currentCompra;
@@ -106,9 +107,9 @@ namespace Admeli.Compras.Nuevo
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
 
-            textNombreEmpresa.Enabled = false;
-            textDireccion.Enabled = false;
-            btnAddMarca.Visible = false;
+            txtDireccion.Enabled = false;
+            txtNombreCliente.Enabled = false;
+            btnimportarCotizacion.Visible = false;
         }
         #endregion
 
@@ -227,15 +228,15 @@ namespace Admeli.Compras.Nuevo
         {
 
             datosProveedor = await compraModel.Compras(currentCompra.idCompra);
-            textNombreEmpresa.Text = datosProveedor[0].nombreProveedor;
-            textDireccion.Text = datosProveedor[0].direccion;
-            dtpEmision.Value = datosProveedor[0].fechaFacturacion.date;
+            txtDireccion.Text = datosProveedor[0].nombreProveedor;
+            txtNombreCliente.Text = datosProveedor[0].direccion;
+            dtpVenta.Value = datosProveedor[0].fechaFacturacion.date;
             dtpPago.Value = datosProveedor[0].fechaPago.date;
             textSubTotal.Text=Convert.ToString(  datosProveedor[0].subTotal);
             textTotal.Text= Convert.ToString(datosProveedor[0].total);
             cbxMoneda.Text = datosProveedor[0].moneda;
 
-            txtTipoCambio.Text = "1";
+           
 
         }
         private async void cargarMonedas()
@@ -256,7 +257,7 @@ namespace Admeli.Compras.Nuevo
             try
             {
                 tipoDocumentos = await tipoDocumentoModel.tipoDocumentoVentas();
-                cbxTipoDocumento.DataSource = tipoDocumentos;
+                cbxTipoComprobante.DataSource = tipoDocumentos;
             }
             catch (Exception ex)
             {
@@ -270,7 +271,7 @@ namespace Admeli.Compras.Nuevo
             {
                 if (!nuevo) return;
                 fechaSistema = await fechaModel.fechaSistema();
-                dtpEmision.Value = fechaSistema.fecha;
+                dtpVenta.Value = fechaSistema.fecha;
                 dtpPago.Value = fechaSistema.fecha;
             }
             catch (Exception ex)
@@ -508,18 +509,18 @@ namespace Admeli.Compras.Nuevo
 
         private void executeBuscarProveedor()
         {
-            BuscarProveedor buscarProveedor = new BuscarProveedor();
+            Buscarcliente buscarProveedor = new Buscarcliente();
             buscarProveedor.ShowDialog();
-            currentProveedor = buscarProveedor.currentProveedor;
-            mostrarProveedor();
+            //currentProveedor = buscarProveedor.currentProveedor;
+            //mostrarProveedor();
         }
 
         private void mostrarProveedor()
         {
             if (currentProveedor != null)
             {
-                textNombreEmpresa.Text = currentProveedor.razonSocial;
-                textDireccion.Text = currentProveedor.direccion;
+                txtDireccion.Text = currentProveedor.razonSocial;
+                txtNombreCliente.Text = currentProveedor.direccion;
             }
         }
 
@@ -560,7 +561,7 @@ namespace Admeli.Compras.Nuevo
             pagoC.valorPagado = 0;
             pagoC.valorTotal = Convert.ToDouble(textTotal.Text);
             // compra
-            string date1 = String.Format("{0:u}", dtpEmision.Value);
+            string date1 = String.Format("{0:u}", dtpVenta.Value);
             date1 = date1.Substring(0, date1.Length - 1);
             string date= String.Format("{0:u}", dtpPago.Value);
             date = date.Substring(0, date.Length - 1);
@@ -583,13 +584,13 @@ namespace Admeli.Compras.Nuevo
             compraC.idPago = currentCompra != null ? currentCompra.idPago : 0; ;
             compraC.idPersonal = PersonalModel.personal.idPersonal;
             compraC.tipoCambio = 1;
-            int j = cbxTipoDocumento.SelectedIndex;
-            TipoDocumento aux = cbxTipoDocumento.Items[j] as TipoDocumento;
+            int j = cbxTipoComprobante.SelectedIndex;
+            TipoDocumento aux = cbxTipoComprobante.Items[j] as TipoDocumento;
             compraC.idTipoDocumento = (aux.idTipoDocumento);
             compraC.idSucursal = ConfigModel.sucursal.idSucursal;
             compraC.nombreLabel = aux.nombreLabel;
             compraC.vendedor = PersonalModel.personal.nombres;
-            compraC.nroOrdenCompra = textNroOrdenCompra.Text.Trim();
+           
             compraC.moneda = monedas[i].moneda;
             compraC.idCompra= currentCompra != null ? currentCompra.idCompra : 0; 
             
@@ -667,7 +668,7 @@ namespace Admeli.Compras.Nuevo
         {
             Compra compra = new Compra();
             compra.descuento = textDescuentoCompra.Text;
-            compra.direccion = textDireccion.Text;
+            compra.direccion = txtNombreCliente.Text;
             compra.estado = 1;
             // compra.fechaFacturacion = dtpEmision.Value.ToString("yyyy-MMM-dd  hh:mm:ss");
             //compra.fechaPago = "";
@@ -687,9 +688,9 @@ namespace Admeli.Compras.Nuevo
 
             if (aux != null)
             {
-                textNroOrdenCompra.Text = aux.serie + " - " + aux.correlativo;
-                textDireccion.Text = aux.direccionProveedor;
-                textNombreEmpresa.Text = aux.nombreProveedor;
+              
+                txtNombreCliente.Text = aux.direccionProveedor;
+                txtDireccion.Text = aux.nombreProveedor;
 
 
                 currentCompra = new Compra();
@@ -697,7 +698,7 @@ namespace Admeli.Compras.Nuevo
                 currentCompra.idSucursal = ConfigModel.sucursal.idSucursal;
                 currentCompra.descuento = textDescuento.Text;
 
-                currentCompra.direccion = textDireccion.Text;
+                currentCompra.direccion = txtNombreCliente.Text;
 
                 currentCompra.estado = 1;
                 //currentCompra.fechaFacturacion = " ";
@@ -711,7 +712,7 @@ namespace Admeli.Compras.Nuevo
                 currentCompra.idTipoDocumento = aux.idTipoDocumento;
                 currentCompra.moneda = aux.moneda;
                 currentCompra.nombreProveedor = aux.nombreProveedor;
-                currentCompra.nroOrdenCompra = textNroOrdenCompra.Text;
+                
                 currentCompra.numeroDocumento = "";// falta definir o entender para q sirve
                 currentCompra.observacion = aux.observacion;
                 currentCompra.rucDni = aux.rucDni;
@@ -833,6 +834,51 @@ namespace Admeli.Compras.Nuevo
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bunifuMetroTextbox3_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textDescuentoCompra_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click_1(object sender, EventArgs e)
         {
 
         }

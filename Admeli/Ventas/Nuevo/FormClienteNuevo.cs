@@ -71,6 +71,12 @@ namespace Admeli.Ventas.Nuevo
                     }
                     else
                     {
+                        if(uCNuevoGrupo !=null)
+                            if(uCNuevoGrupo.grupoClientes != null) { 
+                                this.uCClienteGeneral.grupoClientes = uCNuevoGrupo.grupoClientes;
+
+                                this.uCClienteGeneral.cargarGClientes();
+                            }
                         this.panelMainNP.Controls.Add(uCClienteGeneral);
                     }
                     break;
@@ -87,6 +93,10 @@ namespace Admeli.Ventas.Nuevo
                     }
                     else
                     {
+
+                      
+
+
                         this.panelMainNP.Controls.Add(uCNuevoGrupo);
                     }
                     break;

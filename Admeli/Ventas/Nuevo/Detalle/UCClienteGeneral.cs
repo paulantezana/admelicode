@@ -29,8 +29,8 @@ namespace Admeli.Ventas.Nuevo.Detalle
         private bool bandera;
         private DataSunat dataSunat;
         private RespuestaSunat respuestaSunat;
-        private List<GrupoCliente> grupoClientes;
-        
+        public List<GrupoCliente> grupoClientes;
+        private UCNuevoGrupo uCNuevoGrupo;
         private List<DocumentoIdentificacion> documentoIdentificaciones;
         public UCClienteGeneral()
         {
@@ -41,11 +41,13 @@ namespace Admeli.Ventas.Nuevo.Detalle
         {
             InitializeComponent();
             this.formClienteNuevo = formClienteNuevo;
+
         }
 
         private void UCProveedorGeneral_Load(object sender, EventArgs e)
         {
             this.reLoad();
+
         }
 
         #region ================================= Loads =================================
@@ -54,13 +56,18 @@ namespace Admeli.Ventas.Nuevo.Detalle
             if (!formClienteNuevo.nuevo)
             {
                 textZipCode.Text = formClienteNuevo.currentCliente.telefono;
-                //    textDireccion.Text = formClienteNuevo.currentProveedor.direccion;
-                //    textEmail.Text = formClienteNuevo.currentProveedor.email;
-                //    chkEstado.Checked = Convert.ToBoolean(formClienteNuevo.currentProveedor.estado);
-                //    textNombreEmpresa.Text = formClienteNuevo.currentProveedor.razonSocial;
-                //    textNIdentificacion.Text = formClienteNuevo.currentProveedor.ruc;
-                //    textTelefono.Text = formClienteNuevo.currentProveedor.telefono;
-                //    cbxTipoProveedor.Text = formClienteNuevo.currentProveedor.tipoProveedor;
+                textDireccion.Text = formClienteNuevo.currentCliente.direccion;
+                textEmail.Text = formClienteNuevo.currentCliente.email;
+                chkEstado.Checked = Convert.ToBoolean(formClienteNuevo.currentCliente.estado);
+                textCelular.Text = formClienteNuevo.currentCliente.celular;
+                textNIdentificacion.Text = formClienteNuevo.currentCliente.numeroDocumento;
+                textTelefono.Text = formClienteNuevo.currentCliente.telefono;
+                txtDatosEnvio.Text = formClienteNuevo.currentCliente.observacion;
+                txtNombreCliente.Text = formClienteNuevo.currentCliente.nombreCliente;
+
+                cbxDocumento.Text = formClienteNuevo.currentCliente.tipoDocumento;
+                cbxSexo.Text= formClienteNuevo.currentCliente.sexo=="M" ? "Masculino" :"Femenino" ;
+                cbxTipoGrupo.Text = formClienteNuevo.currentCliente.nombreGrupo;
             }
         }
 
@@ -68,20 +75,18 @@ namespace Admeli.Ventas.Nuevo.Detalle
         {
             await cargarPaises();
             crearNivelesPais();
-            cargarDatosModificar();
+            
             cargarGClientes();
             cargartiposDocumentos();
-
+           
         }
 
 
-        private async void cargarGClientes()
+        public async void cargarGClientes()
         {
-
-           grupoClientes= await clienteModel.listarGrupoClienteIdGCNombreByActivos();
-
-            grupoClienteCBindingSource.DataSource = grupoClientes; 
-
+            grupoClientes = await clienteModel.listarGrupoClienteIdGCNombreByActivos();
+            grupoClienteCBindingSource.DataSource = grupoClientes;
+            cargarDatosModificar();
         }
         private async void cargartiposDocumentos()
         {
@@ -107,7 +112,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 ubicacionGeografica = await locationModel.ubigeoActual(formClienteNuevo.currentCliente.idUbicacionGeografica);
             }
             cbxPaises.SelectedValue = ubicacionGeografica.idPais;
-        } 
+        }
         #endregion
 
 
@@ -313,9 +318,105 @@ namespace Admeli.Ventas.Nuevo.Detalle
         }
 
         #region ========================== SAVE AND UPDATE ===========================
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         {
-            //guardarSucursal();
+
+            // GUARDAR UBICACion 
+
+            if (formClienteNuevo.nuevo)
+            { 
+                UbicacionGeograficaG UG = new UbicacionGeograficaG();
+
+                int i = cbxPaises.SelectedIndex;
+                UG.idPais = (int)cbxPaises.SelectedValue;
+                UG.idNivel1 = (int)cbxNivel1.SelectedValue;
+                UG.idNivel2 = (int)cbxNivel2.SelectedValue;
+                if (cbxNivel3.IsAccessible)
+                    UG.idNivel3 = (int)cbxNivel3.SelectedValue;
+                Response respuesta = await locationModel.guardarUbigeo(UG);
+
+                ClienteG CG = new ClienteG();
+
+                CG.celular = textCelular.Text;
+                CG.direccion = textDireccion.Text;
+                CG.email = textEmail.Text;
+                CG.esEventual = false;
+                CG.estado = chkEstado.Checked ? 1 : 0;
+                CG.idDocumento = (int)cbxDocumento.SelectedValue;
+                CG.idGrupoCliente = (int)cbxTipoGrupo.SelectedValue;
+                CG.idUbicacionGeografica = respuesta.id;
+                CG.nombre = cbxDocumento.Text;
+                CG.nombreCliente = txtNombreCliente.Text;
+                CG.nombreGrupo = cbxTipoGrupo.Text;
+                CG.nroVentasCotizaciones = 0;
+                CG.numeroDocumento = textNIdentificacion.Text;
+                CG.observacion = txtDatosEnvio.Text;
+                CG.sexo = cbxSexo.Text;
+                CG.telefono = textTelefono.Text;
+                CG.tipoDocumento = "Natural";
+                CG.zipCode = textZipCode.Text;
+                Response rest = await clienteModel.guardar(CG);
+                if (rest.id > 0)
+                {
+                    MessageBox.Show(rest.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                else
+                {
+                    MessageBox.Show("error en guardar" + rest.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+
+            else
+            {
+                UbicacionGeograficaG UG = new UbicacionGeograficaG();
+
+                int i = cbxPaises.SelectedIndex;
+                UG.idPais = (int)cbxPaises.SelectedValue;
+                UG.idNivel1 = (int)cbxNivel1.SelectedValue;
+                UG.idNivel2 = (int)cbxNivel2.SelectedValue;
+                if (cbxNivel3.IsAccessible)
+                    UG.idNivel3 = (int)cbxNivel3.SelectedValue;
+                Response respuesta = await locationModel.guardarUbigeo(UG);
+
+                Response respuesta1 = await locationModel.guardarUbigeo(UG);
+
+                Cliente CG = new Cliente();
+                CG.idCliente = formClienteNuevo.currentCliente.idCliente;
+                CG.celular = textCelular.Text;
+                CG.direccion = textDireccion.Text;
+                CG.email = textEmail.Text;
+                CG.esEventual = false;
+                CG.estado = chkEstado.Checked ? 1 : 0;
+                CG.idDocumento = (int)cbxDocumento.SelectedValue;
+                CG.idGrupoCliente = (int)cbxTipoGrupo.SelectedValue;
+                CG.idUbicacionGeografica = respuesta.id;
+                CG.nombre = cbxDocumento.Text;
+                CG.nombreCliente = txtNombreCliente.Text;
+                CG.nombreGrupo = cbxTipoGrupo.Text;
+                CG.nroVentasCotizaciones = "0";
+                CG.numeroDocumento = textNIdentificacion.Text;
+                CG.observacion = txtDatosEnvio.Text;
+                CG.sexo = cbxSexo.Text;
+                CG.telefono = textTelefono.Text;
+                CG.tipoDocumento = "Natural";// es detalle q falta aclarar
+                CG.zipCode = textZipCode.Text;
+                Response rest = await clienteModel.modificar(CG);
+                if (rest.id > 0)
+                {
+                    MessageBox.Show(rest.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                else
+                {
+                    MessageBox.Show("error en Modificar " + rest.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+        
         }
 
         //private async void guardarSucursal()
@@ -368,7 +469,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
         {
             if (textCelular.Text == "")
             {
-                errorProvider1.SetError(textCelular, "Este campo esta bacía");
+                errorProvider1.SetError(textCelular, "Este campo esta vacío");
                 textCelular.Focus();
                 return false;
             }
@@ -409,7 +510,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
 
             if (textNIdentificacion.Text == "")
             {
-                errorProvider1.SetError(textNIdentificacion, "Este campo esta bacía");
+                errorProvider1.SetError(textNIdentificacion, "Este campo esta vacío");
                 textNIdentificacion.Focus();
                 return false;
             }
@@ -417,7 +518,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
 
             if (cbxTipoGrupo.SelectedIndex == -1)
             {
-                errorProvider1.SetError(cbxTipoGrupo, "Elija almenos uno");
+                errorProvider1.SetError(cbxTipoGrupo, "Elija al menos uno");
                 cbxTipoGrupo.Focus();
                 return false;
             }
@@ -479,14 +580,11 @@ namespace Admeli.Ventas.Nuevo.Detalle
                     
                 }
             if (respuestaSunat != null)
-            {
-                
+            {              
                 dataSunat = respuestaSunat.result;
                 textNIdentificacion.Text = dataSunat.RUC;
-                textTelefono.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length-1);
-                textCelular.Text = dataSunat.RazonSocial;
-                textZipCode.Text = dataSunat.Oficio;
-                
+                textCelular.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length-1);
+                txtNombreCliente.Text = dataSunat.RazonSocial;             
                 textDireccion.Text = concidencias(dataSunat.Direccion);
                 respuestaSunat = null;
             

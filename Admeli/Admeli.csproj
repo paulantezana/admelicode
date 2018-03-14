@@ -770,6 +770,12 @@
     <Compile Include="UCHome.Designer.cs">
       <DependentUpon>UCHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventas\buscar\Buscarcliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\buscar\Buscarcliente.Designer.cs">
+      <DependentUpon>Buscarcliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventas\FormVentaTouch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -793,6 +799,12 @@
     </Compile>
     <Compile Include="Ventas\Nuevo\Detalle\UCNuevoGrupo.Designer.cs">
       <DependentUpon>UCNuevoGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Nuevo\FormVentaNuevo1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Nuevo\FormVentaNuevo1.Designer.cs">
+      <DependentUpon>FormVentaNuevo1.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventas\Nuevo\FormCotizacionNuevo.cs">
       <SubType>Form</SubType>
@@ -1155,6 +1167,9 @@
     <EmbeddedResource Include="UCHome.resx">
       <DependentUpon>UCHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\buscar\Buscarcliente.resx">
+      <DependentUpon>Buscarcliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\FormVentaTouch.resx">
       <DependentUpon>FormVentaTouch.cs</DependentUpon>
     </EmbeddedResource>
@@ -1166,6 +1181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Nuevo\Detalle\UCNuevoGrupo.resx">
       <DependentUpon>UCNuevoGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Nuevo\FormVentaNuevo1.resx">
+      <DependentUpon>FormVentaNuevo1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Nuevo\FormCotizacionNuevo.resx">
       <DependentUpon>FormCotizacionNuevo.cs</DependentUpon>

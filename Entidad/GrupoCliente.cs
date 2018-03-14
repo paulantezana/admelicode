@@ -15,4 +15,16 @@ namespace Entidad
         public int estado { get; set; }
         public bool enUso { get; set; }
     }
+
+
+    //class para guardar el objeto grupo cliente
+    public class GrupoClienteG
+    {
+       
+        public string nombreGrupo { get; set; }
+        public string descripcion { get; set; }
+        public int minimoOrden { get; set; }
+        public bool estado { get; set; }
+       
+    }
 }
