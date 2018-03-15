@@ -113,13 +113,14 @@ namespace Admeli.Ventas
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
                 int idVenta = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
-
-                Venta venta = ventas.Find(x => x.idVenta == idVenta); // Buscando la categoria en las lista de categorias
-                if (venta.estado == 0)
-                {
-                    dataGridView.ClearSelection();
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
-                    row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
+                if (idVenta > 0) { 
+                    Venta venta = ventas.Find(x => x.idVenta == idVenta); // Buscando la categoria en las lista de categorias
+                    if (venta.estado == 0)
+                    {
+                        dataGridView.ClearSelection();
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
+                        row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
+                    }
                 }
             }
         }
@@ -213,21 +214,17 @@ namespace Admeli.Ventas
                 int sucursalId = (cbxSucursales.SelectedIndex == -1) ? ConfigModel.sucursal.idSucursal : Convert.ToInt32(cbxSucursales.SelectedValue);
                 string estado = (cbxEstados.SelectedIndex == -1) ? "todos" : cbxEstados.SelectedValue.ToString();
                 int puntoVentaId = (cbxPuntosVenta.SelectedIndex == -1) ? ConfigModel.currentPuntoVenta : Convert.ToInt32(cbxPuntosVenta.SelectedValue);
-
                 RootObject<Venta> rootData = await ventaModel.ventas(sucursalId, puntoVentaId,  personalId, estado, paginacion.currentPage, paginacion.speed);
-
                 // actualizando datos de páginacón
                 paginacion.itemsCount = rootData.nro_registros;
                 paginacion.reload();
-
                 // Ingresando
                 ventas = rootData.datos;
+                
                 ventaBindingSource.DataSource = ventas;
                 dataGridView.Refresh();
-
                 // Mostrando la paginacion
                 mostrarPaginado();
-
                 // formato de celdas
                 decorationDataGridView();
             }
@@ -362,7 +359,7 @@ namespace Admeli.Ventas
 
         private void executeNuevo()
         {
-            FormVentaNuevo formVentaNuevo = new FormVentaNuevo();
+            FormVentaNuevo1 formVentaNuevo = new FormVentaNuevo1(ConfigModel.sucursal, personalBindingSource.List[0] as Personal );
             formVentaNuevo.ShowDialog();
             cargarRegistros();
         }
@@ -469,6 +466,13 @@ namespace Admeli.Ventas
         }
 
         private void panelNavigation_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void panelTools_Paint(object sender, PaintEventArgs e)
+
         {
 
         }

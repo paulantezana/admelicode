@@ -12,13 +12,29 @@ namespace Modelo
     {
         private WebService webService = new WebService();
 
-        public void guardar()
+        public async Task<Response> guardar(ClienteG param)
         {
-
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/cliente/guardar
+                return await webService.POST<ClienteG, Response>("cliente", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-        public void modificar()
+        public async Task<Response> modificar(Cliente param)
         {
-
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.phpcliente/modificar
+                return await webService.POST<Cliente, Response>("cliente", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public void eliminar()
         {
@@ -61,6 +77,33 @@ namespace Modelo
         public Task<Response> desactivar(Cliente currentCliente)
         {
             throw new NotImplementedException();
+        }
+        public async Task<List<GrupoCliente>> listarGrupoClienteIdGCNombreByActivos()
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/gclientes21
+                List<GrupoCliente> clientes = await webService.GET<List<GrupoCliente>>("gclientes21");
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+   
+         public async Task<List<GrupoClienteC>> documentoidentificaciones()
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/gclientes21
+                List<GrupoClienteC> clientes = await webService.GET<List<GrupoClienteC>>("gclientes21", "");
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

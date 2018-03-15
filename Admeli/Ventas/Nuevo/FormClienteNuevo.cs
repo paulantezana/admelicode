@@ -7,200 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Admeli.Ventas.Nuevo.Detalle;
 using Entidad;
-using Modelo;
-using Entidad.Location;
 
 namespace Admeli.Ventas.Nuevo
 {
     public partial class FormClienteNuevo : Form
-        
-
     {
-        private LocationModel locationModel = new LocationModel();
-        private Cliente currentCliente;
+       // private UCProveedorContacto uCProveedorContacto;
+        private UCClienteGeneral uCClienteGeneral;
+        private UCNuevoGrupo uCNuevoGrupo; 
+        internal int currentIDProveedor { get; set; }
+        internal bool nuevo { get; set; }
+        internal Cliente currentCliente;
+
+        public FormClienteNuevo()
+        {
+            InitializeComponent();
+            this.nuevo = true;
+        }
 
         public FormClienteNuevo(Cliente currentCliente)
         {
             InitializeComponent();
             this.currentCliente = currentCliente;
+            this.currentIDProveedor = currentCliente.idCliente;
+            this.nuevo = false;
         }
-        public FormClienteNuevo()
-        {
-            InitializeComponent();
-        }
-
-        private List<LabelUbicacion> labelUbicaciones { get; set; }
-        private UbicacionGeografica ubicacionGeografica { get; set; }
-
-
-        private async Task cargarPaises()
-        {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
-
-            ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
-            // cargando la ubicacion geografica por defecto
-            //if (nuevo)
-            //{
-                
-            //}
-            //else
-            //{
-            //    ubicacionGeografica = await locationModel.ubigeoActual(currentAlmacen.idUbicacionGeografica);
-            //}
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
-        }
-
-        #region ================== Formando los niveles de cada pais ==================
-        private async void crearNivelesPais()
-        {
-            try
-            {
-                loadStateApp(true);
-                labelUbicaciones = await locationModel.labelUbicacion(Convert.ToInt32(cbxPaises.SelectedValue));
-                ocultarNiveles(); // Ocultando todo los niveles
-
-                // Mostrando los niveles uno por uno
-                if (labelUbicaciones.Count >= 1)
-                {
-                    lblNivel1.Text = labelUbicaciones[0].denominacion;
-                    panelLevel1.Visible = true;
-                }
-
-                if (labelUbicaciones.Count >= 2)
-                {
-                    lblNivel2.Text = labelUbicaciones[1].denominacion;
-                    panelLevel2.Visible = true;
-                }
-
-                if (labelUbicaciones.Count >= 3)
-                {
-                    panelLevel3.Visible = true;
-                    lblNivel3.Text = labelUbicaciones[2].denominacion;
-                }
-
-                // Cargar el primer nivel de la localizacion
-                cargarNivel1();
-
-            }
-            catch (Exception)
-            {
-                // MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                loadStateApp(false);
-            }
-        }
-
-        private void ocultarNiveles()
-        {
-            panelLevel1.Visible = false;
-            panelLevel2.Visible = false;
-            panelLevel3.Visible = false;
-
-            cbxNivel1.SelectedIndex = -1;
-            cbxNivel2.SelectedIndex = -1;
-            cbxNivel3.SelectedIndex = -1;
-        }
-
-        private async void cargarNivel1()
-        {
-            try
-            {
-                // No cargar directo al comobobox esto causara que el evento SelectedIndexChange de forma automatica
-                if (labelUbicaciones.Count < 1) return;
-                loadStateApp(true);
-                nivel1BindingSource.DataSource = await locationModel.nivel1(Convert.ToInt32(cbxPaises.SelectedValue));
-                if (ubicacionGeografica.idNivel1 > 0)
-                {
-                    cbxNivel1.SelectedValue = ubicacionGeografica.idNivel1;
-                }
-                else
-                {
-                    cbxNivel1.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                loadStateApp(false);
-                desactivarNivelDesde(2);
-            }
-        }
-
-        private async void cargarNivel2()
-        {
-            try
-            {
-                if (labelUbicaciones.Count < 2) return;
-                loadStateApp(true);
-                nivel2BindingSource.DataSource = await locationModel.nivel2(Convert.ToInt32(cbxNivel1.SelectedValue));
-                if (ubicacionGeografica.idNivel2 > 0)
-                {
-                    cbxNivel2.SelectedValue = ubicacionGeografica.idNivel2;
-                }
-                else
-                {
-                    cbxNivel2.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                desactivarNivelDesde(3);
-                loadStateApp(false);
-            }
-        }
-
-        private async void cargarNivel3()
-        {
-            try
-            {
-                if (labelUbicaciones.Count < 3) return;
-                loadStateApp(true);
-                nivel3BindingSource.DataSource = await locationModel.nivel3(Convert.ToInt32(cbxNivel2.SelectedValue));
-                if (ubicacionGeografica.idNivel3 > 0)
-                {
-                    cbxNivel3.SelectedValue = ubicacionGeografica.idNivel3;
-                }
-                else
-                {
-                    cbxNivel3.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                loadStateApp(false);
-                desactivarNivelDesde(4);
-            }
-        }
-
-        private void desactivarNivelDesde(int n)
-        {
-            cbxNivel1.Enabled = true;
-            cbxNivel2.Enabled = true;
-            cbxNivel3.Enabled = true;
-
-            if (n < 2) cbxNivel1.Enabled = false;
-            if (n < 3) cbxNivel2.Enabled = false;
-            if (n < 4) cbxNivel3.Enabled = false;
-        }
-        #endregion
 
         #region ==================== Estados =====================
-        private void loadStateApp(bool state)
+        internal void loadStateApp(bool state)
         {
             if (state)
             {
@@ -215,37 +51,88 @@ namespace Admeli.Ventas.Nuevo
         }
         #endregion
 
-        #region  ======================= Eventos cargar paises =======================
-
-
-        private void cbxNivel1_SelectedIndexChanged(object sender, EventArgs e)
+        public  void togglePanelMain(string panelName)
         {
-            cargarNivel2();
+            limpiarControles();
+            btnColor();
+            switch (panelName)
+            {
+              
+                case "general":
+                    if (uCClienteGeneral == null)
+                    {
+                        this.uCClienteGeneral = new UCClienteGeneral(this);
+                        this.panelMainNP.Controls.Add(uCClienteGeneral);
+                        this.uCClienteGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCClienteGeneral.Location = new System.Drawing.Point(0, 0);
+                        this.uCClienteGeneral.Name = "uCProveedorGeneral";
+                        this.uCClienteGeneral.Size = new System.Drawing.Size(1050, 776);
+                        this.uCClienteGeneral.TabIndex = 0;
+                    }
+                    else
+                    {
+                        if(uCNuevoGrupo !=null)
+                            if(uCNuevoGrupo.grupoClientes != null) { 
+                                this.uCClienteGeneral.grupoClientes = uCNuevoGrupo.grupoClientes;
+
+                                this.uCClienteGeneral.cargarGClientes();
+                            }
+                        this.panelMainNP.Controls.Add(uCClienteGeneral);
+                    }
+                    break;
+                case "Nuevorupo":
+                    if (uCNuevoGrupo == null)
+                    {
+                        this.uCNuevoGrupo = new UCNuevoGrupo(this);
+                        this.panelMainNP.Controls.Add(uCNuevoGrupo);
+                        this.uCNuevoGrupo.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCNuevoGrupo.Location = new System.Drawing.Point(0, 0);
+                        this.uCNuevoGrupo.Name = "uCNuevoGrupo";
+                        this.uCNuevoGrupo.Size = new System.Drawing.Size(800, 776);
+                        this.uCNuevoGrupo.TabIndex = 0;
+                    }
+                    else
+                    {
+
+                      
+
+
+                        this.panelMainNP.Controls.Add(uCNuevoGrupo);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
-        private void cbxNivel2_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnColor()
         {
-            cargarNivel3();
+            btnGenerales.BackColor = Color.FromArgb(230, 231, 232);
+            btnContacto.BackColor = Color.FromArgb(230, 231, 232);
         }
 
-        private void cbxPaises_SelectedIndexChanged(object sender, EventArgs e)
+        private void limpiarControles()
         {
-            crearNivelesPais();
+            this.panelMainNP.Controls.Clear();
         }
-        #endregion
 
-        #region RootLoad
-        private void FormClienteNuevo_Load(object sender, EventArgs e)
+        protected void btnGenerales_Click(object sender, EventArgs e)
         {
-            loadRootData();
+            togglePanelMain("general");
+            btnGenerales.BackColor = Color.White;
         }
-        private async void loadRootData()
+
+        private void btnContacto_Click(object sender, EventArgs e)
         {
+            togglePanelMain("Nuevorupo");
+            btnContacto.BackColor = Color.White;
+        }
 
-            await cargarPaises();
-            crearNivelesPais();
-        } 
-        #endregion
-
+        private void FormProveedorNuevo_Load(object sender, EventArgs e)
+        {
+            togglePanelMain("general");
+            btnGenerales.BackColor = Color.White;
+            
+        }
     }
 }

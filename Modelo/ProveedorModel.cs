@@ -30,6 +30,19 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<List<Proveedor>> buscarPorDni( Ruc dniruc)
+        {
+            try
+            {
+               
+                // localhost:8080/admeli/xcore2/xcore/services.php/proveedor/buscar_nro_doc
+                return await webService.POST<Ruc, List<Proveedor>>("proveedor", "buscar_nro_doc", dniruc);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public async Task<Response> modificar(UbicacionGeografica ubicacionGeografica, Proveedor param)
         {

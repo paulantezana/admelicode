@@ -58,7 +58,7 @@ namespace Entidad
         public string moneda { get; set; }
         public string fechaFacturacion { get; set; }
         public string fechaPago { get; set; }
-        public string descuento { get; set; }
+        public double descuento { get; set; }
         public string tipoCompra { get; set; }
         public double subTotal { get; set; }
         public double total { get; set; }
@@ -135,5 +135,66 @@ namespace Entidad
         public NotaentradaC notaentrada { get; set; }
     }
 
+    public class CompraModificar
+    {
+
+
+        public int nro { get; set; }
+        public int idDetalleCompra { get; set; }
+        public string descripcion { get; set; }
+        public double cantidad { get; set; }
+        public double cantidadUnitaria { get; set; }
+        public double precioUnitario { get; set; }
+        public double descuento { get; set; }
+        public double total { get; set; }
+        public int estado { get; set; }
+        public int idCombinacionAlternativa { get; set; }
+        public object alternativas { get; set; }
+        public string nombreCombinacion { get; set; }
+        public int idPresentacion { get; set; }
+        public string nombrePresentacion { get; set; }
+        public int idProducto { get; set; }
+        public string codigoProducto { get; set; }
+        public int idSucursal { get; set; }
+        public int idCompra { get; set; }
+        public string nombreMarca { get; set; }
+    }
+    public class FechaFacturacion
+    {
+        public DateTime date { get; set; }
+        public int timezone_type { get; set; }
+        public string timezone { get; set; }
+    }
+
+    public class FechaPago
+    {
+        public DateTime date { get; set; }
+        public int timezone_type { get; set; }
+        public string timezone { get; set; }
+    }
+
+    public class CompraRecuperar
+    {
+        public int idCompra { get; set; }
+        public string numeroDocumento { get; set; }
+        public string nombreProveedor { get; set; }
+        public string rucDni { get; set; }
+        public string direccion { get; set; }
+        public string formaPago { get; set; }
+        public string moneda { get; set; }
+        public FechaFacturacion fechaFacturacion { get; set; }
+        public FechaPago fechaPago { get; set; }
+        public double descuento { get; set; }
+        public string tipoCompra { get; set; }
+        public string tipoCambio { get; set; }
+        public double subTotal { get; set; }
+        public double total { get; set; }
+        public int estado { get; set; }
+        public int idProveedor { get; set; }
+        public int idPago { get; set; }
+        public int idPersonal { get; set; }
+        public int idTipoDocumento { get; set; }
+        public int idSucursal { get; set; }
+    }
 
 }

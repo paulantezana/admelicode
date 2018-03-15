@@ -53,23 +53,20 @@
             this.detalleCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label17 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.textImpuesto = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label20 = new System.Windows.Forms.Label();
             this.textSubTotal = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label18 = new System.Windows.Forms.Label();
             this.textTotalNeto = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnRealizarCompra = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chbxPagarCompra = new System.Windows.Forms.CheckBox();
             this.chbxNotaEntrada = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.textCantidad = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label24 = new System.Windows.Forms.Label();
             this.textPrecioUnidario = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label23 = new System.Windows.Forms.Label();
             this.textDescuento = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textTotal = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label16 = new System.Windows.Forms.Label();
             this.cbxCodigoProducto = new System.Windows.Forms.ComboBox();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -77,9 +74,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textDescuentoCompra = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label14 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox8 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.textNroOrdenCompra = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label13 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox7 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtTipoCambio = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label12 = new System.Windows.Forms.Label();
             this.textDireccion = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label11 = new System.Windows.Forms.Label();
@@ -97,9 +94,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textNombreEmpresa = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.dtpPago = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.dtpEmision = new System.Windows.Forms.DateTimePicker();
-            this.removeCard = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cbxDescripcion = new System.Windows.Forms.ComboBox();
             this.btnAddCard = new System.Windows.Forms.Button();
@@ -109,6 +104,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbxPresentacion = new System.Windows.Forms.ComboBox();
             this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textTotal = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).BeginInit();
@@ -119,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alternativaCombinacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.presentacionBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -171,6 +173,8 @@
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.Size = new System.Drawing.Size(1418, 358);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
             // idDetalleCompraDataGridViewTextBoxColumn
             // 
@@ -328,6 +332,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.textImpuesto);
             this.panel4.Controls.Add(this.label20);
@@ -335,7 +340,7 @@
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.textTotalNeto);
             this.panel4.Controls.Add(this.btnRealizarCompra);
-            this.panel4.Controls.Add(this.checkBox2);
+            this.panel4.Controls.Add(this.chbxPagarCompra);
             this.panel4.Controls.Add(this.chbxNotaEntrada);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 718);
@@ -343,6 +348,25 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1440, 73);
             this.panel4.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.OrangeRed;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(1277, 10);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 49);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Salir";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textImpuesto
             // 
@@ -437,30 +461,34 @@
             this.btnRealizarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRealizarCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRealizarCompra.ForeColor = System.Drawing.Color.White;
-            this.btnRealizarCompra.Location = new System.Drawing.Point(1204, 11);
+            this.btnRealizarCompra.Location = new System.Drawing.Point(1072, 11);
             this.btnRealizarCompra.Margin = new System.Windows.Forms.Padding(4);
             this.btnRealizarCompra.Name = "btnRealizarCompra";
-            this.btnRealizarCompra.Size = new System.Drawing.Size(225, 49);
+            this.btnRealizarCompra.Size = new System.Drawing.Size(178, 49);
             this.btnRealizarCompra.TabIndex = 0;
             this.btnRealizarCompra.Text = "Relizar Pago";
             this.btnRealizarCompra.UseVisualStyleBackColor = false;
             this.btnRealizarCompra.Click += new System.EventHandler(this.btnRealizarCompra_Click);
             // 
-            // checkBox2
+            // chbxPagarCompra
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.checkBox2.Location = new System.Drawing.Point(783, 38);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(119, 21);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Pagar compra";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chbxPagarCompra.AutoSize = true;
+            this.chbxPagarCompra.Checked = true;
+            this.chbxPagarCompra.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbxPagarCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.chbxPagarCompra.Location = new System.Drawing.Point(783, 38);
+            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.chbxPagarCompra.Name = "chbxPagarCompra";
+            this.chbxPagarCompra.Size = new System.Drawing.Size(119, 21);
+            this.chbxPagarCompra.TabIndex = 3;
+            this.chbxPagarCompra.Text = "Pagar compra";
+            this.chbxPagarCompra.UseVisualStyleBackColor = true;
             // 
             // chbxNotaEntrada
             // 
             this.chbxNotaEntrada.AutoSize = true;
+            this.chbxNotaEntrada.Checked = true;
+            this.chbxNotaEntrada.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbxNotaEntrada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.chbxNotaEntrada.Location = new System.Drawing.Point(783, 14);
             this.chbxNotaEntrada.Margin = new System.Windows.Forms.Padding(4);
@@ -472,23 +500,14 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.textCantidad);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.textPrecioUnidario);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.textDescuento);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textTotal);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.cbxCodigoProducto);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.bunifuSeparator1);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.textDescuentoCompra);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.bunifuMetroTextbox8);
+            this.panel1.Controls.Add(this.textNroOrdenCompra);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.bunifuMetroTextbox7);
+            this.panel1.Controls.Add(this.txtTipoCambio);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.textDireccion);
             this.panel1.Controls.Add(this.label11);
@@ -504,16 +523,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textNombreEmpresa);
             this.panel1.Controls.Add(this.dtpPago);
-            this.panel1.Controls.Add(this.btnBuscarProducto);
             this.panel1.Controls.Add(this.dtpEmision);
-            this.panel1.Controls.Add(this.removeCard);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.cbxDescripcion);
-            this.panel1.Controls.Add(this.btnAddCard);
-            this.panel1.Controls.Add(this.cbxCombinacion);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.cbxPresentacion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -521,18 +531,25 @@
             this.panel1.Size = new System.Drawing.Size(1440, 340);
             this.panel1.TabIndex = 5;
             // 
-            // label25
+            // button1
             // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.White;
-            this.label25.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.DimGray;
-            this.label25.Location = new System.Drawing.Point(772, 284);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(65, 16);
-            this.label25.TabIndex = 105;
-            this.label25.Text = "Cantidad";
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Gold;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Maroon;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1274, 87);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 48);
+            this.button1.TabIndex = 107;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textCantidad
             // 
@@ -546,27 +563,14 @@
             this.textCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textCantidad.isPassword = false;
-            this.textCantidad.Location = new System.Drawing.Point(767, 277);
+            this.textCantidad.Location = new System.Drawing.Point(536, 63);
             this.textCantidad.Margin = new System.Windows.Forms.Padding(5);
             this.textCantidad.Name = "textCantidad";
             this.textCantidad.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textCantidad.Size = new System.Drawing.Size(137, 49);
+            this.textCantidad.Size = new System.Drawing.Size(137, 72);
             this.textCantidad.TabIndex = 106;
             this.textCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textCantidad.OnValueChanged += new System.EventHandler(this.textCantidad_OnValueChanged);
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.White;
-            this.label24.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.DimGray;
-            this.label24.Location = new System.Drawing.Point(920, 284);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(100, 16);
-            this.label24.TabIndex = 103;
-            this.label24.Text = "PrecioUnidario";
             // 
             // textPrecioUnidario
             // 
@@ -580,26 +584,13 @@
             this.textPrecioUnidario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPrecioUnidario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textPrecioUnidario.isPassword = false;
-            this.textPrecioUnidario.Location = new System.Drawing.Point(915, 277);
+            this.textPrecioUnidario.Location = new System.Drawing.Point(711, 63);
             this.textPrecioUnidario.Margin = new System.Windows.Forms.Padding(5);
             this.textPrecioUnidario.Name = "textPrecioUnidario";
             this.textPrecioUnidario.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textPrecioUnidario.Size = new System.Drawing.Size(137, 49);
+            this.textPrecioUnidario.Size = new System.Drawing.Size(137, 73);
             this.textPrecioUnidario.TabIndex = 104;
             this.textPrecioUnidario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.White;
-            this.label23.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.DimGray;
-            this.label23.Location = new System.Drawing.Point(1068, 284);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(102, 16);
-            this.label23.TabIndex = 101;
-            this.label23.Text = "Descuento (%)";
             // 
             // textDescuento
             // 
@@ -613,47 +604,14 @@
             this.textDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textDescuento.isPassword = false;
-            this.textDescuento.Location = new System.Drawing.Point(1063, 277);
+            this.textDescuento.Location = new System.Drawing.Point(868, 67);
             this.textDescuento.Margin = new System.Windows.Forms.Padding(5);
             this.textDescuento.Name = "textDescuento";
             this.textDescuento.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textDescuento.Size = new System.Drawing.Size(137, 49);
+            this.textDescuento.Size = new System.Drawing.Size(137, 69);
             this.textDescuento.TabIndex = 102;
             this.textDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textDescuento.OnValueChanged += new System.EventHandler(this.textDescuento_OnValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(1216, 284);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 16);
-            this.label4.TabIndex = 99;
-            this.label4.Text = "Total";
-            // 
-            // textTotal
-            // 
-            this.textTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTotal.BackColor = System.Drawing.Color.White;
-            this.textTotal.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.textTotal.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textTotal.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textTotal.BorderThickness = 1;
-            this.textTotal.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textTotal.isPassword = false;
-            this.textTotal.Location = new System.Drawing.Point(1211, 277);
-            this.textTotal.Margin = new System.Windows.Forms.Padding(5);
-            this.textTotal.Name = "textTotal";
-            this.textTotal.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textTotal.Size = new System.Drawing.Size(137, 49);
-            this.textTotal.TabIndex = 100;
-            this.textTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label16
             // 
@@ -661,7 +619,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label16.Location = new System.Drawing.Point(15, 214);
+            this.label16.Location = new System.Drawing.Point(274, 17);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(53, 16);
             this.label16.TabIndex = 98;
@@ -677,10 +635,10 @@
             this.cbxCodigoProducto.DisplayMember = "codigoProducto";
             this.cbxCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCodigoProducto.FormattingEnabled = true;
-            this.cbxCodigoProducto.Location = new System.Drawing.Point(20, 234);
+            this.cbxCodigoProducto.Location = new System.Drawing.Point(276, 46);
             this.cbxCodigoProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCodigoProducto.Name = "cbxCodigoProducto";
-            this.cbxCodigoProducto.Size = new System.Drawing.Size(1407, 26);
+            this.cbxCodigoProducto.Size = new System.Drawing.Size(239, 26);
             this.cbxCodigoProducto.TabIndex = 97;
             this.cbxCodigoProducto.ValueMember = "idProducto";
             this.cbxCodigoProducto.SelectedIndexChanged += new System.EventHandler(this.cbxCodigoProducto_SelectedIndexChanged);
@@ -696,7 +654,7 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 176);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 165);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(1440, 21);
@@ -710,7 +668,7 @@
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.label15.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label15.Location = new System.Drawing.Point(959, 101);
+            this.label15.Location = new System.Drawing.Point(1004, 101);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(91, 16);
             this.label15.TabIndex = 95;
@@ -729,11 +687,11 @@
             this.textDescuentoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDescuentoCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textDescuentoCompra.isPassword = false;
-            this.textDescuentoCompra.Location = new System.Drawing.Point(949, 94);
+            this.textDescuentoCompra.Location = new System.Drawing.Point(996, 94);
             this.textDescuentoCompra.Margin = new System.Windows.Forms.Padding(5);
             this.textDescuentoCompra.Name = "textDescuentoCompra";
             this.textDescuentoCompra.Padding = new System.Windows.Forms.Padding(100, 0, 8, 0);
-            this.textDescuentoCompra.Size = new System.Drawing.Size(479, 32);
+            this.textDescuentoCompra.Size = new System.Drawing.Size(432, 32);
             this.textDescuentoCompra.TabIndex = 10;
             this.textDescuentoCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -749,24 +707,24 @@
             this.label14.TabIndex = 93;
             this.label14.Text = "Nro. orden compra   |";
             // 
-            // bunifuMetroTextbox8
+            // textNroOrdenCompra
             // 
-            this.bunifuMetroTextbox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.bunifuMetroTextbox8.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.bunifuMetroTextbox8.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.bunifuMetroTextbox8.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.bunifuMetroTextbox8.BorderThickness = 1;
-            this.bunifuMetroTextbox8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox8.isPassword = false;
-            this.bunifuMetroTextbox8.Location = new System.Drawing.Point(693, 94);
-            this.bunifuMetroTextbox8.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuMetroTextbox8.Name = "bunifuMetroTextbox8";
-            this.bunifuMetroTextbox8.Padding = new System.Windows.Forms.Padding(153, 0, 8, 0);
-            this.bunifuMetroTextbox8.Size = new System.Drawing.Size(228, 32);
-            this.bunifuMetroTextbox8.TabIndex = 9;
-            this.bunifuMetroTextbox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textNroOrdenCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.textNroOrdenCompra.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.textNroOrdenCompra.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.textNroOrdenCompra.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.textNroOrdenCompra.BorderThickness = 1;
+            this.textNroOrdenCompra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textNroOrdenCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNroOrdenCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textNroOrdenCompra.isPassword = false;
+            this.textNroOrdenCompra.Location = new System.Drawing.Point(693, 94);
+            this.textNroOrdenCompra.Margin = new System.Windows.Forms.Padding(5);
+            this.textNroOrdenCompra.Name = "textNroOrdenCompra";
+            this.textNroOrdenCompra.Padding = new System.Windows.Forms.Padding(153, 0, 8, 0);
+            this.textNroOrdenCompra.Size = new System.Drawing.Size(285, 32);
+            this.textNroOrdenCompra.TabIndex = 9;
+            this.textNroOrdenCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label13
             // 
@@ -774,30 +732,30 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label13.Location = new System.Drawing.Point(364, 101);
+            this.label13.Location = new System.Drawing.Point(455, 101);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(99, 16);
             this.label13.TabIndex = 91;
             this.label13.Text = "Tipo cambio   |";
             // 
-            // bunifuMetroTextbox7
+            // txtTipoCambio
             // 
-            this.bunifuMetroTextbox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.bunifuMetroTextbox7.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.bunifuMetroTextbox7.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.bunifuMetroTextbox7.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.bunifuMetroTextbox7.BorderThickness = 1;
-            this.bunifuMetroTextbox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox7.isPassword = false;
-            this.bunifuMetroTextbox7.Location = new System.Drawing.Point(355, 94);
-            this.bunifuMetroTextbox7.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuMetroTextbox7.Name = "bunifuMetroTextbox7";
-            this.bunifuMetroTextbox7.Padding = new System.Windows.Forms.Padding(107, 0, 8, 0);
-            this.bunifuMetroTextbox7.Size = new System.Drawing.Size(316, 32);
-            this.bunifuMetroTextbox7.TabIndex = 8;
-            this.bunifuMetroTextbox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtTipoCambio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.txtTipoCambio.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.txtTipoCambio.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.txtTipoCambio.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.txtTipoCambio.BorderThickness = 1;
+            this.txtTipoCambio.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTipoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoCambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTipoCambio.isPassword = false;
+            this.txtTipoCambio.Location = new System.Drawing.Point(445, 94);
+            this.txtTipoCambio.Margin = new System.Windows.Forms.Padding(5);
+            this.txtTipoCambio.Name = "txtTipoCambio";
+            this.txtTipoCambio.Padding = new System.Windows.Forms.Padding(107, 0, 8, 0);
+            this.txtTipoCambio.Size = new System.Drawing.Size(223, 32);
+            this.txtTipoCambio.TabIndex = 8;
+            this.txtTipoCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label12
             // 
@@ -826,7 +784,7 @@
             this.textDireccion.Margin = new System.Windows.Forms.Padding(5);
             this.textDireccion.Name = "textDireccion";
             this.textDireccion.Padding = new System.Windows.Forms.Padding(113, 0, 8, 0);
-            this.textDireccion.Size = new System.Drawing.Size(316, 32);
+            this.textDireccion.Size = new System.Drawing.Size(405, 32);
             this.textDireccion.TabIndex = 7;
             this.textDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -865,7 +823,7 @@
             this.cbxMoneda.Location = new System.Drawing.Point(80, 58);
             this.cbxMoneda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxMoneda.Name = "cbxMoneda";
-            this.cbxMoneda.Size = new System.Drawing.Size(252, 26);
+            this.cbxMoneda.Size = new System.Drawing.Size(179, 26);
             this.cbxMoneda.TabIndex = 4;
             this.cbxMoneda.ValueMember = "idMoneda";
             // 
@@ -891,6 +849,7 @@
             this.btnAddMarca.TabIndex = 3;
             this.btnAddMarca.Text = "Importar orden de compra";
             this.btnAddMarca.UseVisualStyleBackColor = false;
+            this.btnAddMarca.Click += new System.EventHandler(this.btnAddMarca_Click);
             // 
             // label2
             // 
@@ -1028,23 +987,6 @@
             this.dtpPago.Size = new System.Drawing.Size(179, 26);
             this.dtpPago.TabIndex = 6;
             // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBuscarProducto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBuscarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.btnBuscarProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.btnBuscarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
-            this.btnBuscarProducto.Location = new System.Drawing.Point(1119, 197);
-            this.btnBuscarProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(41, 31);
-            this.btnBuscarProducto.TabIndex = 65;
-            this.btnBuscarProducto.UseVisualStyleBackColor = false;
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
-            // 
             // dtpEmision
             // 
             this.dtpEmision.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1057,32 +999,13 @@
             this.dtpEmision.Size = new System.Drawing.Size(179, 26);
             this.dtpEmision.TabIndex = 5;
             // 
-            // removeCard
-            // 
-            this.removeCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.removeCard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.removeCard.FlatAppearance.BorderSize = 0;
-            this.removeCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.removeCard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.removeCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removeCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeCard.ForeColor = System.Drawing.Color.White;
-            this.removeCard.Image = ((System.Drawing.Image)(resources.GetObject("removeCard.Image")));
-            this.removeCard.Location = new System.Drawing.Point(1168, 196);
-            this.removeCard.Margin = new System.Windows.Forms.Padding(4);
-            this.removeCard.Name = "removeCard";
-            this.removeCard.Size = new System.Drawing.Size(71, 32);
-            this.removeCard.TabIndex = 21;
-            this.removeCard.UseVisualStyleBackColor = false;
-            // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label5.Location = new System.Drawing.Point(16, 278);
+            this.label5.Location = new System.Drawing.Point(273, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 67;
@@ -1098,10 +1021,10 @@
             this.cbxDescripcion.DisplayMember = "nombreProducto";
             this.cbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
-            this.cbxDescripcion.Location = new System.Drawing.Point(20, 298);
+            this.cbxDescripcion.Location = new System.Drawing.Point(277, 111);
             this.cbxDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDescripcion.Name = "cbxDescripcion";
-            this.cbxDescripcion.Size = new System.Drawing.Size(312, 26);
+            this.cbxDescripcion.Size = new System.Drawing.Size(239, 26);
             this.cbxDescripcion.TabIndex = 13;
             this.cbxDescripcion.ValueMember = "idProducto";
             this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged);
@@ -1118,7 +1041,7 @@
             this.btnAddCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCard.ForeColor = System.Drawing.Color.White;
             this.btnAddCard.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCard.Image")));
-            this.btnAddCard.Location = new System.Drawing.Point(1357, 278);
+            this.btnAddCard.Location = new System.Drawing.Point(1195, 89);
             this.btnAddCard.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCard.Name = "btnAddCard";
             this.btnAddCard.Size = new System.Drawing.Size(71, 48);
@@ -1136,10 +1059,10 @@
             this.cbxCombinacion.DisplayMember = "nombreCombinacion";
             this.cbxCombinacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCombinacion.FormattingEnabled = true;
-            this.cbxCombinacion.Location = new System.Drawing.Point(351, 298);
+            this.cbxCombinacion.Location = new System.Drawing.Point(41, 110);
             this.cbxCombinacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCombinacion.Name = "cbxCombinacion";
-            this.cbxCombinacion.Size = new System.Drawing.Size(177, 26);
+            this.cbxCombinacion.Size = new System.Drawing.Size(199, 26);
             this.cbxCombinacion.TabIndex = 14;
             this.cbxCombinacion.ValueMember = "idCombinacionAlternativa";
             // 
@@ -1153,7 +1076,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label7.Location = new System.Drawing.Point(548, 278);
+            this.label7.Location = new System.Drawing.Point(63, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
             this.label7.TabIndex = 71;
@@ -1165,7 +1088,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label6.Location = new System.Drawing.Point(348, 278);
+            this.label6.Location = new System.Drawing.Point(47, 89);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 16);
             this.label6.TabIndex = 69;
@@ -1181,7 +1104,7 @@
             this.cbxPresentacion.DisplayMember = "nombrePresentacion";
             this.cbxPresentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPresentacion.FormattingEnabled = true;
-            this.cbxPresentacion.Location = new System.Drawing.Point(552, 298);
+            this.cbxPresentacion.Location = new System.Drawing.Point(41, 46);
             this.cbxPresentacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxPresentacion.Name = "cbxPresentacion";
             this.cbxPresentacion.Size = new System.Drawing.Size(199, 26);
@@ -1192,6 +1115,105 @@
             // presentacionBindingSource
             // 
             this.presentacionBindingSource.DataSource = typeof(Entidad.Presentacion);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.cbxCodigoProducto);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.textCantidad);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnAddCard);
+            this.panel2.Controls.Add(this.textPrecioUnidario);
+            this.panel2.Controls.Add(this.textTotal);
+            this.panel2.Controls.Add(this.textDescuento);
+            this.panel2.Controls.Add(this.cbxPresentacion);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.cbxCombinacion);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.cbxDescripcion);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Location = new System.Drawing.Point(12, 188);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1415, 147);
+            this.panel2.TabIndex = 108;
+            // 
+            // textTotal
+            // 
+            this.textTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textTotal.BackColor = System.Drawing.Color.White;
+            this.textTotal.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.textTotal.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.textTotal.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.textTotal.BorderThickness = 1;
+            this.textTotal.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textTotal.isPassword = false;
+            this.textTotal.Location = new System.Drawing.Point(1023, 65);
+            this.textTotal.Margin = new System.Windows.Forms.Padding(5);
+            this.textTotal.Name = "textTotal";
+            this.textTotal.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textTotal.Size = new System.Drawing.Size(137, 71);
+            this.textTotal.TabIndex = 100;
+            this.textTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textTotal.OnValueChanged += new System.EventHandler(this.textTotal_OnValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
+            this.label8.Location = new System.Drawing.Point(1029, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 16);
+            this.label8.TabIndex = 109;
+            this.label8.Text = "Total";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(880, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 16);
+            this.label4.TabIndex = 109;
+            this.label4.Text = "Descuento (%)";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DimGray;
+            this.label9.Location = new System.Drawing.Point(720, 77);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 16);
+            this.label9.TabIndex = 109;
+            this.label9.Text = "PrecioUnidario";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.White;
+            this.label21.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.DimGray;
+            this.label21.Location = new System.Drawing.Point(543, 77);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 16);
+            this.label21.TabIndex = 109;
+            this.label21.Text = "Cantidad";
             // 
             // FormComprarNuevo
             // 
@@ -1219,6 +1241,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alternativaCombinacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.presentacionBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1238,7 +1262,6 @@
         private System.Windows.Forms.DateTimePicker dtpEmision;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.ComboBox cbxDescripcion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -1246,7 +1269,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbxPresentacion;
         private System.Windows.Forms.Button btnAddCard;
-        private System.Windows.Forms.Button removeCard;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxMoneda;
         private System.Windows.Forms.Label label10;
@@ -1254,9 +1276,9 @@
         private System.Windows.Forms.Label label12;
         private Bunifu.Framework.UI.BunifuMetroTextbox textDireccion;
         private System.Windows.Forms.Label label14;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox8;
+        private Bunifu.Framework.UI.BunifuMetroTextbox textNroOrdenCompra;
         private System.Windows.Forms.Label label13;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox7;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtTipoCambio;
         private System.Windows.Forms.Label label15;
         private Bunifu.Framework.UI.BunifuMetroTextbox textDescuentoCompra;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
@@ -1270,7 +1292,7 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.BindingSource detalleCompraBindingSource;
         private System.Windows.Forms.Button btnRealizarCompra;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chbxPagarCompra;
         private System.Windows.Forms.CheckBox chbxNotaEntrada;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
@@ -1296,13 +1318,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label4;
-        private Bunifu.Framework.UI.BunifuMetroTextbox textTotal;
-        private System.Windows.Forms.Label label23;
         private Bunifu.Framework.UI.BunifuMetroTextbox textDescuento;
-        private System.Windows.Forms.Label label24;
         private Bunifu.Framework.UI.BunifuMetroTextbox textPrecioUnidario;
-        private System.Windows.Forms.Label label25;
         private Bunifu.Framework.UI.BunifuMetroTextbox textCantidad;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private Bunifu.Framework.UI.BunifuMetroTextbox textTotal;
     }
 }

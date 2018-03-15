@@ -18,4 +18,13 @@ namespace Entidad.Location
         public int idNivel3 { get; set; }
         public string nombreN3 { get; set; }
     }
+
+    public class UbicacionGeograficaG // datos para guardar datos de UbicacionGeografica
+    {
+        public int idPais { get; set; }
+        public int idNivel1 { get; set; }
+        public int idNivel2 { get; set; }
+        public int idNivel3 { get; set; }
+    }
+
 }

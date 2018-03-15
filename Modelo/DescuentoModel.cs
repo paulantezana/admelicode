@@ -77,5 +77,20 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        public async Task<ObjetosDescuentosOfertas> descuentoofertacodigo(int pos, int tam)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/descuentoofertacodigo/1/15
+                ObjetosDescuentosOfertas descuentos = await webService.GET<ObjetosDescuentosOfertas>("descuentoofertacodigo", String.Format("{0}/{1}", pos,tam));
+                return descuentos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

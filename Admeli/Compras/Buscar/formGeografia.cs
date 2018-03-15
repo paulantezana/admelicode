@@ -13,6 +13,8 @@ using Entidad;
 using Admeli.Componentes;
 using Admeli.Compras.Nuevo;
 
+
+
 namespace Admeli.Compras.buscar
 {
     public partial class formGeografia : Form
@@ -23,16 +25,19 @@ namespace Admeli.Compras.buscar
         private ProveedorModel proveedorModel = new ProveedorModel();
 
         private List<LabelUbicacion> labelUbicaciones { get; set; }
-        private UbicacionGeografica ubicacionGeografica { get; set; }
+        public  UbicacionGeografica ubicacionGeografica { get; set; }
         private SunatModel sunatModel=new SunatModel();
         private bool bandera;
-        private DataSunat dataSunat;
-        private RespuestaSunat respuestaSunat;
+   
         private FormProveedorNuevo formProveedorNuevo;
+        public int idUbicacionGeografia { get; set; }
+        
         public string cadena = "";
         public formGeografia()
         {
             InitializeComponent();
+
+            
         }
 
         public formGeografia(FormProveedorNuevo formProveedorNuevo)
@@ -63,6 +68,8 @@ namespace Admeli.Compras.buscar
 
             // cargando la ubicacion geografica por defecto
             ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+
 
         } 
         #endregion
@@ -338,8 +345,12 @@ namespace Admeli.Compras.buscar
             Validator.isNumber(e);
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async  void btnAceptar_Click(object sender, EventArgs e)
         {
+
+           
+
+
             Nivel3 pais3 = null;
             Pais pais  = cbxPaises.Items[cbxPaises.SelectedIndex] as Pais;
             Nivel1 pais1 = cbxNivel1.Items[cbxNivel1.SelectedIndex] as Nivel1;
@@ -355,28 +366,44 @@ namespace Admeli.Compras.buscar
             {
 
                 cadena += pais.nombre+" - ";
+                ubicacionGeografica.idPais = pais.idPais;
             }
             if (pais1 != null)
             {
 
                 cadena += pais1.nombre+" - ";
+                ubicacionGeografica.idNivel1 = pais1.idNivel1;
+            }
+            else
+            {
+                ubicacionGeografica.idNivel1 = 0;
             }
             if (pais2 != null )
             {
 
                 cadena += pais2.nombre + " - ";
+                ubicacionGeografica.idNivel2 = pais2.idNivel2;
+
+            }
+            else
+
+            {
+                ubicacionGeografica.idNivel2 = 0;
             }
             if (pais3 != null)
             {
 
                 cadena += pais3.nombre;
+                ubicacionGeografica.idNivel3= pais3.idNivel3;
             }
             else
             {
 
                 cadena = cadena.Substring(0, cadena.Length - 3);
-
+                ubicacionGeografica.idNivel3 = 0;
             }
+            Response respuesta=   await locationModel.guardarUbigeo(ubicacionGeografica);
+            idUbicacionGeografia = respuesta.id;
 
             this.Close();
 
