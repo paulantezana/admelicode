@@ -64,12 +64,12 @@ namespace Modelo
             }
         }
 
-        public async Task<List<Descuento>> descuentos(int idProducto)
+        public async Task<List<Descuento>> descuentos(int idPresentacion)
         {
             try
             {
                 // localhost/admeli/xcore/services.php/descuento/producto/21
-                List<Descuento> descuentos = await webService.GET<List<Descuento>>("descuento", String.Format("producto/{0}", idProducto));
+                List<Descuento> descuentos = await webService.GET<List<Descuento>>("descuento", String.Format("presentacion/{0}", idPresentacion));
                 return descuentos;
             }
             catch (Exception ex)
