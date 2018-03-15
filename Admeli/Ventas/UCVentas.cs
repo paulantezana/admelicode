@@ -470,11 +470,9 @@ namespace Admeli.Ventas
 
         }
 
-<<<<<<< HEAD
-        private void ventaBindingSource_CurrentChanged(object sender, EventArgs e)
-=======
+
         private void panelTools_Paint(object sender, PaintEventArgs e)
->>>>>>> 2ded146a9a9ea95ac8c4a2c5740089034aff28f6
+
         {
 
         }
