@@ -516,6 +516,11 @@ namespace Admeli.Compras.Nuevo.Detalle
             else
                 return "";
 
+<<<<<<< HEAD
+=======
+                                
+     
+>>>>>>> 2ded146a9a9ea95ac8c4a2c5740089034aff28f6
 
         }
         public async void Ver(string aux)

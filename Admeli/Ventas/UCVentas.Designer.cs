@@ -171,7 +171,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+<<<<<<< HEAD
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+=======
+            this.dataGridView.ColumnHeadersHeight = 40;
+>>>>>>> 2ded146a9a9ea95ac8c4a2c5740089034aff28f6
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idVentaDataGridViewTextBoxColumn,
             this.fechaDataGridViewTextBoxColumn,
@@ -226,7 +230,10 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+<<<<<<< HEAD
             this.dataGridView.RowHeadersVisible = false;
+=======
+>>>>>>> 2ded146a9a9ea95ac8c4a2c5740089034aff28f6
             this.dataGridView.RowHeadersWidth = 40;
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
@@ -716,6 +723,7 @@
             this.panelTools.Name = "panelTools";
             this.panelTools.Size = new System.Drawing.Size(1577, 64);
             this.panelTools.TabIndex = 26;
+            this.panelTools.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTools_Paint);
             // 
             // label4
             // 
