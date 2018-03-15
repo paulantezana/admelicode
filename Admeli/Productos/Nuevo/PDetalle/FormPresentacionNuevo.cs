@@ -32,6 +32,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
             InitializeComponent();
             this.formProductoNuevo = formProductoNuevo;
             this.nuevo = true;
+            //Traer las presentaciones relacionadas
+            cargarPresentacion(formProductoNuevo.currentIDProducto);
         }
 
         public FormPresentacionNuevo(FormProductoNuevo formProductoNuevo, Presentacion currentPresentacion)
@@ -42,12 +44,13 @@ namespace Admeli.Productos.Nuevo.PDetalle
             this.formProductoNuevo = formProductoNuevo;
             this.currentPresentacion = currentPresentacion;
             this.currentIDPresentacion = currentPresentacion.idPresentacion;
-
             // Mostrando los datos modificar
             mostrarDatosModificar();
-
             // Cambiando el estado a modificar
             this.nuevo = false;
+            //CargarPresentaciones Base
+            cargarPresentacion(formProductoNuevo.currentIDProducto);
+
         } 
         #endregion
 
@@ -90,6 +93,20 @@ namespace Admeli.Productos.Nuevo.PDetalle
             }
         }
 
+        internal async void cargarPresentacion(int idProducto)
+        {
+            try
+            {
+                presentacionBindingSource.DataSource = await presentacionModel.presentaciones(idProducto);
+                //if (!formProductoNuevo.nuevo) cbxUnidadMedida.SelectedValue = formProductoNuevo.currentProducto.idUnidadMedida;
+                if (!nuevo) cbxPresentacionBase.SelectedIndex = 0;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Nueva Presentación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void crearObjetoSucursal()
         {
             currentPresentacion = new Presentacion();
@@ -101,6 +118,11 @@ namespace Admeli.Productos.Nuevo.PDetalle
             currentPresentacion.cantidadUnitaria = textCantidad.Text;
             currentPresentacion.estado = Convert.ToInt32(chkEstado.Checked);
             currentPresentacion.idProducto = formProductoNuevo.currentIDProducto;
+            currentPresentacion.idPresentacionBase = Convert.ToInt32(cbxPresentacionBase.SelectedValue);
+            currentPresentacion.codigo = textCodigo.Text;
+            currentPresentacion.codigoBarras = "";
+            currentPresentacion.descripcion = "";
+            currentPresentacion.precioCompra = textPrecio.Text;
         }
 
         private bool validarCampos()

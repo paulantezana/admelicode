@@ -648,6 +648,12 @@
     <Compile Include="Productos\Nuevo\PDetalle\FormElegirCategoria.Designer.cs">
       <DependentUpon>FormElegirCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\Nuevo\PDetalle\FormNuevoImpuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Nuevo\PDetalle\FormNuevoImpuesto.Designer.cs">
+      <DependentUpon>FormNuevoImpuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\Nuevo\PDetalle\FormOfertaNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1066,6 +1072,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Nuevo\PDetalle\FormElegirCategoria.resx">
       <DependentUpon>FormElegirCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Nuevo\PDetalle\FormNuevoImpuesto.resx">
+      <DependentUpon>FormNuevoImpuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Nuevo\PDetalle\FormOfertaNuevo.resx">
       <DependentUpon>FormOfertaNuevo.cs</DependentUpon>

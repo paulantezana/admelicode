@@ -161,7 +161,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             if (textCodigo.Text == "")
             {
-                errorProvider1.SetError(textCodigo, "Este campo esta bacía");
+                errorProvider1.SetError(textCodigo, "Este campo esta vacía");
                 textCodigo.Focus();
                 return false;
             }
@@ -169,7 +169,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
             if (textMaximaVenta.Text == "")
             {
-                errorProvider1.SetError(textMaximaVenta, "Este campo esta bacía");
+                errorProvider1.SetError(textMaximaVenta, "Este campo esta vacía");
                 textMaximaVenta.Focus();
                 return false;
             }
@@ -177,7 +177,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
             if (textMinimaVenta.Text == "")
             {
-                errorProvider1.SetError(textMinimaVenta, "Este campo esta bacía");
+                errorProvider1.SetError(textMinimaVenta, "Este campo esta vacía");
                 textMinimaVenta.Focus();
                 return false;
             }
@@ -185,7 +185,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
             if (textDescuento.Text == "")
             {
-                errorProvider1.SetError(textDescuento, "Este campo esta bacía");
+                errorProvider1.SetError(textDescuento, "Este campo esta vacía");
                 textDescuento.Focus();
                 return false;
             }
