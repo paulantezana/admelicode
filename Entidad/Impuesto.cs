@@ -23,4 +23,15 @@ namespace Entidad
         public int idProducto { get; set; }
         public List<Impuesto> impuestos { get; set; }
     }
+    public class ImpuestoProductoTodo
+    {
+        public List<Impuesto> producto { get; set; }
+        public List<Impuesto> todo { get; set; }
+    }
+    public class ImpuestosEnviados
+    {
+        public string impuestos { get; set; }
+        public Producto producto { get; set; }
+        public Sucursal sucursal { get; set; }
+    }
 }

@@ -110,6 +110,47 @@ namespace Modelo
                 throw ex;
             }
         }
-
+        //verificar/nombre/ImpuestoGeneral/siglas/IGV/impuesto/0
+        public async Task<List<Impuesto>> verificarNombreSiglasImpuesto(string nombreImpuesto,string siglasImpuesto)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/verificar/nombre/Impuesto/siglas/IGV/impuesto/0
+                List<Impuesto> impuesto = await webService.GET<List<Impuesto>>("verificar", String.Format("nombre/{0}/siglas/{1}/impuesto/0", nombreImpuesto, siglasImpuesto));
+                return impuesto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //iproducto/1/1
+        public async Task<ImpuestoProductoTodo> impuestoProductoTodo(int idPresentacion,int idSucursal)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/iproducto/2/1
+                ImpuestoProductoTodo impuestoProducto = await webService.GET<ImpuestoProductoTodo>("iproducto", String.Format("{0}/{1}", idPresentacion, idSucursal));
+                return impuestoProducto;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //iproducto
+        public async Task<Response> actualizarImpuestoProducto(ImpuestosEnviados impuestosEnviados)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/iproducto
+                Response respuesta = await webService.POST<ImpuestosEnviados,Response>("iproducto", impuestosEnviados);
+                return respuesta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

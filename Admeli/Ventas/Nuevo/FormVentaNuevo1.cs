@@ -68,6 +68,9 @@ namespace Admeli.Ventas.Nuevo
 
         /// Se preparan para realizar la compra de productos
         private List<DetalleCompra> detalleCompras { get; set; }
+
+        private List<DetalleV> detalleVentas { get; set; }
+
         private Compra currentCompra { get; set; } // notaEntrada,pago,pagoCompra
         private NotaEntrada currentNotaEntrada { get; set; }
         private Pago currentPago { get; set; }
@@ -359,39 +362,39 @@ namespace Admeli.Ventas.Nuevo
 
         private void btnAddCard_Click(object sender, EventArgs e)
         {
-            if(detalleCompras == null) detalleCompras = new List<DetalleCompra>();
-            DetalleCompra detalleCompra = new DetalleCompra();
+            if(detalleVentas == null) detalleVentas = new List<DetalleV>();
+            DetalleV detalleV= new DetalleV();
 
             // Creando la lista
-            detalleCompra.cantidad = double.Parse(textCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+            detalleV.cantidad = double.Parse(textCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
 
-            string ff = cbxPresentacion.SelectedValue.ToString();
+            
             /// Busqueda presentacion
 
             PresentacionV findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxPresentacion.SelectedValue));
-            detalleCompra.cantidadUnitaria = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
+            detalleV.cantidadUnitaria = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
 
-            detalleCompra.codigoProducto = cbxCodigoProducto.Text.Trim();
-            detalleCompra.descripcion = cbxDescripcion.Text.Trim();
-            detalleCompra.descuento = Convert.ToDouble(textDescuento.Text.Trim());
-            detalleCompra.estado = 1;
-            detalleCompra.idCombinacionAlternativa = Convert.ToInt32(cbxCombinacion.SelectedValue);
+            detalleV.codigoProducto = cbxCodigoProducto.Text.Trim();
+            detalleV.descripcion = cbxDescripcion.Text.Trim();
+            detalleV.descuento = Convert.ToDouble(textDescuento.Text.Trim());// determinar el descuentogreupo
+            detalleV.estado = 1;
+            detalleV.idCombinacionAlternativa = Convert.ToInt32(cbxCombinacion.SelectedValue);
 
-            detalleCompra.idCompra = 0;
-            detalleCompra.idDetalleCompra = 0;
-            detalleCompra.idPresentacion = Convert.ToInt32(cbxPresentacion.SelectedValue);
+            //detalleV.idCompra = 0;
+            //detalleV.idDetalleCompra = 0;
+            detalleV.idPresentacion = Convert.ToInt32(cbxPresentacion.SelectedValue);
 
-            detalleCompra.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
-            detalleCompra.idSucursal = ConfigModel.sucursal.idSucursal;
-            detalleCompra.nombreCombinacion = cbxCombinacion.Text;
-            detalleCompra.nombreMarca = currentProducto.nombreMarca;
-            detalleCompra.nombrePresentacion = cbxPresentacion.Text;
-            detalleCompra.nro = 1;
-            detalleCompra.precioUnitario = double.Parse(textPrecioUnidario.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
-            detalleCompra.total = double.Parse(textTotal.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+            detalleV.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
+            detalleV.idSucursal = ConfigModel.sucursal.idSucursal;
+            detalleV.nombreCombinacion = cbxCombinacion.Text;
+            detalleV.nombreMarca = currentProducto.nombreMarca;
+            detalleV.nombrePresentacion = cbxPresentacion.Text;
+            detalleV.nro = 1;
+            detalleV.precioUnitario = double.Parse(textPrecioUnidario.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+            detalleV.total = double.Parse(textTotal.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
 
             // agrgando un nuevo item a la lista
-            detalleCompras.Add(detalleCompra);
+            detalleVentas.Add(detalleV);
 
             // Refrescando la tabla
             detalleCompraBindingSource.DataSource = null;
