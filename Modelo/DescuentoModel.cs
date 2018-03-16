@@ -37,6 +37,18 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<DescuentoReceive> descuentoTotalALaFechaGrupo(DescuentoSubmit param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
+                return await webService.POST<DescuentoSubmit, DescuentoReceive>("productos", "descuentototalalafechagrupo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public async Task<Response> desactivar(Descuento param)
         {
@@ -91,6 +103,9 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
+
 
     }
 }

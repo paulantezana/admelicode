@@ -29,4 +29,23 @@ namespace Entidad
         public string nombreSucursal { get; set; }
         public object nombreProducto { get; set; }
     }
+
+
+
+    #region========http://localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrup =========
+    public class DescuentoSubmit /// descuentototalalafecha
+    {
+        public string cantidades { get; set; }
+        public int idGrupoCliente { get; set; }
+        public int idSucursal { get; set; }
+        public string idProductos { get; set; }
+    }
+    public class DescuentoReceive
+    {
+        public string idProducto { get; set; }
+        public string cantidad { get; set; }
+        public string descuento { get; set; }
+    }
+    #endregion========http://localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo   =========
+
 }

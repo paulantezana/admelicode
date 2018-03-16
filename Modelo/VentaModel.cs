@@ -41,13 +41,13 @@ namespace Modelo
                 throw ex;
             }
         }
-        
+
         public async Task<List<Venta>> ventasUltimas(int idPersonal, int idSucursal, int todos, int gerente)
         {
             try
             {
                 // www.lineatienda.com/services.php/ventasultimas/3/1/1/1
-                List<Venta> ventasultimas = await webService.GET<List<Venta>>("ventasultimas", String.Format("{0}/{1}/{2}/{3}",idPersonal,idSucursal,todos,gerente));
+                List<Venta> ventasultimas = await webService.GET<List<Venta>>("ventasultimas", String.Format("{0}/{1}/{2}/{3}", idPersonal, idSucursal, todos, gerente));
                 return ventasultimas;
             }
             catch (Exception ex)
@@ -79,5 +79,22 @@ namespace Modelo
         {
             throw new NotImplementedException();
         }
+        public async Task<List<Venta_correlativo>> listarNroDocumentoVenta(int idTipoDocumento, int idPuntoVenta)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/ventacorrelativo/tipodoc/4/pv/1
+                List<Venta_correlativo> list = await webService.GET<List<Venta_correlativo>>("ventacorrelativo", String.Format("tipodoc/{0}/pv/{1}", idTipoDocumento, idPuntoVenta));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        //ventacorrelativo/tipodoc/4/pv/1
     }
 }

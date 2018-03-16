@@ -51,6 +51,19 @@ namespace Modelo
             }
         }
 
+        //verificarstockproductossucursal
+        public async Task<verificarStockReceive> getStockAlmacenByIdProductosIdCombinacionEIdSucursal(verificarStockSubmit param)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/verificarstockproductossucursal
+                return await webService.POST<verificarStockSubmit, verificarStockReceive>("verificarstockproductossucursal", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<List<Stock>> stockProducto(int idProducto)
         {
             try

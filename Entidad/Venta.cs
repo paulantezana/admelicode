@@ -41,4 +41,11 @@ namespace Entidad
         public string numeroDocumento { get; set; }
 
     }
+
+    public class Venta_correlativo
+    {
+        public string serie { get; set; }
+        public string correlativoActual { get; set; }
+
+    }
 }
