@@ -50,5 +50,10 @@ namespace Admeli.CajaBox
         }
 
         #endregion
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
