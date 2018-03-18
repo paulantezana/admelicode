@@ -67,9 +67,9 @@ namespace Entidad
         public string nombrePresentacion { get; set; }
         public int idSucursal { get; set; }
         public bool ventaVarianteSinStock { get; set; }
-        public string precioVenta { get; set; }
+        public double precioVenta { get; set; }
         public double precioVentaReal { get; set; }
-        public string totalGeneral { get; set; }
+        public double totalGeneral { get; set; }
         public string eliminar { get; set; }
         public int existeStock { get; set; }
         

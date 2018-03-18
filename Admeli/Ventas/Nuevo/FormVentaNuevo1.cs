@@ -46,7 +46,9 @@ namespace Admeli.Ventas.Nuevo
         private CompraModel compra = new CompraModel();
         private ProveedorModel proveedormodel = new ProveedorModel();
         private VentaModel ventaModel = new VentaModel();
+        private DescuentoModel descuentoModel = new DescuentoModel();
 
+        private StockModel stockModel = new StockModel();
         private DocumentoIdentificacionModel documentoIdentificacionModel = new DocumentoIdentificacionModel();
         private List<DocumentoIdentificacion> documentoIdentificaciones;
         /// Sus datos se cargan al abrir el formulario
@@ -75,8 +77,9 @@ namespace Admeli.Ventas.Nuevo
         private NotaEntrada currentNotaEntrada { get; set; }
         private Pago currentPago { get; set; }
         private PagoCompra currentPagoCompra { get; set; }
-
-
+        private bool mostrarOriginal=false;
+        private List<DescuentoReceive> descuentoReceive;
+        private DescuentoProductoReceive descuentoProducto;
         private AlmacenComra currentAlmacenCompra { get; set; }
         private List<AlmacenComra> Almacen { get; set; }
         private bool nuevo { get; set; }
@@ -346,7 +349,12 @@ namespace Admeli.Ventas.Nuevo
 
         private void textCantidad_OnValueChanged(object sender, EventArgs e)
         {
+
+            // calcular descuento que abrira para el producto
+
             calcularTotal();
+
+
         }
 
         private void textDescuento_OnValueChanged(object sender, EventArgs e)
@@ -360,66 +368,135 @@ namespace Admeli.Ventas.Nuevo
             calcularTotal();
         }
 
-        private void btnAddCard_Click(object sender, EventArgs e)
+        private  void btnAddCard_Click(object sender, EventArgs e)
         {
-            if(detalleVentas == null) detalleVentas = new List<DetalleV>();
-            DetalleV detalleV= new DetalleV();
 
-            // Creando la lista
-            detalleV.cantidad = double.Parse(textCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+            bool seleccionado = false;
+            if (cbxCodigoProducto.SelectedValue != null)
+                seleccionado = true;
+            if (cbxDescripcion.SelectedValue != null)
+                seleccionado = true;
+            // if(idProducto)
+            if (seleccionado)
+            {
+                if (detalleVentas == null) detalleVentas = new List<DetalleV>();
+                DetalleV detalleV = new DetalleV();
 
+                // Creando la lista
+                detalleV.cantidad = double.Parse(textCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));//1
+
+
+                determinarStock();
+                /// Busqueda presentacion
+                PresentacionV findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxPresentacion.SelectedValue));
+                detalleV.cantidadUnitaria = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));//2
+
+                detalleV.codigoProducto = cbxCodigoProducto.Text.Trim();//3
+                detalleV.descripcion = cbxDescripcion.Text.Trim();//4
+                double descuento =Math.Round( Convert.ToDouble(textDescuento.Text.Trim()),2);
+
+                detalleV.descuento = descuento;// determinar el descuentogreupo 5
+
+
+
+                detalleV.estado = 1;//5
+                detalleV.idCombinacionAlternativa = Convert.ToInt32(cbxCombinacion.SelectedValue);//7
+
+
+                detalleV.idPresentacion = Convert.ToInt32(cbxPresentacion.SelectedValue);
+
+                detalleV.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
+                detalleV.idSucursal = ConfigModel.sucursal.idSucursal;
+                detalleV.nombreCombinacion = cbxCombinacion.Text;
+                detalleV.nombreMarca = currentProducto.nombreMarca;
+                detalleV.nombrePresentacion = cbxPresentacion.Text;
+                detalleV.nro = 1;
+                detalleV.precioUnitario = double.Parse(textPrecioUnidario.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+
+                double precioUnitario = double.Parse(textPrecioUnidario.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+
+                precioUnitario = precioUnitario - (descuento / 100) * precioUnitario;
+
+                detalleV.precioUnitario =Math.Round( precioUnitario,2);
+
+                detalleV.precioVenta = Math.Round(precioUnitario, 2);
+
+                detalleV.total = Math.Round( double.Parse(textTotal.Text.Trim(), CultureInfo.GetCultureInfo("en-US")),2);
+
+                detalleV.precioVentaReal = Math.Round( double.Parse(textPrecioUnidario.Text.Trim(), CultureInfo.GetCultureInfo("en-US")),2);
+                detalleV.eliminar = "";
+
+                int scotk = Convert.ToInt32(lblstock.Text.Substring(1, lblstock.Text.Length - 1));
+                detalleV.existeStock = (scotk > 0 && scotk >= Convert.ToInt32(textCantidad.Text.Trim())) ? 1 : 0;
+
+
+                detalleV.idDetalleVenta = 0;
+                detalleV.idPresentacion = findPresentacion.idPresentacion;
+                detalleV.idVenta = 0;
+
+                ProductoVenta aux = productos.Find(x => x.idProducto == (int)cbxCodigoProducto.SelectedValue);
+                detalleV.nombreMarca = aux.nombreMarca;
+                detalleV.nombrePresentacion = findPresentacion.nombrePresentacion;
+                detalleV.precioEnvio = 0;
+                detalleV.precioVenta = Math.Round(precioUnitario, 2); ;
+                detalleV.totalGeneral = detalleV.total;
+
+                detalleV.ventaVarianteSinStock = false;
+
+              
+
+
+
+
+                // agrgando un nuevo item a la lista
+                detalleVentas.Add(detalleV);
+
+                // calcular los descuentos
+                
+
+                // Refrescando la tabla
+                detalleCompraBindingSource.DataSource = null;
+                detalleCompraBindingSource.DataSource = detalleVentas;
+                dataGridView.Refresh();
+
+                // Calculo de totales y subtotales
+                calculoSubtotal();
+
+                double descuentoTotal = 0;
+                // calcular el descuento total
+                foreach(DetalleV V in detalleVentas)
+                {
+                    // calculamos el decuento para cada elemento
+                    double total = V.precioVentaReal * V.cantidad;
+                    double descuentoV = total - V.total;
+                    descuentoTotal += descuentoV;
+
+                }
+
+                textDescuentoVenta.Text = descuentoTotal.ToString();
+                //textDescuentoVenta.Text=
+
+
+                //obtener los descuentos
+                DescuentoSubmit descuentoSubmit = new DescuentoSubmit();
+                descuentoSubmit.idGrupoCliente = currentCliente != null ? currentCliente.idGrupoCliente : 0;
+                descuentoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
+                //foreach (De )
+
+                // determinar el stock
+
+                verificarStockSubmit verificarStockSubmit = new verificarStockSubmit();
+                verificarStockSubmit.idPersonal = PersonalModel.personal.idPersonal;
+                verificarStockSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
+                verificarStockSubmit.idVenta = currentVenta != null ? currentVenta.idVenta : 0;
+
+            }
+            else
+            {
+
+                MessageBox.Show("Error: elemento no seleccionado", "agregar Elemento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
-            /// Busqueda presentacion
-
-            PresentacionV findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxPresentacion.SelectedValue));
-            detalleV.cantidadUnitaria = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
-
-            detalleV.codigoProducto = cbxCodigoProducto.Text.Trim();
-            detalleV.descripcion = cbxDescripcion.Text.Trim();
-            detalleV.descuento = Convert.ToDouble(textDescuento.Text.Trim());// determinar el descuentogreupo
-            detalleV.estado = 1;
-            detalleV.idCombinacionAlternativa = Convert.ToInt32(cbxCombinacion.SelectedValue);
-
-            //detalleV.idCompra = 0;
-            //detalleV.idDetalleCompra = 0;
-            detalleV.idPresentacion = Convert.ToInt32(cbxPresentacion.SelectedValue);
-
-            detalleV.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
-            detalleV.idSucursal = ConfigModel.sucursal.idSucursal;
-            detalleV.nombreCombinacion = cbxCombinacion.Text;
-            detalleV.nombreMarca = currentProducto.nombreMarca;
-            detalleV.nombrePresentacion = cbxPresentacion.Text;
-            detalleV.nro = 1;
-            detalleV.precioUnitario = double.Parse(textPrecioUnidario.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
-            detalleV.total = double.Parse(textTotal.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
-
-            // agrgando un nuevo item a la lista
-            detalleVentas.Add(detalleV);
-
-            // Refrescando la tabla
-            detalleCompraBindingSource.DataSource = null;
-            detalleCompraBindingSource.DataSource = detalleCompras;
-            dataGridView.Refresh();
-
-            // Calculo de totales y subtotales
-            calculoSubtotal();
-
-
-
-            //obtener los descuentos
-            DescuentoSubmit descuentoSubmit = new DescuentoSubmit();
-            descuentoSubmit.idGrupoCliente = currentCliente != null ? currentCliente.idGrupoCliente : 0;
-            descuentoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
-            //foreach (De )
-
-            // determinar el stock
-
-            verificarStockSubmit verificarStockSubmit = new verificarStockSubmit();
-            verificarStockSubmit.idPersonal = PersonalModel.personal.idPersonal;
-            verificarStockSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
-            verificarStockSubmit.idVenta = currentVenta != null ? currentVenta.idVenta : 0;
-
-
+                }
 
         }
 
@@ -435,18 +512,49 @@ namespace Admeli.Ventas.Nuevo
                 // Llenar los campos del producto escogido.............!!!!!
                 textCantidad.Text = "1";
                 textDescuento.Text = "0";
-
                 /// Cargando presentaciones
                 cargarPresentacionesProducto();
-               
-
                 /// Cargando alternativas del producto
                 cargarAlternativasProducto();
+                determinarDescuento();
+                determinarStock();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+
+        public async void determinarStock()
+        {
+
+            //verificarStockSubmit verificarStockSubmit = new verificarStockSubmit();
+            //verificarStockSubmit.idPersonal = PersonalModel.personal.idPersonal;
+            //verificarStockSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
+            //verificarStockSubmit.idVenta = currentVenta != null ? currentVenta.idVenta : 0;
+            //verificarStockSubmit.dato=
+
+           List<StockReceive> stockReceive=await stockModel.getStockProductoByIdProductoIdCombinacionIdSucursal((int)cbxCodigoProducto.SelectedValue, cbxCombinacion.SelectedValue==null ? 0 : (int)cbxCombinacion.SelectedValue, ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
+            double stockTotal = stockReceive[0].stock_total;
+            double stockDetalle = 0;
+
+            if (detalleVentas != null)
+            {
+                foreach(DetalleV V in detalleVentas)
+                {
+                    if (V.idPresentacion == (int)cbxPresentacion.SelectedValue)
+                    {
+                        stockDetalle = V.cantidad;
+                    }
+
+                }
+
+            }
+
+            stockTotal -= stockDetalle;
+
+            lblstock.Text = "/"+stockTotal.ToString();
         }
         private void cargarDescripcionDetalle()
         {
@@ -467,6 +575,8 @@ namespace Admeli.Ventas.Nuevo
 
                 /// Cargando alternativas del producto
                 cargarAlternativasdescripcion();
+                determinarDescuento();
+            
             }
             catch (Exception ex)
             {
@@ -533,7 +643,7 @@ namespace Admeli.Ventas.Nuevo
         private void calculoSubtotal()
         {
             double subtotal = 0;
-            foreach (DetalleCompra item in detalleCompras)
+            foreach (DetalleV item in detalleVentas)
             {
                 subtotal += item.total;
             }
@@ -556,9 +666,11 @@ namespace Admeli.Ventas.Nuevo
                 double precioUnidario = double.Parse(textPrecioUnidario.Text, CultureInfo.GetCultureInfo("en-US"));
                 double cantidad = double.Parse(textCantidad.Text, CultureInfo.GetCultureInfo("en-US"));
                 double descuento = double.Parse(textDescuento.Text, CultureInfo.GetCultureInfo("en-US"));
-                double total = (precioUnidario * cantidad) - descuento;
-
-                textTotal.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), "{0}", total);
+                double totalNormal = (precioUnidario * cantidad);
+                double total = totalNormal - (descuento / 100) * totalNormal;
+                int i = 2;
+                string formato = "{0:n" + i + "}";
+                textTotal.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, total);
             }
             catch (Exception ex)
             {
@@ -641,6 +753,7 @@ namespace Admeli.Ventas.Nuevo
             buscarCliente.ShowDialog();
             this.currentCliente = buscarCliente.currentCliente;
             mostrarCliente();
+            determinarDescuento();
         }
 
         private void mostrarCliente()
@@ -797,7 +910,7 @@ namespace Admeli.Ventas.Nuevo
         private void crearObjetoCompra()
         {
             Compra compra = new Compra();
-            compra.descuento = textDescuentoCompra.Text;
+            compra.descuento = textDescuentoVenta.Text;
             compra.direccion = txtNombreCliente.Text;
             compra.estado = 1;
             // compra.fechaFacturacion = dtpEmision.Value.ToString("yyyy-MMM-dd  hh:mm:ss");
@@ -898,7 +1011,7 @@ namespace Admeli.Ventas.Nuevo
 
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            DetalleCompra aux = detalleCompras.Find(x => x.idPresentacion == idOrdenCompra);
+            DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idOrdenCompra);
             aux.cantidad = Convert.ToDouble(textCantidad.Text);
             aux.precioUnitario = Convert.ToDouble(textPrecioUnidario.Text);
             aux.total = Convert.ToDouble(textTotal.Text);
@@ -923,7 +1036,7 @@ namespace Admeli.Ventas.Nuevo
 
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            DetalleCompra aux = detalleCompras.Find(x => x.idPresentacion == idOrdenCompra); // Buscando la registro especifico en la lista de registros
+            DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idOrdenCompra); // Buscando la registro especifico en la lista de registros
             cbxCodigoProducto.Text = aux.codigoProducto;
             cbxDescripcion.Text = aux.descripcion;
             cbxCombinacion.Text = aux.nombreCombinacion;
@@ -954,11 +1067,11 @@ namespace Admeli.Ventas.Nuevo
 
                 int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
                 int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-                DetalleCompra aux = detalleCompras.Find(x => x.idPresentacion == idOrdenCompra);
+                DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idOrdenCompra);
 
                 dataGridView.Rows.RemoveAt(index);
 
-                detalleCompras.Remove(aux);
+                detalleVentas.Remove(aux);
             }
 
         }
@@ -1021,6 +1134,63 @@ namespace Admeli.Ventas.Nuevo
             txtSerie.Text = list[0].serie;
 
 
+        }
+
+        private void textCantidad_TextChanged(object sender, EventArgs e)
+        {
+            calcularDescuentos();
+           
+        }
+
+
+        private  void calcularDescuentos()
+        {
+
+
+            determinarDescuento();
+
+
+
+        }
+
+        public async void determinarDescuento()
+        {
+            if (textCantidad.Text != "" && cbxCodigoProducto.SelectedValue!= null)
+            {
+
+                
+                DescuentoProductoSubmit descuentoProductoSubmit = new DescuentoProductoSubmit();
+
+                descuentoProductoSubmit.cantidad = Convert.ToInt32(textCantidad.Text);
+                descuentoProductoSubmit.cantidades = "";
+                descuentoProductoSubmit.idGrupoCliente = currentCliente != null ? currentCliente.idGrupoCliente : 1;
+                descuentoProductoSubmit.idProducto = (int)cbxCodigoProducto.SelectedValue;
+                descuentoProductoSubmit.idProductos = "";
+                descuentoProductoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
+                descuentoProducto = await descuentoModel.descuentoTotalALaFecha(descuentoProductoSubmit);
+
+                textDescuento.Text = descuentoProducto.descuento.ToString();
+
+                calcularTotal();
+            }
+
+
+        }
+
+        private void plPVenta_Click(object sender, EventArgs e)
+        {
+            if (!mostrarOriginal)
+            {
+                plPVenta.BorderStyle = BorderStyle.FixedSingle;
+
+                mostrarOriginal = true;
+            }
+            else
+            {
+                plPVenta.BorderStyle = BorderStyle.None; ;
+                mostrarOriginal = false;
+            }
+          
         }
     }
 }

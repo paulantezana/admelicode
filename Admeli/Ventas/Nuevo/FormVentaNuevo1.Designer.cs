@@ -66,7 +66,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.textDescuentoCompra = new System.Windows.Forms.TextBox();
+            this.textDescuentoVenta = new System.Windows.Forms.TextBox();
             this.textObservacion = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@
             this.txtCorrelativo = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtSerie = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.textDNI = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -92,13 +93,13 @@
             this.txtNombreCliente = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.plTotal = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.textTotal = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.textDescuento = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.plPVenta = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.textPrecioUnidario = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -122,7 +123,7 @@
             this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label19 = new System.Windows.Forms.Label();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.lblstock = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).BeginInit();
@@ -133,9 +134,9 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentoIdentificacionBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.plTotal.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel8.SuspendLayout();
+            this.plPVenta.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoVentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.presentacionBindingSource)).BeginInit();
@@ -191,6 +192,7 @@
             this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.Size = new System.Drawing.Size(1552, 358);
             this.dataGridView.TabIndex = 0;
@@ -557,7 +559,7 @@
             this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Controls.Add(this.textDescuentoCompra);
+            this.panel6.Controls.Add(this.textDescuentoVenta);
             this.panel6.Controls.Add(this.textObservacion);
             this.panel6.Controls.Add(this.label14);
             this.panel6.Controls.Add(this.label13);
@@ -586,13 +588,14 @@
             this.label8.Text = "Datos Venta";
             this.label8.Click += new System.EventHandler(this.label8_Click_1);
             // 
-            // textDescuentoCompra
+            // textDescuentoVenta
             // 
-            this.textDescuentoCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDescuentoCompra.Location = new System.Drawing.Point(446, 32);
-            this.textDescuentoCompra.Name = "textDescuentoCompra";
-            this.textDescuentoCompra.Size = new System.Drawing.Size(298, 26);
-            this.textDescuentoCompra.TabIndex = 119;
+            this.textDescuentoVenta.Enabled = false;
+            this.textDescuentoVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDescuentoVenta.Location = new System.Drawing.Point(446, 32);
+            this.textDescuentoVenta.Name = "textDescuentoVenta";
+            this.textDescuentoVenta.Size = new System.Drawing.Size(298, 26);
+            this.textDescuentoVenta.TabIndex = 119;
             // 
             // textObservacion
             // 
@@ -777,6 +780,13 @@
             this.panel3.Size = new System.Drawing.Size(652, 175);
             this.panel3.TabIndex = 109;
             // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(139, 126);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(446, 22);
+            this.txtDireccion.TabIndex = 122;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -916,9 +926,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.panel10);
+            this.panel2.Controls.Add(this.plTotal);
             this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.plPVenta);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.cbxCodigoProducto);
@@ -935,14 +945,14 @@
             this.panel2.Size = new System.Drawing.Size(1550, 86);
             this.panel2.TabIndex = 108;
             // 
-            // panel10
+            // plTotal
             // 
-            this.panel10.Controls.Add(this.label25);
-            this.panel10.Controls.Add(this.textTotal);
-            this.panel10.Location = new System.Drawing.Point(1146, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(160, 78);
-            this.panel10.TabIndex = 119;
+            this.plTotal.Controls.Add(this.label25);
+            this.plTotal.Controls.Add(this.textTotal);
+            this.plTotal.Location = new System.Drawing.Point(1146, 3);
+            this.plTotal.Name = "plTotal";
+            this.plTotal.Size = new System.Drawing.Size(160, 78);
+            this.plTotal.TabIndex = 119;
             // 
             // label25
             // 
@@ -961,6 +971,7 @@
             // textTotal
             // 
             this.textTotal.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
+            this.textTotal.Enabled = false;
             this.textTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotal.Location = new System.Drawing.Point(7, 45);
             this.textTotal.Name = "textTotal";
@@ -999,14 +1010,15 @@
             this.textDescuento.Size = new System.Drawing.Size(135, 26);
             this.textDescuento.TabIndex = 118;
             // 
-            // panel8
+            // plPVenta
             // 
-            this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.textPrecioUnidario);
-            this.panel8.Location = new System.Drawing.Point(823, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(165, 78);
-            this.panel8.TabIndex = 111;
+            this.plPVenta.Controls.Add(this.label11);
+            this.plPVenta.Controls.Add(this.textPrecioUnidario);
+            this.plPVenta.Location = new System.Drawing.Point(823, 3);
+            this.plPVenta.Name = "plPVenta";
+            this.plPVenta.Size = new System.Drawing.Size(165, 78);
+            this.plPVenta.TabIndex = 111;
+            this.plPVenta.Click += new System.EventHandler(this.plPVenta_Click);
             // 
             // label11
             // 
@@ -1033,6 +1045,7 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.lblstock);
             this.panel7.Controls.Add(this.label21);
             this.panel7.Controls.Add(this.textCantidad);
             this.panel7.Location = new System.Drawing.Point(671, 3);
@@ -1061,8 +1074,9 @@
             this.textCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCantidad.Location = new System.Drawing.Point(6, 44);
             this.textCantidad.Name = "textCantidad";
-            this.textCantidad.Size = new System.Drawing.Size(137, 26);
+            this.textCantidad.Size = new System.Drawing.Size(70, 26);
             this.textCantidad.TabIndex = 118;
+            this.textCantidad.TextChanged += new System.EventHandler(this.textCantidad_TextChanged);
             // 
             // label16
             // 
@@ -1293,12 +1307,16 @@
             // 
             this.productoBindingSource.DataSource = typeof(Entidad.Producto);
             // 
-            // txtDireccion
+            // lblstock
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(139, 126);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(446, 22);
-            this.txtDireccion.TabIndex = 122;
+            this.lblstock.AutoSize = true;
+            this.lblstock.BackColor = System.Drawing.Color.White;
+            this.lblstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstock.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblstock.Location = new System.Drawing.Point(82, 46);
+            this.lblstock.Name = "lblstock";
+            this.lblstock.Size = new System.Drawing.Size(0, 20);
+            this.lblstock.TabIndex = 119;
             // 
             // FormVentaNuevo1
             // 
@@ -1329,12 +1347,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentoIdentificacionBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+            this.plTotal.ResumeLayout(false);
+            this.plTotal.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.plPVenta.ResumeLayout(false);
+            this.plPVenta.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoVentaBindingSource)).EndInit();
@@ -1423,17 +1441,17 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textObservacion;
-        private System.Windows.Forms.TextBox textDescuentoCompra;
+        private System.Windows.Forms.TextBox textDescuentoVenta;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textCantidad;
-        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel plTotal;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textTotal;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textDescuento;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel plPVenta;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textPrecioUnidario;
         private System.Windows.Forms.Label label8;
@@ -1441,5 +1459,6 @@
         private System.Windows.Forms.BindingSource documentoIdentificacionBindingSource;
         private System.Windows.Forms.BindingSource productoVentaBindingSource;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label lblstock;
     }
 }
