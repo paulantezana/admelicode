@@ -65,12 +65,40 @@ namespace Modelo
             }
         }
 
+        public async Task<List<Presentacion>> presentacionesTodas(){
+            try
+            {
+                //localhost/admeli/xcore/services.php/presentacion/presentacion/0
+                List<Presentacion> list = await webService.GET<List<Presentacion>>("presentacion", String.Format("producto/todas/{0}", 0));
+                return list;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<List<Presentacion>> presentacionVentas(int idProducto)
         {
             try
             {
                 // localhost/admeli/xcore/services.php/listarpresentacionventas/producto/28
                 List<Presentacion> list = await webService.GET<List<Presentacion>>("listarpresentacionventas", String.Format("producto/{0}", idProducto));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public async Task<List<PresentacionV>> presentacionVentas(int idProducto,int otro)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/listarpresentacionventas/producto/28
+                List<PresentacionV> list = await webService.GET<List<PresentacionV>>("listarpresentacionventas", String.Format("producto/{0}", idProducto));
                 return list;
             }
             catch (Exception ex)

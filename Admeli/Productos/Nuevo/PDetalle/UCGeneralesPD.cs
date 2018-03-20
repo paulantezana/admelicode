@@ -19,6 +19,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         public UnidadMedidaModel unidadMedidaModel = new UnidadMedidaModel();
         public MarcaModel marcaModel = new MarcaModel();
         public ProductoModel productoModel = new ProductoModel();
+        public PresentacionModel presentacionModel = new PresentacionModel();
 
         private bool isFieldsValid { get; set; }
         public bool lisenerKeyEvents { get; internal set; }
@@ -46,6 +47,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             cargarMarcas();
             cargarUnidadesMedida();
             cargarDatosModificar();
+            cargarPresentacion();
         }
         #endregion
 
@@ -83,6 +85,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
             formProductoNuevo.appLoadState(true);
             unidadMedidaBindingSource.DataSource = await unidadMedidaModel.unimedidas();
             if (!formProductoNuevo.nuevo) cbxUnidadMedida.SelectedValue = formProductoNuevo.currentProducto.idUnidadMedida;
+            formProductoNuevo.appLoadState(false);
+        }
+        internal async void cargarPresentacion()
+        {
+            formProductoNuevo.appLoadState(true);
+            presentacionBindingSource.DataSource = await presentacionModel.presentacionesTodas();
+            //if (!formProductoNuevo.nuevo) cbxUnidadMedida.SelectedValue = formProductoNuevo.currentProducto.idUnidadMedida;
+            if (!formProductoNuevo.nuevo) cbxPresentacionBase.SelectedIndex = 0;
             formProductoNuevo.appLoadState(false);
         }
         #endregion

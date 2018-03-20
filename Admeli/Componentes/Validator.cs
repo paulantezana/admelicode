@@ -19,31 +19,51 @@ namespace Admeli.Componentes
         {
             try
             {
-                if (Char.IsNumber(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsSeparator(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsPunctuation(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
+                if (Char.IsDigit(e.KeyChar)) { e.Handled = false; }
+                else if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
+                else if (Char.IsSeparator(e.KeyChar)) { e.Handled = false; }
+                else { e.Handled = true; }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+        public static  void isDecimal(KeyPressEventArgs e, string texto)
+        {
+            try
+            {
+                if (texto.Contains('.'))
+                {
+                    if (!char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                    }
+
+                    if (e.KeyChar == '\b')
+                    {
+                        e.Handled = false;
+                    }
+                }
+                else
+                {
+                    if (!char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                    }
+
+                    if (e.KeyChar == '.' || e.KeyChar == '\b')
+                    {
+                        e.Handled = false;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
         public static void isString(KeyPressEventArgs e)
         {

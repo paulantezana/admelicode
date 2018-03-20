@@ -17,7 +17,7 @@ namespace Modelo
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/descuento/guardar
-                return await webService.POST<Descuento,Response>("descuento", "guardar", param);
+                return await webService.POST<Descuento, Response>("descuento", "guardar", param);
             }
             catch (Exception ex)
             {
@@ -31,6 +31,31 @@ namespace Modelo
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/descuento/modificar
                 return await webService.POST<Descuento,Response>("descuento", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<List<DescuentoReceive>> descuentoTotalALaFechaGrupo(DescuentoSubmit param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
+                return await webService.POST<DescuentoSubmit, List<DescuentoReceive>>("productos", "descuentototalalafechagrupo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        // descuentoTotalALaFecha
+        public async Task<DescuentoProductoReceive> descuentoTotalALaFecha(DescuentoProductoSubmit param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
+                return await webService.POST<DescuentoProductoSubmit, DescuentoProductoReceive>("productos", "descuentototalalafecha", param);
             }
             catch (Exception ex)
             {
@@ -64,12 +89,12 @@ namespace Modelo
             }
         }
 
-        public async Task<List<Descuento>> descuentos(int idProducto)
+        public async Task<List<Descuento>> descuentos(int idPresentacion)
         {
             try
             {
                 // localhost/admeli/xcore/services.php/descuento/producto/21
-                List<Descuento> descuentos = await webService.GET<List<Descuento>>("descuento", String.Format("producto/{0}", idProducto));
+                List<Descuento> descuentos = await webService.GET<List<Descuento>>("descuento", String.Format("presentacion/{0}", idPresentacion));
                 return descuentos;
             }
             catch (Exception ex)
@@ -91,6 +116,9 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
+
 
     }
 }

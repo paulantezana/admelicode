@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.Componentes;
+using Modelo;
+using Admeli.Configuracion.Nuevo;
+using Newtonsoft.Json;
+using Entidad;
 
 namespace Admeli.Productos.Nuevo.PDetalle
 {
@@ -15,6 +19,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
     {
         public bool lisenerKeyEvents { get; internal set; }
         private FormProductoNuevo formProductoNuevo;
+        public SucursalModel sucursalModel = new SucursalModel();
+        public ImpuestoModel impuestoModel = new ImpuestoModel();
+        public ImpuestoProductoTodo impuestoProductoTodo = new ImpuestoProductoTodo();
+        public Response response = new Response();
 
         public UCImpuestoPD()
         {
@@ -27,11 +35,6 @@ namespace Admeli.Productos.Nuevo.PDetalle
             this.formProductoNuevo = formProductoNuevo;
         }
 
-
-        internal void reLoad()
-        {
-            // throw new NotImplementedException();
-        }
 
         private void panelHeader_Paint(object sender, PaintEventArgs e)
         {
@@ -60,5 +63,166 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             formProductoNuevo.executeCerrar();
         }
-    }
+
+        #region ================================ Root Load ================================
+        private void UCImpuestoPD_Load(object sender, EventArgs e)
+        {
+            reLoad();
+        }
+
+        internal async void reLoad()
+        {
+            
+            formProductoNuevo.appLoadState(true);
+            //Artificio para esperar el idSucursal
+            int artificio = await cargarSucursal();
+            cargarImpuestoProducto();
+            formProductoNuevo.appLoadState(false);
+        }
+        internal async Task<int> cargarSucursal()
+        {
+            sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+            return 0;
+        }
+        internal async void cargarImpuestoProducto()
+        {
+            //Cargar los impuesto del producto y los productos existentes
+            impuestoProductoTodo = await impuestoModel.impuestoProductoTodo(formProductoNuevo.currentIDProducto,Convert.ToInt32(cbxSucursal.SelectedValue.ToString()));
+            impuestoBindingSourceT.DataSource =impuestoProductoTodo.todo;
+            impuestoBindingSourceP.DataSource = impuestoProductoTodo.producto;
+        }
+        #endregion
+
+        private void btnAddSucursal_Click(object sender, EventArgs e)
+        {
+            FormSucursalNuevo sucursalNuevo = new FormSucursalNuevo();
+            sucursalNuevo.ShowDialog();
+            this.reLoad();
+        }
+
+        private void btnNuevoImpuesto_Click(object sender, EventArgs e)
+        {
+            //Abir la ventana de nuevo impuesto
+           FormNuevoImpuesto nuevoImpuesto = new FormNuevoImpuesto();
+            nuevoImpuesto.ShowDialog();
+            this.reLoad();
+        }
+
+        private void btnActualizarImpuesto_Click(object sender, EventArgs e)
+        {
+            //Actualizar ventana de impuestos
+            reLoad();
+        }
+
+        private void btnTodoAProducto_Click(object sender, EventArgs e)
+        {
+            // Verificando la existencia de datos en el dgvImpuestoTodo
+            if (dgvImpuestoTodo.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            //Pasar el elemento seleccionado de dgvImpuestoTodo a dgvImpuestoProducto
+            //Recuperar los elementos de BindingSource
+            List<Impuesto> impuestoTodos = (List<Impuesto>) impuestoBindingSourceT.DataSource;
+            List<Impuesto> impuestoProducto = (List<Impuesto>)impuestoBindingSourceP.DataSource;
+            
+            //Recuperar el elemento seleccionado 
+            int index = dgvImpuestoTodo.CurrentRow.Index; // Identificando la fila actual del datagridview
+            Impuesto filaSeleccionada = new Impuesto();
+            filaSeleccionada.idImpuesto = impuestoTodos[index].idImpuesto;
+            filaSeleccionada.nombreImpuesto = impuestoTodos[index].nombreImpuesto;
+            filaSeleccionada.siglasImpuesto = impuestoTodos[index].siglasImpuesto;
+            filaSeleccionada.valorImpuesto = impuestoTodos[index].valorImpuesto;
+            filaSeleccionada.porcentual = impuestoTodos[index].porcentual;
+            filaSeleccionada.porDefecto = impuestoTodos[index].porDefecto;
+            filaSeleccionada.estado = impuestoTodos[index].estado;
+            filaSeleccionada.enUso = impuestoTodos[index].enUso;
+            //Eliminar elemento seleccionado de impuestoTodo
+            impuestoTodos.RemoveAt(index);
+            impuestoBindingSourceT.DataSource = null;
+            impuestoBindingSourceT.DataSource = impuestoTodos;
+            //Agregar elemento seleccionado a impuestoProducto
+            impuestoProducto.Add(filaSeleccionada);
+            impuestoBindingSourceP.DataSource = null;
+            impuestoBindingSourceP.DataSource = impuestoProducto;
+            
+        }
+
+        private void btnProductoATodo_Click(object sender, EventArgs e)
+        {
+            // Verificando la existencia de datos en el dgvImpuestoTodo
+            if (dgvImpuestoProducto.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            //Pasar el elemento seleccionado de dgvImpuestoProducto a dgvImpuestoTodo
+            //Recuperar los elementos de BindingSource
+            List<Impuesto> impuestoTodos = (List<Impuesto>)impuestoBindingSourceT.DataSource;
+            List<Impuesto> impuestoProducto = (List<Impuesto>)impuestoBindingSourceP.DataSource;
+
+            //Recuperar el elemento seleccionado 
+            int index = dgvImpuestoProducto.CurrentRow.Index; // Identificando la fila actual del datagridview
+            Impuesto filaSeleccionada = new Impuesto();
+            filaSeleccionada.idImpuesto = impuestoProducto[index].idImpuesto;
+            filaSeleccionada.nombreImpuesto = impuestoProducto[index].nombreImpuesto;
+            filaSeleccionada.siglasImpuesto = impuestoProducto[index].siglasImpuesto;
+            filaSeleccionada.valorImpuesto = impuestoProducto[index].valorImpuesto;
+            filaSeleccionada.porcentual = impuestoProducto[index].porcentual;
+            filaSeleccionada.porDefecto = impuestoProducto[index].porDefecto;
+            filaSeleccionada.estado = impuestoProducto[index].estado;
+            filaSeleccionada.enUso = impuestoProducto[index].enUso;
+            //Eliminar elemento seleccionado de impuestoProducto
+            impuestoProducto.RemoveAt(index);
+            impuestoBindingSourceP.DataSource = null;
+            impuestoBindingSourceP.DataSource = impuestoProducto;
+            //Agregar elemento seleccionado a impuestoProducto
+            impuestoTodos.Add(filaSeleccionada);
+            impuestoBindingSourceT.DataSource = null;
+            impuestoBindingSourceT.DataSource = impuestoTodos;
+        }
+
+        private void btnActualizarImpuesto_Click_1(object sender, EventArgs e)
+        {
+            reLoad();
+        }
+
+        private void cbxSucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            reLoad();
+        }
+
+        private async  void btnGuardarImpustos_Click(object sender, EventArgs e)
+        {
+            
+            ImpuestosEnviados impuestosEnviados = new ImpuestosEnviados();
+            Producto producto = new Producto();
+            Sucursal sucursal = new Sucursal();
+            string json = "";         
+            
+            //Recuperar los impuestos en el dgvImpuestoProducto y alamcenarlos en 
+            List<Impuesto> impuestoProducto = (List<Impuesto>)impuestoBindingSourceP.DataSource;
+            int cantidad = impuestoProducto.Count;
+            json += "{";
+            for(int i = 0; i < cantidad; i++)
+            {
+                json += "'id" + i + "':'" + impuestoProducto[i].idImpuesto + "'";
+            }            
+            json += "}";
+
+            producto.idProducto = formProductoNuevo.currentIDProducto;
+            impuestosEnviados.impuestos = json;
+            sucursal.idSucursal= Convert.ToInt32(cbxSucursal.SelectedValue.ToString());
+
+            //Construir el objeto que sera enviado
+            impuestosEnviados.impuestos = json;
+            impuestosEnviados.producto = producto;
+            impuestosEnviados.sucursal = sucursal;
+
+            response = await impuestoModel.actualizarImpuestoProducto(impuestosEnviados);
+
+            MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }  
+}
 }
