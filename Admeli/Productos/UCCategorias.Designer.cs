@@ -38,6 +38,24 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.idCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPadreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.padreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroColumnasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordenVisualizacionProductosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mostrarProductosEnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tituloCategoriaSeoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urlCategoriaSeoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metaTagsSeoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cabeceraPaginaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.piePaginaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mostrarWebDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tieneRegistrosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relacionPrincipalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.afectaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCrud = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -58,24 +76,6 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.lblPageAllItems = new System.Windows.Forms.Label();
-            this.idCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPadreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.padreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroColumnasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordenVisualizacionProductosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mostrarProductosEnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tituloCategoriaSeoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urlCategoriaSeoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metaTagsSeoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cabeceraPaginaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.piePaginaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mostrarWebDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tieneRegistrosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.relacionPrincipalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.afectaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -118,7 +118,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -181,6 +181,138 @@
             this.dataGridView.Size = new System.Drawing.Size(1435, 489);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // idCategoriaDataGridViewTextBoxColumn
+            // 
+            this.idCategoriaDataGridViewTextBoxColumn.DataPropertyName = "idCategoria";
+            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
+            this.idCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreCategoriaDataGridViewTextBoxColumn
+            // 
+            this.nombreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombreCategoria";
+            this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Nombre Categoria";
+            this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
+            this.nombreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idPadreCategoriaDataGridViewTextBoxColumn
+            // 
+            this.idPadreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "idPadreCategoria";
+            this.idPadreCategoriaDataGridViewTextBoxColumn.HeaderText = "idPadreCategoria";
+            this.idPadreCategoriaDataGridViewTextBoxColumn.Name = "idPadreCategoriaDataGridViewTextBoxColumn";
+            this.idPadreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPadreCategoriaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // padreDataGridViewTextBoxColumn
+            // 
+            this.padreDataGridViewTextBoxColumn.DataPropertyName = "padre";
+            this.padreDataGridViewTextBoxColumn.HeaderText = "Ppadre";
+            this.padreDataGridViewTextBoxColumn.Name = "padreDataGridViewTextBoxColumn";
+            this.padreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.padreDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numeroColumnasDataGridViewTextBoxColumn
+            // 
+            this.numeroColumnasDataGridViewTextBoxColumn.DataPropertyName = "numeroColumnas";
+            this.numeroColumnasDataGridViewTextBoxColumn.HeaderText = "Nro Columnas";
+            this.numeroColumnasDataGridViewTextBoxColumn.Name = "numeroColumnasDataGridViewTextBoxColumn";
+            this.numeroColumnasDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ordenVisualizacionProductosDataGridViewTextBoxColumn
+            // 
+            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.DataPropertyName = "ordenVisualizacionProductos";
+            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.HeaderText = "Orden Visualización Productos";
+            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.Name = "ordenVisualizacionProductosDataGridViewTextBoxColumn";
+            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mostrarProductosEnDataGridViewTextBoxColumn
+            // 
+            this.mostrarProductosEnDataGridViewTextBoxColumn.DataPropertyName = "mostrarProductosEn";
+            this.mostrarProductosEnDataGridViewTextBoxColumn.HeaderText = "Mostrar Productos En";
+            this.mostrarProductosEnDataGridViewTextBoxColumn.Name = "mostrarProductosEnDataGridViewTextBoxColumn";
+            this.mostrarProductosEnDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tituloCategoriaSeoDataGridViewTextBoxColumn
+            // 
+            this.tituloCategoriaSeoDataGridViewTextBoxColumn.DataPropertyName = "tituloCategoriaSeo";
+            this.tituloCategoriaSeoDataGridViewTextBoxColumn.HeaderText = "Título Categoria Seo";
+            this.tituloCategoriaSeoDataGridViewTextBoxColumn.Name = "tituloCategoriaSeoDataGridViewTextBoxColumn";
+            this.tituloCategoriaSeoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // urlCategoriaSeoDataGridViewTextBoxColumn
+            // 
+            this.urlCategoriaSeoDataGridViewTextBoxColumn.DataPropertyName = "urlCategoriaSeo";
+            this.urlCategoriaSeoDataGridViewTextBoxColumn.HeaderText = "URL Categoria Seo";
+            this.urlCategoriaSeoDataGridViewTextBoxColumn.Name = "urlCategoriaSeoDataGridViewTextBoxColumn";
+            this.urlCategoriaSeoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // metaTagsSeoDataGridViewTextBoxColumn
+            // 
+            this.metaTagsSeoDataGridViewTextBoxColumn.DataPropertyName = "metaTagsSeo";
+            this.metaTagsSeoDataGridViewTextBoxColumn.HeaderText = "Meta Tags Seo";
+            this.metaTagsSeoDataGridViewTextBoxColumn.Name = "metaTagsSeoDataGridViewTextBoxColumn";
+            this.metaTagsSeoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cabeceraPaginaDataGridViewTextBoxColumn
+            // 
+            this.cabeceraPaginaDataGridViewTextBoxColumn.DataPropertyName = "cabeceraPagina";
+            this.cabeceraPaginaDataGridViewTextBoxColumn.HeaderText = "Cabecera Pagina";
+            this.cabeceraPaginaDataGridViewTextBoxColumn.Name = "cabeceraPaginaDataGridViewTextBoxColumn";
+            this.cabeceraPaginaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // piePaginaDataGridViewTextBoxColumn
+            // 
+            this.piePaginaDataGridViewTextBoxColumn.DataPropertyName = "piePagina";
+            this.piePaginaDataGridViewTextBoxColumn.HeaderText = "Pie Pagina";
+            this.piePaginaDataGridViewTextBoxColumn.Name = "piePaginaDataGridViewTextBoxColumn";
+            this.piePaginaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ordenDataGridViewTextBoxColumn
+            // 
+            this.ordenDataGridViewTextBoxColumn.DataPropertyName = "orden";
+            this.ordenDataGridViewTextBoxColumn.HeaderText = "Orden";
+            this.ordenDataGridViewTextBoxColumn.Name = "ordenDataGridViewTextBoxColumn";
+            this.ordenDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // mostrarWebDataGridViewTextBoxColumn
+            // 
+            this.mostrarWebDataGridViewTextBoxColumn.DataPropertyName = "mostrarWeb";
+            this.mostrarWebDataGridViewTextBoxColumn.HeaderText = "Mostrar Web";
+            this.mostrarWebDataGridViewTextBoxColumn.Name = "mostrarWebDataGridViewTextBoxColumn";
+            this.mostrarWebDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tieneRegistrosDataGridViewTextBoxColumn
+            // 
+            this.tieneRegistrosDataGridViewTextBoxColumn.DataPropertyName = "tieneRegistros";
+            this.tieneRegistrosDataGridViewTextBoxColumn.HeaderText = "Tiene Registros";
+            this.tieneRegistrosDataGridViewTextBoxColumn.Name = "tieneRegistrosDataGridViewTextBoxColumn";
+            this.tieneRegistrosDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // relacionPrincipalDataGridViewCheckBoxColumn
+            // 
+            this.relacionPrincipalDataGridViewCheckBoxColumn.DataPropertyName = "relacionPrincipal";
+            this.relacionPrincipalDataGridViewCheckBoxColumn.HeaderText = "relacionPrincipal";
+            this.relacionPrincipalDataGridViewCheckBoxColumn.Name = "relacionPrincipalDataGridViewCheckBoxColumn";
+            this.relacionPrincipalDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.relacionPrincipalDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // afectaDataGridViewCheckBoxColumn
+            // 
+            this.afectaDataGridViewCheckBoxColumn.DataPropertyName = "afecta";
+            this.afectaDataGridViewCheckBoxColumn.HeaderText = "afecta";
+            this.afectaDataGridViewCheckBoxColumn.Name = "afectaDataGridViewCheckBoxColumn";
+            this.afectaDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.afectaDataGridViewCheckBoxColumn.Visible = false;
             // 
             // categoriaBindingSource
             // 
@@ -538,156 +670,6 @@
             this.lblPageAllItems.TabIndex = 1;
             this.lblPageAllItems.Text = "10 Registros";
             this.lblPageAllItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // idCategoriaDataGridViewTextBoxColumn
-            // 
-            this.idCategoriaDataGridViewTextBoxColumn.DataPropertyName = "idCategoria";
-            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
-            this.idCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idCategoriaDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // nombreCategoriaDataGridViewTextBoxColumn
-            // 
-            this.nombreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombreCategoria";
-            this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Nombre Categoria";
-            this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
-            this.nombreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreCategoriaDataGridViewTextBoxColumn.Width = 181;
-            // 
-            // idPadreCategoriaDataGridViewTextBoxColumn
-            // 
-            this.idPadreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "idPadreCategoria";
-            this.idPadreCategoriaDataGridViewTextBoxColumn.HeaderText = "idPadreCategoria";
-            this.idPadreCategoriaDataGridViewTextBoxColumn.Name = "idPadreCategoriaDataGridViewTextBoxColumn";
-            this.idPadreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idPadreCategoriaDataGridViewTextBoxColumn.Visible = false;
-            this.idPadreCategoriaDataGridViewTextBoxColumn.Width = 174;
-            // 
-            // padreDataGridViewTextBoxColumn
-            // 
-            this.padreDataGridViewTextBoxColumn.DataPropertyName = "padre";
-            this.padreDataGridViewTextBoxColumn.HeaderText = "Ppadre";
-            this.padreDataGridViewTextBoxColumn.Name = "padreDataGridViewTextBoxColumn";
-            this.padreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.padreDataGridViewTextBoxColumn.Visible = false;
-            this.padreDataGridViewTextBoxColumn.Width = 94;
-            // 
-            // numeroColumnasDataGridViewTextBoxColumn
-            // 
-            this.numeroColumnasDataGridViewTextBoxColumn.DataPropertyName = "numeroColumnas";
-            this.numeroColumnasDataGridViewTextBoxColumn.HeaderText = "Nro Columnas";
-            this.numeroColumnasDataGridViewTextBoxColumn.Name = "numeroColumnasDataGridViewTextBoxColumn";
-            this.numeroColumnasDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numeroColumnasDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // ordenVisualizacionProductosDataGridViewTextBoxColumn
-            // 
-            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.DataPropertyName = "ordenVisualizacionProductos";
-            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.HeaderText = "Orden Visualización Productos";
-            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.Name = "ordenVisualizacionProductosDataGridViewTextBoxColumn";
-            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ordenVisualizacionProductosDataGridViewTextBoxColumn.Width = 281;
-            // 
-            // mostrarProductosEnDataGridViewTextBoxColumn
-            // 
-            this.mostrarProductosEnDataGridViewTextBoxColumn.DataPropertyName = "mostrarProductosEn";
-            this.mostrarProductosEnDataGridViewTextBoxColumn.HeaderText = "Mostrar Productos En";
-            this.mostrarProductosEnDataGridViewTextBoxColumn.Name = "mostrarProductosEnDataGridViewTextBoxColumn";
-            this.mostrarProductosEnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mostrarProductosEnDataGridViewTextBoxColumn.Width = 212;
-            // 
-            // tituloCategoriaSeoDataGridViewTextBoxColumn
-            // 
-            this.tituloCategoriaSeoDataGridViewTextBoxColumn.DataPropertyName = "tituloCategoriaSeo";
-            this.tituloCategoriaSeoDataGridViewTextBoxColumn.HeaderText = "Título Categoria Seo";
-            this.tituloCategoriaSeoDataGridViewTextBoxColumn.Name = "tituloCategoriaSeoDataGridViewTextBoxColumn";
-            this.tituloCategoriaSeoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tituloCategoriaSeoDataGridViewTextBoxColumn.Width = 198;
-            // 
-            // urlCategoriaSeoDataGridViewTextBoxColumn
-            // 
-            this.urlCategoriaSeoDataGridViewTextBoxColumn.DataPropertyName = "urlCategoriaSeo";
-            this.urlCategoriaSeoDataGridViewTextBoxColumn.HeaderText = "URL Categoria Seo";
-            this.urlCategoriaSeoDataGridViewTextBoxColumn.Name = "urlCategoriaSeoDataGridViewTextBoxColumn";
-            this.urlCategoriaSeoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.urlCategoriaSeoDataGridViewTextBoxColumn.Width = 188;
-            // 
-            // metaTagsSeoDataGridViewTextBoxColumn
-            // 
-            this.metaTagsSeoDataGridViewTextBoxColumn.DataPropertyName = "metaTagsSeo";
-            this.metaTagsSeoDataGridViewTextBoxColumn.HeaderText = "Meta Tags Seo";
-            this.metaTagsSeoDataGridViewTextBoxColumn.Name = "metaTagsSeoDataGridViewTextBoxColumn";
-            this.metaTagsSeoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.metaTagsSeoDataGridViewTextBoxColumn.Width = 152;
-            // 
-            // cabeceraPaginaDataGridViewTextBoxColumn
-            // 
-            this.cabeceraPaginaDataGridViewTextBoxColumn.DataPropertyName = "cabeceraPagina";
-            this.cabeceraPaginaDataGridViewTextBoxColumn.HeaderText = "Cabecera Pagina";
-            this.cabeceraPaginaDataGridViewTextBoxColumn.Name = "cabeceraPaginaDataGridViewTextBoxColumn";
-            this.cabeceraPaginaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cabeceraPaginaDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // piePaginaDataGridViewTextBoxColumn
-            // 
-            this.piePaginaDataGridViewTextBoxColumn.DataPropertyName = "piePagina";
-            this.piePaginaDataGridViewTextBoxColumn.HeaderText = "Pie Pagina";
-            this.piePaginaDataGridViewTextBoxColumn.Name = "piePaginaDataGridViewTextBoxColumn";
-            this.piePaginaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.piePaginaDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // ordenDataGridViewTextBoxColumn
-            // 
-            this.ordenDataGridViewTextBoxColumn.DataPropertyName = "orden";
-            this.ordenDataGridViewTextBoxColumn.HeaderText = "Orden";
-            this.ordenDataGridViewTextBoxColumn.Name = "ordenDataGridViewTextBoxColumn";
-            this.ordenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ordenDataGridViewTextBoxColumn.Width = 87;
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
-            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
-            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.estadoDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // mostrarWebDataGridViewTextBoxColumn
-            // 
-            this.mostrarWebDataGridViewTextBoxColumn.DataPropertyName = "mostrarWeb";
-            this.mostrarWebDataGridViewTextBoxColumn.HeaderText = "Mostrar Web";
-            this.mostrarWebDataGridViewTextBoxColumn.Name = "mostrarWebDataGridViewTextBoxColumn";
-            this.mostrarWebDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mostrarWebDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // tieneRegistrosDataGridViewTextBoxColumn
-            // 
-            this.tieneRegistrosDataGridViewTextBoxColumn.DataPropertyName = "tieneRegistros";
-            this.tieneRegistrosDataGridViewTextBoxColumn.HeaderText = "Tiene Registros";
-            this.tieneRegistrosDataGridViewTextBoxColumn.Name = "tieneRegistrosDataGridViewTextBoxColumn";
-            this.tieneRegistrosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tieneRegistrosDataGridViewTextBoxColumn.Width = 161;
-            // 
-            // relacionPrincipalDataGridViewCheckBoxColumn
-            // 
-            this.relacionPrincipalDataGridViewCheckBoxColumn.DataPropertyName = "relacionPrincipal";
-            this.relacionPrincipalDataGridViewCheckBoxColumn.HeaderText = "relacionPrincipal";
-            this.relacionPrincipalDataGridViewCheckBoxColumn.Name = "relacionPrincipalDataGridViewCheckBoxColumn";
-            this.relacionPrincipalDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.relacionPrincipalDataGridViewCheckBoxColumn.Visible = false;
-            this.relacionPrincipalDataGridViewCheckBoxColumn.Width = 145;
-            // 
-            // afectaDataGridViewCheckBoxColumn
-            // 
-            this.afectaDataGridViewCheckBoxColumn.DataPropertyName = "afecta";
-            this.afectaDataGridViewCheckBoxColumn.HeaderText = "afecta";
-            this.afectaDataGridViewCheckBoxColumn.Name = "afectaDataGridViewCheckBoxColumn";
-            this.afectaDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.afectaDataGridViewCheckBoxColumn.Visible = false;
-            this.afectaDataGridViewCheckBoxColumn.Width = 62;
             // 
             // UCCategorias
             // 

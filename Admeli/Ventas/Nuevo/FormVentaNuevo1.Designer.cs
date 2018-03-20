@@ -85,6 +85,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.textDNI = new Bunifu.Framework.UI.BunifuMetroTextbox();
+
             this.label22 = new System.Windows.Forms.Label();
             this.cbxTipoDocumento = new System.Windows.Forms.ComboBox();
             this.documentoIdentificacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -162,7 +163,7 @@
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.ColumnHeadersHeight = 35;
@@ -205,7 +206,6 @@
             this.idDetalleCompraDataGridViewTextBoxColumn.HeaderText = "idDetalleCompra";
             this.idDetalleCompraDataGridViewTextBoxColumn.Name = "idDetalleCompraDataGridViewTextBoxColumn";
             this.idDetalleCompraDataGridViewTextBoxColumn.Visible = false;
-            this.idDetalleCompraDataGridViewTextBoxColumn.Width = 141;
             // 
             // idCombinacionAlternativaDataGridViewTextBoxColumn
             // 
@@ -213,7 +213,6 @@
             this.idCombinacionAlternativaDataGridViewTextBoxColumn.HeaderText = "idCombinacionAlternativa";
             this.idCombinacionAlternativaDataGridViewTextBoxColumn.Name = "idCombinacionAlternativaDataGridViewTextBoxColumn";
             this.idCombinacionAlternativaDataGridViewTextBoxColumn.Visible = false;
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn.Width = 196;
             // 
             // idCompraDataGridViewTextBoxColumn
             // 
@@ -221,7 +220,6 @@
             this.idCompraDataGridViewTextBoxColumn.HeaderText = "idCompra";
             this.idCompraDataGridViewTextBoxColumn.Name = "idCompraDataGridViewTextBoxColumn";
             this.idCompraDataGridViewTextBoxColumn.Visible = false;
-            this.idCompraDataGridViewTextBoxColumn.Width = 97;
             // 
             // idPresentacionDataGridViewTextBoxColumn
             // 
@@ -229,7 +227,6 @@
             this.idPresentacionDataGridViewTextBoxColumn.HeaderText = "idPresentacion";
             this.idPresentacionDataGridViewTextBoxColumn.Name = "idPresentacionDataGridViewTextBoxColumn";
             this.idPresentacionDataGridViewTextBoxColumn.Visible = false;
-            this.idPresentacionDataGridViewTextBoxColumn.Width = 131;
             // 
             // idProductoDataGridViewTextBoxColumn
             // 
@@ -237,7 +234,6 @@
             this.idProductoDataGridViewTextBoxColumn.HeaderText = "idProducto";
             this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
             this.idProductoDataGridViewTextBoxColumn.Visible = false;
-            this.idProductoDataGridViewTextBoxColumn.Width = 105;
             // 
             // idSucursalDataGridViewTextBoxColumn
             // 
@@ -245,7 +241,6 @@
             this.idSucursalDataGridViewTextBoxColumn.HeaderText = "idSucursal";
             this.idSucursalDataGridViewTextBoxColumn.Name = "idSucursalDataGridViewTextBoxColumn";
             this.idSucursalDataGridViewTextBoxColumn.Visible = false;
-            this.idSucursalDataGridViewTextBoxColumn.Width = 103;
             // 
             // cantidadDataGridViewTextBoxColumn
             // 
@@ -253,7 +248,6 @@
             this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
             this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
             this.cantidadDataGridViewTextBoxColumn.ToolTipText = "Cantidad";
-            this.cantidadDataGridViewTextBoxColumn.Width = 93;
             // 
             // codigoProductoDataGridViewTextBoxColumn
             // 
@@ -261,7 +255,6 @@
             this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "Codigo Producto";
             this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
             this.codigoProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoProductoDataGridViewTextBoxColumn.Width = 142;
             // 
             // nombreCombinacionDataGridViewTextBoxColumn
             // 
@@ -269,42 +262,36 @@
             this.nombreCombinacionDataGridViewTextBoxColumn.HeaderText = "Nombre Combinacion";
             this.nombreCombinacionDataGridViewTextBoxColumn.Name = "nombreCombinacionDataGridViewTextBoxColumn";
             this.nombreCombinacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreCombinacionDataGridViewTextBoxColumn.Width = 172;
             // 
             // cantidadUnitariaDataGridViewTextBoxColumn
             // 
             this.cantidadUnitariaDataGridViewTextBoxColumn.DataPropertyName = "cantidadUnitaria";
             this.cantidadUnitariaDataGridViewTextBoxColumn.HeaderText = "Cantidad Unitaria";
             this.cantidadUnitariaDataGridViewTextBoxColumn.Name = "cantidadUnitariaDataGridViewTextBoxColumn";
-            this.cantidadUnitariaDataGridViewTextBoxColumn.Width = 146;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
             this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.Width = 111;
             // 
             // nombreMarcaDataGridViewTextBoxColumn
             // 
             this.nombreMarcaDataGridViewTextBoxColumn.DataPropertyName = "nombreMarca";
             this.nombreMarcaDataGridViewTextBoxColumn.HeaderText = "Nombre Marca";
             this.nombreMarcaDataGridViewTextBoxColumn.Name = "nombreMarcaDataGridViewTextBoxColumn";
-            this.nombreMarcaDataGridViewTextBoxColumn.Width = 130;
             // 
             // precioUnitarioDataGridViewTextBoxColumn
             // 
             this.precioUnitarioDataGridViewTextBoxColumn.DataPropertyName = "precioUnitario";
             this.precioUnitarioDataGridViewTextBoxColumn.HeaderText = "Precio Unitario";
             this.precioUnitarioDataGridViewTextBoxColumn.Name = "precioUnitarioDataGridViewTextBoxColumn";
-            this.precioUnitarioDataGridViewTextBoxColumn.Width = 130;
             // 
             // descuentoDataGridViewTextBoxColumn
             // 
             this.descuentoDataGridViewTextBoxColumn.DataPropertyName = "descuento";
             this.descuentoDataGridViewTextBoxColumn.HeaderText = "Descuento";
             this.descuentoDataGridViewTextBoxColumn.Name = "descuentoDataGridViewTextBoxColumn";
-            this.descuentoDataGridViewTextBoxColumn.Width = 105;
             // 
             // nombrePresentacionDataGridViewTextBoxColumn
             // 
@@ -312,7 +299,6 @@
             this.nombrePresentacionDataGridViewTextBoxColumn.HeaderText = "Nombre Presentacion";
             this.nombrePresentacionDataGridViewTextBoxColumn.Name = "nombrePresentacionDataGridViewTextBoxColumn";
             this.nombrePresentacionDataGridViewTextBoxColumn.Visible = false;
-            this.nombrePresentacionDataGridViewTextBoxColumn.Width = 174;
             // 
             // nroDataGridViewTextBoxColumn
             // 
@@ -320,14 +306,12 @@
             this.nroDataGridViewTextBoxColumn.HeaderText = "nro";
             this.nroDataGridViewTextBoxColumn.Name = "nroDataGridViewTextBoxColumn";
             this.nroDataGridViewTextBoxColumn.Visible = false;
-            this.nroDataGridViewTextBoxColumn.Width = 58;
             // 
             // totalDataGridViewTextBoxColumn
             // 
             this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
             this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.Width = 69;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -335,7 +319,6 @@
             this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            this.estadoDataGridViewTextBoxColumn.Width = 80;
             // 
             // detalleCompraBindingSource
             // 
@@ -387,11 +370,11 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.OrangeRed;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
             this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OrangeRed;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -409,13 +392,14 @@
             this.textImpuesto.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.textImpuesto.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.textImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textImpuesto.BorderThickness = 1;
             this.textImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textImpuesto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
             this.textImpuesto.isPassword = false;
             this.textImpuesto.Location = new System.Drawing.Point(267, 11);
-            this.textImpuesto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textImpuesto.Margin = new System.Windows.Forms.Padding(5);
             this.textImpuesto.Name = "textImpuesto";
             this.textImpuesto.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.textImpuesto.Size = new System.Drawing.Size(240, 49);
@@ -441,6 +425,7 @@
             this.textSubTotal.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.textSubTotal.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textSubTotal.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.textSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textSubTotal.BorderThickness = 1;
             this.textSubTotal.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textSubTotal.Enabled = false;
@@ -448,7 +433,7 @@
             this.textSubTotal.ForeColor = System.Drawing.Color.Green;
             this.textSubTotal.isPassword = false;
             this.textSubTotal.Location = new System.Drawing.Point(11, 11);
-            this.textSubTotal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textSubTotal.Margin = new System.Windows.Forms.Padding(5);
             this.textSubTotal.Name = "textSubTotal";
             this.textSubTotal.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.textSubTotal.Size = new System.Drawing.Size(240, 49);
@@ -473,13 +458,14 @@
             this.textTotalNeto.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.textTotalNeto.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textTotalNeto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.textTotalNeto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textTotalNeto.BorderThickness = 1;
             this.textTotalNeto.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textTotalNeto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalNeto.ForeColor = System.Drawing.Color.DodgerBlue;
             this.textTotalNeto.isPassword = false;
             this.textTotalNeto.Location = new System.Drawing.Point(519, 11);
-            this.textTotalNeto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textTotalNeto.Margin = new System.Windows.Forms.Padding(5);
             this.textTotalNeto.Name = "textTotalNeto";
             this.textTotalNeto.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.textTotalNeto.Size = new System.Drawing.Size(240, 49);
@@ -596,6 +582,7 @@
             this.textDescuentoVenta.Name = "textDescuentoVenta";
             this.textDescuentoVenta.Size = new System.Drawing.Size(298, 26);
             this.textDescuentoVenta.TabIndex = 119;
+
             // 
             // textObservacion
             // 
@@ -640,6 +627,7 @@
             this.dtpVenta.Name = "dtpVenta";
             this.dtpVenta.Size = new System.Drawing.Size(179, 26);
             this.dtpVenta.TabIndex = 5;
+
             this.dtpVenta.Value = new System.DateTime(2018, 4, 8, 0, 0, 0, 0);
             this.dtpVenta.ValueChanged += new System.EventHandler(this.dtpVenta_ValueChanged);
             // 
@@ -877,21 +865,20 @@
             this.label2.TabIndex = 84;
             this.label2.Text = "Direccion:";
             // 
-            // label12
+            // label1
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.label12.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label12.Location = new System.Drawing.Point(45, 78);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 16);
-            this.label12.TabIndex = 89;
-            this.label12.Text = "N. Cliente";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.label1.Location = new System.Drawing.Point(18, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 19);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "F. Venta";
             // 
-            // txtNombreCliente
+            // dtpPago
             // 
+
             this.txtNombreCliente.BackColor = System.Drawing.Color.White;
             this.txtNombreCliente.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.txtNombreCliente.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
@@ -970,6 +957,7 @@
             this.label25.Size = new System.Drawing.Size(40, 18);
             this.label25.TabIndex = 109;
             this.label25.Text = "Total";
+
             // 
             // textTotal
             // 
@@ -981,6 +969,7 @@
             this.textTotal.Size = new System.Drawing.Size(150, 26);
             this.textTotal.TabIndex = 118;
             // 
+
             // panel9
             // 
             this.panel9.Controls.Add(this.label15);
@@ -1085,9 +1074,11 @@
             this.label21.TabIndex = 109;
             this.label21.Text = "Cantidad";
             this.label21.Click += new System.EventHandler(this.label21_Click);
+
             // 
-            // textCantidad
+            // panel7
             // 
+
             this.textCantidad.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
             this.textCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCantidad.Location = new System.Drawing.Point(6, 44);
@@ -1396,7 +1387,6 @@
         private System.Windows.Forms.ComboBox cbxMoneda;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txtNombreCliente;
         private System.Windows.Forms.BindingSource monedaBindingSource;
         private System.Windows.Forms.BindingSource tipoDocumentoBindingSource;
         private System.Windows.Forms.Label label16;
@@ -1441,7 +1431,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txtCorrelativo;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtSerie;
         private System.Windows.Forms.Label label23;
-        private Bunifu.Framework.UI.BunifuMetroTextbox textDNI;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cbxTipoDocumento;
         private System.Windows.Forms.Panel panel6;
@@ -1465,8 +1454,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chkGuiaRemision;
         private System.Windows.Forms.BindingSource documentoIdentificacionBindingSource;
+
         private System.Windows.Forms.BindingSource productoVentaBindingSource;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label lblstock;
+
     }
 }

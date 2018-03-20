@@ -235,6 +235,11 @@ namespace Admeli.CajaBox
         
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            cargarRegistros();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
 
         }
     }
