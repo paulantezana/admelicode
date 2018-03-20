@@ -106,7 +106,7 @@ namespace Admeli.Compras.Nuevo
             if(currentOrdenCompra.estadoCompra!=8)
             {
 
-                btnOrdenCompra.Enabled = false;
+                btnRealizarPago.Enabled = false;
             }
             
         }
@@ -139,7 +139,7 @@ namespace Admeli.Compras.Nuevo
                 cargarProductos();
                 cargarProveedor();
 
-                btnOrdenCompra.Text = "Modificar orden";
+                btnRealizarPago.Text = "Modificar orden";
 
             }
 
@@ -834,7 +834,7 @@ namespace Admeli.Compras.Nuevo
                 await ordenCompraModel.comprarOrdenCompra(compra);
                 MessageBox.Show("Orden de compra realizada", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnComprarOrden.Enabled = false;
-                btnOrdenCompra.Enabled = false;
+                btnRealizarPago.Enabled = false;
             }
                 
             else

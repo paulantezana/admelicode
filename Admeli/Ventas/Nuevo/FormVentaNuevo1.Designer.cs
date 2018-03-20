@@ -81,6 +81,9 @@
             this.txtCorrelativo = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtSerie = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textDNI = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -119,9 +122,6 @@
             this.cbxTipoComprobante = new System.Windows.Forms.ComboBox();
             this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label19 = new System.Windows.Forms.Label();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.textDNI = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).BeginInit();
@@ -365,11 +365,11 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.OrangeRed;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
             this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OrangeRed;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -758,6 +758,27 @@
             this.panel3.Size = new System.Drawing.Size(652, 175);
             this.panel3.TabIndex = 109;
             // 
+            // textDNI
+            // 
+            this.textDNI.Location = new System.Drawing.Point(415, 33);
+            this.textDNI.Name = "textDNI";
+            this.textDNI.Size = new System.Drawing.Size(225, 22);
+            this.textDNI.TabIndex = 120;
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(143, 129);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(440, 22);
+            this.txtDireccion.TabIndex = 119;
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Location = new System.Drawing.Point(143, 79);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(440, 22);
+            this.txtNombreCliente.TabIndex = 118;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -856,6 +877,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.panel8);
@@ -1011,7 +1033,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label16.Location = new System.Drawing.Point(6, 28);
+            this.label16.Location = new System.Drawing.Point(6, 26);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 16);
             this.label16.TabIndex = 98;
@@ -1027,7 +1049,7 @@
             this.cbxCodigoProducto.DisplayMember = "codigoProducto";
             this.cbxCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCodigoProducto.FormattingEnabled = true;
-            this.cbxCodigoProducto.Location = new System.Drawing.Point(9, 48);
+            this.cbxCodigoProducto.Location = new System.Drawing.Point(8, 46);
             this.cbxCodigoProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCodigoProducto.Name = "cbxCodigoProducto";
             this.cbxCodigoProducto.Size = new System.Drawing.Size(145, 26);
@@ -1043,15 +1065,15 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Gold;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Khaki;
             this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Khaki;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Khaki;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1409, 26);
+            this.button1.Location = new System.Drawing.Point(1407, 24);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(71, 48);
@@ -1071,7 +1093,7 @@
             this.btnAddCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCard.ForeColor = System.Drawing.Color.White;
             this.btnAddCard.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCard.Image")));
-            this.btnAddCard.Location = new System.Drawing.Point(1330, 28);
+            this.btnAddCard.Location = new System.Drawing.Point(1328, 26);
             this.btnAddCard.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCard.Name = "btnAddCard";
             this.btnAddCard.Size = new System.Drawing.Size(71, 48);
@@ -1089,7 +1111,7 @@
             this.cbxPresentacion.DisplayMember = "nombrePresentacion";
             this.cbxPresentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPresentacion.FormattingEnabled = true;
-            this.cbxPresentacion.Location = new System.Drawing.Point(167, 48);
+            this.cbxPresentacion.Location = new System.Drawing.Point(167, 46);
             this.cbxPresentacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxPresentacion.Name = "cbxPresentacion";
             this.cbxPresentacion.Size = new System.Drawing.Size(159, 26);
@@ -1107,7 +1129,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label7.Location = new System.Drawing.Point(164, 26);
+            this.label7.Location = new System.Drawing.Point(164, 24);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
             this.label7.TabIndex = 71;
@@ -1123,7 +1145,7 @@
             this.cbxCombinacion.DisplayMember = "nombreCombinacion";
             this.cbxCombinacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCombinacion.FormattingEnabled = true;
-            this.cbxCombinacion.Location = new System.Drawing.Point(335, 48);
+            this.cbxCombinacion.Location = new System.Drawing.Point(335, 46);
             this.cbxCombinacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCombinacion.Name = "cbxCombinacion";
             this.cbxCombinacion.Size = new System.Drawing.Size(160, 26);
@@ -1140,7 +1162,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label6.Location = new System.Drawing.Point(332, 26);
+            this.label6.Location = new System.Drawing.Point(332, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 16);
             this.label6.TabIndex = 69;
@@ -1156,7 +1178,7 @@
             this.cbxDescripcion.DisplayMember = "nombreProducto";
             this.cbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
-            this.cbxDescripcion.Location = new System.Drawing.Point(507, 49);
+            this.cbxDescripcion.Location = new System.Drawing.Point(507, 47);
             this.cbxDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDescripcion.Name = "cbxDescripcion";
             this.cbxDescripcion.Size = new System.Drawing.Size(144, 26);
@@ -1170,7 +1192,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label5.Location = new System.Drawing.Point(503, 29);
+            this.label5.Location = new System.Drawing.Point(503, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 67;
@@ -1228,27 +1250,6 @@
             this.label19.Size = new System.Drawing.Size(152, 19);
             this.label19.TabIndex = 51;
             this.label19.Text = "Tipo Comprobante :";
-            // 
-            // txtNombreCliente
-            // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(143, 79);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(440, 22);
-            this.txtNombreCliente.TabIndex = 118;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(143, 129);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(440, 22);
-            this.txtDireccion.TabIndex = 119;
-            // 
-            // textDNI
-            // 
-            this.textDNI.Location = new System.Drawing.Point(415, 33);
-            this.textDNI.Name = "textDNI";
-            this.textDNI.Size = new System.Drawing.Size(225, 22);
-            this.textDNI.TabIndex = 120;
             // 
             // FormVentaNuevo1
             // 
