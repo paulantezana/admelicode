@@ -103,13 +103,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textPrecioUnidario = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblstock = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textCantidad = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cbxCodigoProducto = new System.Windows.Forms.ComboBox();
             this.productoVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAddCard = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAddProducto = new System.Windows.Forms.Button();
             this.cbxPresentacion = new System.Windows.Forms.ComboBox();
             this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
@@ -123,7 +124,6 @@
             this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label19 = new System.Windows.Forms.Label();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblstock = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).BeginInit();
@@ -640,6 +640,8 @@
             this.dtpVenta.Name = "dtpVenta";
             this.dtpVenta.Size = new System.Drawing.Size(179, 26);
             this.dtpVenta.TabIndex = 5;
+            this.dtpVenta.Value = new System.DateTime(2018, 4, 8, 0, 0, 0, 0);
+            this.dtpVenta.ValueChanged += new System.EventHandler(this.dtpVenta_ValueChanged);
             // 
             // label1
             // 
@@ -656,6 +658,7 @@
             // 
             this.dtpPago.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpPago.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.dtpPago.Enabled = false;
             this.dtpPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPago.Location = new System.Drawing.Point(117, 87);
@@ -932,8 +935,8 @@
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.cbxCodigoProducto);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.btnAddCard);
+            this.panel2.Controls.Add(this.btnModificar);
+            this.panel2.Controls.Add(this.btnAddProducto);
             this.panel2.Controls.Add(this.cbxPresentacion);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.cbxCombinacion);
@@ -1009,6 +1012,8 @@
             this.textDescuento.Name = "textDescuento";
             this.textDescuento.Size = new System.Drawing.Size(135, 26);
             this.textDescuento.TabIndex = 118;
+            this.textDescuento.TextChanged += new System.EventHandler(this.textDescuento_TextChanged);
+            this.textDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textDescuento_KeyPress);
             // 
             // plPVenta
             // 
@@ -1042,6 +1047,8 @@
             this.textPrecioUnidario.Name = "textPrecioUnidario";
             this.textPrecioUnidario.Size = new System.Drawing.Size(159, 26);
             this.textPrecioUnidario.TabIndex = 118;
+            this.textPrecioUnidario.TextChanged += new System.EventHandler(this.textPrecioUnidario_TextChanged);
+            this.textPrecioUnidario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPrecioUnidario_KeyPress);
             // 
             // panel7
             // 
@@ -1052,6 +1059,17 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(146, 78);
             this.panel7.TabIndex = 110;
+            // 
+            // lblstock
+            // 
+            this.lblstock.AutoSize = true;
+            this.lblstock.BackColor = System.Drawing.Color.White;
+            this.lblstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstock.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblstock.Location = new System.Drawing.Point(82, 46);
+            this.lblstock.Name = "lblstock";
+            this.lblstock.Size = new System.Drawing.Size(0, 20);
+            this.lblstock.TabIndex = 119;
             // 
             // label21
             // 
@@ -1077,6 +1095,7 @@
             this.textCantidad.Size = new System.Drawing.Size(70, 26);
             this.textCantidad.TabIndex = 118;
             this.textCantidad.TextChanged += new System.EventHandler(this.textCantidad_TextChanged);
+            this.textCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCantidad_KeyPress);
             // 
             // label16
             // 
@@ -1112,45 +1131,45 @@
             // 
             this.productoVentaBindingSource.DataSource = typeof(Entidad.ProductoVenta);
             // 
-            // button1
+            // btnModificar
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Gold;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1409, 26);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 48);
-            this.button1.TabIndex = 107;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.BackColor = System.Drawing.Color.Gold;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.Location = new System.Drawing.Point(1409, 26);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(71, 48);
+            this.btnModificar.TabIndex = 107;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnAddCard
+            // btnAddProducto
             // 
-            this.btnAddCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddCard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
-            this.btnAddCard.FlatAppearance.BorderSize = 0;
-            this.btnAddCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
-            this.btnAddCard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
-            this.btnAddCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCard.ForeColor = System.Drawing.Color.White;
-            this.btnAddCard.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCard.Image")));
-            this.btnAddCard.Location = new System.Drawing.Point(1330, 28);
-            this.btnAddCard.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddCard.Name = "btnAddCard";
-            this.btnAddCard.Size = new System.Drawing.Size(71, 48);
-            this.btnAddCard.TabIndex = 20;
-            this.btnAddCard.UseVisualStyleBackColor = false;
-            this.btnAddCard.Click += new System.EventHandler(this.btnAddCard_Click);
+            this.btnAddProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
+            this.btnAddProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.btnAddProducto.FlatAppearance.BorderSize = 0;
+            this.btnAddProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.btnAddProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(189)))), ((int)(((byte)(69)))));
+            this.btnAddProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProducto.ForeColor = System.Drawing.Color.White;
+            this.btnAddProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProducto.Image")));
+            this.btnAddProducto.Location = new System.Drawing.Point(1330, 28);
+            this.btnAddProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddProducto.Name = "btnAddProducto";
+            this.btnAddProducto.Size = new System.Drawing.Size(71, 48);
+            this.btnAddProducto.TabIndex = 20;
+            this.btnAddProducto.UseVisualStyleBackColor = false;
+            this.btnAddProducto.Click += new System.EventHandler(this.btnAddCard_Click);
             // 
             // cbxPresentacion
             // 
@@ -1307,17 +1326,6 @@
             // 
             this.productoBindingSource.DataSource = typeof(Entidad.Producto);
             // 
-            // lblstock
-            // 
-            this.lblstock.AutoSize = true;
-            this.lblstock.BackColor = System.Drawing.Color.White;
-            this.lblstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstock.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblstock.Location = new System.Drawing.Point(82, 46);
-            this.lblstock.Name = "lblstock";
-            this.lblstock.Size = new System.Drawing.Size(0, 20);
-            this.lblstock.TabIndex = 119;
-            // 
             // FormVentaNuevo1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1383,7 +1391,7 @@
         private System.Windows.Forms.ComboBox cbxCombinacion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbxPresentacion;
-        private System.Windows.Forms.Button btnAddCard;
+        private System.Windows.Forms.Button btnAddProducto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxMoneda;
         private System.Windows.Forms.Label label10;
@@ -1425,7 +1433,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;

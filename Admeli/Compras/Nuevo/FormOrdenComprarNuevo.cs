@@ -406,14 +406,10 @@ namespace Admeli.Compras.Nuevo
             DetalleCompra detalleCompra = new DetalleCompra();
             if (exitePresentacion(Convert.ToInt32(cbxPresentacion.SelectedValue)))
             {
-
                 MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
 
             }
-                
-
-
             // Creando la lista
             detalleCompra.cantidad = double.Parse(textCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
 
@@ -865,10 +861,12 @@ namespace Admeli.Compras.Nuevo
             cbxDescripcion.Text = aux.descripcion;
             cbxCombinacion.Text = aux.nombreCombinacion;
             cbxPresentacion.Text = aux.nombrePresentacion;
-            textCantidad.Text = Convert.ToString(aux.cantidad);
-            textPrecioUnidario.Text = Convert.ToString(aux.precioUnitario);
-            textDescuento.Text = Convert.ToString(aux.descuento);
-            textTotal.Text = Convert.ToString(aux.total);
+            textCantidad.Text = Convert.ToString(aux.cantidad, CultureInfo.GetCultureInfo("en-US"));
+
+           
+            textPrecioUnidario.Text = Convert.ToString(aux.precioUnitario, CultureInfo.GetCultureInfo("en-US"));
+            textDescuento.Text = Convert.ToString(aux.descuento, CultureInfo.GetCultureInfo("en-US"));
+            textTotal.Text = Convert.ToString(aux.total, CultureInfo.GetCultureInfo("en-US"));
             idPresentacionDatagriview = idOrdenCompra;
         }
 
