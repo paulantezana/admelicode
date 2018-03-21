@@ -64,8 +64,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbxPresentacionBase = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).BeginInit();
             this.panelHeader.SuspendLayout();
@@ -198,7 +198,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panelHeader.Size = new System.Drawing.Size(835, 49);
+            this.panelHeader.Size = new System.Drawing.Size(779, 49);
             this.panelHeader.TabIndex = 53;
             // 
             // label4
@@ -218,7 +218,7 @@
             this.panelFooter.Location = new System.Drawing.Point(0, 661);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(835, 49);
+            this.panelFooter.Size = new System.Drawing.Size(779, 49);
             this.panelFooter.TabIndex = 54;
             // 
             // panel1
@@ -227,7 +227,7 @@
             this.panel1.Controls.Add(this.btnGuardarSalir);
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(171, 0);
+            this.panel1.Location = new System.Drawing.Point(143, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(492, 49);
             this.panel1.TabIndex = 6;
@@ -544,6 +544,10 @@
             this.cbxPresentacionBase.TabIndex = 1;
             this.cbxPresentacionBase.ValueMember = "idPresentacion";
             // 
+            // presentacionBindingSource
+            // 
+            this.presentacionBindingSource.DataSource = typeof(Entidad.Presentacion);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -555,10 +559,6 @@
             this.label6.Size = new System.Drawing.Size(98, 14);
             this.label6.TabIndex = 0;
             this.label6.Text = "Presentación Base";
-            // 
-            // presentacionBindingSource
-            // 
-            this.presentacionBindingSource.DataSource = typeof(Entidad.Presentacion);
             // 
             // UCGeneralesPD
             // 
@@ -586,7 +586,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textDescripcion);
             this.Name = "UCGeneralesPD";
-            this.Size = new System.Drawing.Size(835, 710);
+            this.Size = new System.Drawing.Size(779, 710);
             this.Load += new System.EventHandler(this.UCGeneralesPD_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCGeneralesPD_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaBindingSource)).EndInit();

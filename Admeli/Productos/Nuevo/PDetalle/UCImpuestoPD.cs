@@ -12,6 +12,7 @@ using Modelo;
 using Admeli.Configuracion.Nuevo;
 using Newtonsoft.Json;
 using Entidad;
+using System.IO;
 
 namespace Admeli.Productos.Nuevo.PDetalle
 {
@@ -103,8 +104,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void btnNuevoImpuesto_Click(object sender, EventArgs e)
         {
             //Abir la ventana de nuevo impuesto
-           // FormNuevoImpuesto nuevoImpuesto = new FormNuevoImpuesto();
-            //nuevoImpuesto.ShowDialog();
+            FormNuevoImpuesto nuevoImpuesto = new FormNuevoImpuesto();            
+            nuevoImpuesto.ShowDialog();
             this.reLoad();
         }
 
@@ -195,34 +196,68 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private async  void btnGuardarImpustos_Click(object sender, EventArgs e)
         {
-            
-            ImpuestosEnviados impuestosEnviados = new ImpuestosEnviados();
-            Producto producto = new Producto();
-            Sucursal sucursal = new Sucursal();
-            string json = "";         
-            
-            //Recuperar los impuestos en el dgvImpuestoProducto y alamcenarlos en 
-            List<Impuesto> impuestoProducto = (List<Impuesto>)impuestoBindingSourceP.DataSource;
-            int cantidad = impuestoProducto.Count;
-            json += "{";
-            for(int i = 0; i < cantidad; i++)
+            try
             {
-                json += "'id" + i + "':'" + impuestoProducto[i].idImpuesto + "'";
-            }            
-            json += "}";
+                ImpuestosEnviados impuestosEnviados = new ImpuestosEnviados();
+                Producto producto = new Producto();
+                Sucursal sucursal = new Sucursal();
+                string json = @"{";
 
-            producto.idProducto = formProductoNuevo.currentIDProducto;
-            impuestosEnviados.impuestos = json;
-            sucursal.idSucursal= Convert.ToInt32(cbxSucursal.SelectedValue.ToString());
+                //Recuperar los impuestos en el dgvImpuestoProducto y alamcenarlos en 
+                List<Impuesto> impuestoProducto = (List<Impuesto>)impuestoBindingSourceP.DataSource;
+                int cantidad = impuestoProducto.Count;
+                for (int i = 0; i < cantidad; i++)
+                {
+                    json += "'id" + i + "':'" + impuestoProducto[i].idImpuesto + "',";
+                }
+                json = json.Substring(0, json.Length - 1);
+                json += "}";
 
-            //Construir el objeto que sera enviado
-            impuestosEnviados.impuestos = json;
-            impuestosEnviados.producto = producto;
-            impuestosEnviados.sucursal = sucursal;
+                JsonTextReader reader = new JsonTextReader(new StringReader(json));
+                while (reader.Read())
+                {
+                    if (reader.Value != null)
+                    {
+                        Console.WriteLine("Token: {0}, Valor: {1}", reader.TokenType, reader.Value);
+                        MessageBox.Show("Token: "+reader.TokenType+", Valor: "+ reader.Value );
+                    }
+                    else
+                    {
+                        Console.WriteLine("Token: {0}", reader.TokenType);
+                        MessageBox.Show("Token: " + reader.TokenType);
+                    }
+                }
 
-            response = await impuestoModel.actualizarImpuestoProducto(impuestosEnviados);
+                producto.idProducto = formProductoNuevo.currentIDProducto;
+                objectIm objIm = new objectIm();
+                objIm.impuestos = json;
+                impuestosEnviados.impuestos = objIm;
+                sucursal.idSucursal = Convert.ToInt32(cbxSucursal.SelectedValue.ToString());
 
-            MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Construir el objeto que sera enviado
+                impuestosEnviados.impuestos = objIm;
+                impuestosEnviados.producto = producto;
+                impuestosEnviados.sucursal = sucursal;
+
+                listaEnviada lista = new listaEnviada();
+                List<object> l = new List<object>();
+                lista.listita = l;
+                lista.listita.Add(json);
+                lista.listita.Add(producto);
+                lista.listita.Add(sucursal);
+                /*
+                impuestosEnviados.idProducto="{idProducto:"+ formProductoNuevo.currentIDProducto+ "}";
+                impuestosEnviados.idSucursal = "{idSucursal:" + Convert.ToInt32(cbxSucursal.SelectedValue.ToString()) + "}";
+                */
+
+                response = await impuestoModel.actualizarImpuestoProducto(lista);
+
+                MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }  
 }
 }

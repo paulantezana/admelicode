@@ -30,8 +30,16 @@ namespace Entidad
     }
     public class ImpuestosEnviados
     {
-        public string impuestos { get; set; }
+        public objectIm impuestos { get; set; }
         public Producto producto { get; set; }
         public Sucursal sucursal { get; set; }
+    }
+    public class objectIm
+    {
+        public string impuestos { get; set; }
+    }
+    public class listaEnviada
+    {
+        public List<object> listita { get; set; }
     }
 }

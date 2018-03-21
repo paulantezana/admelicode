@@ -58,6 +58,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             drawShape.bottomLine(panelHeader);
             drawShape.lineBorder(panel12, 157, 157, 157);
             drawShape.lineBorder(panel2, 157, 157, 157);
+            drawShape.lineBorder(panel3, 157, 157, 157);
         }
         #endregion
 

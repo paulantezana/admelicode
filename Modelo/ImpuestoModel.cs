@@ -139,12 +139,12 @@ namespace Modelo
             }
         }
         //iproducto
-        public async Task<Response> actualizarImpuestoProducto(ImpuestosEnviados impuestosEnviados)
+        public async Task<Response> actualizarImpuestoProducto(listaEnviada impuestosEnviados)
         {
             try
             {
                 //http://localhost:8085/admeli/xcore/services.php/iproducto
-                Response respuesta = await webService.POST<ImpuestosEnviados,Response>("iproducto", impuestosEnviados);
+                Response respuesta = await webService.POST<listaEnviada,Response>("iproducto", impuestosEnviados);
                 return respuesta;
             }
             catch (Exception ex)
