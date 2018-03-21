@@ -55,6 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panelItem1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.dgvImpuestoTodo = new System.Windows.Forms.DataGridView();
             this.idImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +66,7 @@
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enUsoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.impuestoBindingSourceT = new System.Windows.Forms.BindingSource(this.components);
+            this.panel9 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNuevoImpuesto = new System.Windows.Forms.ToolStripButton();
             this.btnActualizarImpuesto = new System.Windows.Forms.ToolStripButton();
@@ -74,6 +76,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panelItem2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.dgvImpuestoProducto = new System.Windows.Forms.DataGridView();
             this.idImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,15 +87,12 @@
             this.estadoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enUsoDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.impuestoBindingSourceP = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnGuardarImpustos = new System.Windows.Forms.Button();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnProductoATodo = new System.Windows.Forms.ToolStripButton();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnGuardarImpustos = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -100,19 +100,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).BeginInit();
             this.panelItem1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImpuestoTodo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSourceT)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelItem2.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImpuestoProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSourceP)).BeginInit();
+            this.panel2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -304,6 +304,15 @@
             this.panel3.Size = new System.Drawing.Size(539, 455);
             this.panel3.TabIndex = 23;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.dgvImpuestoTodo);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(10, 10);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(519, 373);
+            this.panel6.TabIndex = 3;
+            // 
             // dgvImpuestoTodo
             // 
             this.dgvImpuestoTodo.AllowUserToAddRows = false;
@@ -431,6 +440,14 @@
             // 
             this.impuestoBindingSourceT.DataSource = typeof(Entidad.Impuesto);
             // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(10, 383);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(519, 62);
+            this.panel9.TabIndex = 25;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
@@ -536,6 +553,15 @@
             this.panel7.Padding = new System.Windows.Forms.Padding(10);
             this.panel7.Size = new System.Drawing.Size(615, 455);
             this.panel7.TabIndex = 23;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.dgvImpuestoProducto);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(10, 10);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(595, 373);
+            this.panel5.TabIndex = 4;
             // 
             // dgvImpuestoProducto
             // 
@@ -664,6 +690,33 @@
             // 
             this.impuestoBindingSourceP.DataSource = typeof(Entidad.Impuesto);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnGuardarImpustos);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(10, 383);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(595, 62);
+            this.panel2.TabIndex = 3;
+            // 
+            // btnGuardarImpustos
+            // 
+            this.btnGuardarImpustos.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardarImpustos.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardarImpustos.FlatAppearance.BorderSize = 0;
+            this.btnGuardarImpustos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnGuardarImpustos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnGuardarImpustos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarImpustos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarImpustos.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarImpustos.Location = new System.Drawing.Point(18, 19);
+            this.btnGuardarImpustos.Name = "btnGuardarImpustos";
+            this.btnGuardarImpustos.Size = new System.Drawing.Size(116, 30);
+            this.btnGuardarImpustos.TabIndex = 8;
+            this.btnGuardarImpustos.Text = "Guardar";
+            this.btnGuardarImpustos.UseVisualStyleBackColor = false;
+            this.btnGuardarImpustos.Click += new System.EventHandler(this.btnGuardarImpustos_Click);
+            // 
             // toolStrip2
             // 
             this.toolStrip2.AutoSize = false;
@@ -714,59 +767,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Impuestos del Producto";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnGuardarImpustos);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(10, 383);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(595, 62);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.dgvImpuestoProducto);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(10, 10);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(595, 373);
-            this.panel5.TabIndex = 4;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.dgvImpuestoTodo);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(10, 10);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(519, 373);
-            this.panel6.TabIndex = 3;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(10, 383);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(519, 62);
-            this.panel9.TabIndex = 25;
-            // 
-            // btnGuardarImpustos
-            // 
-            this.btnGuardarImpustos.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnGuardarImpustos.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnGuardarImpustos.FlatAppearance.BorderSize = 0;
-            this.btnGuardarImpustos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnGuardarImpustos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnGuardarImpustos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarImpustos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarImpustos.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarImpustos.Location = new System.Drawing.Point(465, 16);
-            this.btnGuardarImpustos.Name = "btnGuardarImpustos";
-            this.btnGuardarImpustos.Size = new System.Drawing.Size(116, 30);
-            this.btnGuardarImpustos.TabIndex = 8;
-            this.btnGuardarImpustos.Text = "Guardar";
-            this.btnGuardarImpustos.UseVisualStyleBackColor = false;
-            this.btnGuardarImpustos.Click += new System.EventHandler(this.btnGuardarImpustos_Click);
-            // 
             // UCImpuestoPD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -789,6 +789,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).EndInit();
             this.panelItem1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvImpuestoTodo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSourceT)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -797,15 +798,14 @@
             this.panel4.PerformLayout();
             this.panelItem2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvImpuestoProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSourceP)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

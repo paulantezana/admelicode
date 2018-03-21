@@ -11,6 +11,8 @@ using Admeli.Componentes;
 using Modelo;
 using Entidad;
 using Admeli.Productos.Nuevo.PDetalle.web;
+using System.IO;
+using System.Net;
 
 namespace Admeli.Productos.Nuevo.PDetalle
 {
@@ -28,6 +30,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private Comentario currentComentario { get; set; }
         private ProductoRelacion currentProductoRelacion { get; set; }
 
+        private string direccion = "";
+        private string nombreArchivo = "";
         public UCTiendaOnlinePD()
         {
             InitializeComponent();
@@ -384,5 +388,88 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             formProductoNuevo.executeCerrar();
         }
+
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ofdNuevaImagen.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = ofdNuevaImagen.FileName;
+                    ptbImagenActual.Image = Image.FromFile(imagen);
+                    direccion = ofdNuevaImagen.FileName;
+                    nombreArchivo = Path.GetFileName(direccion);
+                    lblRutaImagen.Text = nombreArchivo;
+                    btnSubirFoto.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                btnSubirFoto.Enabled = false;
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+            }
+        }
+
+        private void btnSubirFoto_Click(object sender, EventArgs e)
+        {
+            upload(direccion,nombreArchivo);
+        }
+
+        public void upload(string rutaArchivo, string nombreArchivo)
+        {
+            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create("ftp://localhost/admeli/"+nombreArchivo);
+            request.Method = WebRequestMethods.Ftp.UploadFile;
+            request.Credentials = new NetworkCredential("usuario", "123456");
+            request.UsePassive = true;
+            request.UseBinary = true;
+            request.KeepAlive = true;
+            //Ruta donde esta ubicado el archivo
+            FileStream stream = File.OpenRead(rutaArchivo);
+            byte[] buffer = new byte[stream.Length];
+            stream.Read(buffer, 0, buffer.Length);
+            stream.Close();
+            Stream reqStream = request.GetRequestStream();
+            reqStream.Write(buffer, 0, buffer.Length);
+            reqStream.Flush();
+            reqStream.Close();
+
+            //FileInfo fileInf = new FileInfo(rutaArchivo);
+            //string ftpServerIP = "localhost";
+            //string ftpUserID = "usuario";
+            //string ftpPassword = "123456";
+            //string uri = "ftp://" + ftpServerIP + "/" + fileInf.Name;
+            //FtpWebRequest reqFTP;
+
+            //reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + ftpServerIP + "/" + fileInf.Name));
+            //reqFTP.Credentials = new NetworkCredential(ftpUserID, ftpPassword);
+            //reqFTP.KeepAlive = false;
+            //reqFTP.Method = WebRequestMethods.Ftp.UploadFile;
+            //reqFTP.UseBinary = true;
+            //reqFTP.ContentLength = fileInf.Length;
+
+            //int buffLength = 4048;
+            //byte[] buff = new byte[buffLength];
+            //int contentLen;
+
+            //FileStream fs = fileInf.OpenRead();
+
+            //try
+            //{
+            //    Stream strm = reqFTP.GetRequestStream();
+            //    contentLen = fs.Read(buff, 0, buffLength);
+            //    while (contentLen != 0)
+            //    {
+            //        strm.Write(buff, 0, contentLen);
+            //        contentLen = fs.Read(buff, 0, buffLength);
+            //    }
+            //    strm.Close();
+            //    fs.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+        }
+
     }
 }

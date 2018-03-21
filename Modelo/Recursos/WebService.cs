@@ -23,7 +23,7 @@ namespace Modelo.Recursos
         public WebService()
         {
             //this.domainName = "http://www.lineatienda.com";
-            this.domainName = "http://localhost:8080";
+            this.domainName = "http://localhost:8085";
             //a
             //this.domainName = "http://192.168.1.45:8080";
 
@@ -100,7 +100,6 @@ namespace Modelo.Recursos
                     throw new Exception(response.StatusCode.ToString()); /// si hay un error mandar un exception con statuscode
                 }
                 string result = await response.Content.ReadAsStringAsync();
-
                 /// Retornando los valores en una lista de objetos
                 K dataResponse = JsonConvert.DeserializeObject<K>(result);
                 return dataResponse;

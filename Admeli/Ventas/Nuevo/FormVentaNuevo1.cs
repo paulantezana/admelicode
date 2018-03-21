@@ -123,7 +123,7 @@ namespace Admeli.Ventas.Nuevo
 
             txtDireccion.Enabled = false;
             txtNombreCliente.Enabled = false;
-            btnimportarCotizacion.Visible = false;
+            btnImportarCotizacion.Visible = false;
         }
         #endregion
 
@@ -137,6 +137,7 @@ namespace Admeli.Ventas.Nuevo
         #region ================================ Root Load ================================
         private void FormComprarNuevo_Load(object sender, EventArgs e)
         {
+
             if (nuevo == true)
                 this.reLoad();
             else
@@ -152,13 +153,13 @@ namespace Admeli.Ventas.Nuevo
 
                 btnRealizarCompra.Text = "Modificar compra";
             }
-
             AddButtonColumn();
         }
 
 
         private void reLoad()
         {
+            pintar();
             cargarMonedas();
             cargarTipoDocumento();
             cargarFechaSistema();
@@ -177,6 +178,13 @@ namespace Admeli.Ventas.Nuevo
         }
         #endregion
 
+        private void pintar()
+        {
+            DrawShape drawShape = new DrawShape();
+            //drawShape.bottomLine(panelHeader);
+            drawShape.lineBorder(plTipoComprobante, 157, 157, 157);
+        }
+
         #region ============================== Load ==============================
         private async void cargartiposDocumentos()
         {
@@ -189,7 +197,7 @@ namespace Admeli.Ventas.Nuevo
             DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
             {
                 buttons.HeaderText = "Acciones";
-                buttons.Text = "Eliminar";
+                buttons.Text = "X";
                 buttons.UseColumnTextForButtonValue = true;
                 //buttons.AutoSizeMode =
                 //   DataGridViewAutoSizeColumnMode.AllCells;
@@ -790,13 +798,6 @@ namespace Admeli.Ventas.Nuevo
                 MessageBox.Show("Error: " + ex.Message, "Calcular total", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
-
-
-
-
-
         #endregion
 
         private void executeBuscarCliente()
@@ -973,7 +974,6 @@ namespace Admeli.Ventas.Nuevo
 
 
         #endregion
-
         private void btnAddMarca_Click(object sender, EventArgs e)
         {
             buscarOrden importarOrden = new buscarOrden();
@@ -1197,10 +1197,69 @@ namespace Admeli.Ventas.Nuevo
         {
             int idTipoDocumento = (int)cbxTipoComprobante.SelectedValue;
             List<Venta_correlativo> list = await ventaModel.listarNroDocumentoVenta(idTipoDocumento, ConfigModel.asignacionPersonal.idPuntoVenta);
-            txtCorrelativo.Text = list[0].correlativoActual;
-            txtSerie.Text = list[0].serie;
+            textSerie.Text = list[0].correlativoActual;
+            textSerie.Text = list[0].serie;
+
+        }
+
+        private void btnImportarCotizacion_Click(object sender, EventArgs e)
+        {
+            buscarOrden importarOrden = new buscarOrden();
+            importarOrden.ShowDialog();
+            OrdenCompraSinComprarM aux = importarOrden.compraSinComprarM;
+            // datos del proveedor
+
+            if (aux != null)
+            {
+
+                txtNombreCliente.Text = aux.direccionProveedor;
+                txtDireccion.Text = aux.nombreProveedor;
 
 
+                currentCompra = new Compra();
+
+                currentCompra.idSucursal = ConfigModel.sucursal.idSucursal;
+                currentCompra.descuento = textDescuento.Text;
+
+                currentCompra.direccion = txtNombreCliente.Text;
+
+                currentCompra.estado = 1;
+                //currentCompra.fechaFacturacion = " ";
+
+                currentCompra.formaPago = "EFECTIVO";
+                currentCompra.idCajaSesion = ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
+                currentCompra.idCompra = aux.idCompra;
+                currentCompra.idPago = aux.idPago;
+                currentCompra.idPersonal = personal.idPersonal;
+                //currentCompra.idProveedor = aux.;
+                currentCompra.idTipoDocumento = aux.idTipoDocumento;
+                currentCompra.moneda = aux.moneda;
+                currentCompra.nombreProveedor = aux.nombreProveedor;
+
+                currentCompra.numeroDocumento = "";// falta definir o entender para q sirve
+                currentCompra.observacion = aux.observacion;
+                currentCompra.rucDni = aux.rucDni;
+                currentCompra.tipoCompra = "con productos";
+                currentCompra.vendedor = personal.nombres;
+                if (detalleCompras != null)
+                    detalleCompras.Clear();// limpiamos la lista de detalle productos
+                detalleCompras = new List<DetalleCompra>();
+
+                detalleCompraBindingSource.DataSource = null;
+
+                dataGridView.Refresh();
+                this.reLoad();
+                listarDetalleCompraByIdCompra();
+                listarDatosProveedorCompra();
+                // Calculo de totales y subtotales
+                calculoSubtotal();
+
+                Ruc ruc = new Ruc();
+                ruc.nroDocumento = aux.rucDni;
+
+                obtenerid(ruc);
+
+            }
         }
 
         private void textCantidad_TextChanged(object sender, EventArgs e)
