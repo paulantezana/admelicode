@@ -336,13 +336,15 @@ namespace Admeli.Compras
 
         private void executeNuevo()
         {
-            int i = cbxPersonales.SelectedIndex;
-            Personal personal = personalBindingSource.List[i] as Personal;
-         
-            // personalBindingSource.Current
-            FormComprarNuevo comprarNuevo = new FormComprarNuevo(ConfigModel.sucursal, personal);
+            //int i = cbxPersonales.SelectedIndex;
+            //Personal personal = personalBindingSource.List[i] as Personal;
+
+            //// personalBindingSource.Current
+            //FormComprarNuevo comprarNuevo = new FormComprarNuevo(ConfigModel.sucursal, personal);
+            //comprarNuevo.ShowDialog();
+            //cargarRegistros();
+            FormCompraNuevo1 comprarNuevo = new FormCompraNuevo1();
             comprarNuevo.ShowDialog();
-            cargarRegistros();
         }
 
         private void executeModificar()

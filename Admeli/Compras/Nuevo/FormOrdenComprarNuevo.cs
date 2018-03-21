@@ -106,7 +106,7 @@ namespace Admeli.Compras.Nuevo
             if(currentOrdenCompra.estadoCompra!=8)
             {
 
-                btnOrdenCompra.Enabled = false;
+                btnRealizarPago.Enabled = false;
             }
             
         }
@@ -139,7 +139,7 @@ namespace Admeli.Compras.Nuevo
                 cargarProductos();
                 cargarProveedor();
 
-                btnOrdenCompra.Text = "Modificar orden";
+                btnRealizarPago.Text = "Modificar orden";
 
             }
 
@@ -406,12 +406,10 @@ namespace Admeli.Compras.Nuevo
             DetalleCompra detalleCompra = new DetalleCompra();
             if (exitePresentacion(Convert.ToInt32(cbxPresentacion.SelectedValue)))
             {
-
                 MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
 
             }
-                
 
 
             // Creando la lista
@@ -834,7 +832,7 @@ namespace Admeli.Compras.Nuevo
                 await ordenCompraModel.comprarOrdenCompra(compra);
                 MessageBox.Show("Orden de compra realizada", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnComprarOrden.Enabled = false;
-                btnOrdenCompra.Enabled = false;
+                btnRealizarPago.Enabled = false;
             }
                 
             else
@@ -865,10 +863,12 @@ namespace Admeli.Compras.Nuevo
             cbxDescripcion.Text = aux.descripcion;
             cbxCombinacion.Text = aux.nombreCombinacion;
             cbxPresentacion.Text = aux.nombrePresentacion;
-            textCantidad.Text = Convert.ToString(aux.cantidad);
-            textPrecioUnidario.Text = Convert.ToString(aux.precioUnitario);
-            textDescuento.Text = Convert.ToString(aux.descuento);
-            textTotal.Text = Convert.ToString(aux.total);
+            textCantidad.Text = Convert.ToString(aux.cantidad, CultureInfo.GetCultureInfo("en-US"));
+
+           
+            textPrecioUnidario.Text = Convert.ToString(aux.precioUnitario, CultureInfo.GetCultureInfo("en-US"));
+            textDescuento.Text = Convert.ToString(aux.descuento, CultureInfo.GetCultureInfo("en-US"));
+            textTotal.Text = Convert.ToString(aux.total, CultureInfo.GetCultureInfo("en-US"));
             idPresentacionDatagriview = idOrdenCompra;
         }
 

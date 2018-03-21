@@ -21,7 +21,7 @@ namespace Entidad
     public class verificarStockSubmit // para el evento de agregar detalle de venta
 
     {
-        public int idVenta { get; set; }
+            public int idVenta { get; set; }
             public int idPersonal { get; set; }
             public int idSucursal { get; set; }
             public List<List<object>> dato { get; set; }      
@@ -32,6 +32,16 @@ namespace Entidad
         public string idCombinacionAlternativa { get; set; }
         public int idProducto { get; set; }
     }
+
+
+    //http://localhost:8080/admeli/xcore/services.php/producto/4/combinacion/0/stock/suc/1/personal/1
+
+    public class StockReceive// para el evento de agregar detalle de venta
+    {
+        public double stock_total { get; set; }
+    
+    }
+
 
 
 }

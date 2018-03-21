@@ -18,8 +18,23 @@ namespace Entidad
         public string cantidadUnitaria { get; set; }
         public bool presentacionPorDefecto { get; set; }
         public int estado { get; set; }
-        public int idProducto { get; set; }        
-        public int idPresentacionBase { get; set; }
+        public int idProducto { get; set; }
+
+
+        private int _idPresentacionBase;
+        public int idPresentacionBase
+        {
+            get { return _idPresentacionBase; }
+            set
+            {
+
+                if(value==null)
+                    _idPresentacionBase = 0;
+                else
+                     _idPresentacionBase = value;
+            }
+        }
+        
     }
 
      public class FechaCreacion

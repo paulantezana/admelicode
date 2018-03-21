@@ -78,5 +78,19 @@ namespace Modelo
             }
         }
 
+        //http://localhost:8080/admeli/xcore/services.php/producto/4/combinacion/0/stock/suc/1/personal/1
+        public async Task<List<StockReceive>> getStockProductoByIdProductoIdCombinacionIdSucursal(int idProducto, int idCombinacion , int idSucursul, int idPersonal)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/psalmacenes/producto/445
+                List<StockReceive> list = await webService.GET<List<StockReceive>>("producto", String.Format("{0}/combinacion/{1}/stock/suc/{2}/personal/{3}", idProducto,idCombinacion, idSucursul,idPersonal ));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
