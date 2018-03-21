@@ -948,7 +948,7 @@
             this.textDNI.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDNI.ForeColor = System.Drawing.Color.Black;
-            this.textDNI.isPassword = false;
+         
             this.textDNI.Location = new System.Drawing.Point(313, 25);
             this.textDNI.Margin = new System.Windows.Forms.Padding(4);
 
@@ -1558,5 +1558,18 @@
         private System.Windows.Forms.TextBox textDNI;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Label lblstock;
+
+
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnImportarCotizacion;
+        private System.Windows.Forms.Label chkEditar ;
+        private Bunifu.Framework.UI.BunifuCheckbox chkActivoProducto ;
+        private System.Windows.Forms.Label label19 ;
+        private Bunifu.Framework.UI.BunifuMetroTextbox textCorrelativo;
+        private System.Windows.Forms.Label label9;
+        private Bunifu.Framework.UI.BunifuMetroTextbox textSerie;
+        private System.Windows.Forms.Panel lTipoComprobante;
+        private System.Windows.Forms.ComboBox cbxTipoComprobante;
+        private System.Windows.Forms.Panel plTipoComprobante;
     }
 }
