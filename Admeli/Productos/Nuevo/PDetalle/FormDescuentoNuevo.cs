@@ -36,6 +36,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             InitializeComponent();
             this.formProductoNuevo = formProductoNuevo;
+            nuevo = true;
         }
 
         public FormDescuentoNuevo(FormProductoNuevo formProductoNuevo, Descuento currentDescuento)
@@ -43,6 +44,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             InitializeComponent();
             this.formProductoNuevo = formProductoNuevo;
             this.currentDescuento = currentDescuento;
+            nuevo = false;
         }
         #endregion
 
@@ -129,12 +131,36 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 crearObjetoSucursal();
                 if (nuevo)
                 {
+                    currentDescuento = new Descuento();
+                    
+                    string dateFin = String.Format("{0:u}", dtpFechaFin.Value);
+                    dateFin = dateFin.Substring(0, dateFin.Length - 1);
+
+                    string dateInicio = String.Format("{0:u}", dtpFechaInicio.Value);
+                    dateInicio = dateInicio.Substring(0, dateInicio.Length - 1);
+                   
+
+                    // asignar al decuento
+                    currentDescuento.cantidadMaxima = textMaximaVenta.Text.Trim();
+                    currentDescuento.cantidadMinima = textMinimaVenta.Text.Trim();
+                    currentDescuento.codigo = textCodigo.Text.Trim();
+                    currentDescuento.descuento = textDescuento.Text.Trim();
+                    currentDescuento.estado = 1;
+                    currentDescuento.fechaFin = dateFin;
+                    currentDescuento.fechaInicio = dateInicio;
+                    currentDescuento.idAfectoProducto = 0;
+                    currentDescuento.tipo = "General";
+                    currentDescuento.idGrupoCliente =(int) cbxGrupoCliente.SelectedValue;
+                    currentDescuento.idSucursal = (int)cbxSucursal.SelectedValue;
+                    currentDescuento.idPresentacion = formProductoNuevo.currentIDProducto;
+
                     Response response = await descuentoModel.guardar(currentDescuento);
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    Response response = await descuentoModel.modificar(currentDescuento);
+                    //Response response = await descuentoModel.modificar(currentDescuento);
+                    Response response=null;
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 this.Close();

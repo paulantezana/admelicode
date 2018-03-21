@@ -135,23 +135,23 @@
   <data name="btnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAD6SURBVDhPYxgQ8L+egenfDAY7KJc8ADSE5e8MhpVv2xj+
-        /ZvOkAMVJg3ADPk/g+E/CJNlGLohZBkGChOgIXPRDYHhtzMY/v6fzuAAVY4d4HIJMgbKT/3/n4ERqgUT
-        DDJDpjGswKYZhv9OZ5iG1xAQANo0C5tmGAYasvj/KgZmqHLs4N9+Vp0/21mPvJ0JjAnshhB2CQj8O8hW
-        8P8g+39shhFtCAh83MGzA2QQumEkGbK43owvJi3i34MNYmCDwIbtYD1MkiEgMLXFLss1KuV/YITL30+7
-        eHYBvVny7yCrEdAQJqgS4sDMLsvQaa222TNnGnNBhQYKMDAAAMFTKmZlZYBXAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAD6SURBVDhPYxgQ8L+egenfDAY7KJc8ADSE5e8MhpWvWxj+
+        /ZvOkAMVJg3ADPk/g+E/CJNlGLohZBkGChOgIXPRDYHh1zMY/v6fzuAAVY4d4HIJMgbKT/3/n4ERqgUT
+        DDJDpjGswKYZhv9OZ5iG1xAQANo0C5tmGAYasvj/KgZmqHLs4N9+Vp0/21mPvJ4JjAnshhB2CQj8O8hW
+        8P8g+39shhFtCAh83MGzA2QQumEkGbK43owvJi3i34MNYmCDwIbtYD1MkiEgMLXFLss1KuW/f5jT30+7
+        eHYBvVny7yCrEdAQJqgS4sDMLsvQaa222TNnGnNBhQYKMDAAAHr9KkwDuvsNAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnActualizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAF1SURBVDhPpZRLS8NAEMej6EEQER8HpZBsLB5UvOjdi1/B
-        L+HjrCDYg3j0UZrdWusD39/BT5OroLbZwZvtOrOZVjTENPqDQPbPZHaecbIQClb59W8s1cygL3VF7Ift
+        L+HjrCBYPHj0UZrdWusD39/BD5O7oLbZwZvtOrOZVjTENPqDQPbPZHaecbIQClb59W8s1cygL3VF7Ift
         ueB5mOX8eIG+x2hM9wng1VX61lewwCa9MVvTE66MnsiJJ2ELnwt8b2CEH77SO44xfWyaBA3XCoftIT46
         KyUzgA4O+OgUyy8jaHMVO9fbLH/HP31fFipsocEeS6kIpa8pspkA5ln6wlP6gepAt7KUinvcGBVH8Cak
         vmGJKZn+qRNoYshVVjJB2zNyxseYYllPUt54wzpLmYgqbNI305VonKW4Q9aRgg2WMqFOJhxRKyk1V0Kd
         lUw8BZc2tZ9jYAcwT7FpphLFRoSERdt+vImlVH5tP4E37FLeFF2h3hxjuQvVQ8jo0dqkDaQF842dhS0K
-        HaM75/WwK2JHpJcV6UBp2prR0MXdtEuLUdzlXtoO9Av5128kH47zCcv96jJ5SyN+AAAAAElFTkSuQmCC
+        HaM75/WwK2JHpJcV6UBp2prR0MXdtEuLUdzlXtoO9Av5128kH47zCYR/6hh/b7yDAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

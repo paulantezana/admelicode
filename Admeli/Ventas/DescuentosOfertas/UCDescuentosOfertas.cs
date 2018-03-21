@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using Modelo;
 using Entidad;
 using Admeli.Componentes;
+using Admeli.Ventas.DescuentosOfertas.Descuento;
+using Admeli.Ventas.DescuentosOfertas.Ofertas;
 
 namespace Admeli.Ventas
 {
     public partial class UCDescuentosOfertas : UserControl
     {
         private FormPrincipal formPrincipal;
+        
         public bool lisenerKeyEvents { get; set; }
         private DescuentoModel descuentoModel = new DescuentoModel();
         private Paginacion paginacion;
@@ -279,8 +282,21 @@ namespace Admeli.Ventas
         {
             //executeModificar();
         }
+
         #endregion
 
-     
+        private void btnDescuento_Click(object sender, EventArgs e)
+        {
+            FormDescuento formDescuento = new FormDescuento();
+            formDescuento.ShowDialog();
+
+
+        }
+
+        private void btnOfertas_Click(object sender, EventArgs e)
+        {
+            FormOferta formOferta = new FormOferta();
+            formOferta.ShowDialog();
+        }
     }
 }

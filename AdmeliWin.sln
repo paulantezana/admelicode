@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admeli", "Admeli\Admeli.csproj", "{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}"
 EndProject
@@ -11,6 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidad", "Entidad\Entidad.
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Admeli|Any CPU = Admeli|Any CPU
+		Admeli|x64 = Admeli|x64
+		Admeli|x86 = Admeli|x86
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -19,6 +22,9 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Admeli|Any CPU.ActiveCfg = Release|Any CPU
+		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Admeli|x64.ActiveCfg = Release|x64
+		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Admeli|x86.ActiveCfg = Release|x86
 		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Debug|x64.ActiveCfg = Debug|x64
@@ -31,6 +37,12 @@ Global
 		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Release|x64.Build.0 = Release|x64
 		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Release|x86.ActiveCfg = Release|x86
 		{B83DF1F1-60FA-4E30-A1E3-6839C83F315A}.Release|x86.Build.0 = Release|x86
+		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Admeli|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Admeli|Any CPU.Build.0 = Debug|Any CPU
+		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Admeli|x64.ActiveCfg = Admeli|Any CPU
+		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Admeli|x64.Build.0 = Admeli|Any CPU
+		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Admeli|x86.ActiveCfg = Admeli|Any CPU
+		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Admeli|x86.Build.0 = Admeli|Any CPU
 		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -43,6 +55,12 @@ Global
 		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Release|x64.Build.0 = Release|Any CPU
 		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Release|x86.ActiveCfg = Release|Any CPU
 		{88E69CA3-E162-469C-A06E-7AEB026D593B}.Release|x86.Build.0 = Release|Any CPU
+		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Admeli|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Admeli|Any CPU.Build.0 = Debug|Any CPU
+		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Admeli|x64.ActiveCfg = Admeli|Any CPU
+		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Admeli|x64.Build.0 = Admeli|Any CPU
+		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Admeli|x86.ActiveCfg = Admeli|Any CPU
+		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Admeli|x86.Build.0 = Admeli|Any CPU
 		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0683F96-41CC-4467-8B73-2CE7371426A9}.Debug|x64.ActiveCfg = Debug|Any CPU

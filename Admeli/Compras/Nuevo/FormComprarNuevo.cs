@@ -13,6 +13,7 @@ using Entidad;
 using Entidad.Configuracion;
 using Modelo;
 
+
 namespace Admeli.Compras.Nuevo
 {
     public partial class FormComprarNuevo : Form
@@ -231,7 +232,7 @@ namespace Admeli.Compras.Nuevo
             textDireccion.Text = datosProveedor[0].direccion;
             dtpEmision.Value = datosProveedor[0].fechaFacturacion.date;
             dtpPago.Value = datosProveedor[0].fechaPago.date;
-            textSubTotal.Text=Convert.ToString(  datosProveedor[0].subTotal);
+            
             textTotal.Text= Convert.ToString(datosProveedor[0].total);
             cbxMoneda.Text = datosProveedor[0].moneda;
 

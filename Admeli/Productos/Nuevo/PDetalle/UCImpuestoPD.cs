@@ -104,7 +104,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void btnNuevoImpuesto_Click(object sender, EventArgs e)
         {
             //Abir la ventana de nuevo impuesto
-            FormNuevoImpuesto nuevoImpuesto = new FormNuevoImpuesto();            
+
+           FormNuevoImpuesto nuevoImpuesto = new FormNuevoImpuesto();
             nuevoImpuesto.ShowDialog();
             this.reLoad();
         }

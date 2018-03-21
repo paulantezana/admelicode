@@ -17,7 +17,7 @@ namespace Modelo
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/descuento/guardar
-                return await webService.POST<Descuento,Response>("descuento", "guardar", param);
+                return await webService.POST<Descuento, Response>("descuento", "guardar", param);
             }
             catch (Exception ex)
             {
@@ -37,12 +37,25 @@ namespace Modelo
                 throw ex;
             }
         }
-        public async Task<DescuentoReceive> descuentoTotalALaFechaGrupo(DescuentoSubmit param)
+        public async Task<List<DescuentoReceive>> descuentoTotalALaFechaGrupo(DescuentoSubmit param)
         {
             try
             {
                 // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
-                return await webService.POST<DescuentoSubmit, DescuentoReceive>("productos", "descuentototalalafechagrupo", param);
+                return await webService.POST<DescuentoSubmit, List<DescuentoReceive>>("productos", "descuentototalalafechagrupo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        // descuentoTotalALaFecha
+        public async Task<DescuentoProductoReceive> descuentoTotalALaFecha(DescuentoProductoSubmit param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
+                return await webService.POST<DescuentoProductoSubmit, DescuentoProductoReceive>("productos", "descuentototalalafecha", param);
             }
             catch (Exception ex)
             {

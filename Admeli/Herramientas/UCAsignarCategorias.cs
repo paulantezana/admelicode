@@ -94,6 +94,30 @@ namespace Admeli.Herramientas
         {
             formPrincipal.appLoadState(state);
         }
+
+
+
         #endregion
-    }
+
+        
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+             label5.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+
+           
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_Click(object sender, EventArgs e)
+        {
+            label6.Text = this.dataGridView2.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        
+       }
 }
