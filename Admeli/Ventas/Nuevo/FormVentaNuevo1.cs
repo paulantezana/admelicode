@@ -1105,7 +1105,8 @@ namespace Admeli.Ventas.Nuevo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            pintar();
         }
         private void limpiarCamposProducto()
         {
@@ -1260,6 +1261,11 @@ namespace Admeli.Ventas.Nuevo
                 obtenerid(ruc);
 
             }
+        }
+
+        private void plTipoComprobante_Paint(object sender, PaintEventArgs e)
+        {
+            pintar();
         }
 
         private void textCantidad_TextChanged(object sender, EventArgs e)
