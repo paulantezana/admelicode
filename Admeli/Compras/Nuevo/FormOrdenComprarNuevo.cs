@@ -410,6 +410,8 @@ namespace Admeli.Compras.Nuevo
                 return;
 
             }
+
+
             // Creando la lista
             detalleCompra.cantidad = double.Parse(textCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
 

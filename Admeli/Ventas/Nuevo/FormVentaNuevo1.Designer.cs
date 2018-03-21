@@ -84,14 +84,14 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.textDNI = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.textDNI = new System.Windows.Forms.TextBox();
 
             this.label22 = new System.Windows.Forms.Label();
             this.cbxTipoDocumento = new System.Windows.Forms.ComboBox();
             this.documentoIdentificacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtNombreCliente = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.plTotal = new System.Windows.Forms.Panel();
@@ -804,15 +804,11 @@
             // textDNI
             // 
             this.textDNI.BackColor = System.Drawing.Color.White;
-            this.textDNI.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.textDNI.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.textDNI.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.textDNI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textDNI.BorderThickness = 1;
+        
             this.textDNI.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDNI.ForeColor = System.Drawing.Color.Black;
-            this.textDNI.isPassword = false;
+    
             this.textDNI.Location = new System.Drawing.Point(417, 31);
             this.textDNI.Margin = new System.Windows.Forms.Padding(5);
             this.textDNI.Name = "textDNI";
@@ -820,7 +816,6 @@
             this.textDNI.Size = new System.Drawing.Size(214, 28);
             this.textDNI.TabIndex = 115;
             this.textDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textDNI.OnValueChanged += new System.EventHandler(this.bunifuMetroTextbox3_OnValueChanged);
             // 
             // label22
             // 
@@ -880,15 +875,10 @@
             // 
 
             this.txtNombreCliente.BackColor = System.Drawing.Color.White;
-            this.txtNombreCliente.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.txtNombreCliente.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.txtNombreCliente.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.txtNombreCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombreCliente.BorderThickness = 1;
+            this.txtNombreCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;         
             this.txtNombreCliente.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNombreCliente.isPassword = false;
             this.txtNombreCliente.Location = new System.Drawing.Point(143, 70);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(5);
             this.txtNombreCliente.Name = "txtNombreCliente";
@@ -1457,6 +1447,8 @@
 
         private System.Windows.Forms.BindingSource productoVentaBindingSource;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox textDNI;
+        private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Label lblstock;
 
     }
