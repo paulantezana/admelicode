@@ -566,7 +566,7 @@
             this.btnImportarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportarCotizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportarCotizacion.ForeColor = System.Drawing.Color.White;
-            this.btnImportarCotizacion.Location = new System.Drawing.Point(700, 9);
+            this.btnImportarCotizacion.Location = new System.Drawing.Point(710, 9);
             this.btnImportarCotizacion.Name = "btnImportarCotizacion";
             this.btnImportarCotizacion.Size = new System.Drawing.Size(150, 40);
             this.btnImportarCotizacion.TabIndex = 121;
@@ -579,7 +579,7 @@
             this.chkEditar.AutoSize = true;
             this.chkEditar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.chkEditar.Location = new System.Drawing.Point(598, 32);
+            this.chkEditar.Location = new System.Drawing.Point(630, 32);
             this.chkEditar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.chkEditar.Name = "chkEditar";
             this.chkEditar.Size = new System.Drawing.Size(42, 16);
@@ -593,7 +593,7 @@
             this.chkActivoProducto.Checked = true;
             this.chkActivoProducto.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoProducto.ForeColor = System.Drawing.Color.White;
-            this.chkActivoProducto.Location = new System.Drawing.Point(572, 28);
+            this.chkActivoProducto.Location = new System.Drawing.Point(604, 28);
             this.chkActivoProducto.Name = "chkActivoProducto";
             this.chkActivoProducto.Size = new System.Drawing.Size(20, 20);
             this.chkActivoProducto.TabIndex = 119;
@@ -626,7 +626,7 @@
             this.textCorrelativo.Margin = new System.Windows.Forms.Padding(4);
             this.textCorrelativo.Name = "textCorrelativo";
             this.textCorrelativo.Padding = new System.Windows.Forms.Padding(2, 18, 5, 2);
-            this.textCorrelativo.Size = new System.Drawing.Size(106, 40);
+            this.textCorrelativo.Size = new System.Drawing.Size(141, 40);
             this.textCorrelativo.TabIndex = 118;
             this.textCorrelativo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -664,14 +664,14 @@
             // 
             // plTipoComprobante
             // 
-            this.plTipoComprobante.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.plTipoComprobante.Controls.Add(this.cbxTipoComprobante);
             this.plTipoComprobante.Controls.Add(this.label4);
-            this.plTipoComprobante.ForeColor = System.Drawing.Color.Red;
+            this.plTipoComprobante.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.plTipoComprobante.Location = new System.Drawing.Point(8, 8);
             this.plTipoComprobante.Name = "plTipoComprobante";
             this.plTipoComprobante.Size = new System.Drawing.Size(328, 40);
             this.plTipoComprobante.TabIndex = 114;
+            this.plTipoComprobante.Paint += new System.Windows.Forms.PaintEventHandler(this.plTipoComprobante_Paint);
             // 
             // cbxTipoComprobante
             // 
@@ -684,9 +684,9 @@
             this.cbxTipoComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTipoComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTipoComprobante.FormattingEnabled = true;
-            this.cbxTipoComprobante.Location = new System.Drawing.Point(3, 12);
+            this.cbxTipoComprobante.Location = new System.Drawing.Point(3, 14);
             this.cbxTipoComprobante.Name = "cbxTipoComprobante";
-            this.cbxTipoComprobante.Size = new System.Drawing.Size(319, 24);
+            this.cbxTipoComprobante.Size = new System.Drawing.Size(321, 24);
             this.cbxTipoComprobante.TabIndex = 1;
             this.cbxTipoComprobante.ValueMember = "idTipoDocumento";
             this.cbxTipoComprobante.SelectedIndexChanged += new System.EventHandler(this.cbxTipoComprobante_SelectedIndexChanged);
