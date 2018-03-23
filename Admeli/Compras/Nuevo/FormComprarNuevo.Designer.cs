@@ -366,7 +366,7 @@
             this.textImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(54)))), ((int)(((byte)(78)))));
             this.textImpuesto.isPassword = false;
             this.textImpuesto.Location = new System.Drawing.Point(267, 11);
-            this.textImpuesto.Margin = new System.Windows.Forms.Padding(5);
+            this.textImpuesto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textImpuesto.Name = "textImpuesto";
             this.textImpuesto.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.textImpuesto.Size = new System.Drawing.Size(240, 49);
@@ -400,7 +400,7 @@
             this.textSubTotal.ForeColor = System.Drawing.Color.OliveDrab;
             this.textSubTotal.isPassword = false;
             this.textSubTotal.Location = new System.Drawing.Point(11, 11);
-            this.textSubTotal.Margin = new System.Windows.Forms.Padding(5);
+            this.textSubTotal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textSubTotal.Name = "textSubTotal";
             this.textSubTotal.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.textSubTotal.Size = new System.Drawing.Size(240, 49);
@@ -432,7 +432,7 @@
             this.textTotalNeto.ForeColor = System.Drawing.Color.DodgerBlue;
             this.textTotalNeto.isPassword = false;
             this.textTotalNeto.Location = new System.Drawing.Point(519, 11);
-            this.textTotalNeto.Margin = new System.Windows.Forms.Padding(5);
+            this.textTotalNeto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textTotalNeto.Name = "textTotalNeto";
             this.textTotalNeto.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.textTotalNeto.Size = new System.Drawing.Size(240, 49);
@@ -569,7 +569,7 @@
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.label19.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label19.Location = new System.Drawing.Point(851, 24);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(134, 19);
@@ -889,7 +889,7 @@
             // 
             // textNombreEmpresa
             // 
-            this.textNombreEmpresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.textNombreEmpresa.BackColor = System.Drawing.Color.White;
             this.textNombreEmpresa.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.textNombreEmpresa.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.textNombreEmpresa.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
@@ -1087,7 +1087,7 @@
             // 
             this.cbxMoneda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbxMoneda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxMoneda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.cbxMoneda.BackColor = System.Drawing.Color.White;
             this.cbxMoneda.DataSource = this.monedaBindingSource;
             this.cbxMoneda.DisplayMember = "moneda";
             this.cbxMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

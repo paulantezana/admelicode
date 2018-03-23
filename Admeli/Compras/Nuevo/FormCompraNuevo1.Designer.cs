@@ -28,214 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompraNuevo1));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnWeb = new System.Windows.Forms.Button();
-            this.btnOfertas = new System.Windows.Forms.Button();
-            this.btnImpuestos = new System.Windows.Forms.Button();
-            this.btnOtros = new System.Windows.Forms.Button();
-            this.btnStock = new System.Windows.Forms.Button();
-            this.btnGenerales = new System.Windows.Forms.Button();
+            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnCompra = new System.Windows.Forms.Button();
+            this.btnProveedor = new System.Windows.Forms.Button();
             this.panelMainNP = new System.Windows.Forms.Panel();
             this.progressBarApp = new System.Windows.Forms.ProgressBar();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
-            this.panelMainNP.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "filder_icon.png");
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(232)))));
-            this.panel1.Controls.Add(this.btnWeb);
-            this.panel1.Controls.Add(this.btnOfertas);
-            this.panel1.Controls.Add(this.btnImpuestos);
-            this.panel1.Controls.Add(this.btnOtros);
-            this.panel1.Controls.Add(this.btnStock);
-            this.panel1.Controls.Add(this.btnGenerales);
+            this.panel1.Controls.Add(this.btnProducto);
+            this.panel1.Controls.Add(this.btnCompra);
+            this.panel1.Controls.Add(this.btnProveedor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 86, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(101, 699);
+            this.panel1.Size = new System.Drawing.Size(72, 875);
             this.panel1.TabIndex = 6;
             // 
-            // btnWeb
+            // btnProducto
             // 
-            this.btnWeb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWeb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnWeb.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnWeb.FlatAppearance.BorderSize = 0;
-            this.btnWeb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnWeb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnWeb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWeb.Image = ((System.Drawing.Image)(resources.GetObject("btnWeb.Image")));
-            this.btnWeb.Location = new System.Drawing.Point(0, 456);
-            this.btnWeb.Margin = new System.Windows.Forms.Padding(0);
-            this.btnWeb.Name = "btnWeb";
-            this.btnWeb.Size = new System.Drawing.Size(101, 74);
-            this.btnWeb.TabIndex = 5;
-            this.btnWeb.UseVisualStyleBackColor = true;
-            this.btnWeb.Click += new System.EventHandler(this.btnWeb_Click);
+            this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
+            this.btnProducto.Location = new System.Drawing.Point(0, 234);
+            this.btnProducto.Margin = new System.Windows.Forms.Padding(0);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(72, 74);
+            this.btnProducto.TabIndex = 3;
+            this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
-            // btnOfertas
+            // btnCompra
             // 
-            this.btnOfertas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOfertas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOfertas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnOfertas.FlatAppearance.BorderSize = 0;
-            this.btnOfertas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnOfertas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnOfertas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOfertas.Image = ((System.Drawing.Image)(resources.GetObject("btnOfertas.Image")));
-            this.btnOfertas.Location = new System.Drawing.Point(0, 382);
-            this.btnOfertas.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOfertas.Name = "btnOfertas";
-            this.btnOfertas.Size = new System.Drawing.Size(101, 74);
-            this.btnOfertas.TabIndex = 4;
-            this.btnOfertas.UseVisualStyleBackColor = true;
-            this.btnOfertas.Click += new System.EventHandler(this.btnOfertas_Click);
+            this.btnCompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnCompra.FlatAppearance.BorderSize = 0;
+            this.btnCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompra.Image = ((System.Drawing.Image)(resources.GetObject("btnCompra.Image")));
+            this.btnCompra.Location = new System.Drawing.Point(0, 160);
+            this.btnCompra.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCompra.Name = "btnCompra";
+            this.btnCompra.Size = new System.Drawing.Size(72, 74);
+            this.btnCompra.TabIndex = 2;
+            this.btnCompra.UseVisualStyleBackColor = true;
+            this.btnCompra.Click += new System.EventHandler(this.btnCompra_Click);
             // 
-            // btnImpuestos
+            // btnProveedor
             // 
-            this.btnImpuestos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImpuestos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnImpuestos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnImpuestos.FlatAppearance.BorderSize = 0;
-            this.btnImpuestos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnImpuestos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnImpuestos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImpuestos.Image = ((System.Drawing.Image)(resources.GetObject("btnImpuestos.Image")));
-            this.btnImpuestos.Location = new System.Drawing.Point(0, 308);
-            this.btnImpuestos.Margin = new System.Windows.Forms.Padding(0);
-            this.btnImpuestos.Name = "btnImpuestos";
-            this.btnImpuestos.Size = new System.Drawing.Size(101, 74);
-            this.btnImpuestos.TabIndex = 3;
-            this.btnImpuestos.UseVisualStyleBackColor = true;
-            this.btnImpuestos.Click += new System.EventHandler(this.btnImpuestos_Click);
-            // 
-            // btnOtros
-            // 
-            this.btnOtros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOtros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOtros.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnOtros.FlatAppearance.BorderSize = 0;
-            this.btnOtros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnOtros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnOtros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOtros.Image = ((System.Drawing.Image)(resources.GetObject("btnOtros.Image")));
-            this.btnOtros.Location = new System.Drawing.Point(0, 234);
-            this.btnOtros.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOtros.Name = "btnOtros";
-            this.btnOtros.Size = new System.Drawing.Size(101, 74);
-            this.btnOtros.TabIndex = 2;
-            this.btnOtros.UseVisualStyleBackColor = true;
-            this.btnOtros.Click += new System.EventHandler(this.btnOtros_Click);
-            // 
-            // btnStock
-            // 
-            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnStock.FlatAppearance.BorderSize = 0;
-            this.btnStock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStock.Image = ((System.Drawing.Image)(resources.GetObject("btnStock.Image")));
-            this.btnStock.Location = new System.Drawing.Point(0, 160);
-            this.btnStock.Margin = new System.Windows.Forms.Padding(0);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(101, 74);
-            this.btnStock.TabIndex = 1;
-            this.btnStock.UseVisualStyleBackColor = true;
-            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
-            // 
-            // btnGenerales
-            // 
-            this.btnGenerales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGenerales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGenerales.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnGenerales.FlatAppearance.BorderSize = 0;
-            this.btnGenerales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnGenerales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.btnGenerales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerales.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerales.Image")));
-            this.btnGenerales.Location = new System.Drawing.Point(0, 86);
-            this.btnGenerales.Margin = new System.Windows.Forms.Padding(0);
-            this.btnGenerales.Name = "btnGenerales";
-            this.btnGenerales.Size = new System.Drawing.Size(101, 74);
-            this.btnGenerales.TabIndex = 0;
-            this.btnGenerales.UseVisualStyleBackColor = true;
-            this.btnGenerales.Click += new System.EventHandler(this.btnGenerales_Click);
+            this.btnProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProveedor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnProveedor.FlatAppearance.BorderSize = 0;
+            this.btnProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
+            this.btnProveedor.Location = new System.Drawing.Point(0, 86);
+            this.btnProveedor.Margin = new System.Windows.Forms.Padding(0);
+            this.btnProveedor.Name = "btnProveedor";
+            this.btnProveedor.Size = new System.Drawing.Size(72, 74);
+            this.btnProveedor.TabIndex = 1;
+            this.btnProveedor.UseVisualStyleBackColor = true;
+            this.btnProveedor.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // panelMainNP
             // 
-            this.panelMainNP.Controls.Add(this.panel1);
-            this.panelMainNP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainNP.Location = new System.Drawing.Point(0, 0);
+            this.panelMainNP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMainNP.AutoSize = true;
+            this.panelMainNP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMainNP.Location = new System.Drawing.Point(72, 0);
             this.panelMainNP.Margin = new System.Windows.Forms.Padding(4);
             this.panelMainNP.Name = "panelMainNP";
-            this.panelMainNP.Size = new System.Drawing.Size(1417, 699);
+            this.panelMainNP.Size = new System.Drawing.Size(1237, 904);
             this.panelMainNP.TabIndex = 7;
-            this.panelMainNP.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainNP_Paint);
             // 
             // progressBarApp
             // 
             this.progressBarApp.BackColor = System.Drawing.Color.White;
             this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBarApp.Location = new System.Drawing.Point(0, 0);
+            this.progressBarApp.Location = new System.Drawing.Point(72, 0);
             this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBarApp.MarqueeAnimationSpeed = 10;
             this.progressBarApp.Maximum = 200;
             this.progressBarApp.Name = "progressBarApp";
             this.progressBarApp.RightToLeftLayout = true;
-            this.progressBarApp.Size = new System.Drawing.Size(1417, 6);
+            this.progressBarApp.Size = new System.Drawing.Size(1237, 6);
             this.progressBarApp.TabIndex = 8;
-            this.progressBarApp.Click += new System.EventHandler(this.progressBarApp_Click);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // FormCompraNuevo1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1417, 699);
+            this.ClientSize = new System.Drawing.Size(1309, 875);
             this.Controls.Add(this.progressBarApp);
             this.Controls.Add(this.panelMainNP);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormCompraNuevo1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormProductoNuevo";
             this.Load += new System.EventHandler(this.FormProductoNuevo_Load);
             this.panel1.ResumeLayout(false);
-            this.panelMainNP.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button btnGenerales;
-        private System.Windows.Forms.Button btnWeb;
-        private System.Windows.Forms.Button btnOfertas;
-        private System.Windows.Forms.Button btnImpuestos;
-        private System.Windows.Forms.Button btnOtros;
-        private System.Windows.Forms.Button btnStock;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnProveedor;
         public System.Windows.Forms.Panel panelMainNP;
         protected System.Windows.Forms.ProgressBar progressBarApp;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCompra;
+        private System.Windows.Forms.Button btnProducto;
     }
 }

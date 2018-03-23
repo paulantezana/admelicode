@@ -1050,6 +1050,7 @@ namespace Admeli.Ventas.Nuevo
 
 
         // modifcar el producto de detalle de venta
+
         private void button1_Click(object sender, EventArgs e)
         {
             // Verificando la existencia de datos en el datagridview
@@ -1402,6 +1403,11 @@ namespace Admeli.Ventas.Nuevo
         private void textPrecioUnidario_TextChanged(object sender, EventArgs e)
         {
             calcularTotal();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
