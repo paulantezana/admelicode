@@ -14,9 +14,8 @@ using Admeli.Componentes;
 
 namespace Admeli.Compras.Nuevo.Detalle
 {
-    public partial class UCProveedorGeneral : UserControl
+    public partial class UCProveedorGeneralCompra : UserControl
     {
-        private FormProveedorNuevo formProveedorNuevo;
         private FormCompraNuevo1 formCompraNuevo1;
         private LocationModel locationModel = new LocationModel();
         private ProveedorModel proveedorModel = new ProveedorModel();
@@ -28,17 +27,13 @@ namespace Admeli.Compras.Nuevo.Detalle
         private DataSunat dataSunat;
         private RespuestaSunat respuestaSunat;
 
-        public UCProveedorGeneral()
+        public UCProveedorGeneralCompra()
         {
             InitializeComponent();
         }
 
-        public UCProveedorGeneral(FormProveedorNuevo formProveedorNuevo)
-        {
-            InitializeComponent();
-            this.formProveedorNuevo = formProveedorNuevo;
-        }
-        public UCProveedorGeneral(FormCompraNuevo1 formCompraNuevo1)
+       
+        public UCProveedorGeneralCompra(FormCompraNuevo1 formCompraNuevo1)
         {
             InitializeComponent();
             this.formCompraNuevo1 = formCompraNuevo1;
@@ -51,16 +46,16 @@ namespace Admeli.Compras.Nuevo.Detalle
         #region ================================= Loads =================================
         private void cargarDatosModificar()
         {
-            if (!formProveedorNuevo.nuevo)
+            if (!formCompraNuevo1.nuevo)
             {
-                textActividadPrincipal.Text = formProveedorNuevo.currentProveedor.actividadPrincipal;
-                textDireccion.Text = formProveedorNuevo.currentProveedor.direccion;
-                textEmail.Text = formProveedorNuevo.currentProveedor.email;
-                chkEstado.Checked = Convert.ToBoolean(formProveedorNuevo.currentProveedor.estado);
-                textNombreEmpresa.Text = formProveedorNuevo.currentProveedor.razonSocial;
-                textNIdentificacion.Text = formProveedorNuevo.currentProveedor.ruc;
-                textTelefono.Text = formProveedorNuevo.currentProveedor.telefono;
-                cbxTipoProveedor.Text = formProveedorNuevo.currentProveedor.tipoProveedor;
+                textActividadPrincipal.Text = formCompraNuevo1.currentProveedor.actividadPrincipal;
+                textDireccion.Text = formCompraNuevo1.currentProveedor.direccion;
+                textEmail.Text = formCompraNuevo1.currentProveedor.email;
+                chkEstado.Checked = Convert.ToBoolean(formCompraNuevo1.currentProveedor.estado);
+                textNombreEmpresa.Text = formCompraNuevo1.currentProveedor.razonSocial;
+                textNIdentificacion.Text = formCompraNuevo1.currentProveedor.ruc;
+                textTelefono.Text = formCompraNuevo1.currentProveedor.telefono;
+                cbxTipoProveedor.Text = formCompraNuevo1.currentProveedor.tipoProveedor;
             }
         }
 
@@ -77,13 +72,13 @@ namespace Admeli.Compras.Nuevo.Detalle
             paisBindingSource.DataSource = await locationModel.paises();
 
             // cargando la ubicacion geografica por defecto
-            if (formProveedorNuevo.nuevo)
+            if (formCompraNuevo1.nuevo)
             {
                 ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
             }
             else
             {
-                ubicacionGeografica = await locationModel.ubigeoActual(formProveedorNuevo.currentProveedor.idUbicacionGeografica);
+                ubicacionGeografica = await locationModel.ubigeoActual(formCompraNuevo1.currentProveedor.idUbicacionGeografica);
             }
             cbxPaises.SelectedValue = ubicacionGeografica.idPais;
         } 
@@ -95,7 +90,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         {
             try
             {
-                formProveedorNuevo.loadStateApp(true);
+                formCompraNuevo1.loadStateApp(true);
                 labelUbicaciones = await locationModel.labelUbicacion(Convert.ToInt32(cbxPaises.SelectedValue));
                 ocultarNiveles(); // Ocultando todo los niveles
 
@@ -134,7 +129,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             }
             finally
             {
-                formProveedorNuevo.loadStateApp(false);
+                formCompraNuevo1.loadStateApp(false);
             }
         }
 
@@ -159,7 +154,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             {
                 // No cargar directo al comobobox esto causara que el evento SelectedIndexChange de forma automatica
                 if (labelUbicaciones.Count < 1) return;
-                formProveedorNuevo.loadStateApp(true);
+                formCompraNuevo1.loadStateApp(true);
                 nivel1BindingSource.DataSource = await locationModel.nivel1(Convert.ToInt32(cbxPaises.SelectedValue));
                 if (ubicacionGeografica.idNivel1 > 0)
                 {
@@ -176,7 +171,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             }
             finally
             {
-                formProveedorNuevo.loadStateApp(false);
+                formCompraNuevo1.loadStateApp(false);
                 desactivarNivelDesde(2);
             }
         }
@@ -186,7 +181,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             try
             {
                 if (labelUbicaciones.Count < 2) return;
-                formProveedorNuevo.loadStateApp(true);
+                formCompraNuevo1.loadStateApp(true);
                 nivel2BindingSource.DataSource = await locationModel.nivel2(Convert.ToInt32(cbxNivel1.SelectedValue));
                 if (ubicacionGeografica.idNivel2 > 0)
                 {
@@ -204,7 +199,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             finally
             {
                 desactivarNivelDesde(3);
-                formProveedorNuevo.loadStateApp(false);
+                formCompraNuevo1.loadStateApp(false);
             }
         }
 
@@ -213,7 +208,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             try
             {
                 if (labelUbicaciones.Count < 3) return;
-                formProveedorNuevo.loadStateApp(true);
+                formCompraNuevo1.loadStateApp(true);
                 nivel3BindingSource.DataSource = await locationModel.nivel3(Convert.ToInt32(cbxNivel2.SelectedValue));
                 if (ubicacionGeografica.idNivel3 > 0)
                 {
@@ -230,7 +225,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             }
             finally
             {
-                formProveedorNuevo.loadStateApp(false);
+                formCompraNuevo1.loadStateApp(false);
                 desactivarNivelDesde(4);
             }
         }
@@ -239,7 +234,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             try
             {
                 if (labelUbicaciones.Count < 4) return;
-                formProveedorNuevo.loadStateApp(true);
+                formCompraNuevo1.loadStateApp(true);
 
                 /*
                 nivel4BindingSource.DataSource = await locationModel.nivel4(Convert.ToInt32(cbxNivel3.SelectedValue));
@@ -259,7 +254,7 @@ namespace Admeli.Compras.Nuevo.Detalle
             }
             finally
             {
-                formProveedorNuevo.loadStateApp(false);
+                formCompraNuevo1.loadStateApp(false);
             }
         }
 
@@ -304,17 +299,17 @@ namespace Admeli.Compras.Nuevo.Detalle
             try
             {
                 crearObjetoSucursal();
-                if (formProveedorNuevo.nuevo)
+                if (formCompraNuevo1.nuevo)
                 {
-                    Response response = await proveedorModel.guardar(ubicacionGeografica, formProveedorNuevo.currentProveedor);
+                    Response response = await proveedorModel.guardar(ubicacionGeografica, formCompraNuevo1.currentProveedor);
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    Response response = await proveedorModel.modificar(ubicacionGeografica, formProveedorNuevo.currentProveedor);
+                    Response response = await proveedorModel.modificar(ubicacionGeografica, formCompraNuevo1.currentProveedor);
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                this.formProveedorNuevo.Close();
+                this.formCompraNuevo1.Close();
             }
             catch (Exception ex)
             {
@@ -324,18 +319,18 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         private void crearObjetoSucursal()
         {
-            formProveedorNuevo.currentProveedor = new Proveedor();
+            formCompraNuevo1.currentProveedor = new Proveedor();
 
-            if (!formProveedorNuevo.nuevo) formProveedorNuevo.currentProveedor.idProveedor = formProveedorNuevo.currentIDProveedor; // Llenar el id categoria cuando este en esdo modificar
+            if (!formCompraNuevo1.nuevo) formCompraNuevo1.currentProveedor.idProveedor = formCompraNuevo1.currentIDProveedor; // Llenar el id categoria cuando este en esdo modificar
 
-            formProveedorNuevo.currentProveedor.actividadPrincipal = textActividadPrincipal.Text;
-            formProveedorNuevo.currentProveedor.direccion = textDireccion.Text;
-            formProveedorNuevo.currentProveedor.email = textEmail.Text;
-            formProveedorNuevo.currentProveedor.estado = Convert.ToInt32(chkEstado.Checked);
-            formProveedorNuevo.currentProveedor.razonSocial = textNombreEmpresa.Text;
-            formProveedorNuevo.currentProveedor.ruc = textNIdentificacion.Text;
-            formProveedorNuevo.currentProveedor.telefono = textTelefono.Text;
-            formProveedorNuevo.currentProveedor.tipoProveedor = cbxTipoProveedor.Text;
+            formCompraNuevo1.currentProveedor.actividadPrincipal = textActividadPrincipal.Text;
+            formCompraNuevo1.currentProveedor.direccion = textDireccion.Text;
+            formCompraNuevo1.currentProveedor.email = textEmail.Text;
+            formCompraNuevo1.currentProveedor.estado = Convert.ToInt32(chkEstado.Checked);
+            formCompraNuevo1.currentProveedor.razonSocial = textNombreEmpresa.Text;
+            formCompraNuevo1.currentProveedor.ruc = textNIdentificacion.Text;
+            formCompraNuevo1.currentProveedor.telefono = textTelefono.Text;
+            formCompraNuevo1.currentProveedor.tipoProveedor = cbxTipoProveedor.Text;
 
             // Ubicacion geografica
             ubicacionGeografica.idPais = (cbxPaises.SelectedIndex == -1) ? ubicacionGeografica.idPais : Convert.ToInt32(cbxPaises.SelectedValue);
@@ -425,7 +420,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.formProveedorNuevo.Close();
+            this.formCompraNuevo1.Close();
         }
         #endregion
 

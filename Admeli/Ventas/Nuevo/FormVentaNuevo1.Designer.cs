@@ -120,10 +120,12 @@
             this.txtDescuentoVenta = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.plMoneda = new System.Windows.Forms.Panel();
             this.cbxMoneda = new System.Windows.Forms.ComboBox();
+
             this.label32 = new System.Windows.Forms.Label();
             this.plFechaPago = new System.Windows.Forms.Panel();
             this.dtpFechaPago = new Bunifu.Framework.UI.BunifuDatepicker();
             this.label31 = new System.Windows.Forms.Label();
+
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.plFechaVenta = new System.Windows.Forms.Panel();
             this.dtpFechaVenta = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -412,6 +414,7 @@
             // 
             // panel2
             // 
+
             this.panel2.Controls.Add(this.dataGridView);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
@@ -419,6 +422,7 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(941, 532);
             this.panel2.TabIndex = 124;
+
             // 
             // dataGridView
             // 
@@ -453,12 +457,14 @@
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.GridColor = System.Drawing.Color.Gainsboro;
             this.dataGridView.Location = new System.Drawing.Point(10, 10);
+
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.Size = new System.Drawing.Size(921, 512);
             this.dataGridView.TabIndex = 1;
+
             // 
             // idDetalleCompraDataGridViewTextBoxColumn
             // 
@@ -579,6 +585,7 @@
             this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.Visible = false;
+
             // 
             // panel1
             // 
@@ -605,6 +612,7 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(941, 100);
             this.panel1.TabIndex = 123;
+
             // 
             // label20
             // 
@@ -672,6 +680,7 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+
             // btnAddProducto
             // 
             this.btnAddProducto.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -691,6 +700,7 @@
             this.btnAddProducto.TabIndex = 127;
             this.btnAddProducto.UseVisualStyleBackColor = false;
             this.btnAddProducto.Click += new System.EventHandler(this.btnAddProducto_Click);
+
             // 
             // label5
             // 
@@ -1031,7 +1041,7 @@
             this.chkEditar.Location = new System.Drawing.Point(253, 105);
             this.chkEditar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.chkEditar.Name = "chkEditar";
-            this.chkEditar.Size = new System.Drawing.Size(42, 16);
+            this.chkEditar.Size = new System.Drawing.Size(52, 19);
             this.chkEditar.TabIndex = 120;
             this.chkEditar.Text = "Editar";
             // 
@@ -1043,6 +1053,7 @@
             this.chkActivoProducto.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoProducto.ForeColor = System.Drawing.Color.White;
             this.chkActivoProducto.Location = new System.Drawing.Point(217, 91);
+
             this.chkActivoProducto.Name = "chkActivoProducto";
             this.chkActivoProducto.Size = new System.Drawing.Size(20, 20);
             this.chkActivoProducto.TabIndex = 119;
@@ -1056,7 +1067,7 @@
             this.label19.Location = new System.Drawing.Point(117, 87);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 14);
+            this.label19.Size = new System.Drawing.Size(81, 16);
             this.label19.TabIndex = 117;
             this.label19.Text = "Correlativo:";
             // 
@@ -1071,6 +1082,7 @@
             this.textCorrelativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCorrelativo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textCorrelativo.isPassword = false;
+
             this.textCorrelativo.Location = new System.Drawing.Point(96, 71);
             this.textCorrelativo.Margin = new System.Windows.Forms.Padding(4);
             this.textCorrelativo.Name = "textCorrelativo";
@@ -1085,10 +1097,11 @@
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DimGray;
+
             this.label9.Location = new System.Drawing.Point(18, 87);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 14);
+            this.label9.Size = new System.Drawing.Size(41, 16);
             this.label9.TabIndex = 115;
             this.label9.Text = "Serie";
             // 
@@ -1133,9 +1146,12 @@
             this.cbxTipoComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTipoComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTipoComprobante.FormattingEnabled = true;
-            this.cbxTipoComprobante.Location = new System.Drawing.Point(3, 14);
+            this.cbxTipoComprobante.Location = new System.Drawing.Point(4, 17);
+            this.cbxTipoComprobante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxTipoComprobante.Name = "cbxTipoComprobante";
+
             this.cbxTipoComprobante.Size = new System.Drawing.Size(276, 24);
+
             this.cbxTipoComprobante.TabIndex = 1;
             this.cbxTipoComprobante.ValueMember = "idTipoDocumento";
             this.cbxTipoComprobante.SelectedIndexChanged += new System.EventHandler(this.cbxTipoComprobante_SelectedIndexChanged);
@@ -1149,16 +1165,16 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(2, 1);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(3, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 14);
+            this.label4.Size = new System.Drawing.Size(129, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Tipo Comprobante:";
             // 
             // productoBindingSource
             // 
             this.productoBindingSource.DataSource = typeof(Entidad.Producto);
+
             // 
             // plIzquierdo
             // 
@@ -1195,7 +1211,9 @@
             this.plIzquierdo.Size = new System.Drawing.Size(295, 632);
             this.plIzquierdo.TabIndex = 123;
             // 
+
             // label18
+
             // 
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
@@ -1208,7 +1226,9 @@
             this.label18.TabIndex = 133;
             this.label18.Text = "Documento";
             // 
+
             // label29
+
             // 
             this.label29.AutoSize = true;
             this.label29.BackColor = System.Drawing.Color.White;
@@ -1222,6 +1242,7 @@
             this.label29.Text = "Cliente:";
             // 
             // txtNombreCliente
+
             // 
             this.txtNombreCliente.BackColor = System.Drawing.Color.White;
             this.txtNombreCliente.BorderColorFocused = System.Drawing.Color.DodgerBlue;
@@ -1239,7 +1260,7 @@
             this.txtNombreCliente.Size = new System.Drawing.Size(233, 40);
             this.txtNombreCliente.TabIndex = 132;
             this.txtNombreCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
+
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1313,6 +1334,7 @@
             this.plMoneda.Name = "plMoneda";
             this.plMoneda.Size = new System.Drawing.Size(283, 40);
             this.plMoneda.TabIndex = 124;
+
             // 
             // cbxMoneda
             // 
@@ -1325,6 +1347,7 @@
             this.cbxMoneda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMoneda.FormattingEnabled = true;
+
             this.cbxMoneda.Location = new System.Drawing.Point(5, 13);
             this.cbxMoneda.Name = "cbxMoneda";
             this.cbxMoneda.Size = new System.Drawing.Size(276, 24);
@@ -1377,6 +1400,7 @@
             this.label31.Size = new System.Drawing.Size(67, 14);
             this.label31.TabIndex = 0;
             this.label31.Text = "Fecha Pago:";
+
             // 
             // btnBuscarCliente
             // 
@@ -1430,6 +1454,7 @@
             this.label30.Text = "Fecha Venta:";
             // 
             // label8
+
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
@@ -1452,7 +1477,9 @@
             this.plTipoDocumento.Size = new System.Drawing.Size(129, 40);
             this.plTipoDocumento.TabIndex = 122;
             // 
+
             // cbxTipoDocumento
+
             // 
             this.cbxTipoDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1496,6 +1523,7 @@
             // 
             // txtDireccion
             // 
+
             this.txtDireccion.BackColor = System.Drawing.Color.White;
             this.txtDireccion.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.txtDireccion.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
@@ -1544,6 +1572,7 @@
             this.txtNroIdentificacion.Size = new System.Drawing.Size(144, 40);
             this.txtNroIdentificacion.TabIndex = 119;
             this.txtNroIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
             // 
             // label24
             // 
@@ -1560,9 +1589,10 @@
             // 
             // FormVentaNuevo1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+
             this.ClientSize = new System.Drawing.Size(1236, 632);
             this.Controls.Add(this.plTop);
             this.Controls.Add(this.plIzquierdo);
