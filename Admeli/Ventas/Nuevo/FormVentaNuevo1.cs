@@ -407,7 +407,7 @@ namespace Admeli.Ventas.Nuevo
             return false;
 
         }
-        private void btnAddCard_Click(object sender, EventArgs e)
+        private async void btnAddCard_Click(object sender, EventArgs e)
         {
             if (txtPrecioUnitario.Text == "")
             {
@@ -529,7 +529,7 @@ namespace Admeli.Ventas.Nuevo
 
                 descuentoTotal();
 
-                limpiarCamposProducto();
+                await limpiarCamposProducto();
 
             }
             else
@@ -1126,7 +1126,7 @@ namespace Admeli.Ventas.Nuevo
         {
             this.Close();            
         }
-        private void limpiarCamposProducto()
+        private Task limpiarCamposProducto()
         {
             cbxCodigoProducto.SelectedIndex = -1;
             cbxPresentacion.SelectedIndex = -1;
@@ -1134,10 +1134,27 @@ namespace Admeli.Ventas.Nuevo
             cbxCombinacion.SelectedIndex = -1;
             txtCantidad.Text = "";
             txtDescuento.Text = "";
-            txtPrecioUnitario.Text = "";
-
-           
+            txtPrecioUnitario.Text = "";          
             lbStock.Text = "";
+            DetalleA obj = new DetalleA();
+            Action messageTarget;
+
+            if (Environment.GetCommandLineArgs().Length > 1)
+                messageTarget = ShowWindowsMessage;
+            else
+                messageTarget = Console.WriteLine;
+
+            messageTarget(); //action that points to the method
+            Task task = new Task(messageTarget);
+            return task;
+
+            
+        }
+
+
+        private static void ShowWindowsMessage()
+        {
+            MessageBox.Show("");
         }
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1306,8 +1323,6 @@ namespace Admeli.Ventas.Nuevo
         {
             if (txtCantidad.Text != "" && cbxCodigoProducto.SelectedValue != null)
             {
-
-
                 DescuentoProductoSubmit descuentoProductoSubmit = new DescuentoProductoSubmit();
 
                 descuentoProductoSubmit.cantidad = Convert.ToInt32(txtCantidad.Text);
@@ -1321,14 +1336,12 @@ namespace Admeli.Ventas.Nuevo
                 txtDescuento.Text = descuentoProducto.descuento.ToString();
 
                 calcularTotal();
-            }
+            
 
             if (detalleVentas != null )
 
-                if(detalleVentas.Count != 0)
-
-                {
-            {
+                if(detalleVentas.Count != 0)         
+                 {
                 //primero traemos los descuento correspondientes
                 DescuentoSubmit descuentoSubmit = new DescuentoSubmit();
                 string cantidades = "";
@@ -1368,8 +1381,8 @@ namespace Admeli.Ventas.Nuevo
                 descuentoTotal();
 
             }
-                 }
-
+                 
+            }
         }
 
         private void plPVenta_Click(object sender, EventArgs e)

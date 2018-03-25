@@ -76,5 +76,15 @@ namespace Admeli.Compras.Nuevo
         {
 
         }
+
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
