@@ -92,6 +92,7 @@
             this.plIzquierdoCentrado = new System.Windows.Forms.Panel();
             this.cbxMoneda = new System.Windows.Forms.ComboBox();
             this.dtpFechaPago = new Bunifu.Framework.UI.BunifuDatepicker();
+
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.dtpFechaVenta = new Bunifu.Framework.UI.BunifuDatepicker();
             this.cbxTipoDocumento = new System.Windows.Forms.ComboBox();
@@ -198,7 +199,7 @@
             this.label17.Location = new System.Drawing.Point(290, 49);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(161, 16);
+            this.label17.Size = new System.Drawing.Size(204, 19);
             this.label17.TabIndex = 128;
             this.label17.Text = "Generar Guía de Remisión";
             // 
@@ -209,8 +210,10 @@
             this.cbxGuiaRemision.Checked = true;
             this.cbxGuiaRemision.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.cbxGuiaRemision.ForeColor = System.Drawing.Color.White;
+
             this.cbxGuiaRemision.Location = new System.Drawing.Point(270, 45);
             this.cbxGuiaRemision.Margin = new System.Windows.Forms.Padding(2);
+
             this.cbxGuiaRemision.Name = "cbxGuiaRemision";
             this.cbxGuiaRemision.Size = new System.Drawing.Size(20, 20);
             this.cbxGuiaRemision.TabIndex = 127;
@@ -223,7 +226,7 @@
             this.label16.Location = new System.Drawing.Point(290, 27);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 16);
+            this.label16.Size = new System.Drawing.Size(116, 19);
             this.label16.TabIndex = 126;
             this.label16.Text = "Pagar Compra";
             // 
@@ -234,8 +237,10 @@
             this.cbxPagarCompra.Checked = true;
             this.cbxPagarCompra.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.cbxPagarCompra.ForeColor = System.Drawing.Color.White;
+
             this.cbxPagarCompra.Location = new System.Drawing.Point(270, 24);
             this.cbxPagarCompra.Margin = new System.Windows.Forms.Padding(2);
+
             this.cbxPagarCompra.Name = "cbxPagarCompra";
             this.cbxPagarCompra.Size = new System.Drawing.Size(20, 20);
             this.cbxPagarCompra.TabIndex = 125;
@@ -248,7 +253,7 @@
             this.label15.Location = new System.Drawing.Point(290, 7);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(156, 16);
+            this.label15.Size = new System.Drawing.Size(194, 19);
             this.label15.TabIndex = 124;
             this.label15.Text = "Nota de Entrada Almacén";
             // 
@@ -261,6 +266,7 @@
             this.cbxNotaEntrada.ForeColor = System.Drawing.Color.White;
             this.cbxNotaEntrada.Location = new System.Drawing.Point(270, 3);
             this.cbxNotaEntrada.Margin = new System.Windows.Forms.Padding(2);
+
             this.cbxNotaEntrada.Name = "cbxNotaEntrada";
             this.cbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
             this.cbxNotaEntrada.TabIndex = 123;
@@ -275,6 +281,7 @@
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(39, 16);
+
             this.label11.TabIndex = 121;
             this.label11.Text = "Total:";
             // 
@@ -308,6 +315,7 @@
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 16);
+
             this.label7.TabIndex = 119;
             this.label7.Text = "Impuestos:";
             // 
@@ -340,7 +348,9 @@
             this.label6.Location = new System.Drawing.Point(11, 8);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
+
             this.label6.Size = new System.Drawing.Size(66, 16);
+r
             this.label6.TabIndex = 117;
             this.label6.Text = "Sub Total:";
             // 
@@ -447,6 +457,7 @@
             this.dataGridView.GridColor = System.Drawing.Color.Gainsboro;
             this.dataGridView.Location = new System.Drawing.Point(8, 8);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
+
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersVisible = false;
@@ -455,6 +466,7 @@
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+
             // 
             // idDetalleCompraDataGridViewTextBoxColumn
             // 
@@ -634,6 +646,7 @@
             this.label20.Location = new System.Drawing.Point(7, 8);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
+
             this.label20.Size = new System.Drawing.Size(123, 18);
             this.label20.TabIndex = 135;
             this.label20.Text = "Nuevo Producto:";
@@ -666,7 +679,7 @@
             this.lbStock.Location = new System.Drawing.Point(631, 55);
             this.lbStock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbStock.Name = "lbStock";
-            this.lbStock.Size = new System.Drawing.Size(19, 16);
+            this.lbStock.Size = new System.Drawing.Size(23, 19);
             this.lbStock.TabIndex = 133;
             this.lbStock.Text = "/0";
             // 
@@ -707,6 +720,7 @@
             this.btnAddProducto.TabIndex = 127;
             this.btnAddProducto.UseVisualStyleBackColor = false;
             this.btnAddProducto.Click += new System.EventHandler(this.btnAddProducto_Click);
+
             // 
             // cbxDescripcion
             // 
@@ -721,6 +735,7 @@
             this.cbxDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.cbxDescripcion.Name = "cbxDescripcion";
             this.cbxDescripcion.Size = new System.Drawing.Size(156, 24);
+
             this.cbxDescripcion.TabIndex = 1;
             this.cbxDescripcion.ValueMember = "idProducto";
             this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged_1);
@@ -729,6 +744,7 @@
             // 
             this.productoVentaBindingSource.DataSource = typeof(Entidad.ProductoVenta);
             // 
+
             // cbxCombinacion
             // 
             this.cbxCombinacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -737,11 +753,12 @@
             this.cbxCombinacion.DisplayMember = "nombreCombinacion";
             this.cbxCombinacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxCombinacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCombinacion.FormattingEnabled = true;
+            this.cbxCobinacion.FormattingEnabled = true;
             this.cbxCombinacion.Location = new System.Drawing.Point(292, 53);
             this.cbxCombinacion.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCombinacion.Name = "cbxCombinacion";
             this.cbxCombinacion.Size = new System.Drawing.Size(105, 24);
+
             this.cbxCombinacion.TabIndex = 1;
             this.cbxCombinacion.ValueMember = "idCombinacionAlternativa";
             // 
@@ -761,6 +778,7 @@
             this.cbxPresentacion.Location = new System.Drawing.Point(171, 53);
             this.cbxPresentacion.Margin = new System.Windows.Forms.Padding(2);
             this.cbxPresentacion.Name = "cbxPresentacion";
+
             this.cbxPresentacion.Size = new System.Drawing.Size(117, 24);
             this.cbxPresentacion.TabIndex = 1;
             this.cbxPresentacion.ValueMember = "idPresentacion";
@@ -770,6 +788,7 @@
             // 
             this.presentacionBindingSource.DataSource = typeof(Entidad.Presentacion);
             // 
+
             // cbxCodigoProducto
             // 
             this.cbxCodigoProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -833,12 +852,15 @@
             this.chkActivoProducto.Checked = true;
             this.chkActivoProducto.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoProducto.ForeColor = System.Drawing.Color.White;
+
             this.chkActivoProducto.Location = new System.Drawing.Point(122, 115);
             this.chkActivoProducto.Margin = new System.Windows.Forms.Padding(2);
+
             this.chkActivoProducto.Name = "chkActivoProducto";
             this.chkActivoProducto.Size = new System.Drawing.Size(20, 20);
             this.chkActivoProducto.TabIndex = 119;
             // 
+
             // plTipoComprobante
             // 
             this.plTipoComprobante.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -858,9 +880,11 @@
             this.cbxTipoComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTipoComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTipoComprobante.FormattingEnabled = true;
+
             this.cbxTipoComprobante.Location = new System.Drawing.Point(122, 39);
             this.cbxTipoComprobante.Name = "cbxTipoComprobante";
             this.cbxTipoComprobante.Size = new System.Drawing.Size(137, 24);
+
             this.cbxTipoComprobante.TabIndex = 1;
             this.cbxTipoComprobante.ValueMember = "idTipoDocumento";
             this.cbxTipoComprobante.SelectedIndexChanged += new System.EventHandler(this.cbxTipoComprobante_SelectedIndexChanged);
@@ -914,6 +938,7 @@
             this.plIzquierdoCentrado.Padding = new System.Windows.Forms.Padding(8);
             this.plIzquierdoCentrado.Size = new System.Drawing.Size(266, 538);
             this.plIzquierdoCentrado.TabIndex = 123;
+
             // 
             // cbxMoneda
             // 
@@ -924,6 +949,7 @@
             this.cbxMoneda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMoneda.FormattingEnabled = true;
+
             this.cbxMoneda.Location = new System.Drawing.Point(122, 441);
             this.cbxMoneda.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMoneda.Name = "cbxMoneda";
@@ -931,6 +957,7 @@
             this.cbxMoneda.TabIndex = 1;
             this.cbxMoneda.ValueMember = "idMoneda";
             // 
+
             // dtpFechaPago
             // 
             this.dtpFechaPago.BackColor = System.Drawing.Color.White;
@@ -939,13 +966,16 @@
             this.dtpFechaPago.ForeColor = System.Drawing.Color.DimGray;
             this.dtpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaPago.FormatCustom = null;
+
             this.dtpFechaPago.Location = new System.Drawing.Point(122, 419);
             this.dtpFechaPago.Margin = new System.Windows.Forms.Padding(2);
+
             this.dtpFechaPago.Name = "dtpFechaPago";
             this.dtpFechaPago.Size = new System.Drawing.Size(137, 17);
             this.dtpFechaPago.TabIndex = 136;
             this.dtpFechaPago.Value = new System.DateTime(2018, 3, 22, 16, 56, 1, 640);
             // 
+
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -970,8 +1000,10 @@
             this.dtpFechaVenta.ForeColor = System.Drawing.Color.DimGray;
             this.dtpFechaVenta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaVenta.FormatCustom = null;
+
             this.dtpFechaVenta.Location = new System.Drawing.Point(122, 394);
             this.dtpFechaVenta.Margin = new System.Windows.Forms.Padding(2);
+
             this.dtpFechaVenta.Name = "dtpFechaVenta";
             this.dtpFechaVenta.Size = new System.Drawing.Size(137, 18);
             this.dtpFechaVenta.TabIndex = 135;
@@ -990,7 +1022,9 @@
             this.cbxTipoDocumento.Location = new System.Drawing.Point(122, 231);
             this.cbxTipoDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTipoDocumento.Name = "cbxTipoDocumento";
+
             this.cbxTipoDocumento.Size = new System.Drawing.Size(137, 24);
+
             this.cbxTipoDocumento.TabIndex = 1;
             this.cbxTipoDocumento.ValueMember = "idDocumento";
             // 
@@ -1022,7 +1056,9 @@
             this.label21.Text = "Documento:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+
             // label18
+
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1035,7 +1071,9 @@
             this.label18.Text = "Tipo Comprobante:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+
             // label4
+
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1048,7 +1086,9 @@
             this.label4.Text = "Serie:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+
             // txtSerie
+
             // 
             this.txtSerie.Location = new System.Drawing.Point(122, 68);
             this.txtSerie.Name = "txtSerie";
@@ -1118,6 +1158,7 @@
             // 
             this.txtNroIdentificacion.Location = new System.Drawing.Point(122, 256);
             this.txtNroIdentificacion.Name = "txtNroIdentificacion";
+
             this.txtNroIdentificacion.Size = new System.Drawing.Size(137, 20);
             this.txtNroIdentificacion.TabIndex = 143;
             // 
@@ -1129,6 +1170,7 @@
             this.label24.Location = new System.Drawing.Point(1, 284);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
+
             this.label24.Size = new System.Drawing.Size(52, 16);
             this.label24.TabIndex = 144;
             this.label24.Text = "Cliente:";
@@ -1399,14 +1441,17 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(88, 20);
             this.txtTotal.TabIndex = 147;
+
             // 
             // FormVentaNuevo1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+
             this.ClientSize = new System.Drawing.Size(1327, 650);
             this.Controls.Add(this.tableLayoutPanel1);
+
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormVentaNuevo1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

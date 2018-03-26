@@ -343,7 +343,7 @@ namespace Admeli.Compras
             //FormComprarNuevo comprarNuevo = new FormComprarNuevo(ConfigModel.sucursal, personal);
             //comprarNuevo.ShowDialog();
             //cargarRegistros();
-            FormCompraNuevo3 comprarNuevo = new FormCompraNuevo3();
+            FormCompraNew comprarNuevo = new FormCompraNew();
             comprarNuevo.ShowDialog();
         }
 
