@@ -1508,5 +1508,10 @@ namespace Admeli.Ventas.Nuevo
             this.Close();
 
         }
+
+        private void txtDescuento_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
