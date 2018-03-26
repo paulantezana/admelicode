@@ -137,6 +137,9 @@ namespace Admeli.Ventas.Nuevo
         #region ================================ Root Load ================================
         private void FormComprarNuevo_Load(object sender, EventArgs e)
         {
+            //Maximizar formulario 
+            //this.WindowState = FormWindowState.Maximized;
+            
 
             if (nuevo == true)
                 this.reLoad();
@@ -154,6 +157,11 @@ namespace Admeli.Ventas.Nuevo
                 btnRealizarCompra.Text = "Modificar compra";
             }
             AddButtonColumn();
+
+            //AutoScroll
+            this.plDerecho.AutoScroll = true;
+            this.plIzquierdoCentrado.AutoScroll = true;
+            
         }
 
 
@@ -182,15 +190,15 @@ namespace Admeli.Ventas.Nuevo
             DrawShape drawShape = new DrawShape();
             //drawShape.bottomLine(panelHeader);
             drawShape.lineBorder(plTipoComprobante, 157, 157, 157);
-            drawShape.lineBorder(plTipoDocumento, 157, 157, 157);
-            drawShape.lineBorder(plFechaPago, 157, 157, 157);
-            drawShape.lineBorder(plFechaVenta, 157, 157, 157);
-            drawShape.lineBorder(plMoneda, 157, 157, 157);
-            drawShape.lineBorder(plProducto, 157, 157, 157);
-            drawShape.lineBorder(plPresentacion, 157, 157, 157);
-            drawShape.lineBorder(plVariante, 157, 157, 157);
-            drawShape.lineBorder(plDescripcion, 157, 157, 157);
-            drawShape.lineBorder(plIzquierdo, 30, 144, 255);
+            //drawShape.lineBorder(plTipoDocumento, 157, 157, 157);
+            //drawShape.lineBorder(plFechaPago, 157, 157, 157);
+            //drawShape.lineBorder(plFechaVenta, 157, 157, 157);
+            //drawShape.lineBorder(plMoneda, 157, 157, 157);
+            //drawShape.lineBorder(plProducto, 157, 157, 157);
+            //drawShape.lineBorder(plPresentacion, 157, 157, 157);
+            //drawShape.lineBorder(plVariante, 157, 157, 157);
+            //drawShape.lineBorder(plDescripcion, 157, 157, 157);
+            //drawShape.lineBorder(plIzquierdo, 30, 144, 255);
         }
 
         #region ============================== Load ==============================
@@ -613,7 +621,7 @@ namespace Admeli.Ventas.Nuevo
                    
                     if (stockTotal == 0)
                     {
-                        lbStock.Text = "";
+                        lbStock.Text = "/0";
                      }
                     else {
                         stockTotal -= stockDetalle;
@@ -625,7 +633,7 @@ namespace Admeli.Ventas.Nuevo
 
                     if (stockTotal == 0)
                     {
-                        lbStock.Text = "";
+                        lbStock.Text = "/0";
                     }
                     else
                         lbStock.Text = "/" + stockTotal.ToString();
@@ -1216,8 +1224,8 @@ namespace Admeli.Ventas.Nuevo
         {
             int idTipoDocumento = (int)cbxTipoComprobante.SelectedValue;
             List<Venta_correlativo> list = await ventaModel.listarNroDocumentoVenta(idTipoDocumento, ConfigModel.asignacionPersonal.idPuntoVenta);
-            textSerie.Text = list[0].correlativoActual;
-            textSerie.Text = list[0].serie;
+            txtSerie.Text = list[0].correlativoActual;
+            txtSerie.Text = list[0].serie;
 
         }
 
@@ -1494,6 +1502,20 @@ namespace Admeli.Ventas.Nuevo
         {
             this.Close();
 
+        }
+
+        private void FormVentaNuevo1_Resize(object sender, EventArgs e)
+        {
+            //Cuando se modifica el tamaño del formulario se vuelve a centrar todo
+            if(plIzquierdo.Width - plIzquierdoCentrado.Width < 0)
+            {
+                plIzquierdoCentrado.Left = (plIzquierdo.Width - plIzquierdoCentrado.Width) / 2;
+            }
+            if(plIzquierdo.Height - plIzquierdoCentrado.Height<0)
+            {
+                plIzquierdoCentrado.Top = (plIzquierdo.Height - plIzquierdoCentrado.Height) / 2;
+            }
+            //label20.Text="IZ:"+plIzquierdo.Width+" IZC:"+plIzquierdoCentrado.Width +
         }
     }
 }
