@@ -350,7 +350,7 @@
             this.label6.Name = "label6";
 
             this.label6.Size = new System.Drawing.Size(66, 16);
-r
+
             this.label6.TabIndex = 117;
             this.label6.Text = "Sub Total:";
             // 
@@ -753,7 +753,7 @@ r
             this.cbxCombinacion.DisplayMember = "nombreCombinacion";
             this.cbxCombinacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxCombinacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCobinacion.FormattingEnabled = true;
+            this.cbxCombinacion.FormattingEnabled = true;
             this.cbxCombinacion.Location = new System.Drawing.Point(292, 53);
             this.cbxCombinacion.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCombinacion.Name = "cbxCombinacion";
