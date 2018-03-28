@@ -200,7 +200,7 @@
             this.textNIdentificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNIdentificacion.isPassword = false;
             this.textNIdentificacion.Location = new System.Drawing.Point(23, 84);
-            this.textNIdentificacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textNIdentificacion.Margin = new System.Windows.Forms.Padding(4);
             this.textNIdentificacion.Name = "textNIdentificacion";
             this.textNIdentificacion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textNIdentificacion.Size = new System.Drawing.Size(300, 33);
@@ -221,7 +221,7 @@
             "Productor",
             "Minorista"});
             this.cbxTipoProveedor.Location = new System.Drawing.Point(23, 344);
-            this.cbxTipoProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTipoProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTipoProveedor.Name = "cbxTipoProveedor";
             this.cbxTipoProveedor.Size = new System.Drawing.Size(300, 32);
             this.cbxTipoProveedor.TabIndex = 4;
@@ -251,7 +251,7 @@
             this.textNombreEmpresa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreEmpresa.isPassword = false;
             this.textNombreEmpresa.Location = new System.Drawing.Point(23, 212);
-            this.textNombreEmpresa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textNombreEmpresa.Margin = new System.Windows.Forms.Padding(4);
             this.textNombreEmpresa.Name = "textNombreEmpresa";
             this.textNombreEmpresa.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textNombreEmpresa.Size = new System.Drawing.Size(300, 33);
@@ -282,7 +282,7 @@
             this.textActividadPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textActividadPrincipal.isPassword = false;
             this.textActividadPrincipal.Location = new System.Drawing.Point(23, 279);
-            this.textActividadPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textActividadPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.textActividadPrincipal.Name = "textActividadPrincipal";
             this.textActividadPrincipal.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textActividadPrincipal.Size = new System.Drawing.Size(300, 33);
@@ -313,7 +313,7 @@
             this.textDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textDireccion.isPassword = false;
             this.textDireccion.Location = new System.Drawing.Point(351, 340);
-            this.textDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.textDireccion.Name = "textDireccion";
             this.textDireccion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textDireccion.Size = new System.Drawing.Size(300, 33);
@@ -344,7 +344,7 @@
             this.textEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textEmail.isPassword = false;
             this.textEmail.Location = new System.Drawing.Point(23, 403);
-            this.textEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textEmail.Name = "textEmail";
             this.textEmail.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textEmail.Size = new System.Drawing.Size(300, 33);
@@ -516,7 +516,7 @@
             this.textTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textTelefono.isPassword = false;
             this.textTelefono.Location = new System.Drawing.Point(23, 147);
-            this.textTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.textTelefono.Name = "textTelefono";
             this.textTelefono.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textTelefono.Size = new System.Drawing.Size(300, 33);
@@ -583,7 +583,6 @@
         private System.Windows.Forms.Label label9;
         private Bunifu.Framework.UI.BunifuCheckbox chkEstado;
         private System.Windows.Forms.Label label7;
-        private Bunifu.Framework.UI.BunifuMetroTextbox textNIdentificacion;
         private System.Windows.Forms.ComboBox cbxTipoProveedor;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuMetroTextbox textNombreEmpresa;
@@ -609,5 +608,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label8;
         private Bunifu.Framework.UI.BunifuMetroTextbox textTelefono;
+        public Bunifu.Framework.UI.BunifuMetroTextbox textNIdentificacion;
     }
 }

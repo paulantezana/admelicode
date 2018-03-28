@@ -42,4 +42,11 @@ namespace Entidad
     {
         public List<object> listita { get; set; }
     }
+
+    public class ImpuestosSiglas
+    {
+        public int idImpuesto { get; set; }
+        public string nombreImpuesto { get; set; }
+        public string siglasImpuesto { get; set; } 
+    }
 }

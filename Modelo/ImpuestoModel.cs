@@ -152,5 +152,20 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        //impuestos31
+        public async Task<List<ImpuestosSiglas>> listarImpuestoIdImpuestoNombreSiglasByActivos()
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/impuestos31
+                List<ImpuestosSiglas> impuesto = await webService.GET<List<ImpuestosSiglas>>("impuestos31");
+                return impuesto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

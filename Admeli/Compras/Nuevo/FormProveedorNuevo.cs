@@ -15,16 +15,24 @@ namespace Admeli.Compras.Nuevo
     public partial class FormProveedorNuevo : Form
     {
         private UCProveedorContacto uCProveedorContacto;
-        private UCProveedorGeneral uCProveedorGeneral;
+        public UCProveedorGeneral uCProveedorGeneral;
 
         internal int currentIDProveedor { get; set; }
         internal bool nuevo { get; set; }
         internal Proveedor currentProveedor;
 
+        public  string nroDocumento { get; set; }
         public FormProveedorNuevo()
         {
             InitializeComponent();
             this.nuevo = true;
+        }
+        public FormProveedorNuevo( string nroDocumento)
+        {
+            InitializeComponent();
+            this.nuevo = true;
+            this.nroDocumento = nroDocumento;
+            
         }
 
         public FormProveedorNuevo(Proveedor currentProveedor)
