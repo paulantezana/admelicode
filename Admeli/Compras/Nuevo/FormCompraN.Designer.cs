@@ -81,6 +81,31 @@
             this.label18 = new System.Windows.Forms.Label();
             this.bunifuCheckbox2 = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel28.SuspendLayout();
@@ -97,11 +122,17 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -136,7 +167,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 88);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(10);
-            this.panel13.Size = new System.Drawing.Size(751, 349);
+            this.panel13.Size = new System.Drawing.Size(758, 349);
             this.panel13.TabIndex = 9;
             // 
             // flowLayoutPanel1
@@ -145,10 +176,10 @@
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(751, 88);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(758, 88);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(64, 349);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(57, 349);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // button2
@@ -164,7 +195,7 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(8, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 46);
+            this.button2.Size = new System.Drawing.Size(40, 40);
             this.button2.TabIndex = 8;
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -179,9 +210,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(8, 60);
+            this.button3.Location = new System.Drawing.Point(8, 54);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 46);
+            this.button3.Size = new System.Drawing.Size(40, 40);
             this.button3.TabIndex = 9;
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -196,9 +227,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(8, 112);
+            this.button4.Location = new System.Drawing.Point(8, 100);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(48, 46);
+            this.button4.Size = new System.Drawing.Size(40, 40);
             this.button4.TabIndex = 10;
             this.button4.UseVisualStyleBackColor = false;
             // 
@@ -819,6 +850,244 @@
             this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
             this.bunifuCheckbox1.TabIndex = 55;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.textBox3);
+            this.panel6.Controls.Add(this.textBox2);
+            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(220, 169);
+            this.panel6.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.panel7.Controls.Add(this.label9);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(220, 35);
+            this.panel7.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(30, 11);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 15);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "DATOS PROVEEDOR";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(96, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(111, 22);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(96, 86);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(111, 22);
+            this.textBox2.TabIndex = 2;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(96, 120);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(111, 22);
+            this.textBox3.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(54, 54);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 16);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "RUC:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(24, 89);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 16);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Proveedor:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(27, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 16);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Dirección:";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label21);
+            this.panel8.Controls.Add(this.label20);
+            this.panel8.Controls.Add(this.label17);
+            this.panel8.Controls.Add(this.textBox11);
+            this.panel8.Controls.Add(this.textBox12);
+            this.panel8.Controls.Add(this.textBox13);
+            this.panel8.Controls.Add(this.label13);
+            this.panel8.Controls.Add(this.label14);
+            this.panel8.Controls.Add(this.label15);
+            this.panel8.Controls.Add(this.textBox4);
+            this.panel8.Controls.Add(this.textBox5);
+            this.panel8.Controls.Add(this.textBox6);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 169);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(220, 273);
+            this.panel8.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(10, 124);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(99, 16);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Fecha Emision:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(51, 89);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 16);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Moneda:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(46, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(63, 16);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Tipo Doc:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(112, 121);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(96, 22);
+            this.textBox4.TabIndex = 3;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(112, 86);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(96, 22);
+            this.textBox5.TabIndex = 2;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(112, 51);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(96, 22);
+            this.textBox6.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.panel9.Controls.Add(this.label16);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(220, 35);
+            this.panel9.TabIndex = 0;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(30, 11);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(121, 15);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "DATOS PROVEEDOR";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(112, 226);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(96, 22);
+            this.textBox11.TabIndex = 9;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Location = new System.Drawing.Point(112, 191);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(96, 22);
+            this.textBox12.TabIndex = 8;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Location = new System.Drawing.Point(112, 156);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(96, 22);
+            this.textBox13.TabIndex = 7;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(27, 159);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(82, 16);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Fecha Pago:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(46, 191);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(63, 16);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Nro. Doc:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(25, 229);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(84, 16);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "Tipo Cambio:";
+            // 
             // FormCompraN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -829,6 +1098,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormCompraN";
             this.Text = "FormCompraN";
+            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel28.ResumeLayout(false);
@@ -854,6 +1124,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -912,5 +1190,29 @@
         private System.Windows.Forms.Label label18;
         private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox2;
         private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox13;
     }
 }
