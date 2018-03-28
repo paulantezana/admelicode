@@ -85,9 +85,9 @@ namespace Admeli.Compras.Nuevo
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
 
-         
+
             formato = "{0:n" + nroDecimales + "}";
-            
+
         }
 
         public FormCompraNew(Compra currentCompra)
@@ -95,7 +95,7 @@ namespace Admeli.Compras.Nuevo
             InitializeComponent();
             this.currentCompra = currentCompra;
             this.nuevo = false;
-            cargarFechaSistema();           
+            cargarFechaSistema();
             pagoC = new PagoC();
             compraC = new CompraC();
             detalleC = new List<DetalleC>();
@@ -113,9 +113,9 @@ namespace Admeli.Compras.Nuevo
         private void FormCompraNew_Load(object sender, EventArgs e)
         {
             if (nuevo == true)
-               this.reLoad();
+                this.reLoad();
             else
-                {
+            {
                 this.reLoad();
                 listarDetalleCompraByIdCompra();
                 listarDatosProveedorCompra();
@@ -212,7 +212,7 @@ namespace Admeli.Compras.Nuevo
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "cargar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -238,11 +238,11 @@ namespace Admeli.Compras.Nuevo
                 txtDireccionProveedor.Text = datosProveedor[0].direccion;
                 dtpFechaEmision.Value = datosProveedor[0].fechaFacturacion.date;
                 dtpFechaPago.Value = datosProveedor[0].fechaPago.date;
-               // textTotal.Text = Convert.ToString(datosProveedor[0].total);
+                // textTotal.Text = Convert.ToString(datosProveedor[0].total);
                 cbxTipoMoneda.Text = datosProveedor[0].moneda;
                 txtTipoCambio.Text = "1";
-                }
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "cargar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -299,7 +299,7 @@ namespace Admeli.Compras.Nuevo
                 productos = await productoModel.productos();
                 productoBindingSource.DataSource = productos;
 
-         
+
 
                 cbxCodigoProducto.SelectedIndex = -1;
                 cbxDescripcion.SelectedIndex = -1;
@@ -315,7 +315,7 @@ namespace Admeli.Compras.Nuevo
         {                                                                                                    /// Cargar las precentaciones
             presentaciones = await presentacionModel.presentacionesTodas();
             presentacionBindingSource.DataSource = presentaciones;
-            cbxDescripcion.SelectedIndex = -1;          
+            cbxDescripcion.SelectedIndex = -1;
         }
 
         private async void cargarMedioPago()
@@ -416,23 +416,23 @@ namespace Admeli.Compras.Nuevo
             }
             else
             {
-                if (cbxDescripcion.SelectedIndex == -1 ) return; /// Validación
+                if (cbxDescripcion.SelectedIndex == -1) return; /// Validación
                 try
                 {
-                    
-                        // Buscar presentacion elegida
-                        int idPresentacion = Convert.ToInt32(cbxDescripcion.SelectedValue);
-                        Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == idPresentacion);
-                        Producto findProducto = productos.Find(x => x.idProducto == findPresentacion.idProducto);
-                        cbxCodigoProducto.Text = findProducto.codigoProducto;
-                        // Realizando el calculo
-                         double precioCompra = double.Parse(findProducto.precioCompra, CultureInfo.GetCultureInfo("en-US"));
-                        double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
-                        double precioUnidatio = precioCompra * cantidadUnitario;
 
-                        // Imprimiendo valor
-                        txtPrecioUnitario.Text = String.Format(CultureInfo.GetCultureInfo("en-US"),formato, precioUnidatio);
-                   
+                    // Buscar presentacion elegida
+                    int idPresentacion = Convert.ToInt32(cbxDescripcion.SelectedValue);
+                    Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == idPresentacion);
+                    Producto findProducto = productos.Find(x => x.idProducto == findPresentacion.idProducto);
+                    cbxCodigoProducto.Text = findProducto.codigoProducto;
+                    // Realizando el calculo
+                    double precioCompra = double.Parse(findProducto.precioCompra, CultureInfo.GetCultureInfo("en-US"));
+                    double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
+                    double precioUnidatio = precioCompra * cantidadUnitario;
+
+                    // Imprimiendo valor
+                    txtPrecioUnitario.Text = String.Format(CultureInfo.GetCultureInfo("en-US"), formato, precioUnidatio);
+
                 }
                 catch (Exception ex)
                 {
@@ -442,7 +442,7 @@ namespace Admeli.Compras.Nuevo
 
 
             }
-            
+
         }
 
         #endregion
@@ -527,9 +527,9 @@ namespace Admeli.Compras.Nuevo
         {
 
         }
-  
 
-       // accione fde cargar productos
+
+        // accione fde cargar productos
         private void cbxCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarProductoDetalle(0);
@@ -540,7 +540,78 @@ namespace Admeli.Compras.Nuevo
             cargarProductoDetalle(1);
         }
 
+        private async void txtDocIdentificacion_TextChanged(object sender, EventArgs e)
+        {
+            String aux = txtDocIdentificacion.Text;
 
+            int nroCarateres = aux.Length;
+            bool exiteProveedor = false;
+            if (nroCarateres == 11)
+            {
+
+                try
+                {
+
+
+                    Ruc nroDocumento = new Ruc();
+                    nroDocumento.nroDocumento = aux;
+                    List<Proveedor> proveedores = await proveedormodel.buscarPorDni(nroDocumento);
+                    currentProveedor = proveedores[0];
+                    if (currentProveedor != null)
+                        exiteProveedor = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (exiteProveedor)
+                {
+                    // llenamos los dato con el current proveerdor
+                    txtDocIdentificacion.removePlaceHolder();
+                    txtDocIdentificacion.Text= currentProveedor.ruc;
+                    txtDireccionProveedor.removePlaceHolder();
+                    txtDireccionProveedor.Text = currentProveedor.direccion;
+                    txtNombreProveedor.removePlaceHolder();
+                    txtNombreProveedor.Text = currentProveedor.razonSocial;
+
+                }
+                else
+                {
+                    //llenamos los datos en FormproveerdorNuevo
+                    FormProveedorNuevo formProveedorNuevo = new FormProveedorNuevo(aux);
+                    
+
+                    formProveedorNuevo.ShowDialog();
+
+                }
+
+
+
+
+            }
+            // Ver(aux);
+
+
+            //if (respuestaSunat != null)
+            //{
+
+            //    dataSunat = respuestaSunat.result;
+            //    textNIdentificacion.Text = dataSunat.RUC;
+            //    textTelefono.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length - 1);
+            //    textNombreEmpresa.Text = dataSunat.RazonSocial;
+            //    textActividadPrincipal.Text = dataSunat.Oficio;
+
+
+            //    textDireccion.Text = concidencias(dataSunat.Direccion);
+            //    //cbxPaises.Text = concidencias(dataSunat.Pais);
+
+
+            //    respuestaSunat = null;
+
+            //}
+
+
+        }
 
         // metodoss usados por los eventos
 
@@ -555,7 +626,7 @@ namespace Admeli.Compras.Nuevo
                     /// Buscando el producto seleccionado
                     int idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
                     currentProducto = productos.Find(x => x.idProducto == idProducto);
-                    cargarPresentaciones(idProducto,tipo);   
+                    cargarPresentaciones(idProducto, tipo);
                     cargarAlternativas(tipo);
                 }
                 catch (Exception ex)
@@ -583,7 +654,7 @@ namespace Admeli.Compras.Nuevo
 
             }
 
-           
+
         }
 
         private void cargarPresentacionDescripcion(int tipo)
@@ -592,19 +663,19 @@ namespace Admeli.Compras.Nuevo
             txtCantidad.Text = "1";
             txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, 0);
 
-           
+
             calcularPrecioUnitario(tipo);
             calcularTotal();
 
         }
-       private async  void cargarPresentaciones(int idProducto,int tipo)
+        private async void cargarPresentaciones(int idProducto, int tipo)
         {
 
-         
-            List<Presentacion>    presentaciones = await presentacionModel.presentacionVentas(idProducto);
+
+            List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
             currentPresentacion = presentaciones[0];
             cbxDescripcion.Text = currentPresentacion.descripcion;
-            txtCantidad.Text = "1";  
+            txtCantidad.Text = "1";
             txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, 0);
             calcularPrecioUnitario(tipo);
             calcularTotal();
@@ -612,8 +683,8 @@ namespace Admeli.Compras.Nuevo
 
         private async void cargarAlternativas(int tipo)
         {
-            if (cbxCodigoProducto.SelectedIndex == -1 ) return; /// validacion
-                                                                                                     /// cargando las alternativas del producto
+            if (cbxCodigoProducto.SelectedIndex == -1) return; /// validacion
+                                                               /// cargando las alternativas del producto
             List<AlternativaCombinacion> alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
             alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
 
@@ -629,7 +700,7 @@ namespace Admeli.Compras.Nuevo
 
         private void txtPrecioUnitario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validator.isDecimal(e,txtPrecioUnitario.Text);
+            Validator.isDecimal(e, txtPrecioUnitario.Text);
         }
 
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
@@ -642,6 +713,6 @@ namespace Admeli.Compras.Nuevo
             Validator.isDecimal(e, txtTotalProducto.Text);
         }
 
-      
+    
     }
 }

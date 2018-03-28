@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.Componentes;
 using Modelo;
+using Entidad;
 
 namespace Admeli.Herramientas
 {
@@ -19,7 +20,8 @@ namespace Admeli.Herramientas
 
         private ProductoModel productoModel = new ProductoModel();
         private ImpuestoModel impuestoModel = new ImpuestoModel();
-
+        List<ImpuestosSiglas> listImpuestos;
+        List<ProductoSinImpuesto> listProductos;
         public UCAsignarImpuesto()
         {
             InitializeComponent();
@@ -49,19 +51,23 @@ namespace Admeli.Herramientas
         {
             if (refreshData)
             {
-
+                cargarProductos();
+                cargarImpuestos();
             }
             lisenerKeyEvents = true; // Active lisener key events
         }
         #endregion
 
         #region ====================================== Loads ======================================
-        private void cargarProductos()
+        private async void cargarProductos()
         {
             loadState(true);
             try
             {
                 /// categoriaBindingSource.DataSource = await categoriaModel.categorias21();
+                /// 
+                listProductos = await productoModel.listarProductoPorIdProductoCodigoNombreSinImpuesto(ConfigModel.sucursal.idSucursal);
+                productoSinImpuestoBindingSource.DataSource = listProductos;
             }
             catch (Exception ex)
             {
@@ -73,12 +79,13 @@ namespace Admeli.Herramientas
             }
         }
 
-        private void cargarImpuestos()
+        private  async void cargarImpuestos()
         {
             loadState(true);
             try
             {
-                /// categoriaBindingSource.DataSource = await categoriaModel.categorias21();
+                listImpuestos = await impuestoModel.listarImpuestoIdImpuestoNombreSiglasByActivos();
+                impuestosSiglasBindingSource.DataSource = listImpuestos;
             }
             catch (Exception ex)
             {

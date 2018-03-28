@@ -350,6 +350,7 @@ namespace Admeli.Compras
 
             FormCompraN formCompraN = new FormCompraN();
             formCompraN.ShowDialog();
+
         }
 
         private void executeModificar()

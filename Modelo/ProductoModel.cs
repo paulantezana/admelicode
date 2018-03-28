@@ -248,5 +248,21 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        //listarProductoPorIdProductoCodigoNombreSinImpuesto
+        public async Task<List<ProductoSinImpuesto>> listarProductoPorIdProductoCodigoNombreSinImpuesto(int idSucursal)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/productos41/impuesto/sucursal/1
+                List<ProductoSinImpuesto> list = await webService.GET<List<ProductoSinImpuesto>>("productos41", String.Format("impuesto/sucursal/{0}", idSucursal));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -25,6 +25,21 @@ namespace Modelo
             }
         }
 
+
+        //cproductoarray
+        public async Task<Response> insertarCategoriasProductosArray(List<Dictionary<string, int>> param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/categorias/guardar
+                return await webService.POST<List<Dictionary<string, int>>, Response>("cproductoarray", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<Response> modificar(Categoria param)
         {
             try
