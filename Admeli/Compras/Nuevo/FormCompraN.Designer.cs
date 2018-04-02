@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompraN));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnImportarCompra = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -48,7 +48,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -56,64 +55,65 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.txtRUC = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDetalleCompra = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnActulizar = new System.Windows.Forms.Button();
+            this.btnNuevoProducto = new System.Windows.Forms.Button();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel30 = new System.Windows.Forms.TableLayoutPanel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
+            this.txtTotalProducto = new System.Windows.Forms.Label();
             this.tableLayoutPanel32 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.descuento = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.Cantidad = new System.Windows.Forms.Label();
             this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cbxVariacion = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbxDescripcion = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbxCodigo = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnComprar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbTotalCompra = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbImpuesto = new System.Windows.Forms.Label();
+            this.lbDescuento = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbSubtotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.bunifuCheckbox2 = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.chbxPagarCompra = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.chbxNotaEntrada = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -124,7 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel30.SuspendLayout();
@@ -151,43 +151,43 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 737);
             this.panel1.TabIndex = 2;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.button6);
+            this.panel10.Controls.Add(this.btnImportarCompra);
             this.panel10.Controls.Add(this.label26);
             this.panel10.Controls.Add(this.label27);
-            this.panel10.Controls.Add(this.textBox18);
-            this.panel10.Controls.Add(this.textBox19);
+            this.panel10.Controls.Add(this.txtObservaciones);
+            this.panel10.Controls.Add(this.txtNroDocumento);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 533);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(299, 309);
             this.panel10.TabIndex = 2;
             // 
-            // button6
+            // btnImportarCompra
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(17, 14);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(259, 42);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Importar Orden Compra";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnImportarCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarCompra.FlatAppearance.BorderSize = 0;
+            this.btnImportarCompra.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportarCompra.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportarCompra.ForeColor = System.Drawing.Color.White;
+            this.btnImportarCompra.Location = new System.Drawing.Point(17, 14);
+            this.btnImportarCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImportarCompra.Name = "btnImportarCompra";
+            this.btnImportarCompra.Size = new System.Drawing.Size(259, 42);
+            this.btnImportarCompra.TabIndex = 11;
+            this.btnImportarCompra.Text = "Importar Orden Compra";
+            this.btnImportarCompra.UseVisualStyleBackColor = false;
             // 
             // label26
             // 
@@ -211,25 +211,25 @@
             this.label27.TabIndex = 4;
             this.label27.Text = "Tipo Doc:";
             // 
-            // textBox18
+            // txtObservaciones
             // 
-            this.textBox18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.Location = new System.Drawing.Point(17, 151);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox18.Size = new System.Drawing.Size(257, 128);
-            this.textBox18.TabIndex = 2;
+            this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservaciones.Location = new System.Drawing.Point(17, 151);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtObservaciones.Size = new System.Drawing.Size(257, 128);
+            this.txtObservaciones.TabIndex = 2;
             // 
-            // textBox19
+            // txtNroDocumento
             // 
-            this.textBox19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox19.Location = new System.Drawing.Point(17, 90);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(257, 26);
-            this.textBox19.TabIndex = 1;
+            this.txtNroDocumento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroDocumento.Location = new System.Drawing.Point(17, 90);
+            this.txtNroDocumento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNroDocumento.Name = "txtNroDocumento";
+            this.txtNroDocumento.Size = new System.Drawing.Size(257, 26);
+            this.txtNroDocumento.TabIndex = 1;
             // 
             // panel8
             // 
@@ -248,7 +248,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 197);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(299, 336);
             this.panel8.TabIndex = 1;
@@ -290,7 +290,7 @@
             // 
             this.textBox11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.Location = new System.Drawing.Point(149, 278);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(127, 26);
             this.textBox11.TabIndex = 9;
@@ -299,7 +299,7 @@
             // 
             this.textBox12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.Location = new System.Drawing.Point(149, 235);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(127, 26);
             this.textBox12.TabIndex = 8;
@@ -308,7 +308,7 @@
             // 
             this.textBox13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.Location = new System.Drawing.Point(149, 192);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(127, 26);
             this.textBox13.TabIndex = 7;
@@ -350,7 +350,7 @@
             // 
             this.textBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(149, 149);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(127, 26);
             this.textBox4.TabIndex = 3;
@@ -359,19 +359,10 @@
             // 
             this.textBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(149, 106);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(127, 26);
             this.textBox5.TabIndex = 2;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(149, 63);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(127, 26);
-            this.textBox6.TabIndex = 1;
             // 
             // panel9
             // 
@@ -380,7 +371,7 @@
             this.panel9.Controls.Add(this.label16);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(299, 43);
             this.panel9.TabIndex = 0;
@@ -389,7 +380,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(9, 6);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -412,13 +403,13 @@
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.textBox3);
-            this.panel6.Controls.Add(this.textBox2);
-            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.txtDireccion);
+            this.panel6.Controls.Add(this.txtProveedor);
+            this.panel6.Controls.Add(this.txtRUC);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(299, 197);
             this.panel6.TabIndex = 0;
@@ -456,32 +447,32 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "RUC:";
             // 
-            // textBox3
+            // txtDireccion
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(128, 144);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(147, 26);
-            this.textBox3.TabIndex = 3;
+            this.txtDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(128, 144);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(147, 26);
+            this.txtDireccion.TabIndex = 3;
             // 
-            // textBox2
+            // txtProveedor
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(128, 102);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(147, 26);
-            this.textBox2.TabIndex = 2;
+            this.txtProveedor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProveedor.Location = new System.Drawing.Point(128, 102);
+            this.txtProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(147, 26);
+            this.txtProveedor.TabIndex = 2;
             // 
-            // textBox1
+            // txtRUC
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(128, 59);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 26);
-            this.textBox1.TabIndex = 1;
+            this.txtRUC.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRUC.Location = new System.Drawing.Point(128, 59);
+            this.txtRUC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRUC.Name = "txtRUC";
+            this.txtRUC.Size = new System.Drawing.Size(147, 26);
+            this.txtRUC.TabIndex = 1;
             // 
             // panel7
             // 
@@ -490,7 +481,7 @@
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(299, 43);
             this.panel7.TabIndex = 0;
@@ -499,7 +490,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(11, 6);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -520,7 +511,7 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(320, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(7, 737);
             this.splitter1.TabIndex = 3;
@@ -536,104 +527,104 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(327, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1033, 737);
             this.panel2.TabIndex = 4;
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.dataGridView1);
+            this.panel13.Controls.Add(this.dgvDetalleCompra);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(0, 108);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel13.Size = new System.Drawing.Size(964, 494);
             this.panel13.TabIndex = 9;
             // 
-            // dataGridView1
+            // dgvDetalleCompra
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 12);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(938, 470);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDetalleCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleCompra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetalleCompra.Location = new System.Drawing.Point(13, 12);
+            this.dgvDetalleCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvDetalleCompra.Name = "dgvDetalleCompra";
+            this.dgvDetalleCompra.Size = new System.Drawing.Size(938, 470);
+            this.dgvDetalleCompra.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.button4);
+            this.flowLayoutPanel1.Controls.Add(this.btnModificar);
+            this.flowLayoutPanel1.Controls.Add(this.btnActulizar);
+            this.flowLayoutPanel1.Controls.Add(this.btnNuevoProducto);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(964, 108);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 9, 7, 4);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(69, 494);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
-            // button2
+            // btnModificar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(4, 13);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 49);
-            this.button2.TabIndex = 8;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.Location = new System.Drawing.Point(4, 13);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(51, 49);
+            this.btnModificar.TabIndex = 8;
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnActulizar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(4, 70);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 49);
-            this.button3.TabIndex = 9;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnActulizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActulizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatAppearance.BorderSize = 0;
+            this.btnActulizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActulizar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActulizar.ForeColor = System.Drawing.Color.White;
+            this.btnActulizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActulizar.Image")));
+            this.btnActulizar.Location = new System.Drawing.Point(4, 70);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActulizar.Name = "btnActulizar";
+            this.btnActulizar.Size = new System.Drawing.Size(51, 49);
+            this.btnActulizar.TabIndex = 9;
+            this.btnActulizar.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnNuevoProducto
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(4, 127);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(51, 49);
-            this.button4.TabIndex = 10;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnNuevoProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevoProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatAppearance.BorderSize = 0;
+            this.btnNuevoProducto.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoProducto.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoProducto.ForeColor = System.Drawing.Color.White;
+            this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
+            this.btnNuevoProducto.Location = new System.Drawing.Point(4, 127);
+            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevoProducto.Name = "btnNuevoProducto";
+            this.btnNuevoProducto.Size = new System.Drawing.Size(51, 49);
+            this.btnNuevoProducto.TabIndex = 10;
+            this.btnNuevoProducto.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel28
             // 
@@ -659,7 +650,7 @@
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel30.Controls.Add(this.button5, 0, 0);
+            this.tableLayoutPanel30.Controls.Add(this.btnAgregar, 0, 0);
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel30.Location = new System.Drawing.Point(904, 8);
             this.tableLayoutPanel30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -669,26 +660,26 @@
             this.tableLayoutPanel30.Size = new System.Drawing.Size(119, 98);
             this.tableLayoutPanel30.TabIndex = 1;
             // 
-            // button5
+            // btnAgregar
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(48)))), ((int)(((byte)(21)))));
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(3, 2);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 94);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Agregar";
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(48)))), ((int)(((byte)(21)))));
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.Location = new System.Drawing.Point(3, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(113, 94);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel11
             // 
@@ -721,7 +712,7 @@
             this.tableLayoutPanel33.ColumnCount = 1;
             this.tableLayoutPanel33.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel33.Controls.Add(this.textBox10, 0, 1);
-            this.tableLayoutPanel33.Controls.Add(this.label35, 0, 0);
+            this.tableLayoutPanel33.Controls.Add(this.txtTotalProducto, 0, 0);
             this.tableLayoutPanel33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel33.Location = new System.Drawing.Point(777, 2);
             this.tableLayoutPanel33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -744,25 +735,25 @@
             this.textBox10.Text = "0.0000";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label35
+            // txtTotalProducto
             // 
-            this.label35.AutoSize = true;
-            this.label35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label35.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(3, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(102, 57);
-            this.label35.TabIndex = 1;
-            this.label35.Text = "Total";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtTotalProducto.AutoSize = true;
+            this.txtTotalProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.txtTotalProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTotalProducto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalProducto.ForeColor = System.Drawing.Color.Black;
+            this.txtTotalProducto.Location = new System.Drawing.Point(3, 0);
+            this.txtTotalProducto.Name = "txtTotalProducto";
+            this.txtTotalProducto.Size = new System.Drawing.Size(102, 57);
+            this.txtTotalProducto.TabIndex = 1;
+            this.txtTotalProducto.Text = "Total";
+            this.txtTotalProducto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel32
             // 
             this.tableLayoutPanel32.ColumnCount = 1;
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel32.Controls.Add(this.textBox9, 0, 1);
+            this.tableLayoutPanel32.Controls.Add(this.descuento, 0, 1);
             this.tableLayoutPanel32.Controls.Add(this.label34, 0, 0);
             this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel32.Location = new System.Drawing.Point(665, 2);
@@ -774,18 +765,18 @@
             this.tableLayoutPanel32.Size = new System.Drawing.Size(106, 94);
             this.tableLayoutPanel32.TabIndex = 5;
             // 
-            // textBox9
+            // descuento
             // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(157)))), ((int)(((byte)(70)))));
-            this.textBox9.Location = new System.Drawing.Point(3, 60);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 28);
-            this.textBox9.TabIndex = 2;
-            this.textBox9.Text = "0.0000";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.descuento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(157)))), ((int)(((byte)(70)))));
+            this.descuento.Location = new System.Drawing.Point(3, 60);
+            this.descuento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.descuento.Name = "descuento";
+            this.descuento.Size = new System.Drawing.Size(100, 28);
+            this.descuento.TabIndex = 2;
+            this.descuento.Text = "0.0000";
+            this.descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label34
             // 
@@ -805,7 +796,7 @@
             // 
             this.tableLayoutPanel31.ColumnCount = 1;
             this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel31.Controls.Add(this.textBox8, 0, 1);
+            this.tableLayoutPanel31.Controls.Add(this.txtPrecioUnitario, 0, 1);
             this.tableLayoutPanel31.Controls.Add(this.label33, 0, 0);
             this.tableLayoutPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel31.Location = new System.Drawing.Point(553, 2);
@@ -817,17 +808,17 @@
             this.tableLayoutPanel31.Size = new System.Drawing.Size(106, 94);
             this.tableLayoutPanel31.TabIndex = 4;
             // 
-            // textBox8
+            // txtPrecioUnitario
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(3, 60);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 28);
-            this.textBox8.TabIndex = 2;
-            this.textBox8.Text = "0.0000";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecioUnitario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPrecioUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioUnitario.Location = new System.Drawing.Point(3, 60);
+            this.txtPrecioUnitario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrecioUnitario.Name = "txtPrecioUnitario";
+            this.txtPrecioUnitario.Size = new System.Drawing.Size(100, 28);
+            this.txtPrecioUnitario.TabIndex = 2;
+            this.txtPrecioUnitario.Text = "0.0000";
+            this.txtPrecioUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label33
             // 
@@ -847,7 +838,7 @@
             // 
             this.tableLayoutPanel29.ColumnCount = 1;
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.Controls.Add(this.textBox7, 0, 1);
+            this.tableLayoutPanel29.Controls.Add(this.txtCantidad, 0, 1);
             this.tableLayoutPanel29.Controls.Add(this.Cantidad, 0, 0);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel29.Location = new System.Drawing.Point(441, 2);
@@ -859,17 +850,17 @@
             this.tableLayoutPanel29.Size = new System.Drawing.Size(106, 94);
             this.tableLayoutPanel29.TabIndex = 3;
             // 
-            // textBox7
+            // txtCantidad
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(3, 59);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 28);
-            this.textBox7.TabIndex = 2;
-            this.textBox7.Text = "0.0000";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.Location = new System.Drawing.Point(3, 59);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(100, 28);
+            this.txtCantidad.TabIndex = 2;
+            this.txtCantidad.Text = "0.0000";
+            this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Cantidad
             // 
@@ -889,7 +880,7 @@
             // 
             this.tableLayoutPanel27.ColumnCount = 1;
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel27.Controls.Add(this.comboBox5, 0, 1);
+            this.tableLayoutPanel27.Controls.Add(this.cbxVariacion, 0, 1);
             this.tableLayoutPanel27.Controls.Add(this.label31, 0, 0);
             this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel27.Location = new System.Drawing.Point(295, 2);
@@ -901,16 +892,16 @@
             this.tableLayoutPanel27.Size = new System.Drawing.Size(140, 94);
             this.tableLayoutPanel27.TabIndex = 2;
             // 
-            // comboBox5
+            // cbxVariacion
             // 
-            this.comboBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(3, 57);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(134, 30);
-            this.comboBox5.TabIndex = 23;
+            this.cbxVariacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxVariacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxVariacion.FormattingEnabled = true;
+            this.cbxVariacion.Location = new System.Drawing.Point(3, 57);
+            this.cbxVariacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxVariacion.Name = "cbxVariacion";
+            this.cbxVariacion.Size = new System.Drawing.Size(134, 30);
+            this.cbxVariacion.TabIndex = 23;
             // 
             // label31
             // 
@@ -930,7 +921,7 @@
             // 
             this.tableLayoutPanel26.ColumnCount = 1;
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Controls.Add(this.comboBox4, 0, 1);
+            this.tableLayoutPanel26.Controls.Add(this.cbxDescripcion, 0, 1);
             this.tableLayoutPanel26.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel26.Location = new System.Drawing.Point(149, 2);
@@ -942,16 +933,16 @@
             this.tableLayoutPanel26.Size = new System.Drawing.Size(140, 94);
             this.tableLayoutPanel26.TabIndex = 1;
             // 
-            // comboBox4
+            // cbxDescripcion
             // 
-            this.comboBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(3, 59);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(134, 30);
-            this.comboBox4.TabIndex = 23;
+            this.cbxDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDescripcion.FormattingEnabled = true;
+            this.cbxDescripcion.Location = new System.Drawing.Point(3, 59);
+            this.cbxDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxDescripcion.Name = "cbxDescripcion";
+            this.cbxDescripcion.Size = new System.Drawing.Size(134, 30);
+            this.cbxDescripcion.TabIndex = 23;
             // 
             // label30
             // 
@@ -971,7 +962,7 @@
             // 
             this.tableLayoutPanel25.ColumnCount = 1;
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel25.Controls.Add(this.comboBox3, 0, 1);
+            this.tableLayoutPanel25.Controls.Add(this.cbxCodigo, 0, 1);
             this.tableLayoutPanel25.Controls.Add(this.label29, 0, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 2);
@@ -983,16 +974,16 @@
             this.tableLayoutPanel25.Size = new System.Drawing.Size(140, 94);
             this.tableLayoutPanel25.TabIndex = 0;
             // 
-            // comboBox3
+            // cbxCodigo
             // 
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(3, 55);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(134, 30);
-            this.comboBox3.TabIndex = 23;
+            this.cbxCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCodigo.FormattingEnabled = true;
+            this.cbxCodigo.Location = new System.Drawing.Point(3, 55);
+            this.cbxCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxCodigo.Name = "cbxCodigo";
+            this.cbxCodigo.Size = new System.Drawing.Size(134, 30);
+            this.cbxCodigo.TabIndex = 23;
             // 
             // label29
             // 
@@ -1013,7 +1004,7 @@
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter2.Location = new System.Drawing.Point(0, 602);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(4);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(1033, 6);
             this.splitter2.TabIndex = 1;
@@ -1021,56 +1012,56 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnComprar);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.splitter3);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 608);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel3.Size = new System.Drawing.Size(1033, 129);
             this.panel3.TabIndex = 0;
             // 
-            // button1
+            // btnComprar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(875, 12);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 105);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Finalizar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnComprar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnComprar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnComprar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnComprar.FlatAppearance.BorderSize = 0;
+            this.btnComprar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnComprar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnComprar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComprar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprar.ForeColor = System.Drawing.Color.White;
+            this.btnComprar.Image = ((System.Drawing.Image)(resources.GetObject("btnComprar.Image")));
+            this.btnComprar.Location = new System.Drawing.Point(875, 12);
+            this.btnComprar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(145, 105);
+            this.btnComprar.TabIndex = 11;
+            this.btnComprar.Text = "Finalizar";
+            this.btnComprar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnComprar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnComprar.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.panel5.Controls.Add(this.pictureBox1);
-            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.lbTotalCompra);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.lbImpuesto);
+            this.panel5.Controls.Add(this.lbDescuento);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.lbSubtotal);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(265, 12);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(641, 105);
             this.panel5.TabIndex = 2;
@@ -1079,24 +1070,24 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(515, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(123, 97);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 66;
             this.pictureBox1.TabStop = false;
             // 
-            // label8
+            // lbTotalCompra
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(62)))), ((int)(((byte)(106)))));
-            this.label8.Location = new System.Drawing.Point(295, 46);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(188, 42);
-            this.label8.TabIndex = 65;
-            this.label8.Text = "S/. 250.00";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbTotalCompra.AutoSize = true;
+            this.lbTotalCompra.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(62)))), ((int)(((byte)(106)))));
+            this.lbTotalCompra.Location = new System.Drawing.Point(295, 46);
+            this.lbTotalCompra.Name = "lbTotalCompra";
+            this.lbTotalCompra.Size = new System.Drawing.Size(188, 42);
+            this.lbTotalCompra.TabIndex = 65;
+            this.lbTotalCompra.Text = "S/. 250.00";
+            this.lbTotalCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -1110,29 +1101,29 @@
             this.label7.Text = "Total a pagar:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // lbImpuesto
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(141, 71);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 19);
-            this.label5.TabIndex = 63;
-            this.label5.Text = "S/. 250.00";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbImpuesto.AutoSize = true;
+            this.lbImpuesto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbImpuesto.ForeColor = System.Drawing.Color.Black;
+            this.lbImpuesto.Location = new System.Drawing.Point(141, 71);
+            this.lbImpuesto.Name = "lbImpuesto";
+            this.lbImpuesto.Size = new System.Drawing.Size(85, 19);
+            this.lbImpuesto.TabIndex = 63;
+            this.lbImpuesto.Text = "S/. 250.00";
+            this.lbImpuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label6
+            // lbDescuento
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(141, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 19);
-            this.label6.TabIndex = 62;
-            this.label6.Text = "S/. 250.00";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbDescuento.AutoSize = true;
+            this.lbDescuento.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuento.ForeColor = System.Drawing.Color.Black;
+            this.lbDescuento.Location = new System.Drawing.Point(141, 43);
+            this.lbDescuento.Name = "lbDescuento";
+            this.lbDescuento.Size = new System.Drawing.Size(85, 19);
+            this.lbDescuento.TabIndex = 62;
+            this.lbDescuento.Text = "S/. 250.00";
+            this.lbDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
@@ -1158,17 +1149,17 @@
             this.label4.Text = "Descuento:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label2
+            // lbSubtotal
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(141, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 19);
-            this.label2.TabIndex = 59;
-            this.label2.Text = "S/. 250.00";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbSubtotal.AutoSize = true;
+            this.lbSubtotal.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubtotal.ForeColor = System.Drawing.Color.Black;
+            this.lbSubtotal.Location = new System.Drawing.Point(141, 15);
+            this.lbSubtotal.Name = "lbSubtotal";
+            this.lbSubtotal.Size = new System.Drawing.Size(85, 19);
+            this.lbSubtotal.TabIndex = 59;
+            this.lbSubtotal.Text = "S/. 250.00";
+            this.lbSubtotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -1185,7 +1176,7 @@
             // splitter3
             // 
             this.splitter3.Location = new System.Drawing.Point(252, 12);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter3.Margin = new System.Windows.Forms.Padding(4);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(13, 105);
             this.splitter3.TabIndex = 1;
@@ -1196,11 +1187,11 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.bunifuCheckbox2);
-            this.panel4.Controls.Add(this.bunifuCheckbox1);
+            this.panel4.Controls.Add(this.chbxPagarCompra);
+            this.panel4.Controls.Add(this.chbxNotaEntrada);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(13, 12);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(239, 105);
             this.panel4.TabIndex = 0;
@@ -1229,34 +1220,43 @@
             this.label18.Text = "Nota de entrada";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bunifuCheckbox2
+            // chbxPagarCompra
             // 
-            this.bunifuCheckbox2.AutoSize = true;
-            this.bunifuCheckbox2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox2.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox2.Checked = true;
-            this.bunifuCheckbox2.CheckedOnColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox2.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox2.Location = new System.Drawing.Point(20, 62);
-            this.bunifuCheckbox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bunifuCheckbox2.Name = "bunifuCheckbox2";
-            this.bunifuCheckbox2.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox2.TabIndex = 54;
+            this.chbxPagarCompra.AutoSize = true;
+            this.chbxPagarCompra.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chbxPagarCompra.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chbxPagarCompra.Checked = true;
+            this.chbxPagarCompra.CheckedOnColor = System.Drawing.Color.DodgerBlue;
+            this.chbxPagarCompra.ForeColor = System.Drawing.Color.White;
+            this.chbxPagarCompra.Location = new System.Drawing.Point(20, 62);
+            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(5);
+            this.chbxPagarCompra.Name = "chbxPagarCompra";
+            this.chbxPagarCompra.Size = new System.Drawing.Size(20, 20);
+            this.chbxPagarCompra.TabIndex = 54;
             // 
-            // bunifuCheckbox1
+            // chbxNotaEntrada
             // 
-            this.bunifuCheckbox1.AutoSize = true;
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.Checked = true;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(20, 20);
-            this.bunifuCheckbox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 55;
+            this.chbxNotaEntrada.AutoSize = true;
+            this.chbxNotaEntrada.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chbxNotaEntrada.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chbxNotaEntrada.Checked = true;
+            this.chbxNotaEntrada.CheckedOnColor = System.Drawing.Color.DodgerBlue;
+            this.chbxNotaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxNotaEntrada.ForeColor = System.Drawing.Color.White;
+            this.chbxNotaEntrada.Location = new System.Drawing.Point(20, 20);
+            this.chbxNotaEntrada.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chbxNotaEntrada.Name = "chbxNotaEntrada";
+            this.chbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
+            this.chbxNotaEntrada.TabIndex = 55;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(149, 63);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(127, 26);
+            this.textBox6.TabIndex = 1;
             // 
             // FormCompraN
             // 
@@ -1266,7 +1266,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCompraN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCompraN";
@@ -1286,7 +1286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel30.ResumeLayout(false);
@@ -1319,11 +1319,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnImportarCompra;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtObservaciones;
+        private System.Windows.Forms.TextBox txtNroDocumento;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
@@ -1336,7 +1336,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label16;
@@ -1344,63 +1343,64 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.TextBox txtRUC;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDetalleCompra;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnActulizar;
+        private System.Windows.Forms.Button btnNuevoProducto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel30;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel33;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label txtTotalProducto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel32;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox descuento;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtPrecioUnitario;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label Cantidad;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cbxVariacion;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbxDescripcion;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbxCodigo;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbTotalCompra;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbImpuesto;
+        private System.Windows.Forms.Label lbDescuento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbSubtotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Splitter splitter3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox2;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
+        private Bunifu.Framework.UI.BunifuCheckbox chbxPagarCompra;
+        private Bunifu.Framework.UI.BunifuCheckbox chbxNotaEntrada;
+        private System.Windows.Forms.TextBox textBox6;
     }
 }

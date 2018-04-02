@@ -33,13 +33,19 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvImpuestos = new System.Windows.Forms.DataGridView();
+            this.chbxselectimpuesto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siglasImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impuestosSiglasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProducto = new System.Windows.Forms.DataGridView();
+            this.productoSinImpuestoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,31 +54,32 @@
             this.panelHeaderItem1 = new System.Windows.Forms.Panel();
             this.panelSucursal = new System.Windows.Forms.Panel();
             this.cbxSucursales = new System.Windows.Forms.ComboBox();
+            this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblNivel1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.impuestosSiglasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productoSinImpuestoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productoSinImpuestoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.chbxselecProducto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siglasImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContainer.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvImpuestos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.impuestosSiglasBindingSource)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoSinImpuestoBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
             this.tlsHeader.SuspendLayout();
             this.panelHeaderItem1.SuspendLayout();
             this.panelSucursal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.impuestosSiglasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoSinImpuestoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoSinImpuestoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -103,7 +110,7 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.dataGridView2);
+            this.panel7.Controls.Add(this.dgvImpuestos);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 50);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -112,30 +119,63 @@
             this.panel7.Size = new System.Drawing.Size(629, 486);
             this.panel7.TabIndex = 2;
             // 
-            // dataGridView2
+            // dgvImpuestos
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView2.ColumnHeadersHeight = 35;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idImpuestoDataGridViewTextBoxColumn,
+            this.dgvImpuestos.AllowUserToAddRows = false;
+            this.dgvImpuestos.AllowUserToDeleteRows = false;
+            this.dgvImpuestos.AutoGenerateColumns = false;
+            this.dgvImpuestos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvImpuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvImpuestos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvImpuestos.ColumnHeadersHeight = 35;
+            this.dgvImpuestos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chbxselectimpuesto,
+            this.idImpuesto,
             this.nombreImpuestoDataGridViewTextBoxColumn,
             this.siglasImpuestoDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.impuestosSiglasBindingSource;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.GridColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView2.Location = new System.Drawing.Point(11, 10);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(607, 466);
-            this.dataGridView2.TabIndex = 1;
+            this.dgvImpuestos.DataSource = this.impuestosSiglasBindingSource;
+            this.dgvImpuestos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvImpuestos.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvImpuestos.Location = new System.Drawing.Point(11, 10);
+            this.dgvImpuestos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvImpuestos.Name = "dgvImpuestos";
+            this.dgvImpuestos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvImpuestos.RowHeadersVisible = false;
+            this.dgvImpuestos.RowTemplate.Height = 25;
+            this.dgvImpuestos.Size = new System.Drawing.Size(607, 466);
+            this.dgvImpuestos.TabIndex = 1;
+            // 
+            // chbxselectimpuesto
+            // 
+            this.chbxselectimpuesto.HeaderText = "";
+            this.chbxselectimpuesto.Name = "chbxselectimpuesto";
+            this.chbxselectimpuesto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // idImpuesto
+            // 
+            this.idImpuesto.DataPropertyName = "idImpuesto";
+            this.idImpuesto.HeaderText = "idImpuesto";
+            this.idImpuesto.Name = "idImpuesto";
+            this.idImpuesto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idImpuesto.Visible = false;
+            // 
+            // nombreImpuestoDataGridViewTextBoxColumn
+            // 
+            this.nombreImpuestoDataGridViewTextBoxColumn.DataPropertyName = "nombreImpuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn.HeaderText = "nombreImpuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn.Name = "nombreImpuestoDataGridViewTextBoxColumn";
+            this.nombreImpuestoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // siglasImpuestoDataGridViewTextBoxColumn
+            // 
+            this.siglasImpuestoDataGridViewTextBoxColumn.DataPropertyName = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn.HeaderText = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn.Name = "siglasImpuestoDataGridViewTextBoxColumn";
+            this.siglasImpuestoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // impuestosSiglasBindingSource
+            // 
+            this.impuestosSiglasBindingSource.DataSource = typeof(Entidad.ImpuestosSiglas);
             // 
             // panel5
             // 
@@ -178,7 +218,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Controls.Add(this.dgvProducto);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 50);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -187,31 +227,37 @@
             this.panel6.Size = new System.Drawing.Size(551, 486);
             this.panel6.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvProducto
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeight = 35;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProducto.AllowUserToAddRows = false;
+            this.dgvProducto.AllowUserToDeleteRows = false;
+            this.dgvProducto.AutoGenerateColumns = false;
+            this.dgvProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProducto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvProducto.ColumnHeadersHeight = 35;
+            this.dgvProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chbxselecProducto,
             this.idProductoDataGridViewTextBoxColumn,
+            this.idPresentacion,
             this.codigoProductoDataGridViewTextBoxColumn,
             this.nombreProductoDataGridViewTextBoxColumn,
             this.precioCompraDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.productoSinImpuestoBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 10);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(529, 466);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvProducto.DataSource = this.productoSinImpuestoBindingSource1;
+            this.dgvProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProducto.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvProducto.Location = new System.Drawing.Point(11, 10);
+            this.dgvProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProducto.Name = "dgvProducto";
+            this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvProducto.RowHeadersVisible = false;
+            this.dgvProducto.RowTemplate.Height = 25;
+            this.dgvProducto.Size = new System.Drawing.Size(529, 466);
+            this.dgvProducto.TabIndex = 0;
+            // 
+            // productoSinImpuestoBindingSource
+            // 
+            this.productoSinImpuestoBindingSource.DataSource = typeof(Entidad.ProductoSinImpuesto);
             // 
             // panel4
             // 
@@ -271,6 +317,7 @@
             this.btnNuevo.Text = "  Guardar";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnNuevo.ToolTipText = "Guardar cambios";
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // panelHeaderItem1
             // 
@@ -299,6 +346,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxSucursales.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbxSucursales.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxSucursales.DataSource = this.sucursalBindingSource;
             this.cbxSucursales.DisplayMember = "nombre";
             this.cbxSucursales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -309,6 +357,11 @@
             this.cbxSucursales.Size = new System.Drawing.Size(195, 28);
             this.cbxSucursales.TabIndex = 1;
             this.cbxSucursales.ValueMember = "idSucursal";
+            this.cbxSucursales.SelectedIndexChanged += new System.EventHandler(this.cbxSucursales_SelectedIndexChanged);
+            // 
+            // sucursalBindingSource
+            // 
+            this.sucursalBindingSource.DataSource = typeof(Entidad.Sucursal);
             // 
             // lblNivel1
             // 
@@ -331,58 +384,52 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ASIGNACION DE(LOS) IMPUESTO(S) A(LOS) PRODUCTO(S)";
             // 
-            // impuestosSiglasBindingSource
+            // productoSinImpuestoBindingSource1
             // 
-            this.impuestosSiglasBindingSource.DataSource = typeof(Entidad.ImpuestosSiglas);
+            this.productoSinImpuestoBindingSource1.DataSource = typeof(Entidad.ProductoSinImpuesto);
             // 
-            // productoSinImpuestoBindingSource
+            // chbxselecProducto
             // 
-            this.productoSinImpuestoBindingSource.DataSource = typeof(Entidad.ProductoSinImpuesto);
+            this.chbxselecProducto.HeaderText = "";
+            this.chbxselecProducto.Name = "chbxselecProducto";
             // 
             // idProductoDataGridViewTextBoxColumn
             // 
             this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
             this.idProductoDataGridViewTextBoxColumn.HeaderText = "idProducto";
             this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idProductoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idPresentacion
+            // 
+            this.idPresentacion.DataPropertyName = "idPresentacion";
+            this.idPresentacion.HeaderText = "idPresentacion";
+            this.idPresentacion.Name = "idPresentacion";
+            this.idPresentacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idPresentacion.Visible = false;
             // 
             // codigoProductoDataGridViewTextBoxColumn
             // 
             this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
             this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "codigoProducto";
             this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
+            this.codigoProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // nombreProductoDataGridViewTextBoxColumn
             // 
             this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
             this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "nombreProducto";
             this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
+            this.nombreProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // precioCompraDataGridViewTextBoxColumn
             // 
             this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "precioCompra";
             this.precioCompraDataGridViewTextBoxColumn.HeaderText = "precioCompra";
             this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
+            this.precioCompraDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.precioCompraDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idImpuestoDataGridViewTextBoxColumn
-            // 
-            this.idImpuestoDataGridViewTextBoxColumn.DataPropertyName = "idImpuesto";
-            this.idImpuestoDataGridViewTextBoxColumn.HeaderText = "idImpuesto";
-            this.idImpuestoDataGridViewTextBoxColumn.Name = "idImpuestoDataGridViewTextBoxColumn";
-            this.idImpuestoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreImpuestoDataGridViewTextBoxColumn
-            // 
-            this.nombreImpuestoDataGridViewTextBoxColumn.DataPropertyName = "nombreImpuesto";
-            this.nombreImpuestoDataGridViewTextBoxColumn.HeaderText = "nombreImpuesto";
-            this.nombreImpuestoDataGridViewTextBoxColumn.Name = "nombreImpuestoDataGridViewTextBoxColumn";
-            // 
-            // siglasImpuestoDataGridViewTextBoxColumn
-            // 
-            this.siglasImpuestoDataGridViewTextBoxColumn.DataPropertyName = "siglasImpuesto";
-            this.siglasImpuestoDataGridViewTextBoxColumn.HeaderText = "siglasImpuesto";
-            this.siglasImpuestoDataGridViewTextBoxColumn.Name = "siglasImpuestoDataGridViewTextBoxColumn";
             // 
             // UCAsignarImpuesto
             // 
@@ -397,12 +444,14 @@
             this.panelContainer.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvImpuestos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.impuestosSiglasBindingSource)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoSinImpuestoBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tlsHeader.ResumeLayout(false);
@@ -411,8 +460,8 @@
             this.panelHeaderItem1.PerformLayout();
             this.panelSucursal.ResumeLayout(false);
             this.panelSucursal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.impuestosSiglasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoSinImpuestoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoSinImpuestoBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -422,13 +471,13 @@
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvImpuestos;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProducto;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -440,13 +489,18 @@
         private System.Windows.Forms.ComboBox cbxSucursales;
         private System.Windows.Forms.Label lblNivel1;
         private System.Windows.Forms.BindingSource impuestosSiglasBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource productoSinImpuestoBindingSource;
+        private System.Windows.Forms.BindingSource sucursalBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chbxselectimpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuesto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreImpuestoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn siglasImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource productoSinImpuestoBindingSource1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chbxselecProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPresentacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource productoSinImpuestoBindingSource;
     }
 }

@@ -24,6 +24,19 @@ namespace Modelo
                 throw ex;
             }
         }
+        // InsertarImpuestosProductosArray iproductoarray
+        public async Task<Response> InsertarImpuestosProductosArray(List<Dictionary<string, int>> list)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/impuesto/guardar
+                return await webService.POST <List < Dictionary<string, int>> , Response >("iproductoarray", list);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public async Task<Response> modificar(Impuesto param)
         {
