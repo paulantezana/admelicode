@@ -174,7 +174,7 @@ namespace Admeli.Compras.Nuevo
                 //buttons.DisplayIndex = 0;
             }
 
-            dgwDetalleCompra.Columns.Add(buttons);
+            dgvDetalleCompra.Columns.Add(buttons);
 
         }
         private async void listarDetalleCompraByIdCompra()
@@ -222,7 +222,7 @@ namespace Admeli.Compras.Nuevo
             // Refrescando la tabla
             detalleCompraBindingSource.DataSource = null;
             detalleCompraBindingSource.DataSource = detalleCompras;
-            dgwDetalleCompra.Refresh();
+            dgvDetalleCompra.Refresh();
 
             // Calculo de totales y subtotales
             calculoSubtotal();

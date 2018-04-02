@@ -19,9 +19,12 @@ namespace Admeli.Compras.Nuevo
 
         internal int currentIDProveedor { get; set; }
         internal bool nuevo { get; set; }
+        internal bool enCompras { get; set; }
+
         internal Proveedor currentProveedor;
 
         public  string nroDocumento { get; set; }
+        
         public FormProveedorNuevo()
         {
             InitializeComponent();
@@ -32,6 +35,7 @@ namespace Admeli.Compras.Nuevo
             InitializeComponent();
             this.nuevo = true;
             this.nroDocumento = nroDocumento;
+            this.enCompras = true;
             
         }
 
@@ -68,13 +72,29 @@ namespace Admeli.Compras.Nuevo
                 case "contacto":
                     if (uCProveedorContacto == null)
                     {
-                        this.uCProveedorContacto = new UCProveedorContacto(this);
-                        this.panelMainNP.Controls.Add(uCProveedorContacto);
-                        this.uCProveedorContacto.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCProveedorContacto.Location = new System.Drawing.Point(0, 0);
-                        this.uCProveedorContacto.Name = "uCProveedorContacto";
-                        this.uCProveedorContacto.Size = new System.Drawing.Size(250, 776);
-                        this.uCProveedorContacto.TabIndex = 0;
+                        if (enCompras)
+                        {
+
+                            this.uCProveedorContacto = new UCProveedorContacto(this,nroDocumento);
+                            this.panelMainNP.Controls.Add(uCProveedorContacto);
+                            this.uCProveedorContacto.Dock = System.Windows.Forms.DockStyle.Fill;
+                            this.uCProveedorContacto.Location = new System.Drawing.Point(0, 0);
+                            this.uCProveedorContacto.Name = "uCProveedorContacto";
+                            this.uCProveedorContacto.Size = new System.Drawing.Size(250, 776);
+                            this.uCProveedorContacto.TabIndex = 0;
+                        }
+                        else
+                        {
+                            this.uCProveedorContacto = new UCProveedorContacto(this);
+                            this.panelMainNP.Controls.Add(uCProveedorContacto);
+                            this.uCProveedorContacto.Dock = System.Windows.Forms.DockStyle.Fill;
+                            this.uCProveedorContacto.Location = new System.Drawing.Point(0, 0);
+                            this.uCProveedorContacto.Name = "uCProveedorContacto";
+                            this.uCProveedorContacto.Size = new System.Drawing.Size(250, 776);
+                            this.uCProveedorContacto.TabIndex = 0;
+
+                        }
+                      
                     }
                     else
                     {
@@ -85,13 +105,31 @@ namespace Admeli.Compras.Nuevo
                 case "general":
                     if (uCProveedorGeneral == null)
                     {
-                        this.uCProveedorGeneral = new UCProveedorGeneral(this);
-                        this.panelMainNP.Controls.Add(uCProveedorGeneral);
-                        this.uCProveedorGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCProveedorGeneral.Location = new System.Drawing.Point(0, 0);
-                        this.uCProveedorGeneral.Name = "uCProveedorGeneral";
-                        this.uCProveedorGeneral.Size = new System.Drawing.Size(250, 776);
-                        this.uCProveedorGeneral.TabIndex = 0;
+
+                        if (enCompras)
+                        {
+                            this.uCProveedorGeneral = new UCProveedorGeneral(this,nroDocumento);
+                            this.panelMainNP.Controls.Add(uCProveedorGeneral);
+                            this.uCProveedorGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+                            this.uCProveedorGeneral.Location = new System.Drawing.Point(0, 0);
+                            this.uCProveedorGeneral.Name = "uCProveedorGeneral";
+                            this.uCProveedorGeneral.Size = new System.Drawing.Size(250, 776);
+                            this.uCProveedorGeneral.TabIndex = 0;
+
+
+                        }
+                        else
+                        {
+                            this.uCProveedorGeneral = new UCProveedorGeneral(this);
+                            this.panelMainNP.Controls.Add(uCProveedorGeneral);
+                            this.uCProveedorGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+                            this.uCProveedorGeneral.Location = new System.Drawing.Point(0, 0);
+                            this.uCProveedorGeneral.Name = "uCProveedorGeneral";
+                            this.uCProveedorGeneral.Size = new System.Drawing.Size(250, 776);
+                            this.uCProveedorGeneral.TabIndex = 0;
+
+                        }
+                        
                     }
                     else
                     {

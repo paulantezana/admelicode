@@ -1531,5 +1531,20 @@ namespace Admeli.Ventas.Nuevo
             //label20.Text="IZ:"+plIzquierdo.Width+" IZC:"+plIzquierdoCentrado.Width +
 
         }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioUnitario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

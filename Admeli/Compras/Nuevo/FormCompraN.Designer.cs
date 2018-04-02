@@ -28,26 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompraN));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.btnImportarCompra = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
+            this.btnImportarOrdenCompra = new System.Windows.Forms.Button();
+            this.Observaciones = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.txtNroDocumento = new System.Windows.Forms.TextBox();
+            this.txtNroOrdenCompra = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.cbxTipoMoneda = new System.Windows.Forms.ComboBox();
+            this.monedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbxTipoDocumento = new System.Windows.Forms.ComboBox();
+            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtpFechaPago = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaEmision = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtTipoCambio = new System.Windows.Forms.TextBox();
+            this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -55,8 +64,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.txtDireccionProveedor = new System.Windows.Forms.TextBox();
+            this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -65,6 +74,25 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvDetalleCompra = new System.Windows.Forms.DataGridView();
+            this.idDetalleCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadUnitariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCombinacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrePresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioUnitarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
@@ -74,10 +102,10 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.txtTotalProducto = new System.Windows.Forms.Label();
+            this.txtTotalProducto = new System.Windows.Forms.TextBox();
+            this.lbTotal = new System.Windows.Forms.Label();
             this.tableLayoutPanel32 = new System.Windows.Forms.TableLayoutPanel();
-            this.descuento = new System.Windows.Forms.TextBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
@@ -87,12 +115,15 @@
             this.Cantidad = new System.Windows.Forms.Label();
             this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
             this.cbxVariacion = new System.Windows.Forms.ComboBox();
+            this.alternativaCombinacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label31 = new System.Windows.Forms.Label();
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.cbxDescripcion = new System.Windows.Forms.ComboBox();
+            this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label30 = new System.Windows.Forms.Label();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbxCodigo = new System.Windows.Forms.ComboBox();
+            this.cbxCodigoProducto = new System.Windows.Forms.ComboBox();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label29 = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -113,10 +144,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.chbxPagarCompra = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chbxNotaEntrada = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel6.SuspendLayout();
@@ -125,6 +157,7 @@
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel30.SuspendLayout();
@@ -134,8 +167,11 @@
             this.tableLayoutPanel31.SuspendLayout();
             this.tableLayoutPanel29.SuspendLayout();
             this.tableLayoutPanel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alternativaCombinacionBindingSource)).BeginInit();
             this.tableLayoutPanel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.presentacionBindingSource)).BeginInit();
             this.tableLayoutPanel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -158,11 +194,11 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.btnImportarCompra);
-            this.panel10.Controls.Add(this.label26);
+            this.panel10.Controls.Add(this.btnImportarOrdenCompra);
+            this.panel10.Controls.Add(this.Observaciones);
             this.panel10.Controls.Add(this.label27);
             this.panel10.Controls.Add(this.txtObservaciones);
-            this.panel10.Controls.Add(this.txtNroDocumento);
+            this.panel10.Controls.Add(this.txtNroOrdenCompra);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 533);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
@@ -170,35 +206,35 @@
             this.panel10.Size = new System.Drawing.Size(299, 309);
             this.panel10.TabIndex = 2;
             // 
-            // btnImportarCompra
+            // btnImportarOrdenCompra
             // 
-            this.btnImportarCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.btnImportarCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.btnImportarCompra.FlatAppearance.BorderSize = 0;
-            this.btnImportarCompra.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.btnImportarCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.btnImportarCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
-            this.btnImportarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportarCompra.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportarCompra.ForeColor = System.Drawing.Color.White;
-            this.btnImportarCompra.Location = new System.Drawing.Point(17, 14);
-            this.btnImportarCompra.Margin = new System.Windows.Forms.Padding(4);
-            this.btnImportarCompra.Name = "btnImportarCompra";
-            this.btnImportarCompra.Size = new System.Drawing.Size(259, 42);
-            this.btnImportarCompra.TabIndex = 11;
-            this.btnImportarCompra.Text = "Importar Orden Compra";
-            this.btnImportarCompra.UseVisualStyleBackColor = false;
+            this.btnImportarOrdenCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarOrdenCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarOrdenCompra.FlatAppearance.BorderSize = 0;
+            this.btnImportarOrdenCompra.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarOrdenCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarOrdenCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnImportarOrdenCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportarOrdenCompra.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportarOrdenCompra.ForeColor = System.Drawing.Color.White;
+            this.btnImportarOrdenCompra.Location = new System.Drawing.Point(17, 14);
+            this.btnImportarOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImportarOrdenCompra.Name = "btnImportarOrdenCompra";
+            this.btnImportarOrdenCompra.Size = new System.Drawing.Size(259, 42);
+            this.btnImportarOrdenCompra.TabIndex = 11;
+            this.btnImportarOrdenCompra.Text = "Importar Orden Compra";
+            this.btnImportarOrdenCompra.UseVisualStyleBackColor = false;
             // 
-            // label26
+            // Observaciones
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(16, 128);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(72, 19);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "Moneda:";
+            this.Observaciones.AutoSize = true;
+            this.Observaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Observaciones.Location = new System.Drawing.Point(16, 128);
+            this.Observaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Observaciones.Name = "Observaciones";
+            this.Observaciones.Size = new System.Drawing.Size(122, 19);
+            this.Observaciones.TabIndex = 5;
+            this.Observaciones.Text = "Observaciones:";
             // 
             // label27
             // 
@@ -222,29 +258,29 @@
             this.txtObservaciones.Size = new System.Drawing.Size(257, 128);
             this.txtObservaciones.TabIndex = 2;
             // 
-            // txtNroDocumento
+            // txtNroOrdenCompra
             // 
-            this.txtNroDocumento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroDocumento.Location = new System.Drawing.Point(17, 90);
-            this.txtNroDocumento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNroDocumento.Name = "txtNroDocumento";
-            this.txtNroDocumento.Size = new System.Drawing.Size(257, 26);
-            this.txtNroDocumento.TabIndex = 1;
+            this.txtNroOrdenCompra.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroOrdenCompra.Location = new System.Drawing.Point(17, 90);
+            this.txtNroOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNroOrdenCompra.Name = "txtNroOrdenCompra";
+            this.txtNroOrdenCompra.Size = new System.Drawing.Size(257, 26);
+            this.txtNroOrdenCompra.TabIndex = 1;
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.cbxTipoMoneda);
+            this.panel8.Controls.Add(this.cbxTipoDocumento);
+            this.panel8.Controls.Add(this.dtpFechaPago);
+            this.panel8.Controls.Add(this.dtpFechaEmision);
             this.panel8.Controls.Add(this.label21);
             this.panel8.Controls.Add(this.label20);
             this.panel8.Controls.Add(this.label17);
-            this.panel8.Controls.Add(this.textBox11);
-            this.panel8.Controls.Add(this.textBox12);
-            this.panel8.Controls.Add(this.textBox13);
+            this.panel8.Controls.Add(this.txtTipoCambio);
+            this.panel8.Controls.Add(this.txtNroDocumento);
             this.panel8.Controls.Add(this.label13);
             this.panel8.Controls.Add(this.label14);
             this.panel8.Controls.Add(this.label15);
-            this.panel8.Controls.Add(this.textBox4);
-            this.panel8.Controls.Add(this.textBox5);
-            this.panel8.Controls.Add(this.textBox6);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 197);
@@ -252,6 +288,62 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(299, 336);
             this.panel8.TabIndex = 1;
+            // 
+            // cbxTipoMoneda
+            // 
+            this.cbxTipoMoneda.DataSource = this.monedaBindingSource;
+            this.cbxTipoMoneda.DisplayMember = "moneda";
+            this.cbxTipoMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTipoMoneda.FormattingEnabled = true;
+            this.cbxTipoMoneda.Location = new System.Drawing.Point(151, 104);
+            this.cbxTipoMoneda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxTipoMoneda.Name = "cbxTipoMoneda";
+            this.cbxTipoMoneda.Size = new System.Drawing.Size(123, 30);
+            this.cbxTipoMoneda.TabIndex = 27;
+            this.cbxTipoMoneda.ValueMember = "idMoneda";
+            // 
+            // monedaBindingSource
+            // 
+            this.monedaBindingSource.DataSource = typeof(Entidad.Configuracion.Moneda);
+            // 
+            // cbxTipoDocumento
+            // 
+            this.cbxTipoDocumento.DataSource = this.tipoDocumentoBindingSource;
+            this.cbxTipoDocumento.DisplayMember = "nombre";
+            this.cbxTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTipoDocumento.FormattingEnabled = true;
+            this.cbxTipoDocumento.Location = new System.Drawing.Point(149, 60);
+            this.cbxTipoDocumento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxTipoDocumento.Name = "cbxTipoDocumento";
+            this.cbxTipoDocumento.Size = new System.Drawing.Size(125, 30);
+            this.cbxTipoDocumento.TabIndex = 26;
+            this.cbxTipoDocumento.ValueMember = "idTipoDocumento";
+            // 
+            // tipoDocumentoBindingSource
+            // 
+            this.tipoDocumentoBindingSource.DataSource = typeof(Entidad.Configuracion.TipoDocumento);
+            // 
+            // dtpFechaPago
+            // 
+            this.dtpFechaPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaPago.Location = new System.Drawing.Point(149, 189);
+            this.dtpFechaPago.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpFechaPago.Name = "dtpFechaPago";
+            this.dtpFechaPago.Size = new System.Drawing.Size(127, 26);
+            this.dtpFechaPago.TabIndex = 25;
+            this.dtpFechaPago.Value = new System.DateTime(2018, 3, 23, 11, 59, 0, 0);
+            // 
+            // dtpFechaEmision
+            // 
+            this.dtpFechaEmision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaEmision.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaEmision.Location = new System.Drawing.Point(149, 146);
+            this.dtpFechaEmision.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpFechaEmision.Name = "dtpFechaEmision";
+            this.dtpFechaEmision.Size = new System.Drawing.Size(125, 26);
+            this.dtpFechaEmision.TabIndex = 24;
+            this.dtpFechaEmision.Value = new System.DateTime(2018, 3, 23, 11, 59, 0, 0);
             // 
             // label21
             // 
@@ -286,32 +378,24 @@
             this.label17.TabIndex = 10;
             this.label17.Text = "Fecha Pago:";
             // 
-            // textBox11
+            // txtTipoCambio
             // 
-            this.textBox11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(149, 278);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(127, 26);
-            this.textBox11.TabIndex = 9;
+            this.txtTipoCambio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoCambio.Location = new System.Drawing.Point(149, 278);
+            this.txtTipoCambio.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTipoCambio.Name = "txtTipoCambio";
+            this.txtTipoCambio.Size = new System.Drawing.Size(127, 26);
+            this.txtTipoCambio.TabIndex = 9;
             // 
-            // textBox12
+            // txtNroDocumento
             // 
-            this.textBox12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(149, 235);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(127, 26);
-            this.textBox12.TabIndex = 8;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(149, 192);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(127, 26);
-            this.textBox13.TabIndex = 7;
+            this.txtNroDocumento.AcceptsReturn = true;
+            this.txtNroDocumento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroDocumento.Location = new System.Drawing.Point(149, 235);
+            this.txtNroDocumento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNroDocumento.Name = "txtNroDocumento";
+            this.txtNroDocumento.Size = new System.Drawing.Size(127, 26);
+            this.txtNroDocumento.TabIndex = 8;
             // 
             // label13
             // 
@@ -345,24 +429,6 @@
             this.label15.Size = new System.Drawing.Size(79, 19);
             this.label15.TabIndex = 4;
             this.label15.Text = "Tipo Doc:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(149, 149);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(127, 26);
-            this.textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(149, 106);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(127, 26);
-            this.textBox5.TabIndex = 2;
             // 
             // panel9
             // 
@@ -403,8 +469,8 @@
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.txtDireccion);
-            this.panel6.Controls.Add(this.txtProveedor);
+            this.panel6.Controls.Add(this.txtDireccionProveedor);
+            this.panel6.Controls.Add(this.txtNombreProveedor);
             this.panel6.Controls.Add(this.txtRUC);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -447,23 +513,23 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "RUC:";
             // 
-            // txtDireccion
+            // txtDireccionProveedor
             // 
-            this.txtDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(128, 144);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(147, 26);
-            this.txtDireccion.TabIndex = 3;
+            this.txtDireccionProveedor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionProveedor.Location = new System.Drawing.Point(128, 144);
+            this.txtDireccionProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccionProveedor.Name = "txtDireccionProveedor";
+            this.txtDireccionProveedor.Size = new System.Drawing.Size(147, 26);
+            this.txtDireccionProveedor.TabIndex = 3;
             // 
-            // txtProveedor
+            // txtNombreProveedor
             // 
-            this.txtProveedor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProveedor.Location = new System.Drawing.Point(128, 102);
-            this.txtProveedor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Size = new System.Drawing.Size(147, 26);
-            this.txtProveedor.TabIndex = 2;
+            this.txtNombreProveedor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreProveedor.Location = new System.Drawing.Point(128, 102);
+            this.txtNombreProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreProveedor.Name = "txtNombreProveedor";
+            this.txtNombreProveedor.Size = new System.Drawing.Size(147, 26);
+            this.txtNombreProveedor.TabIndex = 2;
             // 
             // txtRUC
             // 
@@ -473,6 +539,7 @@
             this.txtRUC.Name = "txtRUC";
             this.txtRUC.Size = new System.Drawing.Size(147, 26);
             this.txtRUC.TabIndex = 1;
+            this.txtRUC.TextChanged += new System.EventHandler(this.txtRUC_TextChanged);
             // 
             // panel7
             // 
@@ -545,13 +612,204 @@
             // 
             // dgvDetalleCompra
             // 
+            this.dgvDetalleCompra.AllowUserToAddRows = false;
+            this.dgvDetalleCompra.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDetalleCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            this.dgvDetalleCompra.AutoGenerateColumns = false;
+            this.dgvDetalleCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvDetalleCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDetalleCompraDataGridViewTextBoxColumn,
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn,
+            this.idCompraDataGridViewTextBoxColumn,
+            this.idPresentacionDataGridViewTextBoxColumn,
+            this.idProductoDataGridViewTextBoxColumn,
+            this.idSucursalDataGridViewTextBoxColumn,
+            this.cantidadDataGridViewTextBoxColumn,
+            this.codigoProductoDataGridViewTextBoxColumn,
+            this.cantidadUnitariaDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.descuentoDataGridViewTextBoxColumn,
+            this.nombreCombinacionDataGridViewTextBoxColumn,
+            this.nombreMarcaDataGridViewTextBoxColumn,
+            this.nombrePresentacionDataGridViewTextBoxColumn,
+            this.nroDataGridViewTextBoxColumn,
+            this.precioUnitarioDataGridViewTextBoxColumn,
+            this.totalDataGridViewTextBoxColumn,
+            this.estadoDataGridViewTextBoxColumn});
+            this.dgvDetalleCompra.DataSource = this.detalleCompraBindingSource;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleCompra.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvDetalleCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleCompra.Location = new System.Drawing.Point(13, 12);
             this.dgvDetalleCompra.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetalleCompra.Name = "dgvDetalleCompra";
+            this.dgvDetalleCompra.ReadOnly = true;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDetalleCompra.RowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvDetalleCompra.Size = new System.Drawing.Size(938, 470);
             this.dgvDetalleCompra.TabIndex = 0;
+            // 
+            // idDetalleCompraDataGridViewTextBoxColumn
+            // 
+            this.idDetalleCompraDataGridViewTextBoxColumn.DataPropertyName = "idDetalleCompra";
+            this.idDetalleCompraDataGridViewTextBoxColumn.HeaderText = "idDetalleCompra";
+            this.idDetalleCompraDataGridViewTextBoxColumn.Name = "idDetalleCompraDataGridViewTextBoxColumn";
+            this.idDetalleCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDetalleCompraDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idCombinacionAlternativaDataGridViewTextBoxColumn
+            // 
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.DataPropertyName = "idCombinacionAlternativa";
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.HeaderText = "idCombinacionAlternativa";
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.Name = "idCombinacionAlternativaDataGridViewTextBoxColumn";
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idCompraDataGridViewTextBoxColumn
+            // 
+            this.idCompraDataGridViewTextBoxColumn.DataPropertyName = "idCompra";
+            this.idCompraDataGridViewTextBoxColumn.HeaderText = "idCompra";
+            this.idCompraDataGridViewTextBoxColumn.Name = "idCompraDataGridViewTextBoxColumn";
+            this.idCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCompraDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idPresentacionDataGridViewTextBoxColumn
+            // 
+            this.idPresentacionDataGridViewTextBoxColumn.DataPropertyName = "idPresentacion";
+            this.idPresentacionDataGridViewTextBoxColumn.HeaderText = "idPresentacion";
+            this.idPresentacionDataGridViewTextBoxColumn.Name = "idPresentacionDataGridViewTextBoxColumn";
+            this.idPresentacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPresentacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idProductoDataGridViewTextBoxColumn
+            // 
+            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProductoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idSucursalDataGridViewTextBoxColumn
+            // 
+            this.idSucursalDataGridViewTextBoxColumn.DataPropertyName = "idSucursal";
+            this.idSucursalDataGridViewTextBoxColumn.HeaderText = "idSucursal";
+            this.idSucursalDataGridViewTextBoxColumn.Name = "idSucursalDataGridViewTextBoxColumn";
+            this.idSucursalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idSucursalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cantidadDataGridViewTextBoxColumn
+            // 
+            this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "cantidad";
+            this.cantidadDataGridViewTextBoxColumn.HeaderText = "cantidad";
+            this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
+            this.cantidadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codigoProductoDataGridViewTextBoxColumn
+            // 
+            this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
+            this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "codigoProducto";
+            this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
+            this.codigoProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantidadUnitariaDataGridViewTextBoxColumn
+            // 
+            this.cantidadUnitariaDataGridViewTextBoxColumn.DataPropertyName = "cantidadUnitaria";
+            this.cantidadUnitariaDataGridViewTextBoxColumn.HeaderText = "cantidadUnitaria";
+            this.cantidadUnitariaDataGridViewTextBoxColumn.Name = "cantidadUnitariaDataGridViewTextBoxColumn";
+            this.cantidadUnitariaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descuentoDataGridViewTextBoxColumn
+            // 
+            this.descuentoDataGridViewTextBoxColumn.DataPropertyName = "descuento";
+            this.descuentoDataGridViewTextBoxColumn.HeaderText = "descuento";
+            this.descuentoDataGridViewTextBoxColumn.Name = "descuentoDataGridViewTextBoxColumn";
+            this.descuentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreCombinacionDataGridViewTextBoxColumn
+            // 
+            this.nombreCombinacionDataGridViewTextBoxColumn.DataPropertyName = "nombreCombinacion";
+            this.nombreCombinacionDataGridViewTextBoxColumn.HeaderText = "nombreCombinacion";
+            this.nombreCombinacionDataGridViewTextBoxColumn.Name = "nombreCombinacionDataGridViewTextBoxColumn";
+            this.nombreCombinacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreMarcaDataGridViewTextBoxColumn
+            // 
+            this.nombreMarcaDataGridViewTextBoxColumn.DataPropertyName = "nombreMarca";
+            this.nombreMarcaDataGridViewTextBoxColumn.HeaderText = "nombreMarca";
+            this.nombreMarcaDataGridViewTextBoxColumn.Name = "nombreMarcaDataGridViewTextBoxColumn";
+            this.nombreMarcaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombrePresentacionDataGridViewTextBoxColumn
+            // 
+            this.nombrePresentacionDataGridViewTextBoxColumn.DataPropertyName = "nombrePresentacion";
+            this.nombrePresentacionDataGridViewTextBoxColumn.HeaderText = "nombrePresentacion";
+            this.nombrePresentacionDataGridViewTextBoxColumn.Name = "nombrePresentacionDataGridViewTextBoxColumn";
+            this.nombrePresentacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nroDataGridViewTextBoxColumn
+            // 
+            this.nroDataGridViewTextBoxColumn.DataPropertyName = "nro";
+            this.nroDataGridViewTextBoxColumn.HeaderText = "nro";
+            this.nroDataGridViewTextBoxColumn.Name = "nroDataGridViewTextBoxColumn";
+            this.nroDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nroDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // precioUnitarioDataGridViewTextBoxColumn
+            // 
+            this.precioUnitarioDataGridViewTextBoxColumn.DataPropertyName = "precioUnitario";
+            this.precioUnitarioDataGridViewTextBoxColumn.HeaderText = "precioUnitario";
+            this.precioUnitarioDataGridViewTextBoxColumn.Name = "precioUnitarioDataGridViewTextBoxColumn";
+            this.precioUnitarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // detalleCompraBindingSource
+            // 
+            this.detalleCompraBindingSource.DataSource = typeof(Entidad.DetalleCompra);
             // 
             // flowLayoutPanel1
             // 
@@ -711,8 +969,8 @@
             // 
             this.tableLayoutPanel33.ColumnCount = 1;
             this.tableLayoutPanel33.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel33.Controls.Add(this.textBox10, 0, 1);
-            this.tableLayoutPanel33.Controls.Add(this.txtTotalProducto, 0, 0);
+            this.tableLayoutPanel33.Controls.Add(this.txtTotalProducto, 0, 1);
+            this.tableLayoutPanel33.Controls.Add(this.lbTotal, 0, 0);
             this.tableLayoutPanel33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel33.Location = new System.Drawing.Point(777, 2);
             this.tableLayoutPanel33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -723,37 +981,39 @@
             this.tableLayoutPanel33.Size = new System.Drawing.Size(108, 94);
             this.tableLayoutPanel33.TabIndex = 6;
             // 
-            // textBox10
-            // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(3, 59);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(102, 28);
-            this.textBox10.TabIndex = 2;
-            this.textBox10.Text = "0.0000";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // txtTotalProducto
             // 
-            this.txtTotalProducto.AutoSize = true;
-            this.txtTotalProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.txtTotalProducto.AcceptsReturn = true;
             this.txtTotalProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTotalProducto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalProducto.ForeColor = System.Drawing.Color.Black;
-            this.txtTotalProducto.Location = new System.Drawing.Point(3, 0);
+            this.txtTotalProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalProducto.Location = new System.Drawing.Point(3, 59);
+            this.txtTotalProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotalProducto.Name = "txtTotalProducto";
-            this.txtTotalProducto.Size = new System.Drawing.Size(102, 57);
-            this.txtTotalProducto.TabIndex = 1;
-            this.txtTotalProducto.Text = "Total";
-            this.txtTotalProducto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtTotalProducto.Size = new System.Drawing.Size(102, 28);
+            this.txtTotalProducto.TabIndex = 2;
+            this.txtTotalProducto.Text = "0.0000";
+            this.txtTotalProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTotalProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalProducto_KeyPress);
+            // 
+            // lbTotal
+            // 
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lbTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTotal.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal.ForeColor = System.Drawing.Color.Black;
+            this.lbTotal.Location = new System.Drawing.Point(3, 0);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(102, 57);
+            this.lbTotal.TabIndex = 1;
+            this.lbTotal.Text = "Total";
+            this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel32
             // 
             this.tableLayoutPanel32.ColumnCount = 1;
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel32.Controls.Add(this.descuento, 0, 1);
+            this.tableLayoutPanel32.Controls.Add(this.txtDescuento, 0, 1);
             this.tableLayoutPanel32.Controls.Add(this.label34, 0, 0);
             this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel32.Location = new System.Drawing.Point(665, 2);
@@ -765,18 +1025,20 @@
             this.tableLayoutPanel32.Size = new System.Drawing.Size(106, 94);
             this.tableLayoutPanel32.TabIndex = 5;
             // 
-            // descuento
+            // txtDescuento
             // 
-            this.descuento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(157)))), ((int)(((byte)(70)))));
-            this.descuento.Location = new System.Drawing.Point(3, 60);
-            this.descuento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.descuento.Name = "descuento";
-            this.descuento.Size = new System.Drawing.Size(100, 28);
-            this.descuento.TabIndex = 2;
-            this.descuento.Text = "0.0000";
-            this.descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescuento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(157)))), ((int)(((byte)(70)))));
+            this.txtDescuento.Location = new System.Drawing.Point(3, 60);
+            this.txtDescuento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(100, 28);
+            this.txtDescuento.TabIndex = 2;
+            this.txtDescuento.Text = "0.0000";
+            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // label34
             // 
@@ -819,6 +1081,8 @@
             this.txtPrecioUnitario.TabIndex = 2;
             this.txtPrecioUnitario.Text = "0.0000";
             this.txtPrecioUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecioUnitario.TextChanged += new System.EventHandler(this.txtPrecioUnitario_TextChanged);
+            this.txtPrecioUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioUnitario_KeyPress);
             // 
             // label33
             // 
@@ -861,6 +1125,8 @@
             this.txtCantidad.TabIndex = 2;
             this.txtCantidad.Text = "0.0000";
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // Cantidad
             // 
@@ -894,6 +1160,8 @@
             // 
             // cbxVariacion
             // 
+            this.cbxVariacion.DataSource = this.alternativaCombinacionBindingSource;
+            this.cbxVariacion.DisplayMember = "nombreCombinacion";
             this.cbxVariacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxVariacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxVariacion.FormattingEnabled = true;
@@ -902,6 +1170,11 @@
             this.cbxVariacion.Name = "cbxVariacion";
             this.cbxVariacion.Size = new System.Drawing.Size(134, 30);
             this.cbxVariacion.TabIndex = 23;
+            this.cbxVariacion.ValueMember = "idCombinacionAlternativa";
+            // 
+            // alternativaCombinacionBindingSource
+            // 
+            this.alternativaCombinacionBindingSource.DataSource = typeof(Entidad.AlternativaCombinacion);
             // 
             // label31
             // 
@@ -935,6 +1208,8 @@
             // 
             // cbxDescripcion
             // 
+            this.cbxDescripcion.DataSource = this.presentacionBindingSource;
+            this.cbxDescripcion.DisplayMember = "descripcion";
             this.cbxDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
@@ -943,6 +1218,12 @@
             this.cbxDescripcion.Name = "cbxDescripcion";
             this.cbxDescripcion.Size = new System.Drawing.Size(134, 30);
             this.cbxDescripcion.TabIndex = 23;
+            this.cbxDescripcion.ValueMember = "idPresentacion";
+            this.cbxDescripcion.SelectedIndexChanged += new System.EventHandler(this.cbxDescripcion_SelectedIndexChanged);
+            // 
+            // presentacionBindingSource
+            // 
+            this.presentacionBindingSource.DataSource = typeof(Entidad.Presentacion);
             // 
             // label30
             // 
@@ -962,28 +1243,36 @@
             // 
             this.tableLayoutPanel25.ColumnCount = 1;
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel25.Controls.Add(this.cbxCodigo, 0, 1);
+            this.tableLayoutPanel25.Controls.Add(this.cbxCodigoProducto, 0, 1);
             this.tableLayoutPanel25.Controls.Add(this.label29, 0, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 2;
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.30337F));
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.69663F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.6383F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.3617F));
             this.tableLayoutPanel25.Size = new System.Drawing.Size(140, 94);
             this.tableLayoutPanel25.TabIndex = 0;
             // 
-            // cbxCodigo
+            // cbxCodigoProducto
             // 
-            this.cbxCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCodigo.FormattingEnabled = true;
-            this.cbxCodigo.Location = new System.Drawing.Point(3, 55);
-            this.cbxCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxCodigo.Name = "cbxCodigo";
-            this.cbxCodigo.Size = new System.Drawing.Size(134, 30);
-            this.cbxCodigo.TabIndex = 23;
+            this.cbxCodigoProducto.DataSource = this.productoBindingSource;
+            this.cbxCodigoProducto.DisplayMember = "codigoProducto";
+            this.cbxCodigoProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCodigoProducto.FormattingEnabled = true;
+            this.cbxCodigoProducto.Location = new System.Drawing.Point(3, 59);
+            this.cbxCodigoProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxCodigoProducto.Name = "cbxCodigoProducto";
+            this.cbxCodigoProducto.Size = new System.Drawing.Size(134, 30);
+            this.cbxCodigoProducto.TabIndex = 23;
+            this.cbxCodigoProducto.ValueMember = "idProducto";
+            this.cbxCodigoProducto.SelectedIndexChanged += new System.EventHandler(this.cbxCodigoProducto_SelectedIndexChanged);
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(Entidad.Producto);
             // 
             // label29
             // 
@@ -994,7 +1283,7 @@
             this.label29.ForeColor = System.Drawing.Color.Black;
             this.label29.Location = new System.Drawing.Point(3, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(134, 53);
+            this.label29.Size = new System.Drawing.Size(134, 57);
             this.label29.TabIndex = 1;
             this.label29.Text = "Codigo";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1249,15 +1538,6 @@
             this.chbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
             this.chbxNotaEntrada.TabIndex = 55;
             // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(149, 63);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(127, 26);
-            this.textBox6.TabIndex = 1;
-            // 
             // FormCompraN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1271,11 +1551,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCompraN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormCompraNew_Load);
             this.panel1.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1287,6 +1570,7 @@
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel30.ResumeLayout(false);
@@ -1301,10 +1585,13 @@
             this.tableLayoutPanel29.PerformLayout();
             this.tableLayoutPanel27.ResumeLayout(false);
             this.tableLayoutPanel27.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alternativaCombinacionBindingSource)).EndInit();
             this.tableLayoutPanel26.ResumeLayout(false);
             this.tableLayoutPanel26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.presentacionBindingSource)).EndInit();
             this.tableLayoutPanel25.ResumeLayout(false);
             this.tableLayoutPanel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -1319,23 +1606,20 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button btnImportarCompra;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button btnImportarOrdenCompra;
+        private System.Windows.Forms.Label Observaciones;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtObservaciones;
-        private System.Windows.Forms.TextBox txtNroDocumento;
+        private System.Windows.Forms.TextBox txtNroOrdenCompra;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtTipoCambio;
+        private System.Windows.Forms.TextBox txtNroDocumento;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label16;
@@ -1343,8 +1627,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.TextBox txtDireccionProveedor;
+        private System.Windows.Forms.TextBox txtNombreProveedor;
         private System.Windows.Forms.TextBox txtRUC;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1362,10 +1646,10 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel33;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label txtTotalProducto;
+        private System.Windows.Forms.TextBox txtTotalProducto;
+        private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel32;
-        private System.Windows.Forms.TextBox descuento;
+        private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
         private System.Windows.Forms.TextBox txtPrecioUnitario;
@@ -1380,7 +1664,7 @@
         private System.Windows.Forms.ComboBox cbxDescripcion;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
-        private System.Windows.Forms.ComboBox cbxCodigo;
+        private System.Windows.Forms.ComboBox cbxCodigoProducto;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Panel panel3;
@@ -1401,6 +1685,33 @@
         private System.Windows.Forms.Label label18;
         private Bunifu.Framework.UI.BunifuCheckbox chbxPagarCompra;
         private Bunifu.Framework.UI.BunifuCheckbox chbxNotaEntrada;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.BindingSource presentacionBindingSource;
+        private System.Windows.Forms.BindingSource productoBindingSource;
+        private System.Windows.Forms.BindingSource alternativaCombinacionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDetalleCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCombinacionAlternativaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPresentacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSucursalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadUnitariaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descuentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCombinacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreMarcaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombrePresentacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioUnitarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource detalleCompraBindingSource;
+        private System.Windows.Forms.ComboBox cbxTipoMoneda;
+        private System.Windows.Forms.ComboBox cbxTipoDocumento;
+        private System.Windows.Forms.DateTimePicker dtpFechaPago;
+        private System.Windows.Forms.DateTimePicker dtpFechaEmision;
+        private System.Windows.Forms.BindingSource monedaBindingSource;
+        private System.Windows.Forms.BindingSource tipoDocumentoBindingSource;
     }
 }

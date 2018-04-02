@@ -38,7 +38,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.chkEstado = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textNIdentificacion = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.cbxTipoProveedor = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textNombreEmpresa = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -64,6 +63,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.textTelefono = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.textNIdentificacion = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -187,26 +187,6 @@
             this.label7.Size = new System.Drawing.Size(136, 19);
             this.label7.TabIndex = 60;
             this.label7.Text = "Nro. Identificador";
-            // 
-            // textNIdentificacion
-            // 
-            this.textNIdentificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.textNIdentificacion.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.textNIdentificacion.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.textNIdentificacion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.textNIdentificacion.BorderThickness = 1;
-            this.textNIdentificacion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNIdentificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textNIdentificacion.isPassword = false;
-            this.textNIdentificacion.Location = new System.Drawing.Point(23, 84);
-            this.textNIdentificacion.Margin = new System.Windows.Forms.Padding(4);
-            this.textNIdentificacion.Name = "textNIdentificacion";
-            this.textNIdentificacion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textNIdentificacion.Size = new System.Drawing.Size(300, 33);
-            this.textNIdentificacion.TabIndex = 0;
-            this.textNIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textNIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNIdentificacion_KeyPress);
             // 
             // cbxTipoProveedor
             // 
@@ -523,6 +503,27 @@
             this.textTelefono.TabIndex = 1;
             this.textTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTelefono_KeyPress);
+            // 
+            // textNIdentificacion
+            // 
+            this.textNIdentificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.textNIdentificacion.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.textNIdentificacion.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.textNIdentificacion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.textNIdentificacion.BorderThickness = 1;
+            this.textNIdentificacion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textNIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNIdentificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textNIdentificacion.isPassword = false;
+            this.textNIdentificacion.Location = new System.Drawing.Point(23, 84);
+            this.textNIdentificacion.Margin = new System.Windows.Forms.Padding(4);
+            this.textNIdentificacion.Name = "textNIdentificacion";
+            this.textNIdentificacion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.textNIdentificacion.Size = new System.Drawing.Size(300, 33);
+            this.textNIdentificacion.TabIndex = 0;
+            this.textNIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textNIdentificacion.VisibleChanged += new System.EventHandler(this.textNIdentificacion_VisibleChanged);
+            this.textNIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNIdentificacion_KeyPress);
             // 
             // UCProveedorGeneral
             // 

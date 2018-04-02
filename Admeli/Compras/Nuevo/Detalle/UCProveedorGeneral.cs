@@ -27,7 +27,9 @@ namespace Admeli.Compras.Nuevo.Detalle
         private bool bandera;
         private DataSunat dataSunat;
         private RespuestaSunat respuestaSunat;
+        private string nroDocumento { get; set; }
 
+        public  Response response { get; set; }
         public UCProveedorGeneral()
         {
             InitializeComponent();
@@ -37,7 +39,21 @@ namespace Admeli.Compras.Nuevo.Detalle
         {
             InitializeComponent();
             this.formProveedorNuevo = formProveedorNuevo;
+            textNIdentificacion.Select();
+            textNIdentificacion.Focus();
         }
+
+        public UCProveedorGeneral(FormProveedorNuevo formProveedorNuevo, string nroDocumento)
+        {
+            InitializeComponent();
+            this.formProveedorNuevo = formProveedorNuevo;
+            this.nroDocumento = nroDocumento;
+
+         
+
+
+        }
+
         public UCProveedorGeneral(FormCompraNuevo1 formCompraNuevo1)
         {
             InitializeComponent();
@@ -46,6 +62,8 @@ namespace Admeli.Compras.Nuevo.Detalle
         private void UCProveedorGeneral_Load(object sender, EventArgs e)
         {
             this.reLoad();
+            textNIdentificacion.Show();
+            textNIdentificacion.Select();
         }
 
         #region ================================= Loads =================================
@@ -61,6 +79,11 @@ namespace Admeli.Compras.Nuevo.Detalle
                 textNIdentificacion.Text = formProveedorNuevo.currentProveedor.ruc;
                 textTelefono.Text = formProveedorNuevo.currentProveedor.telefono;
                 cbxTipoProveedor.Text = formProveedorNuevo.currentProveedor.tipoProveedor;
+            }
+            else
+            {
+
+                textNIdentificacion.Text = this.nroDocumento;
             }
         }
 
@@ -295,10 +318,10 @@ namespace Admeli.Compras.Nuevo.Detalle
         #region ========================== SAVE AND UPDATE ===========================
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            guardarSucursal();
+            guardarProveedor();
         }
 
-        private async void guardarSucursal()
+        private async void guardarProveedor()
         {
             if (!validarCampos()) return;
             try
@@ -306,12 +329,12 @@ namespace Admeli.Compras.Nuevo.Detalle
                 crearObjetoSucursal();
                 if (formProveedorNuevo.nuevo)
                 {
-                    Response response = await proveedorModel.guardar(ubicacionGeografica, formProveedorNuevo.currentProveedor);
+                    response = await proveedorModel.guardar(ubicacionGeografica, formProveedorNuevo.currentProveedor);
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    Response response = await proveedorModel.modificar(ubicacionGeografica, formProveedorNuevo.currentProveedor);
+                    response = await proveedorModel.modificar(ubicacionGeografica, formProveedorNuevo.currentProveedor);
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 this.formProveedorNuevo.Close();
@@ -460,43 +483,85 @@ namespace Admeli.Compras.Nuevo.Detalle
                 }
             if (respuestaSunat != null)
             {
+                if(respuestaSunat.success)
+                {
+                    dataSunat = respuestaSunat.result;
+                    textNIdentificacion.Text = dataSunat.RUC;
+                    string telefonos = dataSunat.Telefono;
+                    //textTelefono.Text.PadRight.
+                    string[] split = telefonos.Split('/');
+
+                    if (split[0].Length > 1)
+                        textTelefono.Text = split[0];
+                    else
+                        textTelefono.Text = split[1];
+
+                    textNombreEmpresa.Text = dataSunat.RazonSocial;
+                    textActividadPrincipal.Text = dataSunat.Oficio;
                 
+
+                    textDireccion.Text = concidencias(dataSunat.Direccion);
+                    //cbxPaises.Text = concidencias(dataSunat.Pais);
+                    respuestaSunat = null;
+
+                }
+                else
+                {
+                    respuestaSunat = null;
+                    if (textNIdentificacion.Text.Length > 0)
+                    textNIdentificacion.Text = textNIdentificacion.Text.Substring(0, textNIdentificacion.Text.Length-1);
+                    MessageBox.Show("Error: " + "no exite este ruc o DNI", "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+
+
+            }
+           
+
+        }
+        
+
+        private async void textNIdentificacion_TextChanged(object sender, EventArgs e)
+        {
+            String aux = textNIdentificacion.Text;
+
+            int nroCarateres = aux.Length;
+
+            if (nroCarateres == 11 || nroCarateres == 8)
+            { 
+
+                    try
+                    {
+
+                        respuestaSunat = await sunatModel.obtenerDatos(aux);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    // Ver(aux);
+
+              }
+            if (respuestaSunat != null)
+            {
+
                 dataSunat = respuestaSunat.result;
                 textNIdentificacion.Text = dataSunat.RUC;
-                textTelefono.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length-1);
+                textTelefono.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length - 1);
                 textNombreEmpresa.Text = dataSunat.RazonSocial;
                 textActividadPrincipal.Text = dataSunat.Oficio;
-                
+
 
                 textDireccion.Text = concidencias(dataSunat.Direccion);
                 //cbxPaises.Text = concidencias(dataSunat.Pais);
 
 
                 respuestaSunat = null;
-            
+
             }
-           
 
         }
-        //metodo para cargar la coleccion de datos para el autocomplete
-        
-
-        //private string concidenciapais(string pais)
-        //{
-        //    int lenght = pais.Length;
-        //    int i1 = pais.LastIndexOf('-');
-
-        //    string ff = pais.Substring(0, i1);
-        //    i1 = ff.LastIndexOf('-');
-        //    string ff1 = ff.Substring(0, i1);
-
-            
-        //    i1 = ff1.LastIndexOf(' ');
-        //    string hhh = ff1.Substring(0, i1);
-        //    i1 = hhh.LastIndexOf(' ');
-        //    string hh1 = hhh.Substring(0, i1);
-        //    return hh1;
-        //}
 
         private string concidencias(string direccion)
         {
@@ -538,6 +603,14 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         }
 
-        
+        private void textNIdentificacion_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void textNIdentificacion_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

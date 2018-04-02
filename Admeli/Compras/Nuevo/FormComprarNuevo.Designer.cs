@@ -638,6 +638,7 @@
             this.textCantidad.Name = "textCantidad";
             this.textCantidad.Size = new System.Drawing.Size(133, 22);
             this.textCantidad.TabIndex = 110;
+            this.textCantidad.TextChanged += new System.EventHandler(this.textCantidad_TextChanged);
             // 
             // label21
             // 

@@ -112,5 +112,19 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        public async Task<List<Proveedor>> listaProveedores()
+        {
+            try
+            {
+                List<Proveedor> proveedores = await webService.GET<List<Proveedor>>("proveedor61");
+                return proveedores;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
