@@ -332,9 +332,16 @@ namespace Admeli.Compras.Nuevo
         // para el cbx de descripcion
         private async void cargarPresentacion()
         {                                                                                                    /// Cargar las precentaciones
-            presentaciones = await presentacionModel.presentacionesTodas();
-            presentacionBindingSource.DataSource = presentaciones;
-            cbxDescripcion.SelectedIndex = -1;
+            try
+            {
+                presentaciones = await presentacionModel.presentacionesTodas();
+                presentacionBindingSource.DataSource = presentaciones;
+                cbxDescripcion.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void cargarMedioPago()
