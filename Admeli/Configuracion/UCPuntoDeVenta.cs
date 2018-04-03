@@ -319,6 +319,12 @@ namespace Admeli.Configuracion
             executeAnular();
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            executeEliminar();
+        }
+
+
         private void executeNuevo()
         {
             FormPuntoVentaNuevo clienteNuevo = new FormPuntoVentaNuevo();
@@ -425,5 +431,7 @@ namespace Admeli.Configuracion
             }
         }
         #endregion
+
+        
     }
 }

@@ -35,7 +35,7 @@ namespace Admeli.Configuracion.Nuevo
 
             textNombreImpuesto.Text = impuesto.nombreImpuesto;
             textSiglasImpuesto.Text = impuesto.siglasImpuesto;
-            textValorImpuesto.Text = impuesto.valorImpuesto;
+            textValorImpuesto.Text =  impuesto.valorImpuesto.ToString();
             chkPorcentualImpuesto.Checked = impuesto.porcentual;
             chkDefaultImpuesto.Checked = impuesto.porDefecto;
             chkActivo.Checked = Convert.ToBoolean(impuesto.estado);
@@ -105,7 +105,7 @@ namespace Admeli.Configuracion.Nuevo
             impuesto.nombreImpuesto = textNombreImpuesto.Text;
             impuesto.siglasImpuesto = textSiglasImpuesto.Text;
             impuesto.porcentual = chkPorcentualImpuesto.Checked;
-            impuesto.valorImpuesto = textValorImpuesto.Text;
+            impuesto.valorImpuesto =double.Parse( textValorImpuesto.Text);
             impuesto.porDefecto = chkDefaultImpuesto.Checked;
             impuesto.estado = Convert.ToInt32(chkActivo.Checked);
         }

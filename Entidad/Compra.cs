@@ -82,7 +82,7 @@ namespace Entidad
         public string descripcion { get; set; }
         public string nombreMarca { get; set; }
         public int cantidad { get; set; }
-        public int cantidadUnitaria { get; set; }
+        public double cantidadUnitaria { get; set; }
         public double precioUnitario { get; set; }
         public double descuento { get; set; }
         public double total { get; set; }

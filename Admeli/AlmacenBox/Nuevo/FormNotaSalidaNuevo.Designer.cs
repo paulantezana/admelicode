@@ -354,7 +354,7 @@
             this.btnElminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnElminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnElminar.ForeColor = System.Drawing.Color.White;
-            this.btnElminar.Image = ((System.Drawing.Image)(resources.GetObject("btnElminar.Image")));
+            //this.btnElminar.Image = ((System.Drawing.Image)(resources.GetObject("btnElminar.Image")));
             this.btnElminar.Location = new System.Drawing.Point(1088, 39);
             this.btnElminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnElminar.Name = "btnElminar";
@@ -441,7 +441,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            //this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.Location = new System.Drawing.Point(996, 39);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
@@ -460,7 +460,7 @@
             this.btnAddCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCard.ForeColor = System.Drawing.Color.White;
-            this.btnAddCard.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCard.Image")));
+            //this.btnAddCard.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCard.Image")));
             this.btnAddCard.Location = new System.Drawing.Point(902, 39);
             this.btnAddCard.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCard.Name = "btnAddCard";
