@@ -123,6 +123,19 @@ namespace Modelo
                 throw ex;
             }
         }
-
+        public async Task<List<CajaCorrelativo>> listarCajasByIdSucursal(int idSucursal)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/cajas/suc/1
+                List<CajaCorrelativo> list = await webService.GET<List<CajaCorrelativo>>("cajas", String.Format("suc/{0}", idSucursal));
+               
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

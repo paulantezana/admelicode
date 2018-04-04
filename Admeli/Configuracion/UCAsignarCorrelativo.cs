@@ -266,9 +266,7 @@ namespace Admeli.Configuracion
 
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idCorrelativo = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-
-            currentDocCorrelativo = docCorrelativos.Find(x => x.idCorrelativo == idCorrelativo); // Buscando la registro especifico en la lista de registros
-
+            currentDocCorrelativo= docCorrelativoBindingSource[index] as DocCorrelativo;
             // Mostrando el formulario de modificacion
             FormAsignarCorrelativoModificar formAsignarCorrelativo = new FormAsignarCorrelativoModificar(currentDocCorrelativo);
             formAsignarCorrelativo.ShowDialog();

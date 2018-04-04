@@ -21,7 +21,7 @@ namespace Entidad
         public bool fin { get; set; }
         public int estado { get; set; }
         public int idDocumento { get; set; }
-        public object idOperacion { get; set; }
+        public int idOperacion { get; set; }
         public string operacion { get; set; }
     }
 }

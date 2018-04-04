@@ -1003,18 +1003,18 @@
             // label
             // 
 
-            this.lbTotal.AutoSize = true;
-            this.lbTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lbTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTotal.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotal.ForeColor = System.Drawing.Color.Black;
-            this.lbTotal.Location = new System.Drawing.Point(2, 0);
-            this.lbTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(80, 45);
-            this.lbTotal.TabIndex = 1;
-            this.lbTotal.Text = "Total";
-            this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(2, 0);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "lbTotal";
+            this.label.Size = new System.Drawing.Size(80, 45);
+            this.label.TabIndex = 1;
+            this.label.Text = "Total";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
             // 
             // tableLayoutPanel32
@@ -1474,15 +1474,15 @@
             // lbDescuentoCompras
             // 
 
-            this.lbDescuento.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.lbDescuento.Location = new System.Drawing.Point(106, 35);
-            this.lbDescuento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbDescuentoCompras.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuentoCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.lbDescuentoCompras.Location = new System.Drawing.Point(106, 35);
+            this.lbDescuentoCompras.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         
-            this.lbDescuento.Size = new System.Drawing.Size(101, 13);
-            this.lbDescuento.TabIndex = 62;
-            this.lbDescuento.Text = "S/. 250.00";
-            this.lbDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbDescuentoCompras.Size = new System.Drawing.Size(101, 13);
+            this.lbDescuentoCompras.TabIndex = 62;
+            this.lbDescuentoCompras.Text = "S/. 250.00";
+            this.lbDescuentoCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             
             this.lbDescuentoCompras.Name = "lbDescuentoCompras";

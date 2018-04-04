@@ -142,7 +142,21 @@ namespace Modelo
                 throw ex;
             }
         }
+        // almacen/suc/
 
+        public async Task<List<Almacen>> listarAlmacenPorIdSucursal(int idSucursal)
+        {
+            try
+            {
+                // http://localhost:8080/admeli/xcore/services.php/almacen/suc/1
+                List<Almacen> list = await webService.GET<List<Almacen>>("almacen", String.Format("suc/{0}", idSucursal));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }
