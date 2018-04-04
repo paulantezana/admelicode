@@ -29,7 +29,7 @@ namespace Modelo
                 personal.usuario = usuario;
                 personal.password = password;
 
-                List<Personal> user =  await  webService.POST<Personal,List<Personal>>("personal", "buscar", personal);
+                List<Personal> user = await webService.POST<Personal, List<Personal>>("personal", "buscar", personal);
                 if (user.Count == 0)
                 {
                     throw new Exception("El nombre de usuario o contraseña es incorrecta!!");
@@ -86,7 +86,7 @@ namespace Modelo
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/personal/modificar
-                return await webService.POST<T,Response>("personal", "modificar", param);
+                return await webService.POST<T, Response>("personal", "modificar", param);
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace Modelo
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/personal/eliminar
-                return await webService.POST<Personal,Response>("personal", "eliminar", param);
+                return await webService.POST<Personal, Response>("personal", "eliminar", param);
             }
             catch (Exception ex)
             {
@@ -110,6 +110,22 @@ namespace Modelo
         {
 
         }
+
+        //personalactualizarpermisos
+        public async Task<Response> Asignacion(Responsabilidades param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/personal/eliminar
+                return await webService.POST<Responsabilidades, Response>("personalactualizarpermisos", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         public async Task<RootObject<Personal>> listar(int page, int items)
         {
@@ -142,7 +158,7 @@ namespace Modelo
         {
             try
             {
-                List<Personal> list = await webService.GET<List<Personal>>("listarpersonalcompras", String.Format("sucursal/{0}",idSucursal));
+                List<Personal> list = await webService.GET<List<Personal>>("listarpersonalcompras", String.Format("sucursal/{0}", idSucursal));
                 return list;
             }
             catch (Exception ex)
@@ -165,12 +181,12 @@ namespace Modelo
             }
         }
 
-        public async Task<Asignacion> asignar(int idPersonal , int idSucursal)
+        public async Task<Asignacion> asignar(int idPersonal, int idSucursal)
         {
             try
             {
                 // www.lineatienda.com/services.php/personales/asignacionpersonal/per/1/suc/1
-                Asignacion list = await webService.GET<Asignacion>("personales/asignacionpersonal", String.Format("per/{0}/suc/{1}",idPersonal, idSucursal));
+                Asignacion list = await webService.GET<Asignacion>("personales/asignacionpersonal", String.Format("per/{0}/suc/{1}", idPersonal, idSucursal));
                 return list;
             }
             catch (Exception ex)
@@ -178,6 +194,21 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        public async Task<List<Permisos> > listarPuntosByIdSucursal(int idSucursal, int idPersonal)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/listarareasporsucursal/ids/1/personal/0
+                List<Permisos> list = await webService.GET<List<Permisos>>("listarareasporsucursal/ids", String.Format("{0}/personal/{1}", idSucursal, idPersonal));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
 
 

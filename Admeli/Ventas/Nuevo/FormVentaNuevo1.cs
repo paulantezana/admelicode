@@ -444,12 +444,12 @@ namespace Admeli.Ventas.Nuevo
                 if (detalleVentas == null) detalleVentas = new List<DetalleV>();
                 DetalleV detalleV = new DetalleV();
                 if (exitePresentacion(Convert.ToInt32(cbxPresentacion.SelectedValue)))
-                    {
+                 {
 
                         MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
 
-                     }
+                 }
                 // Creando la lista
                 detalleV.cantidad = double.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));//1
 

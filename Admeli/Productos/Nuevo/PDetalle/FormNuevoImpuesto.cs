@@ -39,7 +39,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             currentImpuesto.porDefecto = chkPorDefecto.Checked;
             currentImpuesto.estado = Convert.ToInt32(chkActivo.Checked);
             currentImpuesto.siglasImpuesto = textSiglasImpuesto.Text.Trim();
-            currentImpuesto.valorImpuesto = textValorImpuesto.Text.Trim();
+            currentImpuesto.valorImpuesto =double.Parse( textValorImpuesto.Text.Trim());
         }
         private async void executarGuardar()
         {

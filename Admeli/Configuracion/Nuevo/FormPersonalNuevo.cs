@@ -29,14 +29,30 @@ namespace Admeli.Configuracion.Nuevo
         private bool nuevo { get; set; }
         private Personal currentPersonal { get; set; }
         private PersonalAux currentPersonalAux { get; set; }
+
+        private List<Permisos> listPermisos { get; set; }
+        List<TreeNode> listNode { get; set; }
         private int currentIDSucursal { get; set; }
         private int currentIDPersonal { get; set; }
         private bool isValid { get; set; }
+
+        // datos para asignar responsabilidades
+
+        public AsignarCaja asignarCaja { get; set; }
+        public List<PersonalAlmacen> personalAlmacen { get; set; }
+        public AsignarPuntoCompra asignarPuntoCompra { get; set; }
+        public List<AsignarPuntoVenta> asignarPuntoVenta { get; set; }
+        public AsignarPuntoAdministracion asignarPuntoAdministracion { get; set; }
+        public AsignarPuntoGerencia asignarPuntoGerencia { get; set; }
+        public Responsabilidades responsabilidades { get; set; }
+
 
         public FormPersonalNuevo()
         {
             InitializeComponent();
             this.nuevo = true;
+            listarPuntosByIdSucursal(0);
+
         }
 
         public FormPersonalNuevo(Personal currentPersonal)
@@ -45,6 +61,7 @@ namespace Admeli.Configuracion.Nuevo
             this.currentPersonal = currentPersonal;
             this.currentIDPersonal = currentPersonal.idPersonal;
             this.nuevo = false;
+            listarPuntosByIdSucursal(currentIDPersonal);
         }
 
         #region ============================ PAINT ============================
@@ -64,7 +81,7 @@ namespace Admeli.Configuracion.Nuevo
             drawShape.lineBorder(panel2, 157, 157, 157);
             drawShape.lineBorder(panel3, 157, 157, 157);
             drawShape.topLine(panelFooter);
-        } 
+        }
         #endregion
 
         #region =============================== Root Load ===============================
@@ -76,15 +93,96 @@ namespace Admeli.Configuracion.Nuevo
         private async void reLoad()
         {
             await cargarPaises();
-            cargarGenero();
+           
             crearNivelesPais();
             cargarDocIdentificacion();
             // cargarSucursales();
             cargarDatosModificar();
+
+
+
         }
         #endregion
 
         #region ============================ Loads ============================
+        private async void listarPuntosByIdSucursal(int idPersonal)
+        {
+
+
+
+            try
+            {
+                // Cargando las categorias desde el webservice
+
+                listPermisos = await personalModel.listarPuntosByIdSucursal(ConfigModel.sucursal.idSucursal, idPersonal);
+
+
+                // Cargando
+                treeViewPermisos.Nodes.Clear(); // limpiando              
+                listNode = new List<TreeNode>();
+
+                foreach (Permisos permiso in listPermisos)
+                {
+                    TreeNode aux = new TreeNode(permiso.nombre);
+                    aux.Checked = permiso.estado;
+                    aux.Name = permiso.idRegistro.ToString();
+                    listNode.Add(aux);
+
+                }
+
+                // solo es para dos nievels
+                int i = 0;
+                foreach (TreeNode tree in listNode)
+                {
+                    Permisos aux = listPermisos[i++];
+                    if (aux.idPadre == 0)
+                    {
+                        treeViewPermisos.Nodes.Add(tree);
+                    }
+                    else
+                    {
+                        TreeNode tree1 = buscarPadre(aux, listNode);
+                        tree1.Nodes.Add(tree);
+
+                    }
+
+
+                }
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+        }
+
+        private TreeNode buscarPadre(Permisos permisos, List<TreeNode> listNode)
+        {
+            int i = 0;
+            foreach (TreeNode tree in listNode)
+            {
+                Permisos aux = listPermisos[i++];
+                if (aux.idRegistro == permisos.idPadre)
+                {
+                    tree.ImageIndex = 1;
+                    return tree;
+
+                }
+
+            }
+            return null;
+        }
+
+
+
+
+
         private void cargarDatosModificar()
         {
             if (nuevo) return;
@@ -98,6 +196,11 @@ namespace Admeli.Configuracion.Nuevo
             textNombreUsuario.Text = currentPersonal.nombres;
             textNumeroDocumento.Text = currentPersonal.numeroDocumento;
             cbxSexo.Text = currentPersonal.sexo;
+            if (currentPersonal.sexo == "M")
+                cbxSexo.Text = "Masculino";
+            else
+                cbxSexo.Text = "Femenino";
+
             textTelefono.Text = currentPersonal.telefono;
         }
 
@@ -106,19 +209,7 @@ namespace Admeli.Configuracion.Nuevo
             sucursalBindingSource.DataSource = await sucursalModel.sucursales();
         }
 
-        private void cargarGenero()
-        {
-            DataTable table = new DataTable();
-            table.Columns.Add("idGenero", typeof(string));
-            table.Columns.Add("genero", typeof(string));
-
-            table.Rows.Add("1", "Masculino");
-            table.Rows.Add("0", "Femenino");
-
-            cbxSexo.DataSource = table;
-            cbxSexo.DisplayMember = "genero";
-            cbxSexo.ValueMember = "idGenero";
-        }
+       
 
         private async void cargarDocIdentificacion()
         {
@@ -157,17 +248,17 @@ namespace Admeli.Configuracion.Nuevo
                 List<Departamento> departamentos = await departamentoModel.listarAreasPorSucursal(currentIDSucursal, idPersonal);
 
                 // Formando los listas
-                treeView1.Nodes.Clear(); // Limpiando los nodos
+                treeViewPermisos.Nodes.Clear(); // Limpiando los nodos
                 if (departamentos == null) return;
                 foreach (Departamento departamento in departamentos)
                 {
-                    treeView1.Nodes.Add(departamento.idDepartamento.ToString(), departamento.nombre);
+                    treeViewPermisos.Nodes.Add(departamento.idDepartamento.ToString(), departamento.nombre);
                     if (departamento.idPadre > 0)
                     {
                         // Cargando subcategorias
-                        int nodeIndex = treeView1.Nodes.IndexOfKey(departamento.idPadre.ToString());
-                        treeView1.Nodes[nodeIndex].ImageIndex = 1;
-                        treeView1.Nodes[nodeIndex].Nodes.Add(departamento.idDepartamento.ToString(), departamento.nombre);
+                        int nodeIndex = treeViewPermisos.Nodes.IndexOfKey(departamento.idPadre.ToString());
+                        treeViewPermisos.Nodes[nodeIndex].ImageIndex = 1;
+                        treeViewPermisos.Nodes[nodeIndex].Nodes.Add(departamento.idDepartamento.ToString(), departamento.nombre);
                     }
                 }
             }
@@ -373,7 +464,93 @@ namespace Admeli.Configuracion.Nuevo
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+
+
             guardarPersonal();
+
+
+          
+            
+
+        }
+
+
+        private void asignarResponsablidad(string Nombre , Permisos permisos, TreeNode treeNode)
+        {
+      
+            int status= estado(treeNode);
+            int id = permisos.idDepartamento;
+            int idPersonal = currentPersonalAux.idPersonal;
+
+            switch (Nombre)
+            {
+                case "CAJA":
+
+                    asignarCaja = new AsignarCaja();
+                  
+                    asignarCaja.estado = status;
+                    asignarCaja.idCaja = id;
+                    asignarCaja.idPersonal = idPersonal;
+                    break;
+                case "Almacén":
+
+                    PersonalAlmacen personal = new PersonalAlmacen();
+                    personalAlmacen = new List<PersonalAlmacen>();
+
+                    personal.estado = treeNode.Checked;
+                    personal.idAlmacen = id;
+                    personal.idPersonal = idPersonal;
+                    personalAlmacen.Add(personal);
+
+
+                    break;
+                case "COMPRA":
+                    asignarPuntoCompra = new AsignarPuntoCompra();
+
+                    asignarPuntoCompra.estado = status;
+                    asignarPuntoCompra.idPersonal = idPersonal;
+                    asignarPuntoCompra.idPuntoCompra = id;
+                    
+                    break;
+                case "Punto venta":
+
+                    AsignarPuntoVenta asignarPunto = new AsignarPuntoVenta();
+                    asignarPuntoVenta = new List<AsignarPuntoVenta>();
+                    asignarPunto.estado = treeNode.Checked;
+                    asignarPunto.idPersonal = idPersonal;
+                    asignarPunto.idPuntoVenta = id;
+                    asignarPuntoVenta.Add(asignarPunto);
+
+                    break;
+                case "ADMINISTRACIÓN":
+                    asignarPuntoAdministracion = new AsignarPuntoAdministracion();
+                    asignarPuntoAdministracion.estado = status;
+                    asignarPuntoAdministracion.idPersonal = idPersonal;
+                    asignarPuntoAdministracion.idPuntoAdministracion = id;
+
+                    break;
+                case "GERENCIA":
+                    asignarPuntoGerencia = new AsignarPuntoGerencia();
+
+                    asignarPuntoGerencia.estado = status;
+                    asignarPuntoGerencia.idPersonal = idPersonal;
+                    asignarPuntoGerencia.idPuntoGerencia = id;
+                    break;
+
+            }
+
+
+
+        }
+
+
+        private int estado(TreeNode treeNode)
+        {
+            int estado = 0;
+            if (treeNode.Checked)
+                estado = 1;
+            return estado;
+
         }
 
         private async void guardarPersonal()
@@ -393,13 +570,41 @@ namespace Admeli.Configuracion.Nuevo
                 if (nuevo)
                 {
                     Response response = await personalModel.guardar(currentPersonalAux);
+
+                    currentPersonalAux.idPersonal = response.id;
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Response response = await personalModel.modificar(currentPersonalAux);
+                   
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                
+
+                int i = 0;
+                foreach (TreeNode T in this.listNode)
+                {
+                    Permisos permisos = listPermisos[i++];
+
+                    if (T.Nodes.Count == 0)
+                    {
+                        asignarResponsablidad(permisos.nombre, permisos, T);
+
+                    }
+
+                }
+
+                responsabilidades = new Responsabilidades();
+                responsabilidades.asignarCaja = asignarCaja;
+                responsabilidades.asignarPuntoAdministracion = asignarPuntoAdministracion;
+                responsabilidades.asignarPuntoCompra = asignarPuntoCompra;
+                responsabilidades.asignarPuntoGerencia = asignarPuntoGerencia;
+                responsabilidades.asignarPuntoVenta = asignarPuntoVenta;
+                responsabilidades.personalAlmacen = personalAlmacen;
+                await personalModel.Asignacion(responsabilidades);
+
+
                 this.Close();
             }
             catch (Exception ex)
