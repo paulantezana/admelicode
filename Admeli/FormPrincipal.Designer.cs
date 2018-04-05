@@ -272,7 +272,7 @@
             this.panelAsideContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelAsideContainer.Location = new System.Drawing.Point(0, 0);
             this.panelAsideContainer.Name = "panelAsideContainer";
-            this.panelAsideContainer.Size = new System.Drawing.Size(250, 661);
+            this.panelAsideContainer.Size = new System.Drawing.Size(250, 749);
             this.panelAsideContainer.TabIndex = 0;
             // 
             // btnToggleMenu
@@ -297,7 +297,7 @@
             this.btnToggleMenu.IconVisible = true;
             this.btnToggleMenu.IconZoom = 80D;
             this.btnToggleMenu.IsTab = true;
-            this.btnToggleMenu.Location = new System.Drawing.Point(0, 614);
+            this.btnToggleMenu.Location = new System.Drawing.Point(0, 702);
             this.btnToggleMenu.Margin = new System.Windows.Forms.Padding(0);
             this.btnToggleMenu.Name = "btnToggleMenu";
             this.btnToggleMenu.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
@@ -317,7 +317,7 @@
             this.panelAsideMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAsideMain.Location = new System.Drawing.Point(0, 125);
             this.panelAsideMain.Name = "panelAsideMain";
-            this.panelAsideMain.Size = new System.Drawing.Size(250, 536);
+            this.panelAsideMain.Size = new System.Drawing.Size(250, 624);
             this.panelAsideMain.TabIndex = 3;
             // 
             // imageListMenuPrimary
@@ -350,7 +350,7 @@
             this.panelRoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRoot.Location = new System.Drawing.Point(250, 0);
             this.panelRoot.Name = "panelRoot";
-            this.panelRoot.Size = new System.Drawing.Size(804, 661);
+            this.panelRoot.Size = new System.Drawing.Size(934, 749);
             this.panelRoot.TabIndex = 1;
             // 
             // panelMain
@@ -358,7 +358,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 48);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(604, 605);
+            this.panelMain.Size = new System.Drawing.Size(734, 693);
             this.panelMain.TabIndex = 1;
             // 
             // panelMenuRight
@@ -380,9 +380,9 @@
             this.panelMenuRight.Controls.Add(this.lblDocumentType);
             this.panelMenuRight.Controls.Add(this.label1);
             this.panelMenuRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMenuRight.Location = new System.Drawing.Point(604, 48);
+            this.panelMenuRight.Location = new System.Drawing.Point(734, 48);
             this.panelMenuRight.Name = "panelMenuRight";
-            this.panelMenuRight.Size = new System.Drawing.Size(200, 605);
+            this.panelMenuRight.Size = new System.Drawing.Size(200, 693);
             this.panelMenuRight.TabIndex = 1;
             // 
             // pictureBox4
@@ -423,7 +423,7 @@
             this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSucursal.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(183)))));
-            this.lblSucursal.Location = new System.Drawing.Point(12, 541);
+            this.lblSucursal.Location = new System.Drawing.Point(12, 629);
             this.lblSucursal.Name = "lblSucursal";
             this.lblSucursal.Size = new System.Drawing.Size(177, 51);
             this.lblSucursal.TabIndex = 20;
@@ -568,7 +568,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panelHeader.Size = new System.Drawing.Size(804, 48);
+            this.panelHeader.Size = new System.Drawing.Size(934, 48);
             this.panelHeader.TabIndex = 0;
             // 
             // lblTitlePage
@@ -597,7 +597,7 @@
             this.btnVentaTocuh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentaTocuh.ImageIndex = 3;
             this.btnVentaTocuh.ImageList = this.imageList1;
-            this.btnVentaTocuh.Location = new System.Drawing.Point(180, 0);
+            this.btnVentaTocuh.Location = new System.Drawing.Point(310, 0);
             this.btnVentaTocuh.Margin = new System.Windows.Forms.Padding(5);
             this.btnVentaTocuh.Name = "btnVentaTocuh";
             this.btnVentaTocuh.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -633,7 +633,7 @@
             this.btnCompra2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCompra2.ImageIndex = 0;
             this.btnCompra2.ImageList = this.imageList1;
-            this.btnCompra2.Location = new System.Drawing.Point(309, 0);
+            this.btnCompra2.Location = new System.Drawing.Point(439, 0);
             this.btnCompra2.Margin = new System.Windows.Forms.Padding(5);
             this.btnCompra2.Name = "btnCompra2";
             this.btnCompra2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -660,7 +660,7 @@
             this.btnVenta2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVenta2.ImageIndex = 2;
             this.btnVenta2.ImageList = this.imageList1;
-            this.btnVenta2.Location = new System.Drawing.Point(419, 0);
+            this.btnVenta2.Location = new System.Drawing.Point(549, 0);
             this.btnVenta2.Margin = new System.Windows.Forms.Padding(5);
             this.btnVenta2.Name = "btnVenta2";
             this.btnVenta2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -687,7 +687,7 @@
             this.btnProductos2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductos2.ImageIndex = 1;
             this.btnProductos2.ImageList = this.imageList1;
-            this.btnProductos2.Location = new System.Drawing.Point(529, 0);
+            this.btnProductos2.Location = new System.Drawing.Point(659, 0);
             this.btnProductos2.Margin = new System.Windows.Forms.Padding(5);
             this.btnProductos2.Name = "btnProductos2";
             this.btnProductos2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -713,7 +713,7 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.ImageIndex = 1;
-            this.button1.Location = new System.Drawing.Point(639, 0);
+            this.button1.Location = new System.Drawing.Point(769, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -745,7 +745,7 @@
             this.btnFullScreen.IconVisible = true;
             this.btnFullScreen.IconZoom = 80D;
             this.btnFullScreen.IsTab = true;
-            this.btnFullScreen.Location = new System.Drawing.Point(706, 0);
+            this.btnFullScreen.Location = new System.Drawing.Point(836, 0);
             this.btnFullScreen.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.btnFullScreen.Name = "btnFullScreen";
             this.btnFullScreen.Normalcolor = System.Drawing.Color.White;
@@ -781,7 +781,7 @@
             this.btnToggleMenuRigth.IconVisible = true;
             this.btnToggleMenuRigth.IconZoom = 80D;
             this.btnToggleMenuRigth.IsTab = true;
-            this.btnToggleMenuRigth.Location = new System.Drawing.Point(755, 0);
+            this.btnToggleMenuRigth.Location = new System.Drawing.Point(885, 0);
             this.btnToggleMenuRigth.Margin = new System.Windows.Forms.Padding(4);
             this.btnToggleMenuRigth.Name = "btnToggleMenuRigth";
             this.btnToggleMenuRigth.Normalcolor = System.Drawing.Color.White;
@@ -798,11 +798,11 @@
             // progressBarApp
             // 
             this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBarApp.Location = new System.Drawing.Point(0, 653);
+            this.progressBarApp.Location = new System.Drawing.Point(0, 741);
             this.progressBarApp.MarqueeAnimationSpeed = 2;
             this.progressBarApp.Maximum = 5;
             this.progressBarApp.Name = "progressBarApp";
-            this.progressBarApp.Size = new System.Drawing.Size(804, 8);
+            this.progressBarApp.Size = new System.Drawing.Size(934, 8);
             this.progressBarApp.TabIndex = 2;
             this.progressBarApp.UseWaitCursor = true;
             // 
@@ -821,7 +821,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1054, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 749);
             this.Controls.Add(this.panelRoot);
             this.Controls.Add(this.panelAsideContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

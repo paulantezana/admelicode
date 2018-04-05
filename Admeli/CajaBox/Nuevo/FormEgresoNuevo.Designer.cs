@@ -128,6 +128,7 @@
             this.textMonto.Size = new System.Drawing.Size(389, 50);
             this.textMonto.TabIndex = 5;
             this.textMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMonto_KeyPress);
             this.textMonto.Validated += new System.EventHandler(this.textMonto_Validated);
             // 
             // textMotivo
@@ -238,9 +239,9 @@
             this.label8.Location = new System.Drawing.Point(22, 25);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 16);
+            this.label8.Size = new System.Drawing.Size(78, 16);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Fecha pago";
+            this.label8.Text = "Fecha Pago";
             // 
             // panel2
             // 
@@ -278,22 +279,22 @@
             this.label2.Location = new System.Drawing.Point(22, 287);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.Size = new System.Drawing.Size(108, 16);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Motivo";
+            this.label2.Text = "Motivo (Opcional)";
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label5.Location = new System.Drawing.Point(19, 348);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 16);
+            this.label5.Size = new System.Drawing.Size(142, 16);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Observación";
+            this.label5.Text = "Observación (Opcional)";
             // 
             // panelFooter
             // 
@@ -422,7 +423,7 @@
             this.Controls.Add(this.lblCajaEstado);
             this.Name = "FormEgresoNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormEgresoNuevo";
+            this.Text = "Nuevo Egreso";
             this.Load += new System.EventHandler(this.FormEgresoNuevo_Load);
             this.Shown += new System.EventHandler(this.FormEgresoNuevo_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).EndInit();

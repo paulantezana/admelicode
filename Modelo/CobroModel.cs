@@ -33,7 +33,7 @@ namespace Modelo
             try
             {
 
-                DatosdeCuentasCobrar Cuentasporcobrar = await webService.GET<DatosdeCuentasCobrar>("datosdeCuentasCobrar", String.Format("suc/{0}/todo/{1}/{2}/{3}",idSucursal,estado, pos, tam));
+                DatosdeCuentasCobrar Cuentasporcobrar = await webService.GET<DatosdeCuentasCobrar>("clientescuentasporcobrar", String.Format("suc/{0}/todo/{1}/{2}/{3}",idSucursal,estado, pos, tam));
                 return Cuentasporcobrar;
             }
             catch (Exception ex)
@@ -43,6 +43,47 @@ namespace Modelo
 
         }
 
+        public async Task<DatosdeCuentasCobrar> buscarCuentasPorCobrar(string nombreCliente,int idSucursal, int estado, int pos, int tam)
+        {
+            //localhost:8085/admeli/xcore/services.php/buscarclientescuentasporcobrar/suc/1/nombre/dennys/todo/0/1/15
+            try
+            {
+
+                DatosdeCuentasCobrar Cuentasporcobrar = await webService.GET<DatosdeCuentasCobrar>("buscarclientescuentasporcobrar", String.Format("suc/{0}/nombre/{1}/todo/{2}/{3}/{4}", idSucursal,nombreCliente, estado, pos, tam));
+                return Cuentasporcobrar;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public async Task<List<DetalleCobro>> detalleCobro(int idCobro)
+        {
+            try
+            {
+                //www.lineatienda.com/services.php/detallecobros/cobro/3
+                List<DetalleCobro> listaDetalleCobro = await webService.GET<List<DetalleCobro>>("detallecobros", String.Format("cobro/{0}", idCobro));
+                return listaDetalleCobro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<List<Cobro>> cobrosCliente(int idCliente,int idSucursal,int estado)
+        {
+            try
+            {
+                //www.lineatienda.com/services.php/cobros/cliente/4/sucursal/1/estado/0
+                List<Cobro> listaCobroCliente = await webService.GET<List<Cobro>>("cobros", String.Format("cliente/{0}/sucursal/{1}/estado/{2}", idCliente, idSucursal, estado));
+                return listaCobroCliente;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<List<Cobro>> porCobrar(int idPersonal, int idSucursal, int idAsignarCaja, int todos, int gerente)
         {
             try
