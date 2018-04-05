@@ -33,6 +33,7 @@ namespace Admeli.Ventas
 
             DataGridViewButtonColumn btnDeleteProduct = new DataGridViewButtonColumn();
             btnDeleteProduct.HeaderText = "Action";
+            btnDeleteProduct.FlatStyle = FlatStyle.Flat;
 
             dgvVentaTouch.Columns.Add(btnDeleteProduct);
         }
