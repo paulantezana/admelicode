@@ -310,7 +310,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private void textPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validator.isNumber(e);
+            Validator.isDecimal(e, textPrecioCompra.Text);
         }
         #endregion
 

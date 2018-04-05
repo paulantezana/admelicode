@@ -15,7 +15,8 @@ namespace Admeli.CajaBox
 {
     public partial class UCCuentasPagar : UserControl
     {
-        private FormPrincipal formPrincipal;
+        public bool lisenerKeyEvents { get; set; }
+        private FormPrincipal formPrincipal;        
         private Paginacion paginacion;
 
         #region =================================== CONSTRUCTOR ===================================
@@ -42,11 +43,11 @@ namespace Admeli.CajaBox
         #region ==================================== ROOT LOAD ====================================
         internal void reLoad(bool refreshData = true)
         {
-            //if (refreshData)
-            //{
-            //    cargarRegistros();
-            //}
-            //lisenerKeyEvents = true; // Active lisener key events
+            if (refreshData)
+            {
+                //cargarRegistros();
+            }
+            lisenerKeyEvents = true; // Active lisener key events
         }
 
         #endregion
