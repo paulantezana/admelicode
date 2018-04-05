@@ -144,6 +144,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.chbxPagarCompra = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chbxNotaEntrada = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -452,6 +453,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.button3);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.label10);
@@ -522,7 +524,7 @@
             this.txtRUC.Margin = new System.Windows.Forms.Padding(4);
             this.txtRUC.MaxLength = 15;
             this.txtRUC.Name = "txtRUC";
-            this.txtRUC.Size = new System.Drawing.Size(186, 22);
+            this.txtRUC.Size = new System.Drawing.Size(158, 22);
             this.txtRUC.TabIndex = 1;
             this.txtRUC.TextChanged += new System.EventHandler(this.txtRUC_TextChanged);
             // 
@@ -1529,6 +1531,23 @@
             this.chbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
             this.chbxNotaEntrada.TabIndex = 55;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(175, 62);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(28, 22);
+            this.button3.TabIndex = 7;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // FormCompraN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1704,5 +1723,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precioUnitarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button3;
     }
 }
