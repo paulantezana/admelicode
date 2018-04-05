@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.dgvVentaTouch = new System.Windows.Forms.DataGridView();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvVentaTouch = new System.Windows.Forms.DataGridView();
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadFraccionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.codigoBarrasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,11 +90,11 @@
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaTouch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaTouch)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -188,6 +188,45 @@
             this.panel9.Padding = new System.Windows.Forms.Padding(10);
             this.panel9.Size = new System.Drawing.Size(636, 257);
             this.panel9.TabIndex = 1;
+            // 
+            // dgvVentaTouch
+            // 
+            this.dgvVentaTouch.AutoGenerateColumns = false;
+            this.dgvVentaTouch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentaTouch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProductoDataGridViewTextBoxColumn,
+            this.cantidadFraccionDataGridViewCheckBoxColumn,
+            this.codigoBarrasDataGridViewTextBoxColumn,
+            this.codigoProductoDataGridViewTextBoxColumn,
+            this.controlSinStockDataGridViewTextBoxColumn,
+            this.descripcionCortaDataGridViewTextBoxColumn,
+            this.descripcionLargaDataGridViewTextBoxColumn,
+            this.enCategoriaEstrellaDataGridViewCheckBoxColumn,
+            this.enPortadaDataGridViewCheckBoxColumn,
+            this.enUsoDataGridViewCheckBoxColumn,
+            this.estadoDataGridViewCheckBoxColumn,
+            this.idMarcaDataGridViewTextBoxColumn,
+            this.idUnidadMedidaDataGridViewTextBoxColumn,
+            this.keywordsDataGridViewTextBoxColumn,
+            this.limiteMaximoDataGridViewTextBoxColumn,
+            this.limiteMinimoDataGridViewTextBoxColumn,
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn,
+            this.mostrarVideoDataGridViewCheckBoxColumn,
+            this.mostrarWebDataGridViewCheckBoxColumn,
+            this.nombreMarcaDataGridViewTextBoxColumn,
+            this.nombreProductoDataGridViewTextBoxColumn,
+            this.nombreUnidadDataGridViewTextBoxColumn,
+            this.precioCompraDataGridViewTextBoxColumn,
+            this.urlVideoDataGridViewTextBoxColumn,
+            this.ventaVarianteSinStockDataGridViewCheckBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.codigoDataGridViewTextBoxColumn});
+            this.dgvVentaTouch.DataSource = this.productoBindingSource;
+            this.dgvVentaTouch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVentaTouch.Location = new System.Drawing.Point(10, 10);
+            this.dgvVentaTouch.Name = "dgvVentaTouch";
+            this.dgvVentaTouch.Size = new System.Drawing.Size(616, 237);
+            this.dgvVentaTouch.TabIndex = 0;
             // 
             // productoBindingSource
             // 
@@ -412,45 +451,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "$500.25";
             // 
-            // dgvVentaTouch
-            // 
-            this.dgvVentaTouch.AutoGenerateColumns = false;
-            this.dgvVentaTouch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentaTouch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idProductoDataGridViewTextBoxColumn,
-            this.cantidadFraccionDataGridViewCheckBoxColumn,
-            this.codigoBarrasDataGridViewTextBoxColumn,
-            this.codigoProductoDataGridViewTextBoxColumn,
-            this.controlSinStockDataGridViewTextBoxColumn,
-            this.descripcionCortaDataGridViewTextBoxColumn,
-            this.descripcionLargaDataGridViewTextBoxColumn,
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn,
-            this.enPortadaDataGridViewCheckBoxColumn,
-            this.enUsoDataGridViewCheckBoxColumn,
-            this.estadoDataGridViewCheckBoxColumn,
-            this.idMarcaDataGridViewTextBoxColumn,
-            this.idUnidadMedidaDataGridViewTextBoxColumn,
-            this.keywordsDataGridViewTextBoxColumn,
-            this.limiteMaximoDataGridViewTextBoxColumn,
-            this.limiteMinimoDataGridViewTextBoxColumn,
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn,
-            this.mostrarVideoDataGridViewCheckBoxColumn,
-            this.mostrarWebDataGridViewCheckBoxColumn,
-            this.nombreMarcaDataGridViewTextBoxColumn,
-            this.nombreProductoDataGridViewTextBoxColumn,
-            this.nombreUnidadDataGridViewTextBoxColumn,
-            this.precioCompraDataGridViewTextBoxColumn,
-            this.urlVideoDataGridViewTextBoxColumn,
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.codigoDataGridViewTextBoxColumn});
-            this.dgvVentaTouch.DataSource = this.productoBindingSource;
-            this.dgvVentaTouch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvVentaTouch.Location = new System.Drawing.Point(10, 10);
-            this.dgvVentaTouch.Name = "dgvVentaTouch";
-            this.dgvVentaTouch.Size = new System.Drawing.Size(616, 237);
-            this.dgvVentaTouch.TabIndex = 0;
-            // 
             // idProductoDataGridViewTextBoxColumn
             // 
             this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
@@ -468,12 +468,14 @@
             this.codigoBarrasDataGridViewTextBoxColumn.DataPropertyName = "codigoBarras";
             this.codigoBarrasDataGridViewTextBoxColumn.HeaderText = "codigoBarras";
             this.codigoBarrasDataGridViewTextBoxColumn.Name = "codigoBarrasDataGridViewTextBoxColumn";
+            this.codigoBarrasDataGridViewTextBoxColumn.Visible = false;
             // 
             // codigoProductoDataGridViewTextBoxColumn
             // 
             this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
             this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "codigoProducto";
             this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
+            this.codigoProductoDataGridViewTextBoxColumn.Visible = false;
             // 
             // controlSinStockDataGridViewTextBoxColumn
             // 
@@ -504,18 +506,21 @@
             this.enPortadaDataGridViewCheckBoxColumn.DataPropertyName = "enPortada";
             this.enPortadaDataGridViewCheckBoxColumn.HeaderText = "enPortada";
             this.enPortadaDataGridViewCheckBoxColumn.Name = "enPortadaDataGridViewCheckBoxColumn";
+            this.enPortadaDataGridViewCheckBoxColumn.Visible = false;
             // 
             // enUsoDataGridViewCheckBoxColumn
             // 
             this.enUsoDataGridViewCheckBoxColumn.DataPropertyName = "enUso";
             this.enUsoDataGridViewCheckBoxColumn.HeaderText = "enUso";
             this.enUsoDataGridViewCheckBoxColumn.Name = "enUsoDataGridViewCheckBoxColumn";
+            this.enUsoDataGridViewCheckBoxColumn.Visible = false;
             // 
             // estadoDataGridViewCheckBoxColumn
             // 
             this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "estado";
             this.estadoDataGridViewCheckBoxColumn.HeaderText = "estado";
             this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.estadoDataGridViewCheckBoxColumn.Visible = false;
             // 
             // idMarcaDataGridViewTextBoxColumn
             // 
@@ -552,18 +557,21 @@
             this.mostrarPrecioWebDataGridViewCheckBoxColumn.DataPropertyName = "mostrarPrecioWeb";
             this.mostrarPrecioWebDataGridViewCheckBoxColumn.HeaderText = "mostrarPrecioWeb";
             this.mostrarPrecioWebDataGridViewCheckBoxColumn.Name = "mostrarPrecioWebDataGridViewCheckBoxColumn";
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn.Visible = false;
             // 
             // mostrarVideoDataGridViewCheckBoxColumn
             // 
             this.mostrarVideoDataGridViewCheckBoxColumn.DataPropertyName = "mostrarVideo";
             this.mostrarVideoDataGridViewCheckBoxColumn.HeaderText = "mostrarVideo";
             this.mostrarVideoDataGridViewCheckBoxColumn.Name = "mostrarVideoDataGridViewCheckBoxColumn";
+            this.mostrarVideoDataGridViewCheckBoxColumn.Visible = false;
             // 
             // mostrarWebDataGridViewCheckBoxColumn
             // 
             this.mostrarWebDataGridViewCheckBoxColumn.DataPropertyName = "mostrarWeb";
             this.mostrarWebDataGridViewCheckBoxColumn.HeaderText = "mostrarWeb";
             this.mostrarWebDataGridViewCheckBoxColumn.Name = "mostrarWebDataGridViewCheckBoxColumn";
+            this.mostrarWebDataGridViewCheckBoxColumn.Visible = false;
             // 
             // nombreMarcaDataGridViewTextBoxColumn
             // 
@@ -633,13 +641,13 @@
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaTouch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaTouch)).EndInit();
             this.ResumeLayout(false);
 
         }
