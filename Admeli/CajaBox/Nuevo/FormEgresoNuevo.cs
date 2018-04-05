@@ -25,7 +25,10 @@ namespace Admeli.CajaBox.Nuevo
         private int currentIDEgreso { get; set; }
         private bool nuevo { get; set; }
         private Egreso currentEgreso { get; set; }
+        private SaveObjectEgreso currentSaveObject { get; set; }
         private List<MedioPago> mediosDePagos { get; set; }
+
+        private List<CajaSesion> currentCajaSesion { get; set; }
 
 
         public FormEgresoNuevo()
@@ -122,7 +125,43 @@ namespace Admeli.CajaBox.Nuevo
         #region ========================== SAVE AND UPDATE ===========================
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            guardarSucursal();
+            //guardarSucursal();
+            guardarEgreso();
+        }
+        private async void guardarEgreso()
+        {
+
+            //validar los campos
+            if (!validarCampos()) return;
+            try
+            {
+                //Verificar Caja Asignada y recuperar idCajaSesion
+                //currentCajaSesion=await cajaModel.cajaSesion(ConfigModel.asignacionPersonal.idAsignarCaja);
+                //Verificar que exista dinero para egresar
+                List<Moneda> monedas = await cajaModel.cierreCajaIngresoMenosEgreso(mediosDePagos[0].idMedioPago, ConfigModel.cajaSesion.idCajaSesion);
+                if (monedas[0].total < double.Parse(textMonto.Text))
+                {
+                    MessageBox.Show("No Hay dinero suficiente en la caja", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                //Registrar Egreso
+                crearObjetoEgreso();
+                if (nuevo)
+                {
+                    Response response = await egresoModel.guardar(currentSaveObject);
+                    MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Response response = await egresoModel.modificar(currentEgreso);
+                    MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void guardarSucursal()
@@ -135,9 +174,9 @@ namespace Admeli.CajaBox.Nuevo
                 MessageBox.Show("Falta logica de programacion");
 
                 // Guardar
-                crearObjetoSucursal();
                 if (nuevo)
                 {
+                    crearObjetoEgreso();
                     Response response = await egresoModel.guardar(currentEgreso);
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -154,36 +193,36 @@ namespace Admeli.CajaBox.Nuevo
             }
         }
 
-        private void crearObjetoSucursal()
+        private void crearObjetoEgreso()
         {
-            currentEgreso = new Egreso();
+            currentSaveObject = new SaveObjectEgreso();
+            //currentEgreso = new Egreso();
+            if (!nuevo) currentSaveObject.idEgreso = currentIDEgreso; // Llenar el id categoria cuando este en esdo modificar
+            currentSaveObject.idCaja = ConfigModel.asignacionPersonal.idCaja;
+            currentSaveObject.idCajaSesion = ConfigModel.cajaSesion.idCajaSesion;
+            currentSaveObject.idMedioPago = mediosDePagos[0].idMedioPago;
+            currentSaveObject.idMoneda = Convert.ToInt32(cbxMoneda.SelectedValue);
+            currentSaveObject.medioPago = mediosDePagos[0].nombre;
+            currentSaveObject.moneda = cbxMoneda.Text;
+            currentSaveObject.monto = textMonto.Text;
+            currentSaveObject.motivo = textMotivo.Text;
+            currentSaveObject.observacion = textObcervacion.Text;
+            currentSaveObject.numeroOperacion = textNOperacion.Text;
+            currentSaveObject.fechaPago = dtpFechaPago.Value.ToString("yyyy-MM-dd HH':'mm':'ss");
 
-            if (!nuevo) currentEgreso.idEgreso = currentIDEgreso; // Llenar el id categoria cuando este en esdo modificar
-
-            currentEgreso.numeroOperacion = textNOperacion.Text;
-            currentEgreso.monto = textMonto.Text;
-            currentEgreso.moneda = cbxMoneda.Text;
-            currentEgreso.idMoneda = Convert.ToInt32(cbxMoneda.SelectedValue);
-            currentEgreso.motivo = textMotivo.Text;
-            currentEgreso.observacion = textObcervacion.Text;
-            Fecha currentFecha = new Fecha()
-            {
-                date = (DateTime)dtpFechaPago.Value
-            };
-            currentEgreso.fechaPago = currentFecha;
         }
 
         private bool validarCampos()
         {
+            //Validar Nro Operacion
             if (textNOperacion.Text == "")
             {
-                errorProvider1.SetError(textNOperacion, "Este campo esta bacía");
+                errorProvider1.SetError(textNOperacion, "Este campo está vacío");
                 textNOperacion.Focus();
                 return false;
             }
             errorProvider1.Clear();
-
-            // validacion monto
+            // validacion Monto
             if (textMonto.Text.Trim() == "")
             {
                 errorProvider1.SetError(textMonto, "Campo obligatorio");
@@ -192,17 +231,6 @@ namespace Admeli.CajaBox.Nuevo
             }
             errorProvider1.Clear();
             Validator.textboxValidateColor(textMonto, 1);
-
-            // validacion motivo
-            if (textMotivo.Text.Trim() == "")
-            {
-                errorProvider1.SetError(textMotivo, "Campo obligatorio");
-                Validator.textboxValidateColor(textMotivo, 0);
-                return false;
-            }
-            errorProvider1.Clear();
-            Validator.textboxValidateColor(textMotivo, 1);
-
             // Toda las validaciones correctas
             return true;
         }
@@ -224,7 +252,7 @@ namespace Admeli.CajaBox.Nuevo
         #region ============================ Validacion timpo real ============================
         private void textMonto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validator.isNumber(e);
+            Validator.isDecimal(e,textMonto.Text);
         }
         private void textMonto_Validated(object sender, EventArgs e)
         {
@@ -240,14 +268,6 @@ namespace Admeli.CajaBox.Nuevo
 
         private void textMotivo_Validated(object sender, EventArgs e)
         {
-            if (textMotivo.Text.Trim() == "")
-            {
-                errorProvider1.SetError(textMotivo, "Campo obligatorio");
-                Validator.textboxValidateColor(textMotivo, 0);
-                return;
-            }
-            errorProvider1.Clear();
-            Validator.textboxValidateColor(textMotivo, 1);
         }
         #endregion
 
@@ -255,5 +275,26 @@ namespace Admeli.CajaBox.Nuevo
         {
             textMonto.Focus();
         }
+
+    }
+    class SaveObjectEgreso
+    {
+        public int idEgreso { get; set; }
+        public string numeroOperacion { get; set; }
+        public string fecha { get; set; }
+        public string fechaPago { get; set; }
+        public string monto { get; set; }
+        public string motivo { get; set; }
+        public string observacion { get; set; }
+        public string moneda { get; set; }
+        public int estado { get; set; }
+        public int idMoneda { get; set; }
+        public int idCaja { get; set; }
+        public int idCajaSesion { get; set; }
+        public int idDetallePago { get; set; }
+        public int idMedioPago { get; set; }
+        public string medioPago { get; set; }
+        public string personal { get; set; }
+        public string esDeCompra { get; set; }
     }
 }

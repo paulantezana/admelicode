@@ -19,6 +19,7 @@ namespace Entidad
         public string moneda { get; set; }
         public int estado { get; set; }
         public int idMoneda { get; set; }
+        public int idCaja { get; set; }
         public int idCajaSesion { get; set; }
         public int idDetallePago { get; set; }
         public int idMedioPago { get; set; }

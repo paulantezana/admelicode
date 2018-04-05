@@ -15,6 +15,7 @@ namespace Admeli.CajaBox.Nuevo
 {
     public partial class FormIngresoNuevo : Form
     {
+        private bool nuevo { get; set; }
         private IngresoModel ingresoModel = new IngresoModel();
         private MonedaModel monedaModel = new MonedaModel();
         private MedioPagoModel medioPagoModel = new MedioPagoModel();
@@ -27,11 +28,14 @@ namespace Admeli.CajaBox.Nuevo
         public FormIngresoNuevo()
         {
             InitializeComponent();
+            this.nuevo = true;
         }
 
         public FormIngresoNuevo(Ingreso currentIngreso)
         {
             this.currentIngreso = currentIngreso;
+            this.nuevo = false;
+            btnAceptar.Enabled = false;
         }
 
         private void FormIngresoNuevo_Load(object sender, EventArgs e)
@@ -113,17 +117,27 @@ namespace Admeli.CajaBox.Nuevo
         #region ========================== SAVE AND UPDATE ===========================
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            guardarSucursal();
+            guardarIngreso();
         }
 
-        private async void guardarSucursal()
+        private async void guardarIngreso()
         {
             if (!validarCampos()) return;
             try
             {
-                crearObjetoSucursal();
-                Response response = await ingresoModel.guardarEnUno(currentSaveObject);
-                MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (nuevo)
+                {
+                    
+                    Response response = await ingresoModel.guardarEnUno(currentSaveObject);
+                    MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //No se puede modificar
+                    //Response response = await ingresoModel.modificarEnUno(currentSaveObject);
+                    //MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
                 this.Close();
             }
             catch (Exception ex)
@@ -132,7 +146,7 @@ namespace Admeli.CajaBox.Nuevo
             }
         }
 
-        private void crearObjetoSucursal()
+        private void crearObjetoIngreso()
         {
             currentSaveObject = new SaveObject();
             currentSaveObject.estado = 1;
@@ -174,16 +188,6 @@ namespace Admeli.CajaBox.Nuevo
             errorProvider1.Clear();
             Validator.textboxValidateColor(textMonto, 1);
 
-            // validacion motivo
-            if (textMotivo.Text.Trim() == "")
-            {
-                errorProvider1.SetError(textMotivo, "Campo obligatorio");
-                Validator.textboxValidateColor(textMotivo, 0);
-                return false;
-            }
-            errorProvider1.Clear();
-            Validator.textboxValidateColor(textMotivo, 1);
-
             // Toda las validaciones correctas
             return true;
         }
@@ -205,7 +209,7 @@ namespace Admeli.CajaBox.Nuevo
         #region ============================ Validacion timpo real ============================
         private void textMonto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validator.isNumber(e);
+            Validator.isDecimal(e, textMonto.Text);
         }
         private void textMonto_Validated(object sender, EventArgs e)
         {
@@ -221,14 +225,6 @@ namespace Admeli.CajaBox.Nuevo
 
         private void textMotivo_Validated(object sender, EventArgs e)
         {
-            if (textMotivo.Text.Trim() == "")
-            {
-                errorProvider1.SetError(textMotivo, "Campo obligatorio");
-                Validator.textboxValidateColor(textMotivo, 0);
-                return;
-            }
-            errorProvider1.Clear();
-            Validator.textboxValidateColor(textMotivo, 1);
         }
         #endregion
 

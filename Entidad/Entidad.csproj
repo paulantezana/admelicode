@@ -60,6 +60,7 @@
     <Compile Include="CuentasCobrar.cs" />
     <Compile Include="CuentasPagar.cs" />
     <Compile Include="DescuentosOfertas.cs" />
+    <Compile Include="DetalleCobro.cs" />
     <Compile Include="DetalleCompra.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaProducto.cs" />

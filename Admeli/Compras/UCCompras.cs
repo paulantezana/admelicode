@@ -344,12 +344,14 @@ namespace Admeli.Compras
             //comprarNuevo.ShowDialog();
             //cargarRegistros();
 
+
             //FormCompraNew comprarNuevo = new FormCompraNew();
             //comprarNuevo.ShowDialog();
 
 
             Form1 formCompraN = new Form1();
             formCompraN.ShowDialog();
+
 
         }
 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Modelo;
 using Entidad;
 using Admeli.Componentes;
+using Admeli.CajaBox.Nuevo;
 
 namespace Admeli.CajaBox
 {
@@ -20,6 +21,7 @@ namespace Admeli.CajaBox
         private CobroModel cuentascobrarModel = new CobroModel();
         private Paginacion paginacion;
         private List<DatoCuentaCobrar> listaCuentaCobrar { get; set; }
+        private DatoCuentaCobrar currentCuentaCobrar { get; set; }
         private DatosDescuentosOfertas currentDatosCuentaCobrar { get; set; }
         private DatosdeCuentasCobrar datosconvertidoscuentascobrar { get; set; }
 
@@ -37,11 +39,9 @@ namespace Admeli.CajaBox
         {
             InitializeComponent();
             this.formPrincipal = formPrincipal;
+            //lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
             this.reLoad();
-
-
-
         }
         #endregion
 
@@ -199,13 +199,8 @@ namespace Admeli.CajaBox
                 if (datosconvertidoscuentascobrar.nro_registros == 0) return;
 
                 paginacion.itemsCount = datosconvertidoscuentascobrar.nro_registros;
-
                 paginacion.reload();
-
                 listaCuentaCobrar = datosconvertidoscuentascobrar.datos;
-
-
-
                 
                 datoCuentaCobrarBindingSource.DataSource = listaCuentaCobrar;
                 dataGridView.Refresh();
@@ -241,6 +236,83 @@ namespace Admeli.CajaBox
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvCuentasCobrar_DoubleClick(object sender, EventArgs e)
+        {
+            //Desacativado, se usa otro evento
+            //Modificar CuetaPorCobrar
+            //FormCuentaCobrar formCuentaCobrar = new FormCuentaCobrar();
+            //formCuentaCobrar.Show();
+        }
+
+        private void textBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Presiono 'Enter'
+            if (e.KeyChar == '\r')
+            {
+                if (textBuscar.Text.Trim() != "")
+                {
+                    buscarRegistros(textBuscar.Text);
+                }
+            }
+        }
+        private async void buscarRegistros(string nombreCliente)
+        {
+            loadState(true);
+            try
+            {
+                datosconvertidoscuentascobrar = new DatosdeCuentasCobrar();
+
+                datosconvertidoscuentascobrar = await cuentascobrarModel.buscarCuentasPorCobrar(nombreCliente,ConfigModel.sucursal.idSucursal, 0, paginacion.currentPage, paginacion.speed);
+                if (datosconvertidoscuentascobrar.nro_registros == 0) return;
+
+                paginacion.itemsCount = datosconvertidoscuentascobrar.nro_registros;
+                paginacion.reload();
+                listaCuentaCobrar = datosconvertidoscuentascobrar.datos;
+
+                datoCuentaCobrarBindingSource.DataSource = listaCuentaCobrar;
+                dataGridView.Refresh();
+
+                // Mostrando la paginacion
+                mostrarPaginado();
+
+                // formato de celdas
+                decorationDataGridView();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                loadState(false);
+            }
+        }
+
+        private void dgvCuentasCobrar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            executeModificar();
+            
+        }
+        private void executeModificar()
+        {
+            // Verificando la existencia de datos en el datagridview
+            if (dgvCuentasCobrar.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            int index = dgvCuentasCobrar.CurrentRow.Index; // Identificando la fila actual del dgv
+            int idCliente = Convert.ToInt32(dgvCuentasCobrar.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+
+            currentCuentaCobrar = listaCuentaCobrar.Find(x => x.idCliente == idCliente); //Buscando el registro especifico en la lista de registros
+
+            // Mostrando el formulario de modificacion
+            FormCuentaCobrar formCuentaCobrar = new FormCuentaCobrar(currentCuentaCobrar);
+            formCuentaCobrar.ShowDialog();
         }
     }
 }

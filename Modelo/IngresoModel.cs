@@ -103,5 +103,19 @@ namespace Modelo
             }
         }
 
+        public async Task<Response> modificarEnUno<T>(T param)
+        {
+            try
+            {
+                //localhost/admeli/score/services.php/ingreso/modificarenuno
+                Response response = await webService.POST<T, Response>("ingreso", "guardarenuno", param);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -278,6 +278,7 @@
             this.panelAsideContainer.Location = new System.Drawing.Point(0, 0);
             this.panelAsideContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAsideContainer.Name = "panelAsideContainer";
+
             this.panelAsideContainer.Size = new System.Drawing.Size(333, 1055);
             this.panelAsideContainer.TabIndex = 0;
             // 
@@ -303,6 +304,7 @@
             this.btnToggleMenu.IconVisible = true;
             this.btnToggleMenu.IconZoom = 80D;
             this.btnToggleMenu.IsTab = true;
+
             this.btnToggleMenu.Location = new System.Drawing.Point(0, 997);
             this.btnToggleMenu.Margin = new System.Windows.Forms.Padding(0);
             this.btnToggleMenu.Name = "btnToggleMenu";
@@ -324,6 +326,7 @@
             this.panelAsideMain.Location = new System.Drawing.Point(0, 154);
             this.panelAsideMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAsideMain.Name = "panelAsideMain";
+
             this.panelAsideMain.Size = new System.Drawing.Size(333, 901);
             this.panelAsideMain.TabIndex = 3;
             // 
@@ -358,6 +361,7 @@
             this.panelRoot.Location = new System.Drawing.Point(333, 0);
             this.panelRoot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelRoot.Name = "panelRoot";
+
             this.panelRoot.Size = new System.Drawing.Size(1591, 1055);
             this.panelRoot.TabIndex = 1;
             // 
@@ -737,9 +741,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 1;
-            this.button1.Location = new System.Drawing.Point(1372, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.button1.ImageIndex = 1;r
+            this.button1.Location = new System.Drawing.Point(769, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(89, 58);
@@ -770,6 +775,7 @@
             this.btnFullScreen.IconVisible = true;
             this.btnFullScreen.IconZoom = 80D;
             this.btnFullScreen.IsTab = true;
+
             this.btnFullScreen.Location = new System.Drawing.Point(1461, 0);
             this.btnFullScreen.Margin = new System.Windows.Forms.Padding(13, 4, 4, 4);
             this.btnFullScreen.Name = "btnFullScreen";
@@ -823,6 +829,7 @@
             // progressBarApp
             // 
             this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Bottom;
+
             this.progressBarApp.Location = new System.Drawing.Point(0, 1045);
             this.progressBarApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBarApp.MarqueeAnimationSpeed = 2;
@@ -847,7 +854,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+
+            this.ClientSize = new System.Drawing.Size(1184, 749);
+
             this.Controls.Add(this.panelRoot);
             this.Controls.Add(this.panelAsideContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
