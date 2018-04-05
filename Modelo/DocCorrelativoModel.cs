@@ -17,18 +17,65 @@ namespace Modelo
 
         }
 
-        public async Task<Response> modificar(DocCorrelativo param)
+        public async Task<Response> modificarVentaCorrelativo(VentaCorrelativo param)
         {
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/ventacorrelativo/modificar
-                return await webService.POST<DocCorrelativo,Response>("ventacorrelativo", "modificar", param);
+                return await webService.POST<VentaCorrelativo, Response>("ventacorrelativo", "modificar", param);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        public async Task<Response> modificarCajaCorrelativo(CajaCorrelativoM param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/ cajacorrelativo/modificar
+                return await webService.POST<CajaCorrelativoM, Response>("cajacorrelativo", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<Response> modificarSucursalCorrelativo(SucursalCorrelativo param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/sucursalcorrelativo/modificar
+                return await webService.POST<SucursalCorrelativo, Response>("sucursalcorrelativo", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<Response> modificarAlmacenCorrelativo(AlmacenCorrelativo param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/sucursalcorrelativo/modificar
+                return await webService.POST<AlmacenCorrelativo, Response>("almacencorrelativo", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         public void eliminar()
         {

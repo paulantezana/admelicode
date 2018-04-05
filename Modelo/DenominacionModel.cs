@@ -51,12 +51,12 @@ namespace Modelo
             }
         }
 
-        public async Task<Response> eliminar(Denominacion param)
+        public async Task<ResponseD> eliminar(Denominacion param)
         {
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/denominacion/eliminar
-                return await webService.POST<Denominacion,Response>("denominacion", "eliminar", param);
+                return await webService.POST<Denominacion,ResponseD>("denominacion", "eliminar", param);
             }
             catch (Exception ex)
             {

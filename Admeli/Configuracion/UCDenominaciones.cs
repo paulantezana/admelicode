@@ -329,7 +329,7 @@ namespace Admeli.Configuracion
                 currentDenomincacion = denominaciones.Find(x => x.idDenominacion == idDenominacion); // Buscando la registro especifico en la lista de registros
 
                 loadState(true); // cambiando el estado
-                Response response = await denominacionModel.eliminar(currentDenomincacion); // Eliminando con el webservice correspondiente
+                ResponseD response = await denominacionModel.eliminar(currentDenomincacion); // Eliminando con el webservice correspondiente
                 MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cargarRegistros(); // recargando el datagridview
             }

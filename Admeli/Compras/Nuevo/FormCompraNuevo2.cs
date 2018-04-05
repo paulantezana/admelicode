@@ -12,6 +12,9 @@ namespace Admeli.Compras.Nuevo
 {
     public partial class FormCompraNuevo2 : Form
     {
+
+
+        List<DetalleC> detalleC;
         public FormCompraNuevo2()
         {
             InitializeComponent();

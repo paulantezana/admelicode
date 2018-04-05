@@ -28,6 +28,13 @@ namespace Admeli.Configuracion.Modificar
 
 
         private CajaCorrelativo cajaCorrelativo { get; set; }
+        private VentaCorrelativo ventaCorrelativo { get; set; }
+        private CajaCorrelativoM cajaCorrelativoM { get; set; }
+
+
+        private SucursalCorrelativo sucursalCorrelativo { get; set; }
+
+        private AlmacenCorrelativo almacenCorrelativo { get; set; }
         private string area { get; set; }
         #region ========================= Constructor =========================
         public FormAsignarCorrelativoModificar()
@@ -95,12 +102,8 @@ namespace Admeli.Configuracion.Modificar
                     this.cbxPuntoVenta.ValueMember = "idAlmacen";
                     //3 servicios sucursal  almacen/suc/1 tipodocumentoalmacen/almacen
                     this.cargarSucursalesVentas(4);
-                   
-
+                  
                     break;
-
-
-
 
             }
 
@@ -119,20 +122,11 @@ namespace Admeli.Configuracion.Modificar
                 RootObject<TipoDocumento> rootData = await tipoDocumentoModel.tipodocumentos(1,10);
                 tipoDocumentoBindingSource.DataSource = rootData.datos;
               
-                int sucursalID = currentDocCorrelativo.idSucursal;
-                
-
+                int sucursalID = currentDocCorrelativo.idSucursal;                
                 switch (tipo)
-
-
                 {
                     case 1:
-
-
-                        puntoDeVentaBindingSource.DataSource = await puntoVentaModel.puntoventas(sucursalID);
-
-                       
-
+                        puntoDeVentaBindingSource.DataSource = await puntoVentaModel.puntoventas(sucursalID);                      
                         lbArea.Text = area;
                         if (area == "")
                         {
@@ -148,8 +142,9 @@ namespace Admeli.Configuracion.Modificar
                         cbxArea.Text = this.area;
                         break;
                     case 2:
-
-
+                        cbxTipoDocumento.DataSource = null;
+                        cbxTipoDocumento.Items.Add("EGRESO");
+                        cbxTipoDocumento.Items.Add("INGRESO");
                         cajaCorrelativoBindingSource.DataSource = await cajaModel.listarCajasByIdSucursal(sucursalID);
                         lbArea.Text = area;
                         if (area == "")
@@ -165,19 +160,13 @@ namespace Admeli.Configuracion.Modificar
                         textSerie.Text = currentDocCorrelativo.serie;
                         textCorrelativoSiguiente.Text = currentDocCorrelativo.correlativoActual;
                         cbxArea.Text = this.area;
-
-
                         break;
                     case 3:
 
 
                         // 2 servivios sucursal tipodocumentocompras/compras 
-                        lbArea.Text = area;
-                      
-
-                            plArea.Visible = false;
-
-                     
+                        lbArea.Text = area;                     
+                        plArea.Visible = false;                    
                         cbxSucursal.SelectedValue = currentDocCorrelativo.idSucursal;
                         cbxTipoDocumento.SelectedValue = currentDocCorrelativo.idDocumento;
                         textSerie.Text = currentDocCorrelativo.serie;
@@ -189,18 +178,21 @@ namespace Admeli.Configuracion.Modificar
 
                         //3 servicios sucursal  almacen/suc/1 tipodocumentoalmacen/almacen
 
+                        almacenBindingSource.DataSource = await almacenModel.listarAlmacenPorIdSucursal(sucursalID);
+
                         if (area == "")
                         {
 
                             plArea.Visible = false;
 
                         }
+                        cbxPuntoVenta.SelectedValue = currentDocCorrelativo.idOperacion;
                         cbxSucursal.SelectedValue = currentDocCorrelativo.idSucursal;
                         cbxTipoDocumento.SelectedValue = currentDocCorrelativo.idDocumento;
                         textSerie.Text = currentDocCorrelativo.serie;
                         textCorrelativoSiguiente.Text = currentDocCorrelativo.correlativoActual;
                         cbxArea.Text = this.area;
-                        cajaCorrelativoBindingSource.DataSource = await almacenModel.listarAlmacenPorIdSucursal(sucursalID);
+                        
 
                         break;
 
@@ -248,11 +240,43 @@ namespace Admeli.Configuracion.Modificar
 
         private async void guardarSucursal()
         {
+            Response response=null;
             if (!validarCampos()) return;
             try
             {
-                crearObjetoSucursal();
-                Response response = await docCorrelativoModel.modificar(currentDocCorrelativo);
+
+                
+                switch (area)
+
+
+                {
+                    case "VENTAS":
+;
+                        crearObjetoSucursal();
+                       response = await docCorrelativoModel.modificarVentaCorrelativo(ventaCorrelativo);
+
+                        break;
+                    case "CAJA":
+
+                        crearObjetoCaja();
+                        response = await docCorrelativoModel.modificarCajaCorrelativo(cajaCorrelativoM);
+
+
+                        break;
+                    case "COMPRAS":
+                        crearObjetoCompra();
+                        response = await docCorrelativoModel.modificarSucursalCorrelativo(sucursalCorrelativo);
+
+                        break;
+                    case "ALMACÉN":
+                        crearObjetoAlmacen();
+                        response = await docCorrelativoModel.modificarAlmacenCorrelativo(almacenCorrelativo);
+
+                        break;
+
+                }
+
+            
                 MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
@@ -264,12 +288,40 @@ namespace Admeli.Configuracion.Modificar
 
         private void crearObjetoSucursal()
         {
-            currentDocCorrelativo.serie = textSerie.Text;
-            currentDocCorrelativo.correlativoActual = textCorrelativoSiguiente.Text;
-            currentDocCorrelativo.estado = Convert.ToInt32(chkActivoSucursal.Checked);
-            currentDocCorrelativo.idSucursal = Convert.ToInt32(cbxSucursal.SelectedValue);
-            currentDocCorrelativo.idDocumento = Convert.ToInt32(cbxTipoDocumento.SelectedValue);
-            //currentDocCorrelativo.
+
+            ventaCorrelativo = new VentaCorrelativo();
+            ventaCorrelativo.serie = textSerie.Text;
+            ventaCorrelativo.correlativoActual = textCorrelativoSiguiente.Text;
+            ventaCorrelativo.estado = Convert.ToInt32(chkActivoSucursal.Checked);
+            ventaCorrelativo.idVentaCorrelativo = currentDocCorrelativo.idCorrelativo;           
+        }
+
+        private void crearObjetoCaja()
+        {
+
+            cajaCorrelativoM = new CajaCorrelativoM();
+            cajaCorrelativoM.serie = textSerie.Text;
+            cajaCorrelativoM.correlativoActual = textCorrelativoSiguiente.Text;
+            cajaCorrelativoM.estado = Convert.ToInt32(chkActivoSucursal.Checked);
+            cajaCorrelativoM.idCajaCorrelativo = currentDocCorrelativo.idCorrelativo;
+        }
+        private void crearObjetoCompra()
+        {
+
+            sucursalCorrelativo = new SucursalCorrelativo();
+            sucursalCorrelativo.serie = textSerie.Text;
+            sucursalCorrelativo.correlativoActual = textCorrelativoSiguiente.Text;
+            sucursalCorrelativo.estado = Convert.ToInt32(chkActivoSucursal.Checked);
+            sucursalCorrelativo.idSucursalCorrelativo = currentDocCorrelativo.idCorrelativo;
+        }
+        private void crearObjetoAlmacen()
+        {
+
+            almacenCorrelativo = new AlmacenCorrelativo();
+            almacenCorrelativo.serie = textSerie.Text;
+            almacenCorrelativo.correlativoActual = textCorrelativoSiguiente.Text;
+            almacenCorrelativo.estado = Convert.ToInt32(chkActivoSucursal.Checked);
+            almacenCorrelativo.idAlmacenCorrelativo = currentDocCorrelativo.idCorrelativo;
         }
 
         private bool validarCampos()

@@ -11,6 +11,7 @@ using Modelo;
 using Entidad.Configuracion;
 using Bunifu.Framework.UI;
 using Entidad;
+using System.Globalization;
 
 namespace Admeli.Configuracion
 {
@@ -36,6 +37,7 @@ namespace Admeli.Configuracion
             InitializeComponent();
             this.formPrincipal = formPrincipal;
             lisenerKeyEvents = true; // Active lisener key events
+            
         }
 
         #region ========================== Root Load ==========================
@@ -139,16 +141,27 @@ namespace Admeli.Configuracion
                 Location = new System.Drawing.Point(18, y),
                 Name = moneda.idMoneda.ToString(),
                 TabIndex = 91,
-                Text = moneda.tipoCambio,
-                //OnValueChanged += new System.EventHandler(this.bunifuMetroTextbox1_OnValueChanged);
-            };
+                Text = string.Format(CultureInfo.GetCultureInfo("en-US"), "{0:n" + 2 + "}", moneda.tipoCambio)
+
+            //OnValueChanged += new System.EventHandler(this.bunifuMetroTextbox1_OnValueChanged);
+        };
+
+           
+
             textMoneda1.OnValueChanged += new EventHandler(this.textMoneda1_OnValueChanged);
 
 
             // Agreganto los dos elementos
             this.panelContainer.Controls.Add(lblMonedaLabel);
             this.panelContainer.Controls.Add(textMoneda1);
+            Control[] textMoneda3  = this.panelContainer.Controls.Find("1002",false);
 
+            if (textMoneda3 != null)
+            {
+
+                BunifuMetroTextbox textMoneda14 = textMoneda3[0] as BunifuMetroTextbox;
+            }
+           
         }
 
         private void textMoneda1_OnValueChanged(object sender, EventArgs e)
@@ -162,7 +175,10 @@ namespace Admeli.Configuracion
                     {
                         if (monedas[i].idMoneda == Convert.ToInt32(currentIDMoneda))
                         {
-                            monedas[i].tipoCambio = ((BunifuMetroTextbox)sender).Text;
+
+                            
+                            monedas[i].tipoCambio = double.Parse(((BunifuMetroTextbox)sender).Text,CultureInfo.GetCultureInfo("en-US"));
+                            
                         }
                     }
                 }
@@ -203,8 +219,8 @@ namespace Admeli.Configuracion
             foreach (Moneda moneda in monedas)
             {
                 SaveObject save = new SaveObject();
-                save.cambioCompra = (moneda.tipoCambio == "") ? 0 : Convert.ToDecimal(moneda.tipoCambio);
-                save.cambioVenta = (moneda.tipoCambio == "") ? 0 : Convert.ToDecimal(moneda.tipoCambio);
+                save.cambioCompra = moneda.tipoCambio;
+                save.cambioVenta = moneda.tipoCambio;
                 save.estado = moneda.estado;
                 save.idMoneda = monedaPorDefecto.idMoneda;
                 save.idMonedaCambio = moneda.idMoneda;
@@ -221,8 +237,8 @@ namespace Admeli.Configuracion
 
         struct SaveObject
         {
-            public decimal cambioCompra { get; set; }
-            public decimal cambioVenta { get; set; }
+            public double cambioCompra { get; set; }
+            public double cambioVenta { get; set; }
             public int estado { get; set; }
             public int idMoneda { get; set; }
             public int idMonedaCambio { get; set; }
