@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,25 @@ namespace Admeli.Ventas
         public FormVentaTouch()
         {
             InitializeComponent();
+
+            List<Producto> list = new List<Producto>()
+            {
+                new Producto
+                {
+                    nombre = "Hola"
+                },
+                new Producto
+                {
+                    nombre = "Otro"
+                }
+            };
+
+            productoBindingSource.DataSource = list;
+
+            DataGridViewButtonColumn btnDeleteProduct = new DataGridViewButtonColumn();
+            btnDeleteProduct.HeaderText = "Action";
+
+            dgvVentaTouch.Columns.Add(btnDeleteProduct);
         }
     }
 }
