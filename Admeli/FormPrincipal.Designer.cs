@@ -741,7 +741,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 1;r
+            this.button1.ImageIndex = 1;
             this.button1.Location = new System.Drawing.Point(769, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
 

@@ -188,7 +188,7 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(427, 907);
             this.panel1.TabIndex = 2;
@@ -202,7 +202,7 @@
             this.panel10.Controls.Add(this.txtNroOrdenCompra);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 656);
-            this.panel10.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel10.Margin = new System.Windows.Forms.Padding(5);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(406, 380);
             this.panel10.TabIndex = 2;
@@ -219,7 +219,7 @@
             this.btnImportarOrdenCompra.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportarOrdenCompra.ForeColor = System.Drawing.Color.White;
             this.btnImportarOrdenCompra.Location = new System.Drawing.Point(17, 14);
-            this.btnImportarOrdenCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImportarOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportarOrdenCompra.Name = "btnImportarOrdenCompra";
             this.btnImportarOrdenCompra.Size = new System.Drawing.Size(259, 42);
             this.btnImportarOrdenCompra.TabIndex = 11;
@@ -252,7 +252,7 @@
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservaciones.Location = new System.Drawing.Point(17, 151);
-            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -264,7 +264,7 @@
             this.txtNroOrdenCompra.Enabled = false;
             this.txtNroOrdenCompra.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNroOrdenCompra.Location = new System.Drawing.Point(17, 90);
-            this.txtNroOrdenCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNroOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtNroOrdenCompra.Name = "txtNroOrdenCompra";
             this.txtNroOrdenCompra.Size = new System.Drawing.Size(257, 26);
             this.txtNroOrdenCompra.TabIndex = 1;
@@ -286,7 +286,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 242);
-            this.panel8.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel8.Margin = new System.Windows.Forms.Padding(5);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(406, 414);
             this.panel8.TabIndex = 1;
@@ -384,7 +384,7 @@
             // 
             this.txtTipoCambio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipoCambio.Location = new System.Drawing.Point(199, 342);
-            this.txtTipoCambio.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTipoCambio.Margin = new System.Windows.Forms.Padding(5);
             this.txtTipoCambio.Name = "txtTipoCambio";
             this.txtTipoCambio.Size = new System.Drawing.Size(168, 26);
             this.txtTipoCambio.TabIndex = 9;
@@ -441,7 +441,7 @@
             this.panel9.Controls.Add(this.label16);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(406, 53);
             this.panel9.TabIndex = 0;
@@ -450,7 +450,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(12, 7);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(43, 37);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -480,7 +480,7 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(406, 242);
             this.panel6.TabIndex = 0;
@@ -497,7 +497,7 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(328, 75);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(37, 27);
             this.button3.TabIndex = 7;
@@ -574,7 +574,7 @@
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(406, 53);
             this.panel7.TabIndex = 0;
@@ -583,7 +583,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(15, 7);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(43, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -604,7 +604,7 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(427, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(9, 907);
             this.splitter1.TabIndex = 3;
@@ -620,7 +620,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(436, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1488, 907);
             this.panel2.TabIndex = 4;
@@ -631,7 +631,7 @@
             this.panel13.Controls.Add(this.dgvDetalleCompra);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 133);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
             this.panel13.Size = new System.Drawing.Size(1395, 608);
@@ -687,7 +687,7 @@
             this.dgvDetalleCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleCompra.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvDetalleCompra.Location = new System.Drawing.Point(23, 18);
-            this.dgvDetalleCompra.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvDetalleCompra.Margin = new System.Windows.Forms.Padding(5);
             this.dgvDetalleCompra.Name = "dgvDetalleCompra";
             this.dgvDetalleCompra.ReadOnly = true;
             this.dgvDetalleCompra.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -854,7 +854,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnNuevoProducto);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1395, 133);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 11, 9, 5);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(93, 608);
@@ -874,7 +874,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.Location = new System.Drawing.Point(4, 15);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(51, 49);
             this.btnModificar.TabIndex = 8;
@@ -895,7 +895,7 @@
             this.btnActulizar.ForeColor = System.Drawing.Color.White;
             this.btnActulizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActulizar.Image")));
             this.btnActulizar.Location = new System.Drawing.Point(4, 72);
-            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(51, 49);
             this.btnActulizar.TabIndex = 9;
@@ -915,7 +915,7 @@
             this.btnNuevoProducto.ForeColor = System.Drawing.Color.White;
             this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
             this.btnNuevoProducto.Location = new System.Drawing.Point(4, 129);
-            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevoProducto.Name = "btnNuevoProducto";
             this.btnNuevoProducto.Size = new System.Drawing.Size(51, 49);
             this.btnNuevoProducto.TabIndex = 10;
@@ -1332,7 +1332,7 @@
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter2.Location = new System.Drawing.Point(0, 741);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(5);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(1488, 7);
             this.splitter2.TabIndex = 1;
@@ -1346,7 +1346,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 748);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
             this.panel3.Size = new System.Drawing.Size(1488, 159);
@@ -1366,7 +1366,7 @@
             this.btnComprar.ForeColor = System.Drawing.Color.White;
             this.btnComprar.Image = ((System.Drawing.Image)(resources.GetObject("btnComprar.Image")));
             this.btnComprar.Location = new System.Drawing.Point(1326, 15);
-            this.btnComprar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnComprar.Margin = new System.Windows.Forms.Padding(5);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(145, 129);
             this.btnComprar.TabIndex = 11;
@@ -1390,7 +1390,7 @@
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(269, 15);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(855, 129);
             this.panel5.TabIndex = 2;
@@ -1399,7 +1399,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(687, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(123, 97);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1506,7 +1506,7 @@
             // splitter3
             // 
             this.splitter3.Location = new System.Drawing.Point(256, 15);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter3.Margin = new System.Windows.Forms.Padding(4);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(13, 129);
             this.splitter3.TabIndex = 1;
@@ -1521,7 +1521,7 @@
             this.panel4.Controls.Add(this.chbxNotaEntrada);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(17, 15);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(239, 129);
             this.panel4.TabIndex = 0;
@@ -1559,7 +1559,7 @@
             this.chbxPagarCompra.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxPagarCompra.ForeColor = System.Drawing.Color.White;
             this.chbxPagarCompra.Location = new System.Drawing.Point(20, 62);
-            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(5);
             this.chbxPagarCompra.Name = "chbxPagarCompra";
             this.chbxPagarCompra.Size = new System.Drawing.Size(20, 20);
             this.chbxPagarCompra.TabIndex = 54;
@@ -1588,7 +1588,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCompraN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCompraN";
