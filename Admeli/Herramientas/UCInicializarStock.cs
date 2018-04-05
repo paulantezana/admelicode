@@ -36,6 +36,7 @@ namespace Admeli.Herramientas
 
             lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();     // carganto los items por página
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
+            ConfigModel.currentProductoCategory.Add("id0", 0);
         }
 
         public UCInicializarStock(FormPrincipal formPrincipal)
@@ -45,6 +46,8 @@ namespace Admeli.Herramientas
 
             lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();     // carganto los items por página
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
+
+            ConfigModel.currentProductoCategory.Add("id0", 0);
         } 
         #endregion
 
@@ -87,6 +90,8 @@ namespace Admeli.Herramientas
                 this.cargarRegistros();
             }
             this.lisenerKeyEvents = true; // Active lisener key events
+         
+            
         }
         #endregion
 
@@ -137,29 +142,19 @@ namespace Admeli.Herramientas
                 treeViewCategoria.Nodes.Clear(); // limpiando
                 treeViewCategoria.Nodes.Add(lastCategori.idCategoria.ToString(), lastCategori.nombreCategoria); // Cargando categoria raiz
 
-
+                treeViewCategoria.Nodes[0].Checked = true;
                 List< TreeNode> listNode = new List<TreeNode>();
-                
+                itemNumber = 0;
                 foreach (Categoria categoria in categoriaList)
                 {
                     TreeNode aux = new TreeNode(categoria.nombreCategoria);
                     aux.Name = categoria.idCategoria.ToString();
                     listNode.Add(aux);
-                    
+                   
+
                 }
                     treeviewVista(categoriaList, treeViewCategoria.Nodes[0],listNode);
                 
-
-                // Estableciendo valores por defecto
-                /* if (ConfigModel.currentProductoCategory.Count > 0)
-                 {
-                     recuperarCatSeleccionado();
-                 }
-                 else
-                 {
-                     treeViewCategoria.Nodes[0].ExpandAll();
-                 }
-                 treeViewCategoria.Nodes[0].Checked = true;*/
             }
             catch (Exception ex)
             {
@@ -302,28 +297,47 @@ namespace Admeli.Herramientas
             try
             {
                 Dictionary<string, int> list = new Dictionary<string, int>();
-                list.Add("id0", 0);
+              
+                
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
 
                 int sucursalId = (cbxSucursales.SelectedIndex == -1) ? ConfigModel.sucursal.idSucursal : Convert.ToInt32(cbxSucursales.SelectedValue);
                 int almacenID = (cbxAlmacenes.SelectedIndex == -1) ? ConfigModel.currentIdAlmacen : Convert.ToInt32(cbxAlmacenes.SelectedValue);
+                RootObjectData rootObjectData=null;
+                if (sendList.Count > 0)
+                {
+                    rootObjectData = await productoModel.stockHerramienta<RootObjectData>(sendList, almacenID, sucursalId, paginacion.currentPage, paginacion.speed);
+                    // actualizando datos de páginacón
+                    paginacion.itemsCount = rootObjectData.nro_registros;
+                    paginacion.reload();
 
-                RootObjectData rootObjectData = await productoModel.stockHerramienta<RootObjectData>(sendList, almacenID, sucursalId, paginacion.currentPage, paginacion.speed);
+                    // Ingresando
+                    productos = rootObjectData.productos;
+                    productoBindingSource.DataSource = productos;
+                    dataGridView.Refresh();
 
+                    // Mostrando la paginacion
+                    mostrarPaginado();
+
+                    // Formato de celdas
+                }
+
+                else
+                {
+                    paginacion.itemsCount = 0;
+                    paginacion.reload();
+
+                    // Ingresando
+                 
+                    productoBindingSource.DataSource=null;
+                    dataGridView.Refresh();
+
+                    // Mostrando la paginacion
+                    mostrarPaginado();
+
+                }
                 
-                // actualizando datos de páginacón
-                paginacion.itemsCount = rootObjectData.nro_registros;
-                paginacion.reload();
-
-                // Ingresando
-                productos = rootObjectData.productos;
-                productoBindingSource.DataSource = productos;
-                dataGridView.Refresh();
-
-                // Mostrando la paginacion
-                mostrarPaginado();
-
-                // Formato de celdas
+                
 
             }
             catch (Exception ex)
@@ -490,6 +504,59 @@ namespace Admeli.Herramientas
         private void btnIngresos_Click(object sender, EventArgs e)
         {
             cargarRegistros();
+        }
+        #endregion
+
+        #region ======================== Treeview control checked ========================
+
+      
+
+
+        private int itemNumber { get; set; }
+
+        private void treeViewCategoria_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            // OBteniendo los datos seleccionados del treeView y almacenando en un diccionary
+            TreeNode mainNode = treeViewCategoria.Nodes[0];
+            itemNumber = 0;
+            
+            ConfigModel.currentProductoCategory.Clear();
+            getRecursiveNodes(mainNode);
+
+            // cargando los registros
+            cargarRegistros();
+        }
+        public void getRecursiveNodes(TreeNode parentNode)
+        {
+            if (parentNode.Checked)
+            {
+                ConfigModel.currentProductoCategory.Add("id" + itemNumber.ToString(), Convert.ToInt32(parentNode.Name));
+                itemNumber++;
+            }
+            foreach (TreeNode subNode in parentNode.Nodes)
+            {
+                getRecursiveNodes(subNode);
+            }
+        }
+        #endregion
+
+        #region ======================= Control de isChecked en el treeview =======================
+        private void CheckTreeViewNode(TreeNode node, Boolean isChecked)
+        {
+            foreach (TreeNode item in node.Nodes)
+            {
+                item.Checked = isChecked;
+
+                if (item.Nodes.Count > 0)
+                {
+                    this.CheckTreeViewNode(item, isChecked);
+                }
+            }
+        }
+
+        private void treeViewCategoria_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            CheckTreeViewNode(e.Node, e.Node.Checked);
         }
         #endregion
 

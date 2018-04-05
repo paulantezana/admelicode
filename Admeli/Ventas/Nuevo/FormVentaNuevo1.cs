@@ -444,12 +444,12 @@ namespace Admeli.Ventas.Nuevo
                 if (detalleVentas == null) detalleVentas = new List<DetalleV>();
                 DetalleV detalleV = new DetalleV();
                 if (exitePresentacion(Convert.ToInt32(cbxPresentacion.SelectedValue)))
-                    {
+                 {
 
                         MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
 
-                     }
+                 }
                 // Creando la lista
                 detalleV.cantidad = double.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));//1
 
@@ -1529,6 +1529,21 @@ namespace Admeli.Ventas.Nuevo
                 plIzquierdoCentrado.Top = (plIzquierdo.Height - plIzquierdoCentrado.Height) / 2;
             }
             //label20.Text="IZ:"+plIzquierdo.Width+" IZC:"+plIzquierdoCentrado.Width +
+
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioUnitario_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

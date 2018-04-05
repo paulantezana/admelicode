@@ -837,5 +837,10 @@ namespace Admeli.Compras.Nuevo
         {
 
         }
+
+        private void textCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

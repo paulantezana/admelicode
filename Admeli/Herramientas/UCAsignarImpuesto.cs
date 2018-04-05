@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.Componentes;
 using Modelo;
+using Entidad;
+using Newtonsoft.Json;
 
 namespace Admeli.Herramientas
 {
@@ -20,6 +22,12 @@ namespace Admeli.Herramientas
         private ProductoModel productoModel = new ProductoModel();
         private ImpuestoModel impuestoModel = new ImpuestoModel();
 
+        private SucursalModel sucursalModel = new SucursalModel();
+        List<ImpuestosSiglas> listImpuestos;
+        List<ProductoSinImpuesto> listProductos;
+        List<Sucursal> listSucursal;     
+        CheckBox HeaderCheckBoxProducto = null;
+        CheckBox HeaderCheckBoxImpuesto = null;
         public UCAsignarImpuesto()
         {
             InitializeComponent();
@@ -49,6 +57,24 @@ namespace Admeli.Herramientas
         {
             if (refreshData)
             {
+                cargarProductos(ConfigModel.sucursal.idSucursal);
+                cargarImpuestos();
+                cargarSucursal();
+
+                // para el datagriwview sinCategorias
+                AddHeaderCheckBoxProducto();
+                dgvProducto.CellPainting += new DataGridViewCellPaintingEventHandler(dgvSelectAll_CellPaintingProducto);
+                HeaderCheckBoxProducto.Click += new EventHandler(HeaderCheckBox_ClickedProducto);
+                dgvProducto.CellContentClick += new DataGridViewCellEventHandler(DataGridView_CellClickProducto);
+                // para el datagriwview conCategorias
+                AddHeaderCheckBoxImpuestos();
+                dgvImpuestos.CellPainting += new DataGridViewCellPaintingEventHandler(dgvSelectAll_CellPaintingImpuesto);
+                HeaderCheckBoxImpuesto.Click += new EventHandler(HeaderCheckBox_ClickedImpuesto);
+                dgvImpuestos.CellContentClick += new DataGridViewCellEventHandler(DataGridView_CellClickImpuesto);
+
+
+
+
 
             }
             lisenerKeyEvents = true; // Active lisener key events
@@ -56,12 +82,15 @@ namespace Admeli.Herramientas
         #endregion
 
         #region ====================================== Loads ======================================
-        private void cargarProductos()
+        private async void cargarProductos(int idSucursal)
         {
             loadState(true);
             try
             {
                 /// categoriaBindingSource.DataSource = await categoriaModel.categorias21();
+                /// 
+                listProductos = await productoModel.listarProductoPorIdProductoCodigoNombreSinImpuesto(idSucursal);
+                productoSinImpuestoBindingSource1.DataSource = listProductos;
             }
             catch (Exception ex)
             {
@@ -73,12 +102,13 @@ namespace Admeli.Herramientas
             }
         }
 
-        private void cargarImpuestos()
+        private  async void cargarImpuestos()
         {
             loadState(true);
             try
             {
-                /// categoriaBindingSource.DataSource = await categoriaModel.categorias21();
+                listImpuestos = await impuestoModel.listarImpuestoIdImpuestoNombreSiglasByActivos();
+                impuestosSiglasBindingSource.DataSource = listImpuestos;
             }
             catch (Exception ex)
             {
@@ -89,7 +119,139 @@ namespace Admeli.Herramientas
                 loadState(false);
             }
         }
+
+        private async void cargarSucursal()
+        {
+
+            listSucursal = await sucursalModel.sucursales();
+            sucursalBindingSource.DataSource = listSucursal;
+
+
+        }
+        public void  AddHeaderCheckBoxProducto()
+        {
+            HeaderCheckBoxProducto = new CheckBox();
+
+            HeaderCheckBoxProducto.Size = new Size(15, 15);
+
+            //Add the CheckBox into the DataGridView
+            this.dgvProducto.Controls.Add(HeaderCheckBoxProducto);
+
+
+        }
+        public void AddHeaderCheckBoxImpuestos() 
+        {
+            HeaderCheckBoxImpuesto = new CheckBox();
+
+            HeaderCheckBoxImpuesto.Size = new Size(15, 15);
+
+            //Add the CheckBox into the DataGridView
+            this.dgvImpuestos.Controls.Add(HeaderCheckBoxImpuesto);
+        }
+
+        private void dgvSelectAll_CellPaintingProducto(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex == 0)
+                ResetHeaderCheckBoxLocationProducto(e.ColumnIndex, e.RowIndex);
+        }
+        private void dgvSelectAll_CellPaintingImpuesto(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex == 0)
+                ResetHeaderCheckBoxLocationImpuesto(e.ColumnIndex, e.RowIndex);
+        }
+        private void ResetHeaderCheckBoxLocationProducto(int ColumnIndex, int RowIndex)
+        {
+            //Get the column header cell bounds
+            Rectangle oRectangle = this.dgvProducto.GetCellDisplayRectangle(ColumnIndex, RowIndex, true);
+
+            Point oPoint = new Point();
+
+            oPoint.X = oRectangle.Location.X + (oRectangle.Width - HeaderCheckBoxProducto.Width) / 2 + 1;
+            oPoint.Y = oRectangle.Location.Y + (oRectangle.Height - HeaderCheckBoxProducto.Height) / 2 + 1;
+
+            //Change the location of the CheckBox to make it stay on the header
+            HeaderCheckBoxProducto.Location = oPoint;
+        }
+
+        private void ResetHeaderCheckBoxLocationImpuesto(int ColumnIndex, int RowIndex)
+        {
+            //Get the column header cell bounds
+            Rectangle oRectangle = this.dgvImpuestos.GetCellDisplayRectangle(ColumnIndex, RowIndex, true);
+
+            Point oPoint = new Point();
+
+            oPoint.X = oRectangle.Location.X + (oRectangle.Width - HeaderCheckBoxImpuesto.Width) / 2 + 1;
+            oPoint.Y = oRectangle.Location.Y + (oRectangle.Height - HeaderCheckBoxImpuesto.Height) / 2 + 1;
+
+            //Change the location of the CheckBox to make it stay on the header
+            HeaderCheckBoxImpuesto.Location = oPoint;
+        }
+        private void HeaderCheckBox_ClickedProducto(object sender, EventArgs e)
+        {
+            //Necessary to end the edit mode of the Cell.
+            dgvProducto.EndEdit();
+
+            //Loop and check and uncheck all row CheckBoxes based on Header Cell CheckBox.
+            foreach (DataGridViewRow row in dgvProducto.Rows)
+            {
+                DataGridViewCheckBoxCell checkBox = (row.Cells["chbxselecProducto"] as DataGridViewCheckBoxCell);
+                checkBox.Value = HeaderCheckBoxProducto.Checked;
+            }
+        }
+        private void HeaderCheckBox_ClickedImpuesto(object sender, EventArgs e)
+        {
+            //Necessary to end the edit mode of the Cell.
+            dgvImpuestos.EndEdit();
+
+            //Loop and check and uncheck all row CheckBoxes based on Header Cell CheckBox.
+            foreach (DataGridViewRow row in dgvImpuestos.Rows)
+            {
+                DataGridViewCheckBoxCell checkBox = (row.Cells["chbxselectimpuesto"] as DataGridViewCheckBoxCell);
+                checkBox.Value = HeaderCheckBoxImpuesto.Checked;
+            }
+        }
+        private void DataGridView_CellClickProducto(object sender, DataGridViewCellEventArgs e)
+        {
+            //Check to ensure that the row CheckBox is clicked.
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                //Loop to verify whether all row CheckBoxes are checked or not.
+                bool isChecked = true;
+                foreach (DataGridViewRow row in dgvProducto.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["chbxselecProducto"].EditedFormattedValue) == false)
+                    {
+                        isChecked = false;
+                        break;
+                    }
+                }
+                HeaderCheckBoxProducto.Checked = isChecked;
+            }
+        }
+        private void DataGridView_CellClickImpuesto(object sender, DataGridViewCellEventArgs e)
+        {
+            //Check to ensure that the row CheckBox is clicked.
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                //Loop to verify whether all row CheckBoxes are checked or not.
+                bool isChecked = true;
+                foreach (DataGridViewRow row in dgvImpuestos.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["chbxselectimpuesto"].EditedFormattedValue) == false)
+                    {
+                        isChecked = false;
+                        break;
+                    }
+                }
+                HeaderCheckBoxImpuesto.Checked = isChecked;
+            }
+        }
+
         #endregion
+
+
+
+
 
         #region ==================================== Estados ====================================
         private void loadState(bool state)
@@ -98,5 +260,85 @@ namespace Admeli.Herramientas
         }
         #endregion
 
+        #region=================================
+        private void cbxSucursales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSucursales.SelectedValue!=null)
+                cargarProductos((int)cbxSucursales.SelectedValue);
+        }
+
+        #endregion=============================================
+
+        private async void btnNuevo_Click(object sender, EventArgs e)
+        {
+            List<Dictionary<string,int>> list = new List<Dictionary<string, int>>();
+
+            Dictionary<string, int> listProducto = new Dictionary<string, int>();
+            Dictionary<string, int> listImpuesto = new Dictionary<string, int>();
+            Dictionary<string, int> listSucursal = new Dictionary<string, int>();
+            int numert = 0;
+            foreach (DataGridViewRow row in dgvProducto.Rows)
+            {
+                DataGridViewCheckBoxCell checkBox = (row.Cells["chbxselecProducto"] as DataGridViewCheckBoxCell);
+                DataGridViewTextBoxCell idPresentacion = (row.Cells["idPresentacion"] as DataGridViewTextBoxCell);
+                bool estaSeleccionado = Convert.ToBoolean(checkBox.EditedFormattedValue);
+                if (estaSeleccionado)
+                {
+
+                    listProducto.Add("id" + numert++, Convert.ToInt32(idPresentacion.Value));
+                }
+
+            }
+            numert = 0;
+            foreach (DataGridViewRow row in dgvImpuestos.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxSelectImpuesto = (row.Cells["chbxselectimpuesto"] as DataGridViewCheckBoxCell);
+                DataGridViewTextBoxCell idImpuesto = (row.Cells["idImpuesto"] as DataGridViewTextBoxCell);
+               
+                bool estaSeleccionado = Convert.ToBoolean(checkBoxSelectImpuesto.EditedFormattedValue);
+             
+                if (estaSeleccionado)
+                {
+                    listImpuesto.Add("id" + numert, Convert.ToInt32(idImpuesto.Value));
+                    
+                    numert++;
+                }
+
+            }
+            if (cbxSucursales.SelectedValue != null)
+            {
+                listSucursal.Add("idSucursal" , Convert.ToInt32(cbxSucursales.SelectedValue));
+
+            }
+            else
+            {
+
+            }
+
+
+            list.Add(listProducto);
+            list.Add(listImpuesto);            
+            list.Add(listSucursal);
+
+            try
+            {
+            
+              Response response=  await  impuestoModel.InsertarImpuestosProductosArray(list);
+
+            if (response.id > 0)
+              {
+
+               MessageBox.Show(response.msj, "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reLoad();  
+              }
+
+            }
+            catch(Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
     }
 }

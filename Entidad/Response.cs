@@ -11,4 +11,10 @@ namespace Entidad
         public string msj { get; set; }
         public int id { get; set; }
     }
+
+    public class ResponseD
+    {
+        public string msj { get; set; }
+        public object id { get; set; }
+    }
 }

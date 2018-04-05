@@ -16,7 +16,7 @@ namespace Admeli.Compras.Nuevo.Detalle
     {
         private FormProveedorNuevo formProveedorNuevo;
         private ContactoModel contactoModel = new ContactoModel();
-
+        private string nroDocumento { get; set; }
         private List<Contacto> contactos { get; set; }
         private Contacto currentContacto { get; set; }
 
@@ -29,6 +29,12 @@ namespace Admeli.Compras.Nuevo.Detalle
         {
             InitializeComponent();
             this.formProveedorNuevo = formProveedorNuevo;
+        }
+        public UCProveedorContacto(FormProveedorNuevo formProveedorNuevo, string nroDocumento)
+        {
+            InitializeComponent();
+            this.formProveedorNuevo = formProveedorNuevo;
+            this.nroDocumento = nroDocumento;
         }
 
         private void UCProveedorContacto_Load(object sender, EventArgs e)

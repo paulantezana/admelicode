@@ -41,7 +41,7 @@ namespace Admeli.Componentes
         }
 
         //when the control is focused, the placeholder is removed
-        private void removePlaceHolder()
+        public void removePlaceHolder()
         {
 
             if (isPlaceHolder)

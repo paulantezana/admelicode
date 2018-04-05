@@ -110,7 +110,7 @@ namespace Admeli.Configuracion
 
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                int idCajaSesion = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
+                int idCajaSesion = Convert.ToInt32(row.Cells[2].Value); // obteniedo el idCaja del datagridview
 
                 currentCajaSesion = cajaSesiones.Find(x => x.idCajaSesion == idCajaSesion); // Buscando la categoria en las lista de categorias
                 if (currentCajaSesion.estado == 0)
@@ -294,7 +294,7 @@ namespace Admeli.Configuracion
             }
 
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idCajaSesion = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+            int idCajaSesion = Convert.ToInt32(dataGridView.Rows[index].Cells[2].Value); // obteniedo el idRegistro del datagridview
 
             currentCajaSesion = cajaSesiones.Find(x => x.idCajaSesion == idCajaSesion); // Buscando la registro especifico en la lista de registros
 

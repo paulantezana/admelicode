@@ -16,7 +16,7 @@ namespace Entidad.Configuracion
         public string simbolo { get; set; }
         public bool porDefecto { get; set; }
         public int estado { get; set; }
-        public string tipoCambio { get; set; }
+        public double tipoCambio { get; set; }
         public Fecha fechaCreacion { get; set; }
         public dynamic idPersonal { get; set; }
         public string nombres { get; set; }

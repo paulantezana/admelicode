@@ -38,6 +38,7 @@ namespace Admeli.CajaBox.Nuevo
 
         // variables de los elementos en el aside
         private int x = 13, y = 10;
+        private List<MedioPago> mediosDePagos;
 
         #region =========================== Constructor ===========================
         public FormArquearCaja()
@@ -77,7 +78,7 @@ namespace Admeli.CajaBox.Nuevo
             this.cargarMedioPago(); // carga mas los ingresosMenosEgresos()
             this.cargarIngreso();
             this.cargarFecha();
-            this.cargarMoneda();
+            
         }
         #endregion
 
@@ -92,7 +93,7 @@ namespace Admeli.CajaBox.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar  medio pagos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -100,7 +101,10 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-                ingresos = await ingresoModel.ingresos(ConfigModel.cajaSesion.idCajaSesion); // Listas
+
+
+
+                ingresos = await ingresoModel.ingresos(currentCajaSesion.idCajaSesion); // Listas
                 int columnas = 3; // Indicar numero de columnas de la grilla
 
                 this.createLabel(x - 5, this.y, "Monto inicio caja");
@@ -128,21 +132,21 @@ namespace Admeli.CajaBox.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar Ingresos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private async void cargarCajaSesion()
+        private  void cargarCajaSesion()
         {
             try
             {
-                await configModel.loadCajaSesion(ConfigModel.asignacionPersonal.idAsignarCaja);
-                CajaSesion cajaSesion = ConfigModel.cajaSesion;
-                lblFechInicio.Text = cajaSesion.fechaInicio.ToString();
+                
+                lblFechInicio.Text =currentCajaSesion.fechaInicio.timezone;
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar caja sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -155,7 +159,7 @@ namespace Admeli.CajaBox.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -163,13 +167,15 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-                // mediosDePagos = await medioPagoModel.medioPagos();
+
+                
+                 mediosDePagos = await medioPagoModel.medioPagos();
                 /// List<Moneda> monedas = await monedaModel.monedas();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar medios pago", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -179,7 +185,7 @@ namespace Admeli.CajaBox.Nuevo
             {
                 // 
                 int medioPagoID = medioPagos.First<MedioPago>().idMedioPago;
-                ingresoMenosEgreso = await cierreCajaModel.ingresoMenosEgreso(medioPagoID, ConfigModel.cajaSesion.idCajaSesion);
+                ingresoMenosEgreso = await cierreCajaModel.ingresoMenosEgreso(medioPagoID, currentCajaSesion.idCajaSesion);
 
                 this.createLabel(x - 5, this.y, "Cálculo efectivo");
                 this.y += 25;
@@ -200,14 +206,14 @@ namespace Admeli.CajaBox.Nuevo
                 {
                     /// ===================================================================
                     /// denominaciones de las monedas
-                    List<Denominacion> denominaciones = await denominacionModel.denominacionMoneda(moneda.idMoneda,currentCierreCaja.idCierreCaja);
+                    List<Denominacion> denominaciones = await denominacionModel.denominacionMoneda(moneda.idMoneda,currentCajaSesion.idCajaSesion);
                     createTabPage(moneda.moneda, moneda.idMoneda.ToString(), denominaciones);
                 }
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "IngresoMenosEgreso ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion

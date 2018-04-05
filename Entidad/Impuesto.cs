@@ -11,7 +11,7 @@ namespace Entidad
         public int idImpuesto { get; set; }
         public string nombreImpuesto { get; set; }
         public string siglasImpuesto { get; set; }
-        public string valorImpuesto { get; set; }
+        public double valorImpuesto { get; set; }
         public bool porcentual { get; set; }
         public bool porDefecto { get; set; }
         public int estado { get; set; }
@@ -41,5 +41,12 @@ namespace Entidad
     public class listaEnviada
     {
         public List<object> listita { get; set; }
+    }
+
+    public class ImpuestosSiglas
+    {
+        public int idImpuesto { get; set; }
+        public string nombreImpuesto { get; set; }
+        public string siglasImpuesto { get; set; } 
     }
 }

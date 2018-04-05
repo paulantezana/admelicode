@@ -21,7 +21,48 @@ namespace Entidad
         public bool fin { get; set; }
         public int estado { get; set; }
         public int idDocumento { get; set; }
-        public object idOperacion { get; set; }
+        public int idOperacion { get; set; }
         public string operacion { get; set; }
     }
+
+    public class VentaCorrelativo
+    {
+
+        public int idVentaCorrelativo { get; set; }
+        public string serie { get; set; }
+        public string correlativoActual { get; set; }
+        public int estado { get; set; }
+
+    }
+    public class CajaCorrelativoM
+    {
+
+        public int idCajaCorrelativo { get; set; }
+        public string serie { get; set; }
+        public string correlativoActual { get; set; }
+        public int estado { get; set; }
+
+    }
+    public class SucursalCorrelativo
+    {
+
+        public int idSucursalCorrelativo { get; set; }
+        public string serie { get; set; }
+        public string correlativoActual { get; set; }
+        public int estado { get; set; }
+
+    }
+    public class AlmacenCorrelativo
+    {
+
+        public int idAlmacenCorrelativo { get; set; }
+        public string serie { get; set; }
+        public string correlativoActual { get; set; }
+        public int estado { get; set; }
+
+    }
+
+
+
+
 }
