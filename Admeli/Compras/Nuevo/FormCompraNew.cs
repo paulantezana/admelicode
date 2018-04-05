@@ -107,6 +107,9 @@ namespace Admeli.Compras.Nuevo
             txtNombreProveedor.Enabled = false;
             txtDireccionProveedor.Enabled = false;
             btnImportarOrdenCompra.Visible = false;
+
+            dgvDetalleCompra.BringToFront();
+            dgvDetalleCompra.AutoSize = true;
         }
 
         #region ================================ Root Load ================================

@@ -348,7 +348,7 @@ namespace Admeli.Compras
             //comprarNuevo.ShowDialog();
 
 
-            FormCompraNuevo2 formCompraN = new FormCompraNuevo2();
+            Form2 formCompraN = new Form2();
             formCompraN.ShowDialog();
 
         }

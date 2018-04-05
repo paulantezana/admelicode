@@ -140,14 +140,14 @@
   </data>
   <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAGESURBVEhLxZXdKkRRGIbHJE5wYPzkJ7kGMnIHchduQVOOlSJOmHLAFaDITXAkZ5OQnHKmcW55
-        vlnvyqjZe77RGE89Tftb77dWs/faaxf+nRBCEZdxHTf1W8aiIr+HSQaxgm/YilfcwAG1dAaN83iHiUc8
-        xl08wSdM3OKcWn3QMIYv1g0PuKqhH1Bfw7TYM5Y01B7CV422EK5xROWW2DjeWBguVM6H4ErMh3ecUjkX
-        cjNYx08sq5wNoSM0tlRyQX47toWqStkQuo/ZsKCSC/JLsS3UVMqG0EfMhiGVXJAfjm2hrlI2hHqySLpd
-        iyq5IG8ngOG6XenB76jkgvxebPM9+LSFbUtOq5wLuVm02+zbwgbB9DLacTGqcksYL2E6fnwvo0G4+Vix
-        YyPvWLHjJHGJ/RpuD+FODki7TQkb838CCHuP+v3G1Ten6P9HBg25Hy1++/AAmznDzhZqBxP2dKFDm72J
-        c/yThezhJ2z3TWi4ezCpLVTFGk6q3H2Y3DbLuC57RaHwBdF0tJ7iMIOKAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAYRJREFUSEvF
+        ld0qRFEYhsckTnBg/OQnuQYycgdyF25BU46VIk6YcsAVoMhNcCRnk5CccqZxbnm+We/KqNl7vtEYTz1N
+        +1vvt1az99prF/6dEEIRl3EdN/VbxqIiv4dJBrGCb9iKV9zAAbV0Bo3zeIeJRzzGXTzBJ0zc4pxafdAw
+        hi/WDQ+4qqEfUF/DtNgzljTUHsJXjbYQrnFE5ZbYON5YGC5UzofgSsyHd5xSORdyM1jHTyyrnA2hIzS2
+        VHJBfju2hapK2RC6j9mwoJIL8kuxLdRUyobQR8yGIZVckB+ObaGuUjaEerJIul2LKrkgbyeA4bpd6cHv
+        qOSC/F5s8z34tIVtS06rnAu5WbTb7NvCBsH0MtpxMapySxgvYTp+fC+jQbj5WLFjI+9YseMkcYn9Gm4P
+        4U4OSLtNCRvzfwIIe4/6/cbVN6fo/0cGDbkfLX778ACbOcPOFmoHE/Z0oUObvYlz/JOF7OEnbPdNaLh7
+        MKktVMUaTqrcfZjcNsu4LntFofAF0XS0nuIwg4oAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -1075,4 +1075,7 @@
         QL4wCAAAgHxhEAAAAPnCIAAAAPKFQQAAAOQLgwAAAMj1ov0eujnHgBnBxisAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>47</value>
+  </metadata>
 </root>
