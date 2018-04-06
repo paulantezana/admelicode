@@ -360,7 +360,7 @@ namespace Admeli.Ventas
         private void executeNuevo()
         {
             //FormVentaNuevo1 formVentaNuevo = new FormVentaNuevo1(ConfigModel.sucursal, personalBindingSource.List[0] as Personal );
-            FormVentaNuevo formVentaNuevo = new FormVentaNuevo();
+            FormVentaTouch formVentaNuevo = new FormVentaTouch();
             formVentaNuevo.ShowDialog();
             cargarRegistros();
         }
