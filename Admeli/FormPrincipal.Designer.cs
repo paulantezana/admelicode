@@ -39,7 +39,7 @@
             this.lblDocumento = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnHome = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
@@ -71,7 +71,7 @@
             this.panelAsideHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelMenuRight.SuspendLayout();
@@ -156,7 +156,7 @@
             this.panel1.Controls.Add(this.lblDocumento);
             this.panel1.Controls.Add(this.lblUserName);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -195,15 +195,16 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // btnHome
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.Location = new System.Drawing.Point(0, 6);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(58, 50);
+            this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHome.TabIndex = 0;
+            this.btnHome.TabStop = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel2
             // 
@@ -561,11 +562,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
+            this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.panelAsideContainer.ResumeLayout(false);
             this.panelAsideHeader.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panelMenuRight.ResumeLayout(false);
@@ -592,7 +595,7 @@
         private System.Windows.Forms.Button btnFullScreen;
         private System.Windows.Forms.Button btnVentaTocuh;
         private System.Windows.Forms.Button btnCompra2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnHome;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblDocumento;
         private System.Windows.Forms.PictureBox pictureBox2;

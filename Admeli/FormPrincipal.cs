@@ -299,7 +299,7 @@ namespace Admeli
         #endregion
 
         #region ================================= ROOT LOAD =================================
-        private void FormHomeDarck_Shown(object sender, EventArgs e)
+        private void FormPrincipal_Shown(object sender, EventArgs e)
         {
             this.reLoad();
         }
@@ -416,6 +416,14 @@ namespace Admeli
         private void btnHome_Click(object sender, EventArgs e)
         {
             togglePanelMain("home");
+        }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!notCloseApp)
+            {
+                Application.Exit();
+            }
         }
     }
 }

@@ -60,10 +60,10 @@
             // 
             this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReporte.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnReporte.FlatAppearance.BorderSize = 0;
-            this.btnReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporte.ForeColor = System.Drawing.Color.Gray;
             this.btnReporte.ImageIndex = 12;
@@ -104,10 +104,10 @@
             // 
             this.btnHerramienta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHerramienta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHerramienta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnHerramienta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnHerramienta.FlatAppearance.BorderSize = 0;
-            this.btnHerramienta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnHerramienta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnHerramienta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnHerramienta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnHerramienta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHerramienta.ForeColor = System.Drawing.Color.Gray;
             this.btnHerramienta.ImageIndex = 10;
@@ -127,10 +127,10 @@
             // 
             this.btnCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCaja.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCaja.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnCaja.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnCaja.FlatAppearance.BorderSize = 0;
-            this.btnCaja.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnCaja.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaja.ForeColor = System.Drawing.Color.Gray;
             this.btnCaja.ImageIndex = 8;
@@ -150,10 +150,10 @@
             // 
             this.btnAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlmacen.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAlmacen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnAlmacen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnAlmacen.FlatAppearance.BorderSize = 0;
-            this.btnAlmacen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnAlmacen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnAlmacen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnAlmacen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlmacen.ForeColor = System.Drawing.Color.Gray;
             this.btnAlmacen.ImageIndex = 6;
@@ -173,10 +173,10 @@
             // 
             this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnProducto.FlatAppearance.BorderSize = 0;
-            this.btnProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProducto.ForeColor = System.Drawing.Color.Gray;
             this.btnProducto.ImageIndex = 4;
@@ -196,10 +196,10 @@
             // 
             this.btnCompra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCompra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnCompra.FlatAppearance.BorderSize = 0;
-            this.btnCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCompra.ForeColor = System.Drawing.Color.Gray;
             this.btnCompra.ImageIndex = 2;
@@ -219,10 +219,10 @@
             // 
             this.btnVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVenta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnVenta.FlatAppearance.BorderSize = 0;
-            this.btnVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVenta.ForeColor = System.Drawing.Color.Gray;
             this.btnVenta.ImageIndex = 0;
@@ -242,10 +242,10 @@
             // 
             this.btnConfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfiguracion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConfiguracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
+            this.btnConfiguracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnConfiguracion.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.btnConfiguracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.btnConfiguracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
+            this.btnConfiguracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(63)))), ((int)(((byte)(76)))));
             this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracion.ForeColor = System.Drawing.Color.DarkGray;
             this.btnConfiguracion.ImageIndex = 14;
@@ -263,7 +263,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.panel4.Controls.Add(this.borderLeftActive);
             this.panel4.Controls.Add(this.btnConfiguracion);
             this.panel4.Controls.Add(this.btnReporte);
