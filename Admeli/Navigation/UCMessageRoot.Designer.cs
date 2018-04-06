@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCMessageRoot));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.imageListMenuPrimary = new System.Windows.Forms.ImageList(this.components);
             this.btnReporte = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.borderLeftActive = new System.Windows.Forms.Panel();
-            this.panelMulos = new System.Windows.Forms.Panel();
+            this.imageListMenuPrimary = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,6 +40,9 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.borderLeftActive = new System.Windows.Forms.Panel();
+            this.panelMulos = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,27 +55,6 @@
             this.toolTip1.ToolTipTitle = "admeli";
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
-            // 
-            // imageListMenuPrimary
-            // 
-            this.imageListMenuPrimary.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListMenuPrimary.ImageStream")));
-            this.imageListMenuPrimary.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListMenuPrimary.Images.SetKeyName(0, "compra_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(1, "compra_white_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(2, "venta_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(3, "venta_white_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(4, "producto_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(5, "producto_white_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(6, "almacen_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(7, "almacen_white_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(8, "caja_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(9, "caja_white_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(10, "tools_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(11, "tools_white_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(12, "reporte_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(13, "reporte_white_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(14, "config_gray_icon.png");
-            this.imageListMenuPrimary.Images.SetKeyName(15, "config_white_icon.png");
             // 
             // btnReporte
             // 
@@ -99,39 +78,26 @@
             this.toolTip1.SetToolTip(this.btnReporte, "Reportes");
             this.btnReporte.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // imageListMenuPrimary
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(58)))));
-            this.panel4.Controls.Add(this.button7);
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.button5);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.borderLeftActive);
-            this.panel4.Controls.Add(this.btnReporte);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(58, 600);
-            this.panel4.TabIndex = 3;
-            // 
-            // borderLeftActive
-            // 
-            this.borderLeftActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(203)))), ((int)(((byte)(34)))));
-            this.borderLeftActive.Location = new System.Drawing.Point(-6, 391);
-            this.borderLeftActive.Name = "borderLeftActive";
-            this.borderLeftActive.Size = new System.Drawing.Size(3, 55);
-            this.borderLeftActive.TabIndex = 17;
-            // 
-            // panelMulos
-            // 
-            this.panelMulos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMulos.Location = new System.Drawing.Point(58, 0);
-            this.panelMulos.Name = "panelMulos";
-            this.panelMulos.Size = new System.Drawing.Size(192, 600);
-            this.panelMulos.TabIndex = 4;
+            this.imageListMenuPrimary.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListMenuPrimary.ImageStream")));
+            this.imageListMenuPrimary.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListMenuPrimary.Images.SetKeyName(0, "compra_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(1, "compra_white_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(2, "venta_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(3, "venta_white_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(4, "producto_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(5, "producto_white_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(6, "almacen_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(7, "almacen_white_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(8, "caja_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(9, "caja_white_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(10, "tools_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(11, "tools_white_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(12, "reporte_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(13, "reporte_white_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(14, "config_gray_icon.png");
+            this.imageListMenuPrimary.Images.SetKeyName(15, "config_white_icon.png");
             // 
             // button1
             // 
@@ -287,11 +253,45 @@
             this.toolTip1.SetToolTip(this.button7, "Reportes");
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
+            this.panel4.Controls.Add(this.button7);
+            this.panel4.Controls.Add(this.button6);
+            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.borderLeftActive);
+            this.panel4.Controls.Add(this.btnReporte);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(58, 600);
+            this.panel4.TabIndex = 3;
+            // 
+            // borderLeftActive
+            // 
+            this.borderLeftActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(203)))), ((int)(((byte)(34)))));
+            this.borderLeftActive.Location = new System.Drawing.Point(-6, 391);
+            this.borderLeftActive.Name = "borderLeftActive";
+            this.borderLeftActive.Size = new System.Drawing.Size(3, 55);
+            this.borderLeftActive.TabIndex = 17;
+            // 
+            // panelMulos
+            // 
+            this.panelMulos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMulos.Location = new System.Drawing.Point(58, 0);
+            this.panelMulos.Name = "panelMulos";
+            this.panelMulos.Size = new System.Drawing.Size(192, 600);
+            this.panelMulos.TabIndex = 4;
+            // 
             // UCMessageRoot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.Controls.Add(this.panelMulos);
             this.Controls.Add(this.panel4);
             this.Name = "UCMessageRoot";

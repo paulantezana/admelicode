@@ -38,7 +38,7 @@
             // btnGenerarCodigoDeBarra
             // 
             this.btnGenerarCodigoDeBarra.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnGenerarCodigoDeBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnGenerarCodigoDeBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnGenerarCodigoDeBarra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGenerarCodigoDeBarra.BorderRadius = 0;
             this.btnGenerarCodigoDeBarra.ButtonText = "Generar código barras";
@@ -60,8 +60,8 @@
             this.btnGenerarCodigoDeBarra.Location = new System.Drawing.Point(0, 144);
             this.btnGenerarCodigoDeBarra.Margin = new System.Windows.Forms.Padding(0);
             this.btnGenerarCodigoDeBarra.Name = "btnGenerarCodigoDeBarra";
-            this.btnGenerarCodigoDeBarra.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnGenerarCodigoDeBarra.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnGenerarCodigoDeBarra.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnGenerarCodigoDeBarra.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnGenerarCodigoDeBarra.OnHoverTextColor = System.Drawing.Color.White;
             this.btnGenerarCodigoDeBarra.selected = false;
             this.btnGenerarCodigoDeBarra.Size = new System.Drawing.Size(200, 48);
@@ -75,7 +75,7 @@
             // btnAsignarImpuesto
             // 
             this.btnAsignarImpuesto.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnAsignarImpuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnAsignarImpuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnAsignarImpuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAsignarImpuesto.BorderRadius = 0;
             this.btnAsignarImpuesto.ButtonText = "Asignar Impuestos";
@@ -97,8 +97,8 @@
             this.btnAsignarImpuesto.Location = new System.Drawing.Point(0, 96);
             this.btnAsignarImpuesto.Margin = new System.Windows.Forms.Padding(0);
             this.btnAsignarImpuesto.Name = "btnAsignarImpuesto";
-            this.btnAsignarImpuesto.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnAsignarImpuesto.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnAsignarImpuesto.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnAsignarImpuesto.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnAsignarImpuesto.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAsignarImpuesto.selected = false;
             this.btnAsignarImpuesto.Size = new System.Drawing.Size(200, 48);
@@ -112,7 +112,7 @@
             // btnAsignarCategoria
             // 
             this.btnAsignarCategoria.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnAsignarCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnAsignarCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnAsignarCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAsignarCategoria.BorderRadius = 0;
             this.btnAsignarCategoria.ButtonText = "Asignar Categorías";
@@ -134,8 +134,8 @@
             this.btnAsignarCategoria.Location = new System.Drawing.Point(0, 48);
             this.btnAsignarCategoria.Margin = new System.Windows.Forms.Padding(0);
             this.btnAsignarCategoria.Name = "btnAsignarCategoria";
-            this.btnAsignarCategoria.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnAsignarCategoria.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnAsignarCategoria.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnAsignarCategoria.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnAsignarCategoria.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAsignarCategoria.selected = false;
             this.btnAsignarCategoria.Size = new System.Drawing.Size(200, 48);
@@ -149,7 +149,7 @@
             // btnPrecioStock
             // 
             this.btnPrecioStock.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnPrecioStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnPrecioStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnPrecioStock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPrecioStock.BorderRadius = 0;
             this.btnPrecioStock.ButtonText = "Stock-Precio";
@@ -171,8 +171,8 @@
             this.btnPrecioStock.Location = new System.Drawing.Point(0, 0);
             this.btnPrecioStock.Margin = new System.Windows.Forms.Padding(0);
             this.btnPrecioStock.Name = "btnPrecioStock";
-            this.btnPrecioStock.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnPrecioStock.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnPrecioStock.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnPrecioStock.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnPrecioStock.OnHoverTextColor = System.Drawing.Color.White;
             this.btnPrecioStock.selected = false;
             this.btnPrecioStock.Size = new System.Drawing.Size(200, 48);
@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.Controls.Add(this.btnGenerarCodigoDeBarra);
             this.Controls.Add(this.btnAsignarImpuesto);
             this.Controls.Add(this.btnAsignarCategoria);

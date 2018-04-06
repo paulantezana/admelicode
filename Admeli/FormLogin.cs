@@ -16,7 +16,7 @@ namespace Admeli
     public partial class FormLogin : Form
     {
         private PersonalModel personalModel = new PersonalModel();
-        private FormHome formHome { get; set; }
+        private FormPrincipal formHome { get; set; }
         private FormPrincipal formHomeDarck { get; set; }
 
         private SucursalModel sucursalModel = new SucursalModel();
@@ -81,7 +81,7 @@ namespace Admeli
                         // Mostrar el formulario principal
                         //formHomeDarck = new FormPrincipal(this);
                         //formHomeDarck.Show();
-                        formHome = new FormHome(this);
+                        formHome = new FormPrincipal(this);
                         formHome.Show();
                     }
                 }
