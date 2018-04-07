@@ -40,7 +40,7 @@
             // btnCierreCaja
             // 
             this.btnCierreCaja.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnCierreCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnCierreCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnCierreCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCierreCaja.BorderRadius = 0;
             this.btnCierreCaja.ButtonText = "Cierres de Caja";
@@ -62,22 +62,22 @@
             this.btnCierreCaja.Location = new System.Drawing.Point(0, 240);
             this.btnCierreCaja.Margin = new System.Windows.Forms.Padding(0);
             this.btnCierreCaja.Name = "btnCierreCaja";
-            this.btnCierreCaja.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnCierreCaja.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnCierreCaja.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnCierreCaja.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnCierreCaja.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCierreCaja.selected = false;
             this.btnCierreCaja.Size = new System.Drawing.Size(200, 48);
             this.btnCierreCaja.TabIndex = 13;
             this.btnCierreCaja.Text = "Cierres de Caja";
             this.btnCierreCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCierreCaja.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnCierreCaja.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnCierreCaja.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCierreCaja.Click += new System.EventHandler(this.btnCierreCaja_Click);
             // 
             // btnIniciarCaja
             // 
             this.btnIniciarCaja.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnIniciarCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnIniciarCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnIniciarCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnIniciarCaja.BorderRadius = 0;
             this.btnIniciarCaja.ButtonText = "Iniciar Caja";
@@ -99,22 +99,22 @@
             this.btnIniciarCaja.Location = new System.Drawing.Point(0, 192);
             this.btnIniciarCaja.Margin = new System.Windows.Forms.Padding(0);
             this.btnIniciarCaja.Name = "btnIniciarCaja";
-            this.btnIniciarCaja.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnIniciarCaja.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnIniciarCaja.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnIniciarCaja.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnIniciarCaja.OnHoverTextColor = System.Drawing.Color.White;
             this.btnIniciarCaja.selected = false;
             this.btnIniciarCaja.Size = new System.Drawing.Size(200, 48);
             this.btnIniciarCaja.TabIndex = 12;
             this.btnIniciarCaja.Text = "Iniciar Caja";
             this.btnIniciarCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIniciarCaja.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnIniciarCaja.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnIniciarCaja.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarCaja.Click += new System.EventHandler(this.btnIniciarCaja_Click);
             // 
             // btnCuentaPagar
             // 
             this.btnCuentaPagar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnCuentaPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnCuentaPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnCuentaPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCuentaPagar.BorderRadius = 0;
             this.btnCuentaPagar.ButtonText = "Cuentas por Pagar";
@@ -136,22 +136,22 @@
             this.btnCuentaPagar.Location = new System.Drawing.Point(0, 144);
             this.btnCuentaPagar.Margin = new System.Windows.Forms.Padding(0);
             this.btnCuentaPagar.Name = "btnCuentaPagar";
-            this.btnCuentaPagar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnCuentaPagar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnCuentaPagar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnCuentaPagar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnCuentaPagar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCuentaPagar.selected = false;
             this.btnCuentaPagar.Size = new System.Drawing.Size(200, 48);
             this.btnCuentaPagar.TabIndex = 11;
             this.btnCuentaPagar.Text = "Cuentas por Pagar";
             this.btnCuentaPagar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCuentaPagar.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnCuentaPagar.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnCuentaPagar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCuentaPagar.Click += new System.EventHandler(this.btnCuentaPagar_Click);
             // 
             // btnPorCobrar
             // 
             this.btnPorCobrar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnPorCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnPorCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnPorCobrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPorCobrar.BorderRadius = 0;
             this.btnPorCobrar.ButtonText = "Cuentas por Cobrar";
@@ -173,22 +173,22 @@
             this.btnPorCobrar.Location = new System.Drawing.Point(0, 96);
             this.btnPorCobrar.Margin = new System.Windows.Forms.Padding(0);
             this.btnPorCobrar.Name = "btnPorCobrar";
-            this.btnPorCobrar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnPorCobrar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnPorCobrar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnPorCobrar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnPorCobrar.OnHoverTextColor = System.Drawing.Color.White;
             this.btnPorCobrar.selected = false;
             this.btnPorCobrar.Size = new System.Drawing.Size(200, 48);
             this.btnPorCobrar.TabIndex = 10;
             this.btnPorCobrar.Text = "Cuentas por Cobrar";
             this.btnPorCobrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPorCobrar.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnPorCobrar.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnPorCobrar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPorCobrar.Click += new System.EventHandler(this.btnPorCobrar_Click);
             // 
             // btnIngreso
             // 
             this.btnIngreso.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnIngreso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnIngreso.BorderRadius = 0;
             this.btnIngreso.ButtonText = "Ingresos";
@@ -210,22 +210,22 @@
             this.btnIngreso.Location = new System.Drawing.Point(0, 48);
             this.btnIngreso.Margin = new System.Windows.Forms.Padding(0);
             this.btnIngreso.Name = "btnIngreso";
-            this.btnIngreso.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnIngreso.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnIngreso.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnIngreso.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnIngreso.OnHoverTextColor = System.Drawing.Color.White;
             this.btnIngreso.selected = false;
             this.btnIngreso.Size = new System.Drawing.Size(200, 48);
             this.btnIngreso.TabIndex = 9;
             this.btnIngreso.Text = "Ingresos";
             this.btnIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngreso.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnIngreso.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnIngreso.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // btnEgreso
             // 
             this.btnEgreso.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnEgreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnEgreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnEgreso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEgreso.BorderRadius = 0;
             this.btnEgreso.ButtonText = "Egresos";
@@ -247,15 +247,15 @@
             this.btnEgreso.Location = new System.Drawing.Point(0, 0);
             this.btnEgreso.Margin = new System.Windows.Forms.Padding(0);
             this.btnEgreso.Name = "btnEgreso";
-            this.btnEgreso.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnEgreso.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnEgreso.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnEgreso.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnEgreso.OnHoverTextColor = System.Drawing.Color.White;
             this.btnEgreso.selected = false;
             this.btnEgreso.Size = new System.Drawing.Size(200, 48);
             this.btnEgreso.TabIndex = 8;
             this.btnEgreso.Text = "Egresos";
             this.btnEgreso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEgreso.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnEgreso.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnEgreso.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEgreso.Click += new System.EventHandler(this.btnEgreso_Click);
             // 
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.Controls.Add(this.btnCierreCaja);
             this.Controls.Add(this.btnIniciarCaja);
             this.Controls.Add(this.btnCuentaPagar);

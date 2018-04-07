@@ -39,6 +39,7 @@ namespace Admeli
         private UCListadoProducto uCListadoProducto;
         private UCCompras uCCompras;
         private DataSunat d;
+
         // Modelos
         private SucursalModel sucursalModel = new SucursalModel();
         private ConfigModel configModel = new ConfigModel();
@@ -48,11 +49,10 @@ namespace Admeli
 
         //datos generales usados por todos los uc
         public static Asignacion asignacion;
-        
+
         // Metodos
         private bool notCloseApp { get; set; }
 
-        #region =============================== Constructor ===============================
         public FormPrincipal()
         {
             InitializeComponent();
@@ -60,42 +60,10 @@ namespace Admeli
 
         public FormPrincipal(FormLogin formLogin)
         {
-            
             InitializeComponent();
             this.formLogin = formLogin;
-            
-            
-
         }
 
-       
-        #endregion
-
-        #region =============================== PAINT ===============================
-        private void FormPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-            DrawShape drawShape = new DrawShape();
-            drawShape.bottomLine(panelHeader);
-            drawShape.leftLine(panelMenuRight);
-        }
-        #endregion
-
-
-
-        private void btnTienda_Click(object sender, EventArgs e)
-        {
-            toggleRootMenu("tienda");
-        }
-
-        private void btnMessage_Click(object sender, EventArgs e)
-        {
-            toggleRootMenu("message");
-        }
-
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-            toggleRootMenu("config");
-        }
 
         internal void toggleRootMenu(string panelName)
         {
@@ -157,6 +125,22 @@ namespace Admeli
                     break;
             }
         }
+
+        private void btnTienda_Click(object sender, EventArgs e)
+        {
+            toggleRootMenu("tienda");
+        }
+
+        private void btnMessage_Click(object sender, EventArgs e)
+        {
+            toggleRootMenu("message");
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            toggleRootMenu("config");
+        }
+
 
         #region ===================== TOGGLE PANEL ASIDE LEFT =====================
         internal void togglePanelMain(string panelName)
@@ -300,16 +284,6 @@ namespace Admeli
         }
         #endregion
 
-        #region ========================= CLOSE =========================
-        private void FormHomeDarck_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!notCloseApp)
-            {
-                Application.Exit();
-            }
-        }
-        #endregion
-
         #region =============================== SATATES ===============================
         public void appLoadState(bool state)
         {
@@ -325,7 +299,7 @@ namespace Admeli
         #endregion
 
         #region ================================= ROOT LOAD =================================
-        private void FormHomeDarck_Shown(object sender, EventArgs e)
+        private void FormPrincipal_Shown(object sender, EventArgs e)
         {
             this.reLoad();
         }
@@ -337,7 +311,7 @@ namespace Admeli
             lblUserName.Text = PersonalModel.personal.usuario.ToUpper();
             lblDocumento.Text = String.Format("{0}", PersonalModel.personal.numeroDocumento);
             /// Foto Del Usuario
-            
+
             /// Panel Aside por defecto
             toggleRootMenu("tienda");
 
@@ -442,6 +416,14 @@ namespace Admeli
         private void btnHome_Click(object sender, EventArgs e)
         {
             togglePanelMain("home");
+        }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!notCloseApp)
+            {
+                Application.Exit();
+            }
         }
     }
 }

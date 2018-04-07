@@ -37,7 +37,7 @@
             // btnGuiaRemision
             // 
             this.btnGuiaRemision.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnGuiaRemision.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnGuiaRemision.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnGuiaRemision.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGuiaRemision.BorderRadius = 0;
             this.btnGuiaRemision.ButtonText = "   Guías de remisión";
@@ -59,22 +59,22 @@
             this.btnGuiaRemision.Location = new System.Drawing.Point(0, 96);
             this.btnGuiaRemision.Margin = new System.Windows.Forms.Padding(0);
             this.btnGuiaRemision.Name = "btnGuiaRemision";
-            this.btnGuiaRemision.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnGuiaRemision.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnGuiaRemision.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnGuiaRemision.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnGuiaRemision.OnHoverTextColor = System.Drawing.Color.White;
             this.btnGuiaRemision.selected = false;
             this.btnGuiaRemision.Size = new System.Drawing.Size(200, 48);
             this.btnGuiaRemision.TabIndex = 6;
             this.btnGuiaRemision.Text = "   Guías de remisión";
             this.btnGuiaRemision.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuiaRemision.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnGuiaRemision.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnGuiaRemision.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuiaRemision.Click += new System.EventHandler(this.btnGuiaRemision_Click);
             // 
             // btnNotaSalida
             // 
             this.btnNotaSalida.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnNotaSalida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnNotaSalida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnNotaSalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNotaSalida.BorderRadius = 0;
             this.btnNotaSalida.ButtonText = "   Nota de salida";
@@ -96,22 +96,22 @@
             this.btnNotaSalida.Location = new System.Drawing.Point(0, 48);
             this.btnNotaSalida.Margin = new System.Windows.Forms.Padding(0);
             this.btnNotaSalida.Name = "btnNotaSalida";
-            this.btnNotaSalida.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnNotaSalida.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnNotaSalida.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnNotaSalida.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnNotaSalida.OnHoverTextColor = System.Drawing.Color.White;
             this.btnNotaSalida.selected = false;
             this.btnNotaSalida.Size = new System.Drawing.Size(200, 48);
             this.btnNotaSalida.TabIndex = 5;
             this.btnNotaSalida.Text = "   Nota de salida";
             this.btnNotaSalida.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotaSalida.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnNotaSalida.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnNotaSalida.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotaSalida.Click += new System.EventHandler(this.btnNotaSalida_Click);
             // 
             // btnNotaEntrada
             // 
             this.btnNotaEntrada.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnNotaEntrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnNotaEntrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnNotaEntrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNotaEntrada.BorderRadius = 0;
             this.btnNotaEntrada.ButtonText = "   Nota de entrada";
@@ -133,15 +133,15 @@
             this.btnNotaEntrada.Location = new System.Drawing.Point(0, 0);
             this.btnNotaEntrada.Margin = new System.Windows.Forms.Padding(0);
             this.btnNotaEntrada.Name = "btnNotaEntrada";
-            this.btnNotaEntrada.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnNotaEntrada.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnNotaEntrada.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnNotaEntrada.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnNotaEntrada.OnHoverTextColor = System.Drawing.Color.White;
             this.btnNotaEntrada.selected = false;
             this.btnNotaEntrada.Size = new System.Drawing.Size(200, 48);
             this.btnNotaEntrada.TabIndex = 4;
             this.btnNotaEntrada.Text = "   Nota de entrada";
             this.btnNotaEntrada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotaEntrada.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnNotaEntrada.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnNotaEntrada.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotaEntrada.Click += new System.EventHandler(this.btnNotaEntrada_Click);
             // 
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.Controls.Add(this.btnGuiaRemision);
             this.Controls.Add(this.btnNotaSalida);
             this.Controls.Add(this.btnNotaEntrada);

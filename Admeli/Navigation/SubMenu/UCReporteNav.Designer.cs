@@ -37,7 +37,7 @@
             // btnImpuestos
             // 
             this.btnImpuestos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnImpuestos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnImpuestos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnImpuestos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnImpuestos.BorderRadius = 0;
             this.btnImpuestos.ButtonText = "Impuestos";
@@ -59,21 +59,21 @@
             this.btnImpuestos.Location = new System.Drawing.Point(0, 96);
             this.btnImpuestos.Margin = new System.Windows.Forms.Padding(0);
             this.btnImpuestos.Name = "btnImpuestos";
-            this.btnImpuestos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnImpuestos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnImpuestos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnImpuestos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnImpuestos.OnHoverTextColor = System.Drawing.Color.White;
             this.btnImpuestos.selected = false;
             this.btnImpuestos.Size = new System.Drawing.Size(200, 48);
             this.btnImpuestos.TabIndex = 7;
             this.btnImpuestos.Text = "Impuestos";
             this.btnImpuestos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpuestos.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnImpuestos.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnImpuestos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnIngresoVentas
             // 
             this.btnIngresoVentas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnIngresoVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnIngresoVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnIngresoVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnIngresoVentas.BorderRadius = 0;
             this.btnIngresoVentas.ButtonText = "Ingresos Ventas";
@@ -95,21 +95,21 @@
             this.btnIngresoVentas.Location = new System.Drawing.Point(0, 48);
             this.btnIngresoVentas.Margin = new System.Windows.Forms.Padding(0);
             this.btnIngresoVentas.Name = "btnIngresoVentas";
-            this.btnIngresoVentas.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnIngresoVentas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnIngresoVentas.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnIngresoVentas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnIngresoVentas.OnHoverTextColor = System.Drawing.Color.White;
             this.btnIngresoVentas.selected = false;
             this.btnIngresoVentas.Size = new System.Drawing.Size(200, 48);
             this.btnIngresoVentas.TabIndex = 6;
             this.btnIngresoVentas.Text = "Ingresos Ventas";
             this.btnIngresoVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresoVentas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnIngresoVentas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnIngresoVentas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnExistenciaProducto
             // 
             this.btnExistenciaProducto.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnExistenciaProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnExistenciaProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnExistenciaProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExistenciaProducto.BorderRadius = 0;
             this.btnExistenciaProducto.ButtonText = "Existencia Producto";
@@ -131,22 +131,22 @@
             this.btnExistenciaProducto.Location = new System.Drawing.Point(0, 0);
             this.btnExistenciaProducto.Margin = new System.Windows.Forms.Padding(0);
             this.btnExistenciaProducto.Name = "btnExistenciaProducto";
-            this.btnExistenciaProducto.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnExistenciaProducto.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnExistenciaProducto.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnExistenciaProducto.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnExistenciaProducto.OnHoverTextColor = System.Drawing.Color.White;
             this.btnExistenciaProducto.selected = false;
             this.btnExistenciaProducto.Size = new System.Drawing.Size(200, 48);
             this.btnExistenciaProducto.TabIndex = 5;
             this.btnExistenciaProducto.Text = "Existencia Producto";
             this.btnExistenciaProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExistenciaProducto.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnExistenciaProducto.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnExistenciaProducto.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // UCReporteNav
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.Controls.Add(this.btnImpuestos);
             this.Controls.Add(this.btnIngresoVentas);
             this.Controls.Add(this.btnExistenciaProducto);

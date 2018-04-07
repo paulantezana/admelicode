@@ -37,8 +37,8 @@
             // 
             // btnDescuentoOferta
             // 
-            this.btnDescuentoOferta.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnDescuentoOferta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnDescuentoOferta.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
+            this.btnDescuentoOferta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnDescuentoOferta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDescuentoOferta.BorderRadius = 0;
             this.btnDescuentoOferta.ButtonText = "Descuentos y ofertas";
@@ -60,22 +60,22 @@
             this.btnDescuentoOferta.Location = new System.Drawing.Point(0, 144);
             this.btnDescuentoOferta.Margin = new System.Windows.Forms.Padding(0);
             this.btnDescuentoOferta.Name = "btnDescuentoOferta";
-            this.btnDescuentoOferta.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnDescuentoOferta.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnDescuentoOferta.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnDescuentoOferta.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnDescuentoOferta.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDescuentoOferta.selected = false;
             this.btnDescuentoOferta.Size = new System.Drawing.Size(200, 48);
             this.btnDescuentoOferta.TabIndex = 9;
             this.btnDescuentoOferta.Text = "Descuentos y ofertas";
             this.btnDescuentoOferta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescuentoOferta.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnDescuentoOferta.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnDescuentoOferta.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDescuentoOferta.Click += new System.EventHandler(this.btnDescuentoOferta_Click);
             // 
             // btnClientes
             // 
-            this.btnClientes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnClientes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
+            this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClientes.BorderRadius = 0;
             this.btnClientes.ButtonText = "Clientes";
@@ -97,22 +97,22 @@
             this.btnClientes.Location = new System.Drawing.Point(0, 96);
             this.btnClientes.Margin = new System.Windows.Forms.Padding(0);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnClientes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnClientes.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnClientes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnClientes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnClientes.selected = false;
             this.btnClientes.Size = new System.Drawing.Size(200, 48);
             this.btnClientes.TabIndex = 8;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnClientes.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnClientes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnVentas
             // 
-            this.btnVentas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnVentas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
+            this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVentas.BorderRadius = 0;
             this.btnVentas.ButtonText = "Ventas";
@@ -134,22 +134,22 @@
             this.btnVentas.Location = new System.Drawing.Point(0, 48);
             this.btnVentas.Margin = new System.Windows.Forms.Padding(0);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnVentas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnVentas.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnVentas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnVentas.OnHoverTextColor = System.Drawing.Color.White;
             this.btnVentas.selected = false;
             this.btnVentas.Size = new System.Drawing.Size(200, 48);
             this.btnVentas.TabIndex = 7;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnVentas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnVentas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnCotizacionCliente
             // 
-            this.btnCotizacionCliente.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btnCotizacionCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.btnCotizacionCliente.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
+            this.btnCotizacionCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnCotizacionCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCotizacionCliente.BorderRadius = 0;
             this.btnCotizacionCliente.ButtonText = "Cotizaciones de Clientes";
@@ -171,15 +171,15 @@
             this.btnCotizacionCliente.Location = new System.Drawing.Point(0, 0);
             this.btnCotizacionCliente.Margin = new System.Windows.Forms.Padding(0);
             this.btnCotizacionCliente.Name = "btnCotizacionCliente";
-            this.btnCotizacionCliente.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.btnCotizacionCliente.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btnCotizacionCliente.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.btnCotizacionCliente.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.btnCotizacionCliente.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCotizacionCliente.selected = false;
             this.btnCotizacionCliente.Size = new System.Drawing.Size(200, 48);
             this.btnCotizacionCliente.TabIndex = 6;
             this.btnCotizacionCliente.Text = "Cotizaciones de Clientes";
             this.btnCotizacionCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCotizacionCliente.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(138)))), ((int)(((byte)(141)))));
+            this.btnCotizacionCliente.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnCotizacionCliente.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCotizacionCliente.Click += new System.EventHandler(this.btnCotizacionCliente_Click);
             // 
@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.Controls.Add(this.btnDescuentoOferta);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnVentas);
