@@ -87,16 +87,18 @@
             this.panelAsideContainer.Controls.Add(this.panelAsideHeader);
             this.panelAsideContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelAsideContainer.Location = new System.Drawing.Point(0, 0);
+            this.panelAsideContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAsideContainer.Name = "panelAsideContainer";
-            this.panelAsideContainer.Size = new System.Drawing.Size(250, 519);
+            this.panelAsideContainer.Size = new System.Drawing.Size(333, 639);
             this.panelAsideContainer.TabIndex = 0;
             // 
             // panelAsideMain
             // 
             this.panelAsideMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAsideMain.Location = new System.Drawing.Point(0, 125);
+            this.panelAsideMain.Location = new System.Drawing.Point(0, 154);
+            this.panelAsideMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAsideMain.Name = "panelAsideMain";
-            this.panelAsideMain.Size = new System.Drawing.Size(250, 394);
+            this.panelAsideMain.Size = new System.Drawing.Size(333, 485);
             this.panelAsideMain.TabIndex = 1;
             // 
             // panelAsideHeader
@@ -108,8 +110,9 @@
             this.panelAsideHeader.Controls.Add(this.panel1);
             this.panelAsideHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAsideHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelAsideHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAsideHeader.Name = "panelAsideHeader";
-            this.panelAsideHeader.Size = new System.Drawing.Size(250, 125);
+            this.panelAsideHeader.Size = new System.Drawing.Size(333, 154);
             this.panelAsideHeader.TabIndex = 0;
             // 
             // button10
@@ -118,9 +121,10 @@
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(117, 75);
+            this.button10.Location = new System.Drawing.Point(156, 92);
+            this.button10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(59, 50);
+            this.button10.Size = new System.Drawing.Size(79, 62);
             this.button10.TabIndex = 7;
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.btnConfig_Click);
@@ -131,9 +135,10 @@
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(58, 75);
+            this.button9.Location = new System.Drawing.Point(77, 92);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(59, 50);
+            this.button9.Size = new System.Drawing.Size(79, 62);
             this.button9.TabIndex = 6;
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.btnMessage_Click);
@@ -144,9 +149,10 @@
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(0, 75);
+            this.button8.Location = new System.Drawing.Point(0, 92);
+            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(59, 50);
+            this.button8.Size = new System.Drawing.Size(79, 62);
             this.button8.TabIndex = 5;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.btnTienda_Click);
@@ -159,17 +165,19 @@
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 62);
+            this.panel1.Size = new System.Drawing.Size(333, 76);
             this.panel1.TabIndex = 4;
             // 
             // lblDocumento
             // 
             this.lblDocumento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(203)))), ((int)(((byte)(34)))));
-            this.lblDocumento.Location = new System.Drawing.Point(64, 31);
+            this.lblDocumento.Location = new System.Drawing.Point(85, 38);
+            this.lblDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDocumento.Name = "lblDocumento";
-            this.lblDocumento.Size = new System.Drawing.Size(115, 19);
+            this.lblDocumento.Size = new System.Drawing.Size(153, 23);
             this.lblDocumento.TabIndex = 2;
             this.lblDocumento.Text = "label3";
             this.lblDocumento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,9 +186,10 @@
             // 
             this.lblUserName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblUserName.ForeColor = System.Drawing.Color.White;
-            this.lblUserName.Location = new System.Drawing.Point(64, 5);
+            this.lblUserName.Location = new System.Drawing.Point(85, 6);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(115, 37);
+            this.lblUserName.Size = new System.Drawing.Size(153, 46);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "label2";
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,9 +197,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(224, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(299, 7);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(17, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(23, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -198,9 +208,10 @@
             // btnHome
             // 
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(0, 6);
+            this.btnHome.Location = new System.Drawing.Point(0, 7);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(58, 50);
+            this.btnHome.Size = new System.Drawing.Size(77, 62);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHome.TabIndex = 0;
             this.btnHome.TabStop = false;
@@ -211,9 +222,10 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(250, 0);
+            this.panel2.Location = new System.Drawing.Point(333, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(934, 519);
+            this.panel2.Size = new System.Drawing.Size(1246, 639);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -222,17 +234,19 @@
             this.panel4.Controls.Add(this.panelMenuRight);
             this.panel4.Controls.Add(this.progressBarApp);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 48);
+            this.panel4.Location = new System.Drawing.Point(0, 59);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(934, 471);
+            this.panel4.Size = new System.Drawing.Size(1246, 580);
             this.panel4.TabIndex = 1;
             // 
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(710, 463);
+            this.panelMain.Size = new System.Drawing.Size(947, 570);
             this.panelMain.TabIndex = 1;
             // 
             // panelMenuRight
@@ -252,9 +266,10 @@
             this.panelMenuRight.Controls.Add(this.lblDocumentType);
             this.panelMenuRight.Controls.Add(this.label6);
             this.panelMenuRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMenuRight.Location = new System.Drawing.Point(710, 0);
+            this.panelMenuRight.Location = new System.Drawing.Point(947, 0);
+            this.panelMenuRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMenuRight.Name = "panelMenuRight";
-            this.panelMenuRight.Size = new System.Drawing.Size(224, 463);
+            this.panelMenuRight.Size = new System.Drawing.Size(299, 570);
             this.panelMenuRight.TabIndex = 0;
             // 
             // lblSucursal
@@ -262,9 +277,10 @@
             this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(183)))));
-            this.lblSucursal.Location = new System.Drawing.Point(18, 404);
+            this.lblSucursal.Location = new System.Drawing.Point(24, 497);
+            this.lblSucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(194, 51);
+            this.lblSucursal.Size = new System.Drawing.Size(259, 63);
             this.lblSucursal.TabIndex = 35;
             this.lblSucursal.Text = "Tipo Cambio";
             this.lblSucursal.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -272,9 +288,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(19, 177);
+            this.pictureBox4.Location = new System.Drawing.Point(25, 218);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.Size = new System.Drawing.Size(33, 31);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 34;
             this.pictureBox4.TabStop = false;
@@ -282,9 +299,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(19, 16);
+            this.pictureBox3.Location = new System.Drawing.Point(25, 20);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.Size = new System.Drawing.Size(33, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 33;
             this.pictureBox3.TabStop = false;
@@ -294,9 +312,10 @@
             this.lblTipoCambio.AutoSize = true;
             this.lblTipoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoCambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.lblTipoCambio.Location = new System.Drawing.Point(44, 180);
+            this.lblTipoCambio.Location = new System.Drawing.Point(59, 222);
+            this.lblTipoCambio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoCambio.Name = "lblTipoCambio";
-            this.lblTipoCambio.Size = new System.Drawing.Size(104, 18);
+            this.lblTipoCambio.Size = new System.Drawing.Size(131, 24);
             this.lblTipoCambio.TabIndex = 32;
             this.lblTipoCambio.Text = "TIPO CAMBIO";
             // 
@@ -305,9 +324,10 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblName.Location = new System.Drawing.Point(83, 60);
+            this.lblName.Location = new System.Drawing.Point(111, 74);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(62, 15);
+            this.lblName.Size = new System.Drawing.Size(72, 17);
             this.lblName.TabIndex = 28;
             this.lblName.Text = "Nombres:";
             // 
@@ -316,9 +336,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label1.Location = new System.Drawing.Point(48, 17);
+            this.label1.Location = new System.Drawing.Point(64, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 18);
+            this.label1.Size = new System.Drawing.Size(207, 24);
             this.label1.TabIndex = 23;
             this.label1.Text = "DATOS PERSONALES";
             // 
@@ -327,9 +348,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label4.Location = new System.Drawing.Point(18, 60);
+            this.label4.Location = new System.Drawing.Point(24, 74);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 15);
+            this.label4.Size = new System.Drawing.Size(72, 17);
             this.label4.TabIndex = 24;
             this.label4.Text = "Nombres:";
             // 
@@ -338,9 +360,10 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblUsuario.Location = new System.Drawing.Point(83, 129);
+            this.lblUsuario.Location = new System.Drawing.Point(111, 159);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(54, 15);
+            this.lblUsuario.Size = new System.Drawing.Size(62, 17);
             this.lblUsuario.TabIndex = 31;
             this.lblUsuario.Text = "Usuario:";
             // 
@@ -349,9 +372,10 @@
             this.lblDNI.AutoSize = true;
             this.lblDNI.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblDNI.Location = new System.Drawing.Point(83, 106);
+            this.lblDNI.Location = new System.Drawing.Point(111, 130);
+            this.lblDNI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(31, 15);
+            this.lblDNI.Size = new System.Drawing.Size(36, 17);
             this.lblDNI.TabIndex = 30;
             this.lblDNI.Text = "DNI:";
             // 
@@ -360,9 +384,10 @@
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblLastName.Location = new System.Drawing.Point(83, 83);
+            this.lblLastName.Location = new System.Drawing.Point(111, 102);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(61, 15);
+            this.lblLastName.Size = new System.Drawing.Size(70, 17);
             this.lblLastName.TabIndex = 29;
             this.lblLastName.Text = "Apellidos:";
             // 
@@ -371,9 +396,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label5.Location = new System.Drawing.Point(26, 129);
+            this.label5.Location = new System.Drawing.Point(35, 159);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 15);
+            this.label5.Size = new System.Drawing.Size(62, 17);
             this.label5.TabIndex = 27;
             this.label5.Text = "Usuario:";
             // 
@@ -381,9 +407,10 @@
             // 
             this.lblDocumentType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDocumentType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblDocumentType.Location = new System.Drawing.Point(8, 106);
+            this.lblDocumentType.Location = new System.Drawing.Point(11, 130);
+            this.lblDocumentType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDocumentType.Name = "lblDocumentType";
-            this.lblDocumentType.Size = new System.Drawing.Size(71, 15);
+            this.lblDocumentType.Size = new System.Drawing.Size(95, 18);
             this.lblDocumentType.TabIndex = 26;
             this.lblDocumentType.Text = "DNI:";
             this.lblDocumentType.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -393,18 +420,20 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label6.Location = new System.Drawing.Point(19, 83);
+            this.label6.Location = new System.Drawing.Point(25, 102);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 15);
+            this.label6.Size = new System.Drawing.Size(70, 17);
             this.label6.TabIndex = 25;
             this.label6.Text = "Apellidos:";
             // 
             // progressBarApp
             // 
             this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBarApp.Location = new System.Drawing.Point(0, 463);
+            this.progressBarApp.Location = new System.Drawing.Point(0, 570);
+            this.progressBarApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBarApp.Name = "progressBarApp";
-            this.progressBarApp.Size = new System.Drawing.Size(934, 8);
+            this.progressBarApp.Size = new System.Drawing.Size(1246, 10);
             this.progressBarApp.TabIndex = 0;
             // 
             // panel3
@@ -420,17 +449,19 @@
             this.panel3.Controls.Add(this.btnToggleMenuRigth);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(934, 48);
+            this.panel3.Size = new System.Drawing.Size(1246, 59);
             this.panel3.TabIndex = 0;
             // 
             // lblTitlePage
             // 
             this.lblTitlePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitlePage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(183)))));
-            this.lblTitlePage.Location = new System.Drawing.Point(16, 6);
+            this.lblTitlePage.Location = new System.Drawing.Point(21, 7);
+            this.lblTitlePage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitlePage.Name = "lblTitlePage";
-            this.lblTitlePage.Size = new System.Drawing.Size(295, 37);
+            this.lblTitlePage.Size = new System.Drawing.Size(393, 46);
             this.lblTitlePage.TabIndex = 7;
             this.lblTitlePage.Text = "label1";
             this.lblTitlePage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -444,10 +475,11 @@
             this.btnVentaTocuh.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentaTocuh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnVentaTocuh.Image = ((System.Drawing.Image)(resources.GetObject("btnVentaTocuh.Image")));
-            this.btnVentaTocuh.Location = new System.Drawing.Point(330, 0);
+            this.btnVentaTocuh.Location = new System.Drawing.Point(441, 0);
+            this.btnVentaTocuh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVentaTocuh.Name = "btnVentaTocuh";
-            this.btnVentaTocuh.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnVentaTocuh.Size = new System.Drawing.Size(125, 48);
+            this.btnVentaTocuh.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnVentaTocuh.Size = new System.Drawing.Size(167, 59);
             this.btnVentaTocuh.TabIndex = 6;
             this.btnVentaTocuh.Text = "  Venta Touch";
             this.btnVentaTocuh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -463,10 +495,11 @@
             this.btnCompra2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompra2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnCompra2.Image = ((System.Drawing.Image)(resources.GetObject("btnCompra2.Image")));
-            this.btnCompra2.Location = new System.Drawing.Point(455, 0);
+            this.btnCompra2.Location = new System.Drawing.Point(608, 0);
+            this.btnCompra2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCompra2.Name = "btnCompra2";
-            this.btnCompra2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnCompra2.Size = new System.Drawing.Size(112, 48);
+            this.btnCompra2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnCompra2.Size = new System.Drawing.Size(149, 59);
             this.btnCompra2.TabIndex = 5;
             this.btnCompra2.Text = "   Compras";
             this.btnCompra2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -482,10 +515,11 @@
             this.btnVenta2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnVenta2.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta2.Image")));
-            this.btnVenta2.Location = new System.Drawing.Point(567, 0);
+            this.btnVenta2.Location = new System.Drawing.Point(757, 0);
+            this.btnVenta2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVenta2.Name = "btnVenta2";
-            this.btnVenta2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnVenta2.Size = new System.Drawing.Size(100, 48);
+            this.btnVenta2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnVenta2.Size = new System.Drawing.Size(133, 59);
             this.btnVenta2.TabIndex = 4;
             this.btnVenta2.Text = "   Ventas";
             this.btnVenta2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -501,10 +535,11 @@
             this.btnProductos2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnProductos2.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos2.Image")));
-            this.btnProductos2.Location = new System.Drawing.Point(667, 0);
+            this.btnProductos2.Location = new System.Drawing.Point(890, 0);
+            this.btnProductos2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProductos2.Name = "btnProductos2";
-            this.btnProductos2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnProductos2.Size = new System.Drawing.Size(123, 48);
+            this.btnProductos2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnProductos2.Size = new System.Drawing.Size(164, 59);
             this.btnProductos2.TabIndex = 3;
             this.btnProductos2.Text = "   Productos";
             this.btnProductos2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -516,9 +551,10 @@
             this.button3.Dock = System.Windows.Forms.DockStyle.Right;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(790, 0);
+            this.button3.Location = new System.Drawing.Point(1054, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 48);
+            this.button3.Size = new System.Drawing.Size(64, 59);
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -529,9 +565,10 @@
             this.btnFullScreen.FlatAppearance.BorderSize = 0;
             this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFullScreen.Image = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.Image")));
-            this.btnFullScreen.Location = new System.Drawing.Point(838, 0);
+            this.btnFullScreen.Location = new System.Drawing.Point(1118, 0);
+            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFullScreen.Name = "btnFullScreen";
-            this.btnFullScreen.Size = new System.Drawing.Size(48, 48);
+            this.btnFullScreen.Size = new System.Drawing.Size(64, 59);
             this.btnFullScreen.TabIndex = 1;
             this.btnFullScreen.UseVisualStyleBackColor = true;
             this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
@@ -543,21 +580,23 @@
             this.btnToggleMenuRigth.FlatAppearance.BorderSize = 0;
             this.btnToggleMenuRigth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToggleMenuRigth.Image = ((System.Drawing.Image)(resources.GetObject("btnToggleMenuRigth.Image")));
-            this.btnToggleMenuRigth.Location = new System.Drawing.Point(886, 0);
+            this.btnToggleMenuRigth.Location = new System.Drawing.Point(1182, 0);
+            this.btnToggleMenuRigth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnToggleMenuRigth.Name = "btnToggleMenuRigth";
-            this.btnToggleMenuRigth.Size = new System.Drawing.Size(48, 48);
+            this.btnToggleMenuRigth.Size = new System.Drawing.Size(64, 59);
             this.btnToggleMenuRigth.TabIndex = 0;
             this.btnToggleMenuRigth.UseVisualStyleBackColor = true;
             this.btnToggleMenuRigth.Click += new System.EventHandler(this.btnToggleMenuRigth_Click);
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 519);
+            this.ClientSize = new System.Drawing.Size(1579, 639);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelAsideContainer);
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormHome";

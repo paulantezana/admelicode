@@ -81,8 +81,10 @@ namespace Admeli
                         // Mostrar el formulario principal
                         //formHomeDarck = new FormPrincipal(this);
                         //formHomeDarck.Show();
-                        formHome = new FormPrincipal(this);
-                        formHome.Show();
+                        //formHome = new FormPrincipal(this);
+                        //formHome.Show();
+                        FormPrueba formPrueba = new FormPrueba();
+                        formPrueba.Show();
                     }
                 }
             }

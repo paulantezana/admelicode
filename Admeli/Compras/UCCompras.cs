@@ -219,11 +219,11 @@ namespace Admeli.Compras
         #region =========================== Estados ===========================
         private void loadState(bool state)
         {
-            formPrincipal.appLoadState(state);
-            panelNavigation.Enabled = !state;
-            panelCrud.Enabled = !state;
-            panelTools.Enabled = !state;
-            dataGridView.Enabled = !state;
+            //formPrincipal.appLoadState(state);
+            //panelNavigation.Enabled = !state;
+            //panelCrud.Enabled = !state;
+            //panelTools.Enabled = !state;
+            //dataGridView.Enabled = !state;
         }
         #endregion
 
