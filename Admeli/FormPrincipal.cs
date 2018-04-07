@@ -146,6 +146,7 @@ namespace Admeli
         internal void togglePanelMain(string panelName)
         {
             this.panelMain.Controls.Clear();
+        
             switch (panelName)
             {
                 case "home":

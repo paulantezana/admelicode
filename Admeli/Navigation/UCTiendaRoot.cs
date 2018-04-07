@@ -25,6 +25,10 @@ namespace Admeli.Navigation
 
         private FormPrincipal formPrincipal;
 
+
+        // para hacer pruebas
+
+        FormPrueba formPrueba;
         public UCTiendaRoot()
         {
             InitializeComponent();
@@ -35,7 +39,14 @@ namespace Admeli.Navigation
             InitializeComponent();
             this.formPrincipal = formPrincipal;
         }
+        
 
+        public UCTiendaRoot(FormPrueba formPrueba)
+        {
+            InitializeComponent();
+            this.formPrueba = formPrueba;
+            formPrincipal = new FormPrincipal();
+        }
         internal void togglePanelAsideMain(string panelName)
         {
             this.panelMulos.Controls.Clear();
@@ -182,6 +193,11 @@ namespace Admeli.Navigation
                     break;
             }
         }
+
+        
+
+
+
 
         private void btnColor()
         {

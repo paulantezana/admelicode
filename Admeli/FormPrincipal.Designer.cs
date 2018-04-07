@@ -35,7 +35,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lefgpanel1 = new System.Windows.Forms.Panel();
             this.lblDocumento = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -69,7 +69,7 @@
             this.btnToggleMenuRigth = new System.Windows.Forms.Button();
             this.panelAsideContainer.SuspendLayout();
             this.panelAsideHeader.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.lefgpanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panel2.SuspendLayout();
@@ -107,7 +107,7 @@
             this.panelAsideHeader.Controls.Add(this.button10);
             this.panelAsideHeader.Controls.Add(this.button9);
             this.panelAsideHeader.Controls.Add(this.button8);
-            this.panelAsideHeader.Controls.Add(this.panel1);
+            this.panelAsideHeader.Controls.Add(this.lefgpanel1);
             this.panelAsideHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAsideHeader.Location = new System.Drawing.Point(0, 0);
             this.panelAsideHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -157,18 +157,18 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.btnTienda_Click);
             // 
-            // panel1
+            // lefgpanel1
             // 
-            this.panel1.Controls.Add(this.lblDocumento);
-            this.panel1.Controls.Add(this.lblUserName);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 76);
-            this.panel1.TabIndex = 4;
+            this.lefgpanel1.Controls.Add(this.lblDocumento);
+            this.lefgpanel1.Controls.Add(this.lblUserName);
+            this.lefgpanel1.Controls.Add(this.pictureBox2);
+            this.lefgpanel1.Controls.Add(this.btnHome);
+            this.lefgpanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lefgpanel1.Location = new System.Drawing.Point(0, 0);
+            this.lefgpanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lefgpanel1.Name = "lefgpanel1";
+            this.lefgpanel1.Size = new System.Drawing.Size(333, 76);
+            this.lefgpanel1.TabIndex = 4;
             // 
             // lblDocumento
             // 
@@ -246,7 +246,7 @@
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(683, 570);
+            this.panelMain.Size = new System.Drawing.Size(918, 570);
             this.panelMain.TabIndex = 1;
             // 
             // panelMenuRight
@@ -266,10 +266,10 @@
             this.panelMenuRight.Controls.Add(this.lblDocumentType);
             this.panelMenuRight.Controls.Add(this.label6);
             this.panelMenuRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMenuRight.Location = new System.Drawing.Point(683, 0);
+            this.panelMenuRight.Location = new System.Drawing.Point(918, 0);
             this.panelMenuRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMenuRight.Name = "panelMenuRight";
-            this.panelMenuRight.Size = new System.Drawing.Size(563, 570);
+            this.panelMenuRight.Size = new System.Drawing.Size(328, 570);
             this.panelMenuRight.TabIndex = 0;
             // 
             // lblSucursal
@@ -277,7 +277,7 @@
             this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(183)))));
-            this.lblSucursal.Location = new System.Drawing.Point(156, 497);
+            this.lblSucursal.Location = new System.Drawing.Point(39, 497);
             this.lblSucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSucursal.Name = "lblSucursal";
             this.lblSucursal.Size = new System.Drawing.Size(259, 63);
@@ -605,7 +605,7 @@
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.panelAsideContainer.ResumeLayout(false);
             this.panelAsideHeader.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.lefgpanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -638,7 +638,7 @@
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblDocumento;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel lefgpanel1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;

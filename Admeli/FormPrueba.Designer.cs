@@ -35,7 +35,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelAsideMain = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -79,7 +79,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panelAsideMain);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -107,9 +107,9 @@
             // progressBar1
             // 
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(338, 736);
+            this.progressBar1.Location = new System.Drawing.Point(338, 742);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1240, 23);
+            this.progressBar1.Size = new System.Drawing.Size(1240, 17);
             this.progressBar1.TabIndex = 3;
             // 
             // panel3
@@ -129,9 +129,9 @@
             this.panel3.Controls.Add(this.lblDocumentType);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1229, 73);
+            this.panel3.Location = new System.Drawing.Point(1249, 73);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(349, 663);
+            this.panel3.Size = new System.Drawing.Size(329, 669);
             this.panel3.TabIndex = 4;
             // 
             // panel4
@@ -140,7 +140,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(338, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(891, 663);
+            this.panel4.Size = new System.Drawing.Size(911, 669);
             this.panel4.TabIndex = 5;
             // 
             // panel5
@@ -156,14 +156,14 @@
             this.panel5.Size = new System.Drawing.Size(338, 167);
             this.panel5.TabIndex = 0;
             // 
-            // panel6
+            // panelAsideMain
             // 
-            this.panel6.BackColor = System.Drawing.Color.Navy;
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 167);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(338, 592);
-            this.panel6.TabIndex = 1;
+            this.panelAsideMain.BackColor = System.Drawing.Color.Navy;
+            this.panelAsideMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAsideMain.Location = new System.Drawing.Point(0, 167);
+            this.panelAsideMain.Name = "panelAsideMain";
+            this.panelAsideMain.Size = new System.Drawing.Size(338, 592);
+            this.panelAsideMain.TabIndex = 1;
             // 
             // panel7
             // 
@@ -397,7 +397,7 @@
             this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(183)))));
-            this.lblSucursal.Location = new System.Drawing.Point(94, 538);
+            this.lblSucursal.Location = new System.Drawing.Point(36, 522);
             this.lblSucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSucursal.Name = "lblSucursal";
             this.lblSucursal.Size = new System.Drawing.Size(259, 63);
@@ -408,7 +408,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(33, 259);
+            this.pictureBox4.Location = new System.Drawing.Point(27, 217);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(33, 31);
@@ -419,7 +419,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(33, 61);
+            this.pictureBox3.Location = new System.Drawing.Point(27, 19);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 31);
@@ -432,7 +432,7 @@
             this.lblTipoCambio.AutoSize = true;
             this.lblTipoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoCambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.lblTipoCambio.Location = new System.Drawing.Point(67, 263);
+            this.lblTipoCambio.Location = new System.Drawing.Point(61, 221);
             this.lblTipoCambio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoCambio.Name = "lblTipoCambio";
             this.lblTipoCambio.Size = new System.Drawing.Size(131, 24);
@@ -444,7 +444,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblName.Location = new System.Drawing.Point(119, 115);
+            this.lblName.Location = new System.Drawing.Point(113, 73);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(72, 17);
@@ -456,7 +456,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label1.Location = new System.Drawing.Point(72, 62);
+            this.label1.Location = new System.Drawing.Point(66, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 24);
@@ -468,7 +468,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label4.Location = new System.Drawing.Point(32, 115);
+            this.label4.Location = new System.Drawing.Point(26, 73);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 17);
@@ -480,7 +480,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblUsuario.Location = new System.Drawing.Point(119, 200);
+            this.lblUsuario.Location = new System.Drawing.Point(113, 158);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(62, 17);
@@ -492,7 +492,7 @@
             this.lblDNI.AutoSize = true;
             this.lblDNI.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblDNI.Location = new System.Drawing.Point(119, 171);
+            this.lblDNI.Location = new System.Drawing.Point(113, 129);
             this.lblDNI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(36, 17);
@@ -504,7 +504,7 @@
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblLastName.Location = new System.Drawing.Point(119, 143);
+            this.lblLastName.Location = new System.Drawing.Point(113, 101);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(70, 17);
@@ -516,7 +516,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label5.Location = new System.Drawing.Point(43, 200);
+            this.label5.Location = new System.Drawing.Point(37, 158);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 17);
@@ -527,7 +527,7 @@
             // 
             this.lblDocumentType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDocumentType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.lblDocumentType.Location = new System.Drawing.Point(19, 171);
+            this.lblDocumentType.Location = new System.Drawing.Point(13, 129);
             this.lblDocumentType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDocumentType.Name = "lblDocumentType";
             this.lblDocumentType.Size = new System.Drawing.Size(95, 18);
@@ -540,7 +540,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label6.Location = new System.Drawing.Point(33, 143);
+            this.label6.Location = new System.Drawing.Point(27, 101);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 17);
@@ -581,7 +581,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelAsideMain;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button10;
