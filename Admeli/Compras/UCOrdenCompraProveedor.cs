@@ -324,10 +324,10 @@ namespace Admeli.Compras
             int i = cbxPersonales.SelectedIndex;
             Personal personal = personalBindingSource.List[i] as Personal;
            
-            FormOrdenCompraN formCompraProveedor = new FormOrdenCompraN( );
+            //FormOrdenCompraN formCompraProveedor = new FormOrdenCompraN( );
 
             
-            formCompraProveedor.ShowDialog();
+            //formCompraProveedor.ShowDialog();
             //formCompraProveedor.currentPagoCompra=model
             cargarRegistros();
         }
