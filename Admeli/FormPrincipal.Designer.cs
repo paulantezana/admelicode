@@ -242,6 +242,7 @@
             // 
             // panelMain
             // 
+            this.panelMain.AutoSize = true;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -610,6 +611,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panelMenuRight.ResumeLayout(false);
             this.panelMenuRight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

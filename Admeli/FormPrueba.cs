@@ -27,11 +27,11 @@ namespace Admeli
         private void pain()
         {
 
-            this.panel4.Controls.Clear();
+            this.panelmain.Controls.Clear();
             if (this.uCCompras == null)
             {
                 this.uCCompras = new UCCompras();
-                this.panel4.Controls.Add(uCCompras);
+                this.panelmain.Controls.Add(uCCompras);
                 this.uCCompras.Dock = System.Windows.Forms.DockStyle.Fill;
                 this.uCCompras.Location = new System.Drawing.Point(0, 0);
                 this.uCCompras.Name = "uCCompras";
@@ -40,7 +40,7 @@ namespace Admeli
             }
             else
             {
-                this.panel4.Controls.Add(uCCompras);
+                this.panelmain.Controls.Add(uCCompras);
             }
 
         }
