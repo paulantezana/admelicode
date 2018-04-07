@@ -138,5 +138,13 @@ namespace Admeli
                 panelMenuRight.Size = new Size(0, 700);
             }
         }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!notCloseApp)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
