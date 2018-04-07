@@ -246,7 +246,7 @@
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(947, 570);
+            this.panelMain.Size = new System.Drawing.Size(683, 570);
             this.panelMain.TabIndex = 1;
             // 
             // panelMenuRight
@@ -266,10 +266,10 @@
             this.panelMenuRight.Controls.Add(this.lblDocumentType);
             this.panelMenuRight.Controls.Add(this.label6);
             this.panelMenuRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMenuRight.Location = new System.Drawing.Point(947, 0);
+            this.panelMenuRight.Location = new System.Drawing.Point(683, 0);
             this.panelMenuRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMenuRight.Name = "panelMenuRight";
-            this.panelMenuRight.Size = new System.Drawing.Size(299, 570);
+            this.panelMenuRight.Size = new System.Drawing.Size(563, 570);
             this.panelMenuRight.TabIndex = 0;
             // 
             // lblSucursal
@@ -277,7 +277,7 @@
             this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(183)))));
-            this.lblSucursal.Location = new System.Drawing.Point(24, 497);
+            this.lblSucursal.Location = new System.Drawing.Point(156, 497);
             this.lblSucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSucursal.Name = "lblSucursal";
             this.lblSucursal.Size = new System.Drawing.Size(259, 63);
