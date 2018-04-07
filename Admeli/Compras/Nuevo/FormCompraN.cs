@@ -90,7 +90,7 @@ namespace Admeli.Compras.Nuevo
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
             formato = "{0:n" + nroDecimales + "}";
-            dgvDetalleCompra.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20);
+           
             cargarResultadosIniciales();
 
         }

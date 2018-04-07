@@ -1,6 +1,6 @@
 ﻿namespace Admeli
 {
-    partial class FormPrueba
+    partial class FormPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,51 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrueba));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.panel5 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
+            this.panelAsideContainer = new System.Windows.Forms.Panel();
             this.panelAsideMain = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.lblDocumento = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.PictureBox();
+            this.progressBarApp = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6L = new System.Windows.Forms.Panel();
-            this.panelmain = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.panelMenuRight = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTitlePage = new System.Windows.Forms.Label();
+            this.panelAsideContainer.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelAsideContainer
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel1.Controls.Add(this.panelAsideMain);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(338, 759);
-            this.panel1.TabIndex = 0;
+            this.panelAsideContainer.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panelAsideContainer.Controls.Add(this.panelAsideMain);
+            this.panelAsideContainer.Controls.Add(this.panel5);
+            this.panelAsideContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelAsideContainer.Location = new System.Drawing.Point(0, 0);
+            this.panelAsideContainer.Name = "panelAsideContainer";
+            this.panelAsideContainer.Size = new System.Drawing.Size(338, 759);
+            this.panelAsideContainer.TabIndex = 0;
             // 
-            // progressBar1
+            // panelAsideMain
             // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(338, 742);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1240, 17);
-            this.progressBar1.TabIndex = 3;
+            this.panelAsideMain.BackColor = System.Drawing.Color.Navy;
+            this.panelAsideMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAsideMain.Location = new System.Drawing.Point(0, 167);
+            this.panelAsideMain.Name = "panelAsideMain";
+            this.panelAsideMain.Size = new System.Drawing.Size(338, 592);
+            this.panelAsideMain.TabIndex = 1;
             // 
             // panel5
             // 
@@ -86,28 +89,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(338, 167);
             this.panel5.TabIndex = 0;
-            // 
-            // panelAsideMain
-            // 
-            this.panelAsideMain.BackColor = System.Drawing.Color.Navy;
-            this.panelAsideMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAsideMain.Location = new System.Drawing.Point(0, 167);
-            this.panelAsideMain.Name = "panelAsideMain";
-            this.panelAsideMain.Size = new System.Drawing.Size(338, 592);
-            this.panelAsideMain.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel7.Controls.Add(this.lblDocumento);
-            this.panel7.Controls.Add(this.lblUserName);
-            this.panel7.Controls.Add(this.pictureBox2);
-            this.panel7.Controls.Add(this.btnHome);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(338, 86);
-            this.panel7.TabIndex = 0;
             // 
             // button10
             // 
@@ -147,6 +128,19 @@
             this.button8.Size = new System.Drawing.Size(79, 62);
             this.button8.TabIndex = 8;
             this.button8.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel7.Controls.Add(this.lblDocumento);
+            this.panel7.Controls.Add(this.lblUserName);
+            this.panel7.Controls.Add(this.pictureBox2);
+            this.panel7.Controls.Add(this.btnHome);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(338, 86);
+            this.panel7.TabIndex = 0;
             // 
             // lblDocumento
             // 
@@ -194,6 +188,14 @@
             this.btnHome.TabIndex = 4;
             this.btnHome.TabStop = false;
             // 
+            // progressBarApp
+            // 
+            this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBarApp.Location = new System.Drawing.Point(338, 742);
+            this.progressBarApp.Name = "progressBarApp";
+            this.progressBarApp.Size = new System.Drawing.Size(1240, 17);
+            this.progressBarApp.TabIndex = 3;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel4);
@@ -204,69 +206,84 @@
             this.panel2.Size = new System.Drawing.Size(1240, 742);
             this.panel2.TabIndex = 4;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1240, 100);
-            this.panel3.TabIndex = 0;
-            // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.panelmain);
-            this.panel4.Controls.Add(this.panel6L);
+            this.panel4.Controls.Add(this.panelMain);
+            this.panel4.Controls.Add(this.panelMenuRight);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 100);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1240, 642);
             this.panel4.TabIndex = 1;
             // 
-            // panel6L
+            // panelMain
             // 
-            this.panel6L.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.panel6L.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6L.Location = new System.Drawing.Point(972, 0);
-            this.panel6L.Name = "panel6L";
-            this.panel6L.Size = new System.Drawing.Size(268, 642);
-            this.panel6L.TabIndex = 0;
+            this.panelMain.BackColor = System.Drawing.Color.Azure;
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(972, 642);
+            this.panelMain.TabIndex = 10;
             // 
-            // panelmain
+            // panelMenuRight
             // 
-            this.panelmain.BackColor = System.Drawing.Color.Azure;
-            this.panelmain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelmain.Location = new System.Drawing.Point(0, 0);
-            this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(972, 642);
-            this.panelmain.TabIndex = 10;
+            this.panelMenuRight.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panelMenuRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelMenuRight.Location = new System.Drawing.Point(972, 0);
+            this.panelMenuRight.Name = "panelMenuRight";
+            this.panelMenuRight.Size = new System.Drawing.Size(268, 642);
+            this.panelMenuRight.TabIndex = 0;
             // 
-            // FormPrueba
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.lblTitlePage);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1240, 100);
+            this.panel3.TabIndex = 0;
+            // 
+            // lblTitlePage
+            // 
+            this.lblTitlePage.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTitlePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitlePage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(183)))));
+            this.lblTitlePage.Location = new System.Drawing.Point(0, 0);
+            this.lblTitlePage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitlePage.Name = "lblTitlePage";
+            this.lblTitlePage.Size = new System.Drawing.Size(348, 100);
+            this.lblTitlePage.TabIndex = 6;
+            this.lblTitlePage.Text = "Nombre del modulo actual";
+            this.lblTitlePage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1578, 759);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.panel1);
-            this.Name = "FormPrueba";
+            this.Controls.Add(this.progressBarApp);
+            this.Controls.Add(this.panelAsideContainer);
+            this.Name = "FormPrincipal";
             this.Text = "FormPrueba";
             this.Load += new System.EventHandler(this.FormPrueba_Load);
-            this.panel1.ResumeLayout(false);
+            this.panelAsideContainer.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Panel panelAsideContainer;
+        private System.Windows.Forms.ProgressBar progressBarApp;
         private System.Windows.Forms.Panel panelAsideMain;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
@@ -280,7 +297,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panelmain;
-        private System.Windows.Forms.Panel panel6L;
+        private System.Windows.Forms.Panel panelMenuRight;
+        public System.Windows.Forms.Label lblTitlePage;
+        public System.Windows.Forms.Panel panelMain;
     }
 }

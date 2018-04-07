@@ -28,7 +28,6 @@ namespace Admeli.Navigation
 
         // para hacer pruebas
 
-        FormPrueba formPrueba;
         public UCTiendaRoot()
         {
             InitializeComponent();
@@ -41,12 +40,7 @@ namespace Admeli.Navigation
         }
         
 
-        public UCTiendaRoot(FormPrueba formPrueba)
-        {
-            InitializeComponent();
-            this.formPrueba = formPrueba;
-            formPrincipal = new FormPrincipal();
-        }
+      
         internal void togglePanelAsideMain(string panelName)
         {
             this.panelMulos.Controls.Clear();
