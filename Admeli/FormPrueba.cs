@@ -1,27 +1,28 @@
-﻿using Admeli.Componentes;
-using Admeli.Compras;
-using Admeli.NavDarck;
-using Admeli.Navigation;
-using Admeli.Productos;
-using Admeli.Ventas;
-using Entidad.Configuracion;
-using Modelo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Admeli.Componentes;
+using Admeli.Compras;
+using Admeli.NavDarck;
+using Admeli.Navigation;
+using Admeli.Productos;
+using Admeli.Ventas;
 using Entidad;
+using Entidad.Configuracion;
+using Modelo;
 
 namespace Admeli
 {
     public partial class FormPrincipal : Form
     {
+
+        private UCCompras uCCompras;
         private UCTiendaRoot uCTiendaRoot { get; set; }
         private UCMessageRoot uCMessageRoot { get; set; }
         private UCConfigRoot uCConfigRoot { get; set; }
@@ -37,8 +38,9 @@ namespace Admeli
         // Accessos directos
         private UCVentas uCVentas;
         private UCListadoProducto uCListadoProducto;
-        private UCCompras uCCompras;
-        private DataSunat d;
+       
+        
+
         // Modelos
         private SucursalModel sucursalModel = new SucursalModel();
         private ConfigModel configModel = new ConfigModel();
@@ -48,11 +50,11 @@ namespace Admeli
 
         //datos generales usados por todos los uc
         public static Asignacion asignacion;
-        
+
         // Metodos
         private bool notCloseApp { get; set; }
 
-        #region =============================== Constructor ===============================
+        #region ============================ CONSTRUCTORS ============================
         public FormPrincipal()
         {
             InitializeComponent();
@@ -60,105 +62,67 @@ namespace Admeli
 
         public FormPrincipal(FormLogin formLogin)
         {
-            
             InitializeComponent();
             this.formLogin = formLogin;
-            
-            
-
-        }
-
-       
-        #endregion
-
-        #region =============================== PAINT ===============================
-        private void FormPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-            DrawShape drawShape = new DrawShape();
-            drawShape.bottomLine(panelHeader);
-            drawShape.leftLine(panelMenuRight);
         }
         #endregion
 
-
-
-        private void btnTienda_Click(object sender, EventArgs e)
+        #region ============================ ROOT LOAD ============================
+        private void FormPrueba_Load(object sender, EventArgs e)
         {
+            this.reLoad();
+        }
+
+        private void reLoad()
+        {
+            /// mostrando el panel por defecto
+            togglePanelMain("compras2");
+            lblUserName.Text = PersonalModel.personal.usuario.ToUpper();
+            lblDocumento.Text = String.Format("{0}", PersonalModel.personal.numeroDocumento);
+            /// Foto Del Usuario
+
+            /// Panel Aside por defecto
             toggleRootMenu("tienda");
+
+            // Cargando datos en el panel derecho
+            cargarDatosAsideRight();
+            cargarAsignacion();
         }
 
-        private void btnMessage_Click(object sender, EventArgs e)
+        private void cargarDatosAsideRight()
         {
-            toggleRootMenu("message");
-        }
+            lblName.Text = PersonalModel.personal.nombres;
+            lblLastName.Text = PersonalModel.personal.apellidos;
+            lblDNI.Text = PersonalModel.personal.numeroDocumento;
+            lblUsuario.Text = PersonalModel.personal.nombres;
+            lblDocumentType.Text = PersonalModel.personal.tipoDocumento;
 
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-            toggleRootMenu("config");
-        }
+            lblSucursal.Text = ConfigModel.sucursal.nombre;
 
-        internal void toggleRootMenu(string panelName)
-        {
-            this.panelAsideMain.Controls.Clear();
-            switch (panelName)
+            // datos dinamicos
+            int y = lblTipoCambio.Location.Y + 50;
+            List<TipoCambioMoneda> tipoCambios = ConfigModel.tipoCambioMonedas;
+            foreach (TipoCambioMoneda cambio in tipoCambios)
             {
-                case "tienda":
-                    if (this.uCTiendaRoot == null)
-                    {
-                        this.uCTiendaRoot = new UCTiendaRoot(this);
-                        this.panelAsideMain.Controls.Add(uCTiendaRoot);
-                        this.uCTiendaRoot.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCTiendaRoot.Location = new System.Drawing.Point(0, 0);
-                        this.uCTiendaRoot.Name = "uCTiendaRoot";
-                        this.uCTiendaRoot.Size = new System.Drawing.Size(250, 776);
-                        this.uCTiendaRoot.TabIndex = 0;
-                    }
-                    else
-                    {
-                        this.panelAsideMain.Controls.Add(uCTiendaRoot);
-                    }
-                    this.lblTitlePage.Text = "Tienda - "; /// Titulo en el encabezado
-                    break;
-                case "config":
-                    if (this.uCConfigRoot == null)
-                    {
-                        this.uCConfigRoot = new UCConfigRoot(this);
-                        this.panelAsideMain.Controls.Add(uCConfigRoot);
-                        this.uCConfigRoot.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCConfigRoot.Location = new System.Drawing.Point(0, 0);
-                        this.uCConfigRoot.Name = "uCConfigRoot";
-                        this.uCConfigRoot.Size = new System.Drawing.Size(250, 776);
-                        this.uCConfigRoot.TabIndex = 0;
-                    }
-                    else
-                    {
-                        this.panelAsideMain.Controls.Add(uCConfigRoot);
-                    }
-                    this.lblTitlePage.Text = "Configuracion - "; /// Titulo en el encabezado
-                    break;
-                case "message":
-                    if (this.uCMessageRoot == null)
-                    {
-                        this.uCMessageRoot = new UCMessageRoot(this);
-                        this.panelAsideMain.Controls.Add(uCMessageRoot);
-                        this.uCMessageRoot.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCMessageRoot.Location = new System.Drawing.Point(0, 0);
-                        this.uCMessageRoot.Name = "uCMessageRoot";
-                        this.uCMessageRoot.Size = new System.Drawing.Size(250, 776);
-                        this.uCMessageRoot.TabIndex = 0;
-                    }
-                    else
-                    {
-                        this.panelAsideMain.Controls.Add(uCMessageRoot);
-                    }
-                    this.lblTitlePage.Text = "Mensageria - "; /// Titulo en el encabezado
-                    break;
-                default:
-                    break;
+                createElements(y, cambio);
+                y += 22;
             }
         }
 
-        #region ===================== TOGGLE PANEL ASIDE LEFT =====================
+        private async void cargarAsignacion()
+        {
+            try
+            {
+                asignacion = await personalModel.asignar(PersonalModel.personal.idPersonal, ConfigModel.sucursal.idSucursal);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar asignacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        #endregion
+
+        #region =========================== TOGGLE PANEL MAIN ===========================
         internal void togglePanelMain(string panelName)
         {
             this.panelMain.Controls.Clear();
@@ -236,14 +200,88 @@ namespace Admeli
                     break;
             }
         }
-        internal void togglePanelAsideMain(string panelName)
-        {
-            this.panelAsideMain.Controls.Clear();
-            showMenuLeft(); /// Mostrar el menu izquierdo si esta oculto
-        }
         #endregion
 
-        #region ========================= MENU =========================
+        #region ========================= TOGGLE MENU LEFT ROOTS =========================
+        internal void toggleRootMenu(string panelName)
+        {
+            this.panelAsideMain.Controls.Clear();
+            switch (panelName)
+            {
+                case "tienda":
+                    if (this.uCTiendaRoot == null)
+                    {
+                        this.uCTiendaRoot = new UCTiendaRoot(this);
+                        this.panelAsideMain.Controls.Add(uCTiendaRoot);
+                        this.uCTiendaRoot.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCTiendaRoot.Location = new System.Drawing.Point(0, 0);
+                        this.uCTiendaRoot.Name = "uCTiendaRoot";
+                        this.uCTiendaRoot.Size = new System.Drawing.Size(250, 776);
+                        this.uCTiendaRoot.TabIndex = 0;
+                    }
+                    else
+                    {
+                        this.panelAsideMain.Controls.Add(uCTiendaRoot);
+                    }
+                    this.lblTitlePage.Text = "Tienda - "; /// Titulo en el encabezado
+                    break;
+                case "config":
+                    if (this.uCConfigRoot == null)
+                    {
+                        this.uCConfigRoot = new UCConfigRoot(this);
+                        this.panelAsideMain.Controls.Add(uCConfigRoot);
+                        this.uCConfigRoot.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCConfigRoot.Location = new System.Drawing.Point(0, 0);
+                        this.uCConfigRoot.Name = "uCConfigRoot";
+                        this.uCConfigRoot.Size = new System.Drawing.Size(250, 776);
+                        this.uCConfigRoot.TabIndex = 0;
+                    }
+                    else
+                    {
+                        this.panelAsideMain.Controls.Add(uCConfigRoot);
+                    }
+                    this.lblTitlePage.Text = "Configuracion - "; /// Titulo en el encabezado
+                    break;
+                case "message":
+                    if (this.uCMessageRoot == null)
+                    {
+                        this.uCMessageRoot = new UCMessageRoot(this);
+                        this.panelAsideMain.Controls.Add(uCMessageRoot);
+                        this.uCMessageRoot.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCMessageRoot.Location = new System.Drawing.Point(0, 0);
+                        this.uCMessageRoot.Name = "uCMessageRoot";
+                        this.uCMessageRoot.Size = new System.Drawing.Size(250, 776);
+                        this.uCMessageRoot.TabIndex = 0;
+                    }
+                    else
+                    {
+                        this.panelAsideMain.Controls.Add(uCMessageRoot);
+                    }
+                    this.lblTitlePage.Text = "Mensageria - "; /// Titulo en el encabezado
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void btnTienda_Click(object sender, EventArgs e)
+        {
+            toggleRootMenu("tienda");
+        }
+
+        private void btnMessage_Click(object sender, EventArgs e)
+        {
+            toggleRootMenu("message");
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            toggleRootMenu("config");
+        }
+
+        #endregion
+
+        #region ==================== TOGLLE PANEL MENU RIGHT AND LEFT ====================
         private void btnToggleMenuRigth_Click(object sender, EventArgs e)
         {
             if (panelMenuRight.Size.Width > 1)
@@ -252,7 +290,7 @@ namespace Admeli
             }
             else
             {
-                panelMenuRight.Size = new Size(200, 700);
+                panelMenuRight.Size = new Size(224, 700);
             }
         }
 
@@ -284,7 +322,7 @@ namespace Admeli
         }
         #endregion
 
-        #region ========================= EVENTS =========================
+        #region =============================== EVENTS ===============================
         private void btnFullScreen_Click(object sender, EventArgs e)
         {
             if (this.FormBorderStyle == FormBorderStyle.None)
@@ -298,10 +336,33 @@ namespace Admeli
                 this.WindowState = FormWindowState.Maximized;
             }
         }
-        #endregion
 
-        #region ========================= CLOSE =========================
-        private void FormHomeDarck_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnCompra2_Click(object sender, EventArgs e)
+        {
+            togglePanelMain("compras2");
+        }
+        private void btnVentaTocuh_Click(object sender, EventArgs e)
+        {
+            FormVentaTouch ventaTouch = new FormVentaTouch();
+            ventaTouch.ShowDialog();
+        }
+
+        private void btnVenta2_Click(object sender, EventArgs e)
+        {
+            togglePanelMain("ventas2");
+        }
+
+        private void btnProductos2_Click(object sender, EventArgs e)
+        {
+            togglePanelMain("productos2");
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            togglePanelMain("home");
+        }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!notCloseApp)
             {
@@ -321,79 +382,6 @@ namespace Admeli
             {
                 progressBarApp.Style = ProgressBarStyle.Blocks;
             }
-        }
-        #endregion
-
-        #region ================================= ROOT LOAD =================================
-        private void FormHomeDarck_Shown(object sender, EventArgs e)
-        {
-            this.reLoad();
-        }
-
-        private void reLoad()
-        {
-            /// mostrando el panel por defecto
-            togglePanelMain("home");
-            lblUserName.Text = PersonalModel.personal.usuario.ToUpper();
-            lblDocumento.Text = String.Format("{0}", PersonalModel.personal.numeroDocumento);
-            /// Foto Del Usuario
-            
-            /// Panel Aside por defecto
-            toggleRootMenu("tienda");
-
-            // Cargando datos en el panel derecho
-            cargarDatosAsideRight();
-            cargarAsignacion();
-
-        }
-
-        private void cargarDatosAsideRight()
-        {
-            lblName.Text = PersonalModel.personal.nombres;
-            lblLastName.Text = PersonalModel.personal.apellidos;
-            lblDNI.Text = PersonalModel.personal.numeroDocumento;
-            lblUsuario.Text = PersonalModel.personal.nombres;
-            lblDocumentType.Text = PersonalModel.personal.tipoDocumento;
-
-            lblSucursal.Text = ConfigModel.sucursal.nombre;
-
-            // datos dinamicos
-            int y = lblTipoCambio.Location.Y + 50;
-            List<TipoCambioMoneda> tipoCambios = ConfigModel.tipoCambioMonedas;
-            foreach (TipoCambioMoneda cambio in tipoCambios)
-            {
-                createElements(y, cambio);
-                y += 22;
-            }
-        }
-
-        private async void cargarAsignacion()
-        {
-
-            asignacion = await personalModel.asignar(PersonalModel.personal.idPersonal, ConfigModel.sucursal.idSucursal);
-
-        }
-        #endregion
-
-        #region ================================= MENU ATAJOS =================================
-        private void btnCompra2_Click(object sender, EventArgs e)
-        {
-            togglePanelMain("compras2");
-        }
-        private void btnVentaTocuh_Click(object sender, EventArgs e)
-        {
-            FormVentaTouch ventaTouch = new FormVentaTouch();
-            ventaTouch.ShowDialog();
-        }
-
-        private void btnVenta2_Click(object sender, EventArgs e)
-        {
-            togglePanelMain("ventas2");
-        }
-
-        private void btnProductos2_Click(object sender, EventArgs e)
-        {
-            togglePanelMain("productos2");
         }
         #endregion
 
@@ -435,13 +423,20 @@ namespace Admeli
             panelMenuRight.Controls.Add(lblEfectivoName);
             panelMenuRight.Controls.Add(lblEfectivoValue);
         }
-
-
         #endregion
 
-        private void btnHome_Click(object sender, EventArgs e)
+        #region ================================ PAINT ================================
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            togglePanelMain("home");
+            DrawShape drawShape = new DrawShape();
+            drawShape.bottomLine(panel3);
         }
+
+        private void panelMenuRight_Paint(object sender, PaintEventArgs e)
+        {
+            DrawShape drawShape = new DrawShape();
+            drawShape.leftLine(panelMenuRight);
+        }
+        #endregion
     }
 }

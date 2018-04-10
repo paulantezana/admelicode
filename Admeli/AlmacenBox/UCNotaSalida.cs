@@ -12,6 +12,7 @@ using Admeli.Componentes;
 using Entidad;
 using Admeli.AlmacenBox.Nuevo;
 
+
 namespace Admeli.AlmacenBox
 {
     public partial class UCNotaSalida : UserControl
@@ -358,7 +359,7 @@ namespace Admeli.AlmacenBox
 
         private void executeNuevo()
         {
-            FormNotaSalidaNuevo formNotaSalida = new FormNotaSalidaNuevo();
+            FormNotaSalidaNew formNotaSalida = new FormNotaSalidaNew();
             formNotaSalida.ShowDialog();
             this.reLoad();
         }
@@ -378,7 +379,7 @@ namespace Admeli.AlmacenBox
             currentNotaSalida = notaSalidas.Find(x => x.idNotaSalida == idNotaSalida); // Buscando la registro especifico en la lista de registros
 
             // Mostrando el formulario de modificacion
-            FormNotaSalidaNuevo formPuntoVenta = new FormNotaSalidaNuevo(currentNotaSalida);
+            FormNotaSalidaNew formPuntoVenta = new FormNotaSalidaNew();
             formPuntoVenta.ShowDialog();
             this.reLoad(); // Recargando los registros
         }

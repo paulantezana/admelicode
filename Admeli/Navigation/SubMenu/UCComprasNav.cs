@@ -118,7 +118,12 @@ namespace Admeli.Navigation.SubMenu
         private void limpiarControles()
         {
             this.formPrincipal.panelMain.Controls.Clear();
-            this.formPrincipal.hideMenuRight(); /// Ocultar el menu derecho del formulario principal
+          
+            
+            
+            
+            
+            /// Ocultar el menu derecho del formulario principal
         }
 
         private void btnColor()

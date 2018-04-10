@@ -157,6 +157,36 @@ namespace Modelo
                 throw ex;
             }
         }
+        
+        public async Task<List<Almacen>> almacenesAsignados(int idSucursal,int idPersonal, int tipo=1)
+        {
+            try
+            {
+                // http://localhost:8080/admeli/xcore/services.php/almacenesporsucursal/sucursal/1/personal/1/tipo/1
+                List<Almacen> list = await webService.GET<List<Almacen>>("almacenesporsucursal", String.Format("sucursal/{0}/personal/{1}/tipo/{2}", idSucursal,idPersonal,tipo));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<AlmacenCorrelativo>> DocCorrelativoAlmacen(int idAlmacen, int idTipoDocumento=8)
+        {
+            try
+            {
+                // http://localhost:8080/admeli/xcore/services.php/verificarexistenciaalmacencorrelativo/almacen/1/tipodoc/8
+                List<AlmacenCorrelativo> list = await webService.GET<List<AlmacenCorrelativo>>("verificarexistenciaalmacencorrelativo", String.Format("almacen/{0}/tipodoc/{1}", idAlmacen, idTipoDocumento));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
     }
 }

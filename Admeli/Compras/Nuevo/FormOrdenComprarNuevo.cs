@@ -195,7 +195,7 @@ namespace Admeli.Compras.Nuevo
             textNombreProveedor.Enabled = false;
             textDireccion.Text = currentOrdenCompra.direccionProveedor;
             textDireccion.Enabled = false;
-            dtpEmision.Value = currentOrdenCompra.plazoEntrega.date;
+            //dtpEmision.Value = currentOrdenCompra.plazoEntrega.date;
             // ver si compro esta orden de compra
             if (currentOrdenCompra != null)
                 if (currentOrdenCompra.estadoCompra != 8)

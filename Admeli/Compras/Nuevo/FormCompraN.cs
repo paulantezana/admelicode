@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.Componentes;
+using Admeli.Compras.Buscar;
 using Entidad;
 using Entidad.Configuracion;
 using Modelo;
@@ -90,7 +91,7 @@ namespace Admeli.Compras.Nuevo
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
             formato = "{0:n" + nroDecimales + "}";
-            dgvDetalleCompra.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 20);
+           
             cargarResultadosIniciales();
 
         }
@@ -970,6 +971,12 @@ namespace Admeli.Compras.Nuevo
 
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BuscarProveedor buscarProveedor = new BuscarProveedor();
+            buscarProveedor.Show();
         }
     }
 }

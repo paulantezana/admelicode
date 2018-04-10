@@ -351,7 +351,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(44, 347);
+            this.label21.Location = new System.Drawing.Point(56, 345);
             this.label21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(105, 19);
@@ -373,7 +373,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(48, 241);
+            this.label17.Location = new System.Drawing.Point(58, 241);
             this.label17.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(103, 19);
@@ -405,7 +405,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(17, 188);
+            this.label13.Location = new System.Drawing.Point(37, 187);
             this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 19);
@@ -416,7 +416,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(91, 135);
+            this.label14.Location = new System.Drawing.Point(81, 133);
             this.label14.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(72, 19);
@@ -496,12 +496,13 @@
             this.button3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(328, 75);
+            this.button3.Location = new System.Drawing.Point(330, 72);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(37, 27);
             this.button3.TabIndex = 7;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label12
             // 
@@ -629,7 +630,7 @@
             // 
             this.panel13.AutoScroll = true;
             this.panel13.Controls.Add(this.dgvDetalleCompra);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(0, 133);
             this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
@@ -1015,7 +1016,7 @@
             this.tableLayoutPanel33.Name = "tableLayoutPanel33";
             this.tableLayoutPanel33.RowCount = 2;
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.67416F));
-            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel33.Size = new System.Drawing.Size(157, 119);
             this.tableLayoutPanel33.TabIndex = 6;
             // 
@@ -1024,7 +1025,7 @@
             this.txtTotalProducto.AcceptsReturn = true;
             this.txtTotalProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTotalProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalProducto.Location = new System.Drawing.Point(4, 96);
+            this.txtTotalProducto.Location = new System.Drawing.Point(4, 74);
             this.txtTotalProducto.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtTotalProducto.Name = "txtTotalProducto";
             this.txtTotalProducto.Size = new System.Drawing.Size(149, 28);
@@ -1043,7 +1044,7 @@
             this.label.Location = new System.Drawing.Point(4, 0);
             this.label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(149, 94);
+            this.label.Size = new System.Drawing.Size(149, 72);
             this.label.TabIndex = 1;
             this.label.Text = "Total";
             this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1435,7 +1436,7 @@
             this.lbImpuesto.AutoSize = true;
             this.lbImpuesto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.lbImpuesto.Location = new System.Drawing.Point(141, 71);
+            this.lbImpuesto.Location = new System.Drawing.Point(141, 83);
             this.lbImpuesto.Name = "lbImpuesto";
             this.lbImpuesto.Size = new System.Drawing.Size(85, 19);
             this.lbImpuesto.TabIndex = 63;
@@ -1447,7 +1448,7 @@
             this.lbDescuentoCompras.AutoSize = true;
             this.lbDescuentoCompras.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDescuentoCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.lbDescuentoCompras.Location = new System.Drawing.Point(188, 53);
+            this.lbDescuentoCompras.Location = new System.Drawing.Point(141, 46);
             this.lbDescuentoCompras.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDescuentoCompras.Name = "lbDescuentoCompras";
             this.lbDescuentoCompras.Size = new System.Drawing.Size(85, 19);
@@ -1460,7 +1461,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(44, 71);
+            this.label3.Location = new System.Drawing.Point(44, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 19);
             this.label3.TabIndex = 61;

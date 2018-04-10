@@ -59,7 +59,9 @@ namespace Entidad
         public string serie { get; set; }
         public string correlativoActual { get; set; }
         public int estado { get; set; }
-
+        public string correlativoInicio { get; set; }
+        public string correlativoFin { get; set; }      
+        public bool fin { get; set; }
     }
 
 

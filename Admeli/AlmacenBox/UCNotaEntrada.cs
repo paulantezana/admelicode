@@ -356,7 +356,7 @@ namespace Admeli.AlmacenBox
 
         private void executeNuevo()
         {
-            FormNotaEntradaNuevo formNotaEntrada = new FormNotaEntradaNuevo();
+            FormEntradaNew formNotaEntrada = new FormEntradaNew();
             formNotaEntrada.ShowDialog();
             this.reLoad();
         }
@@ -375,8 +375,8 @@ namespace Admeli.AlmacenBox
 
             currentNotaEntrada = notaEntradas.Find(x => x.idNotaEntrada == idNotaEntrada); // Buscando la registro especifico en la lista de registros
 
-            // Mostrando el formulario de modificacion
-            FormNotaEntradaNuevo formNotaEntrada = new FormNotaEntradaNuevo(currentNotaEntrada);
+            //// Mostrando el formulario de modificacion
+            FormEntradaNew formNotaEntrada = new FormEntradaNew();// FALTA LA NOTA ENTRADA
             formNotaEntrada.ShowDialog();
             this.reLoad(); // Recargando los registros
         }
