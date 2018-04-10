@@ -70,11 +70,11 @@ namespace Admeli
                     else
                     {
 
-
-                        // Estableciendo el almacen y punto de venta al personal asignado
-                        ConfigModel.currentIdAlmacen = ConfigModel.alamacenes[0].idAlmacen;
-                        ConfigModel.currentPuntoVenta = ConfigModel.puntosDeVenta[0].idAsignarPuntoVenta;
-
+                        
+                            // Estableciendo el almacen y punto de venta al personal asignado
+                            ConfigModel.currentIdAlmacen = ConfigModel.alamacenes[0].idAlmacen;
+                            ConfigModel.currentPuntoVenta = ConfigModel.puntosDeVenta[0].idAsignarPuntoVenta;
+                            
                         // Ocultar este formulario
                         this.Hide();
 

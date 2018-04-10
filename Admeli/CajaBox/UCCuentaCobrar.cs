@@ -42,6 +42,13 @@ namespace Admeli.CajaBox
             //lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
             this.reLoad();
+            // Preparando para los eventos de teclado
+            this.ParentChanged += ParentChange; // Evetno que se dispara cuando el padre cambia // Este eveto se usa para desactivar lisener key events de este modulo
+            if (TopLevelControl is Form) // Escuchando los eventos del formulario padre
+            {
+                (TopLevelControl as Form).KeyPreview = true;
+                TopLevelControl.KeyUp += TopLevelControl_KeyUp;
+            }
         }
         #endregion
 
@@ -155,6 +162,8 @@ namespace Admeli.CajaBox
             formPrincipal.appLoadState(state);
             panelNavigation.Enabled = !state;
             dataGridView.Enabled = !state;
+            panel1.Enabled = !state;
+            panelCrud.Enabled = !state;
         }
         #endregion
 
@@ -195,8 +204,20 @@ namespace Admeli.CajaBox
             {
                 datosconvertidoscuentascobrar = new DatosdeCuentasCobrar();
 
-                datosconvertidoscuentascobrar = await cuentascobrarModel.Cuentasporcobrar(ConfigModel.sucursal.idSucursal,1,paginacion.currentPage, paginacion.speed);
-                if (datosconvertidoscuentascobrar.nro_registros == 0) return;
+                if (chkTodoCliente.Checked)
+                {
+                    datosconvertidoscuentascobrar = await cuentascobrarModel.Cuentasporcobrar(ConfigModel.sucursal.idSucursal, 1, paginacion.currentPage, paginacion.speed);
+                }
+                else
+                {
+                    datosconvertidoscuentascobrar = await cuentascobrarModel.Cuentasporcobrar(ConfigModel.sucursal.idSucursal, 0, paginacion.currentPage, paginacion.speed);
+                }
+                if (datosconvertidoscuentascobrar.nro_registros == 0)
+                {
+                    datoCuentaCobrarBindingSource.DataSource = null;
+                    dataGridView.Refresh();
+                    return;
+                }
 
                 paginacion.itemsCount = datosconvertidoscuentascobrar.nro_registros;
                 paginacion.reload();
@@ -223,10 +244,6 @@ namespace Admeli.CajaBox
 
         }
         #endregion
-
-
-
-
         
         private void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -235,7 +252,7 @@ namespace Admeli.CajaBox
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            executeModificar();
         }
 
         private void dgvCuentasCobrar_DoubleClick(object sender, EventArgs e)
@@ -263,8 +280,15 @@ namespace Admeli.CajaBox
             try
             {
                 datosconvertidoscuentascobrar = new DatosdeCuentasCobrar();
-
-                datosconvertidoscuentascobrar = await cuentascobrarModel.buscarCuentasPorCobrar(nombreCliente,ConfigModel.sucursal.idSucursal, 0, paginacion.currentPage, paginacion.speed);
+                if (chkTodoCliente.Checked)
+                {
+                    datosconvertidoscuentascobrar = await cuentascobrarModel.buscarClienteCuentasPorCobrar(nombreCliente, ConfigModel.sucursal.idSucursal, 1, paginacion.currentPage, paginacion.speed);
+                }
+                else
+                {
+                    datosconvertidoscuentascobrar = await cuentascobrarModel.buscarClienteCuentasPorCobrar(nombreCliente, ConfigModel.sucursal.idSucursal, 0, paginacion.currentPage, paginacion.speed);
+                }
+                
                 if (datosconvertidoscuentascobrar.nro_registros == 0) return;
 
                 paginacion.itemsCount = datosconvertidoscuentascobrar.nro_registros;
@@ -313,6 +337,37 @@ namespace Admeli.CajaBox
             // Mostrando el formulario de modificacion
             FormCuentaCobrar formCuentaCobrar = new FormCuentaCobrar(currentCuentaCobrar);
             formCuentaCobrar.ShowDialog();
+        }
+
+        #region ======================== KEYBOARD ========================
+        // Evento que se dispara cuando el padre cambia
+        private void ParentChange(object sender, EventArgs e)
+        {
+            // cambiar la propiedad de lisenerKeyEvents de este modulo
+            if (lisenerKeyEvents) lisenerKeyEvents = false;
+        }
+
+        // Escuchando los Eventos de teclado
+        private void TopLevelControl_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!lisenerKeyEvents) return;
+            switch (e.KeyCode)
+            {
+                case Keys.F4:
+                    executeModificar();
+                    break;
+                case Keys.F5:
+                    cargarRegistros();
+                    break;
+                default:
+                    break;
+            }
+        }
+        #endregion
+
+        private void chkTodoCliente_OnChange(object sender, EventArgs e)
+        {
+            cargarRegistros();
         }
     }
 }

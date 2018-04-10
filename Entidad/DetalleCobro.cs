@@ -18,5 +18,6 @@ namespace Entidad
         public Fecha fechaPago{get;set;}
         public int estado {get;set;}
         public int idCobro {get;set;}
+        public int idCajaSesion { get; set;}
 }
 }

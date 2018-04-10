@@ -43,6 +43,9 @@
             this.panelCrud = new System.Windows.Forms.FlowLayoutPanel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.chkTodoCliente = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvCuentasCobrar = new System.Windows.Forms.DataGridView();
             this.panelNavigation = new System.Windows.Forms.Panel();
@@ -70,6 +73,7 @@
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datoCuentaCobrarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCrud.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasCobrar)).BeginInit();
             this.panelNavigation.SuspendLayout();
@@ -83,6 +87,7 @@
             // 
             this.panelCrud.Controls.Add(this.btnModificar);
             this.panelCrud.Controls.Add(this.btnActualizar);
+            this.panelCrud.Controls.Add(this.panel2);
             this.panelCrud.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCrud.Location = new System.Drawing.Point(0, 0);
             this.panelCrud.Name = "panelCrud";
@@ -137,6 +142,41 @@
             this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.chkTodoCliente);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(315, 18);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(331, 37);
+            this.panel2.TabIndex = 57;
+            // 
+            // chkTodoCliente
+            // 
+            this.chkTodoCliente.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chkTodoCliente.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkTodoCliente.Checked = false;
+            this.chkTodoCliente.CheckedOnColor = System.Drawing.Color.DodgerBlue;
+            this.chkTodoCliente.ForeColor = System.Drawing.Color.White;
+            this.chkTodoCliente.Location = new System.Drawing.Point(8, 8);
+            this.chkTodoCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.chkTodoCliente.Name = "chkTodoCliente";
+            this.chkTodoCliente.Size = new System.Drawing.Size(20, 20);
+            this.chkTodoCliente.TabIndex = 55;
+            this.chkTodoCliente.OnChange += new System.EventHandler(this.chkTodoCliente_OnChange);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.label1.Location = new System.Drawing.Point(30, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(285, 16);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Mostrar todos los clientes que tengan una venta";
             // 
             // panel1
             // 
@@ -566,6 +606,8 @@
             this.Name = "UCCuentaCobrar";
             this.Size = new System.Drawing.Size(898, 458);
             this.panelCrud.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasCobrar)).EndInit();
             this.panelNavigation.ResumeLayout(false);
@@ -585,7 +627,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Panel panelTools;
         private System.Windows.Forms.Label label4;
         private Bunifu.Framework.UI.BunifuMetroTextbox textBuscar;
@@ -609,6 +650,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreGrupoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel2;
+        private Bunifu.Framework.UI.BunifuCheckbox chkTodoCliente;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.BindingSource datoCuentaCobrarBindingSource;
     }
 }

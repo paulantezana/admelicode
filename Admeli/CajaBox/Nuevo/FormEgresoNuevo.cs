@@ -209,7 +209,6 @@ namespace Admeli.CajaBox.Nuevo
             currentSaveObject.observacion = textObcervacion.Text;
             currentSaveObject.numeroOperacion = textNOperacion.Text;
             currentSaveObject.fechaPago = dtpFechaPago.Value.ToString("yyyy-MM-dd HH':'mm':'ss");
-
         }
 
         private bool validarCampos()
