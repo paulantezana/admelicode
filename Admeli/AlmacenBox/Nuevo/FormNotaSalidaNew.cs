@@ -84,7 +84,7 @@ namespace Admeli.AlmacenBox.Nuevo
             else
             {
                 this.reLoad();
-                btnGuardar.Text = "Modificar compra";
+              
             }
 
         }

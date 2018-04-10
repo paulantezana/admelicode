@@ -76,7 +76,7 @@ namespace Admeli
         private void reLoad()
         {
             /// mostrando el panel por defecto
-            togglePanelMain("home");
+            togglePanelMain("compras2");
             lblUserName.Text = PersonalModel.personal.usuario.ToUpper();
             lblDocumento.Text = String.Format("{0}", PersonalModel.personal.numeroDocumento);
             /// Foto Del Usuario
