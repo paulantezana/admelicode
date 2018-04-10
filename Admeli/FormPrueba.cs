@@ -85,7 +85,7 @@ namespace Admeli
             toggleRootMenu("tienda");
 
             // Cargando datos en el panel derecho
-            //cargarDatosAsideRight();
+            cargarDatosAsideRight();
             cargarAsignacion();
         }
 
