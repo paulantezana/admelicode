@@ -328,8 +328,13 @@ namespace Admeli.Compras
 
             
             //formCompraProveedor.ShowDialog();
+<<<<<<< HEAD
             ////formCompraProveedor.currentPagoCompra=model
             //cargarRegistros();
+=======
+            //formCompraProveedor.currentPagoCompra=model
+            cargarRegistros();
+>>>>>>> 7af3b02d2f458a6be0926067797c94f55ec981a6
         }
 
         private void executeModificar()
