@@ -357,6 +357,11 @@ namespace Admeli
             togglePanelMain("productos2");
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            togglePanelMain("home");
+        }
+
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!notCloseApp)
