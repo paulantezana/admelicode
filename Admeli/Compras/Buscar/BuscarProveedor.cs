@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.UI;
+
 
 namespace Admeli.Compras.Buscar
 {
@@ -18,7 +20,7 @@ namespace Admeli.Compras.Buscar
 
         public Proveedor currentProveedor { get; set; }
         public List<Proveedor> proveedores { get; set; }
-
+        private DataTable dataTable { get; set; }
         public BuscarProveedor()
         {
             InitializeComponent();
@@ -28,6 +30,26 @@ namespace Admeli.Compras.Buscar
         {
             this.reLoad();
         }
+
+        public void BuscarLINQ()
+        {
+            DataTable dt;
+            DataView dv;
+            dt= proveedorBindingSource.DataSource as DataTable;
+
+          
+         
+
+        }
+       void filtro(string busqueda)
+        {
+            
+            string Filtro = String.Format("{0} LIKE '%{1}%'", "razonSocial", textBuscar.Text);
+            proveedorBindingSource.Filter = Filtro;
+            dataGridView.Refresh();
+        }
+      
+
 
         private void reLoad()
         {
@@ -86,10 +108,11 @@ namespace Admeli.Compras.Buscar
 
         private void textBuscar_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cargarProceedoresLike();
-            }
+
+            // tomar como base esta expresion
+            BindingList<Proveedor> filtered = new BindingList<Proveedor>(proveedores.Where(obj => obj.razonSocial.ToUpper().Contains(textBuscar.Text.ToUpper())).ToList());
+            dataGridView.DataSource = filtered;
+            dataGridView.Update();
         }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

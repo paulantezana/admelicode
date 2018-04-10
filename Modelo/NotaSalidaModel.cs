@@ -12,6 +12,10 @@ namespace Modelo
     {
         private WebService webService = new WebService();
 
+
+
+
+
         public void guardar()
         {
 
@@ -50,5 +54,37 @@ namespace Modelo
         {
             throw new NotImplementedException();
         }
+
+        public async Task<List<NotaSalidaR>> nSalida( int idAlmacen ,int estado=1)
+        {
+            try
+            {
+               
+                // www.lineatienda.com/services.php/nsalida/estado/1/1
+                List<NotaSalidaR> notas = await webService.GET<List<NotaSalidaR>>("nsalida", String.Format("estado/{0}/{1}", estado, idAlmacen));
+                return notas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<List<DetalleNotaSalida>> nSalidaDetalle(int idNotaSalida)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/nsalida/estado/1/1
+                List<DetalleNotaSalida> notas = await webService.GET<List<DetalleNotaSalida>>("nsalida", String.Format("detalle/guia/{0}", idNotaSalida));
+                return notas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+      
+
+
     }
 }

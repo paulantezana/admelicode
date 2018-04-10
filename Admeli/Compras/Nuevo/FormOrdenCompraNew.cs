@@ -77,7 +77,7 @@ namespace Admeli.Compras.Nuevo
         private double impuesto = 0;
         private double total = 0;
 
-        public FormCompraN()
+        public FormOrdenCompraNew()
         {
             InitializeComponent();
             this.nuevo = true;
@@ -109,7 +109,7 @@ namespace Admeli.Compras.Nuevo
         {
             return string.Format(CultureInfo.GetCultureInfo("en-US"), this.formato, dato);
         }
-        public FormCompraN(Compra currentCompra)
+        public FormOrdenCompraNew(Compra currentCompra)
         {
             InitializeComponent();
             this.currentCompra = currentCompra;
@@ -167,8 +167,8 @@ namespace Admeli.Compras.Nuevo
             {
 
 
-                chbxPagarCompra.Enabled = false;
-                chbxPagarCompra.Checked = false;
+                //chbxPagarCompra.Enabled = false;
+                //chbxPagarCompra.Checked = false;
             }
         }
         #endregion
@@ -256,7 +256,7 @@ namespace Admeli.Compras.Nuevo
                 txtNombreProveedor.Text = datosProveedor[0].nombreProveedor;
                 txtDireccionProveedor.Text = datosProveedor[0].direccion;
                 dtpFechaEntrega.Value = datosProveedor[0].fechaFacturacion.date;
-                dtpFechaPago.Value = datosProveedor[0].fechaPago.date;
+          
                 // textTotal.Text = Convert.ToString(datosProveedor[0].total);
                 cbxTipoMoneda.Text = datosProveedor[0].moneda;
                 txtTipoCambio.Text = "1";
@@ -288,7 +288,7 @@ namespace Admeli.Compras.Nuevo
             try
             {
                 tipoDocumentos = await tipoDocumentoModel.tipoDocumentoVentas();
-                cbxTipoDocumento.DataSource = tipoDocumentos;
+                //cbxTipoDocumento.DataSource = tipoDocumentos;
             }
             catch (Exception ex)
             {
@@ -303,7 +303,7 @@ namespace Admeli.Compras.Nuevo
                 if (!nuevo) return;
                 fechaSistema = await fechaModel.fechaSistema();
                 dtpFechaEntrega.Value = fechaSistema.fecha;
-                dtpFechaPago.Value = fechaSistema.fecha;
+                //dtpFechaPago.Value = fechaSistema.fecha;
             }
             catch (Exception ex)
             {
@@ -888,21 +888,21 @@ namespace Admeli.Compras.Nuevo
             pagoC.idMoneda = moneda.idMoneda;
             pagoC.idPago = currentCompra != null ? currentCompra.idPago : 0;
             pagoC.motivo = "COMPRA";
-            pagoC.saldo = chbxPagarCompra.Checked ? 0 : this.total;//  
-            pagoC.valorPagado = chbxPagarCompra.Checked ? this.total : 0;//           
+            //pagoC.saldo = chbxPagarCompra.Checked ? 0 : this.total;//  
+            //pagoC.valorPagado = chbxPagarCompra.Checked ? this.total : 0;//           
             pagoC.valorTotal = this.total;//        
             // compra
-            string date1 = String.Format("{0:u}", dtpFechaEntrega.Value);
-            date1 = date1.Substring(0, date1.Length - 1);
-            string date = String.Format("{0:u}", dtpFechaPago.Value);
-            date = date.Substring(0, date.Length - 1);
-            compraC.idCompra = currentCompra != null ? currentCompra.idCompra : 0; ;
-            compraC.numeroDocumento = "0";//lo textNordocumento
-            compraC.rucDni = currentProveedor != null ? currentProveedor.ruc : currentCompra.rucDni;
-            compraC.direccion = currentProveedor != null ? currentProveedor.direccion : currentCompra.direccion;
-            compraC.formaPago = "EFECTIVO";
-            compraC.fechaPago = date;
-            compraC.fechaFacturacion = date1;
+            //string date1 = String.Format("{0:u}", dtpFechaEntrega.Value);
+            //date1 = date1.Substring(0, date1.Length - 1);
+            ////string date = String.Format("{0:u}", dtpFechaPago.Value);
+            //date = date.Substring(0, date.Length - 1);
+            //compraC.idCompra = currentCompra != null ? currentCompra.idCompra : 0; ;
+            //compraC.numeroDocumento = "0";//lo textNordocumento
+            //compraC.rucDni = currentProveedor != null ? currentProveedor.ruc : currentCompra.rucDni;
+            //compraC.direccion = currentProveedor != null ? currentProveedor.direccion : currentCompra.direccion;
+            //compraC.formaPago = "EFECTIVO";
+            //compraC.fechaPago = date;
+            //compraC.fechaFacturacion = date1;
             compraC.descuento = lbDescuentoCompras.Text.Trim() != "" ? this.Descuento: 0;//
             compraC.tipoCompra = "Con productos";        
             compraC.subTotal = lbSubtotal.Text.Trim() != "" ? this.subTotal : 0;           
@@ -914,13 +914,13 @@ namespace Admeli.Compras.Nuevo
             compraC.idPago = currentCompra != null ? currentCompra.idPago : 0; ;
             compraC.idPersonal = PersonalModel.personal.idPersonal;
             compraC.tipoCambio = 1;
-            int j = cbxTipoDocumento.SelectedIndex;
-            TipoDocumento aux = cbxTipoDocumento.Items[j] as TipoDocumento;
-            compraC.idTipoDocumento = (aux.idTipoDocumento);
-            compraC.idSucursal = ConfigModel.sucursal.idSucursal;
-            compraC.nombreLabel = aux.nombreLabel;
+            //int j = cbxTipoDocumento.SelectedIndex;
+            //TipoDocumento aux = cbxTipoDocumento.Items[j] as TipoDocumento;
+            //compraC.idTipoDocumento = (aux.idTipoDocumento);
+            //compraC.idSucursal = ConfigModel.sucursal.idSucursal;
+            //compraC.nombreLabel = aux.nombreLabel;
             compraC.vendedor = PersonalModel.personal.nombres;
-            compraC.nroOrdenCompra = txtNroOrdenCompra.Text.Trim();           
+            //compraC.nroOrdenCompra = txtNroOrdenCompra.Text.Trim();           
             compraC.moneda = moneda.moneda;
             compraC.idCompra = currentCompra != null ? currentCompra.idCompra : 0;           
             //detalle
@@ -941,12 +941,12 @@ namespace Admeli.Compras.Nuevo
             pagocompraC.idMoneda = moneda.idMoneda;
             pagocompraC.idMedioPago = medioPagos[0].idMedioPago;
             pagocompraC.idCajaSesion = ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
-            pagocompraC.pagarCompra = chbxPagarCompra.Checked == true ? 1 : 0;
+            //pagocompraC.pagarCompra = chbxPagarCompra.Checked == true ? 1 : 0;
 
-            notaentrada.datoNotaEntrada = datoNotaEntradaC;
-            notaentrada.generarNotaEntrada = chbxNotaEntrada.Checked == true ? 1 : 0;
-            notaentrada.idCompra = currentCompra != null ? currentCompra.idPago : 0; ;
-            notaentrada.idTipoDocumento =(int) cbxTipoDocumento.SelectedValue;
+            //notaentrada.datoNotaEntrada = datoNotaEntradaC;
+            //notaentrada.generarNotaEntrada = chbxNotaEntrada.Checked == true ? 1 : 0;
+            //notaentrada.idCompra = currentCompra != null ? currentCompra.idPago : 0; ;
+            //notaentrada.idTipoDocumento =(int) cbxTipoDocumento.SelectedValue;
             notaentrada.idPersonal = PersonalModel.personal.idPersonal;
 
 

@@ -11,6 +11,7 @@ using Admeli.Componentes;
 using Modelo;
 using Entidad;
 using Admeli.AlmacenBox.Nuevo;
+using Admeli.AlmacenBox.buscar;
 
 namespace Admeli.AlmacenBox
 {
@@ -191,6 +192,8 @@ namespace Admeli.AlmacenBox
         {
             try
             {
+
+                
                 almacenBindingSource.DataSource = await almacenModel.almacenesPorSucursales(ConfigModel.sucursal.idSucursal);
             }
             catch (Exception ex)
@@ -340,9 +343,11 @@ namespace Admeli.AlmacenBox
 
         private void executeNuevo()
         {
-            FormGuiaRemisionNuevo formGuiaRemision = new FormGuiaRemisionNuevo();
+            
+
+            FormBuscarNotaSalida formGuiaRemision = new FormBuscarNotaSalida( );
             formGuiaRemision.ShowDialog();
-            this.reLoad();
+            //this.reLoad();
         }
 
         private void executeModificar()
@@ -360,9 +365,9 @@ namespace Admeli.AlmacenBox
             currentGuiaRemision = guiaRemisiones.Find(x => x.idGuiaRemision == idGuiaRemision); // Buscando la registro especifico en la lista de registros
 
             // Mostrando el formulario de modificacion
-            FormGuiaRemisionNuevo formGuiaRemision = new FormGuiaRemisionNuevo(currentGuiaRemision);
-            formGuiaRemision.ShowDialog();
-            this.reLoad(); // Recargando los registros
+        //    FormGuiaRemisionNuevo formGuiaRemision = new FormGuiaRemisionNuevo(currentGuiaRemision);
+        //    formGuiaRemision.ShowDialog();
+        //    this.reLoad(); // Recargando los registros
         }
 
         private async void executeEliminar()
