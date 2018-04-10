@@ -26,6 +26,34 @@ namespace Modelo
         {
 
         }
+        public async Task<Response> anularCobroDetalle(DetalleCobro detalleCobro)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/detallecobroingreso/anular
+                Response response = await webService.POST<DetalleCobro, Response>("detallecobroingreso", "anular", detalleCobro);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Response> guardarCobroDetalle<T>(T param)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/detallecobroingreso/guardar
+                Response response = await webService.POST<T, Response>("detallecobroingreso", "guardar", param);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
 
         public async Task<DatosdeCuentasCobrar> Cuentasporcobrar(int idSucursal, int estado, int pos, int tam)
         {
@@ -43,7 +71,7 @@ namespace Modelo
 
         }
 
-        public async Task<DatosdeCuentasCobrar> buscarCuentasPorCobrar(string nombreCliente,int idSucursal, int estado, int pos, int tam)
+        public async Task<DatosdeCuentasCobrar> buscarClienteCuentasPorCobrar(string nombreCliente,int idSucursal, int estado, int pos, int tam)
         {
             //localhost:8085/admeli/xcore/services.php/buscarclientescuentasporcobrar/suc/1/nombre/dennys/todo/0/1/15
             try

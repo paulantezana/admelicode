@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidad
 {
-    public class CuentasPagar
+    public class DatoCuentaPagar
     {
-        public int idCliente { get; set; }
-        public string nombreCliente { get; set; }
-        public string numeroDocumento { get; set; }
+        public int idProveedor { get; set; }
+        public string razonSocial { get; set; }
+        public string ruc { get; set; }
+        public string actividadPrincipal { get; set; }
+        public string tipoProveedor { get; set; }
         public string direccion { get; set; }
-        public string nombreGrupo { get; set; }
-        public string nombre { get; set; }
     }
     public class DatosdeCuentasPagar
     {
         public int nro_registros { get; set; }
-        public List<CuentasPagar> datos1 { get; set; }
+        public List<DatoCuentaPagar> datos { get; set; }
     }
 }

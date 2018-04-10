@@ -15,7 +15,6 @@ namespace Entidad
         public string nombreGrupo { get; set; }
         public string nombre { get; set; }
     }
-
     public class DatosdeCuentasCobrar
     {
         public int nro_registros { get; set; }

@@ -18,7 +18,7 @@ namespace Admeli.Navigation.SubMenu
         private UCIngresos uCIngresos;
         private UCIniciarCaja uCIniciarCaja;
         private UCCuentaCobrar uCCuentasCobrar;
-        private UCCuentasPagar uCCuentasPagar;
+        private UCCuentaPagar uCCuentasPagar;
 
         private FormPrincipal formPrincipal;
         private UCTiendaRoot uCTiendaRoot;
@@ -133,7 +133,7 @@ namespace Admeli.Navigation.SubMenu
                 case "cuentaPorPagar":
                     if (uCCuentasPagar == null)
                     {
-                        this.uCCuentasPagar = new Admeli.CajaBox.UCCuentasPagar(this.formPrincipal);
+                        this.uCCuentasPagar = new Admeli.CajaBox.UCCuentaPagar(this.formPrincipal);
                         this.formPrincipal.panelMain.Controls.Add(uCCuentasPagar);
                         this.uCCuentasPagar.Dock = System.Windows.Forms.DockStyle.Fill;
                         this.uCCuentasPagar.Location = new System.Drawing.Point(0, 0);
@@ -143,8 +143,8 @@ namespace Admeli.Navigation.SubMenu
                     }
                     else
                     {
-                        this.formPrincipal.panelMain.Controls.Add(uCCuentasCobrar);
-                        this.uCCuentasCobrar.reLoad();
+                        this.formPrincipal.panelMain.Controls.Add(uCCuentasPagar);
+                        this.uCCuentasPagar.reLoad();
                     }
                     this.formPrincipal.lblTitlePage.Text = "Cuentas - Pagar";
                     break;
