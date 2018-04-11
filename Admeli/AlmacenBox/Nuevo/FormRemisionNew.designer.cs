@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRemisionNew));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.Observaciones = new System.Windows.Forms.Label();
@@ -48,7 +48,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnBuscarDestino = new System.Windows.Forms.Button();
             this.btnBuscarOrigen = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -123,6 +122,7 @@
             this.alternativaCombinacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -162,7 +162,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(435, 907);
+            this.panel1.Size = new System.Drawing.Size(501, 907);
             this.panel1.TabIndex = 2;
             // 
             // panel10
@@ -170,17 +170,17 @@
             this.panel10.Controls.Add(this.Observaciones);
             this.panel10.Controls.Add(this.txtDescripcion);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 891);
+            this.panel10.Location = new System.Drawing.Point(0, 744);
             this.panel10.Margin = new System.Windows.Forms.Padding(5);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(414, 176);
+            this.panel10.Size = new System.Drawing.Size(480, 174);
             this.panel10.TabIndex = 2;
             // 
             // Observaciones
             // 
             this.Observaciones.AutoSize = true;
             this.Observaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Observaciones.Location = new System.Drawing.Point(13, 24);
+            this.Observaciones.Location = new System.Drawing.Point(13, 33);
             this.Observaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Observaciones.Name = "Observaciones";
             this.Observaciones.Size = new System.Drawing.Size(105, 19);
@@ -190,16 +190,17 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(15, 58);
+            this.txtDescripcion.Location = new System.Drawing.Point(36, 61);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripcion.Size = new System.Drawing.Size(375, 80);
+            this.txtDescripcion.Size = new System.Drawing.Size(434, 94);
             this.txtDescripcion.TabIndex = 2;
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.button4);
             this.panel8.Controls.Add(this.btnNewTransporte);
             this.panel8.Controls.Add(this.comboBox3);
             this.panel8.Controls.Add(this.label14);
@@ -208,7 +209,6 @@
             this.panel8.Controls.Add(this.label13);
             this.panel8.Controls.Add(this.comboBox1);
             this.panel8.Controls.Add(this.label12);
-            this.panel8.Controls.Add(this.btnBuscarDestino);
             this.panel8.Controls.Add(this.btnBuscarOrigen);
             this.panel8.Controls.Add(this.label11);
             this.panel8.Controls.Add(this.textBox6);
@@ -228,20 +228,21 @@
             this.panel8.Controls.Add(this.txtSerie);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 264);
+            this.panel8.Location = new System.Drawing.Point(0, 230);
             this.panel8.Margin = new System.Windows.Forms.Padding(5);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(414, 627);
+            this.panel8.Size = new System.Drawing.Size(480, 514);
             this.panel8.TabIndex = 1;
             // 
             // btnNewTransporte
             // 
             this.btnNewTransporte.AutoSize = true;
             this.btnNewTransporte.BackColor = System.Drawing.Color.White;
+            this.btnNewTransporte.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNewTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewTransporte.ForeColor = System.Drawing.Color.White;
             this.btnNewTransporte.Image = ((System.Drawing.Image)(resources.GetObject("btnNewTransporte.Image")));
-            this.btnNewTransporte.Location = new System.Drawing.Point(359, 570);
+            this.btnNewTransporte.Location = new System.Drawing.Point(426, 424);
             this.btnNewTransporte.Name = "btnNewTransporte";
             this.btnNewTransporte.Size = new System.Drawing.Size(40, 40);
             this.btnNewTransporte.TabIndex = 61;
@@ -252,30 +253,33 @@
             // 
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(152, 578);
+            this.comboBox3.Location = new System.Drawing.Point(186, 430);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(201, 28);
+            this.comboBox3.Size = new System.Drawing.Size(234, 28);
             this.comboBox3.TabIndex = 60;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(5, 582);
+            this.label14.Location = new System.Drawing.Point(39, 434);
             this.label14.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(139, 19);
             this.label14.TabIndex = 59;
             this.label14.Text = "Emp. Transporte :";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // btnNewMotivo
             // 
             this.btnNewMotivo.AutoSize = true;
             this.btnNewMotivo.BackColor = System.Drawing.Color.White;
+            this.btnNewMotivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewMotivo.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnNewMotivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewMotivo.ForeColor = System.Drawing.Color.White;
             this.btnNewMotivo.Image = ((System.Drawing.Image)(resources.GetObject("btnNewMotivo.Image")));
-            this.btnNewMotivo.Location = new System.Drawing.Point(359, 520);
+            this.btnNewMotivo.Location = new System.Drawing.Point(426, 387);
             this.btnNewMotivo.Name = "btnNewMotivo";
             this.btnNewMotivo.Size = new System.Drawing.Size(40, 40);
             this.btnNewMotivo.TabIndex = 58;
@@ -286,16 +290,16 @@
             // 
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(152, 528);
+            this.comboBox2.Location = new System.Drawing.Point(186, 396);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 28);
+            this.comboBox2.Size = new System.Drawing.Size(234, 28);
             this.comboBox2.TabIndex = 59;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(84, 532);
+            this.label13.Location = new System.Drawing.Point(118, 400);
             this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 19);
@@ -306,9 +310,9 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(152, 481);
+            this.comboBox1.Location = new System.Drawing.Point(186, 362);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 28);
+            this.comboBox1.Size = new System.Drawing.Size(176, 28);
             this.comboBox1.TabIndex = 55;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -316,35 +320,17 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(80, 481);
+            this.label12.Location = new System.Drawing.Point(114, 366);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(64, 19);
             this.label12.TabIndex = 54;
             this.label12.Text = "Estado:";
             // 
-            // btnBuscarDestino
-            // 
-            this.btnBuscarDestino.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
-            this.btnBuscarDestino.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
-            this.btnBuscarDestino.FlatAppearance.BorderSize = 0;
-            this.btnBuscarDestino.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
-            this.btnBuscarDestino.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
-            this.btnBuscarDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarDestino.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarDestino.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarDestino.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarDestino.Image")));
-            this.btnBuscarDestino.Location = new System.Drawing.Point(353, 433);
-            this.btnBuscarDestino.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarDestino.Name = "btnBuscarDestino";
-            this.btnBuscarDestino.Size = new System.Drawing.Size(37, 27);
-            this.btnBuscarDestino.TabIndex = 53;
-            this.btnBuscarDestino.UseVisualStyleBackColor = false;
-            this.btnBuscarDestino.Click += new System.EventHandler(this.btnBuscarDestino_Click);
-            // 
             // btnBuscarOrigen
             // 
             this.btnBuscarOrigen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.btnBuscarOrigen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarOrigen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
             this.btnBuscarOrigen.FlatAppearance.BorderSize = 0;
             this.btnBuscarOrigen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
@@ -353,10 +339,10 @@
             this.btnBuscarOrigen.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarOrigen.ForeColor = System.Drawing.Color.White;
             this.btnBuscarOrigen.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarOrigen.Image")));
-            this.btnBuscarOrigen.Location = new System.Drawing.Point(353, 370);
+            this.btnBuscarOrigen.Location = new System.Drawing.Point(422, 276);
             this.btnBuscarOrigen.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarOrigen.Name = "btnBuscarOrigen";
-            this.btnBuscarOrigen.Size = new System.Drawing.Size(37, 27);
+            this.btnBuscarOrigen.Size = new System.Drawing.Size(44, 26);
             this.btnBuscarOrigen.TabIndex = 52;
             this.btnBuscarOrigen.UseVisualStyleBackColor = false;
             this.btnBuscarOrigen.Click += new System.EventHandler(this.btnBuscarOrigen_Click);
@@ -365,7 +351,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(24, 409);
+            this.label11.Location = new System.Drawing.Point(105, 317);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 19);
@@ -375,18 +361,18 @@
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(24, 434);
+            this.textBox6.Location = new System.Drawing.Point(186, 314);
             this.textBox6.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textBox6.MaxLength = 100;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(328, 26);
+            this.textBox6.Size = new System.Drawing.Size(236, 26);
             this.textBox6.TabIndex = 50;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(24, 345);
+            this.label7.Location = new System.Drawing.Point(111, 279);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 19);
@@ -396,69 +382,69 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(24, 371);
+            this.textBox5.Location = new System.Drawing.Point(186, 276);
             this.textBox5.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textBox5.MaxLength = 100;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(328, 26);
+            this.textBox5.Size = new System.Drawing.Size(236, 26);
             this.textBox5.TabIndex = 48;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 279);
+            this.label6.Location = new System.Drawing.Point(74, 241);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 19);
+            this.label6.Size = new System.Drawing.Size(100, 19);
             this.label6.TabIndex = 47;
-            this.label6.Text = "Direccion Destino:";
+            this.label6.Text = "Dir. Destino:";
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(24, 304);
+            this.textBox4.Location = new System.Drawing.Point(186, 238);
             this.textBox4.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textBox4.MaxLength = 100;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(366, 26);
+            this.textBox4.Size = new System.Drawing.Size(282, 26);
             this.textBox4.TabIndex = 46;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(24, 215);
+            this.label4.Location = new System.Drawing.Point(80, 203);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 19);
+            this.label4.Size = new System.Drawing.Size(94, 19);
             this.label4.TabIndex = 45;
-            this.label4.Text = "Direccion Origen:";
+            this.label4.Text = "Dir. Origen:";
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(24, 240);
+            this.textBox3.Location = new System.Drawing.Point(186, 200);
             this.textBox3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textBox3.MaxLength = 100;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(366, 26);
+            this.textBox3.Size = new System.Drawing.Size(280, 26);
             this.textBox3.TabIndex = 44;
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(144, 181);
+            this.textBox2.Location = new System.Drawing.Point(186, 164);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(246, 26);
+            this.textBox2.Size = new System.Drawing.Size(282, 26);
             this.textBox2.TabIndex = 43;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 184);
+            this.label3.Location = new System.Drawing.Point(64, 167);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 19);
@@ -468,17 +454,17 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(144, 143);
+            this.textBox1.Location = new System.Drawing.Point(186, 126);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(246, 26);
+            this.textBox1.Size = new System.Drawing.Size(282, 26);
             this.textBox1.TabIndex = 41;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 143);
+            this.label5.Location = new System.Drawing.Point(57, 129);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 19);
@@ -489,7 +475,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(182, 69);
+            this.label2.Location = new System.Drawing.Point(191, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 19);
@@ -500,17 +486,17 @@
             // 
             this.txtCorrelativo.Enabled = false;
             this.txtCorrelativo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorrelativo.Location = new System.Drawing.Point(144, 93);
+            this.txtCorrelativo.Location = new System.Drawing.Point(291, 92);
             this.txtCorrelativo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorrelativo.Name = "txtCorrelativo";
-            this.txtCorrelativo.Size = new System.Drawing.Size(246, 26);
+            this.txtCorrelativo.Size = new System.Drawing.Size(175, 26);
             this.txtCorrelativo.TabIndex = 31;
             // 
             // lbserie
             // 
             this.lbserie.AutoSize = true;
             this.lbserie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbserie.Location = new System.Drawing.Point(28, 69);
+            this.lbserie.Location = new System.Drawing.Point(32, 95);
             this.lbserie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbserie.Name = "lbserie";
             this.lbserie.Size = new System.Drawing.Size(53, 19);
@@ -521,7 +507,7 @@
             // 
             this.txtSerie.Enabled = false;
             this.txtSerie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSerie.Location = new System.Drawing.Point(24, 93);
+            this.txtSerie.Location = new System.Drawing.Point(97, 92);
             this.txtSerie.Margin = new System.Windows.Forms.Padding(4);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(81, 26);
@@ -536,7 +522,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(414, 53);
+            this.panel9.Size = new System.Drawing.Size(480, 53);
             this.panel9.TabIndex = 0;
             // 
             // pictureBox3
@@ -573,7 +559,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(414, 264);
+            this.panel6.Size = new System.Drawing.Size(480, 230);
             this.panel6.TabIndex = 0;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -581,7 +567,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(31, 134);
+            this.label8.Location = new System.Drawing.Point(256, 68);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 19);
@@ -592,11 +578,11 @@
             // 
             this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCliente.Location = new System.Drawing.Point(31, 159);
+            this.txtNombreCliente.Location = new System.Drawing.Point(250, 104);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtNombreCliente.MaxLength = 100;
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(359, 26);
+            this.txtNombreCliente.Size = new System.Drawing.Size(216, 26);
             this.txtNombreCliente.TabIndex = 30;
             // 
             // btnImportarVenta
@@ -610,7 +596,7 @@
             this.btnImportarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportarVenta.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportarVenta.ForeColor = System.Drawing.Color.White;
-            this.btnImportarVenta.Location = new System.Drawing.Point(71, 195);
+            this.btnImportarVenta.Location = new System.Drawing.Point(125, 155);
             this.btnImportarVenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportarVenta.Name = "btnImportarVenta";
             this.btnImportarVenta.Size = new System.Drawing.Size(225, 42);
@@ -623,7 +609,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(27, 61);
+            this.label10.Location = new System.Drawing.Point(16, 68);
             this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(169, 19);
@@ -635,11 +621,11 @@
             // 
             this.txtNroDocumento.Enabled = false;
             this.txtNroDocumento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroDocumento.Location = new System.Drawing.Point(31, 97);
+            this.txtNroDocumento.Location = new System.Drawing.Point(20, 104);
             this.txtNroDocumento.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtNroDocumento.MaxLength = 200;
             this.txtNroDocumento.Name = "txtNroDocumento";
-            this.txtNroDocumento.Size = new System.Drawing.Size(359, 26);
+            this.txtNroDocumento.Size = new System.Drawing.Size(207, 26);
             this.txtNroDocumento.TabIndex = 2;
             // 
             // panel7
@@ -651,7 +637,7 @@
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(414, 53);
+            this.panel7.Size = new System.Drawing.Size(480, 53);
             this.panel7.TabIndex = 0;
             // 
             // pictureBox2
@@ -678,7 +664,7 @@
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(435, 0);
+            this.splitter1.Location = new System.Drawing.Point(501, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(10, 907);
@@ -694,10 +680,10 @@
             this.panel2.Controls.Add(this.splitter2);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(445, 0);
+            this.panel2.Location = new System.Drawing.Point(511, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1245, 907);
+            this.panel2.Size = new System.Drawing.Size(1179, 907);
             this.panel2.TabIndex = 4;
             // 
             // panel13
@@ -709,27 +695,27 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
-            this.panel13.Size = new System.Drawing.Size(1152, 617);
+            this.panel13.Size = new System.Drawing.Size(1086, 617);
             this.panel13.TabIndex = 9;
             // 
             // dgvDetalleCompra
             // 
             this.dgvDetalleCompra.AllowUserToAddRows = false;
             this.dgvDetalleCompra.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvDetalleCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDetalleCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalleCompra.AutoGenerateColumns = false;
             this.dgvDetalleCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalleCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalleCompra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleCompra.ColumnHeadersHeight = 43;
             this.dgvDetalleCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDetalleCompraDataGridViewTextBoxColumn,
@@ -751,14 +737,14 @@
             this.totalDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn});
             this.dgvDetalleCompra.DataSource = this.detalleCompraBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleCompra.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleCompra.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalleCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleCompra.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvDetalleCompra.Location = new System.Drawing.Point(23, 18);
@@ -766,20 +752,20 @@
             this.dgvDetalleCompra.Name = "dgvDetalleCompra";
             this.dgvDetalleCompra.ReadOnly = true;
             this.dgvDetalleCompra.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetalleCompra.RowHeadersWidth = 40;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.dgvDetalleCompra.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.dgvDetalleCompra.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalleCompra.RowTemplate.Height = 30;
             this.dgvDetalleCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleCompra.Size = new System.Drawing.Size(1106, 581);
+            this.dgvDetalleCompra.Size = new System.Drawing.Size(1040, 581);
             this.dgvDetalleCompra.TabIndex = 50;
             // 
             // idDetalleCompraDataGridViewTextBoxColumn
@@ -932,7 +918,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnActulizar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1152, 177);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1086, 177);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 11, 9, 5);
@@ -973,7 +959,7 @@
             this.tableLayoutPanel28.RowCount = 2;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.74809F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.25191F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(1245, 177);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(1179, 177);
             this.tableLayoutPanel28.TabIndex = 7;
             // 
             // tableLayoutPanel1
@@ -989,7 +975,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1225, 92);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1159, 92);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnAgregarDetalle
@@ -1004,10 +990,10 @@
             this.btnAgregarDetalle.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarDetalle.ForeColor = System.Drawing.Color.White;
             this.btnAgregarDetalle.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDetalle.Image")));
-            this.btnAgregarDetalle.Location = new System.Drawing.Point(769, 2);
+            this.btnAgregarDetalle.Location = new System.Drawing.Point(728, 2);
             this.btnAgregarDetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarDetalle.Name = "btnAgregarDetalle";
-            this.btnAgregarDetalle.Size = new System.Drawing.Size(137, 88);
+            this.btnAgregarDetalle.Size = new System.Drawing.Size(129, 88);
             this.btnAgregarDetalle.TabIndex = 8;
             this.btnAgregarDetalle.Text = "+ Detalles";
             this.btnAgregarDetalle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1020,7 +1006,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(760, 86);
+            this.panel5.Size = new System.Drawing.Size(719, 86);
             this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -1034,7 +1020,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1225, 67);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1159, 67);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel4
@@ -1046,7 +1032,7 @@
             this.panel4.Location = new System.Drawing.Point(4, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(477, 52);
+            this.panel4.Size = new System.Drawing.Size(450, 52);
             this.panel4.TabIndex = 1;
             // 
             // pictureBox1
@@ -1078,7 +1064,7 @@
             this.splitter2.Location = new System.Drawing.Point(0, 794);
             this.splitter2.Margin = new System.Windows.Forms.Padding(5);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(1245, 7);
+            this.splitter2.Size = new System.Drawing.Size(1179, 7);
             this.splitter2.TabIndex = 1;
             this.splitter2.TabStop = false;
             // 
@@ -1090,7 +1076,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
-            this.panel3.Size = new System.Drawing.Size(1245, 106);
+            this.panel3.Size = new System.Drawing.Size(1179, 106);
             this.panel3.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -1099,7 +1085,7 @@
             this.flowLayoutPanel2.Controls.Add(this.button1);
             this.flowLayoutPanel2.Controls.Add(this.button2);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(840, 15);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(774, 15);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(388, 76);
             this.flowLayoutPanel2.TabIndex = 14;
@@ -1114,7 +1100,7 @@
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(4, 4);
@@ -1137,7 +1123,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(132, 4);
@@ -1160,7 +1146,7 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(260, 4);
@@ -1197,6 +1183,25 @@
             // 
             this.productoBindingSource.DataSource = typeof(Entidad.Producto);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(132)))), ((int)(((byte)(236)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(422, 314);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(44, 26);
+            this.button4.TabIndex = 62;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // FormRemisionNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1210,6 +1215,7 @@
             this.Name = "FormRemisionNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNotaSalida";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormNotaSalidaNew_Load);
             this.panel1.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -1318,7 +1324,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnBuscarDestino;
         private System.Windows.Forms.Button btnBuscarOrigen;
         private System.Windows.Forms.Button btnNewTransporte;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -1337,5 +1342,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
     }
 }

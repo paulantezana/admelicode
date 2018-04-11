@@ -106,13 +106,6 @@
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.label17 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.chbxPagarCompra = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.chbxNotaEntrada = new Bunifu.Framework.UI.BunifuCheckbox();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
@@ -190,9 +183,6 @@
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
-            this.tableLayoutPanel15.SuspendLayout();
-            this.tableLayoutPanel17.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel35.SuspendLayout();
@@ -856,8 +846,8 @@
             this.btnActulizar.Size = new System.Drawing.Size(85, 102);
             this.btnActulizar.TabIndex = 4;
             this.btnActulizar.Text = "Actualizar";
-            this.btnActulizar.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnActulizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnActulizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnActulizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnActulizar.UseVisualStyleBackColor = false;
             // 
             // btnNewProducto
@@ -875,8 +865,8 @@
             this.btnNewProducto.Size = new System.Drawing.Size(88, 102);
             this.btnNewProducto.TabIndex = 3;
             this.btnNewProducto.Text = "+ Producto";
-            this.btnNewProducto.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnNewProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnNewProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnNewProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNewProducto.UseVisualStyleBackColor = false;
             // 
             // btnAgregar
@@ -1302,7 +1292,6 @@
             this.tableLayoutPanel14.ColumnCount = 1;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.Controls.Add(this.label17, 0, 0);
-            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 0, 1);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1327,115 +1316,6 @@
             this.label17.TabIndex = 1;
             this.label17.Text = "Opciones";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.ColumnCount = 2;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.75546F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.24454F));
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 1, 1);
-            this.tableLayoutPanel15.Controls.Add(this.label19, 0, 1);
-            this.tableLayoutPanel15.Controls.Add(this.label18, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 0);
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 55);
-            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 3;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.30709F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.94488F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.96063F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(320, 270);
-            this.tableLayoutPanel15.TabIndex = 2;
-            // 
-            // tableLayoutPanel17
-            // 
-            this.tableLayoutPanel17.ColumnCount = 1;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Controls.Add(this.chbxPagarCompra, 0, 1);
-            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(207, 119);
-            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 3;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.3871F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.3913F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(110, 107);
-            this.tableLayoutPanel17.TabIndex = 59;
-            // 
-            // chbxPagarCompra
-            // 
-            this.chbxPagarCompra.AutoSize = true;
-            this.chbxPagarCompra.BackColor = System.Drawing.Color.DodgerBlue;
-            this.chbxPagarCompra.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chbxPagarCompra.Checked = true;
-            this.chbxPagarCompra.CheckedOnColor = System.Drawing.Color.DodgerBlue;
-            this.chbxPagarCompra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chbxPagarCompra.ForeColor = System.Drawing.Color.White;
-            this.chbxPagarCompra.Location = new System.Drawing.Point(5, 40);
-            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(5);
-            this.chbxPagarCompra.Name = "chbxPagarCompra";
-            this.chbxPagarCompra.Size = new System.Drawing.Size(20, 20);
-            this.chbxPagarCompra.TabIndex = 53;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label19.Location = new System.Drawing.Point(3, 117);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(198, 111);
-            this.label19.TabIndex = 57;
-            this.label19.Text = "Pagar Compra";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label18.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label18.Location = new System.Drawing.Point(3, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(198, 117);
-            this.label18.TabIndex = 56;
-            this.label18.Text = "Nota de entrada";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tableLayoutPanel16
-            // 
-            this.tableLayoutPanel16.ColumnCount = 1;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Controls.Add(this.chbxNotaEntrada, 0, 1);
-            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(207, 2);
-            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 3;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.7347F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.87755F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.36735F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(110, 113);
-            this.tableLayoutPanel16.TabIndex = 58;
-            // 
-            // chbxNotaEntrada
-            // 
-            this.chbxNotaEntrada.AutoSize = true;
-            this.chbxNotaEntrada.BackColor = System.Drawing.Color.DodgerBlue;
-            this.chbxNotaEntrada.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chbxNotaEntrada.Checked = true;
-            this.chbxNotaEntrada.CheckedOnColor = System.Drawing.Color.DodgerBlue;
-            this.chbxNotaEntrada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chbxNotaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxNotaEntrada.ForeColor = System.Drawing.Color.White;
-            this.chbxNotaEntrada.Location = new System.Drawing.Point(5, 46);
-            this.chbxNotaEntrada.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.chbxNotaEntrada.Name = "chbxNotaEntrada";
-            this.chbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
-            this.chbxNotaEntrada.TabIndex = 53;
             // 
             // tableLayoutPanel18
             // 
@@ -2074,12 +1954,6 @@
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
-            this.tableLayoutPanel15.ResumeLayout(false);
-            this.tableLayoutPanel15.PerformLayout();
-            this.tableLayoutPanel17.ResumeLayout(false);
-            this.tableLayoutPanel17.PerformLayout();
-            this.tableLayoutPanel16.ResumeLayout(false);
-            this.tableLayoutPanel16.PerformLayout();
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel19.ResumeLayout(false);
@@ -2143,13 +2017,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private Bunifu.Framework.UI.BunifuCheckbox chbxNotaEntrada;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private Bunifu.Framework.UI.BunifuCheckbox chbxPagarCompra;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label20;

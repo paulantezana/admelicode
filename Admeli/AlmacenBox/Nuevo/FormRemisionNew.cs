@@ -214,5 +214,10 @@ namespace Admeli.AlmacenBox.Nuevo
             FormTransporteNew formTransporteNew = new FormTransporteNew();
             formTransporteNew.ShowDialog();
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
