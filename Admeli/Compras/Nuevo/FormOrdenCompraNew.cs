@@ -1245,5 +1245,46 @@ namespace Admeli.Compras.Nuevo
             cargarProductos();
             cargarPresentacion();
         }
+
+        private async void btnComprarOrdenCompra_Click(object sender, EventArgs e)
+        {
+            if (currentOrdenCompra != null)
+            {
+
+                CompraOrdenCompra compra = new CompraOrdenCompra();
+                compra.estado = 1;// 
+                compra.formaPago = "EFECTIVO";
+
+                int i = cbxTipoMoneda.SelectedIndex;
+                compra.idMoneda = monedas[i].idMoneda;
+                compra.idOrdenCompra = currentOrdenCompra.idOrdenCompra;
+                compra.moneda = monedas[i].moneda;
+                compra.subTotal = subTotal;
+                compra.tipoCambio = Convert.ToInt32(monedas[i].tipoCambio);
+                compra.total = total;
+
+                try
+                {
+
+                    await ordenCompraModel.comprarOrdenCompra(compra);
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            
+                MessageBox.Show("Orden de compra realizada", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+              
+                btnComprar.Enabled = false;
+            }
+
+            else
+                MessageBox.Show("no exite orden de compra", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+        }
     }
 }
