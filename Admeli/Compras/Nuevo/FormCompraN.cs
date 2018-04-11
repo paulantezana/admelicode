@@ -124,7 +124,7 @@ namespace Admeli.Compras.Nuevo
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
             //datos del proveedor no editables
-            txtNombreProveedor.Enabled = false;
+            cbxProveedor.Enabled = false;
             txtDireccionProveedor.Enabled = false;
             btnImportarOrdenCompra.Visible = false;
             formato = "{0:n" + nroDecimales + "}";
@@ -163,6 +163,8 @@ namespace Admeli.Compras.Nuevo
             cargarMedioPago();
             cargarAlmacen();
             cargarPresentacion();
+
+            cargarProveedores();
             int i = ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
             if (i == 0)
             {
@@ -175,7 +177,23 @@ namespace Admeli.Compras.Nuevo
         #endregion
 
         #region ============================== Load ==============================
+        private async void cargarProveedores()
+        {
 
+
+            try
+            {
+                proveedores = await proveedormodel.listaProveedores();
+                proveedorBindingSource.DataSource = proveedores;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar Proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+        }
         private void AddButtonColumn()
         {
             DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
@@ -254,7 +272,7 @@ namespace Admeli.Compras.Nuevo
             {
 
                 datosProveedor = await compraModel.Compras(currentCompra.idCompra);
-                txtNombreProveedor.Text = datosProveedor[0].nombreProveedor;
+                cbxProveedor.Text = datosProveedor[0].nombreProveedor;
                 txtDireccionProveedor.Text = datosProveedor[0].direccion;
                 dtpFechaEmision.Value = datosProveedor[0].fechaFacturacion.date;
                 dtpFechaPago.Value = datosProveedor[0].fechaPago.date;
@@ -610,7 +628,7 @@ namespace Admeli.Compras.Nuevo
 
         private async void txtRUC_TextChanged(object sender, EventArgs e)
         {
-            String aux = txtRUC.Text;
+            String aux = txtRuc.Text;
 
             int nroCarateres = aux.Length;
             bool exiteProveedor = false;
@@ -640,9 +658,9 @@ namespace Admeli.Compras.Nuevo
                 {
                     // llenamos los dato con el current proveerdor
 
-                    txtRUC.Text = currentProveedor.ruc;
+                    txtRuc.Text = currentProveedor.ruc;
                     txtDireccionProveedor.Text = currentProveedor.direccion;
-                    txtNombreProveedor.Text = currentProveedor.razonSocial;
+                    cbxProveedor.Text = currentProveedor.razonSocial;
 
                 }
                 else
@@ -657,7 +675,7 @@ namespace Admeli.Compras.Nuevo
                         {
                             Proveedor proveedor = proveedores.Find(X => X.idProveedor == response.id);
                             txtDireccionProveedor.Text = proveedor.direccion;
-                            txtNombreProveedor.Text = proveedor.razonSocial;
+                            cbxProveedor.Text = proveedor.razonSocial;
 
                         }
                 }
@@ -975,8 +993,33 @@ namespace Admeli.Compras.Nuevo
 
         private void button3_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
             BuscarProveedor buscarProveedor = new BuscarProveedor();
-            buscarProveedor.Show();
+            buscarProveedor.ShowDialog();
+
+            currentProveedor = buscarProveedor.currentProveedor;
+
+
+            //cargando datas del proveedor
+            txtRuc.Text = currentProveedor.ruc;
+            cbxProveedor.SelectedValue = currentProveedor.idProveedor;
+            txtDireccionProveedor.Text = currentProveedor.direccion;
+
+
+        }
+
+        private void cbxProveedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentProveedor = proveedores.Find(X => X.idProveedor == (int)cbxProveedor.SelectedValue);
+
+            txtRuc.Text = currentProveedor.ruc;
+            cbxProveedor.SelectedValue = currentProveedor.idProveedor;
+            txtDireccionProveedor.Text = currentProveedor.direccion;
+
         }
     }
 }

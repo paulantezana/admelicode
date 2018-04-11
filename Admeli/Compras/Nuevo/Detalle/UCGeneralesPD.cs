@@ -23,20 +23,14 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         private bool isFieldsValid { get; set; }
         public bool lisenerKeyEvents { get; internal set; }
-        private FormCompraNuevo1 formCompraNuevo1;
+        
         private BunifuGradientPanel panel = new BunifuGradientPanel();
         public UCGeneralesPD()
         {
             InitializeComponent();
         }
 
-        public UCGeneralesPD(FormCompraNuevo1 formCompraNuevo1)
-        {
-            InitializeComponent();
-            this.formCompraNuevo1 = formCompraNuevo1;
-           
-
-        }
+      
 
         #region ================================ Root Load ================================
         private void UCGeneralesPD_Load(object sender, EventArgs e)
@@ -335,7 +329,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            formCompraNuevo1.executeCerrar();
+            
         }
     }
 }

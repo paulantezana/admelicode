@@ -149,8 +149,8 @@ namespace Admeli.Compras.Nuevo
             {
 
 
-                chbxPagarCompra.Enabled = false;
-                chbxPagarCompra.Checked = false;
+                //chbxPagarCompra.Enabled = false;
+                //chbxPagarCompra.Checked = false;
             }
         }
         #endregion

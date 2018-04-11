@@ -537,7 +537,7 @@ namespace Admeli.Ventas.Nuevo
 
                 descuentoTotal();
 
-                await limpiarCamposProducto();
+                limpiarCamposProducto();
 
             }
             else
@@ -1134,7 +1134,7 @@ namespace Admeli.Ventas.Nuevo
         {
             this.Close();            
         }
-        private Task limpiarCamposProducto()
+        private void limpiarCamposProducto()
         {
             cbxCodigoProducto.SelectedIndex = -1;
             cbxPresentacion.SelectedIndex = -1;
@@ -1144,17 +1144,7 @@ namespace Admeli.Ventas.Nuevo
             txtDescuento.Text = "";
             txtPrecioUnitario.Text = "";          
             lbStock.Text = "";
-            DetalleA obj = new DetalleA();
-            Action messageTarget;
-
-            if (Environment.GetCommandLineArgs().Length > 1)
-                messageTarget = ShowWindowsMessage;
-            else
-                messageTarget = Console.WriteLine;
-
-            messageTarget(); //action that points to the method
-            Task task = new Task(messageTarget);
-            return task;
+           
 
             
         }

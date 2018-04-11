@@ -17,7 +17,7 @@ namespace Admeli.Compras.Nuevo.Detalle
     public partial class UCProveedorGeneral : UserControl
     {
         private FormProveedorNuevo formProveedorNuevo;
-        private FormCompraNuevo1 formCompraNuevo1;
+      
         private LocationModel locationModel = new LocationModel();
         private ProveedorModel proveedorModel = new ProveedorModel();
 
@@ -54,11 +54,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         }
 
-        public UCProveedorGeneral(FormCompraNuevo1 formCompraNuevo1)
-        {
-            InitializeComponent();
-            this.formCompraNuevo1 = formCompraNuevo1;
-        }
+      
         private void UCProveedorGeneral_Load(object sender, EventArgs e)
         {
             this.reLoad();

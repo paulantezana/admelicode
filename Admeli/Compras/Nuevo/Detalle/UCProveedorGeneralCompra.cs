@@ -16,7 +16,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 {
     public partial class UCProveedorGeneralCompra : UserControl
     {
-        private FormCompraNuevo1 formCompraNuevo1;
+       
         private LocationModel locationModel = new LocationModel();
         private ProveedorModel proveedorModel = new ProveedorModel();
 
@@ -33,11 +33,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         }
 
        
-        public UCProveedorGeneralCompra(FormCompraNuevo1 formCompraNuevo1)
-        {
-            InitializeComponent();
-            this.formCompraNuevo1 = formCompraNuevo1;
-        }
+        
         private void UCProveedorGeneral_Load(object sender, EventArgs e)
         {
             this.reLoad();
@@ -46,17 +42,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         #region ================================= Loads =================================
         private void cargarDatosModificar()
         {
-            if (!formCompraNuevo1.nuevo)
-            {
-                textActividadPrincipal.Text = formCompraNuevo1.currentProveedor.actividadPrincipal;
-                textDireccion.Text = formCompraNuevo1.currentProveedor.direccion;
-                textEmail.Text = formCompraNuevo1.currentProveedor.email;
-                chkEstado.Checked = Convert.ToBoolean(formCompraNuevo1.currentProveedor.estado);
-                textNombreEmpresa.Text = formCompraNuevo1.currentProveedor.razonSocial;
-                textNIdentificacion.Text = formCompraNuevo1.currentProveedor.ruc;
-                textTelefono.Text = formCompraNuevo1.currentProveedor.telefono;
-                cbxTipoProveedor.Text = formCompraNuevo1.currentProveedor.tipoProveedor;
-            }
+           
         }
 
         internal async void reLoad()
@@ -72,15 +58,15 @@ namespace Admeli.Compras.Nuevo.Detalle
             paisBindingSource.DataSource = await locationModel.paises();
 
             // cargando la ubicacion geografica por defecto
-            if (formCompraNuevo1.nuevo)
-            {
-                ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
-            }
-            else
-            {
-                ubicacionGeografica = await locationModel.ubigeoActual(formCompraNuevo1.currentProveedor.idUbicacionGeografica);
-            }
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+            //if (formCompraNuevo1.nuevo)
+            //{
+            //    ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+            //}
+            //else
+            //{
+            //    ubicacionGeografica = await locationModel.ubigeoActual(formCompraNuevo1.currentProveedor.idUbicacionGeografica);
+            //}
+            //cbxPaises.SelectedValue = ubicacionGeografica.idPais;
         } 
         #endregion
 
@@ -88,49 +74,49 @@ namespace Admeli.Compras.Nuevo.Detalle
         #region ================== Formando los niveles de cada pais ==================
         private async void crearNivelesPais()
         {
-            try
-            {
-                formCompraNuevo1.loadStateApp(true);
-                labelUbicaciones = await locationModel.labelUbicacion(Convert.ToInt32(cbxPaises.SelectedValue));
-                ocultarNiveles(); // Ocultando todo los niveles
+            //try
+            //{
+            //    formCompraNuevo1.loadStateApp(true);
+            //    labelUbicaciones = await locationModel.labelUbicacion(Convert.ToInt32(cbxPaises.SelectedValue));
+            //    ocultarNiveles(); // Ocultando todo los niveles
 
-                // Mostrando los niveles uno por uno
-                if (labelUbicaciones.Count >= 1)
-                {
-                    lblNivel1.Visible = true;
-                    lblNivel1.Text = labelUbicaciones[0].denominacion;
+            //    // Mostrando los niveles uno por uno
+            //    if (labelUbicaciones.Count >= 1)
+            //    {
+            //        lblNivel1.Visible = true;
+            //        lblNivel1.Text = labelUbicaciones[0].denominacion;
 
-                    cbxNivel1.Visible = true;
-                }
+            //        cbxNivel1.Visible = true;
+            //    }
 
-                if (labelUbicaciones.Count >= 2)
-                {
-                    lblNivel2.Visible = true;
-                    lblNivel2.Text = labelUbicaciones[1].denominacion;
+            //    if (labelUbicaciones.Count >= 2)
+            //    {
+            //        lblNivel2.Visible = true;
+            //        lblNivel2.Text = labelUbicaciones[1].denominacion;
 
-                    cbxNivel2.Visible = true;
-                }
+            //        cbxNivel2.Visible = true;
+            //    }
 
-                if (labelUbicaciones.Count >= 3)
-                {
-                    lblNivel3.Visible = true;
-                    lblNivel3.Text = labelUbicaciones[2].denominacion;
+            //    if (labelUbicaciones.Count >= 3)
+            //    {
+            //        lblNivel3.Visible = true;
+            //        lblNivel3.Text = labelUbicaciones[2].denominacion;
 
-                    cbxNivel3.Visible = true;
-                }
+            //        cbxNivel3.Visible = true;
+            //    }
 
-                // Cargar el primer nivel de la localizacion
-                cargarNivel1();
+            //    // Cargar el primer nivel de la localizacion
+            //    cargarNivel1();
 
-            }
-            catch (Exception)
-            {
-                // MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formCompraNuevo1.loadStateApp(false);
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    // MessageBox.Show(ex.Message);
+            //}
+            //finally
+            //{
+            //    formCompraNuevo1.loadStateApp(false);
+            //}
         }
 
         private void ocultarNiveles()
@@ -150,112 +136,112 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         private async void cargarNivel1()
         {
-            try
-            {
-                // No cargar directo al comobobox esto causara que el evento SelectedIndexChange de forma automatica
-                if (labelUbicaciones.Count < 1) return;
-                formCompraNuevo1.loadStateApp(true);
-                nivel1BindingSource.DataSource = await locationModel.nivel1(Convert.ToInt32(cbxPaises.SelectedValue));
-                if (ubicacionGeografica.idNivel1 > 0)
-                {
-                    cbxNivel1.SelectedValue = ubicacionGeografica.idNivel1;
-                }
-                else
-                {
-                    cbxNivel1.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                formCompraNuevo1.loadStateApp(false);
-                desactivarNivelDesde(2);
-            }
+            //try
+            //{
+            //    // No cargar directo al comobobox esto causara que el evento SelectedIndexChange de forma automatica
+            //    if (labelUbicaciones.Count < 1) return;
+            //    formCompraNuevo1.loadStateApp(true);
+            //    nivel1BindingSource.DataSource = await locationModel.nivel1(Convert.ToInt32(cbxPaises.SelectedValue));
+            //    if (ubicacionGeografica.idNivel1 > 0)
+            //    {
+            //        cbxNivel1.SelectedValue = ubicacionGeografica.idNivel1;
+            //    }
+            //    else
+            //    {
+            //        cbxNivel1.SelectedIndex = -1;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //finally
+            //{
+            //    formCompraNuevo1.loadStateApp(false);
+            //    desactivarNivelDesde(2);
+            //}
         }
 
         private async void cargarNivel2()
         {
-            try
-            {
-                if (labelUbicaciones.Count < 2) return;
-                formCompraNuevo1.loadStateApp(true);
-                nivel2BindingSource.DataSource = await locationModel.nivel2(Convert.ToInt32(cbxNivel1.SelectedValue));
-                if (ubicacionGeografica.idNivel2 > 0)
-                {
-                    cbxNivel2.SelectedValue = ubicacionGeografica.idNivel2;
-                }
-                else
-                {
-                    cbxNivel2.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                desactivarNivelDesde(3);
-                formCompraNuevo1.loadStateApp(false);
-            }
+            //try
+            //{
+            //    if (labelUbicaciones.Count < 2) return;
+            //    formCompraNuevo1.loadStateApp(true);
+            //    nivel2BindingSource.DataSource = await locationModel.nivel2(Convert.ToInt32(cbxNivel1.SelectedValue));
+            //    if (ubicacionGeografica.idNivel2 > 0)
+            //    {
+            //        cbxNivel2.SelectedValue = ubicacionGeografica.idNivel2;
+            //    }
+            //    else
+            //    {
+            //        cbxNivel2.SelectedIndex = -1;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //finally
+            //{
+            //    desactivarNivelDesde(3);
+            //    formCompraNuevo1.loadStateApp(false);
+            //}
         }
 
         private async void cargarNivel3()
         {
-            try
-            {
-                if (labelUbicaciones.Count < 3) return;
-                formCompraNuevo1.loadStateApp(true);
-                nivel3BindingSource.DataSource = await locationModel.nivel3(Convert.ToInt32(cbxNivel2.SelectedValue));
-                if (ubicacionGeografica.idNivel3 > 0)
-                {
-                    cbxNivel3.SelectedValue = ubicacionGeografica.idNivel3;
-                }
-                else
-                {
-                    cbxNivel3.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                formCompraNuevo1.loadStateApp(false);
-                desactivarNivelDesde(4);
-            }
+            //try
+            //{
+            //    if (labelUbicaciones.Count < 3) return;
+            //    formCompraNuevo1.loadStateApp(true);
+            //    nivel3BindingSource.DataSource = await locationModel.nivel3(Convert.ToInt32(cbxNivel2.SelectedValue));
+            //    if (ubicacionGeografica.idNivel3 > 0)
+            //    {
+            //        cbxNivel3.SelectedValue = ubicacionGeografica.idNivel3;
+            //    }
+            //    else
+            //    {
+            //        cbxNivel3.SelectedIndex = -1;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //finally
+            //{
+            //    formCompraNuevo1.loadStateApp(false);
+            //    desactivarNivelDesde(4);
+            //}
         }
         private async void cargarNivel4()
         {
-            try
-            {
-                if (labelUbicaciones.Count < 4) return;
-                formCompraNuevo1.loadStateApp(true);
+            //try
+            //{
+            //    if (labelUbicaciones.Count < 4) return;
+            //    formCompraNuevo1.loadStateApp(true);
 
-                /*
-                nivel4BindingSource.DataSource = await locationModel.nivel4(Convert.ToInt32(cbxNivel3.SelectedValue));
-                cbxNivel4.SelectedIndex = -1;
-                 * if (ubicacionGeografica.idNivel4 > 0)
-                {
-                    cbxNivel4.SelectedValue = ubicacionGeografica.idNivel4;
-                }
-                else
-                {
-                    cbxNivel4.SelectedIndex = -1;
-                }*/
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            finally
-            {
-                formCompraNuevo1.loadStateApp(false);
-            }
+            //    /*
+            //    nivel4BindingSource.DataSource = await locationModel.nivel4(Convert.ToInt32(cbxNivel3.SelectedValue));
+            //    cbxNivel4.SelectedIndex = -1;
+            //     * if (ubicacionGeografica.idNivel4 > 0)
+            //    {
+            //        cbxNivel4.SelectedValue = ubicacionGeografica.idNivel4;
+            //    }
+            //    else
+            //    {
+            //        cbxNivel4.SelectedIndex = -1;
+            //    }*/
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Upps! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //finally
+            //{
+            //    formCompraNuevo1.loadStateApp(false);
+            //}
         }
 
         private void desactivarNivelDesde(int n)
@@ -295,48 +281,48 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         private async void guardarSucursal()
         {
-            if (!validarCampos()) return;
-            try
-            {
-                crearObjetoSucursal();
-                if (formCompraNuevo1.nuevo)
-                {
-                    Response response = await proveedorModel.guardar(ubicacionGeografica, formCompraNuevo1.currentProveedor);
-                    MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    Response response = await proveedorModel.modificar(ubicacionGeografica, formCompraNuevo1.currentProveedor);
-                    MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                this.formCompraNuevo1.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if (!validarCampos()) return;
+            //try
+            //{
+            //    crearObjetoSucursal();
+            //    if (formCompraNuevo1.nuevo)
+            //    {
+            //        Response response = await proveedorModel.guardar(ubicacionGeografica, formCompraNuevo1.currentProveedor);
+            //        MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    else
+            //    {
+            //        Response response = await proveedorModel.modificar(ubicacionGeografica, formCompraNuevo1.currentProveedor);
+            //        MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    this.formCompraNuevo1.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void crearObjetoSucursal()
         {
-            formCompraNuevo1.currentProveedor = new Proveedor();
+            //formCompraNuevo1.currentProveedor = new Proveedor();
 
-            if (!formCompraNuevo1.nuevo) formCompraNuevo1.currentProveedor.idProveedor = formCompraNuevo1.currentIDProveedor; // Llenar el id categoria cuando este en esdo modificar
+            //if (!formCompraNuevo1.nuevo) formCompraNuevo1.currentProveedor.idProveedor = formCompraNuevo1.currentIDProveedor; // Llenar el id categoria cuando este en esdo modificar
 
-            formCompraNuevo1.currentProveedor.actividadPrincipal = textActividadPrincipal.Text;
-            formCompraNuevo1.currentProveedor.direccion = textDireccion.Text;
-            formCompraNuevo1.currentProveedor.email = textEmail.Text;
-            formCompraNuevo1.currentProveedor.estado = Convert.ToInt32(chkEstado.Checked);
-            formCompraNuevo1.currentProveedor.razonSocial = textNombreEmpresa.Text;
-            formCompraNuevo1.currentProveedor.ruc = textNIdentificacion.Text;
-            formCompraNuevo1.currentProveedor.telefono = textTelefono.Text;
-            formCompraNuevo1.currentProveedor.tipoProveedor = cbxTipoProveedor.Text;
+            //formCompraNuevo1.currentProveedor.actividadPrincipal = textActividadPrincipal.Text;
+            //formCompraNuevo1.currentProveedor.direccion = textDireccion.Text;
+            //formCompraNuevo1.currentProveedor.email = textEmail.Text;
+            //formCompraNuevo1.currentProveedor.estado = Convert.ToInt32(chkEstado.Checked);
+            //formCompraNuevo1.currentProveedor.razonSocial = textNombreEmpresa.Text;
+            //formCompraNuevo1.currentProveedor.ruc = textNIdentificacion.Text;
+            //formCompraNuevo1.currentProveedor.telefono = textTelefono.Text;
+            //formCompraNuevo1.currentProveedor.tipoProveedor = cbxTipoProveedor.Text;
 
-            // Ubicacion geografica
-            ubicacionGeografica.idPais = (cbxPaises.SelectedIndex == -1) ? ubicacionGeografica.idPais : Convert.ToInt32(cbxPaises.SelectedValue);
-            ubicacionGeografica.idNivel1 = (cbxNivel1.SelectedIndex == -1) ? ubicacionGeografica.idNivel1 : Convert.ToInt32(cbxNivel1.SelectedValue);
-            ubicacionGeografica.idNivel2 = (cbxNivel2.SelectedIndex == -1) ? ubicacionGeografica.idNivel2 : Convert.ToInt32(cbxNivel2.SelectedValue);
-            ubicacionGeografica.idNivel3 = (cbxNivel3.SelectedIndex == -1) ? ubicacionGeografica.idNivel3 : Convert.ToInt32(cbxNivel3.SelectedValue);
+            //// Ubicacion geografica
+            //ubicacionGeografica.idPais = (cbxPaises.SelectedIndex == -1) ? ubicacionGeografica.idPais : Convert.ToInt32(cbxPaises.SelectedValue);
+            //ubicacionGeografica.idNivel1 = (cbxNivel1.SelectedIndex == -1) ? ubicacionGeografica.idNivel1 : Convert.ToInt32(cbxNivel1.SelectedValue);
+            //ubicacionGeografica.idNivel2 = (cbxNivel2.SelectedIndex == -1) ? ubicacionGeografica.idNivel2 : Convert.ToInt32(cbxNivel2.SelectedValue);
+            //ubicacionGeografica.idNivel3 = (cbxNivel3.SelectedIndex == -1) ? ubicacionGeografica.idNivel3 : Convert.ToInt32(cbxNivel3.SelectedValue);
         }
 
         private bool validarCampos()
@@ -420,7 +406,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.formCompraNuevo1.Close();
+            //this.formCompraNuevo1.Close();
         }
         #endregion
 

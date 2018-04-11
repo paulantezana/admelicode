@@ -372,7 +372,7 @@ namespace Admeli.Compras
             Personal personal = personalBindingSource.List[i] as Personal;
 
             //Mostrando el formulario de modificacion
-              FormComprarNuevo formComprar = new FormComprarNuevo(currentCompra ,ConfigModel.sucursal, personal);
+            FormCompraN formComprar = new FormCompraN();
             formComprar.ShowDialog();
             cargarRegistros(); // recargando loas registros en el datagridview
         }

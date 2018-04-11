@@ -323,7 +323,8 @@ namespace Admeli.Compras
         {
             int i = cbxPersonales.SelectedIndex;
             Personal personal = personalBindingSource.List[i] as Personal;
-         
+            FormOrdenCompraNew formOrdenCompraNew = new FormOrdenCompraNew();
+            formOrdenCompraNew.ShowDialog();
             cargarRegistros();
 
         }
@@ -345,8 +346,8 @@ namespace Admeli.Compras
             // Mostrando el formulario de modificacion
             int i = cbxPersonales.SelectedIndex;
             Personal personal = personalBindingSource.List[i] as Personal;
-            FormOrdenComprarNuevo formCompraProveedor = new FormOrdenComprarNuevo (currentOrdenCompra, ConfigModel.sucursal, personal);
-            formCompraProveedor.ShowDialog();
+            FormOrdenCompraNew formOrdenCompraNew = new FormOrdenCompraNew(currentOrdenCompra);
+            formOrdenCompraNew.ShowDialog();
             cargarRegistros(); // recargando loas registros en el datagridview
         }
 

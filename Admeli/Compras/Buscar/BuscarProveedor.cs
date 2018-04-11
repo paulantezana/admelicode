@@ -31,23 +31,7 @@ namespace Admeli.Compras.Buscar
             this.reLoad();
         }
 
-        public void BuscarLINQ()
-        {
-            DataTable dt;
-            DataView dv;
-            dt= proveedorBindingSource.DataSource as DataTable;
-
-          
-         
-
-        }
-       void filtro(string busqueda)
-        {
-            
-            string Filtro = String.Format("{0} LIKE '%{1}%'", "razonSocial", textBuscar.Text);
-            proveedorBindingSource.Filter = Filtro;
-            dataGridView.Refresh();
-        }
+        
       
 
 
@@ -61,26 +45,12 @@ namespace Admeli.Compras.Buscar
             loadState(true);
             try
             {
-                RootObject<Proveedor> proveedorRoot;
-                if (textBuscar.Text == "")
-                {
-                    proveedorRoot = await proveedorModel.proveedores(1, 2000);
-                }
-                else
-                {
-                    proveedorRoot = await proveedorModel.proveedoreslike(1, 2000, textBuscar.Text);
-                }
-
-                // actualizando datos de páginacón
-                // paginacion.itemsCount = ordenCompra.nro_registros;
-                // paginacion.reload();
-
-                // Ingresando
+                RootObject<Proveedor> proveedorRoot;              
+                proveedorRoot = await proveedorModel.proveedores(1, 2000);
                 proveedores = proveedorRoot.datos;
                 proveedorBindingSource.DataSource = proveedores;
                 dataGridView.Refresh();
-
-               //  mostrarPaginado();
+        
             }
             catch (Exception ex)
             {
@@ -106,14 +76,7 @@ namespace Admeli.Compras.Buscar
             }
         }
 
-        private void textBuscar_KeyUp(object sender, KeyEventArgs e)
-        {
-
-            // tomar como base esta expresion
-            BindingList<Proveedor> filtered = new BindingList<Proveedor>(proveedores.Where(obj => obj.razonSocial.ToUpper().Contains(textBuscar.Text.ToUpper())).ToList());
-            dataGridView.DataSource = filtered;
-            dataGridView.Update();
-        }
+      
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -129,6 +92,41 @@ namespace Admeli.Compras.Buscar
             {
                 MessageBox.Show("Error! " + ex.Message, "Error proveedor", MessageBoxButtons.OK,MessageBoxIcon.Stop);
             }
+        }
+
+        private void txtDocumento_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<Proveedor> filtered = new BindingList<Proveedor>(proveedores.Where(obj => obj.ruc.ToUpper().Contains(txtDocumento.Text.ToUpper())).ToList());
+            dataGridView.DataSource = filtered;
+            dataGridView.Update();
+        }
+
+        private void txtRazonSocial_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<Proveedor> filtered = new BindingList<Proveedor>(proveedores.Where(obj => obj.razonSocial.ToUpper().Contains(txtRazonSocial.Text.ToUpper())).ToList());
+            dataGridView.DataSource = filtered;
+            dataGridView.Update();
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<Proveedor> filtered = new BindingList<Proveedor>(proveedores.Where(obj => obj.direccion.ToUpper().Contains(txtDireccion.Text.ToUpper())).ToList());
+            dataGridView.DataSource = filtered;
+            dataGridView.Update();
+        }
+
+        private void txtTipoProveedor_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<Proveedor> filtered = new BindingList<Proveedor>(proveedores.Where(obj => obj.tipoProveedor.ToUpper().Contains(txtTipoProveedor.Text.ToUpper())).ToList());
+            dataGridView.DataSource = filtered;
+            dataGridView.Update();
+        }
+
+        private void txtActividad_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<Proveedor> filtered = new BindingList<Proveedor>(proveedores.Where(obj => obj.actividadPrincipal.ToUpper().Contains(txtActividad.Text.ToUpper())).ToList());
+            dataGridView.DataSource = filtered;
+            dataGridView.Update();
         }
     }
 }
