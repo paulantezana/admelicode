@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bunifu.Framework.UI;
@@ -74,11 +75,14 @@ namespace Admeli.CajaBox.Nuevo
 
         private void reLoad()
         {
+            //CArgar Medio Pago
+            this.cargarMedioPago(); 
+            //ingresosMenosEgresos
+            this.cargarIngresoMenosEgreso();
             this.cargarCajaSesion();
-            this.cargarMedioPago(); // carga mas los ingresosMenosEgresos()
-            this.cargarIngreso();
-            this.cargarFecha();
             
+            //this.cargarIngreso();
+            //this.cargarFecha();
         }
         #endregion
 
@@ -87,9 +91,7 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-                // mediosDePagos = await medioPagoModel.medioPagos();
                 medioPagos = await medioPagoModel.medioPagos();
-                this.cargarIngresoMenosEgreso();
             }
             catch (Exception ex)
             {
@@ -101,9 +103,6 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-
-
-
                 ingresos = await ingresoModel.ingresos(currentCajaSesion.idCajaSesion); // Listas
                 int columnas = 3; // Indicar numero de columnas de la grilla
 
@@ -140,7 +139,6 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-                
                 lblFechInicio.Text =currentCajaSesion.fechaInicio.timezone;
                 
             }
@@ -159,7 +157,7 @@ namespace Admeli.CajaBox.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Cargar Fecha", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -183,7 +181,7 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-                // 
+                /// 
                 int medioPagoID = medioPagos.First<MedioPago>().idMedioPago;
                 ingresoMenosEgreso = await cierreCajaModel.ingresoMenosEgreso(medioPagoID, currentCajaSesion.idCajaSesion);
 
