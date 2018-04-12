@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.progressBarApp = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtTipoProveedor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDocumento = new System.Windows.Forms.TextBox();
@@ -47,9 +45,10 @@
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTipoProveedor = new System.Windows.Forms.TextBox();
             this.txtActividad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.idProveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rucDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.razonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,9 +61,8 @@
             this.idUbicacionGeograficaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nroComprasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.progressBarApp = new System.Windows.Forms.ProgressBar();
             this.panel6.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -72,6 +70,8 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,59 +84,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1096, 102);
             this.panel6.TabIndex = 47;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 106);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.panel1.Size = new System.Drawing.Size(1096, 417);
-            this.panel1.TabIndex = 48;
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idProveedorDataGridViewTextBoxColumn,
-            this.rucDataGridViewTextBoxColumn,
-            this.razonSocial,
-            this.telefonoDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.direccionDataGridViewTextBoxColumn,
-            this.tipoProveedorDataGridViewTextBoxColumn,
-            this.actividadPrincipalDataGridViewTextBoxColumn,
-            this.estadoDataGridViewTextBoxColumn,
-            this.idUbicacionGeograficaDataGridViewTextBoxColumn,
-            this.nroComprasDataGridViewTextBoxColumn});
-            this.dataGridView.DataSource = this.proveedorBindingSource;
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.Location = new System.Drawing.Point(13, 12);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(1070, 393);
-            this.dataGridView.TabIndex = 0;
-            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
-            // 
-            // progressBarApp
-            // 
-            this.progressBarApp.BackColor = System.Drawing.Color.White;
-            this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBarApp.Location = new System.Drawing.Point(0, 0);
-            this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.progressBarApp.MarqueeAnimationSpeed = 10;
-            this.progressBarApp.Maximum = 200;
-            this.progressBarApp.Name = "progressBarApp";
-            this.progressBarApp.RightToLeftLayout = true;
-            this.progressBarApp.Size = new System.Drawing.Size(1096, 4);
-            this.progressBarApp.TabIndex = 49;
             // 
             // tableLayoutPanel28
             // 
@@ -230,6 +177,18 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.14815F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(209, 81);
             this.tableLayoutPanel5.TabIndex = 9;
+            // 
+            // txtTipoProveedor
+            // 
+            this.txtTipoProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTipoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoProveedor.Location = new System.Drawing.Point(3, 43);
+            this.txtTipoProveedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTipoProveedor.Name = "txtTipoProveedor";
+            this.txtTipoProveedor.Size = new System.Drawing.Size(203, 28);
+            this.txtTipoProveedor.TabIndex = 5;
+            this.txtTipoProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTipoProveedor.TextChanged += new System.EventHandler(this.txtTipoProveedor_TextChanged);
             // 
             // label5
             // 
@@ -342,6 +301,18 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(211, 81);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
+            // txtActividad
+            // 
+            this.txtActividad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActividad.Location = new System.Drawing.Point(3, 42);
+            this.txtActividad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtActividad.Name = "txtActividad";
+            this.txtActividad.Size = new System.Drawing.Size(205, 28);
+            this.txtActividad.TabIndex = 5;
+            this.txtActividad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtActividad.TextChanged += new System.EventHandler(this.txtActividad_TextChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -356,29 +327,45 @@
             this.label1.Text = "actividad Principal";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtTipoProveedor
+            // panel1
             // 
-            this.txtTipoProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTipoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoProveedor.Location = new System.Drawing.Point(3, 43);
-            this.txtTipoProveedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTipoProveedor.Name = "txtTipoProveedor";
-            this.txtTipoProveedor.Size = new System.Drawing.Size(203, 28);
-            this.txtTipoProveedor.TabIndex = 5;
-            this.txtTipoProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTipoProveedor.TextChanged += new System.EventHandler(this.txtTipoProveedor_TextChanged);
+            this.panel1.Controls.Add(this.dataGridView);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 106);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.panel1.Size = new System.Drawing.Size(1096, 417);
+            this.panel1.TabIndex = 48;
             // 
-            // txtActividad
+            // dataGridView
             // 
-            this.txtActividad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActividad.Location = new System.Drawing.Point(3, 42);
-            this.txtActividad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtActividad.Name = "txtActividad";
-            this.txtActividad.Size = new System.Drawing.Size(205, 28);
-            this.txtActividad.TabIndex = 5;
-            this.txtActividad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtActividad.TextChanged += new System.EventHandler(this.txtActividad_TextChanged);
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoGenerateColumns = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProveedorDataGridViewTextBoxColumn,
+            this.rucDataGridViewTextBoxColumn,
+            this.razonSocial,
+            this.telefonoDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.direccionDataGridViewTextBoxColumn,
+            this.tipoProveedorDataGridViewTextBoxColumn,
+            this.actividadPrincipalDataGridViewTextBoxColumn,
+            this.estadoDataGridViewTextBoxColumn,
+            this.idUbicacionGeograficaDataGridViewTextBoxColumn,
+            this.nroComprasDataGridViewTextBoxColumn});
+            this.dataGridView.DataSource = this.proveedorBindingSource;
+            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView.Location = new System.Drawing.Point(13, 12);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(1070, 393);
+            this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
             // idProveedorDataGridViewTextBoxColumn
             // 
@@ -459,6 +446,19 @@
             // 
             this.proveedorBindingSource.DataSource = typeof(Entidad.Proveedor);
             // 
+            // progressBarApp
+            // 
+            this.progressBarApp.BackColor = System.Drawing.Color.White;
+            this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBarApp.Location = new System.Drawing.Point(0, 0);
+            this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.progressBarApp.MarqueeAnimationSpeed = 10;
+            this.progressBarApp.Maximum = 200;
+            this.progressBarApp.Name = "progressBarApp";
+            this.progressBarApp.RightToLeftLayout = true;
+            this.progressBarApp.Size = new System.Drawing.Size(1096, 4);
+            this.progressBarApp.TabIndex = 49;
+            // 
             // BuscarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -473,8 +473,6 @@
             this.Text = "BuscarProveedor";
             this.Load += new System.EventHandler(this.BuscarProveedor_Load);
             this.panel6.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -487,6 +485,8 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
             this.ResumeLayout(false);
 

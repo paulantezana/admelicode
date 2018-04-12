@@ -1,4 +1,6 @@
-﻿using Entidad;
+﻿using Admeli.AlmacenBox.fecha;
+using Admeli.Compras.Nuevo;
+using Entidad;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -20,13 +22,17 @@ namespace Admeli.Compras.Buscar
         public Proveedor currentProveedor { get; set; }
         public List<Proveedor> proveedores { get; set; }
         private DataTable dt = new DataTable();
-        private List<OrdenCompraSinComprarM> sinComprarOrden ;
+        private List<OrdenCompraSinComprar> sinComprarOrden { get; set; }
 
-       public  OrdenCompraSinComprarM compraSinComprarM { get; set; }
+        public OrdenCompraSinComprar currentOrdenCompra { get; set; }
+
+
+
+
         public buscarOrden()
         {
             InitializeComponent();
-            sinComprarOrden = new List<OrdenCompraSinComprarM>();
+
         }
 
         private void BuscarProveedor_Load(object sender, EventArgs e)
@@ -81,34 +87,14 @@ namespace Admeli.Compras.Buscar
 
         private async void cargarProceedoresLike()
         {
-
-           
-
-
-
             loadState(true);
             try
             {
 
-                
-                List<OrdenCompraSinComprar> sinComprar;
-                sinComprar = await OrdenCompraModel.listarOrdenCompraSinCompra(ConfigModel.sucursal.idSucursal);
-               
-                foreach (OrdenCompraSinComprar O in sinComprar)
-                {
+                sinComprarOrden = await OrdenCompraModel.listarOrdenCompraSinCompra(ConfigModel.sucursal.idSucursal);
 
-                    sinComprarOrden.Add( OrdenCompraSinComprarM.convertir(O));
-
-                }
-               
-
-
-                dt = ConvertTo(sinComprarOrden);
-                dataGridView.DataSource = dt;
-                dataGridView.Columns[0].Visible=false;
-                dataGridView.Refresh();
-
-               //  mostrarPaginado();
+                ordenCompraSinComprarBindingSource1.DataSource = sinComprarOrden;
+                //  mostrarPaginado();
             }
             catch (Exception ex)
             {
@@ -136,37 +122,100 @@ namespace Admeli.Compras.Buscar
 
         private void textBuscar_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string fieldName = string.Concat("[", dt.Columns[3].ColumnName, "]");
-                dt.DefaultView.Sort = fieldName;
-                DataView view = dt.DefaultView;
-                view.RowFilter = string.Empty;
-                if (textBuscar.Text != string.Empty)
-                    view.RowFilter = fieldName + " LIKE '%" + textBuscar.Text + "%'";
-                dataGridView.DataSource = view;
-            }
+            seleccionarOrden();
         }
 
-        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvOrdenCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView.Rows.Count == 0) return;
-            try
-            {
-                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-                int idProveedor = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
-                compraSinComprarM = sinComprarOrden.Find(x => x.idOrdenCompra == idProveedor); // Buscando la registro especifico en la lista de registros
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error! " + ex.Message, "Error proveedor", MessageBoxButtons.OK,MessageBoxIcon.Stop);
-            }
+           
         }
 
+
+
+        public void seleccionarOrden()
+        {
+                if (dgvOrdenCompra.Rows.Count == 0) return;
+                try
+                {
+                    int index = dgvOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
+                    int idProveedor = Convert.ToInt32(dgvOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
+                    currentOrdenCompra = sinComprarOrden.Find(x => x.idOrdenCompra == idProveedor); // Buscando la registro especifico en la lista de registros
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error! " + ex.Message, "Error proveedor", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+
+
+        }
         private void ordenCompraSinComprarBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSerie_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<OrdenCompraSinComprar> filtered = new BindingList<OrdenCompraSinComprar>(sinComprarOrden.Where(obj => obj.serie.Contains(txtSerie.Text.Trim()) || obj.correlativo.Contains(txtSerie.Text.Trim())).ToList());
+            ordenCompraSinComprarBindingSource1.DataSource = filtered;
+            dgvOrdenCompra.Update();
+        }
+
+        private void txtProveerdor_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<OrdenCompraSinComprar> filtered = new BindingList<OrdenCompraSinComprar>(sinComprarOrden.Where(obj => obj.rucDni.Contains(txtProveerdor.Text.Trim()) || obj.nombreProveedor.ToUpper().Contains(txtProveerdor.Text.ToUpper())).ToList());
+            ordenCompraSinComprarBindingSource1.DataSource = filtered;
+            dgvOrdenCompra.Update();
+        }
+
+        private void btnfechasalida_Click(object sender, EventArgs e)
+        {
+            FormFecha fecha = new FormFecha();
+            fecha.ShowDialog();
+            BindingList<OrdenCompraSinComprar> filtered = new BindingList<OrdenCompraSinComprar>(sinComprarOrden.Where(obj => obj.DateView >= fecha.desde && obj.DateView <= fecha.hasta).ToList());
+            ordenCompraSinComprarBindingSource1.DataSource = filtered;
+            dgvOrdenCompra.Update();
+        }
+
+        private void txtMoneda_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<OrdenCompraSinComprar> filtered = new BindingList<OrdenCompraSinComprar>(sinComprarOrden.Where(obj => obj.moneda.ToUpper().Contains(txtMoneda.Text.Trim().ToUpper())).ToList());
+            ordenCompraSinComprarBindingSource1.DataSource = filtered;
+            dgvOrdenCompra.Update();
+        }
+
+        private void txtdireccion_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<OrdenCompraSinComprar> filtered = new BindingList<OrdenCompraSinComprar>(sinComprarOrden.Where(obj => obj.direccion.ToUpper().Contains(txtdireccion.Text.Trim().ToUpper())).ToList());
+            ordenCompraSinComprarBindingSource1.DataSource = filtered;
+            dgvOrdenCompra.Update();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            seleccionarOrden();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FormOrdenCompraNew formOrdenCompraNew = new FormOrdenCompraNew();
+            formOrdenCompraNew.ShowDialog();
+            cargarProceedoresLike();
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

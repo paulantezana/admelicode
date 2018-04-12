@@ -219,11 +219,11 @@ namespace Admeli.Compras
         #region =========================== Estados ===========================
         private void loadState(bool state)
         {
-            //formPrincipal.appLoadState(state);
-            //panelNavigation.Enabled = !state;
-            //panelCrud.Enabled = !state;
-            //panelTools.Enabled = !state;
-            //dataGridView.Enabled = !state;
+            formPrincipal.appLoadState(state);
+            panelNavigation.Enabled = !state;
+            panelCrud.Enabled = !state;
+            panelTools.Enabled = !state;
+            dataGridView.Enabled = !state;
         }
         #endregion
 
@@ -372,7 +372,7 @@ namespace Admeli.Compras
             Personal personal = personalBindingSource.List[i] as Personal;
 
             //Mostrando el formulario de modificacion
-            FormCompraN formComprar = new FormCompraN();
+            FormCompraN formComprar = new FormCompraN(currentCompra);
             formComprar.ShowDialog();
             cargarRegistros(); // recargando loas registros en el datagridview
         }

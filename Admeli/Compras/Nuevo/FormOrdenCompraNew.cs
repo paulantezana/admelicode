@@ -230,6 +230,7 @@ namespace Admeli.Compras.Nuevo
                     txtDireccionProveedor.Text = currentProveedor.direccion;                 
                     txtRuc.Text = currentProveedor.ruc;
                     txtRuc.Enabled = false;
+                    txtObservaciones.Text = currentOrdenCompra.observacion;
 
                 }
               
@@ -256,7 +257,7 @@ namespace Admeli.Compras.Nuevo
 
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar Proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar Orden", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
            
         }
@@ -623,6 +624,10 @@ namespace Admeli.Compras.Nuevo
 
 
 
+
+
+
+
         // validaciones
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -644,247 +649,6 @@ namespace Admeli.Compras.Nuevo
             Validator.isDecimal(e, txtTotalProducto.Text);
         }
 
-
-
-
-
-
-        // metodos usados por lo eventos
-        private void cargarProductoDetalle(int tipo)
-        {
-            if (tipo == 0)
-            {
-
-                if (cbxCodigoProducto.SelectedIndex == -1) return;
-                try
-                {
-                    /// Buscando el producto seleccionado
-                    int idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
-                    currentProducto = productos.Find(x => x.idProducto == idProducto);
-                    cargarPresentaciones(idProducto, tipo);
-                    cargarAlternativas(tipo);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-            }
-            else
-            {
-                if (cbxDescripcion.SelectedIndex == -1) return;
-                try
-                {
-                    /// Buscando el producto seleccionado
-                    int idPresentacion = Convert.ToInt32(cbxDescripcion.SelectedValue);
-                    currentPresentacion = presentaciones.Find(x => x.idPresentacion == idPresentacion);
-                    cargarPresentacionDescripcion(tipo);
-                    cargarAlternativas(tipo);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-            }
-
-
-        }
-
-        private void cargarPresentacionDescripcion(int tipo)
-        {
-            cbxDescripcion.Text = currentPresentacion.descripcion;
-            txtCantidad.Text = "1";
-            txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, 0);
-            calcularPrecioUnitario(tipo);
-            calcularTotal();
-
-        }
-        private async void cargarPresentaciones(int idProducto, int tipo)
-        {
-            List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
-            currentPresentacion = presentaciones[0];
-            cbxDescripcion.Text = currentPresentacion.descripcion;
-            txtCantidad.Text = "1";
-            txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, 0);
-            calcularPrecioUnitario(tipo);
-            calcularTotal();
-        }
-
-        private async void cargarAlternativas(int tipo)
-        {
-            if (cbxCodigoProducto.SelectedIndex == -1) return; /// validacion
-            try {
-                List<AlternativaCombinacion> alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
-                alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
-                /// calculos
-                calcularPrecioUnitario(tipo);
-                calcularTotal();
-            }                                                  /// cargando las alternativas del producto
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-       
-
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
-        {
-            calcularTotal();
-        }
-
-        private void txtPrecioUnitario_TextChanged(object sender, EventArgs e)
-        {
-            calcularTotal();
-        }
-
-        private void txtDescuento_TextChanged(object sender, EventArgs e)
-        {
-            calcularTotal();
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-            //validando campos
-            if (txtPrecioUnitario.Text == "")
-            {
-                txtPrecioUnitario.Text = "0";
-            }
-            if (txtDescuento.Text == "")
-            {
-
-                txtDescuento.Text = "0";
-            }
-            if (txtCantidad.Text == "")
-            {
-                txtCantidad.Text = "0";
-            }
-
-            bool seleccionado = false;
-            if (cbxCodigoProducto.SelectedValue != null)
-                seleccionado = true;
-            if (cbxDescripcion.SelectedValue != null)
-                seleccionado = true;
-
-            if (seleccionado)
-            {
-
-
-
-
-                if (detalleA == null) detalleA = new List<DetalleOrden>();
-                DetalleOrden detalleCompra = new DetalleOrden();
-
-                if (exitePresentacion(Convert.ToInt32(cbxDescripcion.SelectedValue)))
-                {
-
-                    MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-
-                }
-                // Creando la lista
-                detalleCompra.cantidad = Int32.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
-                /// Busqueda presentacion
-                Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
-                detalleCompra.cantidadUnitaria = toDouble(findPresentacion.cantidadUnitaria);
-                detalleCompra.codigoProducto = cbxCodigoProducto.Text.Trim();
-                detalleCompra.descripcion = cbxDescripcion.Text.Trim();
-                detalleCompra.descuento = toDouble(txtDescuento.Text.Trim());
-                detalleCompra.estado = 1;
-                detalleCompra.idCombinacionAlternativa = Convert.ToInt32(cbxVariacion.SelectedValue);
-                detalleCompra.idCompra = 0;
-                detalleCompra.idDetalleCompra = 0;
-                detalleCompra.idPresentacion = Convert.ToInt32(cbxDescripcion.SelectedValue);
-                detalleCompra.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
-                detalleCompra.idSucursal = ConfigModel.sucursal.idSucursal;
-                detalleCompra.nombreCombinacion = cbxVariacion.Text;
-                detalleCompra.nombreMarca = currentProducto.nombreMarca;
-                detalleCompra.nombrePresentacion = cbxDescripcion.Text;
-                detalleCompra.nro = 1;
-                detalleCompra.precioUnitario = toDouble(txtPrecioUnitario.Text.Trim());
-                detalleCompra.total = toDouble(txtTotalProducto.Text.Trim());
-                // agrgando un nuevo item a la lista
-                detalleA.Add(detalleCompra);
-                // Refrescando la tabla
-                detalleOrdenBindingSource.DataSource = null;
-                detalleOrdenBindingSource.DataSource = detalleA;
-                dgvDetalleOrdenCompra.Refresh();
-                // Calculo de totales y subtotales e impuestos
-                calculoSubtotal();
-                calcularDescuento();
-                limpiarCamposProducto();
-
-                decorationDataGridView();
-
-            }
-            else
-            {
-
-                MessageBox.Show("Error: elemento no seleccionado", "agregar Elemento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-
-        }
-
-
-        private void calcularDescuento()
-        {
-
-
-            double descuentoTotal = 0;
-            Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
-
-            // calcular el descuento total
-            foreach (DetalleOrden C in detalleA)
-            {
-                // calculamos el decuento para cada elemento
-
-                if (C.estado == 1)
-                {
-                    double total = C.precioUnitario * C.cantidad;
-                    double descuentoC = total - C.total;
-                    descuentoTotal += descuentoC;
-                }
-                   
-            }
-            this.Descuento = descuentoTotal;
-
-            lbDescuentoCompras.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
-
-        }
-
-        
-        private bool exitePresentacion(int idPresentacion)
-        {
-            foreach (DetalleOrden C in detalleA)
-            {
-                if (C.idPresentacion == idPresentacion)
-                    return true;
-            }
-
-            return false;
-
-        }
-
-        private void decorationDataGridView()
-        {
-            if (dgvDetalleOrdenCompra.Rows.Count == 0) return;
-
-            foreach (DataGridViewRow row in dgvDetalleOrdenCompra.Rows)
-            {
-                int idPresentacion = Convert.ToInt32(row.Cells[1].Value); // obteniedo el idCategoria del datagridview
-
-                DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion); // Buscando la categoria en las lista de categorias
-                if (aux.estado == 0 || aux.estado==9)
-                {
-                    dgvDetalleOrdenCompra.ClearSelection();
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
-                    row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
-                }
-            }
-        }
         private void dgvDetalleCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -987,6 +751,251 @@ namespace Admeli.Compras.Nuevo
             btnModificar.Enabled = false;
         }
 
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+            //validando campos
+            if (txtPrecioUnitario.Text == "")
+            {
+                txtPrecioUnitario.Text = "0";
+            }
+            if (txtDescuento.Text == "")
+            {
+
+                txtDescuento.Text = "0";
+            }
+            if (txtCantidad.Text == "")
+            {
+                txtCantidad.Text = "0";
+            }
+
+            bool seleccionado = false;
+            if (cbxCodigoProducto.SelectedValue != null)
+                seleccionado = true;
+            if (cbxDescripcion.SelectedValue != null)
+                seleccionado = true;
+
+            if (seleccionado)
+            {
+
+
+
+
+                if (detalleA == null) detalleA = new List<DetalleOrden>();
+                DetalleOrden detalleCompra = new DetalleOrden();
+
+                if (exitePresentacion(Convert.ToInt32(cbxDescripcion.SelectedValue)))
+                {
+
+                    MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+
+                }
+                // Creando la lista
+                detalleCompra.cantidad = Int32.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+                /// Busqueda presentacion
+                Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
+                detalleCompra.cantidadUnitaria = toDouble(findPresentacion.cantidadUnitaria);
+                detalleCompra.codigoProducto = cbxCodigoProducto.Text.Trim();
+                detalleCompra.descripcion = cbxDescripcion.Text.Trim();
+                detalleCompra.descuento = toDouble(txtDescuento.Text.Trim());
+                detalleCompra.estado = 1;
+                detalleCompra.idCombinacionAlternativa = Convert.ToInt32(cbxVariacion.SelectedValue);
+                detalleCompra.idCompra = 0;
+                detalleCompra.idDetalleCompra = 0;
+                detalleCompra.idPresentacion = Convert.ToInt32(cbxDescripcion.SelectedValue);
+                detalleCompra.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
+                detalleCompra.idSucursal = ConfigModel.sucursal.idSucursal;
+                detalleCompra.nombreCombinacion = cbxVariacion.Text;
+                detalleCompra.nombreMarca = currentProducto.nombreMarca;
+                detalleCompra.nombrePresentacion = cbxDescripcion.Text;
+                detalleCompra.nro = 1;
+                detalleCompra.precioUnitario = toDouble(txtPrecioUnitario.Text.Trim());
+                detalleCompra.total = toDouble(txtTotalProducto.Text.Trim());
+                // agrgando un nuevo item a la lista
+                detalleA.Add(detalleCompra);
+                // Refrescando la tabla
+                detalleOrdenBindingSource.DataSource = null;
+                detalleOrdenBindingSource.DataSource = detalleA;
+                dgvDetalleOrdenCompra.Refresh();
+                // Calculo de totales y subtotales e impuestos
+                calculoSubtotal();
+                calcularDescuento();
+                limpiarCamposProducto();
+
+                decorationDataGridView();
+
+            }
+            else
+            {
+
+                MessageBox.Show("Error: elemento no seleccionado", "agregar Elemento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+        }
+
+
+        // metodos usados por lo eventos
+        private void cargarProductoDetalle(int tipo)
+        {
+            if (tipo == 0)
+            {
+
+                if (cbxCodigoProducto.SelectedIndex == -1) return;
+                try
+                {
+                    /// Buscando el producto seleccionado
+                    int idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
+                    currentProducto = productos.Find(x => x.idProducto == idProducto);
+                    cargarPresentaciones(idProducto, tipo);
+                    cargarAlternativas(tipo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+            else
+            {
+                if (cbxDescripcion.SelectedIndex == -1) return;
+                try
+                {
+                    /// Buscando el producto seleccionado
+                    int idPresentacion = Convert.ToInt32(cbxDescripcion.SelectedValue);
+                    currentPresentacion = presentaciones.Find(x => x.idPresentacion == idPresentacion);
+                    cargarPresentacionDescripcion(tipo);
+                    cargarAlternativas(tipo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+
+
+        }
+
+        private void cargarPresentacionDescripcion(int tipo)
+        {
+            cbxDescripcion.Text = currentPresentacion.descripcion;
+            txtCantidad.Text = "1";
+            txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, 0);
+            calcularPrecioUnitario(tipo);
+            calcularTotal();
+
+        }
+        private async void cargarPresentaciones(int idProducto, int tipo)
+        {
+            List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
+            currentPresentacion = presentaciones[0];
+            cbxDescripcion.Text = currentPresentacion.descripcion;
+            txtCantidad.Text = "1";
+            txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, 0);
+            calcularPrecioUnitario(tipo);
+            calcularTotal();
+        }
+
+        private async void cargarAlternativas(int tipo)
+        {
+            if (cbxCodigoProducto.SelectedIndex == -1) return; /// validacion
+            try {
+                List<AlternativaCombinacion> alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
+                alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
+                /// calculos
+                calcularPrecioUnitario(tipo);
+                calcularTotal();
+            }                                                  /// cargando las alternativas del producto
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+       
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            calcularTotal();
+        }
+
+        private void txtPrecioUnitario_TextChanged(object sender, EventArgs e)
+        {
+            calcularTotal();
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+            calcularTotal();
+        }
+
+        
+
+
+        private void calcularDescuento()
+        {
+
+
+
+            if (cbxTipoMoneda.SelectedValue == null)
+                return;
+
+            double descuentoTotal = 0;
+            Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
+
+            // calcular el descuento total
+            foreach (DetalleOrden C in detalleA)
+            {
+                // calculamos el decuento para cada elemento
+
+                if (C.estado == 1)
+                {
+                    double total = C.precioUnitario * C.cantidad;
+                    double descuentoC = total - C.total;
+                    descuentoTotal += descuentoC;
+                }
+                   
+            }
+            this.Descuento = descuentoTotal;
+
+            lbDescuentoCompras.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
+
+        }
+
+        
+        private bool exitePresentacion(int idPresentacion)
+        {
+            foreach (DetalleOrden C in detalleA)
+            {
+                if (C.idPresentacion == idPresentacion)
+                    return true;
+            }
+
+            return false;
+
+        }
+
+        private void decorationDataGridView()
+        {
+            if (dgvDetalleOrdenCompra.Rows.Count == 0) return;
+
+            foreach (DataGridViewRow row in dgvDetalleOrdenCompra.Rows)
+            {
+                int idPresentacion = Convert.ToInt32(row.Cells[1].Value); // obteniedo el idCategoria del datagridview
+
+                DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion); // Buscando la categoria en las lista de categorias
+                if (aux.estado == 0 || aux.estado==9)
+                {
+                    dgvDetalleOrdenCompra.ClearSelection();
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
+                }
+            }
+        }
+      
 
         private void limpiarCamposProducto()
         {

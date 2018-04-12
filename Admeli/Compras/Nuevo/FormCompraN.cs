@@ -55,14 +55,16 @@ namespace Admeli.Compras.Nuevo
         private List<MedioPago> medioPagos { get; set; }
 
         /// Llenan los datos en las interacciones en el formulario 
+      
         private List<Presentacion> presentaciones { get; set; }
         private List<Proveedor> proveedores { get; set; }
+        private List<Compra> comprasAll { get; set; }
+
+        /// Se preparan para realizar la compra de productos
         private Producto currentProducto { get; set; }
         private Proveedor currentProveedor { get; set; }
-        /// Se preparan para realizar la compra de productos
-        private List<DetalleCompra> detalleCompras { get; set; }
         private Compra currentCompra { get; set; } // notaEntrada,pago,pagoCompra
-
+        private OrdenCompra currentOrdenCompra { get; set; }    
         private Presentacion currentPresentacion { get; set; }
         private NotaEntrada currentNotaEntrada { get; set; }
         private Pago currentPago { get; set; }
@@ -91,11 +93,16 @@ namespace Admeli.Compras.Nuevo
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
             formato = "{0:n" + nroDecimales + "}";
-           
+
             cargarResultadosIniciales();
 
-        }
+            ComprasAll();
 
+        }
+        private async void  ComprasAll()
+        {
+            comprasAll = await compraModel.comprasAll();
+        }
         private void cargarResultadosIniciales()
         {
 
@@ -110,6 +117,9 @@ namespace Admeli.Compras.Nuevo
         {
             return string.Format(CultureInfo.GetCultureInfo("en-US"), this.formato, dato);
         }
+
+
+
         public FormCompraN(Compra currentCompra)
         {
             InitializeComponent();
@@ -124,10 +134,10 @@ namespace Admeli.Compras.Nuevo
             notaentrada = new NotaentradaC();
             compraTotal = new compraTotal();
             //datos del proveedor no editables
-            cbxProveedor.Enabled = false;
-            txtDireccionProveedor.Enabled = false;
+          
             btnImportarOrdenCompra.Visible = false;
             formato = "{0:n" + nroDecimales + "}";
+            
 
 
         }
@@ -141,11 +151,7 @@ namespace Admeli.Compras.Nuevo
                 this.reLoad();
                 listarDetalleCompraByIdCompra();
                 listarDatosProveedorCompra();
-                //this.cargarOrden();
-                //cargarImpuesto();
-                //cargarubigeoActual();
-                //cargarProductos();
-                //cargarProveedor();
+              
 
                 btnComprar.Text = "Modificar compra";
             }
@@ -185,11 +191,26 @@ namespace Admeli.Compras.Nuevo
             {
                 proveedores = await proveedormodel.listaProveedores();
                 proveedorBindingSource.DataSource = proveedores;
+                if (!nuevo)
+                {
+                    currentProveedor = proveedores.Find(X => X.idProveedor == currentCompra.idProveedor);
+
+                    cbxTipoDocumento.SelectedValue = currentCompra.idTipoDocumento;
+                 
+                    cbxProveedor.Text = currentProveedor.razonSocial;
+                    cbxProveedor.Enabled = false;
+                    txtDireccionProveedor.Text = currentProveedor.direccion;
+                    txtRuc.Text = currentProveedor.ruc;
+                    txtRuc.Enabled = false;
+                    txtObservaciones.Text = currentCompra.observacion;
+
+
+                }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar Proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar Proveedores2", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -222,10 +243,10 @@ namespace Admeli.Compras.Nuevo
             {
                 list = await compra.dCompras(currentCompra.idCompra);
                 // cargar datos correpondienetes
-                if (detalleCompras == null) detalleCompras = new List<DetalleCompra>();
+                if (detalleC == null) detalleC = new List<DetalleC>();
                 foreach (CompraModificar C in list)
                 {
-                    DetalleCompra aux = new DetalleCompra();
+                    DetalleC aux = new DetalleC();
                     aux.idCompra = C.idCompra;
                     aux.cantidad = C.cantidad;
                     aux.cantidadUnitaria = C.cantidadUnitaria;
@@ -244,7 +265,7 @@ namespace Admeli.Compras.Nuevo
                     aux.nro = C.nro;
                     aux.precioUnitario = C.precioUnitario;
                     aux.total = C.total;
-                    detalleCompras.Add(aux);
+                    detalleC.Add(aux);
 
 
                 }
@@ -258,12 +279,13 @@ namespace Admeli.Compras.Nuevo
             }
 
             // Refrescando la tabla
-            detalleCompraBindingSource.DataSource = null;
-            detalleCompraBindingSource.DataSource = detalleCompras;
+            detalleCBindingSource.DataSource = null;
+            detalleCBindingSource.DataSource = detalleC;
             dgvDetalleCompra.Refresh();
 
             // Calculo de totales y subtotales
             calculoSubtotal();
+            calcularDescuento();
         }
 
         private async void listarDatosProveedorCompra()
@@ -273,12 +295,14 @@ namespace Admeli.Compras.Nuevo
 
                 datosProveedor = await compraModel.Compras(currentCompra.idCompra);
                 cbxProveedor.Text = datosProveedor[0].nombreProveedor;
+                cbxProveedor.Enabled = false;
                 txtDireccionProveedor.Text = datosProveedor[0].direccion;
                 dtpFechaEmision.Value = datosProveedor[0].fechaFacturacion.date;
                 dtpFechaPago.Value = datosProveedor[0].fechaPago.date;
                 // textTotal.Text = Convert.ToString(datosProveedor[0].total);
                 cbxTipoMoneda.Text = datosProveedor[0].moneda;
                 txtTipoCambio.Text = "1";
+                txtObservaciones.Text = currentCompra.observacion;
             }
             catch (Exception ex)
             {
@@ -389,6 +413,8 @@ namespace Admeli.Compras.Nuevo
 
         private async void calculoSubtotal()
         {
+            if (cbxTipoMoneda.SelectedValue == null)
+                return;
             double subTotalLocal = 0;
             foreach (DetalleC item in detalleC)
             {
@@ -762,8 +788,8 @@ namespace Admeli.Compras.Nuevo
                 // agrgando un nuevo item a la lista
                 detalleC.Add(detalleCompra);
                 // Refrescando la tabla
-                detalleCompraBindingSource.DataSource = null;
-                detalleCompraBindingSource.DataSource = detalleC;
+                detalleCBindingSource.DataSource = null;
+                detalleCBindingSource.DataSource = detalleC;
                 dgvDetalleCompra.Refresh();
                 // Calculo de totales y subtotales e impuestos
                 calculoSubtotal();
@@ -783,7 +809,8 @@ namespace Admeli.Compras.Nuevo
 
         private void calcularDescuento()
         {
-
+            if (cbxTipoMoneda.SelectedValue == null)
+                return;
 
             double descuentoTotal = 0;
             Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
@@ -814,7 +841,23 @@ namespace Admeli.Compras.Nuevo
             return false;
 
         }
+        private void decorationDataGridView()
+        {
+            if (dgvDetalleCompra.Rows.Count == 0) return;
 
+            foreach (DataGridViewRow row in dgvDetalleCompra.Rows)
+            {
+                int idPresentacion = Convert.ToInt32(row.Cells[3].Value); // obteniedo el idCategoria del datagridview
+
+                DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion); // Buscando la categoria en las lista de categorias
+                if (aux.estado == 0 || aux.estado == 9)
+                {
+                    dgvDetalleCompra.ClearSelection();
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
+                }
+            }
+        }
         private void dgvDetalleCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int y = e.ColumnIndex;
@@ -827,13 +870,42 @@ namespace Admeli.Compras.Nuevo
                     return;
                 }
 
-                int index = dgvDetalleCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-                int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-                DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion);
+                if (nuevo)
+                {
+                    int index = dgvDetalleCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
+                    int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
+                    DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion);
 
-                dgvDetalleCompra.Rows.RemoveAt(index);
+                    dgvDetalleCompra.Rows.RemoveAt(index);
 
-                detalleC.Remove(aux);
+                    detalleC.Remove(aux);
+
+                    calculoSubtotal();
+                    calcularDescuento();
+                }
+                else
+                {
+                    int index = dgvDetalleCompra.CurrentRow.Index;
+                    int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
+                    DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion);
+
+                    aux.estado = 9;
+
+                    dgvDetalleCompra.ClearSelection();
+                    dgvDetalleCompra.Rows[index].DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
+                    dgvDetalleCompra.Rows[index].DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
+
+                    decorationDataGridView();
+                    calculoSubtotal();
+                    calcularDescuento();
+
+
+                }
+
+
+
+
+                
             }
         }
 
@@ -882,6 +954,7 @@ namespace Admeli.Compras.Nuevo
 
             // Calculo de totales y subtotales
             calculoSubtotal();
+            calcularDescuento();
         }
 
 
@@ -900,6 +973,15 @@ namespace Admeli.Compras.Nuevo
         private async void btnComprar_Click(object sender, EventArgs e)
         {
 
+            if(currentProveedor==null)
+            {
+
+
+                MessageBox.Show("no hay ningun proveedor seleccionado", "proveedor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+
+
             //pago
             pagoC.estado = 1;// activo
             pagoC.estadoPago = 1;//ver que significado
@@ -917,8 +999,9 @@ namespace Admeli.Compras.Nuevo
             date = date.Substring(0, date.Length - 1);
             compraC.idCompra = currentCompra != null ? currentCompra.idCompra : 0; ;
             compraC.numeroDocumento = "0";//lo textNordocumento
-            compraC.rucDni = currentProveedor != null ? currentProveedor.ruc : currentCompra.rucDni;
-            compraC.direccion = currentProveedor != null ? currentProveedor.direccion : currentCompra.direccion;
+            compraC.rucDni =  currentProveedor.ruc;
+            compraC.direccion = currentProveedor.direccion;
+            
             compraC.formaPago = "EFECTIVO";
             compraC.fechaPago = date;
             compraC.fechaFacturacion = date1;
@@ -928,8 +1011,8 @@ namespace Admeli.Compras.Nuevo
             compraC.total = this.total;
             compraC.observacion = txtObservaciones.Text;
             compraC.estado = 1;
-            compraC.idProveedor = currentProveedor != null ? currentProveedor.idProveedor : currentCompra.idProveedor;
-            compraC.nombreProveedor = currentProveedor != null ? currentProveedor.razonSocial : currentCompra.nombreProveedor;
+            compraC.idProveedor =  currentProveedor.idProveedor ;
+            compraC.nombreProveedor =  currentProveedor.razonSocial ;
             compraC.idPago = currentCompra != null ? currentCompra.idPago : 0; ;
             compraC.idPersonal = PersonalModel.personal.idPersonal;
             compraC.tipoCambio = 1;
@@ -967,8 +1050,6 @@ namespace Admeli.Compras.Nuevo
             notaentrada.idCompra = currentCompra != null ? currentCompra.idPago : 0; ;
             notaentrada.idTipoDocumento =(int) cbxTipoDocumento.SelectedValue;
             notaentrada.idPersonal = PersonalModel.personal.idPersonal;
-
-
             compraTotal = new compraTotal();
             compraTotal.detalle = detalleC;
             compraTotal.compra = compraC;
@@ -976,40 +1057,49 @@ namespace Admeli.Compras.Nuevo
             compraTotal.pago = pagoC;
             compraTotal.pagocompra = pagocompraC;
 
+            try
+            {
+
+                 await compraModel.ralizarCompra(compraTotal);
 
 
+            }
+            catch ( Exception ex)
+            {
+                MessageBox.Show("error:  " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            await compraModel.ralizarCompra(compraTotal);
+
+            }
+
 
             if (nuevo)
+            {
                 MessageBox.Show("Datos Guardados", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnComprar.Enabled = false;
+
+            }
             else
-                MessageBox.Show("Datos  modificador", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Datos  modificador", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
 
 
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
 
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
             BuscarProveedor buscarProveedor = new BuscarProveedor();
-            buscarProveedor.ShowDialog();
-
+            buscarProveedor.ShowDialog();         
             currentProveedor = buscarProveedor.currentProveedor;
-
-
-            //cargando datas del proveedor
-            txtRuc.Text = currentProveedor.ruc;
-            cbxProveedor.SelectedValue = currentProveedor.idProveedor;
-            txtDireccionProveedor.Text = currentProveedor.direccion;
-
-
+            if (currentProveedor != null)
+            { 
+                //cargando datas del proveedor
+                txtRuc.Text = currentProveedor.ruc;
+                cbxProveedor.SelectedValue = currentProveedor.idProveedor;
+                txtDireccionProveedor.Text = currentProveedor.direccion;
+            }                    
         }
 
         private void cbxProveedor_SelectedIndexChanged(object sender, EventArgs e)
@@ -1020,6 +1110,40 @@ namespace Admeli.Compras.Nuevo
             cbxProveedor.SelectedValue = currentProveedor.idProveedor;
             txtDireccionProveedor.Text = currentProveedor.direccion;
 
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnImportarOrdenCompra_Click(object sender, EventArgs e)
+        {
+            buscarOrden buscarOrden = new buscarOrden();
+            buscarOrden.ShowDialog();
+            OrdenCompraSinComprar aux = buscarOrden.currentOrdenCompra;
+            // datos del proveedor
+            if (aux != null)
+            {
+                txtNroOrdenCompra.Text = aux.serie + " - " + aux.correlativo;
+                currentProveedor = proveedores.Find(X => X.ruc == aux.rucDni);               
+                txtDireccionProveedor.Text = currentProveedor.direccion;
+                cbxProveedor.SelectedValue = currentProveedor.idProveedor;              
+                currentCompra = comprasAll.Find(X=>X.idCompra==aux.idCompra);
+                txtObservaciones.Text = currentCompra.observacion;
+                if (detalleC != null)
+                    detalleC.Clear();// limpiamos la lista de detalle productos
+                detalleC = new List<DetalleC>();
+
+                detalleCompraBindingSource.DataSource = null;
+                dgvDetalleCompra.Refresh();
+                this.reLoad();
+                listarDetalleCompraByIdCompra();
+                listarDatosProveedorCompra();
+                // Calculo de totales y subtotales
+                calculoSubtotal();
+                calcularDescuento();                
+            }
         }
     }
 }

@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompraN));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnImportarOrdenCompra = new System.Windows.Forms.Button();
@@ -94,7 +94,7 @@
             this.precioUnitarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.detalleCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
@@ -146,6 +146,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.chbxPagarCompra = new Bunifu.Framework.UI.BunifuCheckbox();
             this.chbxNotaEntrada = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.detalleCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.responsabilidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -161,7 +162,7 @@
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleCBindingSource)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel30.SuspendLayout();
@@ -180,6 +181,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.responsabilidadesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,19 +224,20 @@
             this.btnImportarOrdenCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportarOrdenCompra.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportarOrdenCompra.ForeColor = System.Drawing.Color.White;
-            this.btnImportarOrdenCompra.Location = new System.Drawing.Point(17, 14);
+            this.btnImportarOrdenCompra.Location = new System.Drawing.Point(71, 10);
             this.btnImportarOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportarOrdenCompra.Name = "btnImportarOrdenCompra";
-            this.btnImportarOrdenCompra.Size = new System.Drawing.Size(259, 42);
+            this.btnImportarOrdenCompra.Size = new System.Drawing.Size(293, 42);
             this.btnImportarOrdenCompra.TabIndex = 11;
             this.btnImportarOrdenCompra.Text = "Importar Orden Compra";
             this.btnImportarOrdenCompra.UseVisualStyleBackColor = false;
+            this.btnImportarOrdenCompra.Click += new System.EventHandler(this.btnImportarOrdenCompra_Click);
             // 
             // Observaciones
             // 
             this.Observaciones.AutoSize = true;
             this.Observaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Observaciones.Location = new System.Drawing.Point(16, 128);
+            this.Observaciones.Location = new System.Drawing.Point(70, 124);
             this.Observaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Observaciones.Name = "Observaciones";
             this.Observaciones.Size = new System.Drawing.Size(122, 19);
@@ -245,7 +248,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(19, 66);
+            this.label27.Location = new System.Drawing.Point(73, 62);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(153, 19);
@@ -255,22 +258,22 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(17, 151);
+            this.txtObservaciones.Location = new System.Drawing.Point(71, 147);
             this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservaciones.Size = new System.Drawing.Size(257, 128);
+            this.txtObservaciones.Size = new System.Drawing.Size(293, 128);
             this.txtObservaciones.TabIndex = 2;
             // 
             // txtNroOrdenCompra
             // 
             this.txtNroOrdenCompra.Enabled = false;
             this.txtNroOrdenCompra.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroOrdenCompra.Location = new System.Drawing.Point(17, 90);
+            this.txtNroOrdenCompra.Location = new System.Drawing.Point(71, 86);
             this.txtNroOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtNroOrdenCompra.Name = "txtNroOrdenCompra";
-            this.txtNroOrdenCompra.Size = new System.Drawing.Size(257, 26);
+            this.txtNroOrdenCompra.Size = new System.Drawing.Size(293, 26);
             this.txtNroOrdenCompra.TabIndex = 1;
             // 
             // panel8
@@ -656,20 +659,20 @@
             // 
             this.dgvDetalleCompra.AllowUserToAddRows = false;
             this.dgvDetalleCompra.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvDetalleCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDetalleCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetalleCompra.AutoGenerateColumns = false;
             this.dgvDetalleCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalleCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalleCompra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetalleCompra.ColumnHeadersHeight = 40;
             this.dgvDetalleCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDetalleCompraDataGridViewTextBoxColumn,
@@ -690,15 +693,15 @@
             this.precioUnitarioDataGridViewTextBoxColumn,
             this.totalDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn});
-            this.dgvDetalleCompra.DataSource = this.detalleCompraBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleCompra.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDetalleCompra.DataSource = this.detalleCBindingSource;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleCompra.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDetalleCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleCompra.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvDetalleCompra.Location = new System.Drawing.Point(23, 18);
@@ -706,17 +709,17 @@
             this.dgvDetalleCompra.Name = "dgvDetalleCompra";
             this.dgvDetalleCompra.ReadOnly = true;
             this.dgvDetalleCompra.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDetalleCompra.RowHeadersWidth = 40;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.dgvDetalleCompra.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.dgvDetalleCompra.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDetalleCompra.RowTemplate.Height = 30;
             this.dgvDetalleCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleCompra.Size = new System.Drawing.Size(1349, 572);
@@ -858,9 +861,9 @@
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
             // 
-            // detalleCompraBindingSource
+            // detalleCBindingSource
             // 
-            this.detalleCompraBindingSource.DataSource = typeof(Entidad.DetalleCompra);
+            this.detalleCBindingSource.DataSource = typeof(Entidad.DetalleC);
             // 
             // flowLayoutPanel1
             // 
@@ -1404,7 +1407,7 @@
             this.panel5.Controls.Add(this.lbSubtotal);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(269, 15);
+            this.panel5.Location = new System.Drawing.Point(490, 15);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(855, 129);
@@ -1520,10 +1523,10 @@
             // 
             // splitter3
             // 
-            this.splitter3.Location = new System.Drawing.Point(256, 15);
+            this.splitter3.Location = new System.Drawing.Point(287, 15);
             this.splitter3.Margin = new System.Windows.Forms.Padding(4);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(13, 129);
+            this.splitter3.Size = new System.Drawing.Size(203, 129);
             this.splitter3.TabIndex = 1;
             this.splitter3.TabStop = false;
             // 
@@ -1538,15 +1541,16 @@
             this.panel4.Location = new System.Drawing.Point(17, 15);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(239, 129);
+            this.panel4.Size = new System.Drawing.Size(270, 129);
             this.panel4.TabIndex = 0;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(55, 64);
+            this.label19.Location = new System.Drawing.Point(102, 66);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(116, 19);
             this.label19.TabIndex = 58;
@@ -1558,7 +1562,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(55, 22);
+            this.label18.Location = new System.Drawing.Point(102, 24);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(125, 19);
             this.label18.TabIndex = 57;
@@ -1573,7 +1577,7 @@
             this.chbxPagarCompra.Checked = true;
             this.chbxPagarCompra.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxPagarCompra.ForeColor = System.Drawing.Color.White;
-            this.chbxPagarCompra.Location = new System.Drawing.Point(20, 62);
+            this.chbxPagarCompra.Location = new System.Drawing.Point(67, 64);
             this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(5);
             this.chbxPagarCompra.Name = "chbxPagarCompra";
             this.chbxPagarCompra.Size = new System.Drawing.Size(20, 20);
@@ -1588,11 +1592,15 @@
             this.chbxNotaEntrada.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxNotaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbxNotaEntrada.ForeColor = System.Drawing.Color.White;
-            this.chbxNotaEntrada.Location = new System.Drawing.Point(20, 20);
+            this.chbxNotaEntrada.Location = new System.Drawing.Point(67, 22);
             this.chbxNotaEntrada.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chbxNotaEntrada.Name = "chbxNotaEntrada";
             this.chbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
             this.chbxNotaEntrada.TabIndex = 55;
+            // 
+            // detalleCompraBindingSource
+            // 
+            this.detalleCompraBindingSource.DataSource = typeof(Entidad.DetalleCompra);
             // 
             // responsabilidadesBindingSource
             // 
@@ -1632,7 +1640,7 @@
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCompra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleCBindingSource)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel30.ResumeLayout(false);
@@ -1660,6 +1668,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.detalleCompraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.responsabilidadesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1779,5 +1788,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.BindingSource proveedorBindingSource;
         private System.Windows.Forms.BindingSource responsabilidadesBindingSource;
+        private System.Windows.Forms.BindingSource detalleCBindingSource;
     }
 }

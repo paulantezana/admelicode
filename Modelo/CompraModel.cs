@@ -122,6 +122,19 @@ namespace Modelo
             }
         }
 
+        public async Task<List<Compra>> comprasAll()
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/comprasultimas/3/1/1/1
+                List<Compra> comprasAll = await webService.GET<List<Compra>>("compras/todos");
+                return comprasAll;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
 

@@ -1004,7 +1004,7 @@ namespace Admeli.Ventas.Nuevo
         {
             buscarOrden importarOrden = new buscarOrden();
             importarOrden.ShowDialog();
-            OrdenCompraSinComprarM aux = importarOrden.compraSinComprarM;
+            OrdenCompraSinComprar aux = importarOrden.currentOrdenCompra;
             // datos del proveedor
 
             if (aux != null)
@@ -1240,7 +1240,7 @@ namespace Admeli.Ventas.Nuevo
         {
             buscarOrden importarOrden = new buscarOrden();
             importarOrden.ShowDialog();
-            OrdenCompraSinComprarM aux = importarOrden.compraSinComprarM;
+            OrdenCompraSinComprar aux = importarOrden.currentOrdenCompra;
             // datos del proveedor
 
             if (aux != null)

@@ -33,7 +33,11 @@ namespace Entidad
         public string nombreLabel { get; set; }
         public int idSucursal { get; set; }
         public string vendedor { get; set; }
-        public int idCajaSesion { get; set; }
+        public int idCajaSesion { get; set; }       
+        public Fecha fecha { get; set; }
+       
+
+
     }
     public class PagoC
     {
@@ -81,7 +85,7 @@ namespace Entidad
         public int nro { get; set; }
         public string descripcion { get; set; }
         public string nombreMarca { get; set; }
-        public int cantidad { get; set; }
+        public double cantidad { get; set; }
         public double cantidadUnitaria { get; set; }
         public double precioUnitario { get; set; }
         public double descuento { get; set; }

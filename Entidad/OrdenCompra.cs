@@ -72,7 +72,29 @@ namespace Entidad
         public int idCompra { get; set; }
         public int idPago { get; set; }
         public string nombres { get; set; }
+        public DateTime dateView;
+        public DateTime DateView
+        {
+            get
+            {
+
+                return plazoEntrega.date;
+
+            }
+            set
+            {
+
+                dateView = value;
+
+            }
+
+
+
+
+        }
+
     }
+
     public class OrdenCompraSinComprarM
     {
         public int idOrdenCompra { get; set; }
@@ -92,31 +114,8 @@ namespace Entidad
         public int idPago { get; set; }
         public string nombres { get; set; }
 
-
-        public  static OrdenCompraSinComprarM convertir(OrdenCompraSinComprar ordenCompraSinComprar)
-        {
+       
 
 
-            OrdenCompraSinComprarM aux = new OrdenCompraSinComprarM();
-
-            aux.correlativo = ordenCompraSinComprar.correlativo;
-            aux.direccion = ordenCompraSinComprar.direccion;
-            aux.direccionProveedor = ordenCompraSinComprar.direccionProveedor;
-            aux.estado = ordenCompraSinComprar.estado;
-            aux.idCompra = ordenCompraSinComprar.idCompra;
-            aux.idOrdenCompra = ordenCompraSinComprar.idOrdenCompra;
-            aux.idPago = ordenCompraSinComprar.idPago;
-            aux.idTipoDocumento = ordenCompraSinComprar.idUbicacionGeografica;
-            aux.moneda= ordenCompraSinComprar.moneda;
-            aux.nombreProveedor = ordenCompraSinComprar.nombreProveedor;
-            aux.nombres = ordenCompraSinComprar.nombres;
-            aux.observacion = ordenCompraSinComprar.observacion;
-            aux.plazoEntrega = ordenCompraSinComprar.plazoEntrega.date;
-
-            aux.rucDni = ordenCompraSinComprar.rucDni;
-            aux.serie = ordenCompraSinComprar.serie;
-           
-            return aux;
-        }
     }
 }
