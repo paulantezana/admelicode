@@ -25,6 +25,20 @@ namespace Entidad
         public int estado { get; set; }
         public int idUbicacionGeografica { get; set; }
         public int idDocumento { get; set; }
+
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
    public class Permisos
     {

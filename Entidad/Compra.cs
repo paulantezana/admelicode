@@ -35,7 +35,20 @@ namespace Entidad
         public string vendedor { get; set; }
         public int idCajaSesion { get; set; }       
         public Fecha fecha { get; set; }
-       
+
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if(estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
 
 
     }

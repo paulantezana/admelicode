@@ -65,13 +65,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBuscar = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.datoCuentaCobrarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datoCuentaCobrarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCrud.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -209,7 +209,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCuentasCobrar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCuentasCobrar.ColumnHeadersHeight = 40;
             this.dgvCuentasCobrar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idClienteDataGridViewTextBoxColumn,
             this.nombreClienteDataGridViewTextBoxColumn,
@@ -544,57 +543,57 @@
             this.dataGridView.Size = new System.Drawing.Size(878, 378);
             this.dataGridView.TabIndex = 2;
             // 
+            // datoCuentaCobrarBindingSource
+            // 
+            this.datoCuentaCobrarBindingSource.DataSource = typeof(Entidad.DatoCuentaCobrar);
+            // 
             // idClienteDataGridViewTextBoxColumn
             // 
             this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "IDCliente";
             this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
             this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idClienteDataGridViewTextBoxColumn.Width = 90;
+            this.idClienteDataGridViewTextBoxColumn.Width = 91;
             // 
             // nombreClienteDataGridViewTextBoxColumn
             // 
             this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "nombreCliente";
-            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "nombreCliente";
+            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Nombre de Cliente";
             this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
             this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreClienteDataGridViewTextBoxColumn.Width = 127;
+            this.nombreClienteDataGridViewTextBoxColumn.Width = 152;
             // 
             // numeroDocumentoDataGridViewTextBoxColumn
             // 
             this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
-            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "numeroDocumento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Número de Documento";
             this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
             this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numeroDocumentoDataGridViewTextBoxColumn.Width = 154;
+            this.numeroDocumentoDataGridViewTextBoxColumn.Width = 179;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
             this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDataGridViewTextBoxColumn.Width = 92;
+            this.direccionDataGridViewTextBoxColumn.Width = 93;
             // 
             // nombreGrupoDataGridViewTextBoxColumn
             // 
             this.nombreGrupoDataGridViewTextBoxColumn.DataPropertyName = "nombreGrupo";
-            this.nombreGrupoDataGridViewTextBoxColumn.HeaderText = "nombreGrupo";
+            this.nombreGrupoDataGridViewTextBoxColumn.HeaderText = "Nombre de Grupo";
             this.nombreGrupoDataGridViewTextBoxColumn.Name = "nombreGrupoDataGridViewTextBoxColumn";
             this.nombreGrupoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreGrupoDataGridViewTextBoxColumn.Width = 121;
+            this.nombreGrupoDataGridViewTextBoxColumn.Width = 146;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // datoCuentaCobrarBindingSource
-            // 
-            this.datoCuentaCobrarBindingSource.DataSource = typeof(Entidad.DatoCuentaCobrar);
+            this.nombreDataGridViewTextBoxColumn.Width = 83;
             // 
             // UCCuentaCobrar
             // 
@@ -644,16 +643,16 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblPageAllItems;
         private System.Windows.Forms.DataGridView dgvCuentasCobrar;
+        private System.Windows.Forms.Panel panel2;
+        private Bunifu.Framework.UI.BunifuCheckbox chkTodoCliente;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.BindingSource datoCuentaCobrarBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroDocumentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreGrupoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Panel panel2;
-        private Bunifu.Framework.UI.BunifuCheckbox chkTodoCliente;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.BindingSource datoCuentaCobrarBindingSource;
     }
 }
