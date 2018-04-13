@@ -32,14 +32,13 @@ namespace Admeli.CajaBox.Nuevo
         private List<MedioPago> medioPagos { get; set; }
         private List<Moneda> ingresoMenosEgreso { get; set; }
         private List<Ingreso> ingresos { get; set; }
-
+        private List<Moneda> monedasActivas { get; set; }
         private bool nuevo { get; set; }
 
         private saveObject currentSaveObject { get; set; }
 
         // variables de los elementos en el aside
         private int x = 13, y = 10;
-        private List<MedioPago> mediosDePagos;
 
         #region =========================== Constructor ===========================
         public FormArquearCaja()
@@ -62,8 +61,8 @@ namespace Admeli.CajaBox.Nuevo
         {
             InitializeComponent();
             this.currentCajaSesion = currentCajaSesion;
-
-            this.nuevo = false;
+            currentCierreCaja = new CierreCaja() { idCierreCaja = 0 };
+            this.nuevo = true;
         }
         #endregion
 
@@ -75,14 +74,22 @@ namespace Admeli.CajaBox.Nuevo
 
         private void reLoad()
         {
-            //CArgar Medio Pago
-            this.cargarMedioPago(); 
-            //ingresosMenosEgresos
-            this.cargarIngresoMenosEgreso();
-            this.cargarCajaSesion();
+            //Cargar Medio Pago
+            this.cargarMedioPago(); // Aqui tambien se carga IngresosMenosEgresos
+            //Cargar Montos Inicio por Moneda
+            this.cargarMontosInicio();
+            //Cargar la CajaSesion (Para la fecha de inicio)
+            this.cargarFechaCajaSesion();
+            //Cargar fecha y hora del  sistema
+            this.cargarFecha();
+            //Cargar las monedas activas
+            this.cargarMoneda();
             
-            //this.cargarIngreso();
-            //this.cargarFecha();
+            //Cargar Denominaciones de cada moneda
+
+            //this.cargarCajaSesion();
+            
+            
         }
         #endregion
 
@@ -92,14 +99,16 @@ namespace Admeli.CajaBox.Nuevo
             try
             {
                 medioPagos = await medioPagoModel.medioPagos();
+                this.cargarIngresoMenosEgreso();
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar  medio pagos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Cargar Medio Pagos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private async void cargarIngreso()
+        private async void cargarMontosInicio()
         {
             try
             {
@@ -131,20 +140,7 @@ namespace Admeli.CajaBox.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar Ingresos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private  void cargarCajaSesion()
-        {
-            try
-            {
-                lblFechInicio.Text =currentCajaSesion.fechaInicio.timezone;
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "cargar caja sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Cargar Ingresos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -165,15 +161,23 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-
-                
-                 mediosDePagos = await medioPagoModel.medioPagos();
-                /// List<Moneda> monedas = await monedaModel.monedas();
-
+                monedasActivas = await monedaModel.monedas();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "cargar medios pago", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void cargarFechaCajaSesion()
+        {
+            try
+            {
+                lblFechInicio.Text = currentCajaSesion.fechaInicio.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar caja sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -332,12 +336,14 @@ namespace Admeli.CajaBox.Nuevo
             try
             {
                 loadStateApp(true);
-                List<Moneda> listResponse = await cajaModel.verificarActividad(ConfigModel.cajaSesion.idCajaSesion);
+                List<Moneda> listResponse = await cajaModel.verificarActividad(currentCajaSesion.idCajaSesion);
+                
                 createObject();
                 if (nuevo)
                 {
                     Response saveResponse = await cierreCajaModel.cierreCaja(currentSaveObject);
                     int counter = 1;
+                    //Para cadaMonto
                     foreach (Ingreso ingre in ingresos)
                     {
                         Response saveResponseDetalle = await cierreCajaModel.cierreCajaDetalle(ingre);
@@ -369,11 +375,12 @@ namespace Admeli.CajaBox.Nuevo
                 // creando objecto cierrecaja
                 currentSaveObject = new saveObject();
                 currentSaveObject.estado = 1;
-                currentSaveObject.fechaInicio = lblFechInicio.Text;
-                currentSaveObject.idCajaSesion = ConfigModel.cajaSesion.idCajaSesion;
+                DateTime dt = DateTime.Parse(lblFechInicio.Text);
+                currentSaveObject.fechaInicio = dt.ToString("yyyy-MM-dd HH':'mm':'ss");
+                currentSaveObject.idCajaSesion = currentCajaSesion.idCajaSesion;
                 currentSaveObject.nombre = ConfigModel.sucursal.nombre;
                 currentSaveObject.nombres = PersonalModel.personal.nombres;
-                currentSaveObject.observacion = textDescripcion.Text;
+                currentSaveObject.observacion = textObservacion.Text;
 
                 // creando objeto cierre caja detalle
             }
@@ -412,5 +419,14 @@ namespace Admeli.CajaBox.Nuevo
         public string nombre { get; set; }
         public string nombres { get; set; }
         public string observacion { get; set; }
+    }
+    public class SaveObjectCierreCajaDetalle
+    {
+        public int estado { get; set; }
+        public int idCajaSesion { get; set; }
+        public int idCierreCaja { get; set; }
+        public int idMedioPago { get; set; }
+        public string monto { get; set; }
+        public string[] valores { get; set; }
     }
 }

@@ -202,6 +202,7 @@ namespace Modelo
                 if (list.Count > 0)
                 {
                     cajaSesion = list[0];
+                    ConfigModel.cajaSesion = cajaSesion;
                     ConfigModel.cajaIniciada = true;
                 }
                 else

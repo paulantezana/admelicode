@@ -305,7 +305,7 @@ namespace Admeli.CajaBox
 
         private void executeNuevo()
         {
-            FormArquearCaja formArquearCaja = new FormArquearCaja();
+            FormArquearCaja formArquearCaja = new FormArquearCaja(ConfigModel.cajaSesion);
             formArquearCaja.ShowDialog();
             cargarRegistros();
         }
