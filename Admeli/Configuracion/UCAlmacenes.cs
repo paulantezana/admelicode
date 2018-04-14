@@ -11,7 +11,7 @@ using Admeli.Componentes;
 using Modelo;
 using Entidad;
 using Admeli.Configuracion.Nuevo;
-
+//ho
 namespace Admeli.Configuracion
 {
     public partial class UCAlmacenes : UserControl
