@@ -201,4 +201,87 @@ namespace Entidad
         public int idSucursal { get; set; }
     }
 
+
+    public class CompraNEntrada
+    {
+        public int idCompra { get; set; }
+        public string numeroDocumento { get; set; }
+        public string nombreProveedor { get; set; }
+        public string rucDni { get; set; }
+        public Fecha fechaFacturacion { get; set; }
+        public Fecha fechaPago { get; set; }
+
+        public object nroOrdenCompra { get; set; }
+
+        private string ordenCompraNro;
+        public DateTime nFechaPago;
+        public DateTime nFechaFacturacion;
+
+        public string OrdenCompraNro
+        {
+
+            get
+            {
+                if (nroOrdenCompra == null)
+                {
+
+                    return "";
+                }
+                else
+                {
+
+                    return nroOrdenCompra.ToString();
+                }               
+            }
+            set
+            {
+
+
+                ordenCompraNro = value;
+            }
+
+
+        }
+
+        public DateTime NFechaPago
+        {
+
+            get
+            {
+               
+
+                    return fechaPago.date;
+                
+            }
+            set
+            {
+
+
+                nFechaPago = value;
+            }
+
+
+        }
+
+        public DateTime NFechaFacturacion
+        {
+
+            get
+            {
+
+
+                return fechaFacturacion.date;
+
+            }
+            set
+            {
+
+
+                nFechaFacturacion = value;
+            }
+
+
+        }
+    }
+
 }

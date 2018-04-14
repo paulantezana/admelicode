@@ -55,6 +55,43 @@ namespace Modelo
             throw new NotImplementedException();
         }
 
+
+       
+
+        public async Task<List<VentasNSalida>> VentasSinNotasSalida (int idsucursal)
+        {
+            try
+            {
+
+                // www.lineatienda.com/services.php/ventasinnotasalida/sucursal/1
+                List<VentasNSalida> notas = await webService.GET<List<VentasNSalida>>("ventasinnotasalida", String.Format("sucursal/{0}", idsucursal));
+                return notas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<DetalleNotaSalida>> cargarDetalleNotaSalida(int idVenta)
+        {
+            try
+            {
+
+                // www.lineatienda.com/services.php/ventasinnotasalida/dventas/2
+                List<DetalleNotaSalida> notas = await webService.GET<List<DetalleNotaSalida>>("dventas", String.Format("{0}", idVenta));
+                return notas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+
         public async Task<List<NotaSalidaR>> nSalida( int idAlmacen ,int estado=1)
         {
             try
@@ -69,6 +106,8 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
         public async Task<List<DetalleNotaSalida>> nSalidaDetalle(int idNotaSalida)
         {
             try
@@ -84,6 +123,9 @@ namespace Modelo
         }
 
       
+
+
+
 
 
     }

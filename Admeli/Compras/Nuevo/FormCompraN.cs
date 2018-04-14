@@ -118,7 +118,10 @@ namespace Admeli.Compras.Nuevo
             return string.Format(CultureInfo.GetCultureInfo("en-US"), this.formato, dato);
         }
 
-
+        private double toDouble(string texto)
+        {
+            return double.Parse(texto, CultureInfo.GetCultureInfo("en-US")); ;
+        }
 
         public FormCompraN(Compra currentCompra)
         {
@@ -695,15 +698,16 @@ namespace Admeli.Compras.Nuevo
                     FormProveedorNuevo formProveedorNuevo = new FormProveedorNuevo(aux);
                     formProveedorNuevo.ShowDialog();
                     proveedores = await proveedormodel.listaProveedores();
+                    proveedorBindingSource.DataSource = null;
+                    proveedorBindingSource.DataSource = proveedores;
                     Response response = formProveedorNuevo.uCProveedorGeneral.response;
                     if (response != null)
                         if (response.id > 0)
                         {
-                            Proveedor proveedor = proveedores.Find(X => X.idProveedor == response.id);
-                            txtDireccionProveedor.Text = proveedor.direccion;
-                            cbxProveedor.Text = proveedor.razonSocial;
-
-                        }
+                            currentProveedor = proveedores.Find(X => X.idProveedor == response.id);
+                            txtDireccionProveedor.Text = currentProveedor.direccion;
+                            cbxProveedor.Text = currentProveedor.razonSocial;
+                       }
                 }
             }
 
@@ -768,7 +772,7 @@ namespace Admeli.Compras.Nuevo
                 detalleCompra.cantidad = Int32.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
                 /// Busqueda presentacion
                 Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
-                detalleCompra.cantidadUnitaria = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
+                detalleCompra.cantidadUnitaria = toDouble( txtCantidad.Text);
                 detalleCompra.codigoProducto = cbxCodigoProducto.Text.Trim();
                 detalleCompra.descripcion = cbxDescripcion.Text.Trim();
                 detalleCompra.descuento = Convert.ToDouble(txtDescuento.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
@@ -945,7 +949,8 @@ namespace Admeli.Compras.Nuevo
             int index = dgvDetalleCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
             DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion);
-            aux.cantidad = Convert.ToInt32(txtCantidad.Text, CultureInfo.GetCultureInfo("en-US"));
+            aux.cantidad = toDouble(txtCantidad.Text); 
+            aux.cantidadUnitaria = toDouble(txtCantidad.Text);
             aux.precioUnitario = Convert.ToDouble(txtPrecioUnitario.Text, CultureInfo.GetCultureInfo("en-US"));
             aux.total = double.Parse(txtTotalProducto.Text, CultureInfo.GetCultureInfo("en-US"));
             detalleCompraBindingSource.DataSource = null;

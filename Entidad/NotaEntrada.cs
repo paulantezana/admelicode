@@ -21,9 +21,9 @@ namespace Entidad
         public int idTipoDocumento { get; set; }
         public int idAlmacen { get; set; }
         public string idCompra { get; set; }
-        public object numeroDocumento { get; set; }
-        public object nombreProveedor { get; set; }
-        public object rucDni { get; set; }
+        public string numeroDocumento { get; set; }
+        public string nombreProveedor { get; set; }
+        public string rucDni { get; set; }
         public string personal { get; set; }
         public string nombre { get; set; }
         public int idSucursal { get; set; }
@@ -34,4 +34,47 @@ namespace Entidad
 
 
     }
+
+    public class CargaCompraSinNota
+    {
+
+        public int idDetalleNotaEntrada { get; set; }
+        public string descripcion { get; set; }
+        public double cantidad { get; set; }
+        public double cantidadUnitaria { get; set; }
+        public int idCombinacionAlternativa { get; set; }
+        public object alternativas { get; set; }
+        public string nombreCombinacion { get; set; }
+        public int idPresentacion { get; set; }
+        public string nombrePresentacion { get; set; }
+        public int idProducto { get; set; }
+        public string codigoProducto { get; set; }
+        public int idNotaEntrada { get; set; }
+        public double cantidadRecibida { get; set; }
+        public bool ventaVarianteSinStock { get; set; }
+        public string nombreMarca { get; set; }         
+        public int estado { get; set; }   
+        public int nro { get; set; }
+        // dato solo cuando se modifica
+        public string cantidadRestante { get; set; }
+       
+
+
+    }
+
+    public class ComprobarNota
+    {
+        public int idCompra { get; set; }
+        public int idNotaEntrada { get; set; }
+        public List<List<int>> dato { get; set; }
+    }
+  
+    public class CompraEntradaGuardar
+    {
+        public int  idCompra { get; set; }
+    }
+
+    
+
+
 }

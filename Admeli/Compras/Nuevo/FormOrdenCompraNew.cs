@@ -796,7 +796,7 @@ namespace Admeli.Compras.Nuevo
                 detalleCompra.cantidad = Int32.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
                 /// Busqueda presentacion
                 Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
-                detalleCompra.cantidadUnitaria = toDouble(findPresentacion.cantidadUnitaria);
+                detalleCompra.cantidadUnitaria = toDouble( txtCantidad.Text);
                 detalleCompra.codigoProducto = cbxCodigoProducto.Text.Trim();
                 detalleCompra.descripcion = cbxDescripcion.Text.Trim();
                 detalleCompra.descuento = toDouble(txtDescuento.Text.Trim());
@@ -849,6 +849,8 @@ namespace Admeli.Compras.Nuevo
                     /// Buscando el producto seleccionado
                     int idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
                     currentProducto = productos.Find(x => x.idProducto == idProducto);
+
+                    
                     cargarPresentaciones(idProducto, tipo);
                     cargarAlternativas(tipo);
                 }
@@ -1181,13 +1183,16 @@ namespace Admeli.Compras.Nuevo
                     FormProveedorNuevo formProveedorNuevo = new FormProveedorNuevo(aux);
                     formProveedorNuevo.ShowDialog();
                     proveedores = await proveedorModel.listaProveedores();
+                    proveedorBindingSource.DataSource = null;
+
+                    proveedorBindingSource.DataSource = proveedores;
                     Response response = formProveedorNuevo.uCProveedorGeneral.response;
                     if (response != null)
                         if (response.id > 0)
                         {
-                            Proveedor proveedor = proveedores.Find(X => X.idProveedor == response.id);
-                            txtDireccionProveedor.Text = proveedor.direccion;
-                            cbxProveedor.Text = proveedor.razonSocial;
+                            currentProveedor  = proveedores.Find(X => X.idProveedor == response.id);
+                            txtDireccionProveedor.Text = currentProveedor.direccion;
+                            cbxProveedor.Text = currentProveedor.razonSocial;
                         }
                 }
             }

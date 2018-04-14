@@ -12,20 +12,51 @@ namespace Modelo
     {
         private WebService webService = new WebService();
 
-        public void guardar()
+        public async Task<ResponseNotaGuardar> guardar(List<object> param)
         {
-
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/nentrada/guardar
+                return await webService.POST<List<object>, ResponseNotaGuardar>("nentrada", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public void modificar()
+        public async Task<ResponseNotaGuardar> modificar(List<object> param)
         {
-
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/nentrada/guardar
+                return await webService.POST<List<object>, ResponseNotaGuardar>("nentrada", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }           
         }
 
         public void eliminar()
         {
 
         }
+
+        public async Task<ResponseNota> verifcar(ComprobarNota param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/moneda/desactivar
+                return await webService.POST<ComprobarNota, ResponseNota>("verificarcoincidencantidadcompra", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         public async Task<List<NotaEntrada>> nEntradaPendientes(int idPersonal, int idAlmacen, int todos, int gerente)
         {
@@ -54,6 +85,41 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<List<CargaCompraSinNota>> CargarCompraSinNota(int idCompra )
+        {
+            try
+            {
+                // www.lineatienda.com/services.php//dcompras2/:id
+                List<CargaCompraSinNota> rootData = await webService.GET<List<CargaCompraSinNota>>("dcompras2", String.Format("{0}", idCompra));
+                return rootData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<CargaCompraSinNota>> cargarDetallesNota(int idNotaEntrada)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php//dcompras2/:id
+                List<CargaCompraSinNota> rootData = await webService.GET<List<CargaCompraSinNota>>("nentrada", String.Format("detalle/{0}", idNotaEntrada));
+                return rootData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+       
+
+
+
 
         public Task<Response> eliminar(NotaEntrada currentNotaEntrada)
         {

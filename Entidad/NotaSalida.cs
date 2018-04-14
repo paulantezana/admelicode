@@ -120,6 +120,61 @@ namespace Entidad
         public int idNotaSalida { get; set; }
         public double total { get; set; }
         public string nombreMarca { get; set; }
+        public int idDetalleVenta { get; set; }     
+        public double precioEnvio { get; set; }
+        public double descuento { get; set; }        
+        public string nombreCombinacion { get; set; }  
+        public string nombrePresentacion { get; set; }     
+        public int idVenta { get; set; }
+        
     } 
 
+    public class VentasNSalida
+    {
+
+        public int idVenta { get; set; }
+        public string numeroDocumento { get; set; }
+        public string nombreCliente { get; set; }
+        public string rucDni { get; set; }
+        public Fecha fechaVenta { get; set; }
+        public Fecha fechaPago { get; set; }
+
+        private DateTime fechaVentaS;
+        private DateTime fechaPagoS;
+
+        public DateTime FechaVentaS
+        {
+            get
+            {
+
+                return fechaVenta.date;
+            }
+            set
+            {
+
+                fechaVentaS = value;
+            }
+
+
+        }
+        public DateTime FechaPagoS
+        {
+            get
+            {
+
+                return fechaPago.date;
+            }
+            set
+            {
+
+                fechaPagoS = value;
+            }
+
+
+        }
+
+    }
 }
+
+
+

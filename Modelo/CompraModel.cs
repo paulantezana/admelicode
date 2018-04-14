@@ -135,6 +135,22 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<List<CompraNEntrada>> comprasSinNota(int idSucursal)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/comprassinnotaentrada/sucursal/1
+                List<CompraNEntrada> comprasAll = await webService.GET<List<CompraNEntrada>>("comprassinnotaentrada", String.Format("sucursal/{0}", idSucursal));
+                return comprasAll;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
 
 
 
