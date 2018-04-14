@@ -156,7 +156,7 @@ namespace Admeli.CajaBox.Nuevo
             currentSaveObject.montoInteres = textMontoInteres.Text;
             currentSaveObject.motivo = "PAGO VENTA";
             currentSaveObject.numeroOperacion = " ";
-            currentSaveObject.observacion = textObcervacion.Text;
+            currentSaveObject.observacion = textObservacion.Text;
 
             // currentSaveObject
             currentSaveObject.idMoneda = Convert.ToInt32(cbxMoneda.SelectedValue);

@@ -23,9 +23,23 @@ namespace Entidad
         public int idDocumento { get; set; }
         public int idOperacion { get; set; }
         public string operacion { get; set; }
+
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
-    public class VentaCorrelativo
+        public class VentaCorrelativo
     {
 
         public int idVentaCorrelativo { get; set; }

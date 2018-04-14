@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>120, 17</value>
-  </metadata>
   <metadata name="imageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -128,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABc
-        CAAAAk1TRnQBSQFMAgEBAgEAAYABAAGAAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CAAAAk1TRnQBSQFMAgEBAgEAAYgBAAGIAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -166,4 +163,30 @@
         AYABAQGABQABgAEDAYABAQQAAYABBwGAAQEEAAL/AYAB/wQABP8EAAT/BAAL
 </value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnMovIzquierda.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADgSURBVEhL5ZHPCkFREMbnAWShPAJlxcILiXOOlJ0dVuw8gZUUdqzcMycbT+IFFCVLf65R023K
+        di7hV9/i9Kv5+jrw55gwBYvHJMZ32CjhQpkO3ykx5wBtn2WrhMWlKKCEPhslPrLCYY+NEiaq0OGUVzhc
+        iYIUVrioSoffvML6LhslXlfsobXNsFXC4UgUPP9iwkaRxrpEx2+i6AT1kGOriMGFKInpPWCjiImKdPwq
+        ilJaY/1clFDCkI0iblOg43LNGWo+z1aRN665iKKU1jiciZJvX2NxTNklcaHJ5qcBeAC+ydZv20w8KAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnMovDerecha.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADMSURBVEhL5ZA9CgJBDIWnFEHxKHZaeJhB3EyzNtqpx9ALWFq4iOxkOk9iKVj4cwM1RcDsaplZ
+        0P0g1Qfv8WJqBITUAN7EbdgoAvumAX+m8Of78h5bRSBMiyXBs1HEHhoUfioUjXyfrSIfaxDZKPJtDeCA
+        rSIOJ6WSf1rjMLBRpMI1q1LJko0Sw12LQi+i4GGSvMtWCQgzUUAXMjZKjH2bgmOv8HNREG3FVZRUsMLh
+        lo0SNuvQa+6iJMIKhwtR8KsrErQUfBS3ZlM7jHkBCrzWP7SywrcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="categoriaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>120, 17</value>
+  </metadata>
+  <metadata name="categoriaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>120, 17</value>
+  </metadata>
 </root>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,19 +40,23 @@
             this.panelMoneda = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.cbxMoneda = new System.Windows.Forms.ComboBox();
+            this.monedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textMonto = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textObcervacion = new System.Windows.Forms.TextBox();
+            this.textObservacion = new System.Windows.Forms.TextBox();
             this.dtpFechaPago = new Bunifu.Framework.UI.BunifuDatepicker();
             this.panelFooter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelHeader.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelMoneda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).BeginInit();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -100,7 +105,7 @@
             this.panel3.Controls.Add(this.panelMoneda);
             this.panel3.Controls.Add(this.textMonto);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.textObcervacion);
+            this.panel3.Controls.Add(this.textObservacion);
             this.panel3.Controls.Add(this.dtpFechaPago);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 49);
@@ -172,6 +177,7 @@
             this.panelMoneda.Padding = new System.Windows.Forms.Padding(1);
             this.panelMoneda.Size = new System.Drawing.Size(389, 50);
             this.panelMoneda.TabIndex = 6;
+            this.panelMoneda.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMoneda_Paint);
             // 
             // label6
             // 
@@ -191,6 +197,7 @@
             this.cbxMoneda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbxMoneda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxMoneda.BackColor = System.Drawing.Color.White;
+            this.cbxMoneda.DataSource = this.monedaBindingSource;
             this.cbxMoneda.DisplayMember = "moneda";
             this.cbxMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMoneda.Enabled = false;
@@ -203,6 +210,10 @@
             this.cbxMoneda.Size = new System.Drawing.Size(373, 23);
             this.cbxMoneda.TabIndex = 1;
             this.cbxMoneda.ValueMember = "idMoneda";
+            // 
+            // monedaBindingSource
+            // 
+            this.monedaBindingSource.DataSource = typeof(Entidad.Configuracion.Moneda);
             // 
             // textMonto
             // 
@@ -223,6 +234,8 @@
             this.textMonto.Size = new System.Drawing.Size(389, 50);
             this.textMonto.TabIndex = 5;
             this.textMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMonto_KeyPress);
+            this.textMonto.Validated += new System.EventHandler(this.textMonto_Validated);
             // 
             // label5
             // 
@@ -237,17 +250,17 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Observación (Opcional)";
             // 
-            // textObcervacion
+            // textObservacion
             // 
-            this.textObcervacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textObcervacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textObcervacion.Location = new System.Drawing.Point(9, 218);
-            this.textObcervacion.Margin = new System.Windows.Forms.Padding(2);
-            this.textObcervacion.Multiline = true;
-            this.textObcervacion.Name = "textObcervacion";
-            this.textObcervacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textObcervacion.Size = new System.Drawing.Size(388, 74);
-            this.textObcervacion.TabIndex = 10;
+            this.textObservacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textObservacion.Location = new System.Drawing.Point(9, 218);
+            this.textObservacion.Margin = new System.Windows.Forms.Padding(2);
+            this.textObservacion.Multiline = true;
+            this.textObservacion.Name = "textObservacion";
+            this.textObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textObservacion.Size = new System.Drawing.Size(388, 74);
+            this.textObservacion.TabIndex = 10;
             // 
             // dtpFechaPago
             // 
@@ -301,6 +314,7 @@
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnClose
             // 
@@ -319,6 +333,11 @@
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormDetallePagoNuevo
             // 
@@ -336,8 +355,10 @@
             this.panel3.PerformLayout();
             this.panelMoneda.ResumeLayout(false);
             this.panelMoneda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).EndInit();
             this.panelFooter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,11 +378,13 @@
         private System.Windows.Forms.ComboBox cbxMoneda;
         private Bunifu.Framework.UI.BunifuMetroTextbox textMonto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textObcervacion;
+        private System.Windows.Forms.TextBox textObservacion;
         private Bunifu.Framework.UI.BunifuDatepicker dtpFechaPago;
         private System.Windows.Forms.Panel panelFooter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.BindingSource monedaBindingSource;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

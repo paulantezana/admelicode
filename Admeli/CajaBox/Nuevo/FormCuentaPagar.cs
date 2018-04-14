@@ -21,8 +21,6 @@ namespace Admeli.CajaBox.Nuevo
         private List<Pago> listaPagos = new List<Pago>();
         private List<DetallePago> listaDetallePagos = new List<DetallePago>();
         private int currentIdProveedor;
-        private decimal currentTotal;
-        private decimal currentPagado;
         public FormCuentaPagar()
         {
             InitializeComponent();
@@ -100,20 +98,8 @@ namespace Admeli.CajaBox.Nuevo
             dgvDetallePago.Refresh();
 
             //Colocar el total para cobrar
-            lbTotal.Text = currentPago.saldo;
-            currentTotal = decimal.Parse(currentPago.saldo);
-
-            currentPagado = 0;
-            //Sumar los pagos detalle
-            for (int i = 0; i < listaDetallePagos.Count; i++)
-            {
-                if (listaDetallePagos[i].estado == 1)
-                {
-                    currentPagado += listaDetallePagos[i].importe;
-                }
-
-            }
-            lbSaldo.Text = (currentTotal - currentPagado).ToString();
+            lbTotal.Text = currentPago.valorTotal;
+            lbSaldo.Text = currentPago.saldo;
         }
 
         private void loadState(bool state)
@@ -166,7 +152,8 @@ namespace Admeli.CajaBox.Nuevo
                 //Verificar que la caja con la que se realizo el cobro sea la misma que la actual
                 int index = dgvDetallePago.CurrentRow.Index;
                 int idDetallePago = Convert.ToInt32(dgvDetallePago.Rows[index].Cells[0].Value);
-                currentDetallePago = listaDetallePagos.Find(x => x.idDetallePago == idDetallePago);                
+                currentDetallePago = listaDetallePagos.Find(x => x.idDetallePago == idDetallePago);
+                currentDetallePago.idPago = currentPago.idPago;
                 if (currentDetallePago.idCajaSesion != ConfigModel.cajaSesion.idCajaSesion)
                 {
                     MessageBox.Show("Error: Este egreso lo realizó con otra caja y no podrá ser anulado", "Anular", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -184,6 +171,7 @@ namespace Admeli.CajaBox.Nuevo
                 //}
 
                 //Anular Cobro Detalle
+                //No se puede anular si es solo un cobrodetalle
                 Response response = await pagoModel.anularPagoDetalle(currentDetallePago);
 
                 MessageBox.Show(response.msj, "Anular", MessageBoxButtons.OK, MessageBoxIcon.Information);

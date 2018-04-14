@@ -319,8 +319,6 @@ namespace Admeli.CajaBox
                 crearObjetoCajaSesion();
                 Response responseCaja = await cajaModel.guardar(saveCajaSesion);
 
-                
-
                 // Guardando las monedas
                 foreach (Moneda money in monedas)
                 {
@@ -333,6 +331,7 @@ namespace Admeli.CajaBox
                     money.medioPago = medioPago.nombre;
                     money.motivo = "INCIO CAJA";
                     money.numeroOperacion = "";
+                    money.estado = 2;
 
                     Response response = await ingresoModel.guardarEnUno(money);
                 }

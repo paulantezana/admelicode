@@ -119,18 +119,19 @@ namespace Admeli.Configuracion
                 int idSucursal = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
 
                 currentSucursal = sucursales.Find(x => x.idSucursal == idSucursal); // Buscando la categoria en las lista de categorias
+                if (currentSucursal.principal)
+                {
+                    dataGridView.ClearSelection();
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(180, 241, 202);
+                    //row.DefaultCellStyle.ForeColor = Color.FromArgb(16, 120, 53);
+                }
                 if (currentSucursal.estado == 0)
                 {
                     dataGridView.ClearSelection();
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
                     row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
                 }
-                if (currentSucursal.principal)
-                {
-                    dataGridView.ClearSelection();
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(180, 241, 202);
-                    row.DefaultCellStyle.ForeColor = Color.FromArgb(16, 120, 53);
-                }
+                
             }
         }
         #endregion

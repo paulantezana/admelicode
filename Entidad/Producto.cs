@@ -35,6 +35,19 @@ namespace Entidad
         public bool ventaVarianteSinStock { get; set; }
         public string nombre { get; set; }
         public string codigo { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if(estado == true) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
     public class ProductoVenta

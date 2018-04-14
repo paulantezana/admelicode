@@ -635,7 +635,17 @@ namespace Admeli.Compras.Nuevo
         }
         private async void cargarPresentaciones(int idProducto, int tipo)
         {
-            List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
+
+            try
+            {
+                List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar Presentacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
             currentPresentacion = presentaciones[0];
             cbxDescripcion.Text = currentPresentacion.descripcion;
             txtCantidad.Text = "1";

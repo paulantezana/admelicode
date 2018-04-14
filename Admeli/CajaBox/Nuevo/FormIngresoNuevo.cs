@@ -127,7 +127,7 @@ namespace Admeli.CajaBox.Nuevo
             {
                 if (nuevo)
                 {
-                    
+                    crearObjetoIngreso();
                     Response response = await ingresoModel.guardarEnUno(currentSaveObject);
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

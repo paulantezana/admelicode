@@ -27,6 +27,20 @@ namespace Entidad
         public int idDocumento { get; set; }
         public string nombre { get; set; }
         public string tipoDocumento { get; set; }
+
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
     public class GrupoClienteC
     {

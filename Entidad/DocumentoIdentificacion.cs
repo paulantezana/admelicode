@@ -14,5 +14,18 @@ namespace Entidad
         public string tipoDocumento { get; set; }
         public int estado { get; set; }
 
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 }

@@ -35,5 +35,19 @@ namespace Entidad.Configuracion
 
         //Para algunos servicios que requieran un arespuesta del total
         public double total { get; set; }
+
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 }
