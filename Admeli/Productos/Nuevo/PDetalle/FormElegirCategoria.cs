@@ -1,4 +1,5 @@
-﻿using Entidad;
+﻿using Admeli.Componentes;
+using Entidad;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -49,13 +50,13 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 // Cargando las categorias desde el webservice
                 List<Categoria> categoriaList = catProducto.producto;
+                if (categoriaList.Count <= 0) { return; }
                 Categoria lastCategori = categoriaList.Last();
                 categoriaList.Remove(lastCategori);
 
                 // Cargando
                 treeViewFrom.Nodes.Clear(); // limpiando
                 treeViewFrom.Nodes.Add(lastCategori.idCategoria.ToString(), lastCategori.nombreCategoria); // Cargando categoria raiz
-
 
                 List<TreeNode> listNode = new List<TreeNode>();
 
@@ -67,8 +68,6 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
                 }
                 treeviewVista(categoriaList, treeViewFrom.Nodes[0], listNode);
-
-
 
                 // Estableciendo valores por defecto
 
@@ -162,21 +161,75 @@ namespace Admeli.Productos.Nuevo.PDetalle
         } 
         #endregion
 
-
-
-
-
-
-
-
-
-
-
         private void cargarCategoriasElegidas()
         {
+            // loadState(true);
+            try
+            {
+                // Cargando las categorias desde el webservice
+                List<Categoria> categoriaList = catProducto.todo;
 
+                if (categoriaList.Count <= 0) { return; }
+                //Colocar las Categorias elegidas en el ComboBox
+                categoriaBindingSource.DataSource = categoriaList;
+
+                Categoria lastCategori = categoriaList.Last();
+                categoriaList.Remove(lastCategori);
+
+                // Cargando
+                treeViewTo.Nodes.Clear();//Limpiando
+                treeViewTo.Nodes.Add(lastCategori.idCategoria.ToString(), lastCategori.nombreCategoria); // Cargando categoria raiz
+
+                List<TreeNode> listNode = new List<TreeNode>();
+
+                foreach (Categoria categoria in categoriaList)
+                {
+                    TreeNode aux = new TreeNode(categoria.nombreCategoria);
+                    aux.Name = categoria.idCategoria.ToString();
+                    listNode.Add(aux);
+
+                }
+                treeviewVista(categoriaList, treeViewTo.Nodes[0], listNode);
+
+                // Estableciendo valores por defecto
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            //loadState(false);
         }
 
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+            DrawShape drawShape = new DrawShape();
+            drawShape.rightLine(panel4, 221, 225, 228,2);
+            drawShape.leftLine(panel5,221,225,228,2);
+        }
 
+        private void btnMovDerecha_Click(object sender, EventArgs e)
+        {
+            TreeNode tempNode = treeViewFrom.SelectedNode;
+            if (tempNode != null)
+            {
+                //Eliminamos el nodo seleccionado en el TreeviewFrom
+                treeViewFrom.Nodes.Remove(treeViewFrom.SelectedNode);
+                //Agregamos el Nodo al TreeviewTo
+                treeViewTo.Nodes.Add(tempNode);
+            }
+        }
+
+        private void btnMovIzquierda_Click(object sender, EventArgs e)
+        {
+            TreeNode tempNode = treeViewTo.SelectedNode;
+            if (tempNode != null)
+            {
+                //Eliminamos el nodo seleccionado en el TreeviewFrom
+                treeViewTo.Nodes.Remove(treeViewTo.SelectedNode);
+                //Agregamos el Nodo al TreeviewTo
+                treeViewFrom.Nodes.Add(tempNode);
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Admeli.CajaBox.Nuevo
     {
         private CierreCaja currentCierreCaja;
         private CajaSesion currentCajaSesion;
-
+        private int currentIdCajaCierre;
         private MedioPagoModel medioPagoModel = new MedioPagoModel();
         private IngresoModel ingresoModel = new IngresoModel();
         private ConfigModel configModel = new ConfigModel();
@@ -35,6 +35,7 @@ namespace Admeli.CajaBox.Nuevo
         private List<Moneda> monedasActivas { get; set; }
         private bool nuevo { get; set; }
 
+        private int currentIdCajaSesion { get; set; }
         private saveObject currentSaveObject { get; set; }
 
         // variables de los elementos en el aside
@@ -53,14 +54,16 @@ namespace Admeli.CajaBox.Nuevo
         {
             InitializeComponent();
             this.currentCierreCaja = currentCierreCaja;
-
+            this.currentIdCajaSesion = currentCierreCaja.idCajaSesion;
             this.nuevo = false;
+            this.btnAceptar.Enabled = false;
         }
 
         public FormArquearCaja(CajaSesion currentCajaSesion)
         {
             InitializeComponent();
             this.currentCajaSesion = currentCajaSesion;
+            this.currentIdCajaSesion = currentCajaSesion.idCajaSesion;
             currentCierreCaja = new CierreCaja() { idCierreCaja = 0 };
             this.nuevo = true;
         }
@@ -88,8 +91,6 @@ namespace Admeli.CajaBox.Nuevo
             //Cargar Denominaciones de cada moneda
 
             //this.cargarCajaSesion();
-            
-            
         }
         #endregion
 
@@ -112,7 +113,7 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-                ingresos = await ingresoModel.ingresos(currentCajaSesion.idCajaSesion); // Listas
+                ingresos = await ingresoModel.ingresos(currentIdCajaSesion); // Listas
                 int columnas = 3; // Indicar numero de columnas de la grilla
 
                 this.createLabel(x - 5, this.y, "Monto inicio caja");
@@ -173,7 +174,14 @@ namespace Admeli.CajaBox.Nuevo
         {
             try
             {
-                lblFechInicio.Text = currentCajaSesion.fechaInicio.ToString();
+                if (nuevo)
+                {
+                    lblFechInicio.Text = currentCajaSesion.fechaInicio.ToString();
+                }
+                else
+                {
+                    lblFechInicio.Text=currentCierreCaja.fechaInicio.ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -187,7 +195,7 @@ namespace Admeli.CajaBox.Nuevo
             {
                 /// 
                 int medioPagoID = medioPagos.First<MedioPago>().idMedioPago;
-                ingresoMenosEgreso = await cierreCajaModel.ingresoMenosEgreso(medioPagoID, currentCajaSesion.idCajaSesion);
+                ingresoMenosEgreso = await cierreCajaModel.ingresoMenosEgreso(medioPagoID, currentIdCajaSesion);
 
                 this.createLabel(x - 5, this.y, "Cálculo efectivo");
                 this.y += 25;
@@ -208,7 +216,7 @@ namespace Admeli.CajaBox.Nuevo
                 {
                     /// ===================================================================
                     /// denominaciones de las monedas
-                    List<Denominacion> denominaciones = await denominacionModel.denominacionMoneda(moneda.idMoneda,currentCajaSesion.idCajaSesion);
+                    List<Denominacion> denominaciones = await denominacionModel.denominacionMoneda(moneda.idMoneda,currentIdCajaSesion);
                     createTabPage(moneda.moneda, moneda.idMoneda.ToString(), denominaciones);
                 }
             }
@@ -319,9 +327,11 @@ namespace Admeli.CajaBox.Nuevo
                 Text = titlePage,
                 UseVisualStyleBackColor = true,
             };
-
             this.tabControlMonedas.Controls.Add(tabPage);
+            //Agreagar los text box de Monto 
             int ordenadas = 13, absisas = 13;
+            this.createElement(tabPage.Controls, ordenadas, absisas, "Monto", "0");
+            absisas += 50;
             foreach (Denominacion denominacion in denominaciones)
             {
                 this.createElement(tabPage.Controls, ordenadas, absisas, denominacion.nombre, denominacion.valor);
@@ -336,20 +346,23 @@ namespace Admeli.CajaBox.Nuevo
             try
             {
                 loadStateApp(true);
-                List<Moneda> listResponse = await cajaModel.verificarActividad(currentCajaSesion.idCajaSesion);
+                List<Moneda> listResponse = await cajaModel.verificarActividad(currentIdCajaSesion);
                 
                 createObject();
                 if (nuevo)
                 {
                     Response saveResponse = await cierreCajaModel.cierreCaja(currentSaveObject);
+                    currentIdCajaCierre = saveResponse.id;
                     int counter = 1;
-                    //Para cadaMonto
-                    foreach (Ingreso ingre in ingresos)
+                    //Guardar detalles del Cierre para cada moneda
+                    foreach (Moneda moneda in ingresoMenosEgreso)
                     {
-                        Response saveResponseDetalle = await cierreCajaModel.cierreCajaDetalle(ingre);
-                        counter++;
+                        //Falta Especificar las denominaciones por cada moneda
+                        SaveObjectCierreCajaDetalle currentCierreCajaDetalle= createObjetoDetalleCobro(moneda.idMoneda);
+                        Response saveResponseDetalle = await cierreCajaModel.cierreCajaDetalle(currentCierreCajaDetalle);
                     }
                     MessageBox.Show(saveResponse.msj + counter + "Registros guardado", "Cerrar Caja ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
 
             }
@@ -361,6 +374,19 @@ namespace Admeli.CajaBox.Nuevo
             {
                 loadStateApp(false);
             }
+        }
+
+        private SaveObjectCierreCajaDetalle createObjetoDetalleCobro(int idMoneda)
+        {
+            SaveObjectCierreCajaDetalle obj = new SaveObjectCierreCajaDetalle();
+            obj.estado = 1;
+            obj.idCajaSesion = currentIdCajaSesion;
+            obj.idCierreCaja = currentIdCajaCierre;
+            obj.idMedioPago = 1;
+            obj.idMoneda = idMoneda;
+            obj.monto = "0";
+            obj.valores = new string[0];
+            return obj;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -377,7 +403,7 @@ namespace Admeli.CajaBox.Nuevo
                 currentSaveObject.estado = 1;
                 DateTime dt = DateTime.Parse(lblFechInicio.Text);
                 currentSaveObject.fechaInicio = dt.ToString("yyyy-MM-dd HH':'mm':'ss");
-                currentSaveObject.idCajaSesion = currentCajaSesion.idCajaSesion;
+                currentSaveObject.idCajaSesion =currentIdCajaSesion;
                 currentSaveObject.nombre = ConfigModel.sucursal.nombre;
                 currentSaveObject.nombres = PersonalModel.personal.nombres;
                 currentSaveObject.observacion = textObservacion.Text;
@@ -426,6 +452,7 @@ namespace Admeli.CajaBox.Nuevo
         public int idCajaSesion { get; set; }
         public int idCierreCaja { get; set; }
         public int idMedioPago { get; set; }
+        public int idMoneda { get; set; }
         public string monto { get; set; }
         public string[] valores { get; set; }
     }
