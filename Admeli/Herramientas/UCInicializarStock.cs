@@ -673,5 +673,19 @@ public class ProductoData
     public int idAlmacen { get; set; }
     public string almacen { get; set; }
     public string productoAlmacen { get; set; }
+    private string estadoString;
     public List<ImpuestoData> impuesto { get; set; }
+       
+    public string EstadoString
+    {
+        get
+        {
+            if (estado == 1) { return "Activo"; }
+            else { return "Anulado"; }
+        }
+        set
+        {
+            estadoString = value;
+        }
+    }
 }

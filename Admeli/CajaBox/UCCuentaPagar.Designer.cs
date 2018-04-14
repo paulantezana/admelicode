@@ -147,7 +147,7 @@
             // 
             // chkTodoProveedor
             // 
-            this.chkTodoProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkTodoProveedor.BackColor = System.Drawing.Color.DodgerBlue;
             this.chkTodoProveedor.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.chkTodoProveedor.Checked = false;
             this.chkTodoProveedor.CheckedOnColor = System.Drawing.Color.DodgerBlue;
@@ -454,7 +454,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCuentasPagar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCuentasPagar.ColumnHeadersHeight = 40;
             this.dgvCuentasPagar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProveedorDataGridViewTextBoxColumn,
             this.razonSocialDataGridViewTextBoxColumn,
@@ -501,50 +500,50 @@
             // idProveedorDataGridViewTextBoxColumn
             // 
             this.idProveedorDataGridViewTextBoxColumn.DataPropertyName = "idProveedor";
-            this.idProveedorDataGridViewTextBoxColumn.HeaderText = "idProveedor";
+            this.idProveedorDataGridViewTextBoxColumn.HeaderText = "IDProveedor";
             this.idProveedorDataGridViewTextBoxColumn.Name = "idProveedorDataGridViewTextBoxColumn";
             this.idProveedorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idProveedorDataGridViewTextBoxColumn.Width = 111;
+            this.idProveedorDataGridViewTextBoxColumn.Width = 112;
             // 
             // razonSocialDataGridViewTextBoxColumn
             // 
             this.razonSocialDataGridViewTextBoxColumn.DataPropertyName = "razonSocial";
-            this.razonSocialDataGridViewTextBoxColumn.HeaderText = "razonSocial";
+            this.razonSocialDataGridViewTextBoxColumn.HeaderText = "Razón Social";
             this.razonSocialDataGridViewTextBoxColumn.Name = "razonSocialDataGridViewTextBoxColumn";
             this.razonSocialDataGridViewTextBoxColumn.ReadOnly = true;
-            this.razonSocialDataGridViewTextBoxColumn.Width = 109;
+            this.razonSocialDataGridViewTextBoxColumn.Width = 117;
             // 
             // rucDataGridViewTextBoxColumn
             // 
             this.rucDataGridViewTextBoxColumn.DataPropertyName = "ruc";
-            this.rucDataGridViewTextBoxColumn.HeaderText = "ruc";
+            this.rucDataGridViewTextBoxColumn.HeaderText = "RUC";
             this.rucDataGridViewTextBoxColumn.Name = "rucDataGridViewTextBoxColumn";
             this.rucDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rucDataGridViewTextBoxColumn.Width = 53;
+            this.rucDataGridViewTextBoxColumn.Width = 60;
             // 
             // actividadPrincipalDataGridViewTextBoxColumn
             // 
             this.actividadPrincipalDataGridViewTextBoxColumn.DataPropertyName = "actividadPrincipal";
-            this.actividadPrincipalDataGridViewTextBoxColumn.HeaderText = "actividadPrincipal";
+            this.actividadPrincipalDataGridViewTextBoxColumn.HeaderText = "Actividad Principal";
             this.actividadPrincipalDataGridViewTextBoxColumn.Name = "actividadPrincipalDataGridViewTextBoxColumn";
             this.actividadPrincipalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.actividadPrincipalDataGridViewTextBoxColumn.Width = 148;
+            this.actividadPrincipalDataGridViewTextBoxColumn.Width = 153;
             // 
             // tipoProveedorDataGridViewTextBoxColumn
             // 
             this.tipoProveedorDataGridViewTextBoxColumn.DataPropertyName = "tipoProveedor";
-            this.tipoProveedorDataGridViewTextBoxColumn.HeaderText = "tipoProveedor";
+            this.tipoProveedorDataGridViewTextBoxColumn.HeaderText = "Tipo de Proveedor";
             this.tipoProveedorDataGridViewTextBoxColumn.Name = "tipoProveedorDataGridViewTextBoxColumn";
             this.tipoProveedorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoProveedorDataGridViewTextBoxColumn.Width = 123;
+            this.tipoProveedorDataGridViewTextBoxColumn.Width = 151;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
             this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDataGridViewTextBoxColumn.Width = 92;
+            this.direccionDataGridViewTextBoxColumn.Width = 93;
             // 
             // UCCuentaPagar
             // 
