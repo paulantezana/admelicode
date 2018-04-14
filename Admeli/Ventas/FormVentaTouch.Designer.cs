@@ -43,8 +43,7 @@
             this.dgvVentaTouch = new System.Windows.Forms.DataGridView();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+
             this.button2 = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -59,7 +58,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+           
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadFraccionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.codigoBarrasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -275,7 +274,7 @@
             this.ventaVarianteSinStockDataGridViewCheckBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.codigoDataGridViewTextBoxColumn,
-            this.precioCompraDataGridViewTextBoxColumn});
+            });
             this.dgvVentaTouch.DataSource = this.productoBindingSource;
             this.dgvVentaTouch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVentaTouch.Location = new System.Drawing.Point(10, 10);
@@ -689,11 +688,7 @@
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = true;
 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "precioCompra";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Precio de Compra";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+   
             // 
             // idProductoDataGridViewTextBoxColumn
             // 
@@ -868,9 +863,7 @@
             // 
             // precioCompraDataGridViewTextBoxColumn
             // 
-            this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "precioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "Precio de Compra";
-            this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
+     
 
             // 
             // FormVentaTouch
@@ -931,6 +924,8 @@
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.Button btnAgregarProduct;
         private System.Windows.Forms.TextBox textBuscar;
+
+        
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
@@ -978,6 +973,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+
 
     }
 }
