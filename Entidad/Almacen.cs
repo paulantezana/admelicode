@@ -33,6 +33,7 @@ namespace Entidad
             }
         }
     }
+    //para hacer cambios
 
     public class AlmacenComra
     {
