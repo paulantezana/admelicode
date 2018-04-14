@@ -27,6 +27,21 @@ namespace Modelo
 
         }
 
+        public async Task<Response> guardarPagoDetalle<T>(T param)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/detallepagoiegreso/guardar
+                Response response = await webService.POST<T, Response>("detallepagoiegreso", "guardar", param);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public async Task<Response> anularPagoDetalle(DetallePago detallePago)
         {
             try

@@ -23,8 +23,12 @@ namespace Modelo.Recursos
         public WebService()
         {
             //this.domainName = "http://www.lineatienda.com";
+
             this.domainName = "http://192.168.1.9:8080";
-            //a
+
+            //this.domainName = "http://localhost:8085";
+
+
             //this.domainName = "http://192.168.1.45:8080";
 
             //this.directory = "services.php";

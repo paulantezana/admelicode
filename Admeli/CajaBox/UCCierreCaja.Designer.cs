@@ -100,7 +100,7 @@
             this.panelContainer.Controls.Add(this.lblCajaEstado);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(919, 464);
@@ -113,7 +113,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 151);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(917, 252);
             this.panel1.TabIndex = 16;
             // 
@@ -135,6 +135,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView.ColumnHeadersHeight = 40;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idCierreCajaDataGridViewTextBoxColumn,
             this.fechaInicioDataGridViewTextBoxColumn,
@@ -621,18 +622,18 @@
             // fechaInicioDataGridViewTextBoxColumn
             // 
             this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "fechaInicio";
-            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "Fecha de Inicio";
+            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "Fecha Inicio";
             this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
             this.fechaInicioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaInicioDataGridViewTextBoxColumn.Width = 131;
+            this.fechaInicioDataGridViewTextBoxColumn.Width = 102;
             // 
             // fechaCierreDataGridViewTextBoxColumn
             // 
             this.fechaCierreDataGridViewTextBoxColumn.DataPropertyName = "fechaCierre";
-            this.fechaCierreDataGridViewTextBoxColumn.HeaderText = "Fecha de Cierre";
+            this.fechaCierreDataGridViewTextBoxColumn.HeaderText = "Fecha Cierre";
             this.fechaCierreDataGridViewTextBoxColumn.Name = "fechaCierreDataGridViewTextBoxColumn";
             this.fechaCierreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaCierreDataGridViewTextBoxColumn.Width = 135;
+            this.fechaCierreDataGridViewTextBoxColumn.Width = 105;
             // 
             // observacionDataGridViewTextBoxColumn
             // 
@@ -645,11 +646,11 @@
             // idCajaSesionDataGridViewTextBoxColumn
             // 
             this.idCajaSesionDataGridViewTextBoxColumn.DataPropertyName = "idCajaSesion";
-            this.idCajaSesionDataGridViewTextBoxColumn.HeaderText = "IDSesion de Caja";
+            this.idCajaSesionDataGridViewTextBoxColumn.HeaderText = "IDCajaSesion";
             this.idCajaSesionDataGridViewTextBoxColumn.Name = "idCajaSesionDataGridViewTextBoxColumn";
             this.idCajaSesionDataGridViewTextBoxColumn.ReadOnly = true;
             this.idCajaSesionDataGridViewTextBoxColumn.Visible = false;
-            this.idCajaSesionDataGridViewTextBoxColumn.Width = 104;
+            this.idCajaSesionDataGridViewTextBoxColumn.Width = 118;
             // 
             // idPersonalDataGridViewTextBoxColumn
             // 
@@ -688,9 +689,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCCierreCaja";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(935, 480);
             this.Load += new System.EventHandler(this.UCCierreCaja_Load);
             this.panelContainer.ResumeLayout(false);

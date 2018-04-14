@@ -126,9 +126,9 @@
             this.panel1.Controls.Add(this.textObservacion);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(1, 375);
+            this.panel1.Location = new System.Drawing.Point(1, 345);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(925, 149);
+            this.panel1.Size = new System.Drawing.Size(925, 179);
             this.panel1.TabIndex = 101;
             // 
             // btnAceptar
@@ -141,7 +141,7 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(11, 104);
+            this.btnAceptar.Location = new System.Drawing.Point(11, 137);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(136, 33);
             this.btnAceptar.TabIndex = 98;
@@ -157,7 +157,7 @@
             this.textObservacion.Multiline = true;
             this.textObservacion.Name = "textObservacion";
             this.textObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textObservacion.Size = new System.Drawing.Size(522, 62);
+            this.textObservacion.Size = new System.Drawing.Size(522, 97);
             this.textObservacion.TabIndex = 94;
             // 
             // label5

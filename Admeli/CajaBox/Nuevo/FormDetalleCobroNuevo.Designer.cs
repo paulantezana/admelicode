@@ -51,7 +51,7 @@
             this.monedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textMonto = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textObcervacion = new System.Windows.Forms.TextBox();
+            this.textObservacion = new System.Windows.Forms.TextBox();
             this.dtpFechaPago = new Bunifu.Framework.UI.BunifuDatepicker();
             this.lblCajaEstado = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -172,7 +172,7 @@
             this.panel3.Controls.Add(this.panelMoneda);
             this.panel3.Controls.Add(this.textMonto);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.textObcervacion);
+            this.panel3.Controls.Add(this.textObservacion);
             this.panel3.Controls.Add(this.dtpFechaPago);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 87);
@@ -383,17 +383,17 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Observación (Opcional)";
             // 
-            // textObcervacion
+            // textObservacion
             // 
-            this.textObcervacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textObcervacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textObcervacion.Location = new System.Drawing.Point(11, 338);
-            this.textObcervacion.Margin = new System.Windows.Forms.Padding(2);
-            this.textObcervacion.Multiline = true;
-            this.textObcervacion.Name = "textObcervacion";
-            this.textObcervacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textObcervacion.Size = new System.Drawing.Size(388, 74);
-            this.textObcervacion.TabIndex = 10;
+            this.textObservacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textObservacion.Location = new System.Drawing.Point(11, 338);
+            this.textObservacion.Margin = new System.Windows.Forms.Padding(2);
+            this.textObservacion.Multiline = true;
+            this.textObservacion.Name = "textObservacion";
+            this.textObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textObservacion.Size = new System.Drawing.Size(388, 74);
+            this.textObservacion.TabIndex = 10;
             // 
             // dtpFechaPago
             // 
@@ -470,7 +470,7 @@
         private System.Windows.Forms.ComboBox cbxMoneda;
         private Bunifu.Framework.UI.BunifuMetroTextbox textMonto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textObcervacion;
+        private System.Windows.Forms.TextBox textObservacion;
         private Bunifu.Framework.UI.BunifuDatepicker dtpFechaPago;
         private System.Windows.Forms.BindingSource monedaBindingSource;
         private System.Windows.Forms.Label label7;
