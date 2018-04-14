@@ -89,9 +89,9 @@
             this.label8.Location = new System.Drawing.Point(7, 4);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 15);
+            this.label8.Size = new System.Drawing.Size(90, 15);
             this.label8.TabIndex = 102;
-            this.label8.Text = "Fecha inicio";
+            this.label8.Text = "Fecha de Inicio";
             // 
             // label17
             // 
@@ -102,9 +102,9 @@
             this.label17.Location = new System.Drawing.Point(288, 54);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 14);
+            this.label17.Size = new System.Drawing.Size(91, 14);
             this.label17.TabIndex = 108;
-            this.label17.Text = "Fecha Ingreso";
+            this.label17.Text = "Fecha de Ingreso";
             // 
             // dtpFechaIngreso
             // 

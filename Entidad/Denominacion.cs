@@ -17,5 +17,19 @@ namespace Entidad
         public int idMoneda { get; set; }
         public string moneda { get; set; }
         public string anular { get; set; }
+
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 }
