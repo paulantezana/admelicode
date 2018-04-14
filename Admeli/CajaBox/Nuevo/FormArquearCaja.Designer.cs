@@ -43,7 +43,7 @@
             this.tabControlMonedas = new System.Windows.Forms.TabControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.textDescripcion = new System.Windows.Forms.TextBox();
+            this.textObservacion = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -77,11 +77,13 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.Controls.Add(this.panelAside);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 43);
             this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(556, 461);
             this.panel2.TabIndex = 11;
             // 
@@ -90,9 +92,9 @@
             this.panelAside.AutoScroll = true;
             this.panelAside.BackColor = System.Drawing.Color.White;
             this.panelAside.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAside.Location = new System.Drawing.Point(0, 65);
+            this.panelAside.Location = new System.Drawing.Point(10, 75);
             this.panelAside.Name = "panelAside";
-            this.panelAside.Size = new System.Drawing.Size(556, 396);
+            this.panelAside.Size = new System.Drawing.Size(536, 376);
             this.panelAside.TabIndex = 1;
             // 
             // panel1
@@ -105,16 +107,16 @@
             this.panel1.Controls.Add(this.bunifuSeparator3);
             this.panel1.Controls.Add(this.bunifuSeparator1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 65);
+            this.panel1.Size = new System.Drawing.Size(536, 65);
             this.panel1.TabIndex = 0;
             // 
             // lblFechInicio
             // 
             this.lblFechInicio.BackColor = System.Drawing.Color.White;
             this.lblFechInicio.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFechInicio.Location = new System.Drawing.Point(346, 8);
+            this.lblFechInicio.Location = new System.Drawing.Point(329, 8);
             this.lblFechInicio.Name = "lblFechInicio";
             this.lblFechInicio.Size = new System.Drawing.Size(199, 13);
             this.lblFechInicio.TabIndex = 7;
@@ -125,7 +127,7 @@
             // 
             this.lblFechaFin.BackColor = System.Drawing.Color.White;
             this.lblFechaFin.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFechaFin.Location = new System.Drawing.Point(346, 38);
+            this.lblFechaFin.Location = new System.Drawing.Point(329, 38);
             this.lblFechaFin.Name = "lblFechaFin";
             this.lblFechaFin.Size = new System.Drawing.Size(199, 13);
             this.lblFechaFin.TabIndex = 6;
@@ -162,7 +164,7 @@
             this.bunifuSeparator3.LineThickness = 1;
             this.bunifuSeparator3.Location = new System.Drawing.Point(0, 54);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
-            this.bunifuSeparator3.Size = new System.Drawing.Size(556, 11);
+            this.bunifuSeparator3.Size = new System.Drawing.Size(536, 11);
             this.bunifuSeparator3.TabIndex = 3;
             this.bunifuSeparator3.Transparency = 255;
             this.bunifuSeparator3.Vertical = false;
@@ -189,12 +191,14 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.Silver;
             this.panel6.Controls.Add(this.tabControlMonedas);
             this.panel6.Controls.Add(this.panel3);
             this.panel6.Controls.Add(this.panel4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(559, 43);
             this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10);
             this.panel6.Size = new System.Drawing.Size(558, 461);
             this.panel6.TabIndex = 15;
             // 
@@ -202,22 +206,23 @@
             // 
             this.tabControlMonedas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMonedas.ItemSize = new System.Drawing.Size(70, 30);
-            this.tabControlMonedas.Location = new System.Drawing.Point(0, 49);
+            this.tabControlMonedas.Location = new System.Drawing.Point(10, 59);
             this.tabControlMonedas.Margin = new System.Windows.Forms.Padding(10);
             this.tabControlMonedas.Name = "tabControlMonedas";
             this.tabControlMonedas.SelectedIndex = 0;
-            this.tabControlMonedas.Size = new System.Drawing.Size(558, 241);
+            this.tabControlMonedas.Size = new System.Drawing.Size(538, 221);
             this.tabControlMonedas.TabIndex = 14;
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.textDescripcion);
+            this.panel3.Controls.Add(this.textObservacion);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 290);
+            this.panel3.Location = new System.Drawing.Point(10, 280);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(558, 171);
+            this.panel3.Size = new System.Drawing.Size(538, 171);
             this.panel3.TabIndex = 12;
             // 
             // label5
@@ -229,28 +234,28 @@
             this.label5.Location = new System.Drawing.Point(12, 20);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 16);
+            this.label5.Size = new System.Drawing.Size(93, 16);
             this.label5.TabIndex = 44;
-            this.label5.Text = "Descripción Corta";
+            this.label5.Text = "Observaciones";
             // 
-            // textDescripcion
+            // textObservacion
             // 
-            this.textDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDescripcion.Location = new System.Drawing.Point(15, 38);
-            this.textDescripcion.Margin = new System.Windows.Forms.Padding(2);
-            this.textDescripcion.Multiline = true;
-            this.textDescripcion.Name = "textDescripcion";
-            this.textDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textDescripcion.Size = new System.Drawing.Size(530, 68);
-            this.textDescripcion.TabIndex = 43;
+            this.textObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textObservacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textObservacion.Location = new System.Drawing.Point(15, 38);
+            this.textObservacion.Margin = new System.Windows.Forms.Padding(2);
+            this.textObservacion.Multiline = true;
+            this.textObservacion.Name = "textObservacion";
+            this.textObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textObservacion.Size = new System.Drawing.Size(506, 68);
+            this.textObservacion.TabIndex = 43;
             // 
             // panel5
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel5.Controls.Add(this.btnAceptar);
             this.panel5.Controls.Add(this.btnClose);
-            this.panel5.Location = new System.Drawing.Point(78, 116);
+            this.panel5.Location = new System.Drawing.Point(68, 116);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(402, 48);
             this.panel5.TabIndex = 1;
@@ -297,9 +302,9 @@
             this.panel4.Controls.Add(this.bunifuSeparator2);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Location = new System.Drawing.Point(10, 10);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(558, 49);
+            this.panel4.Size = new System.Drawing.Size(538, 49);
             this.panel4.TabIndex = 11;
             // 
             // bunifuSeparator2
@@ -310,7 +315,7 @@
             this.bunifuSeparator2.LineThickness = 1;
             this.bunifuSeparator2.Location = new System.Drawing.Point(0, 37);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(558, 12);
+            this.bunifuSeparator2.Size = new System.Drawing.Size(538, 12);
             this.bunifuSeparator2.TabIndex = 1;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
@@ -323,9 +328,9 @@
             this.label1.Location = new System.Drawing.Point(19, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 16);
+            this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Monto inicio caja";
+            this.label1.Text = "Efectivo";
             // 
             // progressBarApp
             // 
@@ -389,7 +394,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textDescripcion;
+        private System.Windows.Forms.TextBox textObservacion;
         private System.Windows.Forms.TabControl tabControlMonedas;
         protected System.Windows.Forms.ProgressBar progressBarApp;
     }

@@ -84,12 +84,12 @@ namespace Modelo
             }
         }
 
-        public async Task<Response> cierreCajaDetalle(Ingreso param)
+        public async Task<Response> cierreCajaDetalle<T>(T param)
         {
             try
             {
                 // localhost:8080/admeli/xcore/services.php/detallecierrecaja/guardar
-                return await webService.POST<Ingreso, Response>("detallecierrecaja", "guardar", param);
+                return await webService.POST<T, Response>("detallecierrecaja", "guardar", param);
             }
             catch (Exception ex)
             {
