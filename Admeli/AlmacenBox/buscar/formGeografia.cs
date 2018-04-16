@@ -404,7 +404,7 @@ namespace Admeli.AlmacenBox.buscar
             }
             Response respuesta=   await locationModel.guardarUbigeo(ubicacionGeografica);
             idUbicacionGeografia = respuesta.id;
-
+            ubicacionGeografica.idUbicacionGeografica= respuesta.id;
             this.Close();
 
         }

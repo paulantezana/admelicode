@@ -149,7 +149,15 @@ namespace Admeli.AlmacenBox
                 int estado = (cbxEstados.SelectedIndex == -1) ? 0 : Convert.ToInt32(cbxEstados.SelectedValue);
 
                 RootObject<GuiaRemision> rootData = await guiaRemisionModel.notaEntradas(sucursalId, almacenId, estado, paginacion.currentPage, paginacion.speed);
-                if (rootData.nro_registros == 0) return;
+                if (rootData.nro_registros == 0) {
+
+                    paginacion.itemsCount = rootData.nro_registros;
+                    guiaRemisionBindingSource.DataSource = null;
+                    dataGridView.Refresh();
+                    return;
+
+                }
+              
 
                 // actualizando datos de páginacón
                 paginacion.itemsCount = rootData.nro_registros;
@@ -209,9 +217,9 @@ namespace Admeli.AlmacenBox
             table.Columns.Add("idEstado", typeof(string));
             table.Columns.Add("estado", typeof(string));
 
-            table.Rows.Add("0", "Pendiente");
-            table.Rows.Add("1", "Entregado");
-
+            table.Rows.Add("3", "Pendiente");
+            table.Rows.Add("2", "Revisado");
+            table.Rows.Add("1", "Enviado");
             cbxEstados.DataSource = table;
             cbxEstados.DisplayMember = "estado";
             cbxEstados.ValueMember = "idEstado";
@@ -364,10 +372,10 @@ namespace Admeli.AlmacenBox
 
             currentGuiaRemision = guiaRemisiones.Find(x => x.idGuiaRemision == idGuiaRemision); // Buscando la registro especifico en la lista de registros
 
-            // Mostrando el formulario de modificacion
-        //    FormGuiaRemisionNuevo formGuiaRemision = new FormGuiaRemisionNuevo(currentGuiaRemision);
-        //    formGuiaRemision.ShowDialog();
-        //    this.reLoad(); // Recargando los registros
+            //Mostrando el formulario de modificacion
+           FormRemisionNew formGuiaRemision = new FormRemisionNew(currentGuiaRemision);
+            formGuiaRemision.ShowDialog();
+            this.reLoad(); // Recargando los registros
         }
 
         private async void executeEliminar()

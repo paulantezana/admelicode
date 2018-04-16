@@ -434,6 +434,7 @@
             this.btnQuitar.TabIndex = 29;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnImportarCompra
             // 

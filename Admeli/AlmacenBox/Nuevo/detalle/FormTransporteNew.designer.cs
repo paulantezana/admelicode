@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransporteNew));
             this.panelFooter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,19 +41,19 @@
             this.nivel1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paisBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtTelefono = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtNombreEmpresa = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtNroDocumento = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtUbicacion = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtDireccion = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textPrecioCompra = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textNombreProducto = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textCodigoProducto = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label6 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox3 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label9 = new System.Windows.Forms.Label();
-            this.chkActivoProducto = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.chkActivo = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.btnBuscarUbicacion = new System.Windows.Forms.Button();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -77,29 +77,31 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.btnAceptar);
+            this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(71, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(362, 49);
             this.panel1.TabIndex = 6;
             // 
-            // btnAceptar
+            // btnGuardar
             // 
-            this.btnAceptar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAceptar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnAceptar.FlatAppearance.BorderSize = 0;
-            this.btnAceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(58, 6);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(152, 36);
-            this.btnAceptar.TabIndex = 0;
-            this.btnAceptar.Text = "Guardar";
-            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnGuardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(58, 6);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(152, 36);
+            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnClose
             // 
@@ -118,6 +120,7 @@
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panelHeader
             // 
@@ -160,6 +163,106 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // txtTelefono
+            // 
+            this.txtTelefono.BackColor = System.Drawing.Color.White;
+            this.txtTelefono.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.txtTelefono.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtTelefono.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtTelefono.BorderThickness = 1;
+            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.errorProvider1.SetIconPadding(this.txtTelefono, -30);
+            this.txtTelefono.isPassword = false;
+            this.txtTelefono.Location = new System.Drawing.Point(53, 214);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(5);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.txtTelefono.Size = new System.Drawing.Size(439, 49);
+            this.txtTelefono.TabIndex = 66;
+            this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtNombreEmpresa
+            // 
+            this.txtNombreEmpresa.BackColor = System.Drawing.Color.White;
+            this.txtNombreEmpresa.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.txtNombreEmpresa.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtNombreEmpresa.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtNombreEmpresa.BorderThickness = 1;
+            this.txtNombreEmpresa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombreEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreEmpresa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.errorProvider1.SetIconPadding(this.txtNombreEmpresa, -30);
+            this.txtNombreEmpresa.isPassword = false;
+            this.txtNombreEmpresa.Location = new System.Drawing.Point(53, 149);
+            this.txtNombreEmpresa.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNombreEmpresa.Name = "txtNombreEmpresa";
+            this.txtNombreEmpresa.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.txtNombreEmpresa.Size = new System.Drawing.Size(439, 49);
+            this.txtNombreEmpresa.TabIndex = 64;
+            this.txtNombreEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtNroDocumento
+            // 
+            this.txtNroDocumento.BackColor = System.Drawing.Color.White;
+            this.txtNroDocumento.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.txtNroDocumento.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtNroDocumento.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtNroDocumento.BorderThickness = 1;
+            this.txtNroDocumento.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNroDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.errorProvider1.SetIconPadding(this.txtNroDocumento, -30);
+            this.txtNroDocumento.isPassword = false;
+            this.txtNroDocumento.Location = new System.Drawing.Point(53, 85);
+            this.txtNroDocumento.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNroDocumento.Name = "txtNroDocumento";
+            this.txtNroDocumento.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.txtNroDocumento.Size = new System.Drawing.Size(439, 47);
+            this.txtNroDocumento.TabIndex = 62;
+            this.txtNroDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtUbicacion
+            // 
+            this.txtUbicacion.BackColor = System.Drawing.Color.White;
+            this.txtUbicacion.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.txtUbicacion.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtUbicacion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtUbicacion.BorderThickness = 1;
+            this.txtUbicacion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUbicacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.errorProvider1.SetIconPadding(this.txtUbicacion, -30);
+            this.txtUbicacion.isPassword = false;
+            this.txtUbicacion.Location = new System.Drawing.Point(53, 374);
+            this.txtUbicacion.Margin = new System.Windows.Forms.Padding(5);
+            this.txtUbicacion.Name = "txtUbicacion";
+            this.txtUbicacion.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.txtUbicacion.Size = new System.Drawing.Size(386, 49);
+            this.txtUbicacion.TabIndex = 72;
+            this.txtUbicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.BackColor = System.Drawing.Color.White;
+            this.txtDireccion.BorderColorFocused = System.Drawing.Color.DodgerBlue;
+            this.txtDireccion.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtDireccion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
+            this.txtDireccion.BorderThickness = 1;
+            this.txtDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.errorProvider1.SetIconPadding(this.txtDireccion, -30);
+            this.txtDireccion.isPassword = false;
+            this.txtDireccion.Location = new System.Drawing.Point(53, 273);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.txtDireccion.Size = new System.Drawing.Size(439, 47);
+            this.txtDireccion.TabIndex = 68;
+            this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -171,26 +274,6 @@
             this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 65;
             this.label3.Text = "Telefono";
-            // 
-            // textPrecioCompra
-            // 
-            this.textPrecioCompra.BackColor = System.Drawing.Color.White;
-            this.textPrecioCompra.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.textPrecioCompra.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textPrecioCompra.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textPrecioCompra.BorderThickness = 1;
-            this.textPrecioCompra.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPrecioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.errorProvider1.SetIconPadding(this.textPrecioCompra, -30);
-            this.textPrecioCompra.isPassword = false;
-            this.textPrecioCompra.Location = new System.Drawing.Point(53, 214);
-            this.textPrecioCompra.Margin = new System.Windows.Forms.Padding(5);
-            this.textPrecioCompra.Name = "textPrecioCompra";
-            this.textPrecioCompra.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textPrecioCompra.Size = new System.Drawing.Size(439, 49);
-            this.textPrecioCompra.TabIndex = 66;
-            this.textPrecioCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label2
             // 
@@ -204,26 +287,6 @@
             this.label2.TabIndex = 63;
             this.label2.Text = "Nombre Empresa";
             // 
-            // textNombreProducto
-            // 
-            this.textNombreProducto.BackColor = System.Drawing.Color.White;
-            this.textNombreProducto.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.textNombreProducto.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textNombreProducto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textNombreProducto.BorderThickness = 1;
-            this.textNombreProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.errorProvider1.SetIconPadding(this.textNombreProducto, -30);
-            this.textNombreProducto.isPassword = false;
-            this.textNombreProducto.Location = new System.Drawing.Point(53, 149);
-            this.textNombreProducto.Margin = new System.Windows.Forms.Padding(5);
-            this.textNombreProducto.Name = "textNombreProducto";
-            this.textNombreProducto.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textNombreProducto.Size = new System.Drawing.Size(439, 49);
-            this.textNombreProducto.TabIndex = 64;
-            this.textNombreProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -235,26 +298,6 @@
             this.label10.Size = new System.Drawing.Size(110, 16);
             this.label10.TabIndex = 61;
             this.label10.Text = "Nro. Documento";
-            // 
-            // textCodigoProducto
-            // 
-            this.textCodigoProducto.BackColor = System.Drawing.Color.White;
-            this.textCodigoProducto.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.textCodigoProducto.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textCodigoProducto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.textCodigoProducto.BorderThickness = 1;
-            this.textCodigoProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCodigoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.errorProvider1.SetIconPadding(this.textCodigoProducto, -30);
-            this.textCodigoProducto.isPassword = false;
-            this.textCodigoProducto.Location = new System.Drawing.Point(53, 85);
-            this.textCodigoProducto.Margin = new System.Windows.Forms.Padding(5);
-            this.textCodigoProducto.Name = "textCodigoProducto";
-            this.textCodigoProducto.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textCodigoProducto.Size = new System.Drawing.Size(439, 47);
-            this.textCodigoProducto.TabIndex = 62;
-            this.textCodigoProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label1
             // 
@@ -268,26 +311,6 @@
             this.label1.TabIndex = 71;
             this.label1.Text = "Ubicacion Geogracfica";
             // 
-            // bunifuMetroTextbox1
-            // 
-            this.bunifuMetroTextbox1.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.bunifuMetroTextbox1.BorderThickness = 1;
-            this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.errorProvider1.SetIconPadding(this.bunifuMetroTextbox1, -30);
-            this.bunifuMetroTextbox1.isPassword = false;
-            this.bunifuMetroTextbox1.Location = new System.Drawing.Point(53, 374);
-            this.bunifuMetroTextbox1.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuMetroTextbox1.Name = "bunifuMetroTextbox1";
-            this.bunifuMetroTextbox1.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.bunifuMetroTextbox1.Size = new System.Drawing.Size(386, 49);
-            this.bunifuMetroTextbox1.TabIndex = 72;
-            this.bunifuMetroTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -300,26 +323,6 @@
             this.label6.TabIndex = 67;
             this.label6.Text = "Direccion";
             // 
-            // bunifuMetroTextbox3
-            // 
-            this.bunifuMetroTextbox3.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox3.BorderColorFocused = System.Drawing.Color.DodgerBlue;
-            this.bunifuMetroTextbox3.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.bunifuMetroTextbox3.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
-            this.bunifuMetroTextbox3.BorderThickness = 1;
-            this.bunifuMetroTextbox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.errorProvider1.SetIconPadding(this.bunifuMetroTextbox3, -30);
-            this.bunifuMetroTextbox3.isPassword = false;
-            this.bunifuMetroTextbox3.Location = new System.Drawing.Point(53, 273);
-            this.bunifuMetroTextbox3.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuMetroTextbox3.Name = "bunifuMetroTextbox3";
-            this.bunifuMetroTextbox3.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.bunifuMetroTextbox3.Size = new System.Drawing.Size(439, 47);
-            this.bunifuMetroTextbox3.TabIndex = 68;
-            this.bunifuMetroTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -331,56 +334,57 @@
             this.label9.TabIndex = 74;
             this.label9.Text = "Activo *";
             // 
-            // chkActivoProducto
+            // chkActivo
             // 
-            this.chkActivoProducto.BackColor = System.Drawing.Color.DodgerBlue;
-            this.chkActivoProducto.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chkActivoProducto.Checked = true;
-            this.chkActivoProducto.CheckedOnColor = System.Drawing.Color.DodgerBlue;
-            this.chkActivoProducto.ForeColor = System.Drawing.Color.White;
-            this.chkActivoProducto.Location = new System.Drawing.Point(61, 344);
-            this.chkActivoProducto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.chkActivoProducto.Name = "chkActivoProducto";
-            this.chkActivoProducto.Size = new System.Drawing.Size(20, 20);
-            this.chkActivoProducto.TabIndex = 73;
+            this.chkActivo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chkActivo.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckedOnColor = System.Drawing.Color.DodgerBlue;
+            this.chkActivo.ForeColor = System.Drawing.Color.White;
+            this.chkActivo.Location = new System.Drawing.Point(61, 344);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(5);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(20, 20);
+            this.chkActivo.TabIndex = 73;
             // 
-            // button2
+            // btnBuscarUbicacion
             // 
-            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(439, 375);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 48);
-            this.button2.TabIndex = 75;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnBuscarUbicacion.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscarUbicacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUbicacion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.btnBuscarUbicacion.FlatAppearance.BorderSize = 0;
+            this.btnBuscarUbicacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.btnBuscarUbicacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.btnBuscarUbicacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarUbicacion.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarUbicacion.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbicacion.Image")));
+            this.btnBuscarUbicacion.Location = new System.Drawing.Point(439, 375);
+            this.btnBuscarUbicacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarUbicacion.Name = "btnBuscarUbicacion";
+            this.btnBuscarUbicacion.Size = new System.Drawing.Size(53, 48);
+            this.btnBuscarUbicacion.TabIndex = 75;
+            this.btnBuscarUbicacion.UseVisualStyleBackColor = false;
+            this.btnBuscarUbicacion.Click += new System.EventHandler(this.btnBuscarUbicacion_Click);
             // 
             // FormTransporteNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 511);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnBuscarUbicacion);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.chkActivoProducto);
+            this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bunifuMetroTextbox1);
+            this.Controls.Add(this.txtUbicacion);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.bunifuMetroTextbox3);
+            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textPrecioCompra);
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textNombreProducto);
+            this.Controls.Add(this.txtNombreEmpresa);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textCodigoProducto);
+            this.Controls.Add(this.txtNroDocumento);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -404,7 +408,7 @@
 
         private System.Windows.Forms.Panel panelFooter;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label label4;
@@ -414,17 +418,17 @@
         private System.Windows.Forms.BindingSource paisBindingSource;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label3;
-        private Bunifu.Framework.UI.BunifuMetroTextbox textPrecioCompra;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtTelefono;
         private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuMetroTextbox textNombreProducto;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtNombreEmpresa;
         private System.Windows.Forms.Label label10;
-        private Bunifu.Framework.UI.BunifuMetroTextbox textCodigoProducto;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtNroDocumento;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox1;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtUbicacion;
         private System.Windows.Forms.Label label6;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox3;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtDireccion;
         private System.Windows.Forms.Label label9;
-        private Bunifu.Framework.UI.BunifuCheckbox chkActivoProducto;
-        private System.Windows.Forms.Button button2;
+        private Bunifu.Framework.UI.BunifuCheckbox chkActivo;
+        private System.Windows.Forms.Button btnBuscarUbicacion;
     }
 }

@@ -43,8 +43,8 @@ namespace Admeli.AlmacenBox.buscar
 
 
         //objetos en tiempo real
-        private  NotaSalidaR currentNotaSalida { get; set; }
-
+        public  NotaSalidaR currentNotaSalida { get; set; }
+        FormRemisionNew formRemisionNew { get; set; }
 
         public FormBuscarNotaSalida()
         {
@@ -52,10 +52,14 @@ namespace Admeli.AlmacenBox.buscar
             this.nuevo = true;
             formato = "{0:n" + nroDecimales + "}";
            
-
-
         }
-
+        public FormBuscarNotaSalida(FormRemisionNew formRemisionNew)
+        {
+            InitializeComponent();
+            this.nuevo = true;
+            formato = "{0:n" + nroDecimales + "}";
+            this.formRemisionNew = formRemisionNew;
+        }
 
         public FormBuscarNotaSalida(Compra currentCompra)
         {
@@ -196,11 +200,19 @@ namespace Admeli.AlmacenBox.buscar
             int idNotaSalida = Convert.ToInt32(dgvNotaSalida.Rows[index].Cells[2].Value); // obteniedo el idRegistro del datagridview
 
             currentNotaSalida = listNotasalida.Find(x => x.idNotaSalida == idNotaSalida);
+            if (formRemisionNew == null)
+            {
+                FormRemisionNew formRemisionNew = new FormRemisionNew(currentNotaSalida);
+                formRemisionNew.ShowDialog();
+                this.Close();
+                this.FindForm();
+            }
+            else
+            {
+                this.Close();
 
-            FormRemisionNew formRemisionNew = new FormRemisionNew(currentNotaSalida);
-            formRemisionNew.ShowDialog();
-            this.Close();
-
+            }
+       
 
 
         }

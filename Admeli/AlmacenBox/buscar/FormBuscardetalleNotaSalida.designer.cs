@@ -40,13 +40,20 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvNotaSalida = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.detalleNotaSalidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnsalir = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleNotaSalidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkbxseleccionDetalleNotaSalida = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idPresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +66,6 @@
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCombinacionAlternativaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.varianteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.presentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idNotaSalidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +76,8 @@
             this.tableLayoutPanel28.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.detalleNotaSalidaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,13 +86,14 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(10, 451);
+            this.splitter1.Size = new System.Drawing.Size(10, 486);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel13);
             this.panel2.Controls.Add(this.tableLayoutPanel28);
             this.panel2.Controls.Add(this.splitter2);
@@ -92,7 +101,7 @@
             this.panel2.Location = new System.Drawing.Point(10, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1139, 451);
+            this.panel2.Size = new System.Drawing.Size(1139, 486);
             this.panel2.TabIndex = 4;
             // 
             // panel13
@@ -104,7 +113,7 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
-            this.panel13.Size = new System.Drawing.Size(1139, 371);
+            this.panel13.Size = new System.Drawing.Size(1139, 399);
             this.panel13.TabIndex = 9;
             // 
             // dgvNotaSalida
@@ -131,6 +140,7 @@
             this.dgvNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNotaSalida.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chkbxseleccionDetalleNotaSalida,
+            this.idPresentacion,
             this.codigoProductoDataGridViewTextBoxColumn,
             this.descripcionDataGridViewTextBoxColumn,
             this.nombreMarcaDataGridViewTextBoxColumn,
@@ -143,7 +153,6 @@
             this.estadoDataGridViewTextBoxColumn,
             this.idCombinacionAlternativaDataGridViewTextBoxColumn,
             this.varianteDataGridViewTextBoxColumn,
-            this.idPresentacionDataGridViewTextBoxColumn,
             this.presentacionDataGridViewTextBoxColumn,
             this.idProductoDataGridViewTextBoxColumn,
             this.idNotaSalidaDataGridViewTextBoxColumn,
@@ -179,7 +188,7 @@
             this.dgvNotaSalida.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvNotaSalida.RowTemplate.Height = 30;
             this.dgvNotaSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvNotaSalida.Size = new System.Drawing.Size(1093, 335);
+            this.dgvNotaSalida.Size = new System.Drawing.Size(1093, 363);
             this.dgvNotaSalida.TabIndex = 50;
             this.dgvNotaSalida.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotaSalida_CellDoubleClick);
             // 
@@ -197,17 +206,6 @@
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel28.Size = new System.Drawing.Size(1139, 73);
             this.tableLayoutPanel28.TabIndex = 7;
-            // 
-            // splitter2
-            // 
-            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter2.Location = new System.Drawing.Point(0, 444);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(5);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(1139, 7);
-            this.splitter2.TabIndex = 1;
-            this.splitter2.TabStop = false;
             // 
             // panel7
             // 
@@ -243,10 +241,6 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "SELECCION DE DETALLES DE UNA NOTA DE SALIDA";
             // 
-            // detalleNotaSalidaBindingSource
-            // 
-            this.detalleNotaSalidaBindingSource.DataSource = typeof(Entidad.DetalleNotaSalida);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "alternativas";
@@ -254,10 +248,118 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter2.Location = new System.Drawing.Point(0, 472);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(5);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(1139, 14);
+            this.splitter2.TabIndex = 1;
+            this.splitter2.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.flowLayoutPanel2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 376);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
+            this.panel3.Size = new System.Drawing.Size(1139, 96);
+            this.panel3.TabIndex = 10;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.btnAceptar);
+            this.flowLayoutPanel2.Controls.Add(this.btnsalir);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(901, 15);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(221, 66);
+            this.flowLayoutPanel2.TabIndex = 14;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.AutoSize = true;
+            this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(17)))), ((int)(((byte)(159)))));
+            this.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAceptar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnAceptar.FlatAppearance.BorderSize = 0;
+            this.btnAceptar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnAceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.White;
+            this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
+            this.btnAceptar.Location = new System.Drawing.Point(4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(105, 58);
+            this.btnAceptar.TabIndex = 13;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnsalir
+            // 
+            this.btnsalir.AutoSize = true;
+            this.btnsalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(34)))), ((int)(((byte)(24)))));
+            this.btnsalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnsalir.FlatAppearance.BorderSize = 0;
+            this.btnsalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnsalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnsalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsalir.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsalir.ForeColor = System.Drawing.Color.White;
+            this.btnsalir.Image = ((System.Drawing.Image)(resources.GetObject("btnsalir.Image")));
+            this.btnsalir.Location = new System.Drawing.Point(117, 4);
+            this.btnsalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(100, 59);
+            this.btnsalir.TabIndex = 14;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnsalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnsalir.UseVisualStyleBackColor = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "alternativas";
+            this.dataGridViewTextBoxColumn2.HeaderText = "alternativas";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // detalleNotaSalidaBindingSource
+            // 
+            this.detalleNotaSalidaBindingSource.DataSource = typeof(Entidad.DetalleNotaSalida);
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "alternativas";
+            this.dataGridViewTextBoxColumn3.HeaderText = "alternativas";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
             // chkbxseleccionDetalleNotaSalida
             // 
             this.chkbxseleccionDetalleNotaSalida.HeaderText = "";
             this.chkbxseleccionDetalleNotaSalida.Name = "chkbxseleccionDetalleNotaSalida";
+            // 
+            // idPresentacion
+            // 
+            this.idPresentacion.DataPropertyName = "idPresentacion";
+            this.idPresentacion.HeaderText = "idPresentacion";
+            this.idPresentacion.Name = "idPresentacion";
+            this.idPresentacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idPresentacion.Visible = false;
             // 
             // codigoProductoDataGridViewTextBoxColumn
             // 
@@ -320,6 +422,7 @@
             this.nroDataGridViewTextBoxColumn.DataPropertyName = "nro";
             this.nroDataGridViewTextBoxColumn.HeaderText = "nro";
             this.nroDataGridViewTextBoxColumn.Name = "nroDataGridViewTextBoxColumn";
+            this.nroDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.nroDataGridViewTextBoxColumn.Visible = false;
             // 
             // idDetalleNotaSalidaDataGridViewTextBoxColumn
@@ -327,6 +430,7 @@
             this.idDetalleNotaSalidaDataGridViewTextBoxColumn.DataPropertyName = "idDetalleNotaSalida";
             this.idDetalleNotaSalidaDataGridViewTextBoxColumn.HeaderText = "idDetalleNotaSalida";
             this.idDetalleNotaSalidaDataGridViewTextBoxColumn.Name = "idDetalleNotaSalidaDataGridViewTextBoxColumn";
+            this.idDetalleNotaSalidaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idDetalleNotaSalidaDataGridViewTextBoxColumn.Visible = false;
             // 
             // estadoDataGridViewTextBoxColumn
@@ -334,6 +438,7 @@
             this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
             this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
             // 
             // idCombinacionAlternativaDataGridViewTextBoxColumn
@@ -341,6 +446,7 @@
             this.idCombinacionAlternativaDataGridViewTextBoxColumn.DataPropertyName = "idCombinacionAlternativa";
             this.idCombinacionAlternativaDataGridViewTextBoxColumn.HeaderText = "idCombinacionAlternativa";
             this.idCombinacionAlternativaDataGridViewTextBoxColumn.Name = "idCombinacionAlternativaDataGridViewTextBoxColumn";
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idCombinacionAlternativaDataGridViewTextBoxColumn.Visible = false;
             // 
             // varianteDataGridViewTextBoxColumn
@@ -348,20 +454,15 @@
             this.varianteDataGridViewTextBoxColumn.DataPropertyName = "variante";
             this.varianteDataGridViewTextBoxColumn.HeaderText = "variante";
             this.varianteDataGridViewTextBoxColumn.Name = "varianteDataGridViewTextBoxColumn";
+            this.varianteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.varianteDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idPresentacionDataGridViewTextBoxColumn
-            // 
-            this.idPresentacionDataGridViewTextBoxColumn.DataPropertyName = "idPresentacion";
-            this.idPresentacionDataGridViewTextBoxColumn.HeaderText = "idPresentacion";
-            this.idPresentacionDataGridViewTextBoxColumn.Name = "idPresentacionDataGridViewTextBoxColumn";
-            this.idPresentacionDataGridViewTextBoxColumn.Visible = false;
             // 
             // presentacionDataGridViewTextBoxColumn
             // 
             this.presentacionDataGridViewTextBoxColumn.DataPropertyName = "presentacion";
             this.presentacionDataGridViewTextBoxColumn.HeaderText = "presentacion";
             this.presentacionDataGridViewTextBoxColumn.Name = "presentacionDataGridViewTextBoxColumn";
+            this.presentacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.presentacionDataGridViewTextBoxColumn.Visible = false;
             // 
             // idProductoDataGridViewTextBoxColumn
@@ -369,6 +470,7 @@
             this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
             this.idProductoDataGridViewTextBoxColumn.HeaderText = "idProducto";
             this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idProductoDataGridViewTextBoxColumn.Visible = false;
             // 
             // idNotaSalidaDataGridViewTextBoxColumn
@@ -376,6 +478,7 @@
             this.idNotaSalidaDataGridViewTextBoxColumn.DataPropertyName = "idNotaSalida";
             this.idNotaSalidaDataGridViewTextBoxColumn.HeaderText = "idNotaSalida";
             this.idNotaSalidaDataGridViewTextBoxColumn.Name = "idNotaSalidaDataGridViewTextBoxColumn";
+            this.idNotaSalidaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idNotaSalidaDataGridViewTextBoxColumn.Visible = false;
             // 
             // alternativasDataGridViewTextBoxColumn
@@ -383,6 +486,7 @@
             this.alternativasDataGridViewTextBoxColumn.DataPropertyName = "alternativas";
             this.alternativasDataGridViewTextBoxColumn.HeaderText = "alternativas";
             this.alternativasDataGridViewTextBoxColumn.Name = "alternativasDataGridViewTextBoxColumn";
+            this.alternativasDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.alternativasDataGridViewTextBoxColumn.Visible = false;
             // 
             // FormBuscardetalleNotaSalida
@@ -390,7 +494,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1149, 451);
+            this.ClientSize = new System.Drawing.Size(1149, 486);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -406,6 +510,9 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.detalleNotaSalidaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -416,14 +523,21 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
-        private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.BindingSource detalleNotaSalidaBindingSource;
         private System.Windows.Forms.DataGridView dgvNotaSalida;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnsalir;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkbxseleccionDetalleNotaSalida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPresentacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreMarcaDataGridViewTextBoxColumn;
@@ -436,7 +550,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCombinacionAlternativaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn varianteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPresentacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn presentacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idNotaSalidaDataGridViewTextBoxColumn;

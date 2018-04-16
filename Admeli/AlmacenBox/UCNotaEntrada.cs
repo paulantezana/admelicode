@@ -152,7 +152,15 @@ namespace Admeli.AlmacenBox
                 int estado = (cbxEstados.SelectedIndex == -1) ? 0 : Convert.ToInt32(cbxEstados.SelectedValue);
 
                 RootObject<NotaEntrada> rootData = await notaEntradaModel.notaEntradas(sucursalId, almacenId, personalId, estado, paginacion.currentPage, paginacion.speed);
-                if (rootData.nro_registros == 0) return;
+                if (rootData.nro_registros == 0) {
+
+                    paginacion.itemsCount = rootData.nro_registros;
+                    notaEntradaBindingSource.DataSource = null;
+                    dataGridView.Refresh();
+                    return;
+
+                }
+                
 
                 // actualizando datos de páginacón
                 paginacion.itemsCount = rootData.nro_registros;
@@ -428,7 +436,13 @@ namespace Admeli.AlmacenBox
 
             try
             {
+                DialogResult dialog = MessageBox.Show("¿Desea Eliminar este Nota Salida?", "Nota Salida",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (dialog == DialogResult.No) return;
                 loadState(true);
+
+               
+                // preguntar antes de anular 
                 int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
                 currentNotaEntrada = new NotaEntrada(); //creando una instancia del objeto correspondiente
                 currentNotaEntrada.idNotaEntrada = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
@@ -455,5 +469,10 @@ namespace Admeli.AlmacenBox
             }
         }
         #endregion
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -155,7 +155,14 @@ namespace Admeli.AlmacenBox
                 int estado = (cbxEstados.SelectedIndex == -1) ? 0 : Convert.ToInt32(cbxEstados.SelectedValue);
 
                 RootObject<NotaSalida> rootData = await notaSalidaModel.notaEntradas(sucursalId, almacenId, personalId, estado, paginacion.currentPage, paginacion.speed);
-                if (rootData.nro_registros == 0) return;
+                if (rootData.nro_registros == 0)
+                {
+                    paginacion.itemsCount = 0;
+                    notaSalidaBindingSource.DataSource = null;
+                    return;
+                }
+
+                    
 
                 // actualizando datos de páginacón
                 paginacion.itemsCount = rootData.nro_registros;
@@ -163,6 +170,8 @@ namespace Admeli.AlmacenBox
 
                 // Ingresando
                 notaSalidas = rootData.datos;
+              
+           
                 notaSalidaBindingSource.DataSource = notaSalidas;
                 dataGridView.Refresh();
 
@@ -226,8 +235,8 @@ namespace Admeli.AlmacenBox
             table.Columns.Add("estado", typeof(string));
 
             table.Rows.Add("0", "Pendiente");
-            table.Rows.Add("1", "Entregado");
-
+            table.Rows.Add("1", "Revisado");
+            table.Rows.Add("2", "Entregado");
             cbxEstados.DataSource = table;
             cbxEstados.DisplayMember = "estado";
             cbxEstados.ValueMember = "idEstado";
@@ -379,7 +388,7 @@ namespace Admeli.AlmacenBox
             currentNotaSalida = notaSalidas.Find(x => x.idNotaSalida == idNotaSalida); // Buscando la registro especifico en la lista de registros
 
             // Mostrando el formulario de modificacion
-            FormNotaSalidaNew formPuntoVenta = new FormNotaSalidaNew();
+            FormNotaSalidaNew formPuntoVenta = new FormNotaSalidaNew(currentNotaSalida);
             formPuntoVenta.ShowDialog();
             this.reLoad(); // Recargando los registros
         }
@@ -443,6 +452,8 @@ namespace Admeli.AlmacenBox
                     return;
                 }
 
+
+                currentNotaSalida = notaSalidas.Find(x => x.idNotaSalida == currentNotaSalida.idNotaSalida);
                 // Procediendo con las desactivacion
                 Response response = await notaSalidaModel.anular(currentNotaSalida);
                 MessageBox.Show(response.msj, "Desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -459,5 +470,48 @@ namespace Admeli.AlmacenBox
         }
 
         #endregion
+
+        private async void btnGuiaRemision_Click(object sender, EventArgs e)
+        {
+
+            // Verificando la existencia de datos en el datagridview
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Desactivar o anular", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            try
+            {
+                loadState(true);
+                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+                currentNotaSalida = new NotaSalida(); //creando una instancia del objeto correspondiente
+                currentNotaSalida.idNotaSalida = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+
+                // Comprobando si el registro ya esta desactivado
+                if (notaSalidas.Find(x => x.idNotaSalida == currentNotaSalida.idNotaSalida).estado == 0)
+                {
+                    MessageBox.Show("Este registro ya esta desactivado", "Desactivar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+
+                currentNotaSalida = notaSalidas.Find(x => x.idNotaSalida == currentNotaSalida.idNotaSalida);
+                // Procediendo con las desactivacion
+                FormRemisionNew form = new FormRemisionNew(currentNotaSalida);
+                form.ShowDialog();
+                cargarRegistros(); // recargando los registros en el datagridview
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                loadState(false);
+            }
+
+
+        }
     }
 }

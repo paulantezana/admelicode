@@ -37,6 +37,23 @@ namespace Modelo
                 throw ex;
             }           
         }
+        public async Task<Response> anular(NotaEntrada currentNotaEntrada)
+        {
+
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/nentrada/guardar
+                return await webService.POST<NotaEntrada, Response>("nentrada", "anular", currentNotaEntrada);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+          
+
+        }
+
+
 
         public void eliminar()
         {
@@ -126,9 +143,6 @@ namespace Modelo
             throw new NotImplementedException();
         }
 
-        public Task<Response> anular(NotaEntrada currentNotaEntrada)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
