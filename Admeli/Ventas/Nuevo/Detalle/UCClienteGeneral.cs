@@ -359,6 +359,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 if (rest.id > 0)
                 {
                     MessageBox.Show(rest.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.formClienteNuevo.Close();
 
 
                 }
@@ -376,7 +377,9 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 int i = cbxPaises.SelectedIndex;
                 UG.idPais = (int)cbxPaises.SelectedValue;
                 UG.idNivel1 = (int)cbxNivel1.SelectedValue;
-                UG.idNivel2 = (int)cbxNivel2.SelectedValue;
+
+                if (cbxNivel2.IsAccessible)
+                    UG.idNivel2 = (int)cbxNivel2.SelectedValue;
                 if (cbxNivel3.IsAccessible)
                     UG.idNivel3 = (int)cbxNivel3.SelectedValue;
                 Response respuesta = await locationModel.guardarUbigeo(UG);
@@ -407,7 +410,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 if (rest.id > 0)
                 {
                     MessageBox.Show(rest.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    this.formClienteNuevo.Close();
 
                 }
                 else
