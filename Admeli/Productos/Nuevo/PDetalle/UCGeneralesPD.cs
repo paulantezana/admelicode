@@ -24,6 +24,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private bool isFieldsValid { get; set; }
         public bool lisenerKeyEvents { get; internal set; }
         private FormProductoNuevo formProductoNuevo;
+        private int currentIdProducto=1;
 
         public UCGeneralesPD()
         {
@@ -114,10 +115,11 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormElegirCategoria formElegir = new FormElegirCategoria();
+            FormElegirCategoria formElegir = new FormElegirCategoria(formProductoNuevo, formProductoNuevo.currentIDProducto);
             formElegir.ShowDialog();
+            //FormElegirCategoria formElegir = new FormElegirCategoria();
+            //formElegir.ShowDialog();
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             // Validando los campos

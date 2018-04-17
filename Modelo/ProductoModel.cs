@@ -42,6 +42,19 @@ namespace Modelo
             }
         }
 
+        public async Task<Response> guardarCategoria(string TextoPlano)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/cproducto1
+                return await webService.PostSendTexto<Response>("cproducto1",TextoPlano);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<Response> modificar(Producto param)
         {
             try
