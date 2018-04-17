@@ -415,22 +415,46 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private void btnBuscarOrigen_Click(object sender, EventArgs e)
         {
+            if (nuevo)
+            {
+                formGeografia formGeografia = new formGeografia();
+                formGeografia.ShowDialog();
+                ubicacionGeograficaOrigen = formGeografia.ubicacionGeografica;
+                txtOrigen.Text = formGeografia.cadena;
+            }
+            else
+            {
+                formGeografia formGeografia = new formGeografia(currentguiaRemision.origen);
+                formGeografia.ShowDialog();
+                ubicacionGeograficaOrigen = formGeografia.ubicacionGeografica;
+                txtOrigen.Text = formGeografia.cadena;
 
-            formGeografia formGeografia = new formGeografia();
-            formGeografia.ShowDialog();
+            }
 
-            ubicacionGeograficaOrigen = formGeografia.ubicacionGeografica;
-            txtOrigen.Text = formGeografia.cadena;
+           
 
 
         }
 
         private void btnBuscarDestino_Click(object sender, EventArgs e)
         {
-            formGeografia formGeografia = new formGeografia();
-            formGeografia.ShowDialog();
-            ubicacionGeograficaDestino = formGeografia.ubicacionGeografica;
-            txtDestino.Text = formGeografia.cadena;
+
+            if (nuevo)
+            {
+                formGeografia formGeografia = new formGeografia();
+                formGeografia.ShowDialog();
+                ubicacionGeograficaDestino = formGeografia.ubicacionGeografica;
+                txtDestino.Text = formGeografia.cadena;
+            }
+            else
+            {
+                formGeografia formGeografia = new formGeografia(currentguiaRemision.destino);
+                formGeografia.ShowDialog();
+                ubicacionGeograficaDestino = formGeografia.ubicacionGeografica;
+                txtDestino.Text = formGeografia.cadena;
+
+            }
+            
         }
 
         private void btnNewMotivo_Click(object sender, EventArgs e)
@@ -600,6 +624,11 @@ namespace Admeli.AlmacenBox.Nuevo
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

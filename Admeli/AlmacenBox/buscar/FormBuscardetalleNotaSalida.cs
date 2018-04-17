@@ -223,7 +223,20 @@ namespace Admeli.AlmacenBox.buscar
 
         private void entrarGuiaremision()
         {
-              foreach (DataGridViewRow row in dgvNotaSalida.Rows)
+            
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+
+            foreach (DataGridViewRow row in dgvNotaSalida.Rows)
             {
                 DataGridViewCheckBoxCell checkBox = (row.Cells["chkbxseleccionDetalleNotaSalida"] as DataGridViewCheckBoxCell);
                 bool estaSeleccionado = Convert.ToBoolean(checkBox.EditedFormattedValue);
@@ -236,20 +249,6 @@ namespace Admeli.AlmacenBox.buscar
 
             }
             this.Close();
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-
-            entrarGuiaremision()
-
-
         }
     }
 }

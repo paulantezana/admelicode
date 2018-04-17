@@ -60,7 +60,9 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
             if (response.id > 0)
             {
                 MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
+
             else
             {
                 MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);

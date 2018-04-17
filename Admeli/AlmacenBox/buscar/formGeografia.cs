@@ -30,14 +30,20 @@ namespace Admeli.AlmacenBox.buscar
         private bool bandera;
    
         private FormProveedorNuevo formProveedorNuevo;
-        public int idUbicacionGeografia { get; set; }
+        public int idUbicacionGeografia  { get; set; }
         
         public string cadena = "";
         public formGeografia()
         {
             InitializeComponent();
 
-            
+            idUbicacionGeografia = 0;
+        }
+        public formGeografia(int idUbicacionGeografia)
+        {
+            InitializeComponent();
+            this.idUbicacionGeografia = idUbicacionGeografia;
+
         }
 
         public formGeografia(FormProveedorNuevo formProveedorNuevo)
@@ -67,7 +73,7 @@ namespace Admeli.AlmacenBox.buscar
             paisBindingSource.DataSource = await locationModel.paises();
 
             // cargando la ubicacion geografica por defecto
-            ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+            ubicacionGeografica = await locationModel.ubigeoActual(idUbicacionGeografia != 0? idUbicacionGeografia : ConfigModel.sucursal.idUbicacionGeografica);
             cbxPaises.SelectedValue = ubicacionGeografica.idPais;
 
 
