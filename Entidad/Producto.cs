@@ -58,7 +58,9 @@ namespace Entidad
             public string precioVenta { get; set; }
             public int idPresentacion { get; set; }
             public bool ventaVarianteSinStock { get; set; }
-            public string nombreMarca { get; set; }       
+            public string nombreMarca { get; set; }
+
+       
     }
 
     public class ProductoSinImpuesto

@@ -68,6 +68,11 @@ namespace Modelo
                 throw ex;
             }
         }
+      
+
+
+
+
 
         public Task<Response> eliminar(Cliente currentCliente)
         {
@@ -105,5 +110,24 @@ namespace Modelo
                 throw ex;
             }
         }
+        ///buscarclientes/estado/:est/tipo/:td
+
+        public async Task<List<Cliente>> ListarClientesActivos()
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/buscarclienteslike/nombre/Jhon/1/100
+                List<Cliente> clientes = await webService.GET<List<Cliente>>("buscarclientes", String.Format("estado/1/tipo/Todos"));
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+       
     }
 }

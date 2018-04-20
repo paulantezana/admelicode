@@ -12,6 +12,7 @@ using Entidad;
 using Admeli.Componentes;
 using Admeli.Ventas.DescuentosOfertas.Descuento;
 using Admeli.Ventas.DescuentosOfertas.Ofertas;
+using Admeli.Ventas.Nuevo;
 
 namespace Admeli.Ventas
 {
@@ -26,7 +27,7 @@ namespace Admeli.Ventas
         private List<DatosDescuentosOfertas> listaDescuentos;
 
         private DatosDescuentosOfertas currentDatosDescuentosOfertas { get; set; }
-        private List<Datosconvertidos> datosconvertidos { get; set; }
+       
 
         #region =================================== CONSTRUCTOR ===================================
         public UCDescuentosOfertas()
@@ -92,19 +93,14 @@ namespace Admeli.Ventas
             loadState(true);
             try
             {
-                datosconvertidos = new List<Datosconvertidos>();
+                
                 ObjetosDescuentosOfertas rootData = await descuentoModel.descuentoofertacodigo(paginacion.currentPage, paginacion.speed);
                 if (rootData.nro_registros == 0) return;
 
                 paginacion.itemsCount = rootData.nro_registros;
                 paginacion.reload();
-
-                listaDescuentos = rootData.datos;
-
-                
-
-                datosconvertidos = Datosconvertidos.convertir(listaDescuentos);
-                datosconvertidosBindingSource.DataSource = datosconvertidos;
+                listaDescuentos = rootData.datos;                             
+                datosDescuentosOfertasBindingSource.DataSource = listaDescuentos;
                 dataGridView.Refresh();
 
                 // Mostrando la paginacion
@@ -287,16 +283,69 @@ namespace Admeli.Ventas
 
         private void btnDescuento_Click(object sender, EventArgs e)
         {
-            FormDescuento formDescuento = new FormDescuento();
+            FormDescuentoNuevo formDescuento = new FormDescuentoNuevo();
             formDescuento.ShowDialog();
+            cargarRegistros();
 
 
         }
 
         private void btnOfertas_Click(object sender, EventArgs e)
         {
-            FormOferta formOferta = new FormOferta();
+            FormOfertaNuevo formOferta = new FormOfertaNuevo();
             formOferta.ShowDialog();
+            cargarRegistros();
         }
+
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            executeModificar();
+        }
+
+        public  void executeModificar()
+        {
+
+            // Verificando la existencia de datos en el datagridview
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            string codigo= Convert.ToString(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
+
+            currentDatosDescuentosOfertas = listaDescuentos.Find(x => x.codigo == codigo); // Buscando la categoria en las lista de categorias
+
+
+
+
+
+            if (currentDatosDescuentosOfertas.tipoDescuento == "Oferta")
+            {
+
+                FormOfertaNuevo formOfertaNuevo = new FormOfertaNuevo(currentDatosDescuentosOfertas);
+                formOfertaNuevo.ShowDialog();
+
+
+
+            }
+
+            else
+            {
+
+                FormDescuentoNuevo formOfertaNuevo = new FormDescuentoNuevo(currentDatosDescuentosOfertas);
+                formOfertaNuevo.ShowDialog();
+
+
+            }
+            // Mostrando el formulario de modificacion
+
+            cargarRegistros(); // recargando loas registros en el datagridview
+        }
+
+
+
     }
 }

@@ -50,5 +50,24 @@ namespace Modelo
         {
             throw new NotImplementedException();
         }
+
+
+        //succorrelativo/tipodoc/2/suc/1
+        public async Task<List<CorrelativoCotizacion>> Correlativo(int idSucursal,int tipoDoc=2)
+        {
+            try
+            {
+               
+                
+                // www.lineatienda.com/services.php/succorrelativo/tipodoc/0/per/0/1/100
+                List<CorrelativoCotizacion> almacenes = await webService.GET<List<CorrelativoCotizacion>>("succorrelativo", String.Format("tipodoc/{0}/suc/{1}", tipoDoc,idSucursal));
+                return almacenes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

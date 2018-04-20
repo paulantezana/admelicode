@@ -24,6 +24,20 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<Response> guardarTodo(Descuento param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/descuento/guardar/todo
+                return await webService.POST<Descuento, Response>("descuento", "guardar/todo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //descuento/editar/todo
 
         public async Task<Response> modificar(Descuento param)
         {
@@ -31,6 +45,20 @@ namespace Modelo
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/descuento/modificar
                 return await webService.POST<Descuento,Response>("descuento", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public async Task<Response> modificarTodo(Descuento param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/descuento/editar/todo
+                return await webService.POST<Descuento, Response>("descuento", "editar/todo", param);
             }
             catch (Exception ex)
             {
@@ -49,6 +77,20 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<List<DescuentoReceive>> descuentototalentrefechasgrupo(DescuentoSubmit param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
+                return await webService.POST<DescuentoSubmit, List<DescuentoReceive>>("productos", "descuentototalalafechagrupo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         // descuentoTotalALaFecha
         public async Task<DescuentoProductoReceive> descuentoTotalALaFecha(DescuentoProductoSubmit param)
         {
@@ -62,6 +104,20 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<DescuentoProductoReceive> descuentototalentrefechas(DescuentoProductoSubmit param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
+                return await webService.POST<DescuentoProductoSubmit, DescuentoProductoReceive>("productos", "descuentototalentrefechas", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         public async Task<Response> desactivar(Descuento param)
         {

@@ -320,7 +320,7 @@ namespace Admeli.Ventas
 
         private void executeNuevo()
         {
-            FormCotizacionNuevo formCotizacionNuevo = new FormCotizacionNuevo();
+            FormCotizacionaNew formCotizacionNuevo = new FormCotizacionaNew();
             formCotizacionNuevo.ShowDialog();
             cargarRegistros();
         }

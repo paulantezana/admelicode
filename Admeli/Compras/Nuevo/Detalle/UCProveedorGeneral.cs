@@ -47,11 +47,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         {
             InitializeComponent();
             this.formProveedorNuevo = formProveedorNuevo;
-            this.nroDocumento = nroDocumento;
-
-         
-
-
+            this.nroDocumento = nroDocumento;        
         }
 
       

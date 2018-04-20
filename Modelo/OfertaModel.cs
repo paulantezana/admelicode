@@ -24,7 +24,18 @@ namespace Modelo
                 throw ex;
             }
         }
-
+        public async Task<Response> guardarTodo(OfertaG param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/oferta/guardar
+                return await webService.POST<OfertaG, Response>("oferta", "guardar/todo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<Response> modificar(Oferta param)
         {
             try
@@ -37,7 +48,18 @@ namespace Modelo
                 throw ex;
             }
         }
-
+        public async Task<Response> modificarTodo(OfertaG param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/oferta/editar/todo
+                return await webService.POST<OfertaG, Response>("oferta","editar/todo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<Response> eliminar(Oferta param)
         {
             try

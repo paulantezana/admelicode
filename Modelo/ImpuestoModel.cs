@@ -180,5 +180,49 @@ namespace Modelo
                 throw ex;
             }
         }
+        //listarImpuestosByIdSucursalEIdTipoDocumento
+        //tipodocumentoimpuesto/sucursal/:ids/tipodoc/:idtd
+        public async Task<List<ImpuestoDocumento >> impuestoTipoDoc(int idSucursal,int idTipoDoc)
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/tipodocumentoimpuesto/sucursal/:ids/tipodoc/:idtd
+                List < ImpuestoDocumento > impuestoProducto = await webService.GET<List<ImpuestoDocumento>>("tipodocumentoimpuesto", String.Format("sucursal/{0}/tipodoc/{1}", idSucursal, idTipoDoc));
+                return impuestoProducto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<List<Impuesto>> listarImpuesto()
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/impuestos/estado/1
+                List<Impuesto> impuestoProducto = await webService.GET<List<Impuesto>>("impuestos", String.Format("estado/1"));
+                return impuestoProducto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //  impuestos/prod/4/suc/1
+        public async Task<List<ImpuestoProducto>> impuestoProducto(int idProducto, int idSucursal )
+        {
+            try
+            {
+                //http://localhost:8085/admeli/xcore/services.php/impuestos/estado/1
+                List<ImpuestoProducto> impuestoProducto = await webService.GET<List<ImpuestoProducto>>("impuestos", String.Format("prod/{0}/suc/{1}", idProducto, idSucursal));
+                return impuestoProducto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

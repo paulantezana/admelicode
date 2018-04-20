@@ -24,6 +24,20 @@ namespace Modelo
                 throw ex;
             }
         }
+        //
+        public async Task<List<DocumentoIdentificacion>> docIdentificacion()
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/documentoidentificaciones
+                return await webService.GET<List<DocumentoIdentificacion>>("documentoidentificaciones");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public async Task<Response> guardar(DocumentoIdentificacion param)
         {

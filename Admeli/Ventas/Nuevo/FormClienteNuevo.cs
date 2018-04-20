@@ -15,16 +15,25 @@ namespace Admeli.Ventas.Nuevo
     public partial class FormClienteNuevo : Form
     {
        // private UCProveedorContacto uCProveedorContacto;
-        private UCClienteGeneral uCClienteGeneral;
+        public  UCClienteGeneral uCClienteGeneral;
         private UCNuevoGrupo uCNuevoGrupo; 
         internal int currentIDProveedor { get; set; }
         internal bool nuevo { get; set; }
+        internal bool enVentas { get; set; }
         internal Cliente currentCliente;
 
+        private string nroDocumento;
         public FormClienteNuevo()
         {
             InitializeComponent();
             this.nuevo = true;
+        }
+        public FormClienteNuevo(string NroDocumento)
+        {
+            InitializeComponent();
+            this.nuevo = true;
+            this.nroDocumento = NroDocumento;
+            enVentas = true;
         }
 
         public FormClienteNuevo(Cliente currentCliente)
@@ -59,8 +68,40 @@ namespace Admeli.Ventas.Nuevo
             {
               
                 case "general":
+
+
+
                     if (uCClienteGeneral == null)
                     {
+                        if (enVentas)
+                        {
+
+                            this.uCClienteGeneral = new UCClienteGeneral(this, nroDocumento);
+                            this.panelMainNP.Controls.Add(uCClienteGeneral);
+                            this.uCClienteGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+                            this.uCClienteGeneral.Location = new System.Drawing.Point(0, 0);
+                            this.uCClienteGeneral.Name = "uCProveedorContacto";
+                            this.uCClienteGeneral.Size = new System.Drawing.Size(250, 776);
+                            this.uCClienteGeneral.TabIndex = 0;
+                        }
+                        else
+                        {
+                            this.uCClienteGeneral = new UCClienteGeneral(this);
+                            this.panelMainNP.Controls.Add(uCClienteGeneral);
+                            this.uCClienteGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+                            this.uCClienteGeneral.Location = new System.Drawing.Point(0, 0);
+                            this.uCClienteGeneral.Name = "uCProveedorContacto";
+                            this.uCClienteGeneral.Size = new System.Drawing.Size(250, 776);
+                            this.uCClienteGeneral.TabIndex = 0;
+
+                        }
+
+
+
+
+
+
+
                         this.uCClienteGeneral = new UCClienteGeneral(this);
                         this.panelMainNP.Controls.Add(uCClienteGeneral);
                         this.uCClienteGeneral.Dock = System.Windows.Forms.DockStyle.Fill;

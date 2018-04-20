@@ -29,7 +29,7 @@ namespace Entidad
             {
                 estadoString = value;
             }
-        }
+        }      
     }
 
     public class OrdenCompraImpuesto
@@ -63,4 +63,22 @@ namespace Entidad
         public string nombreImpuesto { get; set; }
         public string siglasImpuesto { get; set; } 
     }
+
+
+    public class ImpuestoDocumento
+    {
+        public int idImpuesto { get; set; }
+        public string nombreImpuesto { get; set; }
+        public string siglasImpuesto { get; set; }
+    }
+
+    public class ImpuestoProducto
+    {
+        public int idImpuesto { get; set; }
+        public string valorImpuesto { get; set; }
+        public string siglasImpuesto { get; set; }
+        public bool porcentual { get; set; }
+    }
+
+
 }

@@ -44,7 +44,7 @@
             this.panel1.Controls.Add(this.btnGenerales);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 86, 0, 0);
             this.panel1.Size = new System.Drawing.Size(80, 610);
@@ -104,7 +104,7 @@
             // 
             this.panelMainNP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainNP.Location = new System.Drawing.Point(80, 4);
-            this.panelMainNP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMainNP.Margin = new System.Windows.Forms.Padding(4);
             this.panelMainNP.Name = "panelMainNP";
             this.panelMainNP.Size = new System.Drawing.Size(1402, 610);
             this.panelMainNP.TabIndex = 9;
@@ -132,9 +132,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnContacto;
         private System.Windows.Forms.Button btnGenerales;
         protected System.Windows.Forms.ProgressBar progressBarApp;
         public System.Windows.Forms.Panel panelMainNP;
+        public System.Windows.Forms.Button btnContacto;
     }
 }
