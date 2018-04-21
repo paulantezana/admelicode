@@ -16,47 +16,65 @@ namespace Admeli.Productos.Nuevo.PDetalle
     public partial class FormElegirCategoria : Form
     {
         private CategoriaModel categoriaModel = new CategoriaModel();
-        internal CategoriaProducto catProducto { get; set; }
+        private CategoriaProducto catProducto =new CategoriaProducto();
+        private List<Categoria> categoriasTodas=new List<Categoria>();
+        private List<Categoria> categoriasDelProducto=new List<Categoria>();
+        private FormProductoNuevo formProductoNuevo = new FormProductoNuevo();
+        private UCGeneralesPD ugGeneralesPD = new UCGeneralesPD();
+        private int currentIdProducto;
+        private int categoriaPrincipal;
 
         public FormElegirCategoria()
         {
             InitializeComponent();
+            this.reLoad();
+        }
+        public FormElegirCategoria(FormProductoNuevo formProductoNuevo,UCGeneralesPD ugGeneralesPD,int currentIdProducto)
+        {
+            InitializeComponent();
+            this.formProductoNuevo = formProductoNuevo;
+            this.currentIdProducto = currentIdProducto;
+            this.ugGeneralesPD = ugGeneralesPD;
+            this.reLoad();
         }
 
         private async Task cargarRegistros()
         {
-            catProducto = await categoriaModel.categoriaProducto(0);
+            catProducto = await categoriaModel.categoriaProducto(currentIdProducto);
         }
-
+        private async Task recargarRegistros()
+        {
+            CategoriaProducto categoriaP = await categoriaModel.categoriaProducto(currentIdProducto);
+            categoriasTodas = categoriaP.producto;
+            categoriasDelProducto = categoriaP.todo;
+            actualizarComboCategoria();
+        }
         #region ========================================== ROOT LOAD ==========================================
         private void FormElegirCategoria_Load(object sender, EventArgs e)
         {
-            this.reLoad();
+            
         }
 
         private async void reLoad()
         {
             await cargarRegistros();
-            cargarCategorias();
             cargarCategoriasElegidas();
+            cargarCategorias();
+            await recargarRegistros();
         } 
         #endregion
 
         #region ================================== CARGAR CATEGORIA ==================================
         private void cargarCategorias()
         {
-            // loadState(true);
             try
             {
-                // Cargando las categorias desde el webservice
                 List<Categoria> categoriaList = catProducto.producto;
-                if (categoriaList.Count <= 0) { return; }
-                Categoria lastCategori = categoriaList.Last();
-                categoriaList.Remove(lastCategori);
+                if (categoriaList.Count <= 0 || categoriaList == null) { return; }
 
-                // Cargando
+                //Cargando
                 treeViewFrom.Nodes.Clear(); // limpiando
-                treeViewFrom.Nodes.Add(lastCategori.idCategoria.ToString(), lastCategori.nombreCategoria); // Cargando categoria raiz
+                 // Cargando categoria raiz
 
                 List<TreeNode> listNode = new List<TreeNode>();
 
@@ -65,21 +83,43 @@ namespace Admeli.Productos.Nuevo.PDetalle
                     TreeNode aux = new TreeNode(categoria.nombreCategoria);
                     aux.Name = categoria.idCategoria.ToString();
                     listNode.Add(aux);
-
                 }
-                treeviewVista(categoriaList, treeViewFrom.Nodes[0], listNode);
 
-                // Estableciendo valores por defecto
+                treeviewVista(categoriaList, treeViewFrom, listNode);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void cargarCategoriasElegidas()
+        {
+            try
+            {
+                List<Categoria> categoriaList = catProducto.todo;
+                if (categoriaList.Count <= 0 || categoriaList == null) { return; }
 
+                //Cargando
+                treeViewTo.Nodes.Clear(); // limpiando
+                                            // Cargando categoria raiz
+
+                List<TreeNode> listNode = new List<TreeNode>();
+
+                foreach (Categoria categoria in categoriaList)
+                {
+                    TreeNode aux = new TreeNode(categoria.nombreCategoria);
+                    aux.Name = categoria.idCategoria.ToString();
+                    listNode.Add(aux);
+                }
+
+                treeviewVista(categoriaList, treeViewTo, listNode);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            //loadState(false);
         }
-
-        private void treeviewVista(List<Categoria> categoriaList, TreeNode padreNode, List<TreeNode> listNode)
+        private void treeviewVista(List<Categoria> categoriaList, TreeView tvActual, List<TreeNode> listNode)
         {
             if (categoriaList.Count == 0)
             {
@@ -97,12 +137,12 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 if (nodePadre.Text != "")
                 {
                     nodePadre.Nodes.Add(auxTreeNode);
-                    treeviewVista(categoriaList, padreNode, listNode);
+                    treeviewVista(categoriaList, tvActual, listNode);
                 }
                 else
                 {
-                    padreNode.Nodes.Add(auxTreeNode);
-                    treeviewVista(categoriaList, padreNode, listNode);
+                    tvActual.Nodes.Add(auxTreeNode);
+                    treeviewVista(categoriaList, tvActual, listNode);
                 }
             }
         }
@@ -120,7 +160,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             bool tieneHijos = false;
             foreach (Categoria categoria in categoriaList)
             {
-                if (categoria.padre == padre.nombreCategoria)
+                if (categoria.idPadreCategoria == padre.idCategoria)
                 {
                     tieneHijos = true;
                     break;
@@ -135,7 +175,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             TreeNode aux = new TreeNode();
             foreach (TreeNode node in listNode)
             {
-                if (categoria.nombreCategoria == node.Text)
+                if (categoria.idCategoria.ToString() == node.Name)
                 {
                     aux = node;
                     break;
@@ -151,7 +191,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
             foreach (TreeNode node in listNode)
             {
-                if (categoria.padre == node.Text)
+                //if (categoria.padre == node.Text)
+                if (categoria.idPadreCategoria.ToString() == node.Name)
                 {
                     aux = node;
                     break;
@@ -161,51 +202,12 @@ namespace Admeli.Productos.Nuevo.PDetalle
         } 
         #endregion
 
-        private void cargarCategoriasElegidas()
-        {
-            // loadState(true);
-            try
-            {
-                // Cargando las categorias desde el webservice
-                List<Categoria> categoriaList = catProducto.todo;
-
-                if (categoriaList.Count <= 0) { return; }
-                //Colocar las Categorias elegidas en el ComboBox
-                categoriaBindingSource.DataSource = categoriaList;
-
-                Categoria lastCategori = categoriaList.Last();
-                categoriaList.Remove(lastCategori);
-
-                // Cargando
-                treeViewTo.Nodes.Clear();//Limpiando
-                treeViewTo.Nodes.Add(lastCategori.idCategoria.ToString(), lastCategori.nombreCategoria); // Cargando categoria raiz
-
-                List<TreeNode> listNode = new List<TreeNode>();
-
-                foreach (Categoria categoria in categoriaList)
-                {
-                    TreeNode aux = new TreeNode(categoria.nombreCategoria);
-                    aux.Name = categoria.idCategoria.ToString();
-                    listNode.Add(aux);
-
-                }
-                treeviewVista(categoriaList, treeViewTo.Nodes[0], listNode);
-
-                // Estableciendo valores por defecto
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            //loadState(false);
-        }
-
+        
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
             DrawShape drawShape = new DrawShape();
-            drawShape.rightLine(panel4, 221, 225, 228,2);
-            drawShape.leftLine(panel5,221,225,228,2);
+            drawShape.lineBorder(panel4, 221, 225, 228,2);
+            drawShape.lineBorder(panel5,221,225,228,2);
         }
 
         private void btnMovDerecha_Click(object sender, EventArgs e)
@@ -213,22 +215,72 @@ namespace Admeli.Productos.Nuevo.PDetalle
             TreeNode tempNode = treeViewFrom.SelectedNode;
             if (tempNode != null)
             {
-                //Eliminamos el nodo seleccionado en el TreeviewFrom
+                //Eliminamos el nodo seleccionado en el TreeviewFrom y lo agregamos al TreeviewTo
                 treeViewFrom.Nodes.Remove(treeViewFrom.SelectedNode);
-                //Agregamos el Nodo al TreeviewTo
+                int idCategoriaSeleccionada = int.Parse(tempNode.Name);
                 treeViewTo.Nodes.Add(tempNode);
+                //Eliminamos la categoria seleccionada del categoriasTodad y lo agregamos al categoriasDelProducto
+                Categoria categoriaTemp = categoriasTodas.Find(x => x.idCategoria == idCategoriaSeleccionada);
+                categoriasTodas.Remove(categoriaTemp);
+                categoriasDelProducto.Add(categoriaTemp);
+                actualizarComboCategoria();
             }
         }
 
         private void btnMovIzquierda_Click(object sender, EventArgs e)
         {
             TreeNode tempNode = treeViewTo.SelectedNode;
-            if (tempNode != null)
+            if (tempNode != null && categoriasDelProducto.Count>=2)
             {
-                //Eliminamos el nodo seleccionado en el TreeviewFrom
+                //Eliminamos el nodo seleccionado en el TreeviewTo y lo agregamos al TreeviewFrom 
                 treeViewTo.Nodes.Remove(treeViewTo.SelectedNode);
-                //Agregamos el Nodo al TreeviewTo
+                int idCategoriaSeleccionada = int.Parse(tempNode.Name);
                 treeViewFrom.Nodes.Add(tempNode);
+                //Eliminamos la categoria seleccionada del categoriasDelProducto y lo agregamos al categoriasTodas
+                Categoria categoriaTemp = categoriasDelProducto.Find(x => x.idCategoria == idCategoriaSeleccionada);
+                categoriasDelProducto.Remove(categoriaTemp);
+                categoriasTodas.Add(categoriaTemp);
+                actualizarComboCategoria();
+            }
+        }
+        private void actualizarComboCategoria()
+        {
+            categoriaBindingSource.DataSource = null;
+            categoriaBindingSource.DataSource = categoriasDelProducto;
+            cbxCategoriaPrincipal.Refresh();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private async void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (categoriasDelProducto.Count >= 1)
+            {
+                formProductoNuevo.setCategorias(categoriasDelProducto, int.Parse(cbxCategoriaPrincipal.SelectedValue.ToString()));
+                if (!formProductoNuevo.nuevo)
+                {
+                    // Si es producto existente se guarda sus categorias directemente
+                    try
+                    {
+                        Response response = await formProductoNuevo.guardarCategoria();
+                        MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                string textoCategoria = "";
+                foreach (Categoria categoria in categoriasDelProducto)
+                {
+                    textoCategoria += categoria.nombreCategoria + " ,";
+                }
+                textoCategoria = textoCategoria.Substring(0, textoCategoria.Length - 1);
+                ugGeneralesPD.cambioTextoCategoria(textoCategoria);
+                Close();
             }
         }
     }

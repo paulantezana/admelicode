@@ -774,5 +774,11 @@ namespace Admeli.Productos
                 cargarRegistrosStock();
             }
         }
+
+        private void btnImportar_Click_1(object sender, EventArgs e)
+        {
+            FormImportarProduto formImportarProduto = new FormImportarProduto();
+            formImportarProduto.ShowDialog();
+        }
     }
 }

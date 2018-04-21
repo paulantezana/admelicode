@@ -25,6 +25,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         public ImpuestoProductoTodo impuestoProductoTodo = new ImpuestoProductoTodo();
         public Response response = new Response();
 
+        public List<Impuesto> listaImpuesto = new List<Impuesto>();
         public UCImpuestoPD()
         {
             InitializeComponent();
@@ -89,8 +90,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             //Cargar los impuesto del producto y los productos existentes
             impuestoProductoTodo = await impuestoModel.impuestoProductoTodo(formProductoNuevo.currentIDProducto,Convert.ToInt32(cbxSucursal.SelectedValue.ToString()));
-            impuestoBindingSourceT.DataSource =impuestoProductoTodo.todo;
-            impuestoBindingSourceP.DataSource = impuestoProductoTodo.producto;
+            impuestoBindingSourceT.DataSource =impuestoProductoTodo.producto;
+            impuestoBindingSourceP.DataSource = impuestoProductoTodo.todo;
         }
         #endregion
 
@@ -195,64 +196,12 @@ namespace Admeli.Productos.Nuevo.PDetalle
             reLoad();
         }
 
-        private async  void btnGuardarImpustos_Click(object sender, EventArgs e)
+        private void btnGuardarImpustos_Click(object sender, EventArgs e)
         {
             try
             {
-                ImpuestosEnviados impuestosEnviados = new ImpuestosEnviados();
-                Producto producto = new Producto();
-                Sucursal sucursal = new Sucursal();
-                string json = @"{";
-
-                //Recuperar los impuestos en el dgvImpuestoProducto y alamcenarlos en 
-                List<Impuesto> impuestoProducto = (List<Impuesto>)impuestoBindingSourceP.DataSource;
-                int cantidad = impuestoProducto.Count;
-                for (int i = 0; i < cantidad; i++)
-                {
-                    json += "'id" + i + "':'" + impuestoProducto[i].idImpuesto + "',";
-                }
-                json = json.Substring(0, json.Length - 1);
-                json += "}";
-
-                JsonTextReader reader = new JsonTextReader(new StringReader(json));
-                while (reader.Read())
-                {
-                    if (reader.Value != null)
-                    {
-                        Console.WriteLine("Token: {0}, Valor: {1}", reader.TokenType, reader.Value);
-                        MessageBox.Show("Token: "+reader.TokenType+", Valor: "+ reader.Value );
-                    }
-                    else
-                    {
-                        Console.WriteLine("Token: {0}", reader.TokenType);
-                        MessageBox.Show("Token: " + reader.TokenType);
-                    }
-                }
-
-                producto.idProducto = formProductoNuevo.currentIDProducto;
-                objectIm objIm = new objectIm();
-                objIm.impuestos = json;
-                impuestosEnviados.impuestos = objIm;
-                sucursal.idSucursal = Convert.ToInt32(cbxSucursal.SelectedValue.ToString());
-
-                //Construir el objeto que sera enviado
-                impuestosEnviados.impuestos = objIm;
-                impuestosEnviados.producto = producto;
-                impuestosEnviados.sucursal = sucursal;
-
-                listaEnviada lista = new listaEnviada();
-                List<object> l = new List<object>();
-                lista.listita = l;
-                lista.listita.Add(json);
-                lista.listita.Add(producto);
-                lista.listita.Add(sucursal);
-                /*
-                impuestosEnviados.idProducto="{idProducto:"+ formProductoNuevo.currentIDProducto+ "}";
-                impuestosEnviados.idSucursal = "{idSucursal:" + Convert.ToInt32(cbxSucursal.SelectedValue.ToString()) + "}";
-                */
-
-                response = await impuestoModel.actualizarImpuestoProducto(lista);
-
+                extraerImpuestosProducto();
+                guardarImpuestosProducto();
                 MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
@@ -260,5 +209,29 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 MessageBox.Show(ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }  
-}
+
+        private async void guardarImpuestosProducto()
+        {
+            response = await impuestoModel.actualizarImpuestoProducto(listaImpuesto,formProductoNuevo.currentIDProducto,int.Parse(cbxSucursal.SelectedValue.ToString()));
+        }
+
+        private void extraerImpuestosProducto()
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dgvImpuestoProducto.Rows)
+                {
+                    Impuesto impuestoFila = new Impuesto();
+                    impuestoFila.idImpuesto = int.Parse(row.Cells["idImpuesto"].Value.ToString());
+                    listaImpuesto.Add(impuestoFila);
+                    //MessageBox.Show(row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " +
+                    //    row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString()+" "+ row.Cells[5].Value.ToString()+ " "+row.Cells[6].Value.ToString());
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
 }

@@ -28,6 +28,9 @@ namespace Admeli.Productos.Nuevo
 
         public ProductoModel productoModel = new ProductoModel();
 
+        public List<Categoria> currentCategorias = new List<Categoria>();
+        public int categoriaPrincipal { get; set; }
+
         public FormProductoNuevo(Producto currentProducto)
         {
             InitializeComponent();
@@ -301,6 +304,42 @@ namespace Admeli.Productos.Nuevo
         }
 
         #region ========================== Guardar ==========================
+        public async Task<Response> guardarCategoria()
+        {
+            // Ejecutando el guardado
+            try
+            {
+                string sendString = generarStringCategorias();
+                Response response = await productoModel.guardarCategoria(sendString);
+                return response;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private string generarStringCategorias()
+        {
+            //Arreglo de ids
+            string jsonCategorias = "[{";
+            for(int i = 0; i < currentCategorias.Count; i++)
+            {
+                jsonCategorias += "\"id" + i + "\":" + currentCategorias[i].idCategoria+",";
+            }
+            jsonCategorias = jsonCategorias.Substring(0, jsonCategorias.Length - 1);
+            //idProducto y IdPrincipal
+            jsonCategorias += "},{\"idProducto\":"+currentIDProducto+"},{\"idPrincipal\":"+categoriaPrincipal+"}]";
+            return jsonCategorias;
+            
+        }
+
+        public void setCategorias(List<Categoria> listaCategorias,int categoriaPrincipal)
+        {
+            this.currentCategorias = listaCategorias;
+            this.categoriaPrincipal = categoriaPrincipal;
+        }
+
         internal async void executeGuardar()
         {
             // Ejecutando el guardado
@@ -309,8 +348,12 @@ namespace Admeli.Productos.Nuevo
                 if (nuevo)
                 {
                     Response response = await productoModel.guardar(currentProducto);
+                    //Guardar las Categorias si es que se eligió uno
+                    if (currentCategorias.Count > 0)
+                    {
+                        Response responseCat=await guardarCategoria();
+                    }
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     // Consulta de guardar =============================================
                     this.nuevo = false;
                     this.currentIDProducto = response.id;

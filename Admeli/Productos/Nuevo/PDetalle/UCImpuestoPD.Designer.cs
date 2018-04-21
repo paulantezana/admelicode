@@ -711,9 +711,9 @@
             this.btnGuardarImpustos.ForeColor = System.Drawing.Color.White;
             this.btnGuardarImpustos.Location = new System.Drawing.Point(18, 19);
             this.btnGuardarImpustos.Name = "btnGuardarImpustos";
-            this.btnGuardarImpustos.Size = new System.Drawing.Size(116, 30);
+            this.btnGuardarImpustos.Size = new System.Drawing.Size(184, 30);
             this.btnGuardarImpustos.TabIndex = 8;
-            this.btnGuardarImpustos.Text = "Guardar";
+            this.btnGuardarImpustos.Text = "Guardar Impuestos";
             this.btnGuardarImpustos.UseVisualStyleBackColor = false;
             this.btnGuardarImpustos.Click += new System.EventHandler(this.btnGuardarImpustos_Click);
             // 
