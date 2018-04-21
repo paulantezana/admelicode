@@ -40,6 +40,7 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.ventasNSalidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,10 +68,11 @@
             this.fechaPagoSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaVentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ventasNSalidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ventasNSalidaBindingSource)).BeginInit();
             this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -78,6 +80,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ventasNSalidaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitter1
@@ -171,10 +174,10 @@
             this.dgvVentas.TabIndex = 50;
             this.dgvVentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotaSalida_CellDoubleClick);
             // 
-            // ventasNSalidaBindingSource
-            // 
+
             this.ventasNSalidaBindingSource.DataSource = typeof(Entidad.VentasNSalida);
             // 
+
             // tableLayoutPanel28
             // 
             this.tableLayoutPanel28.ColumnCount = 1;
@@ -454,6 +457,7 @@
             // 
             this.idVentaDataGridViewTextBoxColumn.DataPropertyName = "idVenta";
             this.idVentaDataGridViewTextBoxColumn.HeaderText = "IDVenta";
+
             this.idVentaDataGridViewTextBoxColumn.Name = "idVentaDataGridViewTextBoxColumn";
             this.idVentaDataGridViewTextBoxColumn.ReadOnly = true;
             this.idVentaDataGridViewTextBoxColumn.Visible = false;
@@ -462,6 +466,7 @@
             // 
             this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "nombreCliente";
             this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Nombre de Cliente";
+
             this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
             this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreClienteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -470,6 +475,7 @@
             // 
             this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
             this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Número Documento";
+
             this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
             this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.numeroDocumentoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -478,6 +484,7 @@
             // 
             this.rucDniDataGridViewTextBoxColumn.DataPropertyName = "rucDni";
             this.rucDniDataGridViewTextBoxColumn.HeaderText = "RUC / DNI";
+
             this.rucDniDataGridViewTextBoxColumn.Name = "rucDniDataGridViewTextBoxColumn";
             this.rucDniDataGridViewTextBoxColumn.ReadOnly = true;
             this.rucDniDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -514,6 +521,11 @@
             this.fechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaPagoDataGridViewTextBoxColumn.Visible = false;
             // 
+            // ventasNSalidaBindingSource
+            // 
+            this.ventasNSalidaBindingSource.DataSource = typeof(Entidad.VentasNSalida);
+            // 
+
             // FormBuscarVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,7 +542,6 @@
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ventasNSalidaBindingSource)).EndInit();
             this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -543,6 +554,7 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ventasNSalidaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

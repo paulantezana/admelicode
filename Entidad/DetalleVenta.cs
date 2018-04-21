@@ -88,12 +88,48 @@ namespace Entidad
         public int idDetalleCotizacion { get; set; }  
         public int idCotizacion { get; set; }
         // variables auxiales para guardar
-        public string porcentual { get; set; }
-        public string efectivo { get; set; }
+
+        private string porcentual;
+        public string Porcentual
+        {
+            get
+            {
+
+                  if (porcentual == "")
+                {
+                    return "0";
+                }
+                return porcentual;
+                
+
+            }
+            set
+            {
+
+                porcentual = value;
+            }
+        }
+        private string efectivo;
+        public string Efectivo
+        {
+            get
+            {
+                if (efectivo == "")
+                {
+                    return "0";
+                }
+                return efectivo;
+
+            }
+            set
+            {
+
+               efectivo = value;
+            }
+        }
 
 
 
-          
     }
 
 public class CobroVenta

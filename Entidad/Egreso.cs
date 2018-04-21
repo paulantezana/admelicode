@@ -9,6 +9,7 @@ namespace Entidad
 {
     public class Egreso
     {
+        //
         public int idEgreso { get; set; }
         public string numeroOperacion { get; set; }
         public Fecha fecha { get; set; }

@@ -52,7 +52,8 @@ namespace Admeli.Productos.Nuevo.PDetalle.sub
 
                 /// ========================= Cargando registros en la tabla
                 int almacenId = (cbxAlmacenes.SelectedIndex == -1) ? ConfigModel.currentIdAlmacen : Convert.ToInt32(cbxAlmacenes.SelectedValue);
-                alternativaCombinaciones = await alternativaModel.alternativaCombinacion(formProductoNuevo.currentIDProducto, almacenId);
+                alternativaCombinaciones = await alternativaModel.generarCombinacionAlternativa(formProductoNuevo.currentIDProducto);
+                //alternativaCombinaciones = await alternativaModel.alternativaCombinacion(formProductoNuevo.currentIDProducto, almacenId);
                 alternativaCombinacionBindingSource.DataSource = alternativaCombinaciones;
 
             }
