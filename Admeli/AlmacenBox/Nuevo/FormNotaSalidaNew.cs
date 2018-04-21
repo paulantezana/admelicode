@@ -168,10 +168,17 @@ namespace Admeli.AlmacenBox.Nuevo
 
             }
             cbxEstado.Text = estado;
-            // cargar detalles de la nota
-            listDetalleNotaSalida =await notaSalidaModel.cargarDetallesNota(currentNotaSalida.idNotaSalida);
+            try
+            {
+                // cargar detalles de la nota
+                listDetalleNotaSalida = await notaSalidaModel.cargarDetallesNota(currentNotaSalida.idNotaSalida);
 
-            detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+                detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Detalles de la Nota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
         }
