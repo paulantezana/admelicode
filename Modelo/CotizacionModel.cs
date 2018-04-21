@@ -99,6 +99,20 @@ namespace Modelo
             }
         }
 
+        public async Task<List<CotizacionBuscar>> listaCotizaciones(int idSucursal)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/cotizaciones/suc/0
+                List<CotizacionBuscar> almacenes = await webService.GET<List<CotizacionBuscar>>("cotizaciones", String.Format("suc/{0}", idSucursal));
+                return almacenes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 }

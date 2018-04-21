@@ -89,6 +89,22 @@ namespace Entidad
         public List<DetalleV> detalle { get; set; }
     }
 
+    public class CotizacionBuscar
+    {
+        public int idCotizacion { get; set; }
+        public string nombreCliente { get; set; }
+        public string direccion { get; set; }
+        public string rucDni { get; set; }
+        public int idGrupoCliente { get; set; }
+        public string moneda { get; set; }
+        public string descuento { get; set; }
+        public string subTotal { get; set; }
+        public string total { get; set; }
+        public string tipoCambio { get; set; }
+        public int idCliente { get; set; }
+        public string tipoDocumento { get; set; }
+        public string nombre { get; set; }
+    }
 
 
 }

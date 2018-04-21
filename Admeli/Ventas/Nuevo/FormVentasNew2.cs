@@ -20,7 +20,7 @@ using Modelo;
 
 namespace Admeli.Ventas.Nuevo
 {
-    public partial class FormVentasNew : Form
+    public partial class FormVentasNew2 : Form
     {
 
 
@@ -98,7 +98,7 @@ namespace Admeli.Ventas.Nuevo
         private double impuesto = 0;
         private double total = 0;
         
-        public FormVentasNew()
+        public FormVentasNew2()
         {
             InitializeComponent();
 
@@ -124,9 +124,9 @@ namespace Admeli.Ventas.Nuevo
 
 
             lbSubtotal.Text = "s/" + ". " + darformato(0);
-            lbDescuentoCompras.Text = "s/" + ". " + darformato(0);
+            lbDescuentVentas.Text = "s/" + ". " + darformato(0);
             lbImpuesto.Text = "s/" + ". " + darformato(0);
-            lbTotalCompra.Text = "s/" + ". " + darformato(0);
+            lbTotalVentas.Text = "s/" + ". " + darformato(0);
 
         }
         private string darformato(object dato)
@@ -138,7 +138,7 @@ namespace Admeli.Ventas.Nuevo
         {
             return double.Parse(texto, CultureInfo.GetCultureInfo("en-US")); ;
         }
-        public FormVentasNew(OrdenCompra currentOrdenCompra)
+        public FormVentasNew2(OrdenCompra currentOrdenCompra)
         {
             InitializeComponent();     
             this.currentOrdenCompra = currentOrdenCompra;
@@ -483,7 +483,7 @@ namespace Admeli.Ventas.Nuevo
 
             // determinar impuesto de cada producto
             this.total = impuesto + subTotalLocal;
-            lbTotalCompra.Text = moneda.simbolo + ". " + darformato(subTotalLocal + impuestoTotal);
+            lbTotalVentas.Text = moneda.simbolo + ". " + darformato(subTotalLocal + impuestoTotal);
         }
 
         /// <summary>
@@ -933,7 +933,7 @@ namespace Admeli.Ventas.Nuevo
             }
             this.Descuento = descuentoTotal;
 
-            lbDescuentoCompras.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
+            lbDescuentVentas.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
 
         }
 

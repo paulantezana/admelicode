@@ -12,6 +12,7 @@ using Admeli.Componentes;
 using Admeli.Compras.buscar;
 using Admeli.Compras.Buscar;
 using Admeli.Productos.Nuevo;
+using Admeli.Ventas.buscar;
 using Admeli.Ventas.Buscar;
 using Entidad;
 using Entidad.Configuracion;
@@ -21,7 +22,7 @@ using Newtonsoft.Json;
 
 namespace Admeli.Ventas.Nuevo
 {
-    public partial class FormCotizacionaNew : Form
+    public partial class FormVentaNewR : Form
     {
 
 
@@ -53,7 +54,7 @@ namespace Admeli.Ventas.Nuevo
         private PresentacionModel presentacionModel = new PresentacionModel();
         private DescuentoModel descuentoModel = new DescuentoModel();
         private StockModel stockModel = new StockModel();
-
+        private VentaModel ventaModel = new VentaModel();
 
 
         /// Sus datos se cargan al abrir el formulario
@@ -80,18 +81,8 @@ namespace Admeli.Ventas.Nuevo
         private ProductoVenta currentProducto { get; set; }
         private ImpuestoProducto impuestoProducto { get; set; }
         private Cliente CurrentCliente { get; set; }
-
-
-        private Cotizacion  currentCotizacion { get; set; }
-
-
-
-
-
-
-
-
-
+        private CotizacionBuscar currentCotizacion { get; set; }
+        private Venta currentVenta { get; set; }
 
         public int nroNuevo = 0;
        
@@ -106,7 +97,7 @@ namespace Admeli.Ventas.Nuevo
         private double impuesto = 0;
         private double total = 0;
         
-        public FormCotizacionaNew()
+        public FormVentaNewR()
         {
             InitializeComponent();
 
@@ -132,9 +123,9 @@ namespace Admeli.Ventas.Nuevo
 
 
             lbSubtotal.Text = "s/" + ". " + darformato(0);
-            lbDescuentoVentas.Text = "s/" + ". " + darformato(0);
+            lbDescuentoVenta.Text = "s/" + ". " + darformato(0);
             lbImpuesto.Text = "s/" + ". " + darformato(0);
-            lbTotalCompra.Text = "s/" + ". " + darformato(0);
+            lbTotalVentas.Text = "s/" + ". " + darformato(0);
 
         }
 
@@ -163,11 +154,11 @@ namespace Admeli.Ventas.Nuevo
 
         #endregion============================
 
-        public FormCotizacionaNew(Cotizacion currentCotizacion)
+        public FormVentaNewR(Cotizacion currentCotizacion)
         {
             
             InitializeComponent();
-            this.currentCotizacion = currentCotizacion; 
+           
             this.nuevo = false;       
             formato = "{0:n" + nroDecimales + "}";
          
@@ -202,7 +193,7 @@ namespace Admeli.Ventas.Nuevo
             cargarProductos();                             
             cargartiposDocumentos();
             cargarClientes();
-            cargarCorrelactivo();
+            cargarTipoComprobantes();
             cargarImpuesto();
             cargarPresentacion();
             cargarObjetos();
@@ -217,7 +208,6 @@ namespace Admeli.Ventas.Nuevo
         {
             detalleVentas=  await cotizacionModel.detalleCotizacion(currentCotizacion.idCotizacion);
            
-            txtObservaciones.Text = currentCotizacion.observacion;
            
 
             double impuesto = 0; 
@@ -268,11 +258,7 @@ namespace Admeli.Ventas.Nuevo
 
 
             }
-            detalleVBindingSource.DataSource = detalleVentas;
-
-           
-
-
+            detalleVBindingSource.DataSource = detalleVentas;         
             limpiarCamposProducto();
 
         }
@@ -362,29 +348,25 @@ namespace Admeli.Ventas.Nuevo
             }
 
         }
-        private async void cargarCorrelactivo()
+
+        private async void cargarTipoComprobantes()
         {
-            if (nuevo)
+            try
             {
+                tipoDocumentos = await tipoDocumentoModel.tipoDocumentoVentas();
+                cbxTipoComprobante.DataSource = tipoDocumentos;
 
+                if (!nuevo)
+                {
+                    cbxTipoComprobante.SelectedValue = currentVenta.idTipoDocumento;
 
-                List<CorrelativoCotizacion> list = await cotizacionModel.Correlativo(ConfigModel.sucursal.idSucursal);
-                correlativoCotizacion = list[0];
-                txtComprobante.Text = "COTIZACION";
-                txtSerie.Text = correlativoCotizacion.serie;
-                txtCorrelativo.Text = correlativoCotizacion.correlativoActual;
-
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtComprobante.Text = "COTIZACION";
-                txtSerie.Text = currentCotizacion.serie;
-                txtCorrelativo.Text = currentCotizacion.correlativo;
-
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-          
-        }
+        }      
         private async void cargarMonedas()
         {
             try
@@ -395,14 +377,14 @@ namespace Admeli.Ventas.Nuevo
                 {
 
                     Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);  
-                    cbxTipoMoneda.SelectedValue = currentCotizacion.idMoneda;
-                    txtObservaciones.Text = currentCotizacion.observacion;
+                    cbxTipoMoneda.Text = currentVenta.moneda;
+                    txtObservaciones.Text = currentVenta.observacion;
                     this.Descuento = toDouble(currentCotizacion.descuento);
 
-                    lbDescuentoVentas.Text = moneda.simbolo + ". " + darformato(Descuento);
+                    lbDescuentoVenta.Text = moneda.simbolo + ". " + darformato(Descuento);
 
                     this.total = toDouble(currentCotizacion.total);
-                    lbTotalCompra.Text = moneda.simbolo + ". " + darformato(total);
+                    lbTotalVentas.Text = moneda.simbolo + ". " + darformato(total);
 
                     this.subTotal = toDouble(currentCotizacion.subTotal);
                     lbSubtotal.Text = moneda.simbolo + ". " + darformato(subTotal);
@@ -423,8 +405,8 @@ namespace Admeli.Ventas.Nuevo
             {
                 if (!nuevo)
                 {
-                    dtpEmision.Value = currentCotizacion.fechaEmision.date;
-                    dtpFechaVecimiento.Value= currentCotizacion.fechaVencimiento.date;
+                    dtpEmision.Value = currentVenta.fecha.date;
+                    dtpFechaVecimiento.Value= currentVenta.fechaPago.date;
                
                 }
                 else
@@ -518,7 +500,7 @@ namespace Admeli.Ventas.Nuevo
 
             // determinar impuesto de cada producto
             this.total = TotalLocal;
-            lbTotalCompra.Text = moneda.simbolo + ". " + darformato(TotalLocal);
+            lbTotalVentas.Text = moneda.simbolo + ". " + darformato(TotalLocal);
 
         }
 
@@ -764,7 +746,7 @@ namespace Admeli.Ventas.Nuevo
             Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);          
             
 
-            lbDescuentoVentas.Text= moneda.simbolo + ". " + darformato(descuentoTotal);
+            lbDescuentoVenta.Text= moneda.simbolo + ". " + darformato(descuentoTotal);
 
 
         }
@@ -989,14 +971,15 @@ namespace Admeli.Ventas.Nuevo
             int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
             DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+            txtCantidad.Text = darformato(toDouble(aux.cantidad));
+
             cbxCodigoProducto.Text = aux.codigoProducto;
             cbxDescripcion.Text = aux.descripcion;
             cbxVariacion.Text = aux.nombreCombinacion;
-            cbxDescripcion.Text = aux.nombrePresentacion;
-            txtCantidad.Text =darformato( toDouble(aux.cantidad));
+            cbxDescripcion.Text = aux.nombrePresentacion;         
             txtPrecioUnitario.Text = darformato(aux.precioVentaReal);
             txtDescuento.Text = darformato( aux.descuento);
-            txtTotalProducto.Text = darformato( aux.totalGeneral);
+            txtTotalProducto.Text = darformato( aux.totalGeneral);               
             btnAgregar.Enabled = false;
             btnModificar.Enabled = true;
             dgvDetalleOrdenCompra.Rows[index].Selected = true;
@@ -1260,7 +1243,7 @@ namespace Admeli.Ventas.Nuevo
             }
             this.Descuento = descuentoTotal;
 
-            lbDescuentoVentas.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
+            lbDescuentoVenta.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
 
         }
 
@@ -1533,5 +1516,54 @@ namespace Admeli.Ventas.Nuevo
         {
 
         }
+
+        private async void cbxTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idTipoDocumento = (int)cbxTipoComprobante.SelectedValue;
+            List<Venta_correlativo> list = await ventaModel.listarNroDocumentoVenta(idTipoDocumento, ConfigModel.asignacionPersonal.idPuntoVenta);
+            txtCorrelativo.Text = list[0].correlativoActual;
+            txtSerie.Text = list[0].serie;
+
+
+        }
+
+        private void btnImportarCotizacion_Click(object sender, EventArgs e)
+        {
+
+            FormBuscarCotizacion formBuscarCotizacion = new FormBuscarCotizacion();
+            formBuscarCotizacion.ShowDialog();
+
+            currentCotizacion = formBuscarCotizacion.currentCotizacion;
+            if (currentCotizacion != null)
+            {
+                cargarDatosCotizacion();
+
+            }
+
+        }
+        
+        private void cargarDatosCotizacion()
+        {
+
+            cbxCliente.SelectedValue = currentCotizacion.idCliente;
+            cbxTipoMoneda.Text = currentCotizacion.moneda;
+            cargarCotizacion();
+
+            // resultados
+            Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
+            cbxTipoMoneda.Text = currentCotizacion.moneda;          
+            this.Descuento = toDouble(currentCotizacion.descuento);
+
+            lbDescuentoVenta.Text = moneda.simbolo + ". " + darformato(Descuento);
+
+            this.total = toDouble(currentCotizacion.total);
+            lbTotalVentas.Text = moneda.simbolo + ". " + darformato(total);
+
+            this.subTotal = toDouble(currentCotizacion.subTotal);
+            lbSubtotal.Text = moneda.simbolo + ". " + darformato(subTotal);
+            double impuesto = total - subTotal;
+            lbImpuesto.Text = moneda.simbolo + ". " + darformato(impuesto);
+        }
+
     }
 }
