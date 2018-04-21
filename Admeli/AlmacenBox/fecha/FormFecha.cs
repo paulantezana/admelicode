@@ -15,17 +15,12 @@ namespace Admeli.AlmacenBox.fecha
 {
     public partial class FormFecha : Form
     {
-
-
-
         public  DateTime desde;
         public  DateTime hasta; 
-        
-       
+               
         public FormFecha()
         {
-            InitializeComponent();
-            
+            InitializeComponent();        
             
         }
 

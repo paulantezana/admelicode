@@ -122,10 +122,15 @@ namespace Admeli.Herramientas
 
         private async void cargarSucursal()
         {
-
-            listSucursal = await sucursalModel.sucursales();
-            sucursalBindingSource.DataSource = listSucursal;
-
+            try
+            {
+                listSucursal = await sucursalModel.sucursales();
+                sucursalBindingSource.DataSource = listSucursal;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Sucursal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
         public void  AddHeaderCheckBoxProducto()

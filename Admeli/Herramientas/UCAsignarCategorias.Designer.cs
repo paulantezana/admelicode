@@ -85,11 +85,11 @@
             this.panelContainer.Controls.Add(this.tlsHeader);
             this.panelContainer.Controls.Add(this.panelHeaderItem1);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(11, 10);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelContainer.Location = new System.Drawing.Point(8, 8);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
-            this.panelContainer.Size = new System.Drawing.Size(1175, 662);
+            this.panelContainer.Size = new System.Drawing.Size(882, 538);
             this.panelContainer.TabIndex = 7;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
@@ -98,21 +98,21 @@
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(555, 51);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(416, 42);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(619, 560);
+            this.panel3.Size = new System.Drawing.Size(465, 454);
             this.panel3.TabIndex = 5;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.dgvConCategoria);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 50);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Location = new System.Drawing.Point(0, 41);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.panel7.Size = new System.Drawing.Size(619, 510);
+            this.panel7.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel7.Size = new System.Drawing.Size(465, 413);
             this.panel7.TabIndex = 2;
             // 
             // dgvConCategoria
@@ -123,7 +123,6 @@
             this.dgvConCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConCategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvConCategoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvConCategoria.ColumnHeadersHeight = 35;
             this.dgvConCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cbxselectConCategoria,
             this.nombreCategoriaDataGridViewTextBoxColumn,
@@ -132,14 +131,14 @@
             this.dgvConCategoria.DataSource = this.categoriaBindingSource;
             this.dgvConCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConCategoria.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvConCategoria.Location = new System.Drawing.Point(11, 10);
-            this.dgvConCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvConCategoria.Location = new System.Drawing.Point(8, 8);
+            this.dgvConCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvConCategoria.Name = "dgvConCategoria";
             this.dgvConCategoria.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvConCategoria.RowHeadersVisible = false;
             this.dgvConCategoria.RowTemplate.Height = 25;
             this.dgvConCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConCategoria.Size = new System.Drawing.Size(597, 490);
+            this.dgvConCategoria.Size = new System.Drawing.Size(449, 397);
             this.dgvConCategoria.TabIndex = 1;
             this.dgvConCategoria.Click += new System.EventHandler(this.dataGridView2_Click);
             // 
@@ -152,26 +151,27 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(619, 50);
+            this.panel5.Size = new System.Drawing.Size(465, 41);
             this.panel5.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 15);
+            this.label4.Location = new System.Drawing.Point(10, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 17);
+            this.label4.Size = new System.Drawing.Size(126, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "LISTA DE PRODUCTOS";
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(552, 51);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitter1.Location = new System.Drawing.Point(414, 42);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 560);
+            this.splitter1.Size = new System.Drawing.Size(2, 454);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
@@ -180,21 +180,21 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(1, 51);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(1, 42);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 560);
+            this.panel1.Size = new System.Drawing.Size(413, 454);
             this.panel1.TabIndex = 3;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.dgvSinCategorias);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 50);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Location = new System.Drawing.Point(0, 41);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.panel6.Size = new System.Drawing.Size(551, 510);
+            this.panel6.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel6.Size = new System.Drawing.Size(413, 413);
             this.panel6.TabIndex = 1;
             // 
             // dgvSinCategorias
@@ -205,7 +205,6 @@
             this.dgvSinCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSinCategorias.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvSinCategorias.ColumnHeadersHeight = 35;
             this.dgvSinCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chkBxSelect,
             this.idProducto,
@@ -214,14 +213,14 @@
             this.dgvSinCategorias.DataSource = this.productoBindingSource;
             this.dgvSinCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSinCategorias.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvSinCategorias.Location = new System.Drawing.Point(11, 10);
-            this.dgvSinCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvSinCategorias.Location = new System.Drawing.Point(8, 8);
+            this.dgvSinCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvSinCategorias.Name = "dgvSinCategorias";
             this.dgvSinCategorias.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSinCategorias.RowHeadersVisible = false;
             this.dgvSinCategorias.RowTemplate.Height = 25;
             this.dgvSinCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSinCategorias.Size = new System.Drawing.Size(529, 490);
+            this.dgvSinCategorias.Size = new System.Drawing.Size(397, 397);
             this.dgvSinCategorias.TabIndex = 0;
             this.dgvSinCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dgvSinCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinCategorias_CellContentClick);
@@ -236,26 +235,28 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(551, 50);
+            this.panel4.Size = new System.Drawing.Size(413, 41);
             this.panel4.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 23);
+            this.label3.Location = new System.Drawing.Point(6, 19);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(287, 17);
+            this.label3.Size = new System.Drawing.Size(217, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = " *Solo aparecen los que no tienen Categoria";
+            this.label3.Text = " *Solo aparecen los que no tienen Categoría";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 7);
+            this.label2.Location = new System.Drawing.Point(6, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 17);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Productos";
             // 
@@ -271,10 +272,10 @@
             this.tlsHeader.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNuevo});
             this.tlsHeader.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.tlsHeader.Location = new System.Drawing.Point(1, 611);
+            this.tlsHeader.Location = new System.Drawing.Point(1, 496);
             this.tlsHeader.Name = "tlsHeader";
             this.tlsHeader.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tlsHeader.Size = new System.Drawing.Size(1173, 50);
+            this.tlsHeader.Size = new System.Drawing.Size(880, 41);
             this.tlsHeader.TabIndex = 6;
             this.tlsHeader.Text = "toolStrip1";
             // 
@@ -295,20 +296,21 @@
             this.panelHeaderItem1.Controls.Add(this.label1);
             this.panelHeaderItem1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeaderItem1.Location = new System.Drawing.Point(1, 1);
-            this.panelHeaderItem1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelHeaderItem1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelHeaderItem1.Name = "panelHeaderItem1";
-            this.panelHeaderItem1.Size = new System.Drawing.Size(1173, 50);
+            this.panelHeaderItem1.Size = new System.Drawing.Size(880, 41);
             this.panelHeaderItem1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(452, 20);
+            this.label1.Size = new System.Drawing.Size(371, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ASIGNACION DE CATEGORIA(S) A(LOS) PRODUCTO(S)";
+            this.label1.Text = "ASIGNACIÓN DE CATEGORÍA(S) A(LOS) PRODUCTO(S)";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -366,7 +368,7 @@
             // codigoProducto
             // 
             this.codigoProducto.DataPropertyName = "codigoProducto";
-            this.codigoProducto.HeaderText = "Codigo";
+            this.codigoProducto.HeaderText = "Código";
             this.codigoProducto.Name = "codigoProducto";
             this.codigoProducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -385,7 +387,7 @@
             // nombreCategoriaDataGridViewTextBoxColumn
             // 
             this.nombreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombreCategoria";
-            this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Nombre Categoria";
+            this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Nombre Categoría";
             this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
             this.nombreCategoriaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -398,20 +400,20 @@
             // idCategoria
             // 
             this.idCategoria.DataPropertyName = "idCategoria";
-            this.idCategoria.HeaderText = "categoria";
+            this.idCategoria.HeaderText = "Categoria";
             this.idCategoria.Name = "idCategoria";
             this.idCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idCategoria.Visible = false;
             // 
             // UCAsignarCategorias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UCAsignarCategorias";
-            this.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.Size = new System.Drawing.Size(1197, 682);
+            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Size = new System.Drawing.Size(898, 554);
             this.Load += new System.EventHandler(this.UCAsignarCategorias_Load);
             this.panelContainer.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -460,13 +462,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn chkBxSelect;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbxselectConCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbxselecEsPrincipal;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCategoria;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chkBxSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
     }
 }

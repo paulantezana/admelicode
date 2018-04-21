@@ -38,6 +38,7 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblSpeedPages = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -54,7 +55,6 @@
             this.panelCrud = new System.Windows.Forms.FlowLayoutPanel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idTipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreLabelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,10 +70,10 @@
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
             this.panelNavigation.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -84,7 +84,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(814, 324);
@@ -108,7 +108,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -163,6 +163,10 @@
             this.dataGridView.Size = new System.Drawing.Size(792, 187);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // tipoDocumentoBindingSource
+            // 
+            this.tipoDocumentoBindingSource.DataSource = typeof(Entidad.Configuracion.TipoDocumento);
             // 
             // panelNavigation
             // 
@@ -435,17 +439,13 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // tipoDocumentoBindingSource
-            // 
-            this.tipoDocumentoBindingSource.DataSource = typeof(Entidad.Configuracion.TipoDocumento);
-            // 
             // idTipoDocumentoDataGridViewTextBoxColumn
             // 
             this.idTipoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "idTipoDocumento";
             this.idTipoDocumentoDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idTipoDocumentoDataGridViewTextBoxColumn.Name = "idTipoDocumentoDataGridViewTextBoxColumn";
             this.idTipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idTipoDocumentoDataGridViewTextBoxColumn.Width = 46;
+            this.idTipoDocumentoDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -453,7 +453,6 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 83;
             // 
             // nombreLabelDataGridViewTextBoxColumn
             // 
@@ -462,7 +461,6 @@
             this.nombreLabelDataGridViewTextBoxColumn.Name = "nombreLabelDataGridViewTextBoxColumn";
             this.nombreLabelDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreLabelDataGridViewTextBoxColumn.Visible = false;
-            this.nombreLabelDataGridViewTextBoxColumn.Width = 118;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
@@ -470,7 +468,6 @@
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.Width = 107;
             // 
             // comprobanteDataGridViewCheckBoxColumn
             // 
@@ -485,31 +482,30 @@
             this.areaDataGridViewTextBoxColumn.HeaderText = "Área ";
             this.areaDataGridViewTextBoxColumn.Name = "areaDataGridViewTextBoxColumn";
             this.areaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.areaDataGridViewTextBoxColumn.Width = 67;
             // 
             // tipoClienteDataGridViewTextBoxColumn
             // 
             this.tipoClienteDataGridViewTextBoxColumn.DataPropertyName = "tipoCliente";
+            this.tipoClienteDataGridViewTextBoxColumn.FillWeight = 130F;
             this.tipoClienteDataGridViewTextBoxColumn.HeaderText = "Tipo de Cliente";
             this.tipoClienteDataGridViewTextBoxColumn.Name = "tipoClienteDataGridViewTextBoxColumn";
             this.tipoClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoClienteDataGridViewTextBoxColumn.Width = 130;
             // 
             // formatoDocumentoDataGridViewTextBoxColumn
             // 
             this.formatoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "formatoDocumento";
+            this.formatoDocumentoDataGridViewTextBoxColumn.FillWeight = 182F;
             this.formatoDocumentoDataGridViewTextBoxColumn.HeaderText = "Formato de Documento";
             this.formatoDocumentoDataGridViewTextBoxColumn.Name = "formatoDocumentoDataGridViewTextBoxColumn";
             this.formatoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.formatoDocumentoDataGridViewTextBoxColumn.Width = 182;
             // 
             // redimensionarModeloDataGridViewCheckBoxColumn
             // 
             this.redimensionarModeloDataGridViewCheckBoxColumn.DataPropertyName = "redimensionarModelo";
+            this.redimensionarModeloDataGridViewCheckBoxColumn.FillWeight = 162F;
             this.redimensionarModeloDataGridViewCheckBoxColumn.HeaderText = "Redimensionar Modelo";
             this.redimensionarModeloDataGridViewCheckBoxColumn.Name = "redimensionarModeloDataGridViewCheckBoxColumn";
             this.redimensionarModeloDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.redimensionarModeloDataGridViewCheckBoxColumn.Width = 161;
             // 
             // bordeDetalleDataGridViewCheckBoxColumn
             // 
@@ -517,7 +513,6 @@
             this.bordeDetalleDataGridViewCheckBoxColumn.HeaderText = "Borde Detalle";
             this.bordeDetalleDataGridViewCheckBoxColumn.Name = "bordeDetalleDataGridViewCheckBoxColumn";
             this.bordeDetalleDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.bordeDetalleDataGridViewCheckBoxColumn.Width = 101;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -526,7 +521,6 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            this.estadoDataGridViewTextBoxColumn.Width = 75;
             // 
             // EstadoString
             // 
@@ -534,26 +528,25 @@
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
-            this.EstadoString.Width = 75;
             // 
             // UCListadoDocumentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCListadoDocumentos";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(830, 340);
             this.Load += new System.EventHandler(this.UCListadoDocumentos_Load);
             this.panelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();
             this.panelNavigation.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelCrud.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

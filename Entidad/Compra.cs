@@ -62,6 +62,19 @@ namespace Entidad
         public int estadoPago { get; set; }
         public int idMoneda { get; set; }
         public int idPago { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if(estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
     public class CompraC
@@ -90,6 +103,19 @@ namespace Entidad
         public string nombreLabel { get; set; }
         public string vendedor { get; set; }
         public string nroOrdenCompra { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
     public class DetalleC
@@ -112,6 +138,19 @@ namespace Entidad
         public string nombreCombinacion { get; set; }
         public string nombrePresentacion { get; set; }
         public int idSucursal { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
     public class PagocompraC
@@ -175,6 +214,19 @@ namespace Entidad
         public int idSucursal { get; set; }
         public int idCompra { get; set; }
         public string nombreMarca { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
     public class FechaFacturacion
     {
@@ -212,6 +264,19 @@ namespace Entidad
         public int idPersonal { get; set; }
         public int idTipoDocumento { get; set; }
         public int idSucursal { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
 

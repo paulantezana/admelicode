@@ -53,31 +53,46 @@ namespace Admeli.Configuracion
 
         private async Task cargarPaises()
         {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
+            try
+            {
+                // cargando los paises
+                paisBindingSource.DataSource = await locationModel.paises();
 
-            // cargando la ubicacion geografica por defecto
-            ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.datosGenerales.idUbicacionGeografica);
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+                // cargando la ubicacion geografica por defecto
+                ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.datosGenerales.idUbicacionGeografica);
+                cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, " Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         internal async void reLoad(bool refreshData = true)
         {
-            if (refreshData)
+            try
             {
-                loadStateApp(true);
-                await cargarPaises();
-                crearNivelesPais();
-                // Cargando los datos generales
-                datosGenerales = await configModel.getDatosGenerales();
+                if (refreshData)
+                {
+                    loadStateApp(true);
+                    await cargarPaises();
+                    crearNivelesPais();
+                    // Cargando los datos generales
+                    datosGenerales = await configModel.getDatosGenerales();
 
-                // Cargando la configuracion general
-                configuracionGeneral = await configModel.getConfiGeneral();
+                    // Cargando la configuracion general
+                    configuracionGeneral = await configModel.getConfiGeneral();
 
-                lisenerKeyEvents = true; // Active lisener key events
+                    lisenerKeyEvents = true; // Active lisener key events
 
-                // MOstrando los datos en los campos
-                mostrarDatos();
+                    // MOstrando los datos en los campos
+                    mostrarDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, " reload Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -120,7 +120,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(882, 556);
@@ -133,7 +133,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 113);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(880, 382);
             this.panel1.TabIndex = 16;
             // 
@@ -699,6 +699,7 @@
             this.idCompraDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idCompraDataGridViewTextBoxColumn.Name = "idCompraDataGridViewTextBoxColumn";
             this.idCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCompraDataGridViewTextBoxColumn.Visible = false;
             this.idCompraDataGridViewTextBoxColumn.Width = 46;
             // 
             // numeroDocumentoDataGridViewTextBoxColumn
@@ -806,7 +807,7 @@
             this.tipoCompraDataGridViewTextBoxColumn.Name = "tipoCompraDataGridViewTextBoxColumn";
             this.tipoCompraDataGridViewTextBoxColumn.ReadOnly = true;
             this.tipoCompraDataGridViewTextBoxColumn.Visible = false;
-            this.tipoCompraDataGridViewTextBoxColumn.Width = 123;
+            this.tipoCompraDataGridViewTextBoxColumn.Width = 135;
             // 
             // tipoCambioDataGridViewTextBoxColumn
             // 
@@ -815,7 +816,7 @@
             this.tipoCambioDataGridViewTextBoxColumn.Name = "tipoCambioDataGridViewTextBoxColumn";
             this.tipoCambioDataGridViewTextBoxColumn.ReadOnly = true;
             this.tipoCambioDataGridViewTextBoxColumn.Visible = false;
-            this.tipoCambioDataGridViewTextBoxColumn.Width = 123;
+            this.tipoCambioDataGridViewTextBoxColumn.Width = 134;
             // 
             // observacionDataGridViewTextBoxColumn
             // 
@@ -876,7 +877,7 @@
             this.idTipoDocumentoDataGridViewTextBoxColumn.Name = "idTipoDocumentoDataGridViewTextBoxColumn";
             this.idTipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idTipoDocumentoDataGridViewTextBoxColumn.Visible = false;
-            this.idTipoDocumentoDataGridViewTextBoxColumn.Width = 155;
+            this.idTipoDocumentoDataGridViewTextBoxColumn.Width = 170;
             // 
             // nombreLabelDataGridViewTextBoxColumn
             // 
@@ -911,16 +912,16 @@
             this.idCajaSesionDataGridViewTextBoxColumn.Name = "idCajaSesionDataGridViewTextBoxColumn";
             this.idCajaSesionDataGridViewTextBoxColumn.ReadOnly = true;
             this.idCajaSesionDataGridViewTextBoxColumn.Visible = false;
-            this.idCajaSesionDataGridViewTextBoxColumn.Width = 104;
+            this.idCajaSesionDataGridViewTextBoxColumn.Width = 142;
             // 
             // UCCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCCompras";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(898, 572);
             this.Load += new System.EventHandler(this.UCCompras_Load);
             this.panelContainer.ResumeLayout(false);

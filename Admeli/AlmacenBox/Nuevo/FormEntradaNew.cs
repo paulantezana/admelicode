@@ -133,29 +133,35 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private async void cargarDatosNotaEntrada()
         {
-            //datos
-
-            if (currentNotaEntrada.idCompra != "0")
+            try
             {
-                txtNroDocumento.Text = currentNotaEntrada.numeroDocumento;
-                txtNombreProveedor.Text = currentNotaEntrada.nombreProveedor;
-                txtDocumentoProveedor.Text = currentNotaEntrada.rucDni;
-                currentCompraNEntrada = new CompraNEntrada();
-                currentCompraNEntrada.idCompra =Convert.ToInt32(currentNotaEntrada.idCompra);
-            }
-        
-            // serie
-            txtSerie.Text = currentNotaEntrada.serie;
-            txtCorrelativo.Text = currentNotaEntrada.correlativo;
-            cbxAlmacen.SelectedValue = currentNotaEntrada.idAlmacen;
-            dtpFechaEntrega.Value = currentNotaEntrada.fechaEntrada.date;
-            txtObservaciones.Text = currentNotaEntrada.observacion;
-            chbxEntrega.Checked = currentNotaEntrada.estadoEntrega==1? true : false;       
-            // cargar detalles de la nota
-            listcargaCompraSinNota = await entradaModel.cargarDetallesNota(currentNotaEntrada.idNotaEntrada);
-            cargaCompraSinNotaBindingSource.DataSource = listcargaCompraSinNota;
-            btnImportarCompra.Enabled = false;
+                //datos
 
+                if (currentNotaEntrada.idCompra != "0")
+                {
+                    txtNroDocumento.Text = currentNotaEntrada.numeroDocumento;
+                    txtNombreProveedor.Text = currentNotaEntrada.nombreProveedor;
+                    txtDocumentoProveedor.Text = currentNotaEntrada.rucDni;
+                    currentCompraNEntrada = new CompraNEntrada();
+                    currentCompraNEntrada.idCompra = Convert.ToInt32(currentNotaEntrada.idCompra);
+                }
+
+                // serie
+                txtSerie.Text = currentNotaEntrada.serie;
+                txtCorrelativo.Text = currentNotaEntrada.correlativo;
+                cbxAlmacen.SelectedValue = currentNotaEntrada.idAlmacen;
+                dtpFechaEntrega.Value = currentNotaEntrada.fechaEntrada.date;
+                txtObservaciones.Text = currentNotaEntrada.observacion;
+                chbxEntrega.Checked = currentNotaEntrada.estadoEntrega == 1 ? true : false;
+                // cargar detalles de la nota
+                listcargaCompraSinNota = await entradaModel.cargarDetallesNota(currentNotaEntrada.idNotaEntrada);
+                cargaCompraSinNotaBindingSource.DataSource = listcargaCompraSinNota;
+                btnImportarCompra.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Caragar Datos Nota Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void cargarObjetos()
         {   
@@ -179,25 +185,39 @@ namespace Admeli.AlmacenBox.Nuevo
         }
         private async void cargarAlmacenes()
         {
-            listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);          
-            almacenBindingSource.DataSource = listAlmacen;
-            cbxAlmacen.SelectedIndex = 0;
-            currentAlmacen = listAlmacen[0];
-            if(nuevo)
-                cargarDocCorrelativo(currentAlmacen.idAlmacen);
+            try
+            {
+                listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
+                almacenBindingSource.DataSource = listAlmacen;
+                cbxAlmacen.SelectedIndex = 0;
+                currentAlmacen = listAlmacen[0];
+                if (nuevo)
+                    cargarDocCorrelativo(currentAlmacen.idAlmacen);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Almacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
         private async void cargarDocCorrelativo(int idAlmacen)
         {
-            if (nuevo)
+            try
             {
-                listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen, 7);
-                currentCorrelativoA = listCorrelativoA[0];
-                txtSerie.Text = currentCorrelativoA.serie;
-                txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+                if (nuevo)
+                {
+                    listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen, 7);
+                    currentCorrelativoA = listCorrelativoA[0];
+                    txtSerie.Text = currentCorrelativoA.serie;
+                    txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
 
+                }
             }
-           
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Doc Correlativo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private async void cargarProductos()
@@ -253,26 +273,32 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private async void btnImportarCompra_Click(object sender, EventArgs e)
         {
-            FormBuscarCompra formBuscarCompra = new FormBuscarCompra();
-            formBuscarCompra.ShowDialog();
-
-            currentCompraNEntrada = formBuscarCompra.currentCompraNEntrada;
-
-            if(currentCompraNEntrada!=null)
+            try
             {
-                // cargar informacion
-                txtNroDocumento.Text = currentCompraNEntrada.numeroDocumento;
-                txtNombreProveedor.Text = currentCompraNEntrada.nombreProveedor;
-                txtDocumentoProveedor.Text = currentCompraNEntrada.rucDni;
-                listcargaCompraSinNota=  await entradaModel.CargarCompraSinNota(currentCompraNEntrada.idCompra);
-                cargaCompraSinNotaBindingSource.DataSource = null;
-                cargaCompraSinNotaBindingSource.DataSource = listcargaCompraSinNota;
+                FormBuscarCompra formBuscarCompra = new FormBuscarCompra();
+                formBuscarCompra.ShowDialog();
 
-                btnQuitar.Enabled = true;
+                currentCompraNEntrada = formBuscarCompra.currentCompraNEntrada;
+
+                if (currentCompraNEntrada != null)
+                {
+                    // cargar informacion
+                    txtNroDocumento.Text = currentCompraNEntrada.numeroDocumento;
+                    txtNombreProveedor.Text = currentCompraNEntrada.nombreProveedor;
+                    txtDocumentoProveedor.Text = currentCompraNEntrada.rucDni;
+                    listcargaCompraSinNota = await entradaModel.CargarCompraSinNota(currentCompraNEntrada.idCompra);
+                    cargaCompraSinNotaBindingSource.DataSource = null;
+                    cargaCompraSinNotaBindingSource.DataSource = listcargaCompraSinNota;
+
+                    btnQuitar.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "btnImportarCompra_Click", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            
-            
+
         }
 
         private void cbxCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -360,11 +386,17 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private async void cargarPresentaciones(int idProducto, int tipo)
         {
-            List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
-            currentPresentacion = presentaciones[0];
+            try
+            {
+                List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
+                currentPresentacion = presentaciones[0];
 
-            cbxDescripcion.Text = currentPresentacion.descripcion;
-          
+                cbxDescripcion.Text = currentPresentacion.descripcion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Presentaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void cargarAlternativas(int tipo)
@@ -506,48 +538,56 @@ namespace Admeli.AlmacenBox.Nuevo
 
             }
             comprobarNota.dato = listint;
-            ResponseNota responseNota= await entradaModel.verifcar(comprobarNota);
-
-            if (responseNota.cumple == 1)
+            try
             {
-                listElementosNotaEntrada.Add(almacenNEntrada);
-                listElementosNotaEntrada.Add(compraEntradaGuardar);
-                listElementosNotaEntrada.Add(DetallesNota);
-                listElementosNotaEntrada.Add(dictionary);
-                listElementosNotaEntrada.Add(object4);
-                listElementosNotaEntrada.Add(object5);
-                listElementosNotaEntrada.Add(object6);
-                listElementosNotaEntrada.Add(object7);
-                ResponseNotaGuardar notaGuardar = null;
-                if (nuevo)
+                ResponseNota responseNota = await entradaModel.verifcar(comprobarNota);
+
+                if (responseNota.cumple == 1)
                 {
-                    notaGuardar = await entradaModel.guardar(listElementosNotaEntrada);
+                    listElementosNotaEntrada.Add(almacenNEntrada);
+                    listElementosNotaEntrada.Add(compraEntradaGuardar);
+                    listElementosNotaEntrada.Add(DetallesNota);
+                    listElementosNotaEntrada.Add(dictionary);
+                    listElementosNotaEntrada.Add(object4);
+                    listElementosNotaEntrada.Add(object5);
+                    listElementosNotaEntrada.Add(object6);
+                    listElementosNotaEntrada.Add(object7);
+                    ResponseNotaGuardar notaGuardar = null;
+                    if (nuevo)
+                    {
+                        notaGuardar = await entradaModel.guardar(listElementosNotaEntrada);
+
+                    }
+                    else
+                    {
+                        notaGuardar = await entradaModel.modificar(listElementosNotaEntrada);
+                    }
+
+                    if (notaGuardar.id > 0)
+                    {
+                        MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+
+
+                    }
 
                 }
+
                 else
                 {
-                    notaGuardar = await entradaModel.modificar(listElementosNotaEntrada);
+
+                    MessageBox.Show(" no cumple" + "exite: " + responseNota.existeProducto + "  producto: " + responseNota.idProducto, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dictionary.Clear();
+                    DetallesNota.Clear();
+                    listint.Clear();
+                    responseNota = new ResponseNota();
                 }
-
-                if (notaGuardar.id > 0)
-                {
-                    MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-
-
-                }
-
             }
-            else
+            catch (Exception ex)
             {
-
-                MessageBox.Show(" no cumple" + "exite: " + responseNota.existeProducto + "  producto: " + responseNota.idProducto, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dictionary.Clear();
-                DetallesNota.Clear();
-                listint.Clear();
-                responseNota = new ResponseNota();
+                MessageBox.Show("Error: " + ex.Message, "btnGuardar_Click", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
+
         }
 
         private void dgvDetalleNota_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

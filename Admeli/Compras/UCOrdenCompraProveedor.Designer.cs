@@ -113,7 +113,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(881, 545);
@@ -126,7 +126,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 113);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(879, 371);
             this.panel1.TabIndex = 12;
             // 
@@ -678,6 +678,7 @@
             this.idOrdenCompraDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idOrdenCompraDataGridViewTextBoxColumn.Name = "idOrdenCompraDataGridViewTextBoxColumn";
             this.idOrdenCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idOrdenCompraDataGridViewTextBoxColumn.Visible = false;
             this.idOrdenCompraDataGridViewTextBoxColumn.Width = 46;
             // 
             // serieDataGridViewTextBoxColumn
@@ -776,7 +777,7 @@
             this.estadoCompraDataGridViewTextBoxColumn.Name = "estadoCompraDataGridViewTextBoxColumn";
             this.estadoCompraDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoCompraDataGridViewTextBoxColumn.Visible = false;
-            this.estadoCompraDataGridViewTextBoxColumn.Width = 136;
+            this.estadoCompraDataGridViewTextBoxColumn.Width = 149;
             // 
             // fechaDataGridViewTextBoxColumn
             // 
@@ -794,7 +795,7 @@
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.Name = "idUbicacionGeograficaDataGridViewTextBoxColumn";
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.ReadOnly = true;
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.Visible = false;
-            this.idUbicacionGeograficaDataGridViewTextBoxColumn.Width = 167;
+            this.idUbicacionGeograficaDataGridViewTextBoxColumn.Width = 183;
             // 
             // direccionProveedorDataGridViewTextBoxColumn
             // 
@@ -803,7 +804,7 @@
             this.direccionProveedorDataGridViewTextBoxColumn.Name = "direccionProveedorDataGridViewTextBoxColumn";
             this.direccionProveedorDataGridViewTextBoxColumn.ReadOnly = true;
             this.direccionProveedorDataGridViewTextBoxColumn.Visible = false;
-            this.direccionProveedorDataGridViewTextBoxColumn.Width = 167;
+            this.direccionProveedorDataGridViewTextBoxColumn.Width = 183;
             // 
             // idCompraDataGridViewTextBoxColumn
             // 
@@ -864,9 +865,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCOrdenCompraProveedor";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(897, 561);
             this.Load += new System.EventHandler(this.UCOrdenCompraProveedor_Load);
             this.panelContainer.ResumeLayout(false);

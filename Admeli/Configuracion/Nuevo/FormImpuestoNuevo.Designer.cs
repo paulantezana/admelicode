@@ -329,7 +329,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "FormImpuestoNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormImpuestoNuevo";
+            this.Text = "Impuesto Nuevo";
             this.panelFooter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -263,10 +263,16 @@ namespace Admeli.AlmacenBox.Nuevo
             txtObservacion.Text = currentguiaRemision.observacion;
 
 
-
-            // cargar detalles de la nota
-            listDetalleNotaSalida = await guiaRemisionModel.cargarDetallesNota(currentguiaRemision.idGuiaRemision);
-            detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+            try
+            {
+                // cargar detalles de la nota
+                listDetalleNotaSalida = await guiaRemisionModel.cargarDetallesNota(currentguiaRemision.idGuiaRemision);
+                detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Detalle Nota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
         }
@@ -280,28 +286,41 @@ namespace Admeli.AlmacenBox.Nuevo
             listObjetos = new List<object>();
         }
         private async  void cargarMotivo(){
-
-
-            listMotivoTraslado = await guiaRemisionModel.Motivo();
-            motivoTrasladoBindingSource.DataSource = listMotivoTraslado;
-            if (!nuevo)
+            try
             {
 
-                cbxMotivo.SelectedValue = currentguiaRemision.idMotivoTraslado;
+                listMotivoTraslado = await guiaRemisionModel.Motivo();
+                motivoTrasladoBindingSource.DataSource = listMotivoTraslado;
+                if (!nuevo)
+                {
 
+                    cbxMotivo.SelectedValue = currentguiaRemision.idMotivoTraslado;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Carga Motivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-         }
+        }
 
         private async void cargarEmpresa()
         {
-            listEmpresaTransporte = await guiaRemisionModel.ETransporte();
-            empresaTransporteBindingSource.DataSource = listEmpresaTransporte;
-            if (!nuevo)
+            try
             {
+                listEmpresaTransporte = await guiaRemisionModel.ETransporte();
+                empresaTransporteBindingSource.DataSource = listEmpresaTransporte;
+                if (!nuevo)
+                {
 
-                cbxETransporte.SelectedValue = currentguiaRemision.idEmpresaTransporte;
+                    cbxETransporte.SelectedValue = currentguiaRemision.idEmpresaTransporte;
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Empresa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -316,16 +335,22 @@ namespace Admeli.AlmacenBox.Nuevo
       
         private async void cargarDocCorrelativo(int idAlmacen)
         {
-
-            if (nuevo)
+            try
             {
-                listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen,9);
-                currentCorrelativoA = listCorrelativoA[0];
-                txtSerie.Text = currentCorrelativoA.serie;
-                txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+                if (nuevo)
+                {
+                    listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen, 9);
+                    currentCorrelativoA = listCorrelativoA[0];
+                    txtSerie.Text = currentCorrelativoA.serie;
+                    txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
 
+                }
             }
-          
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Doc Correlativo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private async void cargarProductos()
@@ -585,38 +610,45 @@ namespace Admeli.AlmacenBox.Nuevo
             listObjetos.Add(almacenGuardarRemision);
 
 
-
-            ResponseNotaGuardar responseNotaGuardar = null;
-            Response response = null;
-            if (nuevo)
+            try
             {
+                ResponseNotaGuardar responseNotaGuardar = null;
+                Response response = null;
+                if (nuevo)
+                {
 
-                responseNotaGuardar = await guiaRemisionModel.guardar(listObjetos);
-                guardar.Enabled = false;
+                    responseNotaGuardar = await guiaRemisionModel.guardar(listObjetos);
+                    guardar.Enabled = false;
+                }
+                else
+                {
+                    responseNotaGuardar = new ResponseNotaGuardar();
+                    response = await guiaRemisionModel.modificar(listObjetos);
+                    responseNotaGuardar.id = response.id;
+                    responseNotaGuardar.msj = response.msj;
+                }
+
+
+
+                if (responseNotaGuardar.id > 0)
+                {
+
+
+                    MessageBox.Show(responseNotaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListDetallesGuiaRemision.Clear();
+                    guardar.Enabled = false;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(responseNotaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                responseNotaGuardar = new ResponseNotaGuardar();
-                response = await guiaRemisionModel.modificar(listObjetos);
-                responseNotaGuardar.id = response.id;
-                responseNotaGuardar.msj = response.msj;
-            }
-             
-
-            if(responseNotaGuardar.id > 0 )
-            {
-
-
-                MessageBox.Show(responseNotaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ListDetallesGuiaRemision.Clear();
-                guardar.Enabled = false;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show(responseNotaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
+                MessageBox.Show("Error: " + ex.Message, "Response Nota Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

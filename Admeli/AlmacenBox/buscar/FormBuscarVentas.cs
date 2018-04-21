@@ -83,9 +83,15 @@ namespace Admeli.AlmacenBox.buscar
 
         private async void cargarVentas()
         {
-
-            listVentasNSalida = await NotaSalidaModel.VentasSinNotasSalida(ConfigModel.sucursal.idSucursal);
-            ventasNSalidaBindingSource.DataSource = listVentasNSalida; 
+            try
+            {
+                listVentasNSalida = await NotaSalidaModel.VentasSinNotasSalida(ConfigModel.sucursal.idSucursal);
+                ventasNSalidaBindingSource.DataSource = listVentasNSalida;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
         #endregion

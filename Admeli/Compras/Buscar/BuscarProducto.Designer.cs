@@ -293,7 +293,7 @@
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.ColumnHeadersHeight = 26;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProductoDataGridViewTextBoxColumn,
             this.cantidadFraccionDataGridViewCheckBoxColumn,
@@ -377,7 +377,7 @@
             // descripcionCortaDataGridViewTextBoxColumn
             // 
             this.descripcionCortaDataGridViewTextBoxColumn.DataPropertyName = "descripcionCorta";
-            this.descripcionCortaDataGridViewTextBoxColumn.HeaderText = "Descripcion Corta";
+            this.descripcionCortaDataGridViewTextBoxColumn.HeaderText = "Descripción Corta";
             this.descripcionCortaDataGridViewTextBoxColumn.Name = "descripcionCortaDataGridViewTextBoxColumn";
             this.descripcionCortaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -558,7 +558,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStripNavigation);
             this.Name = "BuscarProducto";
-            this.Text = "BuscarProducto";
+            this.Text = "Buscar Producto";
             this.Load += new System.EventHandler(this.BuscarProducto_Load);
             this.toolStripNavigation.ResumeLayout(false);
             this.toolStripNavigation.PerformLayout();

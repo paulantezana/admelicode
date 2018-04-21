@@ -120,7 +120,7 @@
             this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
-            this.panelContainer.Size = new System.Drawing.Size(943, 487);
+            this.panelContainer.Size = new System.Drawing.Size(925, 487);
             this.panelContainer.TabIndex = 8;
             // 
             // panel1
@@ -130,7 +130,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 113);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(941, 313);
+            this.panel1.Size = new System.Drawing.Size(923, 313);
             this.panel1.TabIndex = 20;
             // 
             // dataGridView
@@ -140,7 +140,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -202,7 +202,7 @@
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.RowTemplate.Height = 30;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(921, 293);
+            this.dataGridView.Size = new System.Drawing.Size(903, 293);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
@@ -219,7 +219,7 @@
             this.panelNavigation.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelNavigation.Location = new System.Drawing.Point(1, 426);
             this.panelNavigation.Name = "panelNavigation";
-            this.panelNavigation.Size = new System.Drawing.Size(941, 60);
+            this.panelNavigation.Size = new System.Drawing.Size(923, 60);
             this.panelNavigation.TabIndex = 22;
             // 
             // label2
@@ -227,7 +227,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label2.Location = new System.Drawing.Point(827, 13);
+            this.label2.Location = new System.Drawing.Point(809, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 35);
             this.label2.TabIndex = 11;
@@ -245,7 +245,7 @@
             this.lblSpeedPages.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpeedPages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
             this.lblSpeedPages.isPassword = false;
-            this.lblSpeedPages.Location = new System.Drawing.Point(886, 13);
+            this.lblSpeedPages.Location = new System.Drawing.Point(868, 13);
             this.lblSpeedPages.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblSpeedPages.Name = "lblSpeedPages";
             this.lblSpeedPages.Size = new System.Drawing.Size(45, 35);
@@ -266,7 +266,7 @@
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.btnPrevious);
             this.panel5.Controls.Add(this.btnNext);
-            this.panel5.Location = new System.Drawing.Point(298, 3);
+            this.panel5.Location = new System.Drawing.Point(289, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(344, 55);
             this.panel5.TabIndex = 0;
@@ -431,7 +431,7 @@
             this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTools.Location = new System.Drawing.Point(1, 61);
             this.panelTools.Name = "panelTools";
-            this.panelTools.Size = new System.Drawing.Size(941, 52);
+            this.panelTools.Size = new System.Drawing.Size(923, 52);
             this.panelTools.TabIndex = 26;
             // 
             // btnConsultar
@@ -588,7 +588,7 @@
             this.panelCrud.Location = new System.Drawing.Point(1, 1);
             this.panelCrud.Name = "panelCrud";
             this.panelCrud.Padding = new System.Windows.Forms.Padding(10, 15, 0, 0);
-            this.panelCrud.Size = new System.Drawing.Size(941, 60);
+            this.panelCrud.Size = new System.Drawing.Size(923, 60);
             this.panelCrud.TabIndex = 23;
             // 
             // btnNuevo
@@ -717,7 +717,7 @@
             this.idGuiaRemisionDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idGuiaRemisionDataGridViewTextBoxColumn.Name = "idGuiaRemisionDataGridViewTextBoxColumn";
             this.idGuiaRemisionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idGuiaRemisionDataGridViewTextBoxColumn.Width = 46;
+            this.idGuiaRemisionDataGridViewTextBoxColumn.Visible = false;
             // 
             // serieDataGridViewTextBoxColumn
             // 
@@ -725,7 +725,6 @@
             this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
             this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
             this.serieDataGridViewTextBoxColumn.ReadOnly = true;
-            this.serieDataGridViewTextBoxColumn.Width = 67;
             // 
             // correlativoDataGridViewTextBoxColumn
             // 
@@ -733,7 +732,6 @@
             this.correlativoDataGridViewTextBoxColumn.HeaderText = "Correlativo";
             this.correlativoDataGridViewTextBoxColumn.Name = "correlativoDataGridViewTextBoxColumn";
             this.correlativoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativoDataGridViewTextBoxColumn.Width = 103;
             // 
             // fechaDataGridViewTextBoxColumn
             // 
@@ -741,39 +739,38 @@
             this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
             this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
             this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaDataGridViewTextBoxColumn.Width = 72;
             // 
             // marcaYPlacaDataGridViewTextBoxColumn
             // 
             this.marcaYPlacaDataGridViewTextBoxColumn.DataPropertyName = "marcaYPlaca";
+            this.marcaYPlacaDataGridViewTextBoxColumn.FillWeight = 125F;
             this.marcaYPlacaDataGridViewTextBoxColumn.HeaderText = "Marca y Placa";
             this.marcaYPlacaDataGridViewTextBoxColumn.Name = "marcaYPlacaDataGridViewTextBoxColumn";
             this.marcaYPlacaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.marcaYPlacaDataGridViewTextBoxColumn.Width = 123;
             // 
             // licenciaDeConducirDataGridViewTextBoxColumn
             // 
             this.licenciaDeConducirDataGridViewTextBoxColumn.DataPropertyName = "licenciaDeConducir";
+            this.licenciaDeConducirDataGridViewTextBoxColumn.FillWeight = 168F;
             this.licenciaDeConducirDataGridViewTextBoxColumn.HeaderText = "Licencia de Conducir";
             this.licenciaDeConducirDataGridViewTextBoxColumn.Name = "licenciaDeConducirDataGridViewTextBoxColumn";
             this.licenciaDeConducirDataGridViewTextBoxColumn.ReadOnly = true;
-            this.licenciaDeConducirDataGridViewTextBoxColumn.Width = 168;
             // 
             // direccionOrigenDataGridViewTextBoxColumn
             // 
             this.direccionOrigenDataGridViewTextBoxColumn.DataPropertyName = "direccionOrigen";
+            this.direccionOrigenDataGridViewTextBoxColumn.FillWeight = 160F;
             this.direccionOrigenDataGridViewTextBoxColumn.HeaderText = "Dirección de Origen";
             this.direccionOrigenDataGridViewTextBoxColumn.Name = "direccionOrigenDataGridViewTextBoxColumn";
             this.direccionOrigenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionOrigenDataGridViewTextBoxColumn.Width = 160;
             // 
             // direccionDestinoDataGridViewTextBoxColumn
             // 
             this.direccionDestinoDataGridViewTextBoxColumn.DataPropertyName = "direccionDestino";
+            this.direccionDestinoDataGridViewTextBoxColumn.FillWeight = 160F;
             this.direccionDestinoDataGridViewTextBoxColumn.HeaderText = "Dirección de Destino";
             this.direccionDestinoDataGridViewTextBoxColumn.Name = "direccionDestinoDataGridViewTextBoxColumn";
             this.direccionDestinoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDestinoDataGridViewTextBoxColumn.Width = 164;
             // 
             // origenDataGridViewTextBoxColumn
             // 
@@ -782,7 +779,6 @@
             this.origenDataGridViewTextBoxColumn.Name = "origenDataGridViewTextBoxColumn";
             this.origenDataGridViewTextBoxColumn.ReadOnly = true;
             this.origenDataGridViewTextBoxColumn.Visible = false;
-            this.origenDataGridViewTextBoxColumn.Width = 76;
             // 
             // destinoDataGridViewTextBoxColumn
             // 
@@ -791,7 +787,6 @@
             this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
             this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
             this.destinoDataGridViewTextBoxColumn.Visible = false;
-            this.destinoDataGridViewTextBoxColumn.Width = 80;
             // 
             // observacionDataGridViewTextBoxColumn
             // 
@@ -799,7 +794,6 @@
             this.observacionDataGridViewTextBoxColumn.HeaderText = "Observación";
             this.observacionDataGridViewTextBoxColumn.Name = "observacionDataGridViewTextBoxColumn";
             this.observacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.observacionDataGridViewTextBoxColumn.Width = 112;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -808,7 +802,6 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            this.estadoDataGridViewTextBoxColumn.Width = 75;
             // 
             // EstadoString
             // 
@@ -816,7 +809,6 @@
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
-            this.EstadoString.Width = 75;
             // 
             // idTipoDocumentoDataGridViewTextBoxColumn
             // 
@@ -825,7 +817,6 @@
             this.idTipoDocumentoDataGridViewTextBoxColumn.Name = "idTipoDocumentoDataGridViewTextBoxColumn";
             this.idTipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idTipoDocumentoDataGridViewTextBoxColumn.Visible = false;
-            this.idTipoDocumentoDataGridViewTextBoxColumn.Width = 155;
             // 
             // idEmpresaTransporteDataGridViewTextBoxColumn
             // 
@@ -834,7 +825,6 @@
             this.idEmpresaTransporteDataGridViewTextBoxColumn.Name = "idEmpresaTransporteDataGridViewTextBoxColumn";
             this.idEmpresaTransporteDataGridViewTextBoxColumn.ReadOnly = true;
             this.idEmpresaTransporteDataGridViewTextBoxColumn.Visible = false;
-            this.idEmpresaTransporteDataGridViewTextBoxColumn.Width = 175;
             // 
             // idMotivoTrasladoDataGridViewTextBoxColumn
             // 
@@ -843,7 +833,6 @@
             this.idMotivoTrasladoDataGridViewTextBoxColumn.Name = "idMotivoTrasladoDataGridViewTextBoxColumn";
             this.idMotivoTrasladoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idMotivoTrasladoDataGridViewTextBoxColumn.Visible = false;
-            this.idMotivoTrasladoDataGridViewTextBoxColumn.Width = 151;
             // 
             // razonSocialDataGridViewTextBoxColumn
             // 
@@ -852,7 +841,6 @@
             this.razonSocialDataGridViewTextBoxColumn.Name = "razonSocialDataGridViewTextBoxColumn";
             this.razonSocialDataGridViewTextBoxColumn.ReadOnly = true;
             this.razonSocialDataGridViewTextBoxColumn.Visible = false;
-            this.razonSocialDataGridViewTextBoxColumn.Width = 107;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -861,7 +849,6 @@
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreDataGridViewTextBoxColumn.Visible = false;
-            this.nombreDataGridViewTextBoxColumn.Width = 83;
             // 
             // idNotaSalidaDataGridViewTextBoxColumn
             // 
@@ -870,7 +857,6 @@
             this.idNotaSalidaDataGridViewTextBoxColumn.Name = "idNotaSalidaDataGridViewTextBoxColumn";
             this.idNotaSalidaDataGridViewTextBoxColumn.ReadOnly = true;
             this.idNotaSalidaDataGridViewTextBoxColumn.Visible = false;
-            this.idNotaSalidaDataGridViewTextBoxColumn.Width = 128;
             // 
             // motivoDataGridViewTextBoxColumn
             // 
@@ -879,7 +865,6 @@
             this.motivoDataGridViewTextBoxColumn.Name = "motivoDataGridViewTextBoxColumn";
             this.motivoDataGridViewTextBoxColumn.ReadOnly = true;
             this.motivoDataGridViewTextBoxColumn.Visible = false;
-            this.motivoDataGridViewTextBoxColumn.Width = 75;
             // 
             // numeroDocumentoDataGridViewTextBoxColumn
             // 
@@ -888,7 +873,6 @@
             this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
             this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.numeroDocumentoDataGridViewTextBoxColumn.Visible = false;
-            this.numeroDocumentoDataGridViewTextBoxColumn.Width = 163;
             // 
             // idAlmacenDataGridViewTextBoxColumn
             // 
@@ -897,7 +881,6 @@
             this.idAlmacenDataGridViewTextBoxColumn.Name = "idAlmacenDataGridViewTextBoxColumn";
             this.idAlmacenDataGridViewTextBoxColumn.ReadOnly = true;
             this.idAlmacenDataGridViewTextBoxColumn.Visible = false;
-            this.idAlmacenDataGridViewTextBoxColumn.Width = 102;
             // 
             // UCGuiaRemision
             // 
@@ -907,7 +890,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCGuiaRemision";
             this.Padding = new System.Windows.Forms.Padding(8);
-            this.Size = new System.Drawing.Size(959, 503);
+            this.Size = new System.Drawing.Size(941, 503);
             this.Load += new System.EventHandler(this.UCGuiaRemision_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCGuiaRemision_Paint);
             this.panelContainer.ResumeLayout(false);

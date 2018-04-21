@@ -62,19 +62,33 @@ namespace Admeli.AlmacenBox.buscar
 
         internal async void reLoad()
         {
-            await cargarPaises();
-            crearNivelesPais();
-           
+            try
+            {
+                await cargarPaises();
+                crearNivelesPais();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Reload Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private async Task cargarPaises()
         {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
+            try
+            {
+                // cargando los paises
+                paisBindingSource.DataSource = await locationModel.paises();
 
-            // cargando la ubicacion geografica por defecto
-            ubicacionGeografica = await locationModel.ubigeoActual(idUbicacionGeografia != 0? idUbicacionGeografia : ConfigModel.sucursal.idUbicacionGeografica);
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+                // cargando la ubicacion geografica por defecto
+                ubicacionGeografica = await locationModel.ubigeoActual(idUbicacionGeografia != 0 ? idUbicacionGeografia : ConfigModel.sucursal.idUbicacionGeografica);
+                cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "CargarPaises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
         } 
