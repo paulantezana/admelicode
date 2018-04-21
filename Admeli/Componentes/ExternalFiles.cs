@@ -50,18 +50,19 @@ namespace Admeli.Componentes
                     DataTable dt = new DataTable();
                     oda.Fill(dt);
                     connExcel.Close();
-
-                    // Tratamiento de la tabla
-                    DataRow row = dt.Rows[0];
-                    int index = 0;
-                    foreach (var item in row.ItemArray)
-                    {
-                        dt.Columns[index].ColumnName = (item.ToString() == "") ? " " : item.ToString();
-                        index++;
-                    }
-                    dt.Rows[0].Delete();
-                    dt.AcceptChanges();
                     return dt;
+
+                    //// Tratamiento de la tabla
+                    //DataRow row = dt.Rows[0];
+                    //int index = 0;
+                    //foreach (var item in row.ItemArray)
+                    //{
+                    //    dt.Columns[index].ColumnName = (item.ToString() == "") ? " " : item.ToString();
+                    //    index++;
+                    //}
+                    //dt.Rows[0].Delete();
+                    //dt.AcceptChanges();
+                    //return dt;
                 }
             }
             catch (Exception ex)

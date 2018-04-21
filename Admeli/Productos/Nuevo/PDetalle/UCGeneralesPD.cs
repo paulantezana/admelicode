@@ -18,9 +18,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
     {
         public UnidadMedidaModel unidadMedidaModel = new UnidadMedidaModel();
         public MarcaModel marcaModel = new MarcaModel();
+        public CategoriaModel categoriaModel = new CategoriaModel();
         public ProductoModel productoModel = new ProductoModel();
         public PresentacionModel presentacionModel = new PresentacionModel();
-
+        private CategoriaProducto catProducto = new CategoriaProducto();
         private bool isFieldsValid { get; set; }
         public bool lisenerKeyEvents { get; internal set; }
         private FormProductoNuevo formProductoNuevo;
@@ -48,9 +49,29 @@ namespace Admeli.Productos.Nuevo.PDetalle
             cargarUnidadesMedida();
             cargarDatosModificar();
             cargarPresentacion();
+            cargarCategorias();
         }
         #endregion
-
+        private async void cargarCategorias() {
+            if (!formProductoNuevo.nuevo)
+            {
+                catProducto = await categoriaModel.categoriaProducto(formProductoNuevo.currentIDProducto);
+                List<Categoria> categoriasDelProducto = catProducto.todo;
+                //Mostrar las categorias separadas por comas
+                if (categoriasDelProducto.Count <= 0) { return; }
+                string textoCategoria = "";
+                foreach (Categoria categoria in categoriasDelProducto)
+                {
+                    textoCategoria += categoria.nombreCategoria + " ,";
+                }
+                textoCategoria = textoCategoria.Substring(0, textoCategoria.Length - 1);
+                textCategoria.Text = textoCategoria;
+            }
+        }
+        public void cambioTextoCategoria(string nuevoTexto)
+        {
+            textCategoria.Text = nuevoTexto;
+        }
         #region ========================================== PAINT ==========================================
         private void UCGeneralesPD_Paint(object sender, PaintEventArgs e)
         {
@@ -114,10 +135,11 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormElegirCategoria formElegir = new FormElegirCategoria();
+            FormElegirCategoria formElegir = new FormElegirCategoria(formProductoNuevo,this, formProductoNuevo.currentIDProducto);
             formElegir.ShowDialog();
+            //FormElegirCategoria formElegir = new FormElegirCategoria();
+            //formElegir.ShowDialog();
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             // Validando los campos

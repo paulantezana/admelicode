@@ -92,6 +92,21 @@ namespace Modelo
             }
         }
 
+        public async Task<List<AlternativaCombinacion>> generarCombinacionAlternativa(int idProducto)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/malterna/1
+                List<AlternativaCombinacion> list = await webService.GET<List<AlternativaCombinacion>>("malterna", String.Format("{0}", idProducto));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         //verificarcodigosku
         public async Task<List<AlternativaCombinacion>> verificarCodigoSKU(string  codigo, int idCombinacionAlternativa)
         {

@@ -52,10 +52,6 @@ namespace Entidad
     {
         public string impuestos { get; set; }
     }
-    public class listaEnviada
-    {
-        public List<object> listita { get; set; }
-    }
 
     public class ImpuestosSiglas
     {

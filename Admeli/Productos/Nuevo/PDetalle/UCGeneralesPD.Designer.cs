@@ -34,7 +34,7 @@
             this.chkActivoProducto = new Bunifu.Framework.UI.BunifuCheckbox();
             this.btnAddUnidadMedida = new System.Windows.Forms.Button();
             this.btnAddMarca = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCategorias = new System.Windows.Forms.Button();
             this.unidadMedidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.marcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -98,7 +98,7 @@
             this.chkActivoProducto.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoProducto.ForeColor = System.Drawing.Color.White;
             this.chkActivoProducto.Location = new System.Drawing.Point(19, 230);
-            this.chkActivoProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkActivoProducto.Margin = new System.Windows.Forms.Padding(4);
             this.chkActivoProducto.Name = "chkActivoProducto";
             this.chkActivoProducto.Size = new System.Drawing.Size(20, 20);
             this.chkActivoProducto.TabIndex = 51;
@@ -141,24 +141,24 @@
             this.btnAddMarca.UseVisualStyleBackColor = false;
             this.btnAddMarca.Click += new System.EventHandler(this.btnAddMarca_Click);
             // 
-            // button2
+            // btnCategorias
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(708, 65);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 39);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "...";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
+            this.btnCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategorias.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.btnCategorias.FlatAppearance.BorderSize = 0;
+            this.btnCategorias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategorias.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategorias.ForeColor = System.Drawing.Color.White;
+            this.btnCategorias.Location = new System.Drawing.Point(708, 65);
+            this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.Size = new System.Drawing.Size(40, 39);
+            this.btnCategorias.TabIndex = 48;
+            this.btnCategorias.Text = "...";
+            this.btnCategorias.UseVisualStyleBackColor = false;
+            this.btnCategorias.Click += new System.EventHandler(this.button2_Click);
             // 
             // unidadMedidaBindingSource
             // 
@@ -184,7 +184,7 @@
             // 
             this.textDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDescripcion.Location = new System.Drawing.Point(16, 287);
-            this.textDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.textDescripcion.Multiline = true;
             this.textDescripcion.Name = "textDescripcion";
             this.textDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -199,7 +199,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panelHeader.Size = new System.Drawing.Size(779, 49);
+            this.panelHeader.Size = new System.Drawing.Size(764, 49);
             this.panelHeader.TabIndex = 53;
             // 
             // label4
@@ -219,7 +219,7 @@
             this.panelFooter.Location = new System.Drawing.Point(0, 661);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(779, 49);
+            this.panelFooter.Size = new System.Drawing.Size(764, 49);
             this.panelFooter.TabIndex = 54;
             // 
             // panel1
@@ -228,7 +228,7 @@
             this.panel1.Controls.Add(this.btnGuardarSalir);
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(143, 0);
+            this.panel1.Location = new System.Drawing.Point(136, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(492, 49);
             this.panel1.TabIndex = 6;
@@ -306,7 +306,7 @@
             this.errorProvider1.SetIconPadding(this.textCodigoProducto, -30);
             this.textCodigoProducto.isPassword = false;
             this.textCodigoProducto.Location = new System.Drawing.Point(14, 64);
-            this.textCodigoProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textCodigoProducto.Margin = new System.Windows.Forms.Padding(4);
             this.textCodigoProducto.Name = "textCodigoProducto";
             this.textCodigoProducto.Padding = new System.Windows.Forms.Padding(2, 18, 5, 2);
             this.textCodigoProducto.Size = new System.Drawing.Size(329, 38);
@@ -327,7 +327,7 @@
             this.errorProvider1.SetIconPadding(this.textNombreProducto, -30);
             this.textNombreProducto.isPassword = false;
             this.textNombreProducto.Location = new System.Drawing.Point(14, 116);
-            this.textNombreProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textNombreProducto.Margin = new System.Windows.Forms.Padding(4);
             this.textNombreProducto.Name = "textNombreProducto";
             this.textNombreProducto.Padding = new System.Windows.Forms.Padding(2, 18, 5, 2);
             this.textNombreProducto.Size = new System.Drawing.Size(329, 40);
@@ -348,7 +348,7 @@
             this.errorProvider1.SetIconPadding(this.textPrecioCompra, -30);
             this.textPrecioCompra.isPassword = false;
             this.textPrecioCompra.Location = new System.Drawing.Point(14, 169);
-            this.textPrecioCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPrecioCompra.Margin = new System.Windows.Forms.Padding(4);
             this.textPrecioCompra.Name = "textPrecioCompra";
             this.textPrecioCompra.Padding = new System.Windows.Forms.Padding(2, 18, 5, 2);
             this.textPrecioCompra.Size = new System.Drawing.Size(329, 40);
@@ -371,7 +371,7 @@
             this.errorProvider1.SetIconPadding(this.textCategoria, -30);
             this.textCategoria.isPassword = false;
             this.textCategoria.Location = new System.Drawing.Point(379, 64);
-            this.textCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.textCategoria.Name = "textCategoria";
             this.textCategoria.Padding = new System.Windows.Forms.Padding(2, 18, 80, 2);
             this.textCategoria.Size = new System.Drawing.Size(329, 40);
@@ -583,11 +583,11 @@
             this.Controls.Add(this.chkActivoProducto);
             this.Controls.Add(this.btnAddUnidadMedida);
             this.Controls.Add(this.btnAddMarca);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textDescripcion);
             this.Name = "UCGeneralesPD";
-            this.Size = new System.Drawing.Size(779, 710);
+            this.Size = new System.Drawing.Size(764, 710);
             this.Load += new System.EventHandler(this.UCGeneralesPD_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCGeneralesPD_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidaBindingSource)).EndInit();
@@ -615,7 +615,7 @@
         private Bunifu.Framework.UI.BunifuCheckbox chkActivoProducto;
         private System.Windows.Forms.Button btnAddUnidadMedida;
         private System.Windows.Forms.Button btnAddMarca;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCategorias;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textDescripcion;
         private System.Windows.Forms.Panel panelHeader;

@@ -23,7 +23,8 @@ namespace Modelo.Recursos
         public WebService()
         {
             //this.domainName = "http://www.lineatienda.com";
-            this.domainName = "http://192.168.17.:8080";
+
+            this.domainName = "http://192.168.1.17:8080";
             //this.domainName = "http://localhost:8080";
             //a
 
@@ -216,8 +217,44 @@ namespace Modelo.Recursos
             {
                 throw ex;
             }
-        } 
+        }
         #endregion
 
+        #region =========================== Metodo POST que para enviar texto plano ==============================
+        public async Task<T> PostSendTexto<T>(string servicio,string valoresTextoPlano)
+        {
+            try
+            {
+                string url = string.Format("{0}/{1}/{2}",this.domainName, this.directory, servicio);                
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                string json = valoresTextoPlano;
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                Stream receiveStream = httpResponse.GetResponseStream();
+
+                StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+                var result = readStream.ReadToEnd();                
+                //result =JsonConvert.SerializeObject(result, Formatting.Indented);                
+
+                T dataResponse = JsonConvert.DeserializeObject<T>(result);
+                return dataResponse;
+            }
+            catch (Exception e)
+            {
+                string a = e.ToString();
+                throw;
+            }
+        }
+        #endregion
     }
 }
