@@ -24,7 +24,7 @@ namespace Modelo.Recursos
         {
             //this.domainName = "http://www.lineatienda.com";
 
-            this.domainName = "http://192.168.1.17:8080";
+            this.domainName = "http://192.168.1.17:8085";
             //this.domainName = "http://localhost:8080";
             //a
 
