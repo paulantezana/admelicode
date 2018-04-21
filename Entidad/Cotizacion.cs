@@ -54,7 +54,7 @@ namespace Entidad
         public string correlativoActual { get; set; }
     }
 
-    public class cotizacionG
+    public class CotizacionG
     {
 
         public int idCotizacion { get; set; }
@@ -85,7 +85,7 @@ namespace Entidad
     }
     public class TotalCotizacion
     {
-        public Cotizacion cotizacion { get; set; }
+        public CotizacionG cotizacion { get; set; }
         public List<DetalleV> detalle { get; set; }
     }
 

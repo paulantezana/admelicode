@@ -60,7 +60,7 @@ namespace Entidad
 
     public class DescuentoProductoSubmit
     {
-        public int cantidad { get; set; }
+        public double cantidad { get; set; }
         public string cantidades { get; set; }
         public int idGrupoCliente { get; set; }
         public int idSucursal { get; set; }
