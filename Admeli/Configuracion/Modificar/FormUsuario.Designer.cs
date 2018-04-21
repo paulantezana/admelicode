@@ -218,7 +218,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textUsuario);
             this.Name = "FormUsuario";
-            this.Text = "FormUsuario";
+            this.Text = "Usuario";
             this.Load += new System.EventHandler(this.FormUsuario_Load);
             this.panelFooter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

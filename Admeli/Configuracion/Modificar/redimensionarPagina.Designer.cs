@@ -40,31 +40,35 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(44, 28);
+            this.comboBox1.Location = new System.Drawing.Point(33, 23);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 24);
+            this.comboBox1.Size = new System.Drawing.Size(112, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtAltura
             // 
-            this.txtAltura.Location = new System.Drawing.Point(44, 69);
+            this.txtAltura.Location = new System.Drawing.Point(33, 56);
+            this.txtAltura.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(148, 22);
+            this.txtAltura.Size = new System.Drawing.Size(112, 20);
             this.txtAltura.TabIndex = 1;
             // 
             // txtAncho
             // 
-            this.txtAncho.Location = new System.Drawing.Point(44, 109);
+            this.txtAncho.Location = new System.Drawing.Point(33, 89);
+            this.txtAncho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAncho.Name = "txtAncho";
-            this.txtAncho.Size = new System.Drawing.Size(148, 22);
+            this.txtAncho.Size = new System.Drawing.Size(112, 20);
             this.txtAncho.TabIndex = 2;
             // 
             // Aceptar
             // 
-            this.Aceptar.Location = new System.Drawing.Point(69, 177);
+            this.Aceptar.Location = new System.Drawing.Point(52, 144);
+            this.Aceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Aceptar.Name = "Aceptar";
-            this.Aceptar.Size = new System.Drawing.Size(123, 32);
+            this.Aceptar.Size = new System.Drawing.Size(92, 26);
             this.Aceptar.TabIndex = 3;
             this.Aceptar.Text = "Aceptar";
             this.Aceptar.UseVisualStyleBackColor = true;
@@ -72,9 +76,10 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(304, 177);
+            this.btnCancelar.Location = new System.Drawing.Point(228, 144);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(131, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(98, 26);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -82,25 +87,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(267, 72);
+            this.label1.Location = new System.Drawing.Point(200, 58);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 17);
+            this.label1.Size = new System.Drawing.Size(136, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "longitu de la altura en cm";
+            this.label1.Text = "Longitud de la Altura en cm";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(267, 109);
+            this.label2.Location = new System.Drawing.Point(200, 89);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 17);
+            this.label2.Size = new System.Drawing.Size(126, 14);
             this.label2.TabIndex = 6;
-            this.label2.Text = "longitud del ancho en cm";
+            this.label2.Text = "Longitud del Ancho en cm";
             // 
             // redimensionarPagina
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 246);
+            this.ClientSize = new System.Drawing.Size(374, 200);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
@@ -108,8 +115,9 @@
             this.Controls.Add(this.txtAncho);
             this.Controls.Add(this.txtAltura);
             this.Controls.Add(this.comboBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "redimensionarPagina";
-            this.Text = "redimensionarPagina";
+            this.Text = "Redimensionar Página";
             this.ResumeLayout(false);
             this.PerformLayout();
 

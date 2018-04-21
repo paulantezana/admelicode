@@ -143,9 +143,9 @@
             this.label7.Location = new System.Drawing.Point(4, 5);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 16);
+            this.label7.Size = new System.Drawing.Size(100, 16);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Tipo moneda";
+            this.label7.Text = "Tipo de Moneda";
             // 
             // cbxTipoMoneda
             // 

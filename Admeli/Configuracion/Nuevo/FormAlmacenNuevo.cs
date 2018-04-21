@@ -77,33 +77,54 @@ namespace Admeli.Configuracion.Nuevo
 
         private async void loadRootData()
         {
-            cargarComponentes1();
-            await cargarPaises();
-            crearNivelesPais();
+            try
+            {
+                cargarComponentes1();
+                await cargarPaises();
+                crearNivelesPais();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "loadRootData", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         #endregion
 
         #region =========================== Load ===========================
         private async void cargarComponentes1()
         {
-            sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+            try
+            {
+                sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargarComponentes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async Task cargarPaises()
         {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
+            try
+            {
+                // cargando los paises
+                paisBindingSource.DataSource = await locationModel.paises();
 
-            // cargando la ubicacion geografica por defecto
-            if (nuevo)
-            {
-                ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                // cargando la ubicacion geografica por defecto
+                if (nuevo)
+                {
+                    ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                }
+                else
+                {
+                    ubicacionGeografica = await locationModel.ubigeoActual(currentAlmacen.idUbicacionGeografica);
+                }
+                cbxPaises.SelectedValue = ubicacionGeografica.idPais;
             }
-            else
+            catch (Exception ex)
             {
-                ubicacionGeografica = await locationModel.ubigeoActual(currentAlmacen.idUbicacionGeografica);
+                MessageBox.Show("Error: " + ex.Message, "cargarPaises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
         } 
         #endregion
 

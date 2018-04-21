@@ -200,28 +200,42 @@ namespace Admeli.AlmacenBox.Nuevo
         }
         private async void cargarAlmacenes()
         {
-            //listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
-
-            listAlmacen = await AlmacenModel.almacenesAsignados(1, 1);
-
-            almacenBindingSource.DataSource = listAlmacen;
-            cbxAlmacen.SelectedIndex = 0;
-            currentAlmacen = listAlmacen[0];
-
-            if (nuevo)
+            try
             {
+                //listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
 
-                cargarDocCorrelativo(currentAlmacen.idAlmacen);
+                listAlmacen = await AlmacenModel.almacenesAsignados(1, 1);
+
+                almacenBindingSource.DataSource = listAlmacen;
+                cbxAlmacen.SelectedIndex = 0;
+                currentAlmacen = listAlmacen[0];
+
+                if (nuevo)
+                {
+
+                    cargarDocCorrelativo(currentAlmacen.idAlmacen);
+                }
             }
-           
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Almacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
         }
         private async void cargarDocCorrelativo(int idAlmacen)
         {
-            listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen);
-            currentCorrelativoA = listCorrelativoA[0];
-            txtSerie.Text = currentCorrelativoA.serie;
-            txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+            try
+            {
+                listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen);
+                currentCorrelativoA = listCorrelativoA[0];
+                txtSerie.Text = currentCorrelativoA.serie;
+                txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Doc Correlativo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void cargarProductos()
@@ -306,10 +320,17 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private  async void  cargarDetalle(int idVenta)
         {
-            listDetalleNotaSalida = await notaSalidaModel.cargarDetalleNotaSalida(idVenta);
-            detalleNotaSalidaBindingSource.DataSource = null;
-            detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
-            dgvDetalleNotaSalida.Refresh();
+            try
+            {
+                listDetalleNotaSalida = await notaSalidaModel.cargarDetalleNotaSalida(idVenta);
+                detalleNotaSalidaBindingSource.DataSource = null;
+                detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+                dgvDetalleNotaSalida.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Detalle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void cargarProductoDetalle(int tipo)
         {
@@ -366,9 +387,16 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private async void cargarPresentaciones(int idProducto, int tipo)
         {
-            List<Presentacion> listPresentacionaux = await presentacionModel.presentacionVentas(idProducto);
-            currentPresentacion = listPresentacionaux[0];
-            cbxDescripcion.Text = currentPresentacion.descripcion;
+            try
+            {
+                List<Presentacion> listPresentacionaux = await presentacionModel.presentacionVentas(idProducto);
+                currentPresentacion = listPresentacionaux[0];
+                cbxDescripcion.Text = currentPresentacion.descripcion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Presentaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
@@ -638,84 +666,90 @@ namespace Admeli.AlmacenBox.Nuevo
 
             }
             comprobarNota.dato = listint;
-
-            ResponseNotaSalida responseNotaSalida = await notaSalidaModel.verifcar(comprobarNota);
-
-            if (responseNotaSalida.cumple.cumple == 1)
+            try
             {
+                ResponseNotaSalida responseNotaSalida = await notaSalidaModel.verifcar(comprobarNota);
 
-               
-                listElementosNotaSalida.Add(almacenSalida);
-                listElementosNotaSalida.Add(ventaSalida);
-                listElementosNotaSalida.Add(DetallesNotaSalida);
-                listElementosNotaSalida.Add(dictionary);
-                listElementosNotaSalida.Add(object4);
-                listElementosNotaSalida.Add(object5);
-                listElementosNotaSalida.Add(object6);
-                listElementosNotaSalida.Add(object7);
-                ResponseNotaGuardar notaGuardar = null;
-                bool modificar = false;
-                if (nuevo)
+                if (responseNotaSalida.cumple.cumple == 1)
                 {
-                    notaGuardar = await notaSalidaModel.guardar(listElementosNotaSalida);
 
-                    this.Close();
-                }
-                else
-                {
-                    notaGuardar = await notaSalidaModel.modificar(listElementosNotaSalida);
-                    modificar = true;
-                }
 
-                if (notaGuardar.id > 0)
-                {
-                    if (!modificar)
+                    listElementosNotaSalida.Add(almacenSalida);
+                    listElementosNotaSalida.Add(ventaSalida);
+                    listElementosNotaSalida.Add(DetallesNotaSalida);
+                    listElementosNotaSalida.Add(dictionary);
+                    listElementosNotaSalida.Add(object4);
+                    listElementosNotaSalida.Add(object5);
+                    listElementosNotaSalida.Add(object6);
+                    listElementosNotaSalida.Add(object7);
+                    ResponseNotaGuardar notaGuardar = null;
+                    bool modificar = false;
+                    if (nuevo)
                     {
+                        notaGuardar = await notaSalidaModel.guardar(listElementosNotaSalida);
 
-                        DialogResult dialog = MessageBox.Show("¿Desea hacer la guia de remision?", "guia remision",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                        if (dialog == DialogResult.No)
+                        this.Close();
+                    }
+                    else
+                    {
+                        notaGuardar = await notaSalidaModel.modificar(listElementosNotaSalida);
+                        modificar = true;
+                    }
+
+                    if (notaGuardar.id > 0)
+                    {
+                        if (!modificar)
                         {
 
-                            this.Close();
-                            return;
-                        } 
-                           
-                        // currentNotaSalida= 
-                        List<NotaSalidaR>   listNotasalida3 = await notaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
+                            DialogResult dialog = MessageBox.Show("¿Desea hacer la guia de remision?", "guia remision",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                            if (dialog == DialogResult.No)
+                            {
 
-                        FormRemisionNew formRemisionNew = new FormRemisionNew(listNotasalida3.Find(X=>X.idNotaSalida== notaGuardar.id));
-                        formRemisionNew.ShowDialog();
-                        this.Close();
+                                this.Close();
+                                return;
+                            }
+
+                            // currentNotaSalida= 
+                            List<NotaSalidaR> listNotasalida3 = await notaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
+
+                            FormRemisionNew formRemisionNew = new FormRemisionNew(listNotasalida3.Find(X => X.idNotaSalida == notaGuardar.id));
+                            formRemisionNew.ShowDialog();
+                            this.Close();
+
+                        }
+                        else
+                        {
+
+                            MessageBox.Show(notaGuardar.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+
+                        }
+
 
                     }
                     else
                     {
+                        MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        MessageBox.Show(notaGuardar.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
 
                     }
-               
 
                 }
                 else
                 {
-                    MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                    MessageBox.Show(" no cumple" + "exite: " + responseNotaSalida.abastece.cantidades + "  producto: " + responseNotaSalida.abastece.productos, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    dictionary.Clear();
+                    DetallesNotaSalida.Clear();
+                    listint.Clear();
 
                 }
-               
             }
-            else
+            catch (Exception ex)
             {
-
-                MessageBox.Show(" no cumple" + "exite: " + responseNotaSalida.abastece.cantidades + "  producto: " + responseNotaSalida.abastece.productos, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                dictionary.Clear();
-                DetallesNotaSalida.Clear();
-                listint.Clear();
-
+                MessageBox.Show("Error: " + ex.Message, "btnGuardar_Click", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

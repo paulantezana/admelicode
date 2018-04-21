@@ -17,6 +17,19 @@ namespace Entidad
         public double saldo { get; set; }
         public int idMoneda { get; set; }
         public int idPago { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
     public class CompraOrden
@@ -44,6 +57,19 @@ namespace Entidad
         public string fechaFacturacion { get; set; }
         public string fechaPago { get; set; }
         public double descuento { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
     public class DetalleOrden
@@ -66,7 +92,20 @@ namespace Entidad
         public string nombreCombinacion { get; set; }
         public string nombrePresentacion { get; set; }
         public int idSucursal { get; set; }
-       
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
+
     }
 
     public class OrdenCompraOrden
@@ -96,6 +135,19 @@ namespace Entidad
         public int descuento { get; set; }
         public int idUbicacionGeografica { get; set; }
         public int idOrdenCompra { get; set; }
+        private string estadoString;
+        public string EstadoString
+        {
+            get
+            {
+                if (estado == 1) { return "Activo"; }
+                else { return "Anulado"; }
+            }
+            set
+            {
+                estadoString = value;
+            }
+        }
     }
 
     public class OrdenCompraTotal

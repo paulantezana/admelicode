@@ -339,9 +339,9 @@
             this.lblNivel3.Location = new System.Drawing.Point(2, 1);
             this.lblNivel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel3.Name = "lblNivel3";
-            this.lblNivel3.Size = new System.Drawing.Size(35, 14);
+            this.lblNivel3.Size = new System.Drawing.Size(39, 14);
             this.lblNivel3.TabIndex = 0;
-            this.lblNivel3.Text = "nivel3";
+            this.lblNivel3.Text = "Nivel 3";
             // 
             // panelLevel2
             // 
@@ -379,9 +379,9 @@
             this.lblNivel2.Location = new System.Drawing.Point(2, 1);
             this.lblNivel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel2.Name = "lblNivel2";
-            this.lblNivel2.Size = new System.Drawing.Size(35, 14);
+            this.lblNivel2.Size = new System.Drawing.Size(39, 14);
             this.lblNivel2.TabIndex = 0;
-            this.lblNivel2.Text = "nivel2";
+            this.lblNivel2.Text = "Nivel 2";
             // 
             // panelLevel1
             // 
@@ -419,9 +419,9 @@
             this.lblNivel1.Location = new System.Drawing.Point(2, 1);
             this.lblNivel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel1.Name = "lblNivel1";
-            this.lblNivel1.Size = new System.Drawing.Size(35, 14);
+            this.lblNivel1.Size = new System.Drawing.Size(39, 14);
             this.lblNivel1.TabIndex = 0;
-            this.lblNivel1.Text = "nivel1";
+            this.lblNivel1.Text = "Nivel 1";
             // 
             // panelLevelPais
             // 
@@ -471,9 +471,9 @@
             this.label5.Location = new System.Drawing.Point(25, 90);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 14);
+            this.label5.Size = new System.Drawing.Size(115, 14);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Nombres del almacen*";
+            this.label5.Text = "Nombres del Almacen*";
             // 
             // panel2
             // 

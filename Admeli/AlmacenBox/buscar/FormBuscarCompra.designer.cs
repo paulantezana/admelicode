@@ -39,17 +39,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvCompras = new System.Windows.Forms.DataGridView();
-            this.idCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordenCompraNroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rucDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nFechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nFechaFacturacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaFacturacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroOrdenCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compraNEntradaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -81,10 +70,20 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.compraNEntradaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordenCompraNroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rucDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nFechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nFechaFacturacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaFacturacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroOrdenCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.compraNEntradaBindingSource)).BeginInit();
             this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -93,6 +92,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.compraNEntradaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitter1
@@ -144,7 +144,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCompras.ColumnHeadersHeight = 43;
             this.dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idCompraDataGridViewTextBoxColumn,
             this.numeroDocumentoDataGridViewTextBoxColumn,
@@ -188,89 +187,6 @@
             this.dgvCompras.Size = new System.Drawing.Size(820, 251);
             this.dgvCompras.TabIndex = 50;
             this.dgvCompras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotaSalida_CellDoubleClick);
-            // 
-            // idCompraDataGridViewTextBoxColumn
-            // 
-            this.idCompraDataGridViewTextBoxColumn.DataPropertyName = "idCompra";
-            this.idCompraDataGridViewTextBoxColumn.HeaderText = "idCompra";
-            this.idCompraDataGridViewTextBoxColumn.Name = "idCompraDataGridViewTextBoxColumn";
-            this.idCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idCompraDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // numeroDocumentoDataGridViewTextBoxColumn
-            // 
-            this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
-            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "numeroDocumento";
-            this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
-            this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numeroDocumentoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ordenCompraNroDataGridViewTextBoxColumn
-            // 
-            this.ordenCompraNroDataGridViewTextBoxColumn.DataPropertyName = "OrdenCompraNro";
-            this.ordenCompraNroDataGridViewTextBoxColumn.HeaderText = "OrdenCompraNro";
-            this.ordenCompraNroDataGridViewTextBoxColumn.Name = "ordenCompraNroDataGridViewTextBoxColumn";
-            this.ordenCompraNroDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ordenCompraNroDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // nombreProveedorDataGridViewTextBoxColumn
-            // 
-            this.nombreProveedorDataGridViewTextBoxColumn.DataPropertyName = "nombreProveedor";
-            this.nombreProveedorDataGridViewTextBoxColumn.HeaderText = "nombreProveedor";
-            this.nombreProveedorDataGridViewTextBoxColumn.Name = "nombreProveedorDataGridViewTextBoxColumn";
-            this.nombreProveedorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreProveedorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // rucDniDataGridViewTextBoxColumn
-            // 
-            this.rucDniDataGridViewTextBoxColumn.DataPropertyName = "rucDni";
-            this.rucDniDataGridViewTextBoxColumn.HeaderText = "rucDni";
-            this.rucDniDataGridViewTextBoxColumn.Name = "rucDniDataGridViewTextBoxColumn";
-            this.rucDniDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nFechaPagoDataGridViewTextBoxColumn
-            // 
-            this.nFechaPagoDataGridViewTextBoxColumn.DataPropertyName = "NFechaPago";
-            this.nFechaPagoDataGridViewTextBoxColumn.HeaderText = "NFechaPago";
-            this.nFechaPagoDataGridViewTextBoxColumn.Name = "nFechaPagoDataGridViewTextBoxColumn";
-            this.nFechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nFechaPagoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // nFechaFacturacionDataGridViewTextBoxColumn
-            // 
-            this.nFechaFacturacionDataGridViewTextBoxColumn.DataPropertyName = "NFechaFacturacion";
-            this.nFechaFacturacionDataGridViewTextBoxColumn.HeaderText = "NFechaFacturacion";
-            this.nFechaFacturacionDataGridViewTextBoxColumn.Name = "nFechaFacturacionDataGridViewTextBoxColumn";
-            this.nFechaFacturacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nFechaFacturacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // fechaFacturacionDataGridViewTextBoxColumn
-            // 
-            this.fechaFacturacionDataGridViewTextBoxColumn.DataPropertyName = "fechaFacturacion";
-            this.fechaFacturacionDataGridViewTextBoxColumn.HeaderText = "fechaFacturacion";
-            this.fechaFacturacionDataGridViewTextBoxColumn.Name = "fechaFacturacionDataGridViewTextBoxColumn";
-            this.fechaFacturacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaFacturacionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fechaPagoDataGridViewTextBoxColumn
-            // 
-            this.fechaPagoDataGridViewTextBoxColumn.DataPropertyName = "fechaPago";
-            this.fechaPagoDataGridViewTextBoxColumn.HeaderText = "fechaPago";
-            this.fechaPagoDataGridViewTextBoxColumn.Name = "fechaPagoDataGridViewTextBoxColumn";
-            this.fechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaPagoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nroOrdenCompraDataGridViewTextBoxColumn
-            // 
-            this.nroOrdenCompraDataGridViewTextBoxColumn.DataPropertyName = "nroOrdenCompra";
-            this.nroOrdenCompraDataGridViewTextBoxColumn.HeaderText = "nroOrdenCompra";
-            this.nroOrdenCompraDataGridViewTextBoxColumn.Name = "nroOrdenCompraDataGridViewTextBoxColumn";
-            this.nroOrdenCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nroOrdenCompraDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // compraNEntradaBindingSource
-            // 
-            this.compraNEntradaBindingSource.DataSource = typeof(Entidad.CompraNEntrada);
             // 
             // tableLayoutPanel28
             // 
@@ -351,7 +267,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 33);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Nro Documento";
+            this.label3.Text = "Nro de Documento";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel6
@@ -396,7 +312,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 34);
             this.label6.TabIndex = 2;
-            this.label6.Text = "fecha Facturacion";
+            this.label6.Text = "Fecha de Facturación";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel5
@@ -525,7 +441,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 34);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Orden Compra";
+            this.label2.Text = "Orden de Compra";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
@@ -570,7 +486,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 33);
             this.label1.TabIndex = 2;
-            this.label1.Text = "fecha Pago";
+            this.label1.Text = "Fecha de Pago";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // splitter2
@@ -664,6 +580,90 @@
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Visible = false;
             // 
+            // compraNEntradaBindingSource
+            // 
+            this.compraNEntradaBindingSource.DataSource = typeof(Entidad.CompraNEntrada);
+            // 
+            // idCompraDataGridViewTextBoxColumn
+            // 
+            this.idCompraDataGridViewTextBoxColumn.DataPropertyName = "idCompra";
+            this.idCompraDataGridViewTextBoxColumn.HeaderText = "idCompra";
+            this.idCompraDataGridViewTextBoxColumn.Name = "idCompraDataGridViewTextBoxColumn";
+            this.idCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCompraDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numeroDocumentoDataGridViewTextBoxColumn
+            // 
+            this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Número Documento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
+            this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numeroDocumentoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ordenCompraNroDataGridViewTextBoxColumn
+            // 
+            this.ordenCompraNroDataGridViewTextBoxColumn.DataPropertyName = "OrdenCompraNro";
+            this.ordenCompraNroDataGridViewTextBoxColumn.FillWeight = 150F;
+            this.ordenCompraNroDataGridViewTextBoxColumn.HeaderText = "Nro Orden de Compra";
+            this.ordenCompraNroDataGridViewTextBoxColumn.Name = "ordenCompraNroDataGridViewTextBoxColumn";
+            this.ordenCompraNroDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ordenCompraNroDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nombreProveedorDataGridViewTextBoxColumn
+            // 
+            this.nombreProveedorDataGridViewTextBoxColumn.DataPropertyName = "nombreProveedor";
+            this.nombreProveedorDataGridViewTextBoxColumn.HeaderText = "Nombre Proveedor";
+            this.nombreProveedorDataGridViewTextBoxColumn.Name = "nombreProveedorDataGridViewTextBoxColumn";
+            this.nombreProveedorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreProveedorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // rucDniDataGridViewTextBoxColumn
+            // 
+            this.rucDniDataGridViewTextBoxColumn.DataPropertyName = "rucDni";
+            this.rucDniDataGridViewTextBoxColumn.HeaderText = "RUC / DNI";
+            this.rucDniDataGridViewTextBoxColumn.Name = "rucDniDataGridViewTextBoxColumn";
+            this.rucDniDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nFechaPagoDataGridViewTextBoxColumn
+            // 
+            this.nFechaPagoDataGridViewTextBoxColumn.DataPropertyName = "NFechaPago";
+            this.nFechaPagoDataGridViewTextBoxColumn.HeaderText = "NFecha Pago";
+            this.nFechaPagoDataGridViewTextBoxColumn.Name = "nFechaPagoDataGridViewTextBoxColumn";
+            this.nFechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nFechaPagoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nFechaFacturacionDataGridViewTextBoxColumn
+            // 
+            this.nFechaFacturacionDataGridViewTextBoxColumn.DataPropertyName = "NFechaFacturacion";
+            this.nFechaFacturacionDataGridViewTextBoxColumn.HeaderText = "NFecha Facturación";
+            this.nFechaFacturacionDataGridViewTextBoxColumn.Name = "nFechaFacturacionDataGridViewTextBoxColumn";
+            this.nFechaFacturacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nFechaFacturacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // fechaFacturacionDataGridViewTextBoxColumn
+            // 
+            this.fechaFacturacionDataGridViewTextBoxColumn.DataPropertyName = "fechaFacturacion";
+            this.fechaFacturacionDataGridViewTextBoxColumn.HeaderText = "Fecha de Facturación";
+            this.fechaFacturacionDataGridViewTextBoxColumn.Name = "fechaFacturacionDataGridViewTextBoxColumn";
+            this.fechaFacturacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaFacturacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fechaPagoDataGridViewTextBoxColumn
+            // 
+            this.fechaPagoDataGridViewTextBoxColumn.DataPropertyName = "fechaPago";
+            this.fechaPagoDataGridViewTextBoxColumn.HeaderText = "Fecha de Pago";
+            this.fechaPagoDataGridViewTextBoxColumn.Name = "fechaPagoDataGridViewTextBoxColumn";
+            this.fechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaPagoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nroOrdenCompraDataGridViewTextBoxColumn
+            // 
+            this.nroOrdenCompraDataGridViewTextBoxColumn.DataPropertyName = "nroOrdenCompra";
+            this.nroOrdenCompraDataGridViewTextBoxColumn.HeaderText = "nroOrdenCompra";
+            this.nroOrdenCompraDataGridViewTextBoxColumn.Name = "nroOrdenCompraDataGridViewTextBoxColumn";
+            this.nroOrdenCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nroOrdenCompraDataGridViewTextBoxColumn.Visible = false;
+            // 
             // FormBuscarCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,12 +675,11 @@
             this.MaximizeBox = false;
             this.Name = "FormBuscarCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormNotaSalida";
+            this.Text = "NotaSalida";
             this.Load += new System.EventHandler(this.FormNotaSalidaNew_Load);
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.compraNEntradaBindingSource)).EndInit();
             this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -695,6 +694,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.compraNEntradaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -725,16 +725,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnFechaPago;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numeroDocumentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ordenCompraNroDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProveedorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rucDniDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nFechaPagoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nFechaFacturacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaFacturacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaPagoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nroOrdenCompraDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource compraNEntradaBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -746,5 +736,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroDocumentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordenCompraNroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProveedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rucDniDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nFechaPagoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nFechaFacturacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaFacturacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaPagoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroOrdenCompraDataGridViewTextBoxColumn;
     }
 }

@@ -56,19 +56,33 @@ namespace Admeli.Compras.buscar
 
         internal async void reLoad()
         {
-            await cargarPaises();
-            crearNivelesPais();
-           
+            try
+            {
+                await cargarPaises();
+                crearNivelesPais();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "reload Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private async Task cargarPaises()
         {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
+            try
+            {
+                // cargando los paises
+                paisBindingSource.DataSource = await locationModel.paises();
 
-            // cargando la ubicacion geografica por defecto
-            ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+                // cargando la ubicacion geografica por defecto
+                ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
         } 

@@ -171,9 +171,9 @@
             this.label1.Location = new System.Drawing.Point(16, 66);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 16);
+            this.label1.Size = new System.Drawing.Size(121, 16);
             this.label1.TabIndex = 90;
-            this.label1.Text = "Nombre Moneda";
+            this.label1.Text = "Nombre de Moneda";
             // 
             // textNombreMoneda
             // 
@@ -264,7 +264,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "FormMonedaNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormMonedaNuevo";
+            this.Text = "Moneda Nuevo";
             this.panelFooter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

@@ -76,8 +76,15 @@ namespace Admeli.Configuracion.Nuevo
 
         private async void reLoad()
         {
-            await cargarPaises();
-            crearNivelesPais();
+            try
+            {
+                await cargarPaises();
+                crearNivelesPais();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "reload Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         #endregion
 
@@ -121,19 +128,26 @@ namespace Admeli.Configuracion.Nuevo
 
         private async Task cargarPaises()
         {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
+            try
+            {
+                // cargando los paises
+                paisBindingSource.DataSource = await locationModel.paises();
 
-            // cargando la ubicacion geografica por defecto
-            if (nuevo)
-            {
-                ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                // cargando la ubicacion geografica por defecto
+                if (nuevo)
+                {
+                    ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                }
+                else
+                {
+                    ubicacionGeografica = await locationModel.ubigeoActual(currentSucursal.idUbicacionGeografica);
+                }
+                cbxPaises.SelectedValue = ubicacionGeografica.idPais;
             }
-            else
+            catch (Exception ex)
             {
-                ubicacionGeografica = await locationModel.ubigeoActual(currentSucursal.idUbicacionGeografica);
+                MessageBox.Show("Error: " + ex.Message, "Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
         } 
         #endregion
 

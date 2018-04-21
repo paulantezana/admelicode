@@ -38,6 +38,7 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.impuestoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblSpeedPages = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -56,7 +57,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.impuestoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.siglasImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,10 +69,10 @@
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSource)).BeginInit();
             this.panelNavigation.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -83,7 +83,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(814, 324);
@@ -159,6 +159,10 @@
             this.dataGridView.Size = new System.Drawing.Size(792, 187);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // impuestoBindingSource
+            // 
+            this.impuestoBindingSource.DataSource = typeof(Entidad.Impuesto);
             // 
             // panelNavigation
             // 
@@ -481,16 +485,13 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // impuestoBindingSource
-            // 
-            this.impuestoBindingSource.DataSource = typeof(Entidad.Impuesto);
-            // 
             // idImpuestoDataGridViewTextBoxColumn
             // 
             this.idImpuestoDataGridViewTextBoxColumn.DataPropertyName = "idImpuesto";
             this.idImpuestoDataGridViewTextBoxColumn.HeaderText = "IDImpuesto";
             this.idImpuestoDataGridViewTextBoxColumn.Name = "idImpuestoDataGridViewTextBoxColumn";
             this.idImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idImpuestoDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreImpuestoDataGridViewTextBoxColumn
             // 
@@ -554,19 +555,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCImpuestos";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(830, 340);
             this.Load += new System.EventHandler(this.UCImpuestos_Load);
             this.panelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSource)).EndInit();
             this.panelNavigation.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelCrud.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.impuestoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

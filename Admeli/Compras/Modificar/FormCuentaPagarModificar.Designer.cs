@@ -32,12 +32,13 @@
             // 
             // FormCuentaPagarModificar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 456);
+            this.ClientSize = new System.Drawing.Size(611, 370);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormCuentaPagarModificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCuentaPagarModificar";
+            this.Text = "Cuenta Pagar Modificar";
             this.ResumeLayout(false);
 
         }
