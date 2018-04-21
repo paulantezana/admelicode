@@ -28,7 +28,7 @@ namespace Admeli.Productos.Nuevo
 
         public ProductoModel productoModel = new ProductoModel();
 
-        public List<Categoria> currentCategorias { get; set; }
+        public List<Categoria> currentCategorias = new List<Categoria>();
         public int categoriaPrincipal { get; set; }
 
         public FormProductoNuevo(Producto currentProducto)

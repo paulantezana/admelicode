@@ -14,6 +14,26 @@ namespace Modelo
         public static Producto producto { get; set; }
         private WebService webService = new WebService();
 
+        //guardar varios productos
+        public async Task<ResponseD> guardarVariosProductos<T>(List<T> listaProductos)
+        {
+            try
+            {
+                string stringProductos = "[";
+                foreach(T producto in listaProductos)
+                {
+                    stringProductos += JsonConvert.SerializeObject(producto)+",";
+                }
+                stringProductos= stringProductos.Substring(0, stringProductos.Length - 1);
+                stringProductos += "]";
+                ResponseD response = await webService.PostSendTexto<ResponseD>("producto/guardarvarios", stringProductos);
+                return response;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
         // validacion de un producto     
         public async Task<List<Producto>> validarProducto(Producto param)
         {

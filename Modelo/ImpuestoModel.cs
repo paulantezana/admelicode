@@ -152,12 +152,22 @@ namespace Modelo
             }
         }
         //iproducto
-        public async Task<Response> actualizarImpuestoProducto(listaEnviada impuestosEnviados)
+        public async Task<Response> actualizarImpuestoProducto(List<Impuesto> impuestosEnviados,int idProducto,int idSucursal)
         {
             try
             {
+                string stringImpuestos = "[{";
+                for (int i = 0; i < impuestosEnviados.Count(); i++)
+                {
+                    stringImpuestos += "\"id" + i + "\":" + impuestosEnviados[i].idImpuesto + ",";
+                }
+                if (impuestosEnviados.Count() <= 0) { stringImpuestos += "},"; }
+                else { stringImpuestos = stringImpuestos.Substring(0, stringImpuestos.Length - 1) + "},"; }
+
+                stringImpuestos += "{\"idProducto\":" + idProducto + "},";
+                stringImpuestos += "{\"idSucursal\":" + idSucursal + "}]";
                 //http://localhost:8085/admeli/xcore/services.php/iproducto
-                Response respuesta = await webService.POST<listaEnviada,Response>("iproducto", impuestosEnviados);
+                Response respuesta = await webService.PostSendTexto<Response>("iproducto", stringImpuestos);
                 return respuesta;
             }
             catch (Exception ex)
