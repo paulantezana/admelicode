@@ -19,7 +19,22 @@ namespace Admeli.AlmacenBox.Nuevo
 {
     public partial class FormNotaSalidaNew : Form
     {
+        // objetos Necesarios para Guardar y modificar una nota entrada
+        //==para verificacion
+        ComprobarNotaSalida comprobarNota { get; set; }
 
+        List<List<object>> listint { get; set; }
+        //===
+        AlmacenSalida almacenSalida { get; set; }
+        VentaSalida ventaSalida { get; set; }
+        Dictionary<string, double> dictionary { get; set; }
+        Dictionary<string, DetalleNotaSalida> DetallesNotaSalida { get; set; }
+
+        object object4 { get; set; }
+        object object5 { get; set; }
+        object object6 { get; set; }
+        object object7 { get; set; }
+        List<object> listElementosNotaSalida { get; set; }
 
         // servicios necesarios
 
@@ -55,21 +70,27 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private VentasNSalida currentVenta { get; set; }
 
+
+        private NotaSalida currentNotaSalida { get; set; }
+
         public FormNotaSalidaNew()
         {
             InitializeComponent();
             this.nuevo = true;
             formato = "{0:n" + nroDecimales + "}";
             cargarFechaSistema();
-      
+            btnQuitar.Enabled = false;
 
         }
-        public FormNotaSalidaNew(Compra currentCompra)
+        public FormNotaSalidaNew(NotaSalida currentNotaSalida)
         {
             InitializeComponent();
             this.nuevo = false;
             formato = "{0:n" + nroDecimales + "}";
             cargarFechaSistema();
+            btnQuitar.Enabled = false;
+            btnImportarVenta.Enabled = false;
+            this.currentNotaSalida = currentNotaSalida;
         }
 
         #region=======================metodos de apoyo
@@ -92,7 +113,7 @@ namespace Admeli.AlmacenBox.Nuevo
             else
             {
                 this.reLoad();
-              
+                cargarNotaSalida();
             }
 
         }
@@ -109,22 +130,71 @@ namespace Admeli.AlmacenBox.Nuevo
         #region ============================== Load ==============================
 
 
+        private async void cargarNotaSalida()
+        {
+
+            //datos
+
+            if (currentNotaSalida.idVenta != "0")
+            {
+                txtNroDocumentoVenta.Text = currentNotaSalida.numeroDocumento;
+                txtNombreCliente.Text = currentNotaSalida.nombreCliente;
+                txtDocumentoCliente.Text = currentNotaSalida.rucDni;
+
+            }
+
+            // serie
+            txtSerie.Text = currentNotaSalida.serie;
+            txtCorrelativo.Text = currentNotaSalida.correlativo;
+            cbxAlmacen.SelectedValue = currentNotaSalida.idAlmacen;
+            dtpFechaEntrega.Value = currentNotaSalida.fechaSalida.date;
+            txtMotivo.Text = currentNotaSalida.motivo;
+            txtDescripcion.Text = currentNotaSalida.descripcion;
+            txtDireccionDestino.Text = currentNotaSalida.destino;
+
+            string estado = "";
+            switch (currentNotaSalida.estadoEnvio)
+            {
+                case 0:
+                    estado = "pendiente";
+                    break;
+                case 1:
+                    estado = "renvisado";
+                    break;
+                case 2:
+                    estado = "enviado";
+                    break;
+
+
+            }
+            cbxEstado.Text = estado;
+            // cargar detalles de la nota
+            listDetalleNotaSalida =await notaSalidaModel.cargarDetallesNota(currentNotaSalida.idNotaSalida);
+
+            detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+
+
+        }
+
+
+
+
         private void cargarObjetos()
         {
             ////==
-            //comprobarNota = new ComprobarNota();
-            //listint = new List<List<int>>();
+            comprobarNota = new ComprobarNotaSalida();
+            listint = new List<List<object>>();
             ////===
-            //almacenNEntrada = new AlmacenNEntrada();
-            //compraEntradaGuardar = new CompraEntradaGuardar();
-            //dictionary = new Dictionary<string, int>();
-            //DetallesNota = new Dictionary<string, CargaCompraSinNota>();
-            //object4 = new object();
-            //object5 = new object();
-            //object6 = new object();
-            //object7 = new object();
-            //listElementosNotaEntrada = new List<object>();
+            almacenSalida = new AlmacenSalida();
+            ventaSalida = new VentaSalida();
 
+            dictionary = new Dictionary<string, double>();
+            DetallesNotaSalida = new Dictionary<string, DetalleNotaSalida>();
+            object4 = new object();
+            object5 = new object();
+            object6 = new object();
+            object7 = new object();
+            listElementosNotaSalida = new List<object>();
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
         }
@@ -137,7 +207,13 @@ namespace Admeli.AlmacenBox.Nuevo
             almacenBindingSource.DataSource = listAlmacen;
             cbxAlmacen.SelectedIndex = 0;
             currentAlmacen = listAlmacen[0];
-            cargarDocCorrelativo(currentAlmacen.idAlmacen);
+
+            if (nuevo)
+            {
+
+                cargarDocCorrelativo(currentAlmacen.idAlmacen);
+            }
+           
 
         }
         private async void cargarDocCorrelativo(int idAlmacen)
@@ -215,7 +291,6 @@ namespace Admeli.AlmacenBox.Nuevo
         {
             FormBuscarVentas formBuscarVentas = new FormBuscarVentas();
             formBuscarVentas.ShowDialog();
-
             if (formBuscarVentas.currentVenta != null)
             {
                 currentVenta = formBuscarVentas.currentVenta;
@@ -224,10 +299,7 @@ namespace Admeli.AlmacenBox.Nuevo
                 txtNombreCliente.Text = currentVenta.nombreCliente;
                 cargarDetalle(currentVenta.idVenta);
 
-
-
-
-
+                btnQuitar.Enabled = true;
             }
         }
 
@@ -355,6 +427,9 @@ namespace Admeli.AlmacenBox.Nuevo
                 DetalleNotaSalida detalleNota = new DetalleNotaSalida();
 
                 currentPresentacion = listPresentacion.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
+
+                currentProducto = listProducto.Find(x => x.idProducto == Convert.ToInt32(cbxCodigoProducto.SelectedValue));     
+
                 DetalleNotaSalida find = listDetalleNotaSalida.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
                 if (find != null)
                 {
@@ -380,14 +455,14 @@ namespace Admeli.AlmacenBox.Nuevo
                 detalleNota.nombrePresentacion = currentPresentacion.nombrePresentacion;               
                 detalleNota.estado = currentPresentacion.estado;
                 detalleNota.idDetalleVenta = 0;
-
+                detalleNota.ventaVarianteSinStock = currentProducto.ventaVarianteSinStock;
                 detalleNota.idVenta = 0;
                 detalleNota.nro = 1;
                 detalleNota.precioEnvio = 0;
                 detalleNota.descuento = 0;// ver en detalle al guardar
                 detalleNota.total = toDouble(txtCantidad.Text.Trim()) * toDouble(currentPresentacion.precioCompra);
                 detalleNota.alternativas = "";// falta ver este detalle
-
+                detalleNota.idNotaSalida = currentNotaSalida != null ? currentNotaSalida.idNotaSalida : 0;  
                 detalleNota.nombrePresentacion = currentPresentacion.nombrePresentacion;      
                 // agrgando un nuevo item a la lista
                 listDetalleNotaSalida.Add(detalleNota);
@@ -494,6 +569,193 @@ namespace Admeli.AlmacenBox.Nuevo
             dgvDetalleNotaSalida.Rows.RemoveAt(index);
             listDetalleNotaSalida.Remove(aux);
             limpiarCamposProducto();
+        }
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            // comprobamos la nota 
+
+            if (nuevo)
+            {
+
+                comprobarNota.idVenta = currentVenta != null ? currentVenta.idVenta : 0;
+
+            }
+            else
+            {
+                comprobarNota.idVenta = currentNotaSalida != null ? Convert.ToInt32(currentNotaSalida.idVenta) : 0;
+
+            }
+            comprobarNota.idNotaSalida = currentNotaSalida != null ? currentNotaSalida.idNotaSalida : 0;
+            comprobarNota.idAlmacen = (int)cbxAlmacen.SelectedValue;
+
+            almacenSalida.descripcion = txtDescripcion.Text;
+            almacenSalida.destino = txtDireccionDestino.Text;
+            almacenSalida.idNotaSalida= currentNotaSalida != null ? currentNotaSalida.idNotaSalida : 0;
+
+            int estado = 0;
+            switch (cbxEstado.Text)
+            {
+                case "pendiente":
+                    estado = 0;
+                    break;
+                case "renvisado":
+                    estado = 1;
+                    break;
+                case "enviado":
+                    estado = 2;
+                    break;
+
+
+            }
+           
+            almacenSalida.estadoEnvio = estado;
+            string date1 = String.Format("{0:u}", dtpFechaEntrega.Value);
+            date1 = date1.Substring(0, date1.Length - 1);
+            almacenSalida.fechaSalida = date1;
+            almacenSalida.idAlmacen = (int)cbxAlmacen.SelectedValue;
+            almacenSalida.idPersonal = PersonalModel.personal.idPersonal;
+            almacenSalida.idTipoDocumento = 8;//nota salida
+            almacenSalida.motivo = txtMotivo.Text;
+
+            int numert = 0;
+            foreach (DetalleNotaSalida detalle in listDetalleNotaSalida)
+            {              
+                List<object> listaux = new List<object>();
+               
+                listaux.Add(detalle.idProducto);
+                listaux.Add(detalle.idCombinacionAlternativa);
+                int cantidad = Convert.ToInt32(detalle.cantidad, CultureInfo.GetCultureInfo("en-US"));
+                listaux.Add(cantidad);
+                listaux.Add(detalle.ventaVarianteSinStock);
+                listint.Add(listaux);
+
+                DetallesNotaSalida.Add("id" + numert, detalle);
+
+                dictionary.Add("id" + numert, detalle.cantidadUnitaria);
+                numert++;
+
+
+
+            }
+            comprobarNota.dato = listint;
+
+            ResponseNotaSalida responseNotaSalida = await notaSalidaModel.verifcar(comprobarNota);
+
+            if (responseNotaSalida.cumple.cumple == 1)
+            {
+
+               
+                listElementosNotaSalida.Add(almacenSalida);
+                listElementosNotaSalida.Add(ventaSalida);
+                listElementosNotaSalida.Add(DetallesNotaSalida);
+                listElementosNotaSalida.Add(dictionary);
+                listElementosNotaSalida.Add(object4);
+                listElementosNotaSalida.Add(object5);
+                listElementosNotaSalida.Add(object6);
+                listElementosNotaSalida.Add(object7);
+                ResponseNotaGuardar notaGuardar = null;
+                bool modificar = false;
+                if (nuevo)
+                {
+                    notaGuardar = await notaSalidaModel.guardar(listElementosNotaSalida);
+
+                    this.Close();
+                }
+                else
+                {
+                    notaGuardar = await notaSalidaModel.modificar(listElementosNotaSalida);
+                    modificar = true;
+                }
+
+                if (notaGuardar.id > 0)
+                {
+                    if (!modificar)
+                    {
+
+                        DialogResult dialog = MessageBox.Show("¿Desea hacer la guia de remision?", "guia remision",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                        if (dialog == DialogResult.No)
+                        {
+
+                            this.Close();
+                            return;
+                        } 
+                           
+                        // currentNotaSalida= 
+                        List<NotaSalidaR>   listNotasalida3 = await notaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
+
+                        FormRemisionNew formRemisionNew = new FormRemisionNew(listNotasalida3.Find(X=>X.idNotaSalida== notaGuardar.id));
+                        formRemisionNew.ShowDialog();
+                        this.Close();
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show(notaGuardar.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+
+                    }
+               
+
+                }
+                else
+                {
+                    MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+                }
+               
+            }
+            else
+            {
+
+                MessageBox.Show(" no cumple" + "exite: " + responseNotaSalida.abastece.cantidades + "  producto: " + responseNotaSalida.abastece.productos, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                dictionary.Clear();
+                DetallesNotaSalida.Clear();
+                listint.Clear();
+
+            }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+
+            currentNotaSalida = null;
+            // cargar informacion
+            txtNroDocumentoVenta.Text = "";
+            txtNombreCliente.Text = "";
+            txtDocumentoCliente.Text = "";
+            detalleNotaSalidaBindingSource.DataSource = null;
+            dgvDetalleNotaSalida.Refresh();
+            btnQuitar.Enabled = false;          
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (dgvDetalleNotaSalida.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            int index = dgvDetalleNotaSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idPresentacion = Convert.ToInt32(dgvDetalleNotaSalida.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+            DetalleNotaSalida aux = listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion);
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            dgvDetalleNotaSalida.Rows.RemoveAt(index);
+            listDetalleNotaSalida.Remove(aux);
+            limpiarCamposProducto();
+
+
         }
     }
 }

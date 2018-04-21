@@ -53,10 +53,10 @@
             // 
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 452);
+            this.panelFooter.Location = new System.Drawing.Point(0, 547);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(490, 49);
+            this.panelFooter.Size = new System.Drawing.Size(654, 49);
             this.panelFooter.TabIndex = 56;
             // 
             // panel1
@@ -64,7 +64,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(44, 0);
+            this.panel1.Location = new System.Drawing.Point(126, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(402, 49);
             this.panel1.TabIndex = 6;
@@ -113,7 +113,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panelHeader.Size = new System.Drawing.Size(490, 49);
+            this.panelHeader.Size = new System.Drawing.Size(654, 49);
             this.panelHeader.TabIndex = 55;
             // 
             // label4
@@ -131,7 +131,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label9.Location = new System.Drawing.Point(56, 402);
+            this.label9.Location = new System.Drawing.Point(88, 430);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 19);
@@ -145,7 +145,7 @@
             this.chkEstado.Checked = true;
             this.chkEstado.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkEstado.ForeColor = System.Drawing.Color.White;
-            this.chkEstado.Location = new System.Drawing.Point(30, 401);
+            this.chkEstado.Location = new System.Drawing.Point(62, 429);
             this.chkEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(20, 20);
@@ -156,7 +156,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label1.Location = new System.Drawing.Point(16, 128);
+            this.label1.Location = new System.Drawing.Point(56, 170);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 19);
@@ -165,6 +165,8 @@
             // 
             // txtMinimoOrden
             // 
+            this.txtMinimoOrden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMinimoOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtMinimoOrden.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.txtMinimoOrden.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
@@ -174,11 +176,11 @@
             this.txtMinimoOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinimoOrden.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtMinimoOrden.isPassword = false;
-            this.txtMinimoOrden.Location = new System.Drawing.Point(20, 147);
+            this.txtMinimoOrden.Location = new System.Drawing.Point(60, 189);
             this.txtMinimoOrden.Margin = new System.Windows.Forms.Padding(4);
             this.txtMinimoOrden.Name = "txtMinimoOrden";
             this.txtMinimoOrden.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.txtMinimoOrden.Size = new System.Drawing.Size(300, 33);
+            this.txtMinimoOrden.Size = new System.Drawing.Size(388, 33);
             this.txtMinimoOrden.TabIndex = 2;
             this.txtMinimoOrden.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -187,7 +189,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label8.Location = new System.Drawing.Point(16, 59);
+            this.label8.Location = new System.Drawing.Point(56, 101);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 19);
@@ -196,6 +198,8 @@
             // 
             // txtNombreGrupo
             // 
+            this.txtNombreGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtNombreGrupo.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.txtNombreGrupo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
@@ -205,11 +209,11 @@
             this.txtNombreGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombreGrupo.isPassword = false;
-            this.txtNombreGrupo.Location = new System.Drawing.Point(20, 82);
+            this.txtNombreGrupo.Location = new System.Drawing.Point(60, 124);
             this.txtNombreGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreGrupo.Name = "txtNombreGrupo";
             this.txtNombreGrupo.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.txtNombreGrupo.Size = new System.Drawing.Size(300, 33);
+            this.txtNombreGrupo.Size = new System.Drawing.Size(388, 33);
             this.txtNombreGrupo.TabIndex = 1;
             this.txtNombreGrupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNombreGrupo.BackgroundImageChanged += new System.EventHandler(this.ll);
@@ -219,10 +223,12 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(20, 206);
+            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescripcion.Location = new System.Drawing.Point(60, 248);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(300, 165);
+            this.txtDescripcion.Size = new System.Drawing.Size(388, 165);
             this.txtDescripcion.TabIndex = 113;
             // 
             // label14
@@ -230,7 +236,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label14.Location = new System.Drawing.Point(16, 188);
+            this.label14.Location = new System.Drawing.Point(56, 226);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(97, 19);
@@ -239,9 +245,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label2.Location = new System.Drawing.Point(342, 206);
+            this.label2.Location = new System.Drawing.Point(480, 247);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 157);
@@ -250,9 +257,10 @@
             // 
             // lblGrupo
             // 
+            this.lblGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGrupo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.lblGrupo.Location = new System.Drawing.Point(342, 82);
+            this.lblGrupo.Location = new System.Drawing.Point(468, 124);
             this.lblGrupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(134, 65);
@@ -276,7 +284,7 @@
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UCNuevoGrupo";
-            this.Size = new System.Drawing.Size(490, 501);
+            this.Size = new System.Drawing.Size(654, 596);
             this.Load += new System.EventHandler(this.UCProveedorGeneral_Load);
             this.Click += new System.EventHandler(this.UCNuevoGrupo_Click);
             this.panelFooter.ResumeLayout(false);

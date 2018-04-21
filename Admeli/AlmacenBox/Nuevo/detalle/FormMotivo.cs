@@ -1,54 +1,50 @@
-﻿using System;
+﻿using Entidad;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Modelo;
-using Entidad.Location;
-using Entidad;
-using Admeli.Componentes;
-using Admeli.Compras.Nuevo;
-
-
 
 namespace Admeli.AlmacenBox.Nuevo.detalle
 {
+
     public partial class FormMotivo : Form
     {
-       
 
-        private LocationModel locationModel = new LocationModel();
-        private ProveedorModel proveedorModel = new ProveedorModel();
 
-        private List<LabelUbicacion> labelUbicaciones { get; set; }
-        public  UbicacionGeografica ubicacionGeografica { get; set; }
-        private SunatModel sunatModel=new SunatModel();
-        private bool bandera;
-   
-        private FormProveedorNuevo formProveedorNuevo;
-        public int idUbicacionGeografia { get; set; }
-        
-        public string cadena = "";
+
+        private GuiaRemisionModel guiaRemisionModel = new GuiaRemisionModel();
+        private MotivoTraslado motivoTraslado { get; set; }
         public FormMotivo()
         {
             InitializeComponent();
-
-            
         }
 
-        public FormMotivo(FormProveedorNuevo formProveedorNuevo)
+        private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            this.formProveedorNuevo = formProveedorNuevo;
+            motivoTraslado = new MotivoTraslado();
+
+            motivoTraslado.nombre = txtMotivo.Text;
+            motivoTraslado.estado = chkActivo.Checked ? 1 : 0;
+            Response response = await guiaRemisionModel.guardarMTraslado(motivoTraslado);
+            if (response.id > 0)
+            {
+                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private void FormTransporteNew_Load(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

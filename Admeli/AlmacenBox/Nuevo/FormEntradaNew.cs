@@ -150,17 +150,11 @@ namespace Admeli.AlmacenBox.Nuevo
             cbxAlmacen.SelectedValue = currentNotaEntrada.idAlmacen;
             dtpFechaEntrega.Value = currentNotaEntrada.fechaEntrada.date;
             txtObservaciones.Text = currentNotaEntrada.observacion;
-            chbxEntrega.Checked = currentNotaEntrada.estadoEntrega==1? true : false;
-
-            // cargar Compra relaciona si es que exite
-
-
-
-
-
+            chbxEntrega.Checked = currentNotaEntrada.estadoEntrega==1? true : false;       
             // cargar detalles de la nota
             listcargaCompraSinNota = await entradaModel.cargarDetallesNota(currentNotaEntrada.idNotaEntrada);
             cargaCompraSinNotaBindingSource.DataSource = listcargaCompraSinNota;
+            btnImportarCompra.Enabled = false;
 
         }
         private void cargarObjetos()
@@ -181,6 +175,7 @@ namespace Admeli.AlmacenBox.Nuevo
 
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
+            btnQuitar.Enabled = false;
         }
         private async void cargarAlmacenes()
         {
@@ -194,10 +189,15 @@ namespace Admeli.AlmacenBox.Nuevo
         }
         private async void cargarDocCorrelativo(int idAlmacen)
         {
-            listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen,7);
-            currentCorrelativoA = listCorrelativoA[0];
-            txtSerie.Text = currentCorrelativoA.serie;
-            txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+            if (nuevo)
+            {
+                listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen, 7);
+                currentCorrelativoA = listCorrelativoA[0];
+                txtSerie.Text = currentCorrelativoA.serie;
+                txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+
+            }
+           
         }
 
         private async void cargarProductos()
@@ -267,7 +267,11 @@ namespace Admeli.AlmacenBox.Nuevo
                 listcargaCompraSinNota=  await entradaModel.CargarCompraSinNota(currentCompraNEntrada.idCompra);
                 cargaCompraSinNotaBindingSource.DataSource = null;
                 cargaCompraSinNotaBindingSource.DataSource = listcargaCompraSinNota;
+
+                btnQuitar.Enabled = true;
             }
+
+            
             
         }
 
@@ -517,26 +521,31 @@ namespace Admeli.AlmacenBox.Nuevo
                 ResponseNotaGuardar notaGuardar = null;
                 if (nuevo)
                 {
-                   notaGuardar = await entradaModel.guardar(listElementosNotaEntrada);
+                    notaGuardar = await entradaModel.guardar(listElementosNotaEntrada);
 
                 }
                 else
                 {
                     notaGuardar = await entradaModel.modificar(listElementosNotaEntrada);
                 }
-                
+
                 if (notaGuardar.id > 0)
                 {
                     MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+
+
                 }
-                string request = JsonConvert.SerializeObject(listElementosNotaEntrada);
+
             }
             else
             {
 
-
-                MessageBox.Show(" no cumple" + responseNota.existeProducto+" " +responseNota.idCombinacionAlternativa+" "+ responseNota.idProducto, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                MessageBox.Show(" no cumple" + "exite: " + responseNota.existeProducto + "  producto: " + responseNota.idProducto, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dictionary.Clear();
+                DetallesNota.Clear();
+                listint.Clear();
+                responseNota = new ResponseNota();
             }
            
         }
@@ -611,6 +620,19 @@ namespace Admeli.AlmacenBox.Nuevo
             dgvDetalleNota.Rows.RemoveAt(index);
             listcargaCompraSinNota.Remove(aux);
             limpiarCamposProducto();
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+             currentCompraNEntrada = null;
+                // cargar informacion
+             txtNroDocumento.Text = "";
+             txtNombreProveedor.Text = "";
+             txtDocumentoProveedor.Text = "";               
+              cargaCompraSinNotaBindingSource.DataSource = null;
+              dgvDetalleNota.Refresh();
+               btnQuitar.Enabled = false;
+          
         }
     }
 }

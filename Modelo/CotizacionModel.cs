@@ -15,6 +15,20 @@ namespace Modelo
         public void guardar()
         {
 
+            //cotizacion/guardartodo
+            //TotalCotizacion
+        }
+        public async Task<Response> guardar(TotalCotizacion param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/contactoproveedor/guardar
+                return await webService.POST<TotalCotizacion, Response>("cotizacion", "guardartodo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void modificar()
@@ -50,5 +64,41 @@ namespace Modelo
         {
             throw new NotImplementedException();
         }
+
+
+        //succorrelativo/tipodoc/2/suc/1
+        public async Task<List<CorrelativoCotizacion>> Correlativo(int idSucursal,int tipoDoc=2)
+        {
+            try
+            {
+               
+                
+                // www.lineatienda.com/services.php/succorrelativo/tipodoc/0/per/0/1/100
+                List<CorrelativoCotizacion> almacenes = await webService.GET<List<CorrelativoCotizacion>>("succorrelativo", String.Format("tipodoc/{0}/suc/{1}", tipoDoc,idSucursal));
+                return almacenes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        //detallecotizacion/15
+        public async Task<List<DetalleV>> detalleCotizacion(int idCotizacion)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/sdetallecotizacion/100
+                List<DetalleV> almacenes = await webService.GET<List<DetalleV>>("detallecotizacion", String.Format("{0}", idCotizacion));
+                return almacenes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }

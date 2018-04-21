@@ -35,10 +35,10 @@
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.progressBarApp = new System.Windows.Forms.ProgressBar();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,9 +61,9 @@
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -73,7 +73,7 @@
             this.panel6.Controls.Add(this.label19);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 4);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1096, 66);
             this.panel6.TabIndex = 47;
@@ -91,7 +91,7 @@
             this.textBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBuscar.isPassword = false;
             this.textBuscar.Location = new System.Drawing.Point(93, 17);
-            this.textBuscar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textBuscar.Size = new System.Drawing.Size(871, 32);
@@ -111,7 +111,7 @@
             this.btnAddMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMarca.ForeColor = System.Drawing.Color.White;
             this.btnAddMarca.Location = new System.Drawing.Point(973, 17);
-            this.btnAddMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddMarca.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddMarca.Name = "btnAddMarca";
             this.btnAddMarca.Size = new System.Drawing.Size(107, 32);
             this.btnAddMarca.TabIndex = 55;
@@ -135,7 +135,7 @@
             this.panel1.Controls.Add(this.dataGridView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 70);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel1.Size = new System.Drawing.Size(1096, 453);
@@ -146,6 +146,7 @@
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AutoGenerateColumns = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -171,12 +172,16 @@
             this.dataGridView.DataSource = this.clienteBindingSource1;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(13, 12);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(1070, 429);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // clienteBindingSource1
+            // 
+            this.clienteBindingSource1.DataSource = typeof(Entidad.Cliente);
             // 
             // proveedorBindingSource
             // 
@@ -199,16 +204,13 @@
             // 
             this.clienteBindingSource.DataSource = typeof(Entidad.Cliente);
             // 
-            // clienteBindingSource1
-            // 
-            this.clienteBindingSource1.DataSource = typeof(Entidad.Cliente);
-            // 
             // idClienteDataGridViewTextBoxColumn
             // 
             this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
             this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
             this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
             this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idClienteDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreClienteDataGridViewTextBoxColumn
             // 
@@ -230,6 +232,7 @@
             this.emailDataGridViewTextBoxColumn.HeaderText = "email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Visible = false;
             // 
             // telefonoDataGridViewTextBoxColumn
             // 
@@ -237,6 +240,7 @@
             this.telefonoDataGridViewTextBoxColumn.HeaderText = "telefono";
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
             this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.telefonoDataGridViewTextBoxColumn.Visible = false;
             // 
             // celularDataGridViewTextBoxColumn
             // 
@@ -244,6 +248,7 @@
             this.celularDataGridViewTextBoxColumn.HeaderText = "celular";
             this.celularDataGridViewTextBoxColumn.Name = "celularDataGridViewTextBoxColumn";
             this.celularDataGridViewTextBoxColumn.ReadOnly = true;
+            this.celularDataGridViewTextBoxColumn.Visible = false;
             // 
             // sexoDataGridViewTextBoxColumn
             // 
@@ -265,6 +270,7 @@
             this.zipCodeDataGridViewTextBoxColumn.HeaderText = "zipCode";
             this.zipCodeDataGridViewTextBoxColumn.Name = "zipCodeDataGridViewTextBoxColumn";
             this.zipCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.zipCodeDataGridViewTextBoxColumn.Visible = false;
             // 
             // esEventualDataGridViewCheckBoxColumn
             // 
@@ -272,6 +278,7 @@
             this.esEventualDataGridViewCheckBoxColumn.HeaderText = "esEventual";
             this.esEventualDataGridViewCheckBoxColumn.Name = "esEventualDataGridViewCheckBoxColumn";
             this.esEventualDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.esEventualDataGridViewCheckBoxColumn.Visible = false;
             // 
             // observacionDataGridViewTextBoxColumn
             // 
@@ -279,6 +286,7 @@
             this.observacionDataGridViewTextBoxColumn.HeaderText = "observacion";
             this.observacionDataGridViewTextBoxColumn.Name = "observacionDataGridViewTextBoxColumn";
             this.observacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.observacionDataGridViewTextBoxColumn.Visible = false;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -286,6 +294,7 @@
             this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Visible = false;
             // 
             // idUbicacionGeograficaDataGridViewTextBoxColumn
             // 
@@ -293,6 +302,7 @@
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.HeaderText = "idUbicacionGeografica";
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.Name = "idUbicacionGeograficaDataGridViewTextBoxColumn";
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idUbicacionGeograficaDataGridViewTextBoxColumn.Visible = false;
             // 
             // idGrupoClienteDataGridViewTextBoxColumn
             // 
@@ -300,6 +310,7 @@
             this.idGrupoClienteDataGridViewTextBoxColumn.HeaderText = "idGrupoCliente";
             this.idGrupoClienteDataGridViewTextBoxColumn.Name = "idGrupoClienteDataGridViewTextBoxColumn";
             this.idGrupoClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idGrupoClienteDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreGrupoDataGridViewTextBoxColumn
             // 
@@ -314,6 +325,7 @@
             this.nroVentasCotizacionesDataGridViewTextBoxColumn.HeaderText = "nroVentasCotizaciones";
             this.nroVentasCotizacionesDataGridViewTextBoxColumn.Name = "nroVentasCotizacionesDataGridViewTextBoxColumn";
             this.nroVentasCotizacionesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nroVentasCotizacionesDataGridViewTextBoxColumn.Visible = false;
             // 
             // idDocumentoDataGridViewTextBoxColumn
             // 
@@ -321,6 +333,7 @@
             this.idDocumentoDataGridViewTextBoxColumn.HeaderText = "idDocumento";
             this.idDocumentoDataGridViewTextBoxColumn.Name = "idDocumentoDataGridViewTextBoxColumn";
             this.idDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDocumentoDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -328,6 +341,7 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Visible = false;
             // 
             // tipoDocumentoDataGridViewTextBoxColumn
             // 
@@ -335,6 +349,7 @@
             this.tipoDocumentoDataGridViewTextBoxColumn.HeaderText = "tipoDocumento";
             this.tipoDocumentoDataGridViewTextBoxColumn.Name = "tipoDocumentoDataGridViewTextBoxColumn";
             this.tipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoDocumentoDataGridViewTextBoxColumn.Visible = false;
             // 
             // Buscarcliente
             // 
@@ -345,7 +360,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.progressBarApp);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Buscarcliente";
             this.Text = "BuscarProveedor";
             this.Load += new System.EventHandler(this.BuscarProveedor_Load);
@@ -353,9 +368,9 @@
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,6 +386,7 @@
         protected System.Windows.Forms.ProgressBar progressBarApp;
         private System.Windows.Forms.BindingSource proveedorBindingSource;
         private System.Windows.Forms.BindingSource clienteBindingSource;
+        private System.Windows.Forms.BindingSource clienteBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroDocumentoDataGridViewTextBoxColumn;
@@ -390,6 +406,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDocumentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDocumentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource clienteBindingSource1;
     }
 }

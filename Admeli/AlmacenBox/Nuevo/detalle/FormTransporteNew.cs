@@ -12,24 +12,25 @@ using Entidad.Location;
 using Entidad;
 using Admeli.Componentes;
 using Admeli.Compras.Nuevo;
-
+using Admeli.AlmacenBox.buscar;
 
 
 namespace Admeli.AlmacenBox.Nuevo.detalle
 {
     public partial class FormTransporteNew : Form
     {
-       
+
+        private EmpresaTransporte empresaTransporte { get; set; }
 
         private LocationModel locationModel = new LocationModel();
         private ProveedorModel proveedorModel = new ProveedorModel();
-
+        private GuiaRemisionModel guiaRemisionModel = new GuiaRemisionModel();
         private List<LabelUbicacion> labelUbicaciones { get; set; }
-        public  UbicacionGeografica ubicacionGeografica { get; set; }
+        public  UbicacionGeografica CurrentUbicacionGeografica { get; set; }
+
         private SunatModel sunatModel=new SunatModel();
         private bool bandera;
-   
-        private FormProveedorNuevo formProveedorNuevo;
+       
         public int idUbicacionGeografia { get; set; }
         
         public string cadena = "";
@@ -43,11 +44,52 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
         public FormTransporteNew(FormProveedorNuevo formProveedorNuevo)
         {
             InitializeComponent();
-            this.formProveedorNuevo = formProveedorNuevo;
+            
         }
 
         private void FormTransporteNew_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnBuscarUbicacion_Click(object sender, EventArgs e)
+        {
+            formGeografia formGeografia = new formGeografia();
+            formGeografia.ShowDialog();
+            CurrentUbicacionGeografica = formGeografia.ubicacionGeografica;
+            txtUbicacion.Text = formGeografia.cadena;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            empresaTransporte = new EmpresaTransporte();
+
+            empresaTransporte.direccion = txtDireccion.Text;
+            empresaTransporte.estado = chkActivo.Checked ? 1 : 0;
+            empresaTransporte.idUbicacionGeografica = CurrentUbicacionGeografica.idUbicacionGeografica;
+            empresaTransporte.razonSocial = txtNombreEmpresa.Text;
+            empresaTransporte.ruc = txtNroDocumento.Text;
+            empresaTransporte.telefono = txtTelefono.Text;
+
+
+
+            Response response = await guiaRemisionModel.guardarETransporte(empresaTransporte);
+            if (response.id > 0)
+            {
+                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
 
         }
     }

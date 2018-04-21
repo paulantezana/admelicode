@@ -22,9 +22,9 @@ namespace Entidad
         public int idAlmacen { get; set; }
         public int idTipoDocumento { get; set; }
         public string idVenta { get; set; }
-        public object numeroDocumento { get; set; }
-        public object nombreCliente { get; set; }
-        public object rucDni { get; set; }
+        public string numeroDocumento { get; set; }
+        public string nombreCliente { get; set; }
+        public string rucDni { get; set; }
         public string personal { get; set; }
         public string nombre { get; set; }
         public int idSucursal { get; set; }
@@ -70,8 +70,8 @@ namespace Entidad
         public string serie { get; set; }
         public string correlativo { get; set; }
         public string motivo { get; set; }
-        public FechaR fecha { get; set; }
-        public FechaSalidaR fechaSalida { get; set; }
+        public Fecha fecha { get; set; }
+        public Fecha fechaSalida { get; set; }
         public string descripcion { get; set; }
         public string destino { get; set; }
         public int estadoEnvio { get; set; }
@@ -108,7 +108,7 @@ namespace Entidad
             }
             set
             {
-                RFechaSalida = value;
+                rFechaSalida = value;
             }
 
 
@@ -140,7 +140,12 @@ namespace Entidad
         public string nombreCombinacion { get; set; }  
         public string nombrePresentacion { get; set; }     
         public int idVenta { get; set; }
-        
+
+        public bool ventaVarianteSinStock { get; set; }
+        public int idDetalleGuiaRemision { get; set; }     
+        public int idGuiaRemision { get; set; }
+      
+
     } 
 
     public class VentasNSalida
@@ -188,6 +193,36 @@ namespace Entidad
         }
 
     }
+
+
+
+    public class ComprobarNotaSalida
+    {
+        public int idNotaSalida { get; set; }
+        public int idVenta { get; set; }
+        public int idAlmacen { get; set; }
+        public List<List<object>> dato { get; set; }
+    }
+
+
+    public class AlmacenSalida
+    {
+
+        public int idNotaSalida { get; set; }
+        public int idAlmacen { get; set; }
+        public int idTipoDocumento { get; set; }
+        public string motivo { get; set; }
+        public string descripcion { get; set; }
+        public int estadoEnvio { get; set; }
+        public string destino { get; set; }
+        public int idPersonal { get; set; }
+        public string fechaSalida { get; set; }
+    }
+    public class VentaSalida
+    {
+        public int idVenta { get; set; }     
+    }
+
 }
 
 

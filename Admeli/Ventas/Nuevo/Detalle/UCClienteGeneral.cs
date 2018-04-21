@@ -32,6 +32,10 @@ namespace Admeli.Ventas.Nuevo.Detalle
         public List<GrupoCliente> grupoClientes;
         private UCNuevoGrupo uCNuevoGrupo;
         private List<DocumentoIdentificacion> documentoIdentificaciones;
+        private string NroDocumento = "";
+        public bool lisenerKeyEvents { get; internal set; }
+
+        public Response rest { get; set; }
         public UCClienteGeneral()
         {
             InitializeComponent();
@@ -43,10 +47,22 @@ namespace Admeli.Ventas.Nuevo.Detalle
             this.formClienteNuevo = formClienteNuevo;
 
         }
+        public UCClienteGeneral(FormClienteNuevo formClienteNuevo ,string NroDocumento)
+        {
+            InitializeComponent();
+            this.formClienteNuevo = formClienteNuevo;
+            this.NroDocumento = NroDocumento;
+
+        }
+
+
+
 
         private void UCProveedorGeneral_Load(object sender, EventArgs e)
         {
             this.reLoad();
+            textNIdentificacion.Select();
+            textNIdentificacion.Focus();
 
         }
 
@@ -66,8 +82,12 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 txtNombreCliente.Text = formClienteNuevo.currentCliente.nombreCliente;
 
                 cbxDocumento.Text = formClienteNuevo.currentCliente.tipoDocumento;
-                cbxSexo.Text= formClienteNuevo.currentCliente.sexo=="M" ? "Masculino" :"Femenino" ;
+                cbxSexo.Text = formClienteNuevo.currentCliente.sexo == "M" ? "Masculino" : "Femenino";
                 cbxTipoGrupo.Text = formClienteNuevo.currentCliente.nombreGrupo;
+            }
+            else
+            {
+                textNIdentificacion.Text = NroDocumento;
             }
         }
 
@@ -112,6 +132,9 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 ubicacionGeografica = await locationModel.ubigeoActual(formClienteNuevo.currentCliente.idUbicacionGeografica);
             }
             cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+
+
+
         }
         #endregion
 
@@ -355,10 +378,11 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 CG.telefono = textTelefono.Text;
                 CG.tipoDocumento = "Natural";
                 CG.zipCode = textZipCode.Text;
-                Response rest = await clienteModel.guardar(CG);
+                rest = await clienteModel.guardar(CG);
                 if (rest.id > 0)
                 {
                     MessageBox.Show(rest.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.formClienteNuevo.Close();
 
 
                 }
@@ -376,7 +400,9 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 int i = cbxPaises.SelectedIndex;
                 UG.idPais = (int)cbxPaises.SelectedValue;
                 UG.idNivel1 = (int)cbxNivel1.SelectedValue;
-                UG.idNivel2 = (int)cbxNivel2.SelectedValue;
+
+                if (cbxNivel2.IsAccessible)
+                    UG.idNivel2 = (int)cbxNivel2.SelectedValue;
                 if (cbxNivel3.IsAccessible)
                     UG.idNivel3 = (int)cbxNivel3.SelectedValue;
                 Response respuesta = await locationModel.guardarUbigeo(UG);
@@ -407,7 +433,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 if (rest.id > 0)
                 {
                     MessageBox.Show(rest.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    this.formClienteNuevo.Close();
 
                 }
                 else

@@ -31,6 +31,9 @@ namespace Admeli.Ventas.Nuevo.Detalle
         GrupoClienteG grupoClienteG;
         public  List<GrupoCliente> grupoClientes;
         private List<DocumentoIdentificacion> documentoIdentificaciones;
+
+        public bool lisenerKeyEvents { get; internal set; }
+        private bool exiteName = false;
         public UCNuevoGrupo()
         {
             InitializeComponent();
@@ -52,29 +55,29 @@ namespace Admeli.Ventas.Nuevo.Detalle
         #region ========================== SAVE AND UPDATE ===========================
         private async void btnAceptar_Click(object sender, EventArgs e)
         {
-            // guarda el grupo
-            grupoClienteG = new GrupoClienteG();
-            grupoClienteG.descripcion = txtDescripcion.Text;
-            grupoClienteG.estado = chkEstado.Checked;
-            grupoClienteG.minimoOrden = Convert.ToInt32(txtMinimoOrden.Text);
-            grupoClienteG.nombreGrupo = txtNombreGrupo.Text;
-
-
-            respuesta = await grupoClienteModel.guardar(grupoClienteG);
-            if (respuesta.id > 0)
+            if (!exiteName)
             {
-                txtDescripcion.Text="";
-                txtMinimoOrden.Text = "";
-                txtNombreGrupo.Text="";
+                 grupoClienteG = new GrupoClienteG();
+                 grupoClienteG.descripcion = txtDescripcion.Text;
+                grupoClienteG.estado = chkEstado.Checked;
+                grupoClienteG.minimoOrden = Convert.ToInt32(txtMinimoOrden.Text);
+                grupoClienteG.nombreGrupo = txtNombreGrupo.Text;
+
+
+                respuesta = await grupoClienteModel.guardar(grupoClienteG);
+                if (respuesta.id > 0)
+                {
+                    txtDescripcion.Text="";
+                    txtMinimoOrden.Text = "";
+                    txtNombreGrupo.Text="";
+                }
+               grupoClientes = await clienteModel.listarGrupoClienteIdGCNombreByActivos();
+               this.formClienteNuevo.togglePanelMain("general");
+
+               this.formClienteNuevo.btnContacto.BackColor = Color.White;
+
             }
-           grupoClientes = await clienteModel.listarGrupoClienteIdGCNombreByActivos();
-            this.formClienteNuevo.togglePanelMain("general");
-            // actuliza  grupos 
-
-            
-                
-
-         }
+        }
 
         private async void VerificarNombreGCliente(string nombreGrupo)
         {
@@ -119,6 +122,10 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 respuesta = await grupoClienteModel.VerificarNombreGCliente(txtNombreGrupo.Text);
                 
                 lblGrupo.Text = respuesta.msj;
+                if (respuesta.id == 0)
+                {
+                    exiteName = true;
+                }
             }
         }
 
@@ -127,6 +134,10 @@ namespace Admeli.Ventas.Nuevo.Detalle
             if (txtNombreGrupo.Text.Length >5) { 
                 respuesta = await grupoClienteModel.VerificarNombreGCliente(txtNombreGrupo.Text);
                 lblGrupo.Text = respuesta.msj;
+                if (respuesta.id == 0)
+                {
+                    exiteName = true;
+                }
             }
         }
 

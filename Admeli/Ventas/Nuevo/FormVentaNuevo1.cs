@@ -137,10 +137,7 @@ namespace Admeli.Ventas.Nuevo
         #region ================================ Root Load ================================
         private void FormComprarNuevo_Load(object sender, EventArgs e)
         {
-            //Maximizar formulario 
-            //this.WindowState = FormWindowState.Maximized;
             
-
             if (nuevo == true)
                 this.reLoad();
             else
@@ -148,11 +145,7 @@ namespace Admeli.Ventas.Nuevo
                 this.reLoad();
                 listarDetalleCompraByIdCompra();
                 listarDatosProveedorCompra();
-                //this.cargarOrden();
-                //cargarImpuesto();
-                //cargarubigeoActual();
-                //cargarProductos();
-                //cargarProveedor();
+             
 
                 btnRealizarCompra.Text = "Modificar compra";
             }
@@ -177,11 +170,10 @@ namespace Admeli.Ventas.Nuevo
             int i = ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
             if (i == 0)
             {
-
-
                 cbxPagarCompra.Enabled = false;
                 cbxPagarCompra.Checked = false;
             }
+
         }
         #endregion
 
@@ -417,154 +409,154 @@ namespace Admeli.Ventas.Nuevo
         }
         private async void btnAddCard_Click(object sender, EventArgs e)
         {
-            if (txtPrecioUnitario.Text == "")
-            {
-                txtPrecioUnitario.Text = "0";
-            }
-            if (txtDescuento.Text == "")
-            {
+            //if (txtPrecioUnitario.Text == "")
+            //{
+            //    txtPrecioUnitario.Text = "0";
+            //}
+            //if (txtDescuento.Text == "")
+            //{
 
-                txtDescuento.Text = "0";
-            }
-            if (txtCantidad.Text == "")
-            {
-                txtCantidad.Text = "0";
-            }
+            //    txtDescuento.Text = "0";
+            //}
+            //if (txtCantidad.Text == "")
+            //{
+            //    txtCantidad.Text = "0";
+            //}
 
-            bool seleccionado = false;
-            if (cbxCodigoProducto.SelectedValue != null)
-                seleccionado = true;
-            if (cbxDescripcion.SelectedValue != null)
-                seleccionado = true;
-            // if(idProducto)
-
-            
-            if (seleccionado)
-            {
-                if (detalleVentas == null) detalleVentas = new List<DetalleV>();
-                DetalleV detalleV = new DetalleV();
-                if (exitePresentacion(Convert.ToInt32(cbxPresentacion.SelectedValue)))
-                 {
-
-                        MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
-
-                 }
-                // Creando la lista
-                detalleV.cantidad = double.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));//1
-
-                //determinamos el stock
-                determinarStock(0);
-                /// Busqueda presentacion
-                PresentacionV findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxPresentacion.SelectedValue));
-                detalleV.cantidadUnitaria = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));//2
-
-                detalleV.codigoProducto = cbxCodigoProducto.Text.Trim();//3
-                detalleV.descripcion = cbxDescripcion.Text.Trim();//4
-                double descuento = Math.Round(Convert.ToDouble(txtDescuento.Text.Trim()), 2);
-
-                detalleV.descuento = descuento;// determinar el descuentogreupo 5
+            //bool seleccionado = false;
+            //if (cbxCodigoProducto.SelectedValue != null)
+            //    seleccionado = true;
+            //if (cbxDescripcion.SelectedValue != null)
+            //    seleccionado = true;
+            //// if(idProducto)
 
 
+            //if (seleccionado)
+            //{
+            //    if (detalleVentas == null) detalleVentas = new List<DetalleV>();
+            //    DetalleV detalleV = new DetalleV();
+            //    if (exitePresentacion(Convert.ToInt32(cbxPresentacion.SelectedValue)))
+            //    {
 
-                detalleV.estado = 1;//5
-                detalleV.idCombinacionAlternativa = Convert.ToInt32(cbxCombinacion.SelectedValue);//7
+            //        MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //        return;
 
+            //    }
+            //    // Creando la lista
+            //    detalleV.cantidad = double.Parse(txtCantidad.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));//1
 
-                detalleV.idPresentacion = Convert.ToInt32(cbxPresentacion.SelectedValue);
+            //    //determinamos el stock
+            //    determinarStock(0);
+            //    /// Busqueda presentacion
+            //    PresentacionV findPresentacion = presentaciones.Find(x => x.idPresentacion == Convert.ToInt32(cbxPresentacion.SelectedValue));
+            //    detalleV.cantidadUnitaria = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));//2
 
-                detalleV.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
-                detalleV.idSucursal = ConfigModel.sucursal.idSucursal;
-                detalleV.nombreCombinacion = cbxCombinacion.Text;
-                detalleV.nombreMarca = currentProducto.nombreMarca;
-                detalleV.nombrePresentacion = cbxPresentacion.Text;
-                detalleV.nro = 1;
-              
+            //    detalleV.codigoProducto = cbxCodigoProducto.Text.Trim();//3
+            //    detalleV.descripcion = cbxDescripcion.Text.Trim();//4
+            //    double descuento = Math.Round(Convert.ToDouble(txtDescuento.Text.Trim()), 2);
 
-                double precioUnitario = double.Parse(txtPrecioUnitario.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
-
-                precioUnitario = precioUnitario - (descuento / 100) * precioUnitario;
-
-                detalleV.precioUnitario = Math.Round(precioUnitario, 2);
-
-                detalleV.precioVenta = Math.Round(precioUnitario, 2);
-
-                detalleV.total = Math.Round(double.Parse(txtTotal.Text.Trim(), CultureInfo.GetCultureInfo("en-US")), 2);
-
-                detalleV.precioVentaReal = Math.Round(double.Parse(txtPrecioUnitario.Text.Trim(), CultureInfo.GetCultureInfo("en-US")), 2);
-                detalleV.eliminar = "";
-                int scotk = 0;
-                if (lbStock.Text != "")
-                {
-                        scotk = Convert.ToInt32(lbStock.Text.Substring(1, lbStock.Text.Length - 1));
-
-                }
-                
-                detalleV.existeStock = (scotk > 0 && scotk >= Convert.ToInt32(txtCantidad.Text.Trim())) ? 1 : 0;
+            //    detalleV.descuento = descuento;// determinar el descuentogreupo 5
 
 
-                detalleV.idDetalleVenta = 0;
-                detalleV.idPresentacion = findPresentacion.idPresentacion;
-                detalleV.idVenta = 0;
 
-                ProductoVenta aux = productos.Find(x => x.idProducto == (int)cbxCodigoProducto.SelectedValue);
-                detalleV.nombreMarca = aux.nombreMarca;
-                detalleV.nombrePresentacion = findPresentacion.nombrePresentacion;
-                detalleV.precioEnvio = 0;
-                detalleV.precioVenta = Math.Round(precioUnitario, 2); ;
-                detalleV.totalGeneral = detalleV.total;
-
-                detalleV.ventaVarianteSinStock = false;
+            //    detalleV.estado = 1;//5
+            //    detalleV.idCombinacionAlternativa = Convert.ToInt32(cbxCombinacion.SelectedValue);//7
 
 
+            //    detalleV.idPresentacion = Convert.ToInt32(cbxPresentacion.SelectedValue);
+
+            //    detalleV.idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
+            //    detalleV.idSucursal = ConfigModel.sucursal.idSucursal;
+            //    detalleV.nombreCombinacion = cbxCombinacion.Text;
+            //    detalleV.nombreMarca = currentProducto.nombreMarca;
+            //    detalleV.nombrePresentacion = cbxPresentacion.Text;
+            //    detalleV.nro = 1;
+
+
+            //    double precioUnitario = double.Parse(txtPrecioUnitario.Text.Trim(), CultureInfo.GetCultureInfo("en-US"));
+
+            //    precioUnitario = precioUnitario - (descuento / 100) * precioUnitario;
+
+            //    detalleV.precioUnitario = Math.Round(precioUnitario, 2);
+
+            //    detalleV.precioVenta = Math.Round(precioUnitario, 2);
+
+            //    detalleV.total = Math.Round(double.Parse(txtTotal.Text.Trim(), CultureInfo.GetCultureInfo("en-US")), 2);
+
+            //    detalleV.precioVentaReal = Math.Round(double.Parse(txtPrecioUnitario.Text.Trim(), CultureInfo.GetCultureInfo("en-US")), 2);
+            //    detalleV.eliminar = "";
+            //    int scotk = 0;
+            //    if (lbStock.Text != "")
+            //    {
+            //        scotk = Convert.ToInt32(lbStock.Text.Substring(1, lbStock.Text.Length - 1));
+
+            //    }
+
+            //    detalleV.existeStock = (scotk > 0 && scotk >= Convert.ToInt32(txtCantidad.Text.Trim())) ? 1 : 0;
+
+
+            //    detalleV.idDetalleVenta = 0;
+            //    detalleV.idPresentacion = findPresentacion.idPresentacion;
+            //    detalleV.idVenta = 0;
+
+            //    ProductoVenta aux = productos.Find(x => x.idProducto == (int)cbxCodigoProducto.SelectedValue);
+            //    detalleV.nombreMarca = aux.nombreMarca;
+            //    detalleV.nombrePresentacion = findPresentacion.nombrePresentacion;
+            //    detalleV.precioEnvio = 0;
+            //    detalleV.precioVenta = Math.Round(precioUnitario, 2); ;
+            //    detalleV.totalGeneral = detalleV.total;
+
+            //    detalleV.ventaVarianteSinStock = false;
 
 
 
 
-                // agrgando un nuevo item a la lista
-                detalleVentas.Add(detalleV);
-
-                // calcular los descuentos
 
 
-                // Refrescando la tabla
-                detalleCompraBindingSource.DataSource = null;
-                detalleCompraBindingSource.DataSource = detalleVentas;
-                dataGridView.Refresh();
+            //    // agrgando un nuevo item a la lista
+            //    detalleVentas.Add(detalleV);
 
-                // Calculo de totales y subtotales
-                calculoSubtotal();
+            //    // calcular los descuentos
 
-                descuentoTotal();
 
-                limpiarCamposProducto();
+            //    // Refrescando la tabla
+            //    detalleCompraBindingSource.DataSource = null;
+            //    detalleCompraBindingSource.DataSource = detalleVentas;
+            //    dataGridView.Refresh();
 
-            }
-            else
-            {
+            //    // Calculo de totales y subtotales
+            //    calculoSubtotal();
 
-                MessageBox.Show("Error: elemento no seleccionado", "agregar Elemento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    descuentoTotal();
 
-            }
+            //    limpiarCamposProducto();
+
+            //}
+            //else
+            //{
+
+            //    MessageBox.Show("Error: elemento no seleccionado", "agregar Elemento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            //}
 
         }
 
         private void descuentoTotal()
         {
 
-            double descuentoTotal = 0;
-            // calcular el descuento total
-            foreach (DetalleV V in detalleVentas)
-            {
-                // calculamos el decuento para cada elemento
-                double total = V.precioVentaReal * V.cantidad;
-                double descuentoV = total - V.total;
-                descuentoTotal += descuentoV;
+            //double descuentoTotal = 0;
+            //// calcular el descuento total
+            //foreach (DetalleV V in detalleVentas)
+            //{
+            //    // calculamos el decuento para cada elemento
+            //    double total = V.precioVentaReal * V.cantidad;
+            //    double descuentoV = total - V.total;
+            //    descuentoTotal += descuentoV;
 
-            }
-            int i = 2;
-            string formato = "{0:n" + i + "}";
-            txtDescuentoVenta.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, descuentoTotal);
+            //}
+            //int i = 2;
+            //string formato = "{0:n" + i + "}";
+            //txtDescuentoVenta.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, descuentoTotal);
 
         }
 
@@ -598,46 +590,46 @@ namespace Admeli.Ventas.Nuevo
         {
 
             
-            // determinamos el stock del producto seleccionado
-            List<StockReceive> stockReceive = await stockModel.getStockProductoByIdProductoIdCombinacionIdSucursal((int)cbxCodigoProducto.SelectedValue, cbxCombinacion.SelectedValue == null ? 0 : (int)cbxCombinacion.SelectedValue, ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
-                double stockTotal = stockReceive[0].stock_total;
-                double stockDetalle = 0;
-                // si exite en el producto en lista detalle
-                if (detalleVentas != null && (cbxPresentacion.SelectedIndex != -1))
-                {
-                    foreach (DetalleV V in detalleVentas)
-                    {
-                        if (V.idPresentacion == (int)cbxPresentacion.SelectedValue)
-                        {
-                            stockDetalle = V.cantidad;
-                        }
+            //// determinamos el stock del producto seleccionado
+            //List<StockReceive> stockReceive = await stockModel.getStockProductoByIdProductoIdCombinacionIdSucursal((int)cbxCodigoProducto.SelectedValue, cbxCombinacion.SelectedValue == null ? 0 : (int)cbxCombinacion.SelectedValue, ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
+            //    double stockTotal = stockReceive[0].stock_total;
+            //    double stockDetalle = 0;
+            //    // si exite en el producto en lista detalle
+            //    if (detalleVentas != null && (cbxPresentacion.SelectedIndex != -1))
+            //    {
+            //        foreach (DetalleV V in detalleVentas)
+            //        {
+            //            if (V.idPresentacion == (int)cbxPresentacion.SelectedValue)
+            //            {
+            //                stockDetalle = V.cantidad;
+            //            }
 
-                    }
-                }
-                // restamos si exite en detalles de venta
+            //        }
+            //    }
+            //    // restamos si exite en detalles de venta
 
-                if (cantidad == 0)
-                {
+            //    if (cantidad == 0)
+            //    {
                    
-                    if (stockTotal == 0)
-                    {
-                        lbStock.Text = "/0";
-                     }
-                    else {
-                        stockTotal -= stockDetalle;
-                        lbStock.Text = "/" + stockTotal.ToString();
-                    }
-                }
-                else
-                { 
+            //        if (stockTotal == 0)
+            //        {
+            //            lbStock.Text = "/0";
+            //         }
+            //        else {
+            //            stockTotal -= stockDetalle;
+            //            lbStock.Text = "/" + stockTotal.ToString();
+            //        }
+            //    }
+            //    else
+            //    { 
 
-                    if (stockTotal == 0)
-                    {
-                        lbStock.Text = "/0";
-                    }
-                    else
-                        lbStock.Text = "/" + stockTotal.ToString();
-            }
+            //        if (stockTotal == 0)
+            //        {
+            //            lbStock.Text = "/0";
+            //        }
+            //        else
+            //            lbStock.Text = "/" + stockTotal.ToString();
+            //}
 
             
            
@@ -728,15 +720,15 @@ namespace Admeli.Ventas.Nuevo
 
         private void calculoSubtotal()
         {
-            double subtotal = 0;
-            foreach (DetalleV item in detalleVentas)
-            {
-                subtotal += item.total;
-            }
+            //double subtotal = 0;
+            //foreach (DetalleV item in detalleVentas)
+            //{
+            //    subtotal += item.total;
+            //}
 
-            txtSubTotal.Text = subtotal.ToString();
-            double impuesto = double.Parse(txtImpuesto.Text, CultureInfo.GetCultureInfo("en-US"));
-            txtTotalNeto.Text = (subtotal + impuesto).ToString();
+            //txtSubTotal.Text = subtotal.ToString();
+            //double impuesto = double.Parse(txtImpuesto.Text, CultureInfo.GetCultureInfo("en-US"));
+            //txtTotalNeto.Text = (subtotal + impuesto).ToString();
         }
 
         /// <summary>
@@ -1079,25 +1071,25 @@ namespace Admeli.Ventas.Nuevo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Verificando la existencia de datos en el datagridview
-            if (dataGridView.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            //// Verificando la existencia de datos en el datagridview
+            //if (dataGridView.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
 
-            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idOrdenCompra);
-            aux.cantidad = Convert.ToDouble(txtCantidad.Text, CultureInfo.GetCultureInfo("en-US"));
-            aux.precioUnitario = Convert.ToDouble(txtPrecioUnitario.Text,CultureInfo.GetCultureInfo("en-US"));
-            aux.total = double.Parse(txtTotal.Text, CultureInfo.GetCultureInfo("en-US"));
-            detalleCompraBindingSource.DataSource = null;
-            detalleCompraBindingSource.DataSource = detalleVentas;
-            dataGridView.Refresh();
+            //int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            //int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
+            //DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idOrdenCompra);
+            //aux.cantidad = Convert.ToDouble(txtCantidad.Text, CultureInfo.GetCultureInfo("en-US"));
+            //aux.precioUnitario = Convert.ToDouble(txtPrecioUnitario.Text,CultureInfo.GetCultureInfo("en-US"));
+            //aux.total = double.Parse(txtTotal.Text, CultureInfo.GetCultureInfo("en-US"));
+            //detalleCompraBindingSource.DataSource = null;
+            //detalleCompraBindingSource.DataSource = detalleVentas;
+            //dataGridView.Refresh();
 
-            // Calculo de totales y subtotales
-            calculoSubtotal();
+            //// Calculo de totales y subtotales
+            //calculoSubtotal();
         }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1319,68 +1311,68 @@ namespace Admeli.Ventas.Nuevo
 
         public async void determinarDescuento()
         {
-            if (txtCantidad.Text != "" && cbxCodigoProducto.SelectedValue != null)
-            {
-                DescuentoProductoSubmit descuentoProductoSubmit = new DescuentoProductoSubmit();
+            //if (txtCantidad.Text != "" && cbxCodigoProducto.SelectedValue != null)
+            //{
+            //    DescuentoProductoSubmit descuentoProductoSubmit = new DescuentoProductoSubmit();
 
-                descuentoProductoSubmit.cantidad = Convert.ToInt32(txtCantidad.Text);
-                descuentoProductoSubmit.cantidades = "";
-                descuentoProductoSubmit.idGrupoCliente = currentCliente != null ? currentCliente.idGrupoCliente : 1;
-                descuentoProductoSubmit.idProducto = (int)cbxCodigoProducto.SelectedValue;
-                descuentoProductoSubmit.idProductos = "";
-                descuentoProductoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
-                descuentoProducto = await descuentoModel.descuentoTotalALaFecha(descuentoProductoSubmit);
+            //    descuentoProductoSubmit.cantidad = Convert.ToInt32(txtCantidad.Text);
+            //    descuentoProductoSubmit.cantidades = "";
+            //    descuentoProductoSubmit.idGrupoCliente = currentCliente != null ? currentCliente.idGrupoCliente : 1;
+            //    descuentoProductoSubmit.idProducto = (int)cbxCodigoProducto.SelectedValue;
+            //    descuentoProductoSubmit.idProductos = "";
+            //    descuentoProductoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
+            //    descuentoProducto = await descuentoModel.descuentoTotalALaFecha(descuentoProductoSubmit);
 
-                txtDescuento.Text = descuentoProducto.descuento.ToString();
+            //    txtDescuento.Text = descuentoProducto.descuento.ToString();
 
-                calcularTotal();
+            //    calcularTotal();
             
 
-            if (detalleVentas != null )
+            //if (detalleVentas != null )
 
-                if(detalleVentas.Count != 0)         
-                 {
-                //primero traemos los descuento correspondientes
-                DescuentoSubmit descuentoSubmit = new DescuentoSubmit();
-                string cantidades = "";
-                string idProductos = "";
-                foreach(DetalleV V in detalleVentas)
-                {
-                    cantidades += V.cantidad + ",";
-                    idProductos += V.idProducto + ",";
+            //    if(detalleVentas.Count != 0)         
+            //     {
+            //    //primero traemos los descuento correspondientes
+            //    DescuentoSubmit descuentoSubmit = new DescuentoSubmit();
+            //    string cantidades = "";
+            //    string idProductos = "";
+            //    foreach(DetalleV V in detalleVentas)
+            //    {
+            //        cantidades += V.cantidad + ",";
+            //        idProductos += V.idProducto + ",";
 
-                }
-                descuentoSubmit.idProductos = idProductos.Substring(0,idProductos.Length-1);
-                descuentoSubmit.cantidades = cantidades.Substring(0,cantidades.Length-1);
-                descuentoSubmit.idGrupoCliente= currentCliente!=null ?currentCliente.idGrupoCliente: 1;
-                descuentoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
-                List< DescuentoReceive> descuentoReceive =await  descuentoModel.descuentoTotalALaFechaGrupo(descuentoSubmit);
+            //    }
+            //    descuentoSubmit.idProductos = idProductos.Substring(0,idProductos.Length-1);
+            //    descuentoSubmit.cantidades = cantidades.Substring(0,cantidades.Length-1);
+            //    descuentoSubmit.idGrupoCliente= currentCliente!=null ?currentCliente.idGrupoCliente: 1;
+            //    descuentoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
+            //    List< DescuentoReceive> descuentoReceive =await  descuentoModel.descuentoTotalALaFechaGrupo(descuentoSubmit);
 
-                int i = 0;
-                foreach (DetalleV V in detalleVentas)
-                {
-                    V.descuento = descuentoReceive[i++].descuento;
-                    // nuevo Precio unitario
-                    double precioUnitario = V.precioVentaReal;
-                    precioUnitario = precioUnitario - (V.descuento / 100) * precioUnitario;
-                    double total = V.total;
-                    V.total = precioUnitario * V.cantidad;
-                    V.precioVenta = precioUnitario;
-                    V.precioUnitario = precioUnitario;
-                }
+            //    int i = 0;
+            //    foreach (DetalleV V in detalleVentas)
+            //    {
+            //        V.descuento = descuentoReceive[i++].descuento;
+            //        // nuevo Precio unitario
+            //        double precioUnitario = V.precioVentaReal;
+            //        precioUnitario = precioUnitario - (V.descuento / 100) * precioUnitario;
+            //        double total = V.total;
+            //        V.total = precioUnitario * V.cantidad;
+            //        V.precioVenta = precioUnitario;
+            //        V.precioUnitario = precioUnitario;
+            //    }
 
-                i = 0;
-                detalleCompraBindingSource.DataSource = null;
-                detalleCompraBindingSource.DataSource = detalleVentas;
-                dataGridView.Refresh();
+            //    i = 0;
+            //    detalleCompraBindingSource.DataSource = null;
+            //    detalleCompraBindingSource.DataSource = detalleVentas;
+            //    dataGridView.Refresh();
 
-                // Calculo de totales y subtotales
-                calculoSubtotal();
-                descuentoTotal();
+            //    // Calculo de totales y subtotales
+            //    calculoSubtotal();
+            //    descuentoTotal();
 
-            }
+            //}
                  
-            }
+            //}
         }
 
         private void plPVenta_Click(object sender, EventArgs e)
@@ -1471,24 +1463,24 @@ namespace Admeli.Ventas.Nuevo
         private void btnModificar_Click(object sender, EventArgs e)
         {
             // Verificando la existencia de datos en el datagridview
-            if (dataGridView.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            //if (dataGridView.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
 
-            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idOrdenCompra);
-            aux.cantidad = Convert.ToDouble(txtCantidad.Text, CultureInfo.GetCultureInfo("en-US"));
-            aux.precioUnitario = Convert.ToDouble(txtPrecioUnitario.Text, CultureInfo.GetCultureInfo("en-US"));
-            aux.total = double.Parse(txtTotal.Text, CultureInfo.GetCultureInfo("en-US"));
-            detalleCompraBindingSource.DataSource = null;
-            detalleCompraBindingSource.DataSource = detalleVentas;
-            dataGridView.Refresh();
+            //int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            //int idOrdenCompra = Convert.ToInt32(dataGridView.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
+            //DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idOrdenCompra);
+            //aux.cantidad = Convert.ToDouble(txtCantidad.Text, CultureInfo.GetCultureInfo("en-US"));
+            //aux.precioUnitario = Convert.ToDouble(txtPrecioUnitario.Text, CultureInfo.GetCultureInfo("en-US"));
+            //aux.total = double.Parse(txtTotal.Text, CultureInfo.GetCultureInfo("en-US"));
+            //detalleCompraBindingSource.DataSource = null;
+            //detalleCompraBindingSource.DataSource = detalleVentas;
+            //dataGridView.Refresh();
 
-            // Calculo de totales y subtotales
-            calculoSubtotal();
+            //// Calculo de totales y subtotales
+            //calculoSubtotal();
         }
 
         private void dtpFechaVenta_Validated(object sender, EventArgs e)

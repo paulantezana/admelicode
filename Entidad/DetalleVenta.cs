@@ -43,6 +43,13 @@ namespace Entidad
         public int idPuntoVenta { get; set; }
         public bool editar { get; set; }
         public int idTipoDocumento { get; set; }
+
+
+
+
+
+
+
     }
 
     public class DetalleV
@@ -51,12 +58,12 @@ namespace Entidad
         public int nro { get; set; }
         public string descripcion { get; set; }
         public string nombreMarca { get; set; }
-        public double cantidad { get; set; }
-        public double precioEnvio { get; set; }
-        public double cantidadUnitaria { get; set; }
-        public double precioUnitario { get; set; }
-        public double descuento { get; set; }
-        public double total { get; set; }
+        public string cantidad { get; set; }
+        public string precioEnvio { get; set; }
+        public string cantidadUnitaria { get; set; }
+        public string precioUnitario { get; set; }
+        public string descuento { get; set; }
+        public string total { get; set; }
         public int estado { get; set; }
         public int idCombinacionAlternativa { get; set; }
         public int idPresentacion { get; set; }
@@ -67,13 +74,27 @@ namespace Entidad
         public string nombrePresentacion { get; set; }
         public int idSucursal { get; set; }
         public bool ventaVarianteSinStock { get; set; }
-        public double precioVenta { get; set; }
-        public double precioVentaReal { get; set; }
-        public double totalGeneral { get; set; }
+        public string precioVenta { get; set; }
+        public string precioVentaReal { get; set; }
+        public string totalGeneral { get; set; }
         public string eliminar { get; set; }
-        public int existeStock { get; set; }
-        
-}
+        public int existeStock { get; set; }     
+        public string valor { get; set; }
+        public int estadoCobro { get; set; }
+        public string simboloPresentacion { get; set; }
+
+
+        // solo para cotizaciones
+        public int idDetalleCotizacion { get; set; }  
+        public int idCotizacion { get; set; }
+        // variables auxiales para guardar
+        public string porcentual { get; set; }
+        public string efectivo { get; set; }
+
+
+
+          
+    }
 
 public class CobroVenta
 {

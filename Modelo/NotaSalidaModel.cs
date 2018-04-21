@@ -13,23 +13,65 @@ namespace Modelo
         private WebService webService = new WebService();
 
 
+//
+        
 
-
-
-        public void guardar()
+        public async Task<ResponseNotaGuardar> guardar(List<object> param)
         {
-
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/nsalida/guardar
+                return await webService.POST<List<object>, ResponseNotaGuardar>("nsalida", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public void modificar()
+        public async Task<ResponseNotaGuardar> modificar(List<object> param)
         {
-
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/nsalida/modificar
+                return await webService.POST<List<object>, ResponseNotaGuardar>("nsalida", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<Response> anular(NotaSalida currentNotaSalida)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/nsalida/modificar
+                return await webService.POST<NotaSalida, Response>("nsalida", "anular", currentNotaSalida);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public void eliminar()
+        public async Task<ResponseNotaSalida> verifcar(ComprobarNotaSalida param)
         {
-
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/moneda/desactivar
+                return await webService.POST<ComprobarNotaSalida, ResponseNotaSalida>("verificarstockcantidadnotasalida", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
+
+
+
+
+
 
         public async Task<RootObject<NotaSalida>> notaEntradas(int idSucursal, int idAlmacen, int idPersonal, int estado, int page, int items)
         {
@@ -45,15 +87,28 @@ namespace Modelo
             }
         }
 
+        public async Task<List<DetalleNotaSalida>> cargarDetallesNota(int idNotaSalida)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/nsalida/detalle/:id
+                List<DetalleNotaSalida> rootData = await webService.GET<List<DetalleNotaSalida>>("nsalida", String.Format("detalle/{0}", idNotaSalida));
+                return rootData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
         public Task<Response> eliminar(NotaSalida currentNotaSalida)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response> anular(NotaSalida currentNotaSalida)
-        {
-            throw new NotImplementedException();
-        }
+       
 
 
        
@@ -72,6 +127,8 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
 
         public async Task<List<DetalleNotaSalida>> cargarDetalleNotaSalida(int idVenta)
         {
@@ -122,7 +179,10 @@ namespace Modelo
             }
         }
 
-      
+        
+
+
+
 
 
 

@@ -320,7 +320,7 @@ namespace Admeli.Ventas
 
         private void executeNuevo()
         {
-            FormCotizacionNuevo formCotizacionNuevo = new FormCotizacionNuevo();
+            FormCotizacionaNew formCotizacionNuevo = new FormCotizacionaNew();
             formCotizacionNuevo.ShowDialog();
             cargarRegistros();
         }
@@ -340,7 +340,7 @@ namespace Admeli.Ventas
             currentCotizacion = cotizaciones.Find(x => x.idCotizacion == idCotizacion); // Buscando la categoria en las lista de categorias
 
             // Mostrando el formulario de modificacion
-            FormCotizacionNuevo formCotizacionNuevo = new FormCotizacionNuevo(currentCotizacion);
+            FormCotizacionaNew formCotizacionNuevo = new FormCotizacionaNew(currentCotizacion);
             formCotizacionNuevo.ShowDialog();
             cargarRegistros(); // recargando loas registros en el datagridview
         }

@@ -116,7 +116,7 @@ namespace Modelo
                 throw ex;
             }
         }
-
+        
         public async Task<List<Sucursal>> sucursalesPrecio(int idProducto)
         {
             try

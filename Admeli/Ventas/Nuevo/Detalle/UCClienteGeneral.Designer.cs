@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCClienteGeneral));
             this.panelFooter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -309,7 +308,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label3.Location = new System.Drawing.Point(24, 326);
+            this.label3.Location = new System.Drawing.Point(24, 320);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 19);
@@ -626,7 +625,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label13.Location = new System.Drawing.Point(19, 257);
+            this.label13.Location = new System.Drawing.Point(24, 254);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(45, 19);
@@ -646,7 +645,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label14.Location = new System.Drawing.Point(349, 257);
+            this.label14.Location = new System.Drawing.Point(349, 253);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(119, 19);
@@ -655,14 +654,21 @@
             // 
             // btnGrupoNuevo
             // 
-            this.btnGrupoNuevo.BackColor = System.Drawing.Color.Lime;
+            this.btnGrupoNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
+            this.btnGrupoNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGrupoNuevo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
+            this.btnGrupoNuevo.FlatAppearance.BorderSize = 0;
+            this.btnGrupoNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
+            this.btnGrupoNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
             this.btnGrupoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrupoNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrupoNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnGrupoNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnGrupoNuevo.Image")));
-            this.btnGrupoNuevo.Location = new System.Drawing.Point(290, 343);
+            this.btnGrupoNuevo.Location = new System.Drawing.Point(291, 343);
+            this.btnGrupoNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupoNuevo.Name = "btnGrupoNuevo";
-            this.btnGrupoNuevo.Size = new System.Drawing.Size(33, 33);
-            this.btnGrupoNuevo.TabIndex = 1;
+            this.btnGrupoNuevo.Size = new System.Drawing.Size(29, 33);
+            this.btnGrupoNuevo.TabIndex = 115;
+            this.btnGrupoNuevo.Text = "+";
             this.btnGrupoNuevo.UseVisualStyleBackColor = false;
             this.btnGrupoNuevo.Click += new System.EventHandler(this.btnGrupoNuevo_Click);
             // 

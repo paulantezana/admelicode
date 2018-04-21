@@ -33,6 +33,8 @@ namespace Admeli.AlmacenBox.buscar
 
         private List<NotaSalidaR> listNotasalida { get; set; }
         private List<DetalleNotaSalida> listNotaSalidaDestalle { get; set; }
+        public  List<DetalleNotaSalida> listDestalleSubmit { get; set; }
+
         // entidadades auxiliares
 
         private bool nuevo { get; set; }
@@ -46,14 +48,14 @@ namespace Admeli.AlmacenBox.buscar
         private  NotaSalidaR currentNotaSalida { get; set; }
         private CheckBox HeaderCheckBoxProducto = null;
 
-        public FormBuscardetalleNotaSalida()
+        public FormBuscardetalleNotaSalida(NotaSalidaR currentNotaSalida )
         {
             InitializeComponent();
             this.nuevo = true;
             formato = "{0:n" + nroDecimales + "}";
-           
 
-
+            listDestalleSubmit = new List<DetalleNotaSalida>();
+            this.currentNotaSalida = currentNotaSalida;
         }
 
 
@@ -167,7 +169,7 @@ namespace Admeli.AlmacenBox.buscar
         {
 
            
-            listNotaSalidaDestalle = await NotaSalidaModel.nSalidaDetalle(1);
+            listNotaSalidaDestalle = await NotaSalidaModel.nSalidaDetalle(currentNotaSalida!=null?  currentNotaSalida.idNotaSalida : 0);
 
             detalleNotaSalidaBindingSource.DataSource = listNotaSalidaDestalle; 
 
@@ -225,6 +227,28 @@ namespace Admeli.AlmacenBox.buscar
 
         }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+
+            foreach (DataGridViewRow row in dgvNotaSalida.Rows)
+            {
+                DataGridViewCheckBoxCell checkBox = (row.Cells["chkbxseleccionDetalleNotaSalida"] as DataGridViewCheckBoxCell);
+                bool estaSeleccionado = Convert.ToBoolean(checkBox.EditedFormattedValue);
+                if (estaSeleccionado)
+                {
+                    DataGridViewTextBoxCell idPresentacion = (row.Cells["idPresentacion"] as DataGridViewTextBoxCell);
+                    DetalleNotaSalida presentacion = listNotaSalidaDestalle.Find(X => X.idPresentacion == Convert.ToInt32(idPresentacion.Value));
+                    listDestalleSubmit.Add(presentacion);
+                }
+
+            }
+            this.Close();
+        }
     }
 }
