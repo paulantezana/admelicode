@@ -53,7 +53,16 @@ namespace Entidad
         public Cumple cumple { get; set; }
         public Abastece abastece { get; set; }
     }
-
+    public class ResponseVenta
+    {
+        public int id_cliente { get; set; }
+        public string msjc { get; set; }
+        public int idc { get; set; }
+        public int estado { get; set; }
+        public string msj { get; set; }
+        public int id { get; set; }
+    }
+   
 
 
 }

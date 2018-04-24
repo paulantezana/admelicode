@@ -527,6 +527,7 @@
             this.cbxTipoDocumento.Size = new System.Drawing.Size(233, 28);
             this.cbxTipoDocumento.TabIndex = 12;
             this.cbxTipoDocumento.ValueMember = "idDocumento";
+            this.cbxTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cbxTipoDocumento_SelectedIndexChanged);
             // 
             // documentoIdentificacionBindingSource
             // 

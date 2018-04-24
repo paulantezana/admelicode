@@ -87,6 +87,7 @@ namespace Entidad
         // solo para cotizaciones
         public int idDetalleCotizacion { get; set; }  
         public int idCotizacion { get; set; }
+
         // variables auxiales para guardar
 
         private string porcentual;

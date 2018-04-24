@@ -45,7 +45,7 @@
             this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label18 = new System.Windows.Forms.Label();
             this.chbxEditar = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.dtpFechaVecimiento = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaPago = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCorrelativo = new System.Windows.Forms.TextBox();
@@ -53,7 +53,7 @@
             this.txtSerie = new System.Windows.Forms.TextBox();
             this.cbxTipoMoneda = new System.Windows.Forms.ComboBox();
             this.monedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dtpEmision = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaVenta = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -152,12 +152,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.bunifuCheckbox3 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.chbxGuiaRemision = new Bunifu.Framework.UI.BunifuCheckbox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.chbxPagarCompra = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.chbxNotaEntrada = new Bunifu.Framework.UI.BunifuCheckbox();
             this.btnComprar = new System.Windows.Forms.Button();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
@@ -273,14 +273,14 @@
             this.panel8.Controls.Add(this.cbxTipoComprobante);
             this.panel8.Controls.Add(this.label18);
             this.panel8.Controls.Add(this.chbxEditar);
-            this.panel8.Controls.Add(this.dtpFechaVecimiento);
+            this.panel8.Controls.Add(this.dtpFechaPago);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Controls.Add(this.label2);
             this.panel8.Controls.Add(this.txtCorrelativo);
             this.panel8.Controls.Add(this.lbserie);
             this.panel8.Controls.Add(this.txtSerie);
             this.panel8.Controls.Add(this.cbxTipoMoneda);
-            this.panel8.Controls.Add(this.dtpEmision);
+            this.panel8.Controls.Add(this.dtpFechaVenta);
             this.panel8.Controls.Add(this.label13);
             this.panel8.Controls.Add(this.label14);
             this.panel8.Controls.Add(this.label15);
@@ -341,16 +341,16 @@
             this.chbxEditar.TabIndex = 58;
             this.chbxEditar.OnChange += new System.EventHandler(this.chbxNotaEntrada_OnChange);
             // 
-            // dtpFechaVecimiento
+            // dtpFechaPago
             // 
-            this.dtpFechaVecimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaVecimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaVecimiento.Location = new System.Drawing.Point(146, 299);
-            this.dtpFechaVecimiento.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dtpFechaVecimiento.Name = "dtpFechaVecimiento";
-            this.dtpFechaVecimiento.Size = new System.Drawing.Size(232, 26);
-            this.dtpFechaVecimiento.TabIndex = 34;
-            this.dtpFechaVecimiento.Value = new System.DateTime(2018, 3, 23, 11, 59, 0, 0);
+            this.dtpFechaPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaPago.Location = new System.Drawing.Point(146, 299);
+            this.dtpFechaPago.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dtpFechaPago.Name = "dtpFechaPago";
+            this.dtpFechaPago.Size = new System.Drawing.Size(232, 26);
+            this.dtpFechaPago.TabIndex = 34;
+            this.dtpFechaPago.Value = new System.DateTime(2018, 3, 23, 11, 59, 0, 0);
             // 
             // label5
             // 
@@ -359,9 +359,9 @@
             this.label5.Location = new System.Drawing.Point(16, 306);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 19);
+            this.label5.Size = new System.Drawing.Size(70, 19);
             this.label5.TabIndex = 33;
-            this.label5.Text = "F. Vecimiento:";
+            this.label5.Text = "F. Pago:";
             // 
             // label2
             // 
@@ -424,16 +424,16 @@
             // 
             this.monedaBindingSource.DataSource = typeof(Entidad.Configuracion.Moneda);
             // 
-            // dtpEmision
+            // dtpFechaVenta
             // 
-            this.dtpEmision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEmision.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEmision.Location = new System.Drawing.Point(146, 246);
-            this.dtpEmision.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dtpEmision.Name = "dtpEmision";
-            this.dtpEmision.Size = new System.Drawing.Size(232, 26);
-            this.dtpEmision.TabIndex = 24;
-            this.dtpEmision.Value = new System.DateTime(2018, 3, 23, 11, 59, 0, 0);
+            this.dtpFechaVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaVenta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaVenta.Location = new System.Drawing.Point(146, 246);
+            this.dtpFechaVenta.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dtpFechaVenta.Name = "dtpFechaVenta";
+            this.dtpFechaVenta.Size = new System.Drawing.Size(232, 26);
+            this.dtpFechaVenta.TabIndex = 24;
+            this.dtpFechaVenta.Value = new System.DateTime(2018, 3, 23, 11, 59, 0, 0);
             // 
             // label13
             // 
@@ -442,9 +442,9 @@
             this.label13.Location = new System.Drawing.Point(40, 246);
             this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 19);
+            this.label13.Size = new System.Drawing.Size(73, 19);
             this.label13.TabIndex = 6;
-            this.label13.Text = "F. Entrega:";
+            this.label13.Text = "F. Venta:";
             // 
             // label14
             // 
@@ -498,9 +498,9 @@
             this.label16.Location = new System.Drawing.Point(68, 15);
             this.label16.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(155, 18);
+            this.label16.Size = new System.Drawing.Size(111, 18);
             this.label16.TabIndex = 0;
-            this.label16.Text = "DATOS COTIZACION";
+            this.label16.Text = "DATOS VENTA";
             // 
             // panel6
             // 
@@ -567,6 +567,7 @@
             this.cbxTipoDocumento.Size = new System.Drawing.Size(233, 28);
             this.cbxTipoDocumento.TabIndex = 12;
             this.cbxTipoDocumento.ValueMember = "idDocumento";
+            this.cbxTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cbxTipoDocumento_SelectedIndexChanged);
             // 
             // documentoIdentificacionBindingSource
             // 
@@ -1530,16 +1531,16 @@
             this.panel11.Controls.Add(this.lbSubtotal);
             this.panel11.Controls.Add(this.label1);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(465, 15);
+            this.panel11.Location = new System.Drawing.Point(464, 15);
             this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(706, 129);
+            this.panel11.Size = new System.Drawing.Size(853, 129);
             this.panel11.TabIndex = 17;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(552, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(527, 4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(123, 97);
@@ -1647,11 +1648,11 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.label20);
-            this.panel5.Controls.Add(this.bunifuCheckbox3);
+            this.panel5.Controls.Add(this.chbxGuiaRemision);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(219, 15);
+            this.panel5.Location = new System.Drawing.Point(203, 15);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(246, 129);
+            this.panel5.Size = new System.Drawing.Size(261, 129);
             this.panel5.TabIndex = 16;
             // 
             // label20
@@ -1659,38 +1660,38 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(49, 33);
+            this.label20.Location = new System.Drawing.Point(36, 33);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(180, 19);
             this.label20.TabIndex = 65;
             this.label20.Text = "Generar Guia Remision";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bunifuCheckbox3
+            // chbxGuiaRemision
             // 
-            this.bunifuCheckbox3.AutoSize = true;
-            this.bunifuCheckbox3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox3.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox3.Checked = true;
-            this.bunifuCheckbox3.CheckedOnColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCheckbox3.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox3.Location = new System.Drawing.Point(21, 33);
-            this.bunifuCheckbox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bunifuCheckbox3.Name = "bunifuCheckbox3";
-            this.bunifuCheckbox3.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox3.TabIndex = 64;
+            this.chbxGuiaRemision.AutoSize = true;
+            this.chbxGuiaRemision.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chbxGuiaRemision.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chbxGuiaRemision.Checked = true;
+            this.chbxGuiaRemision.CheckedOnColor = System.Drawing.Color.DodgerBlue;
+            this.chbxGuiaRemision.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxGuiaRemision.ForeColor = System.Drawing.Color.White;
+            this.chbxGuiaRemision.Location = new System.Drawing.Point(8, 33);
+            this.chbxGuiaRemision.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chbxGuiaRemision.Name = "chbxGuiaRemision";
+            this.chbxGuiaRemision.Size = new System.Drawing.Size(20, 20);
+            this.chbxGuiaRemision.TabIndex = 64;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.chbxPagarCompra);
-            this.panel4.Controls.Add(this.bunifuCheckbox1);
+            this.panel4.Controls.Add(this.chbxNotaEntrada);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(17, 15);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(202, 129);
+            this.panel4.Size = new System.Drawing.Size(186, 129);
             this.panel4.TabIndex = 15;
             // 
             // label19
@@ -1698,11 +1699,11 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(55, 77);
+            this.label19.Location = new System.Drawing.Point(49, 75);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 19);
+            this.label19.Size = new System.Drawing.Size(99, 19);
             this.label19.TabIndex = 62;
-            this.label19.Text = "Pagar Compra";
+            this.label19.Text = "Pagar Venta";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
@@ -1710,11 +1711,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(55, 36);
+            this.label6.Location = new System.Drawing.Point(49, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 19);
+            this.label6.Size = new System.Drawing.Size(115, 19);
             this.label6.TabIndex = 61;
-            this.label6.Text = "Nota de entrada";
+            this.label6.Text = "Nota de Salida";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chbxPagarCompra
@@ -1731,20 +1732,20 @@
             this.chbxPagarCompra.Size = new System.Drawing.Size(20, 20);
             this.chbxPagarCompra.TabIndex = 59;
             // 
-            // bunifuCheckbox1
+            // chbxNotaEntrada
             // 
-            this.bunifuCheckbox1.AutoSize = true;
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.Checked = true;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuCheckbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(21, 33);
-            this.bunifuCheckbox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 60;
+            this.chbxNotaEntrada.AutoSize = true;
+            this.chbxNotaEntrada.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chbxNotaEntrada.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chbxNotaEntrada.Checked = true;
+            this.chbxNotaEntrada.CheckedOnColor = System.Drawing.Color.DodgerBlue;
+            this.chbxNotaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxNotaEntrada.ForeColor = System.Drawing.Color.White;
+            this.chbxNotaEntrada.Location = new System.Drawing.Point(21, 33);
+            this.chbxNotaEntrada.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chbxNotaEntrada.Name = "chbxNotaEntrada";
+            this.chbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
+            this.chbxNotaEntrada.TabIndex = 60;
             // 
             // btnComprar
             // 
@@ -1905,7 +1906,7 @@
         private System.Windows.Forms.BindingSource productoBindingSource;
         private System.Windows.Forms.BindingSource alternativaCombinacionBindingSource;
         private System.Windows.Forms.ComboBox cbxTipoMoneda;
-        private System.Windows.Forms.DateTimePicker dtpEmision;
+        private System.Windows.Forms.DateTimePicker dtpFechaVenta;
         private System.Windows.Forms.BindingSource monedaBindingSource;
         private System.Windows.Forms.BindingSource tipoDocumentoBindingSource;
         private System.Windows.Forms.DataGridView dgvDetalleOrdenCompra;
@@ -1915,7 +1916,7 @@
         private System.Windows.Forms.TextBox txtSerie;
         private System.Windows.Forms.ComboBox cbxCliente;
         private System.Windows.Forms.BindingSource proveedorBindingSource;
-        private System.Windows.Forms.DateTimePicker dtpFechaVecimiento;
+        private System.Windows.Forms.DateTimePicker dtpFechaPago;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbxTipoDocumento;
         private System.Windows.Forms.Label label8;
@@ -1966,11 +1967,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label20;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox3;
+        private Bunifu.Framework.UI.BunifuCheckbox chbxGuiaRemision;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuCheckbox chbxPagarCompra;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
+        private Bunifu.Framework.UI.BunifuCheckbox chbxNotaEntrada;
     }
 }

@@ -70,6 +70,8 @@ namespace Admeli.Ventas.Nuevo
         private List<DetalleV> detalleVentas { get; set; }
         private List<Presentacion> listPresentacion { get; set; }
         private List<ImpuestoProducto> listImpuestosProducto { get; set; }
+
+        List<DescuentoReceive> descuentoReceive { get; set; }
         public UbicacionGeografica CurrentUbicacionGeografica;      
         /// Llenan los datos en las interacciones en el formulario 
      
@@ -80,15 +82,15 @@ namespace Admeli.Ventas.Nuevo
         private ProductoVenta currentProducto { get; set; }
         private ImpuestoProducto impuestoProducto { get; set; }
         private Cliente CurrentCliente { get; set; }
-
+        DescuentoSubmit descuentoSubmit { get; set; }
 
         private Cotizacion  currentCotizacion { get; set; }
 
 
 
+        bool enModificar = false;
 
-
-
+       
 
 
 
@@ -563,8 +565,14 @@ namespace Admeli.Ventas.Nuevo
                 currentProducto = listProductos.Find(x => x.idProducto == idProducto);
                 cbxDescripcion.Text = currentProducto.codigoProducto;
                 // Llenar los campos del producto escogido.............!!!!!
-                txtCantidad.Text = "1";
-                txtDescuento.Text = "0";
+
+                if(!enModificar)
+                {
+
+                    txtCantidad.Text = "1";
+                    txtDescuento.Text = "0";
+                }
+               
                 /// Cargando presentaciones
                 cargarPresentacionesProducto();
                 /// Cargando alternativas del producto
@@ -679,7 +687,7 @@ namespace Admeli.Ventas.Nuevo
                     if (detalleVentas.Count != 0)
                     {
                         //primero traemos los descuento correspondientes
-                        DescuentoSubmit descuentoSubmit = new DescuentoSubmit();
+                        descuentoSubmit = new DescuentoSubmit();
                         string cantidades = "";
                         string idProductos = "";
                         foreach (DetalleV V in detalleVentas)
@@ -694,8 +702,8 @@ namespace Admeli.Ventas.Nuevo
                         descuentoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
                         descuentoSubmit.fechaInicio = dateEmision;
                         descuentoSubmit.fechaFin = dateVecimiento;
-
-                        List<DescuentoReceive> descuentoReceive = await descuentoModel.descuentoTotalALaFechaGrupo(descuentoSubmit);
+                        
+                        descuentoReceive = await descuentoModel.descuentototalentrefechasgrupo(descuentoSubmit);
 
 
 
@@ -824,6 +832,8 @@ namespace Admeli.Ventas.Nuevo
 
         private void cbxCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+          
             cargarProductoDetalle();
         }
 
@@ -838,8 +848,12 @@ namespace Admeli.Ventas.Nuevo
                 Presentacion presentacion  = listPresentacion.Find(x => x.idPresentacion == idPresentacion);
                 cbxCodigoProducto.SelectedValue = presentacion.idProducto;
                 // Llenar los campos del producto escogido.............!!!!!
-                txtCantidad.Text = "1";
-                txtDescuento.Text = "0";
+
+                if (!enModificar) {
+                    txtCantidad.Text = "1";
+                    txtDescuento.Text = "0";
+                } 
+               
                 /// Cargando presentaciones           
 
                 /// Cargando alternativas del producto
@@ -900,6 +914,7 @@ namespace Admeli.Ventas.Nuevo
 
         private void cbxDescripcion_SelectedIndexChanged(object sender, EventArgs e)
         {
+          
             cargarDescripcionDetalle();
         }
         // validaciones
@@ -986,20 +1001,26 @@ namespace Admeli.Ventas.Nuevo
                 MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+            enModificar = true;
             int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
             DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+           
+            txtCantidad.Text = darformato(toDouble(aux.cantidad));
             cbxCodigoProducto.Text = aux.codigoProducto;
             cbxDescripcion.Text = aux.descripcion;
+            txtCantidad.Text = darformato(toDouble(aux.cantidad));
+
             cbxVariacion.Text = aux.nombreCombinacion;
-            cbxDescripcion.Text = aux.nombrePresentacion;
-            txtCantidad.Text =darformato( toDouble(aux.cantidad));
             txtPrecioUnitario.Text = darformato(aux.precioVentaReal);
-            txtDescuento.Text = darformato( aux.descuento);
-            txtTotalProducto.Text = darformato( aux.totalGeneral);
+            txtDescuento.Text = darformato(aux.descuento);
+            txtTotalProducto.Text = darformato(aux.totalGeneral);
             btnAgregar.Enabled = false;
             btnModificar.Enabled = true;
-            dgvDetalleOrdenCompra.Rows[index].Selected = true;
+
+
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -1173,7 +1194,7 @@ namespace Admeli.Ventas.Nuevo
 
                 }
 
-                detalleV.existeStock = (scotk > 0 && scotk >= Convert.ToInt32(txtCantidad.Text.Trim())) ? 1 : 0;             
+                detalleV.existeStock = (scotk > 0 && scotk >= Convert.ToInt32( toDouble( txtCantidad.Text.Trim()))) ? 1 : 0;             
                 ProductoVenta aux1 = listProductos.Find(x => x.idProducto == (int)cbxCodigoProducto.SelectedValue);
                 detalleV.nombreMarca = aux1.nombreMarca;
                 detalleV.nombrePresentacion = findPresentacion.nombrePresentacion;
@@ -1530,6 +1551,11 @@ namespace Admeli.Ventas.Nuevo
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbxTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

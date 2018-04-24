@@ -129,7 +129,7 @@ namespace Modelo
                 throw ex;
             }
         }
-        public async Task<List<AlmacenComra>> almacenesCompra(int idPersonal ,int idSucursal)
+        public async Task<List<AlmacenComra>> almacenesCompra( int idSucursal,int idPersonal)
         {
             try
             {

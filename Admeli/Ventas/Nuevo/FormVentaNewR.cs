@@ -26,25 +26,50 @@ namespace Admeli.Ventas.Nuevo
     {
 
 
-        //variables para realizar  un orden de compra ordenCompra
+
+        // Variables para verificar stock
+        List<List<object>> dato { get; set; }
+        VerificarStock verificarStock { get; set; }
+
+
+        AbasteceV abastece { get; set; }
+
+        AbasteceReceive abasteceReceive { get; set; }
+        //variables para realizar  un venta
+
+
+        private Cobrov cobrov { get; set; }
+        private Ventav ventav { get; set; }
+        private CobroVentaV cobroVentaV { get; set; }
+        private List<DatosNotaSalidaVenta> datosNotaSalidaVenta { get; set; }
+        private NotasalidaVenta notasalidaVenta { get; set; }
+        private VentaTotal ventaTotal { get; set; }
+
+
+
+
+
+
+
+
 
         CotizacionG cotizacionG { get; set; }
         TotalCotizacion totalCotizacion { get; set; }
 
 
-       
-       
-       
+
+
+
 
 
         //webservice utilizados
-      
+
         private TipoDocumentoModel tipoDocumentoModel = new TipoDocumentoModel();
-        private DocCorrelativoModel docCorrelativoModel = new DocCorrelativoModel();       
-        private AlternativaModel alternativaModel = new AlternativaModel();      
-        private FechaModel fechaModel = new FechaModel();    
-        private MedioPagoModel medioPagoModel = new MedioPagoModel();       
-        private LocationModel locationModel = new LocationModel();       
+        private DocCorrelativoModel docCorrelativoModel = new DocCorrelativoModel();
+        private AlternativaModel alternativaModel = new AlternativaModel();
+        private FechaModel fechaModel = new FechaModel();
+        private MedioPagoModel medioPagoModel = new MedioPagoModel();
+        private LocationModel locationModel = new LocationModel();
         private MonedaModel monedaModel = new MonedaModel();
         private DocumentoIdentificacionModel documentoIdentificacionModel = new DocumentoIdentificacionModel();
         private ClienteModel clienteModel = new ClienteModel();
@@ -55,28 +80,32 @@ namespace Admeli.Ventas.Nuevo
         private DescuentoModel descuentoModel = new DescuentoModel();
         private StockModel stockModel = new StockModel();
         private VentaModel ventaModel = new VentaModel();
-
+        private AlmacenModel almacenModel = new AlmacenModel();
 
         /// Sus datos se cargan al abrir el formulario
         private List<Moneda> monedas { get; set; }
         private List<TipoDocumento> tipoDocumentos { get; set; }
-        private FechaSistema fechaSistema { get; set; }      
-        private List<MedioPago> medioPagos { get; set; }          
+        private FechaSistema fechaSistema { get; set; }
+        private List<MedioPago> medioPagos { get; set; }
         private List<DocumentoIdentificacion> documentoIdentificacion { get; set; }
         private List<Cliente> listClientes { get; set; }
         private List<Impuesto> listImpuesto { get; set; }
         private List<ImpuestoDocumento> listIDocumento { get; set; }
         private List<ProductoVenta> listProductos { get; set; }
-        private DescuentoProductoReceive  descuentoProducto{ get; set; }
+        private DescuentoProductoReceive descuentoProducto { get; set; }
         private List<DetalleV> detalleVentas { get; set; }
         private List<Presentacion> listPresentacion { get; set; }
         private List<ImpuestoProducto> listImpuestosProducto { get; set; }
-        public UbicacionGeografica CurrentUbicacionGeografica;      
+
+        private List<AlmacenComra> listAlmecenes { get; set; }
+
+
+        public UbicacionGeografica CurrentUbicacionGeografica;
         /// Llenan los datos en las interacciones en el formulario 
-     
-       
-      
-        private Presentacion currentPresentacion { get; set; }      
+
+
+        private AlmacenComra almacenVenta { get; set; }
+        private Presentacion currentPresentacion { get; set; }
         private CorrelativoCotizacion correlativoCotizacion { get; set; }
         private ProductoVenta currentProducto { get; set; }
         private ImpuestoProducto impuestoProducto { get; set; }
@@ -85,10 +114,10 @@ namespace Admeli.Ventas.Nuevo
         private Venta currentVenta { get; set; }
 
         public int nroNuevo = 0;
-       
-        private bool nuevo { get; set; }
 
-        private int idPresentacionDatagriview = 0;    
+        private bool nuevo { get; set; }
+        private bool enModificar { get; set; }
+        private int idPresentacionDatagriview = 0;
         int nroDecimales = 2;
         string formato { get; set; }
         private int nroCaracteres = 0;
@@ -96,26 +125,35 @@ namespace Admeli.Ventas.Nuevo
         private double Descuento = 0;
         private double impuesto = 0;
         private double total = 0;
-        
+
         public FormVentaNewR()
         {
             InitializeComponent();
 
 
-       
-           
+
+
             this.nuevo = true;
             cargarFechaSistema();
-          
-                
+
+
             formato = "{0:n" + nroDecimales + "}";
-            
-           
+            if (ConfigModel.cajaSesion == null)
+            {
+                chbxPagarCompra.Checked = false;
+                chbxPagarCompra.Enabled = false;
+
+
+            }
+            chbxGuiaRemision.Checked = false;
+            chbxGuiaRemision.Enabled = false;
+
             cargarResultadosIniciales();
 
         }
 
-     
+
+
         #region============= metods de apoyo en formato de decimales
 
         private void cargarResultadosIniciales()
@@ -138,7 +176,7 @@ namespace Admeli.Ventas.Nuevo
         {
 
             string var1 = string.Format(CultureInfo.GetCultureInfo("en-US"), this.formato, dato);
-            var1= var1.Replace(",","");
+            var1 = var1.Replace(",", "");
             return var1;
         }
 
@@ -154,14 +192,46 @@ namespace Admeli.Ventas.Nuevo
 
         #endregion============================
 
-        public FormVentaNewR(Cotizacion currentCotizacion)
+        public FormVentaNewR(Venta currentVenta)
         {
-            
+
             InitializeComponent();
-           
-            this.nuevo = false;       
+
+            this.nuevo = false;
             formato = "{0:n" + nroDecimales + "}";
-         
+            this.currentVenta = currentVenta;
+
+            if (ConfigModel.cajaSesion == null)
+            {
+                chbxPagarCompra.Checked = false;
+                chbxPagarCompra.Enabled = false;
+
+
+            }
+            chbxGuiaRemision.Checked = false;
+            chbxGuiaRemision.Enabled = false;
+            deshabilitarControles();
+
+        }
+
+        private void deshabilitarControles()
+        {
+            cbxTipoComprobante.Enabled = false;
+            txtSerie.Enabled = false;
+            txtCorrelativo.Enabled = false;
+            chbxEditar.Enabled = false;
+            cbxTipoDocumento.Enabled = false;
+            txtDni.Enabled = false;
+            cbxCliente.Enabled = false;
+            cbxTipoMoneda.Enabled = false;
+            dtpFechaPago.Enabled = false;
+            btnActulizar.Enabled = false;
+            btnAgregar.Enabled=false;
+            btnBuscarCliente.Enabled = false;
+            btnComprar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnNuevoProducto.Enabled = false;
+            btnImportarCotizacion.Visible = false;
         }
         #region ================================ Root Load ================================
         private void FormCompraNew_Load(object sender, EventArgs e)
@@ -171,14 +241,15 @@ namespace Admeli.Ventas.Nuevo
             if (nuevo == true)
             {
                 this.reLoad();
-               
-               
+
+
             }
             else
             {
                 this.reLoad();
 
-                cargarCotizacion();                    
+                cargarVentas();
+                cargarCorrelativo();
             }
 
             AddButtonColumn();
@@ -187,23 +258,101 @@ namespace Admeli.Ventas.Nuevo
         }
         private void reLoad()
         {
-                      
-            cargarMonedas();        
+
+            cargarMonedas();
             cargarFechaSistema();
-            cargarProductos();                             
+            cargarProductos();
             cargartiposDocumentos();
             cargarClientes();
             cargarTipoComprobantes();
             cargarImpuesto();
             cargarPresentacion();
             cargarObjetos();
-
+            cargarAlmacen();
 
         }
         #endregion
         #region ============================== Load ==============================
 
 
+        private void cargarCorrelativo()
+        {
+
+            cbxTipoComprobante.SelectedValue = currentVenta.idTipoDocumento;
+
+            txtSerie.Text = currentVenta.serie;
+            txtCorrelativo.Text = currentVenta.correlativo; 
+        } 
+        private async void cargarAlmacen()
+        {
+
+             listAlmecenes = await almacenModel.almacenesCompra(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
+             almacenVenta = listAlmecenes[0];
+            
+        }
+
+
+
+        private async void cargarVentas()
+        {
+
+            
+            detalleVentas = await ventaModel.listarDetalleventas(currentVenta.idVenta);
+
+
+
+            double impuesto = 0;
+            foreach (DetalleV V in detalleVentas)
+            {
+
+                double Im = toDouble(V.valor);
+                impuesto += Im;
+
+
+                double precioUnitario = toDouble(V.precioUnitario);
+                double cantidad = toDouble(V.cantidad);
+                double cantidad1 = toDouble(V.cantidadUnitaria);
+
+                V.precioUnitario = darformato(precioUnitario);
+                V.cantidad = darformato(cantidad);
+                V.cantidadUnitaria = darformato(cantidad1);
+
+                double total1 = toDouble(V.total);
+                V.total = darformato(total1);
+                double total = precioUnitario * cantidad + Im;
+                V.totalGeneral = darformato(total);
+                V.precioVenta = darformato(total / cantidad);
+
+                double precioVenta = toDouble(V.precioVenta);
+                double d = 1 - toDouble(V.descuento) / 100;
+
+
+
+                V.precioVentaReal = darformato(precioVenta / d);
+                listImpuestosProducto = await impuestoModel.impuestoProducto(V.idProducto, ConfigModel.sucursal.idSucursal);
+                // calculamos lo impuesto posibles del producto
+                double porcentual = 0;
+                double efectivo = 0;
+                foreach (ImpuestoProducto I in listImpuestosProducto)
+                {
+                    if (I.porcentual)
+                    {
+                        porcentual += toDouble(I.valorImpuesto);
+                    }
+                    else
+                    {
+                        efectivo += toDouble(I.valorImpuesto);
+                    }
+                }
+                V.Porcentual = darformato(porcentual);
+                V.Efectivo = darformato(efectivo);
+
+
+            }
+            detalleVBindingSource.DataSource = detalleVentas;
+            limpiarCamposProducto();
+
+        }
         private async void cargarCotizacion()
         {
             detalleVentas=  await cotizacionModel.detalleCotizacion(currentCotizacion.idCotizacion);
@@ -264,8 +413,17 @@ namespace Admeli.Ventas.Nuevo
         }
         private void cargarObjetos() {
 
-            cotizacionG = new CotizacionG();
-            totalCotizacion = new TotalCotizacion();
+            cobrov = new Cobrov();
+            ventav = new Ventav();
+            cobroVentaV = new CobroVentaV();
+            datosNotaSalidaVenta = new List<DatosNotaSalidaVenta>();
+            notasalidaVenta = new NotasalidaVenta();
+            ventaTotal = new VentaTotal();
+            dato = new List<List<object>>();
+            verificarStock = new VerificarStock();
+            abastece = new AbasteceV();
+
+
         }
         private async void cargarPresentacion()
         {                                                                                                    /// Cargar las precentaciones
@@ -298,13 +456,15 @@ namespace Admeli.Ventas.Nuevo
         {
             try
             {
-
+                
                 listClientes = await clienteModel.ListarClientesActivos();
                 clienteBindingSource.DataSource = listClientes;
                 if (!nuevo)
                 {
-                    cbxCliente.SelectedValue = currentCotizacion.idCliente;
 
+                    Cliente cliente = listClientes.Find(X => X.idCliente == currentVenta.idCliente);
+                    cbxCliente.SelectedValue = currentVenta.idCliente;
+                    cbxTipoDocumento.SelectedValue = cliente.idDocumento;
                 }
 
             }
@@ -323,7 +483,11 @@ namespace Admeli.Ventas.Nuevo
                 documentoIdentificacion = await documentoIdentificacionModel.docIdentificacion();
                 documentoIdentificacionBindingSource.DataSource = documentoIdentificacion;
 
-                
+
+
+                cbxTipoDocumento.SelectedValue = documentoIdentificacion.Find(X => X.tipoDocumento =="Jurídico").idDocumento;
+
+
 
             }
             catch (Exception ex)
@@ -331,14 +495,14 @@ namespace Admeli.Ventas.Nuevo
                 MessageBox.Show("Error: " + ex.Message, "cargar Doc", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }       
         }
-        private async void cargarImpuesto()
+        private async void cargarImpuesto(int tipo=3)
         {
             try
             {
                 // variables necesarios para el calculo del impuesto de la venta
                 listImpuesto = await impuestoModel.listarImpuesto();
 
-                listIDocumento = await impuestoModel.impuestoTipoDoc(ConfigModel.sucursal.idSucursal, 4); // tipo documento 4 
+                listIDocumento = await impuestoModel.impuestoTipoDoc(ConfigModel.sucursal.idSucursal, tipo); // tipo documento 4 
 
               
             }
@@ -354,8 +518,7 @@ namespace Admeli.Ventas.Nuevo
             try
             {
                 tipoDocumentos = await tipoDocumentoModel.tipoDocumentoVentas();
-                cbxTipoComprobante.DataSource = tipoDocumentos;
-
+                cbxTipoComprobante.DataSource = tipoDocumentos;               
                 if (!nuevo)
                 {
                     cbxTipoComprobante.SelectedValue = currentVenta.idTipoDocumento;
@@ -379,14 +542,14 @@ namespace Admeli.Ventas.Nuevo
                     Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);  
                     cbxTipoMoneda.Text = currentVenta.moneda;
                     txtObservaciones.Text = currentVenta.observacion;
-                    this.Descuento = toDouble(currentCotizacion.descuento);
+                    this.Descuento = toDouble(currentVenta.descuento);
 
                     lbDescuentoVenta.Text = moneda.simbolo + ". " + darformato(Descuento);
 
-                    this.total = toDouble(currentCotizacion.total);
+                    this.total = toDouble(currentVenta.total);
                     lbTotalVentas.Text = moneda.simbolo + ". " + darformato(total);
 
-                    this.subTotal = toDouble(currentCotizacion.subTotal);
+                    this.subTotal = toDouble(currentVenta.subTotal);
                     lbSubtotal.Text = moneda.simbolo + ". " + darformato(subTotal);
                     double impuesto = total - subTotal;
                     lbImpuesto.Text = moneda.simbolo + ". " + darformato(impuesto);
@@ -405,15 +568,15 @@ namespace Admeli.Ventas.Nuevo
             {
                 if (!nuevo)
                 {
-                    dtpEmision.Value = currentVenta.fecha.date;
-                    dtpFechaVecimiento.Value= currentVenta.fechaPago.date;
+                    dtpFechaVenta.Value = currentVenta.fechaVenta.date;
+                    dtpFechaPago.Value= currentVenta.fechaPago.date;
                
                 }
                 else
                 {
                     fechaSistema = await fechaModel.fechaSistema();
-                    dtpEmision.Value = fechaSistema.fecha;
-                    dtpFechaVecimiento.Value = fechaSistema.fecha;
+                    dtpFechaVenta.Value = fechaSistema.fecha;
+                    dtpFechaPago.Value = fechaSistema.fecha;
 
                 }
 
@@ -545,8 +708,14 @@ namespace Admeli.Ventas.Nuevo
                 currentProducto = listProductos.Find(x => x.idProducto == idProducto);
                 cbxDescripcion.Text = currentProducto.codigoProducto;
                 // Llenar los campos del producto escogido.............!!!!!
+
+                if (!enModificar)
+                {
                 txtCantidad.Text = "1";
                 txtDescuento.Text = "0";
+
+                }
+               
                 /// Cargando presentaciones
                 cargarPresentacionesProducto();
                 /// Cargando alternativas del producto
@@ -628,15 +797,15 @@ namespace Admeli.Ventas.Nuevo
                 descuentoProductoSubmit.idProducto = (int)cbxCodigoProducto.SelectedValue;
                 descuentoProductoSubmit.idProductos = "";
                 descuentoProductoSubmit.idSucursal = ConfigModel.sucursal.idSucursal;
-                string dateEmision = String.Format("{0:u}", dtpEmision.Value);
+                string dateEmision = String.Format("{0:u}", dtpFechaVenta.Value);
                 dateEmision = dateEmision.Substring(0, dateEmision.Length - 1);
-                string dateVecimiento = String.Format("{0:u}", dtpFechaVecimiento.Value);
+                string dateVecimiento = String.Format("{0:u}", dtpFechaPago.Value);
                 dateVecimiento = dateVecimiento.Substring(0, dateVecimiento.Length - 1);
                 descuentoProductoSubmit.fechaInicio = dateEmision;
                 descuentoProductoSubmit.fechaFin = dateVecimiento;
 
 
-                descuentoProducto = await descuentoModel.descuentototalentrefechas(descuentoProductoSubmit);
+                descuentoProducto = await descuentoModel.descuentoTotalALaFecha(descuentoProductoSubmit);
 
                 txtDescuento.Text =darformato( descuentoProducto.descuento);
 
@@ -651,9 +820,9 @@ namespace Admeli.Ventas.Nuevo
 
         public async void determinarDescuento()
         {
-            string dateEmision = String.Format("{0:u}", dtpEmision.Value);
+            string dateEmision = String.Format("{0:u}", dtpFechaVenta.Value);
             dateEmision = dateEmision.Substring(0, dateEmision.Length - 1);
-            string dateVecimiento = String.Format("{0:u}", dtpFechaVecimiento.Value);
+            string dateVecimiento = String.Format("{0:u}", dtpFechaPago.Value);
             dateVecimiento = dateVecimiento.Substring(0, dateVecimiento.Length - 1);
 
 
@@ -820,8 +989,12 @@ namespace Admeli.Ventas.Nuevo
                 Presentacion presentacion  = listPresentacion.Find(x => x.idPresentacion == idPresentacion);
                 cbxCodigoProducto.SelectedValue = presentacion.idProducto;
                 // Llenar los campos del producto escogido.............!!!!!
-                txtCantidad.Text = "1";
-                txtDescuento.Text = "0";
+                if (!enModificar)
+                {
+                    txtCantidad.Text = "1";
+                    txtDescuento.Text = "0";
+
+                }
                 /// Cargando presentaciones           
 
                 /// Cargando alternativas del producto
@@ -962,27 +1135,30 @@ namespace Admeli.Ventas.Nuevo
 
         private void dgvDetalleCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             // Verificando la existencia de datos en el datagridview
             if (dgvDetalleOrdenCompra.Rows.Count == 0)
             {
                 MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+            enModificar = true;
             int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
             DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
             txtCantidad.Text = darformato(toDouble(aux.cantidad));
-
             cbxCodigoProducto.Text = aux.codigoProducto;
             cbxDescripcion.Text = aux.descripcion;
-            cbxVariacion.Text = aux.nombreCombinacion;
-            cbxDescripcion.Text = aux.nombrePresentacion;         
+            txtCantidad.Text = darformato(toDouble(aux.cantidad));
+
+            cbxVariacion.Text = aux.nombreCombinacion;               
             txtPrecioUnitario.Text = darformato(aux.precioVentaReal);
             txtDescuento.Text = darformato( aux.descuento);
             txtTotalProducto.Text = darformato( aux.totalGeneral);               
             btnAgregar.Enabled = false;
             btnModificar.Enabled = true;
-            dgvDetalleOrdenCompra.Rows[index].Selected = true;
+           
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -1033,6 +1209,9 @@ namespace Admeli.Ventas.Nuevo
             descuentoTotal();
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
+            limpiarCamposProducto();
+            enModificar = false;
+            
         }
 
 
@@ -1087,8 +1266,8 @@ namespace Admeli.Ventas.Nuevo
                 /// Busqueda presentacion
                 Presentacion findPresentacion = listPresentacion.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
 
-                detalleV.idDetalleCotizacion=0;
-                detalleV.idCotizacion = currentCotizacion!=null ? currentCotizacion.idCotizacion :0;// depende luego 
+                detalleV.idDetalleVenta = 0;
+                detalleV.idVenta = 0; 
                 detalleV.cantidadUnitaria = darformato(txtCantidad.Text.Trim());
                 detalleV.codigoProducto = cbxCodigoProducto.Text.Trim();
                 detalleV.descripcion = findPresentacion.descripcion;
@@ -1105,20 +1284,31 @@ namespace Admeli.Ventas.Nuevo
 
                 // impuestoProducto
                 listImpuestosProducto = await impuestoModel.impuestoProducto(findPresentacion.idProducto, ConfigModel.sucursal.idSucursal);
+
+                                
+                //listImpuesto
                 // calculamos lo impuesto posibles del producto
                 double porcentual = 0;
                 double efectivo = 0;
+
+                int i = 0;
                 foreach (ImpuestoProducto I in listImpuestosProducto)
                 {
-                    if (I.porcentual)
+                    if(listIDocumento.Count > 0)
+                    if(I.idImpuesto== listIDocumento[i++].idImpuesto)
                     {
-                        porcentual += toDouble(I.valorImpuesto);
+                        if (I.porcentual)
+                        {
+                            porcentual += toDouble(I.valorImpuesto);
+                        }
+                        else
+                        {
+                            efectivo += toDouble(I.valorImpuesto);
+                        }                  
                     }
-                    else
-                    {
-                        efectivo += toDouble(I.valorImpuesto);
-                    }
+                   
                 }
+
                 detalleV.Porcentual =darformato( porcentual);
                 detalleV.Efectivo = darformato(efectivo);
 
@@ -1160,7 +1350,7 @@ namespace Admeli.Ventas.Nuevo
                 ProductoVenta aux1 = listProductos.Find(x => x.idProducto == (int)cbxCodigoProducto.SelectedValue);
                 detalleV.nombreMarca = aux1.nombreMarca;
                 detalleV.nombrePresentacion = findPresentacion.nombrePresentacion;
-                detalleV.precioEnvio = "";
+                detalleV.precioEnvio = "0";
                 detalleV.ventaVarianteSinStock = aux1.ventaVarianteSinStock;
                 // agrgando un nuevo item a la lista
                 detalleVentas.Add(detalleV);
@@ -1293,62 +1483,130 @@ namespace Admeli.Ventas.Nuevo
 
         private async void btnComprar_Click(object sender, EventArgs e)
         {
-            cotizacionG.correlativo = txtCorrelativo.Text.Trim();
-            cotizacionG.descuento = darformatoGuardar(this.Descuento);
-            cotizacionG.direccion = txtDireccionCliente.Text.Trim();
-            cotizacionG.documentoIdentificacion = cbxTipoDocumento.Text;
-            cotizacionG.editar =currentCotizacion!=null ? false: chbxEditar.Checked;
-            cotizacionG.estado = 1;
 
-            string fechaEmision = String.Format("{0:u}", dtpEmision.Value);
-            fechaEmision = fechaEmision.Substring(0, fechaEmision.Length - 1);
-            string fechaVencimiento = String.Format("{0:u}", dtpFechaVecimiento.Value);
-            fechaVencimiento = fechaVencimiento.Substring(0, fechaVencimiento.Length - 1);
+             
 
 
-            cotizacionG.fechaEmision = fechaEmision;
-
-            cotizacionG.fechaVencimiento = fechaVencimiento;
-
-            Cliente cliente = listClientes.Find(X => X.idCliente == (int)cbxCliente.SelectedValue);
-
-            cotizacionG.idCliente = cliente.idCliente;
-            cotizacionG.idCotizacion = currentCotizacion != null ? currentCotizacion.idCotizacion : 0; // ver en modificar
-            cotizacionG.idDocumentoIdentificacion = (int )cbxTipoDocumento.SelectedValue;
-            cotizacionG.idGrupoCliente = cliente.idGrupoCliente;
-            cotizacionG.idMoneda = (cbxTipoMoneda.SelectedItem as Moneda).idMoneda;
-            cotizacionG.idPersonal = PersonalModel.personal.idPersonal;
-            cotizacionG.idSucursal = ConfigModel.sucursal.idSucursal;
-            cotizacionG.idTipoDocumento = 2; // COTIZACION
-            cotizacionG.moneda = (cbxTipoMoneda.SelectedItem as Moneda).moneda;
-            cotizacionG.nombreCliente = cliente.nombreCliente;
-            cotizacionG.observacion = txtObservaciones.Text.Trim();
-            cotizacionG.personal = PersonalModel.personal.nombres;
-            cotizacionG.rucDni = cliente.numeroDocumento;
-            cotizacionG.serie = txtSerie.Text.Trim();
-            cotizacionG.subTotal =darformatoGuardar( subTotal);
-            cotizacionG.tipoCambio = 1;
-            cotizacionG.total = darformatoGuardar(total);
 
 
-            foreach(DetalleV V in  detalleVentas)
+
+
+            cobrov.cantidadCuotas = 1;
+            cobrov.estado = 1;
+            cobrov.estadoCobro = 1;
+            cobrov.idCobro = 0;
+            cobrov.idMoneda = (int)cbxTipoMoneda.SelectedValue;
+            cobrov.interes = 0;
+            cobrov.montoPagar = 0;
+
+            cobroVentaV.idCaja = FormPrincipal.asignacion.idCaja;
+            cobroVentaV.idCajaSesion = ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
+            cobroVentaV.idMedioPago = 1;
+            cobroVentaV.idMoneda = (int)cbxTipoMoneda.SelectedValue;
+            cobroVentaV.moneda = cbxTipoMoneda.Text;
+            cobroVentaV.pagarVenta = chbxPagarCompra.Checked ? 1 : 0;
+
+
+            foreach (DetalleV V in detalleVentas)
             {
+                DatosNotaSalidaVenta aux = new DatosNotaSalidaVenta();
+                aux.cantidad = toEntero(V.cantidad);
+                aux.descripcion = V.descripcion;
+                aux.idAlmacen = almacenVenta.idAlmacen;
+                aux.idCombinacionAlternativa = V.idCombinacionAlternativa;
+                aux.idProducto = V.idProducto;
 
-                V.descuento = V.descuento.Replace(",","");
+
+                V.descuento = V.descuento.Replace(",", "");
                 V.precioUnitario = V.precioUnitario.Replace(",", "");
                 V.total = V.total.Replace(",", "");
                 V.precioVenta = V.precioVenta.Replace(",", "");
                 V.precioVentaReal = V.precioVentaReal.Replace(",", "");
                 V.totalGeneral = V.totalGeneral.Replace(",", "");
                 V.valor = V.valor.Replace(",", "");
+                List<object> list = new List<object>();
+                list.Add( V.idProducto);
+                list.Add(V.idCombinacionAlternativa);
+                list.Add(toEntero( V.cantidad));
+                list.Add(V.ventaVarianteSinStock);
+
+                dato.Add(list);
+
+
+                datosNotaSalidaVenta.Add(aux);
             }
 
-            totalCotizacion.cotizacion = cotizacionG;
-            totalCotizacion.detalle = detalleVentas;
+            notasalidaVenta.datosNotaSalida = datosNotaSalidaVenta;
+            notasalidaVenta.generarNotaSalida = chbxNotaEntrada.Checked ? 1 : 0;
+            notasalidaVenta.idPersonal = PersonalModel.personal.idPersonal;
+            notasalidaVenta.idTipoDocumento = 8; // de nota de salida
 
-           
+            ventav.correlativo = txtCorrelativo.Text.Trim();
+            ventav.descuento = darformato(this.Descuento).Replace(",", "");
+            ventav.direccion = txtDireccionCliente.Text;
+            ventav.documentoIdentificacion = cbxTipoDocumento.Text;
+            ventav.editar = chbxEditar.Checked;
+            ventav.estado = 1;
 
-            Response response= await  cotizacionModel.guardar(totalCotizacion);
+            string fechaVenta = String.Format("{0:u}", dtpFechaVenta.Value);
+            fechaVenta = fechaVenta.Substring(0, fechaVenta.Length - 1);
+            string fechaPago = String.Format("{0:u}", dtpFechaPago.Value);
+            fechaPago = fechaPago.Substring(0, fechaPago.Length - 1);
+            ventav.fechaPago = fechaPago;
+            ventav.fechaVenta = fechaVenta;
+            ventav.formaPago = "EFECTIVO";
+            ventav.idAsignarPuntoVenta = FormPrincipal.asignacion.idAsignarPuntoVenta;
+            ventav.idCliente = (int)cbxCliente.SelectedValue;
+            ventav.idDocumentoIdentificacion = (int)cbxTipoDocumento.SelectedValue;
+            ventav.idPuntoVenta= FormPrincipal.asignacion.idPuntoVenta;
+            ventav.idTipoDocumento = (int)cbxTipoComprobante.SelectedValue;
+            ventav.idVenta = 0;
+            ventav.moneda = cbxTipoMoneda.Text;
+            ventav.nombreCliente = cbxCliente.Text;
+            ventav.observacion = txtObservaciones.Text;
+            ventav.rucDni = txtDni.Text;
+            ventav.serie = txtSerie.Text;
+            ventav.subTotal= darformato(this.subTotal).Replace(",", "");
+            ventav.tipoCambio = 1;
+            ventav.tipoVenta = "Con producto";
+            ventav.total= darformato(this.total).Replace(",", "");
+
+
+
+            // datos para comprobara stock
+
+            verificarStock.dato = dato;
+            verificarStock.idPersonal = PersonalModel.personal.idPersonal;
+            verificarStock.idSucursal = ConfigModel.sucursal.idSucursal;
+            verificarStock.idVenta = 0;
+
+            abastece.dato = dato;
+            abastece.idAlmacen = almacenVenta.idAlmacen;
+            abastece.idVenta = 0;
+            List<verificarStockReceive>  verificarStockReceive = await stockModel.verificarstockproductossucursal(verificarStock);
+
+            abasteceReceive = await stockModel.Abastece(abastece);
+
+            if (abasteceReceive.abastece == 0)
+            {
+                return;
+            }
+
+            DialogResult dialog = MessageBox.Show("¿Desea guardar y a se podra modificar", "Venta",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (dialog == DialogResult.No)
+            {
+
+                this.Close();
+                return;
+            }
+            ventaTotal.cobro = cobrov;
+            ventaTotal.cobroventa = cobroVentaV;
+            ventaTotal.detalle = detalleVentas;
+            ventaTotal.notasalida = notasalidaVenta;
+            ventaTotal.venta = ventav;
+
+            ResponseVenta response= await ventaModel.guardar(ventaTotal);
           
             if (response.id>0)
             {
@@ -1356,15 +1614,13 @@ namespace Admeli.Ventas.Nuevo
                 {
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-               
-
+                    this.Close();
+                }             
             }
          
                            
@@ -1387,6 +1643,8 @@ namespace Admeli.Ventas.Nuevo
             datosClientes();
 
             determinarDescuento();
+
+            
         }
 
 
@@ -1519,12 +1777,46 @@ namespace Admeli.Ventas.Nuevo
 
         private async void cbxTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int idTipoDocumento = (int)cbxTipoComprobante.SelectedValue;
-            List<Venta_correlativo> list = await ventaModel.listarNroDocumentoVenta(idTipoDocumento, ConfigModel.asignacionPersonal.idPuntoVenta);
-            txtCorrelativo.Text = list[0].correlativoActual;
-            txtSerie.Text = list[0].serie;
+            if (nuevo)
+            {
+                int idTipoDocumento = (int)cbxTipoComprobante.SelectedValue;
+                TipoDocumento tipoDocumento = tipoDocumentos.Find(X => X.idTipoDocumento == idTipoDocumento);
+
+                if(tipoDocumento.tipoCliente == 2)
+                {
+
+                    try
+                    {
+                        DocumentoIdentificacion dd = documentoIdentificacion.Find(X => X.tipoDocumento == "Jurídico");
+                        cbxTipoDocumento.SelectedValue= dd.idDocumento;
+
+                    }
+                    catch(Exception ex)
+                    {
 
 
+                    }
+               
+
+                }
+                else
+                {
+                    DocumentoIdentificacion dd = documentoIdentificacion.Find(X => X.tipoDocumento == "Natural");
+                    cbxTipoDocumento.SelectedValue = dd.idDocumento;
+
+                }
+
+                cargarImpuesto((int)cbxTipoComprobante.SelectedValue);
+                List<Venta_correlativo> list = await ventaModel.listarNroDocumentoVenta(idTipoDocumento, ConfigModel.asignacionPersonal.idPuntoVenta);
+                txtCorrelativo.Text = list[0].correlativoActual;
+                txtSerie.Text = list[0].serie;
+
+
+
+            }
+           
+
+            
         }
 
         private void btnImportarCotizacion_Click(object sender, EventArgs e)
@@ -1565,5 +1857,67 @@ namespace Admeli.Ventas.Nuevo
             lbImpuesto.Text = moneda.simbolo + ". " + darformato(impuesto);
         }
 
+
+
+        private  void cbxDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void cbxTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoDocumento.SelectedIndex == -1) return;
+            if (nuevo)
+            {
+                if (cbxTipoDocumento.SelectedIndex == -1) return;
+                int idTipoDocumento = (int)cbxTipoDocumento.SelectedValue;
+                DocumentoIdentificacion tipoDocumento = documentoIdentificacion.Find(X => X.idDocumento == idTipoDocumento);
+                if (tipoDocumento.tipoDocumento == "Jurídico")
+                {
+                    if (tipoDocumentos == null) return; 
+
+                    TipoDocumento tipoDocumento2 = tipoDocumentos.Find(X => X.tipoCliente == 2);
+                    cbxTipoComprobante.SelectedValue = tipoDocumento2.idTipoDocumento;
+
+                    Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento);
+                    if (cliente == null)
+                    {
+
+                        limpiarCamposCliente();
+                    }
+
+                }
+
+                else
+                {
+
+                    if (tipoDocumentos == null) return;
+
+                    TipoDocumento tipoDocumento2 = tipoDocumentos.Find(X => X.tipoCliente == 1);
+                    cbxTipoComprobante.SelectedValue = tipoDocumento2.idTipoDocumento;
+
+                    Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento);
+                    if (cliente == null)
+                    {
+
+                        limpiarCamposCliente();
+                    }
+                }
+
+
+            }
+            
+
+        }
+
+        private void limpiarCamposCliente()
+        {
+            txtDni.Clear();
+            cbxCliente.SelectedIndex = -1;
+            txtDireccionCliente.Clear(); 
+
+
+        }
     }
 }

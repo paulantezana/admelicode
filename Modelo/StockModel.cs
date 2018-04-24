@@ -64,6 +64,37 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        public async Task<List<verificarStockReceive>> verificarstockproductossucursal(VerificarStock param)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/verificarstockproductossucursal
+                return await webService.POST<VerificarStock, List<verificarStockReceive>>("verificarstockproductossucursal", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //verificarabastecealmacenventa
+        //
+        //
+        public async Task<AbasteceReceive> Abastece(AbasteceV param)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/verificarabastecealmacenventa
+                return await webService.POST<AbasteceV, AbasteceReceive>("verificarabastecealmacenventa", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
         public async Task<List<Stock>> stockProducto(int idProducto)
         {
             try
@@ -92,5 +123,12 @@ namespace Modelo
                 throw ex;
             }
         }
+       
+
+
+
+        //verificarstockproductossucursal
+
+
     }
 }

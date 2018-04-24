@@ -14,10 +14,22 @@ namespace Modelo
 
         public void guardar()
         {
-            //Comentario Primero
-            //Comentario 2
+            
         }
 
+
+        public async Task<ResponseVenta> guardar(VentaTotal param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/venta/guardatodo
+                return await webService.POST<VentaTotal, ResponseVenta>("venta", "guardatodo", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void modificar()
         {
 
@@ -93,8 +105,21 @@ namespace Modelo
                 throw ex;
             }
         }
+        //detalleventas/venta/5
+        public async Task<List<DetalleV>> listarDetalleventas(int idVenta)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php/detalleventas/venta/1
+                List<DetalleV> list = await webService.GET<List<DetalleV>>("detalleventas", String.Format("venta/{0}", idVenta));
 
-
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //ventacorrelativo/tipodoc/4/pv/1
     }
 }
