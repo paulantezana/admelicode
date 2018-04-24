@@ -38,6 +38,7 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.personalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblSpeedPages = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -61,7 +62,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
-            this.personalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idPersonalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,11 +82,11 @@
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).BeginInit();
             this.panelNavigation.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelTools.SuspendLayout();
             this.panelCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -98,7 +98,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(814, 324);
@@ -182,6 +182,10 @@
             this.dataGridView.Size = new System.Drawing.Size(792, 135);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // personalBindingSource
+            // 
+            this.personalBindingSource.DataSource = typeof(Entidad.Personal);
             // 
             // panelNavigation
             // 
@@ -432,7 +436,7 @@
             this.textBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBuscar.isPassword = false;
             this.textBuscar.Location = new System.Drawing.Point(10, 6);
-            this.textBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Padding = new System.Windows.Forms.Padding(2, 18, 5, 2);
             this.textBuscar.Size = new System.Drawing.Size(792, 40);
@@ -599,16 +603,13 @@
             this.btnUsuario.UseVisualStyleBackColor = true;
             this.btnUsuario.Click += new System.EventHandler(this.btnPasswordChange_Click);
             // 
-            // personalBindingSource
-            // 
-            this.personalBindingSource.DataSource = typeof(Entidad.Personal);
-            // 
             // idPersonalDataGridViewTextBoxColumn
             // 
             this.idPersonalDataGridViewTextBoxColumn.DataPropertyName = "idPersonal";
             this.idPersonalDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idPersonalDataGridViewTextBoxColumn.Name = "idPersonalDataGridViewTextBoxColumn";
             this.idPersonalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPersonalDataGridViewTextBoxColumn.Visible = false;
             this.idPersonalDataGridViewTextBoxColumn.Width = 46;
             // 
             // nombresDataGridViewTextBoxColumn
@@ -630,6 +631,7 @@
             // fechaNacimientoDataGridViewTextBoxColumn
             // 
             this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "fechaNacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.FillWeight = 168F;
             this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "Fecha de Nacimiento";
             this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
             this.fechaNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -638,6 +640,7 @@
             // tipoDocumentoDataGridViewTextBoxColumn
             // 
             this.tipoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "tipoDocumento";
+            this.tipoDocumentoDataGridViewTextBoxColumn.FillWeight = 157F;
             this.tipoDocumentoDataGridViewTextBoxColumn.HeaderText = "Tipo de Documento";
             this.tipoDocumentoDataGridViewTextBoxColumn.Name = "tipoDocumentoDataGridViewTextBoxColumn";
             this.tipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -646,6 +649,7 @@
             // numeroDocumentoDataGridViewTextBoxColumn
             // 
             this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.FillWeight = 151F;
             this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Nro de Documento";
             this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
             this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -731,7 +735,7 @@
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.Name = "idUbicacionGeograficaDataGridViewTextBoxColumn";
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.ReadOnly = true;
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.Visible = false;
-            this.idUbicacionGeograficaDataGridViewTextBoxColumn.Width = 167;
+            this.idUbicacionGeograficaDataGridViewTextBoxColumn.Width = 183;
             // 
             // idDocumentoDataGridViewTextBoxColumn
             // 
@@ -747,21 +751,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCPersonal";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(830, 340);
             this.Load += new System.EventHandler(this.UCPersonal_Load);
             this.panelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).EndInit();
             this.panelNavigation.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelTools.ResumeLayout(false);
             this.panelTools.PerformLayout();
             this.panelCrud.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

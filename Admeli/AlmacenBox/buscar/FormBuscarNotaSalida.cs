@@ -94,9 +94,16 @@ namespace Admeli.AlmacenBox.buscar
     
         private async void cargarNotaSalida()
         {
-            listNotasalida = await NotaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
+            try
+            {
+                listNotasalida = await NotaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
 
-            notaSalidaRBindingSource.DataSource = listNotasalida; 
+                notaSalidaRBindingSource.DataSource = listNotasalida;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Nota Salida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
         #endregion

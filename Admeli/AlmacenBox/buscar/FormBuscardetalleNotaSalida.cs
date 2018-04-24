@@ -168,10 +168,16 @@ namespace Admeli.AlmacenBox.buscar
         private async void cargarNotaSalidaDetalle()
         {
 
-           
-            listNotaSalidaDestalle = await NotaSalidaModel.nSalidaDetalle(currentNotaSalida!=null?  currentNotaSalida.idNotaSalida : 0);
+            try
+            {
+                listNotaSalidaDestalle = await NotaSalidaModel.nSalidaDetalle(currentNotaSalida != null ? currentNotaSalida.idNotaSalida : 0);
 
-            detalleNotaSalidaBindingSource.DataSource = listNotaSalidaDestalle; 
+                detalleNotaSalidaBindingSource.DataSource = listNotaSalidaDestalle;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Nota Salida Detalle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
         #endregion

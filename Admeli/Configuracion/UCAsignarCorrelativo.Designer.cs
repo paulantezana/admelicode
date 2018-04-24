@@ -38,6 +38,7 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.docCorrelativoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblSpeedPages = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -55,7 +56,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docCorrelativoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,10 +75,10 @@
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docCorrelativoBindingSource)).BeginInit();
             this.panelNavigation.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.docCorrelativoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -89,10 +89,10 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
-            this.panelContainer.Size = new System.Drawing.Size(814, 324);
+            this.panelContainer.Size = new System.Drawing.Size(841, 324);
             this.panelContainer.TabIndex = 7;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
@@ -103,7 +103,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 61);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.panel1.Size = new System.Drawing.Size(812, 202);
+            this.panel1.Size = new System.Drawing.Size(839, 202);
             this.panel1.TabIndex = 20;
             // 
             // dataGridView
@@ -113,7 +113,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -169,9 +169,13 @@
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.RowTemplate.Height = 30;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(792, 187);
+            this.dataGridView.Size = new System.Drawing.Size(819, 187);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // docCorrelativoBindingSource
+            // 
+            this.docCorrelativoBindingSource.DataSource = typeof(Entidad.DocCorrelativo);
             // 
             // panelNavigation
             // 
@@ -182,7 +186,7 @@
             this.panelNavigation.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelNavigation.Location = new System.Drawing.Point(1, 263);
             this.panelNavigation.Name = "panelNavigation";
-            this.panelNavigation.Size = new System.Drawing.Size(812, 60);
+            this.panelNavigation.Size = new System.Drawing.Size(839, 60);
             this.panelNavigation.TabIndex = 23;
             // 
             // label4
@@ -190,7 +194,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
-            this.label4.Location = new System.Drawing.Point(698, 13);
+            this.label4.Location = new System.Drawing.Point(725, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 35);
             this.label4.TabIndex = 11;
@@ -208,7 +212,7 @@
             this.lblSpeedPages.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpeedPages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(110)))), ((int)(((byte)(122)))));
             this.lblSpeedPages.isPassword = false;
-            this.lblSpeedPages.Location = new System.Drawing.Point(757, 13);
+            this.lblSpeedPages.Location = new System.Drawing.Point(784, 13);
             this.lblSpeedPages.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblSpeedPages.Name = "lblSpeedPages";
             this.lblSpeedPages.Size = new System.Drawing.Size(45, 35);
@@ -229,7 +233,7 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btnPrevious);
             this.panel3.Controls.Add(this.btnNext);
-            this.panel3.Location = new System.Drawing.Point(234, 3);
+            this.panel3.Location = new System.Drawing.Point(247, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(344, 55);
             this.panel3.TabIndex = 0;
@@ -393,7 +397,7 @@
             this.panelCrud.Location = new System.Drawing.Point(1, 1);
             this.panelCrud.Name = "panelCrud";
             this.panelCrud.Padding = new System.Windows.Forms.Padding(10, 15, 0, 0);
-            this.panelCrud.Size = new System.Drawing.Size(812, 60);
+            this.panelCrud.Size = new System.Drawing.Size(839, 60);
             this.panelCrud.TabIndex = 24;
             // 
             // btnModificar
@@ -453,17 +457,13 @@
             this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.dataGridViewTextBoxColumn1.Width = 114;
             // 
-            // docCorrelativoBindingSource
-            // 
-            this.docCorrelativoBindingSource.DataSource = typeof(Entidad.DocCorrelativo);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 46;
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // areaDataGridViewTextBoxColumn
             // 
@@ -471,7 +471,6 @@
             this.areaDataGridViewTextBoxColumn.HeaderText = "Área";
             this.areaDataGridViewTextBoxColumn.Name = "areaDataGridViewTextBoxColumn";
             this.areaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.areaDataGridViewTextBoxColumn.Width = 63;
             // 
             // idSucursalDataGridViewTextBoxColumn
             // 
@@ -479,7 +478,7 @@
             this.idSucursalDataGridViewTextBoxColumn.HeaderText = "IDSucursal";
             this.idSucursalDataGridViewTextBoxColumn.Name = "idSucursalDataGridViewTextBoxColumn";
             this.idSucursalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idSucursalDataGridViewTextBoxColumn.Width = 101;
+            this.idSucursalDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -487,7 +486,6 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 83;
             // 
             // nombreLabelDataGridViewTextBoxColumn
             // 
@@ -496,7 +494,6 @@
             this.nombreLabelDataGridViewTextBoxColumn.Name = "nombreLabelDataGridViewTextBoxColumn";
             this.nombreLabelDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreLabelDataGridViewTextBoxColumn.Visible = false;
-            this.nombreLabelDataGridViewTextBoxColumn.Width = 118;
             // 
             // idCorrelativoDataGridViewTextBoxColumn
             // 
@@ -504,7 +501,7 @@
             this.idCorrelativoDataGridViewTextBoxColumn.HeaderText = "IDCorrelativo";
             this.idCorrelativoDataGridViewTextBoxColumn.Name = "idCorrelativoDataGridViewTextBoxColumn";
             this.idCorrelativoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idCorrelativoDataGridViewTextBoxColumn.Width = 116;
+            this.idCorrelativoDataGridViewTextBoxColumn.Visible = false;
             // 
             // serieDataGridViewTextBoxColumn
             // 
@@ -512,31 +509,30 @@
             this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
             this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
             this.serieDataGridViewTextBoxColumn.ReadOnly = true;
-            this.serieDataGridViewTextBoxColumn.Width = 67;
             // 
             // correlativoInicioDataGridViewTextBoxColumn
             // 
             this.correlativoInicioDataGridViewTextBoxColumn.DataPropertyName = "correlativoInicio";
+            this.correlativoInicioDataGridViewTextBoxColumn.FillWeight = 142F;
             this.correlativoInicioDataGridViewTextBoxColumn.HeaderText = "Correlativo Inicio";
             this.correlativoInicioDataGridViewTextBoxColumn.Name = "correlativoInicioDataGridViewTextBoxColumn";
             this.correlativoInicioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativoInicioDataGridViewTextBoxColumn.Width = 142;
             // 
             // correlativoFinDataGridViewTextBoxColumn
             // 
             this.correlativoFinDataGridViewTextBoxColumn.DataPropertyName = "correlativoFin";
+            this.correlativoFinDataGridViewTextBoxColumn.FillWeight = 127F;
             this.correlativoFinDataGridViewTextBoxColumn.HeaderText = "Correlativo Fin";
             this.correlativoFinDataGridViewTextBoxColumn.Name = "correlativoFinDataGridViewTextBoxColumn";
             this.correlativoFinDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativoFinDataGridViewTextBoxColumn.Width = 127;
             // 
             // correlativoActualDataGridViewTextBoxColumn
             // 
             this.correlativoActualDataGridViewTextBoxColumn.DataPropertyName = "correlativoActual";
+            this.correlativoActualDataGridViewTextBoxColumn.FillWeight = 147F;
             this.correlativoActualDataGridViewTextBoxColumn.HeaderText = "Correlativo Actual";
             this.correlativoActualDataGridViewTextBoxColumn.Name = "correlativoActualDataGridViewTextBoxColumn";
             this.correlativoActualDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativoActualDataGridViewTextBoxColumn.Width = 147;
             // 
             // finDataGridViewCheckBoxColumn
             // 
@@ -545,7 +541,6 @@
             this.finDataGridViewCheckBoxColumn.Name = "finDataGridViewCheckBoxColumn";
             this.finDataGridViewCheckBoxColumn.ReadOnly = true;
             this.finDataGridViewCheckBoxColumn.Visible = false;
-            this.finDataGridViewCheckBoxColumn.Width = 30;
             // 
             // idDocumentoDataGridViewTextBoxColumn
             // 
@@ -553,7 +548,7 @@
             this.idDocumentoDataGridViewTextBoxColumn.HeaderText = "IDDocumento";
             this.idDocumentoDataGridViewTextBoxColumn.Name = "idDocumentoDataGridViewTextBoxColumn";
             this.idDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDocumentoDataGridViewTextBoxColumn.Width = 118;
+            this.idDocumentoDataGridViewTextBoxColumn.Visible = false;
             // 
             // idOperacionDataGridViewTextBoxColumn
             // 
@@ -561,7 +556,7 @@
             this.idOperacionDataGridViewTextBoxColumn.HeaderText = "IDOperacion";
             this.idOperacionDataGridViewTextBoxColumn.Name = "idOperacionDataGridViewTextBoxColumn";
             this.idOperacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idOperacionDataGridViewTextBoxColumn.Width = 112;
+            this.idOperacionDataGridViewTextBoxColumn.Visible = false;
             // 
             // operacionDataGridViewTextBoxColumn
             // 
@@ -569,7 +564,6 @@
             this.operacionDataGridViewTextBoxColumn.HeaderText = "Operación ";
             this.operacionDataGridViewTextBoxColumn.Name = "operacionDataGridViewTextBoxColumn";
             this.operacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.operacionDataGridViewTextBoxColumn.Width = 103;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -578,7 +572,6 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            this.estadoDataGridViewTextBoxColumn.Width = 75;
             // 
             // EstadoString
             // 
@@ -586,26 +579,25 @@
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
-            this.EstadoString.Width = 75;
             // 
             // UCAsignarCorrelativo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCAsignarCorrelativo";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.Size = new System.Drawing.Size(830, 340);
+            this.Padding = new System.Windows.Forms.Padding(8);
+            this.Size = new System.Drawing.Size(857, 340);
             this.Load += new System.EventHandler(this.UCAsignarCorrelativo_Load);
             this.panelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docCorrelativoBindingSource)).EndInit();
             this.panelNavigation.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelCrud.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.docCorrelativoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

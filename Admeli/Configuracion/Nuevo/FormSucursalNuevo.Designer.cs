@@ -258,9 +258,9 @@
             this.lblNivel3.Location = new System.Drawing.Point(2, 1);
             this.lblNivel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel3.Name = "lblNivel3";
-            this.lblNivel3.Size = new System.Drawing.Size(35, 14);
+            this.lblNivel3.Size = new System.Drawing.Size(39, 14);
             this.lblNivel3.TabIndex = 0;
-            this.lblNivel3.Text = "nivel3";
+            this.lblNivel3.Text = "Nivel 3";
             // 
             // label4
             // 
@@ -315,9 +315,9 @@
             this.lblNivel2.Location = new System.Drawing.Point(2, 1);
             this.lblNivel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel2.Name = "lblNivel2";
-            this.lblNivel2.Size = new System.Drawing.Size(35, 14);
+            this.lblNivel2.Size = new System.Drawing.Size(39, 14);
             this.lblNivel2.TabIndex = 0;
-            this.lblNivel2.Text = "nivel2";
+            this.lblNivel2.Text = "Nivel 2";
             // 
             // textDirecionSucursal
             // 
@@ -380,9 +380,9 @@
             this.lblNivel1.Location = new System.Drawing.Point(2, 1);
             this.lblNivel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel1.Name = "lblNivel1";
-            this.lblNivel1.Size = new System.Drawing.Size(35, 14);
+            this.lblNivel1.Size = new System.Drawing.Size(39, 14);
             this.lblNivel1.TabIndex = 0;
-            this.lblNivel1.Text = "nivel1";
+            this.lblNivel1.Text = "Nivel 1";
             // 
             // textNombreSucursal
             // 

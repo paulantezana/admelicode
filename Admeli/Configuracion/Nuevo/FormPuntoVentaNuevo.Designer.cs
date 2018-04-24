@@ -170,9 +170,9 @@
             this.label1.Location = new System.Drawing.Point(17, 76);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 14);
+            this.label1.Size = new System.Drawing.Size(80, 14);
             this.label1.TabIndex = 113;
-            this.label1.Text = "Punto venta";
+            this.label1.Text = "Punto de Venta";
             // 
             // panel12
             // 

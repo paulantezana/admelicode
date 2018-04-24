@@ -21,16 +21,18 @@ namespace Entidad
     public class verificarStockSubmit // para el evento de agregar detalle de venta
 
     {
-            public int idVenta { get; set; }
-            public int idPersonal { get; set; }
-            public int idSucursal { get; set; }
-            public List<List<object>> dato { get; set; }      
+        public int idVenta { get; set; }
+        public int idPersonal { get; set; }
+        public int idSucursal { get; set; }
+        public List<List<object>> dato { get; set; }
     }
     public class verificarStockReceive// para el evento de agregar detalle de venta
     {
         public int stock_total { get; set; }
         public string idCombinacionAlternativa { get; set; }
         public int idProducto { get; set; }
+
+
     }
 
 
@@ -39,7 +41,33 @@ namespace Entidad
     public class StockReceive// para el evento de agregar detalle de venta
     {
         public double stock_total { get; set; }
-    
+
+    }
+
+
+
+    public class VerificarStock
+    {
+        public int idVenta { get; set; }
+        public int idPersonal { get; set; }
+        public int idSucursal { get; set; }
+        public List<List<object>> dato { get; set; }
+
+    }
+
+    public class AbasteceV
+    {
+        public int idVenta { get; set; }
+        public int idAlmacen { get; set; }
+        public List<List<object>> dato { get; set; }
+
+    }
+    public class AbasteceReceive
+    {
+        public int abastece { get; set; }
+        public string productos { get; set; }
+        public string combinaciones { get; set; }
+        public string cantidades { get; set; }
     }
 
 

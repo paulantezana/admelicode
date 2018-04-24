@@ -39,6 +39,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvNotaSalida = new System.Windows.Forms.DataGridView();
+            this.notaSalidaRBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,6 +61,13 @@
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.almacenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.monedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.detalleCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.alternativaCombinacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rucDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idNotaSalidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,17 +86,10 @@
             this.idTipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idVentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notaSalidaRBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.almacenBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.monedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.detalleCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.alternativaCombinacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotaSalida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notaSalidaRBindingSource)).BeginInit();
             this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -97,7 +98,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.notaSalidaRBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.almacenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
@@ -110,9 +110,8 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(10, 451);
+            this.splitter1.Size = new System.Drawing.Size(8, 366);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
@@ -123,10 +122,9 @@
             this.panel2.Controls.Add(this.tableLayoutPanel28);
             this.panel2.Controls.Add(this.splitter2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(10, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(8, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1139, 451);
+            this.panel2.Size = new System.Drawing.Size(854, 366);
             this.panel2.TabIndex = 4;
             // 
             // panel13
@@ -134,11 +132,10 @@
             this.panel13.AutoScroll = true;
             this.panel13.Controls.Add(this.dgvNotaSalida);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(0, 97);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4);
+            this.panel13.Location = new System.Drawing.Point(0, 79);
             this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
-            this.panel13.Size = new System.Drawing.Size(1139, 347);
+            this.panel13.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
+            this.panel13.Size = new System.Drawing.Size(854, 281);
             this.panel13.TabIndex = 9;
             // 
             // dgvNotaSalida
@@ -159,7 +156,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvNotaSalida.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvNotaSalida.ColumnHeadersHeight = 43;
             this.dgvNotaSalida.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rucDniDataGridViewTextBoxColumn,
             this.nombreClienteDataGridViewTextBoxColumn,
@@ -190,8 +186,8 @@
             this.dgvNotaSalida.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNotaSalida.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNotaSalida.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvNotaSalida.Location = new System.Drawing.Point(23, 18);
-            this.dgvNotaSalida.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvNotaSalida.Location = new System.Drawing.Point(17, 15);
+            this.dgvNotaSalida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvNotaSalida.Name = "dgvNotaSalida";
             this.dgvNotaSalida.ReadOnly = true;
             this.dgvNotaSalida.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -208,9 +204,13 @@
             this.dgvNotaSalida.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvNotaSalida.RowTemplate.Height = 30;
             this.dgvNotaSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNotaSalida.Size = new System.Drawing.Size(1093, 311);
+            this.dgvNotaSalida.Size = new System.Drawing.Size(820, 251);
             this.dgvNotaSalida.TabIndex = 50;
             this.dgvNotaSalida.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotaSalida_CellDoubleClick);
+            // 
+            // notaSalidaRBindingSource
+            // 
+            this.notaSalidaRBindingSource.DataSource = typeof(Entidad.NotaSalidaR);
             // 
             // tableLayoutPanel28
             // 
@@ -219,12 +219,12 @@
             this.tableLayoutPanel28.Controls.Add(this.tableLayoutPanel11, 0, 0);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel28.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
-            this.tableLayoutPanel28.Padding = new System.Windows.Forms.Padding(7, 6, 7, 0);
+            this.tableLayoutPanel28.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.tableLayoutPanel28.RowCount = 1;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(1139, 97);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(854, 79);
             this.tableLayoutPanel28.TabIndex = 7;
             // 
             // tableLayoutPanel11
@@ -243,12 +243,12 @@
             this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel1, 4, 0);
             this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel2, 5, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(10, 8);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(7, 7);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(1119, 87);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(840, 70);
             this.tableLayoutPanel11.TabIndex = 2;
             // 
             // tableLayoutPanel6
@@ -258,22 +258,23 @@
             this.tableLayoutPanel6.Controls.Add(this.txtSeri, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(387, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(290, 2);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.85185F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.14815F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(177, 81);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(133, 66);
             this.tableLayoutPanel6.TabIndex = 10;
             // 
             // txtSeri
             // 
             this.txtSeri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeri.Location = new System.Drawing.Point(3, 43);
-            this.txtSeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSeri.Location = new System.Drawing.Point(2, 36);
+            this.txtSeri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSeri.Name = "txtSeri";
-            this.txtSeri.Size = new System.Drawing.Size(171, 28);
+            this.txtSeri.Size = new System.Drawing.Size(129, 24);
             this.txtSeri.TabIndex = 4;
             this.txtSeri.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSeri.TextChanged += new System.EventHandler(this.txtSeri_TextChanged);
@@ -285,11 +286,12 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(2, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 41);
+            this.label6.Size = new System.Drawing.Size(129, 34);
             this.label6.TabIndex = 2;
-            this.label6.Text = "serie-correlativo";
+            this.label6.Text = "Serie - Correlativo";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel5
@@ -299,12 +301,13 @@
             this.tableLayoutPanel5.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnfecha, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(570, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(427, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.85185F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.14815F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(183, 81);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(138, 66);
             this.tableLayoutPanel5.TabIndex = 9;
             // 
             // label5
@@ -314,11 +317,12 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Location = new System.Drawing.Point(2, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 41);
+            this.label5.Size = new System.Drawing.Size(134, 34);
             this.label5.TabIndex = 2;
-            this.label5.Text = "fecha";
+            this.label5.Text = "Fecha";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnfecha
@@ -327,9 +331,10 @@
             this.btnfecha.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnfecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfecha.Image = ((System.Drawing.Image)(resources.GetObject("btnfecha.Image")));
-            this.btnfecha.Location = new System.Drawing.Point(3, 44);
+            this.btnfecha.Location = new System.Drawing.Point(2, 36);
+            this.btnfecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnfecha.Name = "btnfecha";
-            this.btnfecha.Size = new System.Drawing.Size(177, 34);
+            this.btnfecha.Size = new System.Drawing.Size(134, 28);
             this.btnfecha.TabIndex = 3;
             this.btnfecha.UseVisualStyleBackColor = false;
             this.btnfecha.Click += new System.EventHandler(this.btnfecha_Click);
@@ -341,22 +346,23 @@
             this.tableLayoutPanel4.Controls.Add(this.txtCliente, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.85185F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.14815F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(186, 81);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(140, 66);
             this.tableLayoutPanel4.TabIndex = 8;
             // 
             // txtCliente
             // 
             this.txtCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(3, 43);
-            this.txtCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCliente.Location = new System.Drawing.Point(2, 36);
+            this.txtCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(180, 28);
+            this.txtCliente.Size = new System.Drawing.Size(136, 24);
             this.txtCliente.TabIndex = 3;
             this.txtCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged);
@@ -368,11 +374,12 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Location = new System.Drawing.Point(2, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(180, 41);
+            this.label4.Size = new System.Drawing.Size(136, 34);
             this.label4.TabIndex = 2;
-            this.label4.Text = "cliente";
+            this.label4.Text = "Cliente";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
@@ -382,22 +389,23 @@
             this.tableLayoutPanel3.Controls.Add(this.txtMotivo, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(195, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(146, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.85185F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.14815F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(186, 81);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(140, 66);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // txtMotivo
             // 
             this.txtMotivo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivo.Location = new System.Drawing.Point(3, 43);
-            this.txtMotivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMotivo.Location = new System.Drawing.Point(2, 36);
+            this.txtMotivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(180, 28);
+            this.txtMotivo.Size = new System.Drawing.Size(136, 24);
             this.txtMotivo.TabIndex = 3;
             this.txtMotivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMotivo.TextChanged += new System.EventHandler(this.txtMotivo_TextChanged);
@@ -409,11 +417,12 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(2, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 41);
+            this.label2.Size = new System.Drawing.Size(136, 34);
             this.label2.TabIndex = 2;
-            this.label2.Text = "motivo- descripcion";
+            this.label2.Text = "Motivo - Descripción";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
@@ -423,12 +432,13 @@
             this.tableLayoutPanel1.Controls.Add(this.btnfechasalida, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(759, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(569, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.61728F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.38272F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(182, 81);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(137, 66);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // btnfechasalida
@@ -437,9 +447,10 @@
             this.btnfechasalida.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnfechasalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfechasalida.Image = ((System.Drawing.Image)(resources.GetObject("btnfechasalida.Image")));
-            this.btnfechasalida.Location = new System.Drawing.Point(3, 43);
+            this.btnfechasalida.Location = new System.Drawing.Point(2, 35);
+            this.btnfechasalida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnfechasalida.Name = "btnfechasalida";
-            this.btnfechasalida.Size = new System.Drawing.Size(176, 35);
+            this.btnfechasalida.Size = new System.Drawing.Size(133, 29);
             this.btnfechasalida.TabIndex = 4;
             this.btnfechasalida.UseVisualStyleBackColor = false;
             this.btnfechasalida.Click += new System.EventHandler(this.btnfechasalida_Click);
@@ -451,11 +462,12 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(2, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 40);
+            this.label1.Size = new System.Drawing.Size(133, 33);
             this.label1.TabIndex = 2;
-            this.label1.Text = "fecha Salida";
+            this.label1.Text = "Fecha de Salida";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
@@ -465,22 +477,23 @@
             this.tableLayoutPanel2.Controls.Add(this.txtDestino, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(947, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(710, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.85185F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.14815F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(169, 81);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(128, 66);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
             // txtDestino
             // 
             this.txtDestino.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDestino.Location = new System.Drawing.Point(3, 43);
-            this.txtDestino.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDestino.Location = new System.Drawing.Point(2, 36);
+            this.txtDestino.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDestino.Name = "txtDestino";
-            this.txtDestino.Size = new System.Drawing.Size(163, 28);
+            this.txtDestino.Size = new System.Drawing.Size(124, 24);
             this.txtDestino.TabIndex = 4;
             this.txtDestino.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDestino.TextChanged += new System.EventHandler(this.txtDestino_TextChanged);
@@ -492,9 +505,10 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Location = new System.Drawing.Point(2, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 41);
+            this.label3.Size = new System.Drawing.Size(124, 34);
             this.label3.TabIndex = 3;
             this.label3.Text = "Destino";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -503,157 +517,12 @@
             // 
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter2.Location = new System.Drawing.Point(0, 444);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(5);
+            this.splitter2.Location = new System.Drawing.Point(0, 360);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(1139, 7);
+            this.splitter2.Size = new System.Drawing.Size(854, 6);
             this.splitter2.TabIndex = 1;
             this.splitter2.TabStop = false;
-            // 
-            // rucDniDataGridViewTextBoxColumn
-            // 
-            this.rucDniDataGridViewTextBoxColumn.DataPropertyName = "rucDni";
-            this.rucDniDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.rucDniDataGridViewTextBoxColumn.Name = "rucDniDataGridViewTextBoxColumn";
-            this.rucDniDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rucDniDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // nombreClienteDataGridViewTextBoxColumn
-            // 
-            this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "nombreCliente";
-            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
-            this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idNotaSalidaDataGridViewTextBoxColumn
-            // 
-            this.idNotaSalidaDataGridViewTextBoxColumn.DataPropertyName = "idNotaSalida";
-            this.idNotaSalidaDataGridViewTextBoxColumn.HeaderText = "idNotaSalida";
-            this.idNotaSalidaDataGridViewTextBoxColumn.Name = "idNotaSalidaDataGridViewTextBoxColumn";
-            this.idNotaSalidaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idNotaSalidaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // motivoDataGridViewTextBoxColumn
-            // 
-            this.motivoDataGridViewTextBoxColumn.DataPropertyName = "motivo";
-            this.motivoDataGridViewTextBoxColumn.HeaderText = "motivo";
-            this.motivoDataGridViewTextBoxColumn.Name = "motivoDataGridViewTextBoxColumn";
-            this.motivoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.motivoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // serieDataGridViewTextBoxColumn
-            // 
-            this.serieDataGridViewTextBoxColumn.DataPropertyName = "serie";
-            this.serieDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.serieDataGridViewTextBoxColumn.HeaderText = "serie";
-            this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
-            this.serieDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // correlativoDataGridViewTextBoxColumn
-            // 
-            this.correlativoDataGridViewTextBoxColumn.DataPropertyName = "correlativo";
-            this.correlativoDataGridViewTextBoxColumn.HeaderText = "correlativo";
-            this.correlativoDataGridViewTextBoxColumn.Name = "correlativoDataGridViewTextBoxColumn";
-            this.correlativoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "fecha";
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fechaSalidaDataGridViewTextBoxColumn
-            // 
-            this.fechaSalidaDataGridViewTextBoxColumn.DataPropertyName = "fechaSalida";
-            this.fechaSalidaDataGridViewTextBoxColumn.HeaderText = "fechaSalida";
-            this.fechaSalidaDataGridViewTextBoxColumn.Name = "fechaSalidaDataGridViewTextBoxColumn";
-            this.fechaSalidaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaSalidaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // rFechaDataGridViewTextBoxColumn
-            // 
-            this.rFechaDataGridViewTextBoxColumn.DataPropertyName = "RFecha";
-            this.rFechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.rFechaDataGridViewTextBoxColumn.Name = "rFechaDataGridViewTextBoxColumn";
-            this.rFechaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rFechaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // rFechaSalidaDataGridViewTextBoxColumn
-            // 
-            this.rFechaSalidaDataGridViewTextBoxColumn.DataPropertyName = "RFechaSalida";
-            this.rFechaSalidaDataGridViewTextBoxColumn.HeaderText = "Fecha Salida";
-            this.rFechaSalidaDataGridViewTextBoxColumn.Name = "rFechaSalidaDataGridViewTextBoxColumn";
-            this.rFechaSalidaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rFechaSalidaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // destinoDataGridViewTextBoxColumn
-            // 
-            this.destinoDataGridViewTextBoxColumn.DataPropertyName = "destino";
-            this.destinoDataGridViewTextBoxColumn.HeaderText = "Destino";
-            this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
-            this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // estadoEnvioDataGridViewTextBoxColumn
-            // 
-            this.estadoEnvioDataGridViewTextBoxColumn.DataPropertyName = "estadoEnvio";
-            this.estadoEnvioDataGridViewTextBoxColumn.HeaderText = "estadoEnvio";
-            this.estadoEnvioDataGridViewTextBoxColumn.Name = "estadoEnvioDataGridViewTextBoxColumn";
-            this.estadoEnvioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoEnvioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
-            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
-            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idAlmacenDataGridViewTextBoxColumn
-            // 
-            this.idAlmacenDataGridViewTextBoxColumn.DataPropertyName = "idAlmacen";
-            this.idAlmacenDataGridViewTextBoxColumn.HeaderText = "idAlmacen";
-            this.idAlmacenDataGridViewTextBoxColumn.Name = "idAlmacenDataGridViewTextBoxColumn";
-            this.idAlmacenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idAlmacenDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idTipoDocumentoDataGridViewTextBoxColumn
-            // 
-            this.idTipoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "idTipoDocumento";
-            this.idTipoDocumentoDataGridViewTextBoxColumn.HeaderText = "idTipoDocumento";
-            this.idTipoDocumentoDataGridViewTextBoxColumn.Name = "idTipoDocumentoDataGridViewTextBoxColumn";
-            this.idTipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idTipoDocumentoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idVentaDataGridViewTextBoxColumn
-            // 
-            this.idVentaDataGridViewTextBoxColumn.DataPropertyName = "idVenta";
-            this.idVentaDataGridViewTextBoxColumn.HeaderText = "idVenta";
-            this.idVentaDataGridViewTextBoxColumn.Name = "idVentaDataGridViewTextBoxColumn";
-            this.idVentaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idVentaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // numeroDocumentoDataGridViewTextBoxColumn
-            // 
-            this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
-            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "numeroDocumento";
-            this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
-            this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numeroDocumentoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // notaSalidaRBindingSource
-            // 
-            this.notaSalidaRBindingSource.DataSource = typeof(Entidad.NotaSalidaR);
             // 
             // almacenBindingSource
             // 
@@ -683,23 +552,168 @@
             // 
             this.productoBindingSource.DataSource = typeof(Entidad.Producto);
             // 
+            // rucDniDataGridViewTextBoxColumn
+            // 
+            this.rucDniDataGridViewTextBoxColumn.DataPropertyName = "rucDni";
+            this.rucDniDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.rucDniDataGridViewTextBoxColumn.Name = "rucDniDataGridViewTextBoxColumn";
+            this.rucDniDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rucDniDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nombreClienteDataGridViewTextBoxColumn
+            // 
+            this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "nombreCliente";
+            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
+            this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idNotaSalidaDataGridViewTextBoxColumn
+            // 
+            this.idNotaSalidaDataGridViewTextBoxColumn.DataPropertyName = "idNotaSalida";
+            this.idNotaSalidaDataGridViewTextBoxColumn.HeaderText = "idNotaSalida";
+            this.idNotaSalidaDataGridViewTextBoxColumn.Name = "idNotaSalidaDataGridViewTextBoxColumn";
+            this.idNotaSalidaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idNotaSalidaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // motivoDataGridViewTextBoxColumn
+            // 
+            this.motivoDataGridViewTextBoxColumn.DataPropertyName = "motivo";
+            this.motivoDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.motivoDataGridViewTextBoxColumn.HeaderText = "Motivo";
+            this.motivoDataGridViewTextBoxColumn.Name = "motivoDataGridViewTextBoxColumn";
+            this.motivoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.motivoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // serieDataGridViewTextBoxColumn
+            // 
+            this.serieDataGridViewTextBoxColumn.DataPropertyName = "serie";
+            this.serieDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
+            this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
+            this.serieDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // correlativoDataGridViewTextBoxColumn
+            // 
+            this.correlativoDataGridViewTextBoxColumn.DataPropertyName = "correlativo";
+            this.correlativoDataGridViewTextBoxColumn.HeaderText = "Correlativo";
+            this.correlativoDataGridViewTextBoxColumn.Name = "correlativoDataGridViewTextBoxColumn";
+            this.correlativoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
+            this.fechaDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fechaSalidaDataGridViewTextBoxColumn
+            // 
+            this.fechaSalidaDataGridViewTextBoxColumn.DataPropertyName = "fechaSalida";
+            this.fechaSalidaDataGridViewTextBoxColumn.HeaderText = "Fecha de Salida";
+            this.fechaSalidaDataGridViewTextBoxColumn.Name = "fechaSalidaDataGridViewTextBoxColumn";
+            this.fechaSalidaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaSalidaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // rFechaDataGridViewTextBoxColumn
+            // 
+            this.rFechaDataGridViewTextBoxColumn.DataPropertyName = "RFecha";
+            this.rFechaDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.rFechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.rFechaDataGridViewTextBoxColumn.Name = "rFechaDataGridViewTextBoxColumn";
+            this.rFechaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rFechaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // rFechaSalidaDataGridViewTextBoxColumn
+            // 
+            this.rFechaSalidaDataGridViewTextBoxColumn.DataPropertyName = "RFechaSalida";
+            this.rFechaSalidaDataGridViewTextBoxColumn.FillWeight = 130F;
+            this.rFechaSalidaDataGridViewTextBoxColumn.HeaderText = "Fecha de Salida";
+            this.rFechaSalidaDataGridViewTextBoxColumn.Name = "rFechaSalidaDataGridViewTextBoxColumn";
+            this.rFechaSalidaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rFechaSalidaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // destinoDataGridViewTextBoxColumn
+            // 
+            this.destinoDataGridViewTextBoxColumn.DataPropertyName = "destino";
+            this.destinoDataGridViewTextBoxColumn.HeaderText = "Destino";
+            this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
+            this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoEnvioDataGridViewTextBoxColumn
+            // 
+            this.estadoEnvioDataGridViewTextBoxColumn.DataPropertyName = "estadoEnvio";
+            this.estadoEnvioDataGridViewTextBoxColumn.HeaderText = "Estado de Envío";
+            this.estadoEnvioDataGridViewTextBoxColumn.Name = "estadoEnvioDataGridViewTextBoxColumn";
+            this.estadoEnvioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoEnvioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idAlmacenDataGridViewTextBoxColumn
+            // 
+            this.idAlmacenDataGridViewTextBoxColumn.DataPropertyName = "idAlmacen";
+            this.idAlmacenDataGridViewTextBoxColumn.HeaderText = "IDAlmacen";
+            this.idAlmacenDataGridViewTextBoxColumn.Name = "idAlmacenDataGridViewTextBoxColumn";
+            this.idAlmacenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idAlmacenDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idTipoDocumentoDataGridViewTextBoxColumn
+            // 
+            this.idTipoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "idTipoDocumento";
+            this.idTipoDocumentoDataGridViewTextBoxColumn.HeaderText = "IDTipoDocumento";
+            this.idTipoDocumentoDataGridViewTextBoxColumn.Name = "idTipoDocumentoDataGridViewTextBoxColumn";
+            this.idTipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idTipoDocumentoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idVentaDataGridViewTextBoxColumn
+            // 
+            this.idVentaDataGridViewTextBoxColumn.DataPropertyName = "idVenta";
+            this.idVentaDataGridViewTextBoxColumn.HeaderText = "IDVenta";
+            this.idVentaDataGridViewTextBoxColumn.Name = "idVentaDataGridViewTextBoxColumn";
+            this.idVentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idVentaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numeroDocumentoDataGridViewTextBoxColumn
+            // 
+            this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Número de Documento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
+            this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numeroDocumentoDataGridViewTextBoxColumn.Visible = false;
+            // 
             // FormBuscarNotaSalida
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1149, 451);
+            this.ClientSize = new System.Drawing.Size(862, 366);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormBuscarNotaSalida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormNotaSalida";
+            this.Text = "Nota de Salida";
             this.Load += new System.EventHandler(this.FormNotaSalidaNew_Load);
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotaSalida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notaSalidaRBindingSource)).EndInit();
             this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -714,7 +728,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.notaSalidaRBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.almacenBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();

@@ -52,22 +52,28 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            motivoTraslado = new MotivoTraslado();
-
-            motivoTraslado.nombre = txtMotivo.Text;
-            motivoTraslado.estado = chkActivo.Checked ? 1 : 0;
-            Response response = await guiaRemisionModel.guardarMTraslado(motivoTraslado);
-            if (response.id > 0)
+            try
             {
-                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
+                motivoTraslado = new MotivoTraslado();
 
-            else
+                motivoTraslado.nombre = txtMotivo.Text;
+                motivoTraslado.estado = chkActivo.Checked ? 1 : 0;
+                Response response = await guiaRemisionModel.guardarMTraslado(motivoTraslado);
+                if (response.id > 0)
+                {
+                    MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+
+                else
+                {
+                    MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "btnGuardar_Click", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
         }
     }
 }

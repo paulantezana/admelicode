@@ -76,20 +76,26 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
             empresaTransporte.ruc = txtNroDocumento.Text;
             empresaTransporte.telefono = txtTelefono.Text;
 
-
-
-            Response response = await guiaRemisionModel.guardarETransporte(empresaTransporte);
-            if (response.id > 0)
+            try
             {
-                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.Close();
+                Response response = await guiaRemisionModel.guardarETransporte(empresaTransporte);
+                if (response.id > 0)
+                {
+                    MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "btnGuardar_Click", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
+
 
         }
     }

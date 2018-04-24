@@ -360,7 +360,7 @@ namespace Admeli.Ventas
         private void executeNuevo()
         {
             //FormVentaNuevo1 formVentaNuevo = new FormVentaNuevo1(ConfigModel.sucursal, personalBindingSource.List[0] as Personal );
-            FormVentaTouch formVentaNuevo = new FormVentaTouch();
+            FormVentaNewR formVentaNuevo = new FormVentaNewR();
             formVentaNuevo.ShowDialog();
             cargarRegistros();
         }
@@ -379,10 +379,10 @@ namespace Admeli.Ventas
 
             currentVenta = ventas.Find(x => x.idVenta == idVenta); // Buscando la categoria en las lista de categorias
 
-            // Mostrando el formulario de modificacion
-            //FormVentaNuevo formVentaNuevo = new FormVentaNuevo(currentVenta);
-            //formVentaNuevo.ShowDialog();
-            //cargarRegistros(); // recargando loas registros en el datagridview
+          
+           FormVentaNewR formVentaNuevo = new FormVentaNewR(currentVenta);
+            formVentaNuevo.ShowDialog();
+            cargarRegistros(); // recargando loas registros en el datagridview
         }
 
         private async void executeEliminar()

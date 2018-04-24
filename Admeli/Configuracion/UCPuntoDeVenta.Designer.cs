@@ -97,7 +97,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(814, 324);
@@ -121,7 +121,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -641,7 +641,7 @@
             this.idPuntoVentaDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idPuntoVentaDataGridViewTextBoxColumn.Name = "idPuntoVentaDataGridViewTextBoxColumn";
             this.idPuntoVentaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idPuntoVentaDataGridViewTextBoxColumn.Width = 46;
+            this.idPuntoVentaDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -649,15 +649,14 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 83;
             // 
             // ventaWebDataGridViewCheckBoxColumn
             // 
             this.ventaWebDataGridViewCheckBoxColumn.DataPropertyName = "ventaWeb";
+            this.ventaWebDataGridViewCheckBoxColumn.FillWeight = 110F;
             this.ventaWebDataGridViewCheckBoxColumn.HeaderText = "Venta Vía Web";
             this.ventaWebDataGridViewCheckBoxColumn.Name = "ventaWebDataGridViewCheckBoxColumn";
             this.ventaWebDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.ventaWebDataGridViewCheckBoxColumn.Width = 108;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -666,7 +665,6 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            this.estadoDataGridViewTextBoxColumn.Width = 75;
             // 
             // EstadoString
             // 
@@ -674,7 +672,6 @@
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
-            this.EstadoString.Width = 75;
             // 
             // idSucursalDataGridViewTextBoxColumn
             // 
@@ -682,7 +679,7 @@
             this.idSucursalDataGridViewTextBoxColumn.HeaderText = "IDSucursal";
             this.idSucursalDataGridViewTextBoxColumn.Name = "idSucursalDataGridViewTextBoxColumn";
             this.idSucursalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idSucursalDataGridViewTextBoxColumn.Width = 101;
+            this.idSucursalDataGridViewTextBoxColumn.Visible = false;
             // 
             // sucursalDataGridViewTextBoxColumn
             // 
@@ -690,7 +687,6 @@
             this.sucursalDataGridViewTextBoxColumn.HeaderText = "Sucursal";
             this.sucursalDataGridViewTextBoxColumn.Name = "sucursalDataGridViewTextBoxColumn";
             this.sucursalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sucursalDataGridViewTextBoxColumn.Width = 88;
             // 
             // idAsignarPuntoVentaDataGridViewTextBoxColumn
             // 
@@ -698,16 +694,16 @@
             this.idAsignarPuntoVentaDataGridViewTextBoxColumn.HeaderText = "IDAsignar Punto Venta";
             this.idAsignarPuntoVentaDataGridViewTextBoxColumn.Name = "idAsignarPuntoVentaDataGridViewTextBoxColumn";
             this.idAsignarPuntoVentaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idAsignarPuntoVentaDataGridViewTextBoxColumn.Width = 175;
+            this.idAsignarPuntoVentaDataGridViewTextBoxColumn.Visible = false;
             // 
             // UCPuntoDeVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCPuntoDeVenta";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(830, 340);
             this.Load += new System.EventHandler(this.UCPuntoDeVenta_Load);
             this.panelContainer.ResumeLayout(false);

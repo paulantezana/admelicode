@@ -92,14 +92,19 @@ namespace Admeli.Configuracion.Nuevo
 
         private async void reLoad()
         {
-            await cargarPaises();
-           
-            crearNivelesPais();
-            cargarDocIdentificacion();
-            // cargarSucursales();
-            cargarDatosModificar();
+            try
+            {
+                await cargarPaises();
 
-
+                crearNivelesPais();
+                cargarDocIdentificacion();
+                // cargarSucursales();
+                cargarDatosModificar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "reLoad Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
         #endregion
@@ -206,7 +211,14 @@ namespace Admeli.Configuracion.Nuevo
 
         private async void cargarSucursales()
         {
-            sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+            try
+            {
+                sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Sucursales", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
        

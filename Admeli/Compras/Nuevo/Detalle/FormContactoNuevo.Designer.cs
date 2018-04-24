@@ -450,7 +450,7 @@
             this.Controls.Add(this.textNombres);
             this.Name = "FormContactoNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormContactoNuevo";
+            this.Text = "Contacto Nuevo";
             this.Load += new System.EventHandler(this.FormContactoNuevo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentoIdentificacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

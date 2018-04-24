@@ -200,12 +200,12 @@ namespace Admeli.Ventas.Nuevo
 
                     cbxTipoDocumento.SelectedValue = currentCompra.idTipoDocumento;
                  
-                    cbxProveedor.Text = currentProveedor.razonSocial;
-                    cbxProveedor.Enabled = false;
-                    txtDireccionProveedor.Text = currentProveedor.direccion;
-                    txtRuc.Text = currentProveedor.ruc;
-                    txtRuc.Enabled = false;
-                    txtObservaciones.Text = currentCompra.observacion;
+                    //cbxProveedor.Text = currentProveedor.razonSocial;
+                    //cbxProveedor.Enabled = false;
+                    //txtDireccionProveedor.Text = currentProveedor.direccion;
+                    //txtRuc.Text = currentProveedor.ruc;
+                    //txtRuc.Enabled = false;
+                    //txtObservaciones.Text = currentCompra.observacion;
 
 
                 }
@@ -296,16 +296,16 @@ namespace Admeli.Ventas.Nuevo
             try
             {
 
-                datosProveedor = await compraModel.Compras(currentCompra.idCompra);
-                cbxProveedor.Text = datosProveedor[0].nombreProveedor;
-                cbxProveedor.Enabled = false;
-                txtDireccionProveedor.Text = datosProveedor[0].direccion;
-                dtpFechaEmision.Value = datosProveedor[0].fechaFacturacion.date;
-                dtpFechaPago.Value = datosProveedor[0].fechaPago.date;
-                // textTotal.Text = Convert.ToString(datosProveedor[0].total);
-                cbxTipoMoneda.Text = datosProveedor[0].moneda;
-                txtTipoCambio.Text = "1";
-                txtObservaciones.Text = currentCompra.observacion;
+                //datosProveedor = await compraModel.Compras(currentCompra.idCompra);
+                //cbxProveedor.Text = datosProveedor[0].nombreProveedor;
+                //cbxProveedor.Enabled = false;
+                //txtDireccionProveedor.Text = datosProveedor[0].direccion;
+                //dtpFechaEmision.Value = datosProveedor[0].fechaFacturacion.date;
+                //dtpFechaPago.Value = datosProveedor[0].fechaPago.date;
+                //// textTotal.Text = Convert.ToString(datosProveedor[0].total);
+                //cbxTipoMoneda.Text = datosProveedor[0].moneda;
+                //txtTipoCambio.Text = "1";
+                //txtObservaciones.Text = currentCompra.observacion;
             }
             catch (Exception ex)
             {
@@ -667,7 +667,7 @@ namespace Admeli.Ventas.Nuevo
 
         private async void txtRUC_TextChanged(object sender, EventArgs e)
         {
-            String aux = txtRuc.Text;
+            String aux = txtDni.Text;
 
             int nroCarateres = aux.Length;
             bool exiteProveedor = false;
@@ -697,9 +697,9 @@ namespace Admeli.Ventas.Nuevo
                 {
                     // llenamos los dato con el current proveerdor
 
-                    txtRuc.Text = currentProveedor.ruc;
-                    txtDireccionProveedor.Text = currentProveedor.direccion;
-                    cbxProveedor.Text = currentProveedor.razonSocial;
+                    //txtRuc.Text = currentProveedor.ruc;
+                    //txtDireccionProveedor.Text = currentProveedor.direccion;
+                    //cbxProveedor.Text = currentProveedor.razonSocial;
 
                 }
                 else
@@ -1111,19 +1111,19 @@ namespace Admeli.Ventas.Nuevo
             if (currentProveedor != null)
             { 
                 //cargando datas del proveedor
-                txtRuc.Text = currentProveedor.ruc;
-                cbxProveedor.SelectedValue = currentProveedor.idProveedor;
-                txtDireccionProveedor.Text = currentProveedor.direccion;
+                //txtRuc.Text = currentProveedor.ruc;
+                //cbxProveedor.SelectedValue = currentProveedor.idProveedor;
+                //txtDireccionProveedor.Text = currentProveedor.direccion;
             }                    
         }
 
         private void cbxProveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentProveedor = proveedores.Find(X => X.idProveedor == (int)cbxProveedor.SelectedValue);
+        //    currentProveedor = proveedores.Find(X => X.idProveedor == (int)cbxProveedor.SelectedValue);
 
-            txtRuc.Text = currentProveedor.ruc;
-            cbxProveedor.SelectedValue = currentProveedor.idProveedor;
-            txtDireccionProveedor.Text = currentProveedor.direccion;
+        //    txtRuc.Text = currentProveedor.ruc;
+        //    cbxProveedor.SelectedValue = currentProveedor.idProveedor;
+        //    txtDireccionProveedor.Text = currentProveedor.direccion;
 
         }
 
@@ -1140,24 +1140,24 @@ namespace Admeli.Ventas.Nuevo
             // datos del proveedor
             if (aux != null)
             {
-                txtNroOrdenCompra.Text = aux.serie + " - " + aux.correlativo;
-                currentProveedor = proveedores.Find(X => X.ruc == aux.rucDni);               
-                txtDireccionProveedor.Text = currentProveedor.direccion;
-                cbxProveedor.SelectedValue = currentProveedor.idProveedor;              
-                currentCompra = comprasAll.Find(X=>X.idCompra==aux.idCompra);
-                txtObservaciones.Text = currentCompra.observacion;
-                if (detalleC != null)
-                    detalleC.Clear();// limpiamos la lista de detalle productos
-                detalleC = new List<DetalleC>();
+                //txtNroOrdenCompra.Text = aux.serie + " - " + aux.correlativo;
+                //currentProveedor = proveedores.Find(X => X.ruc == aux.rucDni);               
+                //txtDireccionProveedor.Text = currentProveedor.direccion;
+                //cbxProveedor.SelectedValue = currentProveedor.idProveedor;              
+                //currentCompra = comprasAll.Find(X=>X.idCompra==aux.idCompra);
+                //txtObservaciones.Text = currentCompra.observacion;
+                //if (detalleC != null)
+                //    detalleC.Clear();// limpiamos la lista de detalle productos
+                //detalleC = new List<DetalleC>();
 
-                detalleCompraBindingSource.DataSource = null;
-                dgvDetalleCompra.Refresh();
-                this.reLoad();
-                listarDetalleCompraByIdCompra();
-                listarDatosProveedorCompra();
-                // Calculo de totales y subtotales
-                calculoSubtotal();
-                calcularDescuento();                
+                //detalleCompraBindingSource.DataSource = null;
+                //dgvDetalleCompra.Refresh();
+                //this.reLoad();
+                //listarDetalleCompraByIdCompra();
+                //listarDatosProveedorCompra();
+                //// Calculo de totales y subtotales
+                //calculoSubtotal();
+                //calcularDescuento();                
             }
         }
     }

@@ -47,26 +47,40 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         internal async void reLoad()
         {
-            await cargarPaises();
-            crearNivelesPais();
-            cargarDatosModificar();
+            try
+            {
+                await cargarPaises();
+                crearNivelesPais();
+                cargarDatosModificar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "reload Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async Task cargarPaises()
         {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
+            try
+            {
+                // cargando los paises
+                paisBindingSource.DataSource = await locationModel.paises();
 
-            // cargando la ubicacion geografica por defecto
-            //if (formCompraNuevo1.nuevo)
-            //{
-            //    ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
-            //}
-            //else
-            //{
-            //    ubicacionGeografica = await locationModel.ubigeoActual(formCompraNuevo1.currentProveedor.idUbicacionGeografica);
-            //}
-            //cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+                // cargando la ubicacion geografica por defecto
+                //if (formCompraNuevo1.nuevo)
+                //{
+                //    ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                //}
+                //else
+                //{
+                //    ubicacionGeografica = await locationModel.ubigeoActual(formCompraNuevo1.currentProveedor.idUbicacionGeografica);
+                //}
+                //cbxPaises.SelectedValue = ubicacionGeografica.idPais;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         } 
         #endregion
 

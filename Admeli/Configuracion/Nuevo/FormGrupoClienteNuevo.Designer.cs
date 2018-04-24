@@ -264,7 +264,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "FormGrupoClienteNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GrupoClienteNuevo";
+            this.Text = "Grupo Cliente Nuevo";
             this.Load += new System.EventHandler(this.FormGrupoClienteNuevo_Load);
             this.panelFooter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
