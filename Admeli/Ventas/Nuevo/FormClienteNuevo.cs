@@ -95,13 +95,6 @@ namespace Admeli.Ventas.Nuevo
                             this.uCClienteGeneral.TabIndex = 0;
 
                         }
-
-
-
-
-
-
-
                         this.uCClienteGeneral = new UCClienteGeneral(this);
                         this.panelMainNP.Controls.Add(uCClienteGeneral);
                         this.uCClienteGeneral.Dock = System.Windows.Forms.DockStyle.Fill;

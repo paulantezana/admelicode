@@ -24,18 +24,12 @@ namespace Admeli.Ventas.buscar
 
         CotizacionModel cotizacionModel = new CotizacionModel(); 
         private List<CotizacionBuscar> listCotizacion { get; set; }
-
-        public CotizacionBuscar currentCotizacion { get; set; }
-
-            
+        public CotizacionBuscar currentCotizacion { get; set; }           
         public FormBuscarCotizacion( )
         {
             InitializeComponent();
                      
-        }
-
-      
-
+        }    
         #region ================================ Root Load ================================
 
         private void FormNotaSalidaNew_Load(object sender, EventArgs e)
@@ -48,37 +42,52 @@ namespace Admeli.Ventas.buscar
             cargarListaCotizacione();
 
           
-
         }
-
-
-
-
-
+        private void loadState(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                progressBarApp.Style = ProgressBarStyle.Marquee;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+                progressBarApp.Style = ProgressBarStyle.Blocks;
+            }
+        }
         #endregion
 
-        #region ============================== Load ==============================
-
-
-       
-
+        #region ============================== Load ==============================      
         private async void cargarListaCotizacione()
         {
+            loadState(true);
+            try
+            {
 
-           
-           listCotizacion= await cotizacionModel.listaCotizaciones(ConfigModel.sucursal.idSucursal);
-           cotizacionBuscarBindingSource.DataSource = listCotizacion;
+                listCotizacion= await cotizacionModel.listaCotizaciones(ConfigModel.sucursal.idSucursal);
+                cotizacionBuscarBindingSource.DataSource = listCotizacion;
+
+            }
+             catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar Cotizaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                loadState(false);
+            }
+
+
+
         }
+
+
+
+
         #endregion
 
-       
-
-       
-
-       
-
-       
-
+        #region============eventos=========================================
         private void dgvNotaSalida_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             seleccionarCotizacion();
@@ -111,44 +120,58 @@ namespace Admeli.Ventas.buscar
 
         private void txtCliente_TextChanged(object sender, EventArgs e)
         {
+            loadState(true);
             BindingList<CotizacionBuscar> filtered = new BindingList<CotizacionBuscar>(listCotizacion.Where(obj => obj.rucDni.Contains(txtCliente.Text.Trim()) || obj.nombreCliente.ToUpper().Contains(txtCliente.Text.ToUpper())).ToList());
             cotizacionBuscarBindingSource.DataSource = filtered;
             dgvNotaSalida.Update();
+
+            loadState(false);
         }
 
         private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
+            loadState(true);
             BindingList<CotizacionBuscar> filtered = new BindingList<CotizacionBuscar>(listCotizacion.Where(obj => obj.direccion.Trim().ToUpper() .Contains(txtDireccion.Text.Trim().ToUpper())).ToList());
             cotizacionBuscarBindingSource.DataSource = filtered;
             dgvNotaSalida.Update();
+            loadState(false);
+
         }
 
         private void txtMoneda_TextChanged(object sender, EventArgs e)
         {
+            loadState(true);
             BindingList<CotizacionBuscar> filtered = new BindingList<CotizacionBuscar>(listCotizacion.Where(obj => obj.moneda.Trim().ToUpper().Contains(txtMoneda.Text.Trim().ToUpper())).ToList());
             cotizacionBuscarBindingSource.DataSource = filtered;
             dgvNotaSalida.Update();
+            loadState(false);
         }
 
         private void txtDescuento_TextChanged(object sender, EventArgs e)
         {
+            loadState(true);
             BindingList<CotizacionBuscar> filtered = new BindingList<CotizacionBuscar>(listCotizacion.Where(obj => obj.descuento.Trim().ToUpper().Contains(txtDescuento.Text.Trim().ToUpper())).ToList());
             cotizacionBuscarBindingSource.DataSource = filtered;
             dgvNotaSalida.Update();
+            loadState(false);
         }
 
         private void txtSubTotal_TextChanged(object sender, EventArgs e)
         {
+            loadState(true);
             BindingList<CotizacionBuscar> filtered = new BindingList<CotizacionBuscar>(listCotizacion.Where(obj => obj.subTotal.Trim().ToUpper().Contains(txtSubTotal.Text.Trim().ToUpper())).ToList());
             cotizacionBuscarBindingSource.DataSource = filtered;
             dgvNotaSalida.Update();
+            loadState(false);
         }
 
         private void txtTotal_TextChanged(object sender, EventArgs e)
         {
+            loadState(true);
             BindingList<CotizacionBuscar> filtered = new BindingList<CotizacionBuscar>(listCotizacion.Where(obj => obj.total.Trim().ToUpper().Contains(txtTotal.Text.Trim().ToUpper())).ToList());
             cotizacionBuscarBindingSource.DataSource = filtered;
             dgvNotaSalida.Update();
+            loadState(false);
         }
 
 
@@ -172,5 +195,8 @@ namespace Admeli.Ventas.buscar
         {
             this.Close();
         }
+
+
+        #endregion============eventos=========================================
     }
 }

@@ -224,7 +224,7 @@
             this.Observaciones.Size = new System.Drawing.Size(122, 19);
             this.Observaciones.TabIndex = 5;
             this.Observaciones.Text = "Observaciones:";
-            this.Observaciones.Click += new System.EventHandler(this.Observaciones_Click);
+            
             // 
             // txtObservaciones
             // 
@@ -260,7 +260,7 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(406, 357);
             this.panel8.TabIndex = 1;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+         
             // 
             // label18
             // 
@@ -527,7 +527,6 @@
             this.cbxTipoDocumento.Size = new System.Drawing.Size(233, 28);
             this.cbxTipoDocumento.TabIndex = 12;
             this.cbxTipoDocumento.ValueMember = "idDocumento";
-            this.cbxTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cbxTipoDocumento_SelectedIndexChanged);
             // 
             // documentoIdentificacionBindingSource
             // 

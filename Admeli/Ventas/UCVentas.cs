@@ -69,6 +69,7 @@ namespace Admeli.Ventas
                 cargarPersonales();
                 cargarSucursales();
                 cargarRegistros();
+                cargarPuntosVenta(0);
             }
             lisenerKeyEvents = true; // Active lisener key events
         }
@@ -204,6 +205,14 @@ namespace Admeli.Ventas
             }
         }
 
+        private async void cargarPuntosVenta( int idSucursal)
+        {
+
+             puntoDeVentaBindingSource.DataSource=await  puntoVentaModel.puntoVentasyTodos(idSucursal);
+
+        }
+
+
         private async void cargarRegistros()
         {
             loadState(true);
@@ -227,6 +236,7 @@ namespace Admeli.Ventas
                 mostrarPaginado();
                 // formato de celdas
                 decorationDataGridView();
+                textBuscar.Text = "";
             }
             catch (Exception ex)
             {
@@ -335,6 +345,7 @@ namespace Admeli.Ventas
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             cargarRegistros();
+            
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -475,6 +486,25 @@ namespace Admeli.Ventas
         private void panelTools_Paint(object sender, PaintEventArgs e)
 
         {
+
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            cargarRegistros();
+        }
+
+        private  async void cbxSucursales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSucursales.SelectedIndex == -1) return;
+            puntoDeVentaBindingSource.DataSource = await puntoVentaModel.puntoVentasyTodos((int)cbxSucursales.SelectedValue);
+        }
+
+        private void textBuscar_OnValueChanged(object sender, EventArgs e)
+        {
+            BindingList<Venta> filtered = new BindingList<Venta>(ventas.Where(obj => obj.nombreCliente.Trim().ToUpper().Contains(textBuscar.Text.Trim().ToUpper())).ToList());
+            ventaBindingSource.DataSource = filtered;
+            dataGridView.Update();
 
         }
     }

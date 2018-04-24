@@ -14,8 +14,7 @@ namespace Admeli.Navigation.SubMenu
     public partial class UCVentasNav : UserControl
     {
         private UCClientes uCClientes;
-        private UCCotizacionCliente uCCotizacionCliente;
-        private UCCuentaCobrar uCCuentaCobrar;
+        private UCCotizacionCliente uCCotizacionCliente;       
         private UCVentas uCVentas;
         private UCDescuentosOfertas uCDescuentosOfertas;
 
@@ -75,24 +74,7 @@ namespace Admeli.Navigation.SubMenu
                     }
                     formPrincipal.lblTitlePage.Text = "Venta - Contizaciones cliente"; /// Titulo en el encabezado
                     break;
-                case "cuentaCobrar":
-                    if (uCCuentaCobrar == null)
-                    {
-                        this.uCCuentaCobrar = new Admeli.Ventas.UCCuentaCobrar(this.formPrincipal);
-                        this.formPrincipal.panelMain.Controls.Add(uCCuentaCobrar);
-                        this.uCCuentaCobrar.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCCuentaCobrar.Location = new System.Drawing.Point(0, 0);
-                        this.uCCuentaCobrar.Name = "uCCuentaCobrar";
-                        this.uCCuentaCobrar.Size = new System.Drawing.Size(250, 776);
-                        this.uCCuentaCobrar.TabIndex = 0;
-                    }
-                    else
-                    {
-                        this.formPrincipal.panelMain.Controls.Add(uCCuentaCobrar);
-                        this.uCCuentaCobrar.reLoad();
-                    }
-                    formPrincipal.lblTitlePage.Text = "Venta - Cuenta Cobrar"; /// Titulo en el encabezado
-                    break;
+               
                 case "ventas":
                     if (uCVentas == null)
                     {

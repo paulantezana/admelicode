@@ -466,6 +466,11 @@ namespace Admeli.Ventas.Nuevo
                     cbxCliente.SelectedValue = currentVenta.idCliente;
                     cbxTipoDocumento.SelectedValue = cliente.idDocumento;
                 }
+                else
+                {
+                    cbxCliente.SelectedIndex = -1;
+
+                }
 
             }
             catch ( Exception ex)
@@ -1875,7 +1880,7 @@ namespace Admeli.Ventas.Nuevo
                 DocumentoIdentificacion tipoDocumento = documentoIdentificacion.Find(X => X.idDocumento == idTipoDocumento);
                 if (tipoDocumento.tipoDocumento == "Jurídico")
                 {
-                    if (tipoDocumentos == null) return; 
+                    if (tipoDocumentos == null || listClientes ==null) return; 
 
                     TipoDocumento tipoDocumento2 = tipoDocumentos.Find(X => X.tipoCliente == 2);
                     cbxTipoComprobante.SelectedValue = tipoDocumento2.idTipoDocumento;
@@ -1892,7 +1897,7 @@ namespace Admeli.Ventas.Nuevo
                 else
                 {
 
-                    if (tipoDocumentos == null) return;
+                    if (tipoDocumentos == null || listClientes == null) return;
 
                     TipoDocumento tipoDocumento2 = tipoDocumentos.Find(X => X.tipoCliente == 1);
                     cbxTipoComprobante.SelectedValue = tipoDocumento2.idTipoDocumento;

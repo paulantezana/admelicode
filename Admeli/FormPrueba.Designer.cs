@@ -123,7 +123,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
             this.button10.Location = new System.Drawing.Point(157, 107);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(79, 62);
             this.button10.TabIndex = 10;
@@ -137,7 +137,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.Location = new System.Drawing.Point(79, 106);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(79, 62);
             this.button9.TabIndex = 9;
@@ -151,7 +151,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.Location = new System.Drawing.Point(0, 106);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(79, 62);
             this.button8.TabIndex = 8;
@@ -200,7 +200,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(307, 14);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(23, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -211,7 +211,7 @@
             // 
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.Location = new System.Drawing.Point(8, 14);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(77, 62);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -302,7 +302,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(24, 218);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(33, 31);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -313,7 +313,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(24, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -470,7 +470,7 @@
             this.btnVentaTocuh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnVentaTocuh.Image = ((System.Drawing.Image)(resources.GetObject("btnVentaTocuh.Image")));
             this.btnVentaTocuh.Location = new System.Drawing.Point(435, 0);
-            this.btnVentaTocuh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVentaTocuh.Margin = new System.Windows.Forms.Padding(4);
             this.btnVentaTocuh.Name = "btnVentaTocuh";
             this.btnVentaTocuh.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnVentaTocuh.Size = new System.Drawing.Size(167, 58);
@@ -490,7 +490,7 @@
             this.btnCompra2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnCompra2.Image = ((System.Drawing.Image)(resources.GetObject("btnCompra2.Image")));
             this.btnCompra2.Location = new System.Drawing.Point(602, 0);
-            this.btnCompra2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCompra2.Margin = new System.Windows.Forms.Padding(4);
             this.btnCompra2.Name = "btnCompra2";
             this.btnCompra2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnCompra2.Size = new System.Drawing.Size(149, 58);
@@ -510,7 +510,7 @@
             this.btnVenta2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnVenta2.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta2.Image")));
             this.btnVenta2.Location = new System.Drawing.Point(751, 0);
-            this.btnVenta2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVenta2.Margin = new System.Windows.Forms.Padding(4);
             this.btnVenta2.Name = "btnVenta2";
             this.btnVenta2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnVenta2.Size = new System.Drawing.Size(133, 58);
@@ -530,7 +530,7 @@
             this.btnProductos2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnProductos2.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos2.Image")));
             this.btnProductos2.Location = new System.Drawing.Point(884, 0);
-            this.btnProductos2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProductos2.Margin = new System.Windows.Forms.Padding(4);
             this.btnProductos2.Name = "btnProductos2";
             this.btnProductos2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnProductos2.Size = new System.Drawing.Size(164, 58);
@@ -546,7 +546,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(1048, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(64, 58);
             this.button3.TabIndex = 9;
@@ -560,7 +560,7 @@
             this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFullScreen.Image = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.Image")));
             this.btnFullScreen.Location = new System.Drawing.Point(1112, 0);
-            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(4);
             this.btnFullScreen.Name = "btnFullScreen";
             this.btnFullScreen.Size = new System.Drawing.Size(64, 58);
             this.btnFullScreen.TabIndex = 8;
@@ -575,7 +575,7 @@
             this.btnToggleMenuRigth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToggleMenuRigth.Image = ((System.Drawing.Image)(resources.GetObject("btnToggleMenuRigth.Image")));
             this.btnToggleMenuRigth.Location = new System.Drawing.Point(1176, 0);
-            this.btnToggleMenuRigth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnToggleMenuRigth.Margin = new System.Windows.Forms.Padding(4);
             this.btnToggleMenuRigth.Name = "btnToggleMenuRigth";
             this.btnToggleMenuRigth.Size = new System.Drawing.Size(64, 58);
             this.btnToggleMenuRigth.TabIndex = 7;

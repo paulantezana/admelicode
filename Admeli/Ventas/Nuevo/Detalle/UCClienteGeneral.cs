@@ -25,17 +25,19 @@ namespace Admeli.Ventas.Nuevo.Detalle
         private DocumentoIdentificacionModel documentoIdentificacionModel = new DocumentoIdentificacionModel();
         private List<LabelUbicacion> labelUbicaciones { get; set; }
         private UbicacionGeografica ubicacionGeografica { get; set; }
-        private SunatModel sunatModel = new SunatModel();
-        private bool bandera;
+        private SunatModel sunatModel = new SunatModel();       
         private DataSunat dataSunat;
         private RespuestaSunat respuestaSunat;
-        public List<GrupoCliente> grupoClientes;
-        private UCNuevoGrupo uCNuevoGrupo;
+        public List<GrupoCliente> grupoClientes;      
         private List<DocumentoIdentificacion> documentoIdentificaciones;
         private string NroDocumento = "";
         public bool lisenerKeyEvents { get; internal set; }
 
         public Response rest { get; set; }
+
+
+
+        #region====================Construtor=============== 
         public UCClienteGeneral()
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
 
         }
 
-
+        #endregion====================Construtor=============== 
 
 
         private void UCProveedorGeneral_Load(object sender, EventArgs e)
@@ -81,7 +83,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
                 txtDatosEnvio.Text = formClienteNuevo.currentCliente.observacion;
                 txtNombreCliente.Text = formClienteNuevo.currentCliente.nombreCliente;
 
-                cbxDocumento.Text = formClienteNuevo.currentCliente.tipoDocumento;
+             
                 cbxSexo.Text = formClienteNuevo.currentCliente.sexo == "M" ? "Masculino" : "Femenino";
                 cbxTipoGrupo.Text = formClienteNuevo.currentCliente.nombreGrupo;
             }
@@ -111,8 +113,12 @@ namespace Admeli.Ventas.Nuevo.Detalle
         private async void cargartiposDocumentos()
         {
 
-            documentoIdentificaciones = await documentoIdentificacionModel.docIdentificacionNatural();
+            documentoIdentificaciones = await documentoIdentificacionModel.docIdentificacion();
             documentoIdentificacionBindingSource.DataSource = documentoIdentificaciones;
+            if (!formClienteNuevo.nuevo)
+            {
+                cbxDocumento.SelectedValue = formClienteNuevo.currentCliente.idDocumento;
+            }
         }
 
 
@@ -582,41 +588,9 @@ namespace Admeli.Ventas.Nuevo.Detalle
         }
 
         // TAREA hacer los cambios en todos los formularios de clientes y proveedores ver lo de paises 
-        private async void textNIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
+        private void textNIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            String aux = textNIdentificacion.Text;
-
-            int nroCarateres=aux.Length;
-
-            if(nroCarateres==11 || nroCarateres==8)
-                if ((int)e.KeyChar == (int)Keys.Enter)
-                {
-
-                    try
-                    {
-                        
-                        respuestaSunat = await sunatModel.obtenerDatos(aux);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    
-                   // Ver(aux);
-                    
-                }
-            if (respuestaSunat != null)
-            {              
-                dataSunat = respuestaSunat.result;
-                textNIdentificacion.Text = dataSunat.RUC;
-                textCelular.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length-1);
-                txtNombreCliente.Text = dataSunat.RazonSocial;             
-                textDireccion.Text = concidencias(dataSunat.Direccion);
-                respuestaSunat = null;
-            
-            }
-           
-
+            Validator.isNumber(e);          
         }
 
 
@@ -661,6 +635,79 @@ namespace Admeli.Ventas.Nuevo.Detalle
         {
            this.formClienteNuevo.togglePanelMain("Nuevorupo");      
            
+        }
+
+        private void cbxDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             DocumentoIdentificacion documentoIdentificacion=  documentoIdentificaciones.Find(X => X.idDocumento == (int)cbxDocumento.SelectedValue);
+            if (documentoIdentificacion.tipoDocumento == "Jurídico")
+            {
+
+                cbxSexo.Visible = false;
+                lbsexo.Visible = false;
+
+
+            }
+            else
+            {
+                cbxSexo.Visible = true;
+                lbsexo.Visible = true;
+
+
+            }
+           
+          
+        }
+
+        private async void textNIdentificacion_OnValueChanged(object sender, EventArgs e)
+        {
+
+            String aux = textNIdentificacion.Text;
+            int nroCarateres=aux.Length;
+
+            if(nroCarateres==11 || nroCarateres==8)               
+                {
+
+                    try
+                    {
+                        
+                        respuestaSunat = await sunatModel.obtenerDatos(aux);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    
+                   // Ver(aux);
+                    
+                }
+            if (respuestaSunat != null)
+            {
+                if (respuestaSunat.success)
+                {
+                    dataSunat = respuestaSunat.result;
+                    textNIdentificacion.Text = dataSunat.RUC;
+                    textCelular.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length-1);
+                    txtNombreCliente.Text = dataSunat.RazonSocial;             
+                    textDireccion.Text = concidencias(dataSunat.Direccion);
+                    respuestaSunat = null;
+
+                }
+                else
+                {
+                    MessageBox.Show("Error: " + " no exite en la sunat", "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+
+                }
+              
+            
+            }
+           
+        }
+
+        private void txtNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validator.isString(e);
         }
     }
 }
