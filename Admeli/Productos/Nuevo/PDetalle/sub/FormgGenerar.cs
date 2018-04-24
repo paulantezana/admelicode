@@ -87,7 +87,7 @@ namespace Admeli.Productos.Nuevo.PDetalle.sub
                 Response response1 = await alternativaModel.modificarAlternativa(currentAlternativaCombinacion);
                 Response response2 = await alternativaModel.modificarCombinacionAlternativa(currentAlternativaCombinacion);
                 MessageBox.Show(String.Format("{0}\n{1}", response1.msj, response2.msj), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.cargarAlmacenes();
+                //this.cargarAlmacenes();
             }
             catch (Exception ex)
             {

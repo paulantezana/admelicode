@@ -69,6 +69,7 @@
             this.btnImpuestos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImpuestos.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnImpuestos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImpuestos.Click += new System.EventHandler(this.btnImpuestos_Click);
             // 
             // btnIngresoVentas
             // 
@@ -105,6 +106,7 @@
             this.btnIngresoVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIngresoVentas.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnIngresoVentas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresoVentas.Click += new System.EventHandler(this.btnIngresoVentas_Click);
             // 
             // btnExistenciaProducto
             // 
@@ -141,6 +143,7 @@
             this.btnExistenciaProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExistenciaProducto.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
             this.btnExistenciaProducto.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExistenciaProducto.Click += new System.EventHandler(this.btnExistenciaProducto_Click);
             // 
             // UCReporteNav
             // 
