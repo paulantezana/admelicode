@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="productoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>548, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnFirst.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -164,14 +167,46 @@
         C1HwqysStBR8FLdmUzuMeQEKvNY/tLLCtwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnGuardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAPVJREFUOE9j
-        GLzAZMatmfrdJ55pN+/7GjL1wI9pm47+RcYztx7/OXv7ya+tG8+8Nplx+6TZjLsmUK2oACi5X6/z6H/N
-        hp3/Y2bs/b9h31E47pu96L+akQWYnrjl9H+gWhD+YjL9tgNUOwKQYRAI74NqRwAyDdoP1Y4AIEGDiRf/
-        67Qf+u/Qf/h/17oj/3vXI3DfppP/+7ec+p+6/BJhg5AUEItpbNDqKx/+EwtWAdXiNGjzjY//f/3+8//2
-        o6d4MUgNSC1eg/7+/fv/7YdPeDFIDf0MoorX1lwlPrBXA9ViNch0+u0ek+l3dpOCQXqg2gcdYGAAAGWA
-        UFEd7FneAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAKlJREFUSEtj
+        GDlANPXAf2QMFaYeoLkFNAc09wHNLaA5oLkPRi3AAELph7SABn1ANxgL/gBSC9VGGhBNP2gnlnrgJxZD
+        wRgsl3LAFqqcPAA0IBGb4WAMlIMqowwAXdqLbrhYyv4eqDQVQMN/JqAlG2GGi6Qe3AASg8pSB4hm7ecB
+        Gn4BjIFsqDB1gVjaXmXxpMNKUO4gBLAwphRDjcME2BSTg6HGDQvAwAAAg8D2Ycv/Iv8AAAAASUVORK5C
+        YII=
 </value>
   </data>
+  <data name="btnImprimir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAASJJREFUSEtj
+        GJ6g//R3h/6TPxtIwkA9UO2EAUjDhFM//5OCQXqg2gmDoW2Bk5NTQ2bbPKyG4MMgPSC9UGMwQUJCAkdS
+        UlJaWFjYssTihstFk9c9IgWD9ID0gszIzc1lhxqLAImJiWuB+D+V8GqosQgAFPyJpohk7NCf+d+hLwPE
+        /gE1FgHQFVOKocYiADZFlGCosQgQEBDwn5oYaiwCAJMYKJlRDUONRQCYhJ2d3X8jIyOyMEgvQQssLCz+
+        G6f2/nda+pUkDNID0ovPgp8wSQpyMgxjJlOg4FqYAmQLJMsu4cWhC55iswAzozk4OHA4OjqmASXLy+ft
+        3w2zgFgM0gPSCzLD09MTs6hABsilKTZXgzDM5TA8eIprEKB5lTmEAAMDAM9WZnZwFyPVAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="btnFiltrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAOpJREFUSEvt
+        lDEOgkAQRb+FrbWV8QzGm0htaeEVoCDRToyNBi29hjZWHoBT0FiCIQTH2WQSCQuirJ285De7+9+EZBe0
+        fAztYXESDhkmIR8T0b6gAwbZFl66xsUkyqFcotWJbPiRA2oU7oqmGpqhy4fPWrkuNk6qK5r33Fz0uBRo
+        kuoEqiP1z7i7GHIxLIjKEqqzUvsO/uwxC6KCMJ9InZHjzYgdWCzKCmKVLLZLrmMT0hWW6YavYT4eFrJt
+        Dj8cV3tQvCbb5rQDamkH1FIY8OAcaYe+bJuTG3Dlf/1Iln8Hi+ecKRE6svQ3AE+nJpyTYCVIDgAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <metadata name="almacenBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>372, 17</value>
+  </metadata>
+  <metadata name="sucursalBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>198, 17</value>
+  </metadata>
+  <metadata name="categoriaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>69</value>
+  </metadata>
 </root>

@@ -16,7 +16,7 @@ using Admeli.Ventas;
 using Entidad;
 using Entidad.Configuracion;
 using Modelo;
-
+ 
 namespace Admeli
 {
     public partial class FormPrincipal : Form
