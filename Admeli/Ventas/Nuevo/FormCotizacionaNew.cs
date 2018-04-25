@@ -60,6 +60,9 @@ namespace Admeli.Ventas.Nuevo
         private List<Presentacion> listPresentacion { get; set; }
         private List<ImpuestoProducto> listImpuestosProducto { get; set; }
         List<DescuentoReceive> descuentoReceive { get; set; }
+        List<AlternativaCombinacion> alternativaCombinacion { get; set; }
+
+
         public UbicacionGeografica CurrentUbicacionGeografica;      
         /// Llenan los datos en las interacciones en el formulario                
         private Presentacion currentPresentacion { get; set; }      
@@ -68,7 +71,7 @@ namespace Admeli.Ventas.Nuevo
         private ImpuestoProducto impuestoProducto { get; set; }
         private Cliente CurrentCliente { get; set; }
         DescuentoSubmit descuentoSubmit { get; set; }
-
+        private DetalleV currentdetalleV { get; set; }
         private Cotizacion  currentCotizacion { get; set; }
         bool enModificar = false;     
         public int nroNuevo = 0;      
@@ -185,8 +188,6 @@ namespace Admeli.Ventas.Nuevo
         private async void cargarCotizacion()
         {
 
-
-
             try
             {           
             detalleVentas=  await cotizacionModel.detalleCotizacion(currentCotizacion.idCotizacion);
@@ -225,11 +226,15 @@ namespace Admeli.Ventas.Nuevo
 
                 V.precioVentaReal = darformato(precioVenta/d);
                 listImpuestosProducto = await impuestoModel.impuestoProducto(V.idProducto, ConfigModel.sucursal.idSucursal);
+               
+                
                 // calculamos lo impuesto posibles del producto
                 double porcentual = 0;
                 double efectivo = 0;
                 foreach (ImpuestoProducto I in listImpuestosProducto)
                 {
+
+
                     if (I.porcentual)
                     {
                         porcentual += toDouble(I.valorImpuesto);
@@ -521,8 +526,17 @@ namespace Admeli.Ventas.Nuevo
         {
             if (cbxCodigoProducto.SelectedIndex == -1) return; /// validacion
                                                                /// cargando las alternativas del producto
-            List<AlternativaCombinacion> alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
+            alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
             alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
+            if(alternativaCombinacion[0].idCombinacionAlternativa!=0)
+                cbxVariacion.SelectedIndex = -1;
+
+            if (!nuevo)
+            {
+                if (cbxVariacion.SelectedIndex != -1 && currentdetalleV != null)
+                    cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa ;
+
+            }
             /// calculos
             calcularPrecioUnitarioProducto();
             calcularTotal();
@@ -738,9 +752,6 @@ namespace Admeli.Ventas.Nuevo
 
         }
 
-
-
-
         private void descuentoTotal()
         {
             try
@@ -759,6 +770,9 @@ namespace Admeli.Ventas.Nuevo
                     descuentoTotal += descuentoV;
 
                 }
+
+
+
                 this.Descuento = descuentoTotal;
                 Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);          
             
@@ -886,7 +900,7 @@ namespace Admeli.Ventas.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Calcular total", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Calcular precio unitario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -897,12 +911,21 @@ namespace Admeli.Ventas.Nuevo
 
                 if (cbxDescripcion.SelectedIndex == -1) return; /// validacion
                                                                 /// cargando las alternativas del producto
-                List<AlternativaCombinacion> alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxDescripcion.SelectedValue));
+                alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxDescripcion.SelectedValue));
                 alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
+                if (alternativaCombinacion[0].idCombinacionAlternativa != 0)
+                    cbxVariacion.SelectedIndex = -1;
+                if (!nuevo)
+                {
+                    if (cbxVariacion.SelectedIndex != -1 && currentdetalleV != null)
+                    cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
+
+                }
+
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Calcular total", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, " cargar Alternativa ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -1146,22 +1169,22 @@ namespace Admeli.Ventas.Nuevo
                 enModificar = true;
                 int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
                 int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+                currentdetalleV = detalleVentas.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
 
-                txtCantidad.Text = darformato(toDouble(aux.cantidad));
-                cbxCodigoProducto.Text = aux.codigoProducto;
-                cbxDescripcion.Text = aux.descripcion;
-                txtCantidad.Text = darformato(toDouble(aux.cantidad));
+                txtCantidad.Text = darformato(toDouble(currentdetalleV.cantidad));
+                cbxCodigoProducto.Text = currentdetalleV.codigoProducto;
+                cbxDescripcion.Text = currentdetalleV.descripcion;
+                txtCantidad.Text = darformato(toDouble(currentdetalleV.cantidad));
 
-                cbxVariacion.Text = aux.nombreCombinacion;
-                txtPrecioUnitario.Text = darformato(aux.precioVentaReal);
-                txtDescuento.Text = darformato(aux.descuento);
-                txtTotalProducto.Text = darformato(aux.totalGeneral);
+                cbxVariacion.Text = currentdetalleV.nombreCombinacion;
+                txtPrecioUnitario.Text = darformato(currentdetalleV.precioVentaReal);
+                txtDescuento.Text = darformato(currentdetalleV.descuento);
+                txtTotalProducto.Text = darformato(currentdetalleV.totalGeneral);
                 btnAgregar.Enabled = false;
                 btnModificar.Enabled = true;
                 cbxCodigoProducto.Enabled = false;
                 cbxDescripcion.Enabled = false;
-
+            
             }
             catch (Exception ex)
             {
@@ -1650,5 +1673,17 @@ namespace Admeli.Ventas.Nuevo
 
 
         #endregion=========================== eventos======================================  
+
+        private void cbxVariacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxVariacion.SelectedIndex == -1) return;
+            if ((int)cbxVariacion.SelectedValue == 0) return;
+            if ((int)cbxCodigoProducto.SelectedValue == 0) return;
+            AlternativaCombinacion alternativa = alternativaCombinacion.Find(X => X.idCombinacionAlternativa == (int)cbxVariacion.SelectedValue);
+            currentProducto = listProductos.Find(X=>X.idProducto== (int)cbxCodigoProducto.SelectedValue);
+            double precioUnitario =toDouble( currentProducto.precioVenta) + toDouble(alternativa.precio);
+            txtPrecioUnitario.Text = darformato(precioUnitario);
+
+        }
     }
 }
