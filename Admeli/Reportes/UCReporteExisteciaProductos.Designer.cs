@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCReporteExisteciaProductos));
             this.panelBody = new System.Windows.Forms.Panel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
@@ -50,6 +50,7 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.lblPageAllItems = new System.Windows.Forms.Label();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelTop = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -71,39 +72,11 @@
             this.cbxCategorias = new System.Windows.Forms.ComboBox();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBuscar = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadFraccionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.codigoBarrasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.controlSinStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionCortaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionLargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.enPortadaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.enUsoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.idMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUnidadMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.keywordsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limiteMaximoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limiteMinimoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mostrarVideoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mostrarWebDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nombreMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreUnidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urlVideoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.panelNavigation.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panelTools.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -112,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBody
@@ -130,75 +102,44 @@
             // 
             this.dgvProductos.AllowUserToAddRows = false;
             this.dgvProductos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProductos.AutoGenerateColumns = false;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idProductoDataGridViewTextBoxColumn,
-            this.cantidadFraccionDataGridViewCheckBoxColumn,
-            this.codigoBarrasDataGridViewTextBoxColumn,
-            this.codigoProductoDataGridViewTextBoxColumn,
-            this.controlSinStockDataGridViewTextBoxColumn,
-            this.descripcionCortaDataGridViewTextBoxColumn,
-            this.descripcionLargaDataGridViewTextBoxColumn,
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn,
-            this.enPortadaDataGridViewCheckBoxColumn,
-            this.enUsoDataGridViewCheckBoxColumn,
-            this.estadoDataGridViewCheckBoxColumn,
-            this.idMarcaDataGridViewTextBoxColumn,
-            this.idUnidadMedidaDataGridViewTextBoxColumn,
-            this.keywordsDataGridViewTextBoxColumn,
-            this.limiteMaximoDataGridViewTextBoxColumn,
-            this.limiteMinimoDataGridViewTextBoxColumn,
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn,
-            this.mostrarVideoDataGridViewCheckBoxColumn,
-            this.mostrarWebDataGridViewCheckBoxColumn,
-            this.nombreMarcaDataGridViewTextBoxColumn,
-            this.nombreProductoDataGridViewTextBoxColumn,
-            this.nombreUnidadDataGridViewTextBoxColumn,
-            this.precioCompraDataGridViewTextBoxColumn,
-            this.urlVideoDataGridViewTextBoxColumn,
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.codigoDataGridViewTextBoxColumn,
-            this.estadoStringDataGridViewTextBoxColumn});
-            this.dgvProductos.DataSource = this.productoBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductos.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvProductos.Location = new System.Drawing.Point(10, 10);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvProductos.RowHeadersWidth = 40;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvProductos.RowTemplate.Height = 30;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(1153, 292);
@@ -408,6 +349,10 @@
             this.lblPageAllItems.Text = "10 Registros";
             this.lblPageAllItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(Entidad.Producto);
+            // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.White;
@@ -478,6 +423,7 @@
             this.btnExcel.TabIndex = 14;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // btnImprimir
             // 
@@ -516,7 +462,6 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.cbxAlmacenes);
@@ -563,7 +508,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.cbxSucursales);
@@ -610,7 +554,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -624,7 +567,6 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.cbxCategorias);
@@ -671,7 +613,6 @@
             // 
             // textBuscar
             // 
-            this.textBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBuscar.BackColor = System.Drawing.Color.White;
             this.textBuscar.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.textBuscar.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
@@ -689,234 +630,6 @@
             this.textBuscar.TabIndex = 8;
             this.textBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataSource = typeof(Entidad.Producto);
-            // 
-            // idProductoDataGridViewTextBoxColumn
-            // 
-            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
-            this.idProductoDataGridViewTextBoxColumn.HeaderText = "idProducto";
-            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
-            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idProductoDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // cantidadFraccionDataGridViewCheckBoxColumn
-            // 
-            this.cantidadFraccionDataGridViewCheckBoxColumn.DataPropertyName = "cantidadFraccion";
-            this.cantidadFraccionDataGridViewCheckBoxColumn.HeaderText = "cantidadFraccion";
-            this.cantidadFraccionDataGridViewCheckBoxColumn.Name = "cantidadFraccionDataGridViewCheckBoxColumn";
-            this.cantidadFraccionDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.cantidadFraccionDataGridViewCheckBoxColumn.Width = 124;
-            // 
-            // codigoBarrasDataGridViewTextBoxColumn
-            // 
-            this.codigoBarrasDataGridViewTextBoxColumn.DataPropertyName = "codigoBarras";
-            this.codigoBarrasDataGridViewTextBoxColumn.HeaderText = "codigoBarras";
-            this.codigoBarrasDataGridViewTextBoxColumn.Name = "codigoBarrasDataGridViewTextBoxColumn";
-            this.codigoBarrasDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoBarrasDataGridViewTextBoxColumn.Width = 117;
-            // 
-            // codigoProductoDataGridViewTextBoxColumn
-            // 
-            this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
-            this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "codigoProducto";
-            this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
-            this.codigoProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoProductoDataGridViewTextBoxColumn.Width = 133;
-            // 
-            // controlSinStockDataGridViewTextBoxColumn
-            // 
-            this.controlSinStockDataGridViewTextBoxColumn.DataPropertyName = "controlSinStock";
-            this.controlSinStockDataGridViewTextBoxColumn.HeaderText = "controlSinStock";
-            this.controlSinStockDataGridViewTextBoxColumn.Name = "controlSinStockDataGridViewTextBoxColumn";
-            this.controlSinStockDataGridViewTextBoxColumn.ReadOnly = true;
-            this.controlSinStockDataGridViewTextBoxColumn.Width = 133;
-            // 
-            // descripcionCortaDataGridViewTextBoxColumn
-            // 
-            this.descripcionCortaDataGridViewTextBoxColumn.DataPropertyName = "descripcionCorta";
-            this.descripcionCortaDataGridViewTextBoxColumn.HeaderText = "descripcionCorta";
-            this.descripcionCortaDataGridViewTextBoxColumn.Name = "descripcionCortaDataGridViewTextBoxColumn";
-            this.descripcionCortaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionCortaDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // descripcionLargaDataGridViewTextBoxColumn
-            // 
-            this.descripcionLargaDataGridViewTextBoxColumn.DataPropertyName = "descripcionLarga";
-            this.descripcionLargaDataGridViewTextBoxColumn.HeaderText = "descripcionLarga";
-            this.descripcionLargaDataGridViewTextBoxColumn.Name = "descripcionLargaDataGridViewTextBoxColumn";
-            this.descripcionLargaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionLargaDataGridViewTextBoxColumn.Width = 143;
-            // 
-            // enCategoriaEstrellaDataGridViewCheckBoxColumn
-            // 
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn.DataPropertyName = "enCategoriaEstrella";
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn.HeaderText = "enCategoriaEstrella";
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn.Name = "enCategoriaEstrellaDataGridViewCheckBoxColumn";
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.enCategoriaEstrellaDataGridViewCheckBoxColumn.Width = 139;
-            // 
-            // enPortadaDataGridViewCheckBoxColumn
-            // 
-            this.enPortadaDataGridViewCheckBoxColumn.DataPropertyName = "enPortada";
-            this.enPortadaDataGridViewCheckBoxColumn.HeaderText = "enPortada";
-            this.enPortadaDataGridViewCheckBoxColumn.Name = "enPortadaDataGridViewCheckBoxColumn";
-            this.enPortadaDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.enPortadaDataGridViewCheckBoxColumn.Width = 80;
-            // 
-            // enUsoDataGridViewCheckBoxColumn
-            // 
-            this.enUsoDataGridViewCheckBoxColumn.DataPropertyName = "enUso";
-            this.enUsoDataGridViewCheckBoxColumn.HeaderText = "enUso";
-            this.enUsoDataGridViewCheckBoxColumn.Name = "enUsoDataGridViewCheckBoxColumn";
-            this.enUsoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.enUsoDataGridViewCheckBoxColumn.Width = 53;
-            // 
-            // estadoDataGridViewCheckBoxColumn
-            // 
-            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "estado";
-            this.estadoDataGridViewCheckBoxColumn.HeaderText = "estado";
-            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
-            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewCheckBoxColumn.Width = 56;
-            // 
-            // idMarcaDataGridViewTextBoxColumn
-            // 
-            this.idMarcaDataGridViewTextBoxColumn.DataPropertyName = "idMarca";
-            this.idMarcaDataGridViewTextBoxColumn.HeaderText = "idMarca";
-            this.idMarcaDataGridViewTextBoxColumn.Name = "idMarcaDataGridViewTextBoxColumn";
-            this.idMarcaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idMarcaDataGridViewTextBoxColumn.Width = 84;
-            // 
-            // idUnidadMedidaDataGridViewTextBoxColumn
-            // 
-            this.idUnidadMedidaDataGridViewTextBoxColumn.DataPropertyName = "idUnidadMedida";
-            this.idUnidadMedidaDataGridViewTextBoxColumn.HeaderText = "idUnidadMedida";
-            this.idUnidadMedidaDataGridViewTextBoxColumn.Name = "idUnidadMedidaDataGridViewTextBoxColumn";
-            this.idUnidadMedidaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idUnidadMedidaDataGridViewTextBoxColumn.Width = 137;
-            // 
-            // keywordsDataGridViewTextBoxColumn
-            // 
-            this.keywordsDataGridViewTextBoxColumn.DataPropertyName = "keywords";
-            this.keywordsDataGridViewTextBoxColumn.HeaderText = "keywords";
-            this.keywordsDataGridViewTextBoxColumn.Name = "keywordsDataGridViewTextBoxColumn";
-            this.keywordsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.keywordsDataGridViewTextBoxColumn.Width = 93;
-            // 
-            // limiteMaximoDataGridViewTextBoxColumn
-            // 
-            this.limiteMaximoDataGridViewTextBoxColumn.DataPropertyName = "limiteMaximo";
-            this.limiteMaximoDataGridViewTextBoxColumn.HeaderText = "limiteMaximo";
-            this.limiteMaximoDataGridViewTextBoxColumn.Name = "limiteMaximoDataGridViewTextBoxColumn";
-            this.limiteMaximoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.limiteMaximoDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // limiteMinimoDataGridViewTextBoxColumn
-            // 
-            this.limiteMinimoDataGridViewTextBoxColumn.DataPropertyName = "limiteMinimo";
-            this.limiteMinimoDataGridViewTextBoxColumn.HeaderText = "limiteMinimo";
-            this.limiteMinimoDataGridViewTextBoxColumn.Name = "limiteMinimoDataGridViewTextBoxColumn";
-            this.limiteMinimoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.limiteMinimoDataGridViewTextBoxColumn.Width = 116;
-            // 
-            // mostrarPrecioWebDataGridViewCheckBoxColumn
-            // 
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn.DataPropertyName = "mostrarPrecioWeb";
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn.HeaderText = "mostrarPrecioWeb";
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn.Name = "mostrarPrecioWebDataGridViewCheckBoxColumn";
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.mostrarPrecioWebDataGridViewCheckBoxColumn.Width = 132;
-            // 
-            // mostrarVideoDataGridViewCheckBoxColumn
-            // 
-            this.mostrarVideoDataGridViewCheckBoxColumn.DataPropertyName = "mostrarVideo";
-            this.mostrarVideoDataGridViewCheckBoxColumn.HeaderText = "mostrarVideo";
-            this.mostrarVideoDataGridViewCheckBoxColumn.Name = "mostrarVideoDataGridViewCheckBoxColumn";
-            this.mostrarVideoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.mostrarVideoDataGridViewCheckBoxColumn.Width = 99;
-            // 
-            // mostrarWebDataGridViewCheckBoxColumn
-            // 
-            this.mostrarWebDataGridViewCheckBoxColumn.DataPropertyName = "mostrarWeb";
-            this.mostrarWebDataGridViewCheckBoxColumn.HeaderText = "mostrarWeb";
-            this.mostrarWebDataGridViewCheckBoxColumn.Name = "mostrarWebDataGridViewCheckBoxColumn";
-            this.mostrarWebDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.mostrarWebDataGridViewCheckBoxColumn.Width = 91;
-            // 
-            // nombreMarcaDataGridViewTextBoxColumn
-            // 
-            this.nombreMarcaDataGridViewTextBoxColumn.DataPropertyName = "nombreMarca";
-            this.nombreMarcaDataGridViewTextBoxColumn.HeaderText = "nombreMarca";
-            this.nombreMarcaDataGridViewTextBoxColumn.Name = "nombreMarcaDataGridViewTextBoxColumn";
-            this.nombreMarcaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreMarcaDataGridViewTextBoxColumn.Width = 121;
-            // 
-            // nombreProductoDataGridViewTextBoxColumn
-            // 
-            this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
-            this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "nombreProducto";
-            this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
-            this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreProductoDataGridViewTextBoxColumn.Width = 139;
-            // 
-            // nombreUnidadDataGridViewTextBoxColumn
-            // 
-            this.nombreUnidadDataGridViewTextBoxColumn.DataPropertyName = "nombreUnidad";
-            this.nombreUnidadDataGridViewTextBoxColumn.HeaderText = "nombreUnidad";
-            this.nombreUnidadDataGridViewTextBoxColumn.Name = "nombreUnidadDataGridViewTextBoxColumn";
-            this.nombreUnidadDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreUnidadDataGridViewTextBoxColumn.Width = 127;
-            // 
-            // precioCompraDataGridViewTextBoxColumn
-            // 
-            this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "precioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "precioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
-            this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            this.precioCompraDataGridViewTextBoxColumn.Width = 123;
-            // 
-            // urlVideoDataGridViewTextBoxColumn
-            // 
-            this.urlVideoDataGridViewTextBoxColumn.DataPropertyName = "urlVideo";
-            this.urlVideoDataGridViewTextBoxColumn.HeaderText = "urlVideo";
-            this.urlVideoDataGridViewTextBoxColumn.Name = "urlVideoDataGridViewTextBoxColumn";
-            this.urlVideoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.urlVideoDataGridViewTextBoxColumn.Width = 87;
-            // 
-            // ventaVarianteSinStockDataGridViewCheckBoxColumn
-            // 
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.DataPropertyName = "ventaVarianteSinStock";
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.HeaderText = "ventaVarianteSinStock";
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.Name = "ventaVarianteSinStockDataGridViewCheckBoxColumn";
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.Width = 158;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // estadoStringDataGridViewTextBoxColumn
-            // 
-            this.estadoStringDataGridViewTextBoxColumn.DataPropertyName = "EstadoString";
-            this.estadoStringDataGridViewTextBoxColumn.HeaderText = "EstadoString";
-            this.estadoStringDataGridViewTextBoxColumn.Name = "estadoStringDataGridViewTextBoxColumn";
-            this.estadoStringDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoStringDataGridViewTextBoxColumn.Width = 113;
-            // 
             // UCReporteExisteciaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -930,6 +643,7 @@
             this.panelNavigation.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelTools.ResumeLayout(false);
@@ -943,7 +657,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -985,34 +698,6 @@
         private System.Windows.Forms.BindingSource almacenBindingSource;
         private System.Windows.Forms.BindingSource sucursalBindingSource;
         private System.Windows.Forms.BindingSource categoriaBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cantidadFraccionDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoBarrasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn controlSinStockDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionCortaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionLargaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn enCategoriaEstrellaDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn enPortadaDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn enUsoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMarcaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUnidadMedidaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keywordsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn limiteMaximoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn limiteMinimoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn mostrarPrecioWebDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn mostrarVideoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn mostrarWebDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreMarcaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreUnidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urlVideoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ventaVarianteSinStockDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource productoBindingSource;
     }
 }

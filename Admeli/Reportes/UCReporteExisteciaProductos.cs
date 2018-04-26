@@ -21,6 +21,7 @@ namespace Admeli.Reportes
         private SucursalModel sucursalModel = new SucursalModel();
         private AlmacenModel almacenModel = new AlmacenModel();
         private ProductoModel productoModel = new ProductoModel();
+        private ReporteModel reporteModel = new ReporteModel();
         private List<Producto> productos { get; set; }
 
         public UCReporteExisteciaProductos()
@@ -45,7 +46,6 @@ namespace Admeli.Reportes
             cargarCategorias();
             cargarSucursales();
             cargarAlmacenes();
-            cargarRegistros();
         }
 
         private async void cargarCategorias()
@@ -84,6 +84,7 @@ namespace Admeli.Reportes
             {
                 almacenBindingSource.DataSource = await almacenModel.almacenes();
                 cbxAlmacenes.SelectedValue = ConfigModel.currentIdAlmacen;
+                //buscarProductos();
             }
             catch (Exception ex)
             {
@@ -96,6 +97,10 @@ namespace Admeli.Reportes
             loadState(true);
             try
             {
+                List<ObjectReporteProducto> listaProductos = await reporteModel.existenciaProductos<List<ObjectReporteProducto>>(textBuscar.Text, int.Parse(cbxCategorias.SelectedValue.ToString()), int.Parse(cbxSucursales.SelectedValue.ToString()), int.Parse(cbxAlmacenes.SelectedValue.ToString()), 1);
+                dgvProductos.DataSource = null;
+                dgvProductos.DataSource = listaProductos;
+                return;
                 Dictionary<string, int> list = new Dictionary<string, int>();
                 list.Add("id0", 0);
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
@@ -137,8 +142,25 @@ namespace Admeli.Reportes
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            //recuperar texto guardado http://localhost:8085/ad_meli/xcore/services.php/productos/categoria/1/15
+            //Recuperar Productos
+            //http://localhost:8085/admeli/~admeli/reporte/srch-ptrn-xstnc/nombre/xpe/categoria/0/sucursal/0/almacen/0/pagina/0
+            buscarProductos();
+        }
 
+        private async void buscarProductos()
+        {
+            try
+            {
+                string textoBuscado = textBuscar.Text;
+                if (string.IsNullOrEmpty(textoBuscado.Trim())) { textoBuscado = "todos"; }
+                List<ObjectReporteProducto> listaProductos = await reporteModel.existenciaProductos<List<ObjectReporteProducto>>(textoBuscado, int.Parse(cbxCategorias.SelectedValue.ToString()), int.Parse(cbxSucursales.SelectedValue.ToString()), int.Parse(cbxAlmacenes.SelectedValue.ToString()), 1);
+                dgvProductos.DataSource = null;
+                dgvProductos.DataSource = listaProductos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Filtrar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         #region ===================== Eventos Páginación =====================
@@ -216,5 +238,29 @@ namespace Admeli.Reportes
             Validator.isNumber(e);
         }
         #endregion
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            elegirCamposExportar formElegirCamposExportar = new elegirCamposExportar(dgvProductos);
+            formElegirCamposExportar.ShowDialog();
+        }
     }
+
+    public class ObjectReporteProducto
+    {
+        public string idProducto { get; set; }
+        public string codigoProducto { get; set; }
+        //public string idCombinacionAlternativa { get; set; }
+        public string nombreProducto { get; set; }
+        //public string stock { get; set; }
+        //public string precioCombinacion { get; set; }
+        public string nombreSucursal { get; set; }
+        public string nombreAlmacen { get; set; }
+        public string precioCompra { get; set; }
+        //public string idAlmacen { get; set; }
+        //public string idSucursal { get; set; }
+        public string precioVenta { get; set; }
+        public string valor { get; set; }
+    }
+
 }
