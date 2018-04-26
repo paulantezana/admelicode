@@ -183,6 +183,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 formProductoNuevo.currentProducto.urlVideo = "";
                 formProductoNuevo.currentProducto.ventaVarianteSinStock = false;
             }
+            else
+            {
+                formProductoNuevo.currentProducto.idProducto = formProductoNuevo.currentIDProducto;
+            }
 
             formProductoNuevo.currentProducto.codigoProducto = textCodigoProducto.Text;
             formProductoNuevo.currentProducto.descripcionCorta = textDescripcion.Text;

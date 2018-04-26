@@ -12,12 +12,43 @@ namespace Admeli.Componentes
 {
     class ExternalFiles
     {
+        public static void ExportarDataGridViewExcel(DataGridView grd)
+        {
+            SaveFileDialog fichero = new SaveFileDialog();
+            fichero.Filter = "Excel (*.xls)|*.xls";
+            if (fichero.ShowDialog() == DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel.Application aplicacion;
+                Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
+                aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                libros_trabajo = aplicacion.Workbooks.Add();
+                hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+                //Colocar los titulos del DataGridView
+                for (int j = 0; j < grd.Columns.Count; j++)
+                {
+                    hoja_trabajo.Cells[1, j + 1] = grd.Columns[j].HeaderText;
+                }
+                //Recorremos el DataGridView rellenando la hoja de trabajo
+                for (int i = 0; i < grd.Rows.Count; i++)
+                {
+                    for (int j = 0; j < grd.Columns.Count; j++)
+                    {
+                        hoja_trabajo.Cells[i + 2, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                libros_trabajo.SaveAs(fichero.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                libros_trabajo.Close(true);
+                aplicacion.Quit();
+            }
+        }
         public static DataTable ImporExcel()
         {
             try
             {
                 OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "Archivo Excel|*.xls;*.xlsx;*.xlsm;*.csv";
+                //open.Filter = "Archivo Excel|*.xls;*.xlsx;*.xlsm;*.csv";
+                open.Filter = "Archivo Excel|*.xls;*.xlsm;*.csv";
                 open.Title = "Abrir archivo Excel";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
