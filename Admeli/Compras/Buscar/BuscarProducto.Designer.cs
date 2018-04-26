@@ -103,10 +103,10 @@
             this.toolStripButton1,
             this.lblSpeedPages,
             this.toolStripButton3});
-            this.toolStripNavigation.Location = new System.Drawing.Point(0, 384);
+            this.toolStripNavigation.Location = new System.Drawing.Point(0, 473);
             this.toolStripNavigation.Name = "toolStripNavigation";
-            this.toolStripNavigation.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.toolStripNavigation.Size = new System.Drawing.Size(824, 30);
+            this.toolStripNavigation.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
+            this.toolStripNavigation.Size = new System.Drawing.Size(1099, 37);
             this.toolStripNavigation.TabIndex = 22;
             this.toolStripNavigation.Text = "toolStrip3";
             // 
@@ -116,7 +116,7 @@
             this.lblPageAllItems.Image = ((System.Drawing.Image)(resources.GetObject("lblPageAllItems.Image")));
             this.lblPageAllItems.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.lblPageAllItems.Name = "lblPageAllItems";
-            this.lblPageAllItems.Size = new System.Drawing.Size(13, 27);
+            this.lblPageAllItems.Size = new System.Drawing.Size(17, 34);
             this.lblPageAllItems.Text = "0";
             this.lblPageAllItems.ToolTipText = "Total de registros en el sistema";
             // 
@@ -126,7 +126,7 @@
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(55, 27);
+            this.toolStripButton5.Size = new System.Drawing.Size(70, 34);
             this.toolStripButton5.Text = "Registros";
             // 
             // btnFirst
@@ -135,7 +135,7 @@
             this.btnFirst.Image = ((System.Drawing.Image)(resources.GetObject("btnFirst.Image")));
             this.btnFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(24, 27);
+            this.btnFirst.Size = new System.Drawing.Size(24, 34);
             this.btnFirst.Text = "Primera página";
             // 
             // btnPrevious
@@ -144,14 +144,14 @@
             this.btnPrevious.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevious.Image")));
             this.btnPrevious.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(24, 27);
+            this.btnPrevious.Size = new System.Drawing.Size(24, 34);
             this.btnPrevious.Text = "Anterior página";
             // 
             // lblCurrentPage
             // 
             this.lblCurrentPage.AutoSize = false;
             this.lblCurrentPage.Name = "lblCurrentPage";
-            this.lblCurrentPage.Size = new System.Drawing.Size(46, 23);
+            this.lblCurrentPage.Size = new System.Drawing.Size(60, 28);
             this.lblCurrentPage.Text = "1";
             this.lblCurrentPage.ToolTipText = "Página actual (enter)";
             // 
@@ -161,7 +161,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(12, 27);
+            this.toolStripButton2.Size = new System.Drawing.Size(15, 34);
             this.toolStripButton2.Text = "/";
             // 
             // lblPageCount
@@ -170,7 +170,7 @@
             this.lblPageCount.Image = ((System.Drawing.Image)(resources.GetObject("lblPageCount.Image")));
             this.lblPageCount.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.lblPageCount.Name = "lblPageCount";
-            this.lblPageCount.Size = new System.Drawing.Size(13, 27);
+            this.lblPageCount.Size = new System.Drawing.Size(17, 34);
             this.lblPageCount.Text = "1";
             this.lblPageCount.ToolTipText = "Número total de páginas";
             // 
@@ -180,7 +180,7 @@
             this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
             this.btnNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(24, 27);
+            this.btnNext.Size = new System.Drawing.Size(24, 34);
             this.btnNext.Text = "Siguiente página";
             // 
             // btnLast
@@ -189,7 +189,7 @@
             this.btnLast.Image = ((System.Drawing.Image)(resources.GetObject("btnLast.Image")));
             this.btnLast.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(24, 27);
+            this.btnLast.Size = new System.Drawing.Size(24, 34);
             this.btnLast.Text = "Ultimo página";
             // 
             // toolStripButton1
@@ -198,14 +198,14 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(76, 27);
+            this.toolStripButton1.Size = new System.Drawing.Size(96, 34);
             this.toolStripButton1.Text = "Mostrar cada";
             // 
             // lblSpeedPages
             // 
             this.lblSpeedPages.AutoSize = false;
             this.lblSpeedPages.Name = "lblSpeedPages";
-            this.lblSpeedPages.Size = new System.Drawing.Size(38, 23);
+            this.lblSpeedPages.Size = new System.Drawing.Size(49, 27);
             this.lblSpeedPages.Text = "50";
             this.lblSpeedPages.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lblSpeedPages.ToolTipText = "Cantidad de registros a mostrar (enter)";
@@ -216,7 +216,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(55, 27);
+            this.toolStripButton3.Size = new System.Drawing.Size(70, 34);
             this.toolStripButton3.Text = "Registros";
             // 
             // productoBindingSource
@@ -230,8 +230,9 @@
             this.panel1.Controls.Add(this.btnAddMarca);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(824, 58);
+            this.panel1.Size = new System.Drawing.Size(1099, 71);
             this.panel1.TabIndex = 24;
             // 
             // label19
@@ -240,10 +241,9 @@
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label19.Location = new System.Drawing.Point(19, 20);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Location = new System.Drawing.Point(25, 25);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(64, 16);
+            this.label19.Size = new System.Drawing.Size(81, 19);
             this.label19.TabIndex = 57;
             this.label19.Text = "Buscar:  |";
             // 
@@ -260,11 +260,11 @@
             this.textBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBuscar.isPassword = false;
-            this.textBuscar.Location = new System.Drawing.Point(13, 13);
-            this.textBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.textBuscar.Location = new System.Drawing.Point(17, 16);
+            this.textBuscar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textBuscar.Name = "textBuscar";
-            this.textBuscar.Padding = new System.Windows.Forms.Padding(70, 0, 6, 0);
-            this.textBuscar.Size = new System.Drawing.Size(712, 30);
+            this.textBuscar.Padding = new System.Windows.Forms.Padding(93, 0, 8, 0);
+            this.textBuscar.Size = new System.Drawing.Size(949, 37);
             this.textBuscar.TabIndex = 59;
             this.textBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -279,12 +279,14 @@
             this.btnAddMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMarca.ForeColor = System.Drawing.Color.White;
-            this.btnAddMarca.Location = new System.Drawing.Point(732, 14);
+            this.btnAddMarca.Location = new System.Drawing.Point(976, 17);
+            this.btnAddMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddMarca.Name = "btnAddMarca";
-            this.btnAddMarca.Size = new System.Drawing.Size(80, 28);
+            this.btnAddMarca.Size = new System.Drawing.Size(107, 34);
             this.btnAddMarca.TabIndex = 58;
             this.btnAddMarca.Text = "Nuevo";
             this.btnAddMarca.UseVisualStyleBackColor = false;
+            this.btnAddMarca.Click += new System.EventHandler(this.btnAddMarca_Click);
             // 
             // dataGridView
             // 
@@ -325,12 +327,13 @@
             this.dataGridView.DataSource = this.productoBindingSource;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.GridColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView.Location = new System.Drawing.Point(0, 58);
+            this.dataGridView.Location = new System.Drawing.Point(0, 71);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.Size = new System.Drawing.Size(824, 326);
+            this.dataGridView.Size = new System.Drawing.Size(1099, 402);
             this.dataGridView.TabIndex = 25;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -550,13 +553,14 @@
             // 
             // BuscarProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(824, 414);
+            this.ClientSize = new System.Drawing.Size(1099, 510);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStripNavigation);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BuscarProducto";
             this.Text = "Buscar Producto";
             this.Load += new System.EventHandler(this.BuscarProducto_Load);

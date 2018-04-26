@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.AlmacenBox.buscar;
 using Admeli.Componentes;
+using Admeli.Properties;
 using Entidad;
 using Entidad.Configuracion;
 using Modelo;
@@ -70,7 +73,12 @@ namespace Admeli.AlmacenBox.Nuevo
        private Producto currentProducto { get; set; }
        private Presentacion currentPresentacion { get; set; }
 
-        private NotaEntrada currentNotaEntrada { get; set; } 
+        private NotaEntrada currentNotaEntrada { get; set; }
+        private int numberOfItemsPerPage = 0;
+        private int numberOfItemsPrintedSoFar = 0;
+
+        List<FormatoDocumento> listformato;
+
 
         public FormEntradaNew()
         {
@@ -124,11 +132,33 @@ namespace Admeli.AlmacenBox.Nuevo
             cargarAlmacenes();
             cargarProductos();
             cargarPresentacion();
+            cargarFormatoDocumento();
         }
 
         #endregion
 
         #region ============================== Load ==============================
+
+        private void cargarFormatoDocumento()
+        {
+
+
+            TipoDocumento tipoDocumento = ConfigModel.tipoDocumento.Find(X => X.idTipoDocumento == 7);// nota entrada
+            listformato = JsonConvert.DeserializeObject<List<FormatoDocumento>>(tipoDocumento.formatoDocumento);
+            foreach (FormatoDocumento f in listformato)
+            {
+                string textoNormalizado = f.value.Normalize(NormalizationForm.FormD);
+                //coincide todo lo que no sean letras y números ascii o espacio
+                //y lo reemplazamos por una cadena vacía.
+                Regex reg = new Regex("[^a-zA-Z0-9 ]");
+                f.value = reg.Replace(textoNormalizado, "");
+                f.value = f.value.Replace(" ", "");
+
+            }
+            string info = JsonConvert.SerializeObject(listformato);
+        }
+
+
 
 
         private async void cargarDatosNotaEntrada()
@@ -673,6 +703,264 @@ namespace Admeli.AlmacenBox.Nuevo
               dgvDetalleNota.Refresh();
                btnQuitar.Enabled = false;
           
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            FormatoDocumento doc = listformato.Last();
+            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("tamaño pagina", (int)doc.w, (int)doc.h);
+
+            // pre visualizacion
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+
+            int X = 0;
+            int Y = 0;
+            int XI = 0;
+
+
+            Dictionary<string, Point> dictionary = new Dictionary<string, Point>();
+            foreach (FormatoDocumento doc in listformato)
+            {
+
+
+                string tipo = doc.tipo;
+
+                switch (tipo)
+                {
+                    case "Label":
+
+                        int v = 0;
+                        if (this.Controls.Find("txt" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("txt" + doc.value, true).First() as TextBox) != null))
+                            {
+                                TextBox textBox = this.Controls.Find("txt" + doc.value, true).First() as TextBox;
+                                e.Graphics.DrawString(textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+                                v++;
+                            }
+                        if (this.Controls.Find("cbx" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("cbx" + doc.value, true).First() as ComboBox) != null))
+                            {
+                                ComboBox textBox = this.Controls.Find("cbx" + doc.value, true).First() as ComboBox;
+                                e.Graphics.DrawString(textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+                                v++;
+                            }
+                        if (this.Controls.Find("dtp" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("dtp" + doc.value, true).First() as DateTimePicker) != null))
+                            {
+                                DateTimePicker textBox = this.Controls.Find("dtp" + doc.value, true).First() as DateTimePicker;
+                                e.Graphics.DrawString(textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+                                v++;
+                            }
+
+
+                        if (v == 0)
+                        {
+
+                            switch (doc.value)
+                            {
+                                case "SerieCorrelativo":
+
+                                    e.Graphics.DrawString(txtSerie.Text + "-" + txtCorrelativo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+                                case "DescripcionEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.razonSocial, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+
+                                case "DireccionEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.direccion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+                                case "DocumentoEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.ruc, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+                                case "NombreEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.razonSocial, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+
+
+
+
+                            }
+
+
+
+
+                        }
+
+                        break;
+                    case "ListGrid":
+                        X = (int)doc.x;
+                        Y = (int)doc.y;
+                        XI = X;
+                        break;
+                    case "ListGridField":
+
+                        e.Graphics.DrawString(doc.value, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(XI, Y));
+                        dictionary.Add(doc.value, new Point(XI, Y));
+
+                        //int YI = Y+30;
+                        //foreach(DetalleV V in  detalleVentas)
+                        //{
+                        //    e.Graphics.DrawString(V.cantidad, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(XI, YI));
+                        //    YI += 30;
+                        //}
+                        XI += X + (int)(doc.w);
+
+
+
+
+                        break;
+                    case "Img":
+
+                        Image image = Resources.logo1;
+
+                        e.Graphics.DrawImage(image, doc.x, doc.y, (int)doc.w, (int)doc.h);
+
+                        break;
+
+                }
+
+
+            }
+
+            Point point = dictionary["codigoProducto"];
+            int YI = point.Y + 30;
+            Point point1 = new Point();
+
+            if (listcargaCompraSinNota == null) listcargaCompraSinNota = new List<CargaCompraSinNota>();
+
+
+
+            for (int i = numberOfItemsPrintedSoFar; i < listcargaCompraSinNota.Count; i++)
+            {
+                numberOfItemsPerPage++;
+
+                if (numberOfItemsPerPage <= 2)
+                {
+                    numberOfItemsPrintedSoFar++;
+
+                    if (numberOfItemsPrintedSoFar <= listcargaCompraSinNota.Count)
+                    {
+
+                        if (dictionary.ContainsKey("codigoProducto"))
+                        {
+
+                            point1 = dictionary["codigoProducto"];
+                            e.Graphics.DrawString(listcargaCompraSinNota[i].codigoProducto, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+
+                        if (dictionary.ContainsKey("nombreCombinacion"))
+                        {
+                            point1 = dictionary["nombreCombinacion"];
+                            e.Graphics.DrawString(listcargaCompraSinNota[i].nombreCombinacion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+
+                        }
+                        if (dictionary.ContainsKey("cantidad"))
+                        {
+                            point1 = dictionary["cantidad"];
+                            e.Graphics.DrawString(darformato(listcargaCompraSinNota[i].cantidad), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                        if (dictionary.ContainsKey("cantidadcantidadUnitaria"))
+                        {
+                            point1 = dictionary["cantidadcantidadUnitaria"];
+                            e.Graphics.DrawString(darformato(listcargaCompraSinNota[i].cantidadUnitaria), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                        if (dictionary.ContainsKey("cantidadRecibida"))
+                        {
+                            point1 = dictionary["cantidadRecibida"];
+                            e.Graphics.DrawString(darformato(listcargaCompraSinNota[i].cantidadRecibida), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                        if (dictionary.ContainsKey("nombrePresentacion"))
+                        {
+                            point1 = dictionary["nombrePresentacion"];
+                            e.Graphics.DrawString(listcargaCompraSinNota[i].nombrePresentacion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                        if (dictionary.ContainsKey("descripcion"))
+                        {
+                            point1 = dictionary["descripcion"];
+                            e.Graphics.DrawString(listcargaCompraSinNota[i].descripcion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+
+                        }
+                        if (dictionary.ContainsKey("nombreMarca"))
+                        {
+                            point1 = dictionary["nombreMarca"];
+                            e.Graphics.DrawString(listcargaCompraSinNota[i].nombreMarca, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+
+
+                        YI += 30;
+
+
+
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                    }
+                }
+                else
+                {
+                    numberOfItemsPerPage = 0;
+                    e.HasMorePages = true;
+                    return;
+                }
+            }
+
+
+
+            numberOfItemsPerPage = 0;
+            numberOfItemsPrintedSoFar = 0;
+
+            foreach (FormatoDocumento doc in listformato)
+            {
+
+
+                string tipo = doc.tipo;
+
+                switch (tipo)
+                {
+                    case "Label":
+
+
+                        if (this.Controls.Find("lb" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("lb" + doc.value, true).First() as Label) != null))
+                            {
+                                Label textBox = this.Controls.Find("lb" + doc.value, true).First() as Label;
+                                if (doc.value == "Total")
+                                {
+                                    e.Graphics.DrawString(doc.value + ": " + textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x - 5, doc.y));
+
+
+                                }
+                                else
+                                    e.Graphics.DrawString(doc.value + ": " + textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x - 31, doc.y));
+                            }
+
+                        break;
+                }
+            }
+
+            numberOfItemsPerPage = 0;
+            numberOfItemsPrintedSoFar = 0;
         }
     }
 }

@@ -80,5 +80,10 @@ namespace Admeli.Compras.Buscar
                 MessageBox.Show("Error! " + ex.Message, "Error proveedor", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
+
+        private void btnAddMarca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

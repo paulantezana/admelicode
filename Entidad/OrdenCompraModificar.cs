@@ -19,7 +19,7 @@ namespace Entidad
             public double total { get; set; }
             public int estado { get; set; }
             public int idCombinacionAlternativa { get; set; }
-            public AlternativaCombinacion alternativas { get; set; }
+            public object alternativas { get; set; }
             public string nombreCombinacion { get; set; }
             public int idPresentacion { get; set; }
             public string nombrePresentacion { get; set; }

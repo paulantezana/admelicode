@@ -24,6 +24,8 @@ namespace Admeli.Configuracion
         public UCDisenoPersonalizacion()
         {
             InitializeComponent();
+            
+            
         }
 
         public UCDisenoPersonalizacion(FormPrincipal formPrincipal)

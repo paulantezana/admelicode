@@ -248,54 +248,70 @@ namespace Admeli.Compras.Nuevo
             try
             {
                 ordenCompraModificar = await ordenCompraModel.dcomprasordencompra(currentIdOrden);
-                if (nuevo == false)
-                {
-                    cargardatagriw();
-                }
-
+               
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "cargar Orden", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
+
+            if (nuevo == false)
+            {
+                cargardatagriw();
+            }
+
+
         }
 
         private void cargardatagriw()
         {
-            DetalleOrden detalleCompra;
-            if (detalleA == null) detalleA = new List<DetalleOrden>();
-            foreach (OrdenCompraModificar o in ordenCompraModificar)
+            try
             {
+                DetalleOrden detalleCompra;
+                if (detalleA == null) detalleA = new List<DetalleOrden>();
+                foreach (OrdenCompraModificar o in ordenCompraModificar)
+                {
 
-                detalleCompra = new DetalleOrden();
+                    detalleCompra = new DetalleOrden();
 
-                detalleCompra.cantidad = o.cantidad;
-                detalleCompra.cantidadUnitaria = o.cantidadUnitaria;
-                detalleCompra.codigoProducto = o.codigoProducto;
-                detalleCompra.descripcion = o.descripcion;
-                detalleCompra.descuento = o.descuento;
-                detalleCompra.estado = o.estado;
-                detalleCompra.idCombinacionAlternativa = o.idCombinacionAlternativa;
-                detalleCompra.idCompra = o.idCompra;
-                detalleCompra.idDetalleCompra = o.idDetalleCompra;
-                detalleCompra.idPresentacion = o.idPresentacion;
-                detalleCompra.idProducto = o.idProducto;
-                detalleCompra.idSucursal = o.idSucursal;
-                detalleCompra.nombreCombinacion = o.nombreCombinacion;
-                detalleCompra.nombreMarca = o.nombreMarca;
-                detalleCompra.nombrePresentacion = o.nombrePresentacion;
-                detalleCompra.nro = o.nro;
-                detalleCompra.precioUnitario = o.precioUnitario;
-                detalleCompra.total = o.total;
+                    detalleCompra.cantidad = o.cantidad;
+                    detalleCompra.cantidadUnitaria = o.cantidadUnitaria;
+                    detalleCompra.codigoProducto = o.codigoProducto;
+                    detalleCompra.descripcion = o.descripcion;
+                    detalleCompra.descuento = o.descuento;
+                    detalleCompra.estado = o.estado;
+                    detalleCompra.idCombinacionAlternativa = o.idCombinacionAlternativa;
+                    detalleCompra.idCompra = o.idCompra;
+                    detalleCompra.idDetalleCompra = o.idDetalleCompra;
+                    detalleCompra.idPresentacion = o.idPresentacion;
+                    detalleCompra.idProducto = o.idProducto;
+                    detalleCompra.idSucursal = o.idSucursal;
+                    detalleCompra.nombreCombinacion = o.nombreCombinacion;
+                    detalleCompra.nombreMarca = o.nombreMarca;
+                    detalleCompra.nombrePresentacion = o.nombrePresentacion;
+                    detalleCompra.nro = o.nro;
+                    detalleCompra.precioUnitario = o.precioUnitario;
+                    detalleCompra.total = o.total;
 
-                // agrgando un nuevo item a la lista
-                detalleA.Add(detalleCompra);
+                    // agrgando un nuevo item a la lista
+                    detalleA.Add(detalleCompra);
 
-                // Refrescando la tabla
+                    // Refrescando la tabla
+
+                }
 
             }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar datagriw", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+
+
+
             detalleModificar.AddRange(detalleA);
             detalleOrdenBindingSource.DataSource = null;
             detalleOrdenBindingSource.DataSource = detalleA;
@@ -347,7 +363,7 @@ namespace Admeli.Compras.Nuevo
            
              catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar Proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar ubigeo actual", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -355,12 +371,19 @@ namespace Admeli.Compras.Nuevo
 
         private async void cargarCorrelactivo()
         {
-            List<Sucursal_correlativo> list = await docCorrelativoModel.listarNroDocumentoSucursal(1, ConfigModel.sucursal.idSucursal);
-            sucursal_correlativo = list[0];
-            txtComprobante.Text = "ORDEN DE COMPRA";
-            txtSerie.Text = sucursal_correlativo.serie;
-            txtCorrelativo.Text = sucursal_correlativo.correlativoActual;
 
+            try
+            {
+                List<Sucursal_correlativo> list = await docCorrelativoModel.listarNroDocumentoSucursal(1, ConfigModel.sucursal.idSucursal);
+                sucursal_correlativo = list[0];
+                txtComprobante.Text = "ORDEN DE COMPRA";
+                txtSerie.Text = sucursal_correlativo.serie;
+                txtCorrelativo.Text = sucursal_correlativo.correlativoActual;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar Correlactivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
         }
@@ -369,24 +392,37 @@ namespace Admeli.Compras.Nuevo
 
         private void AddButtonColumn()
         {
-            DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
-            {
-                buttons.HeaderText = "Acciones";
-                buttons.Text = "X";
-                buttons.UseColumnTextForButtonValue = true;
-                //buttons.AutoSizeMode =
-                //   DataGridViewAutoSizeColumnMode.AllCells;
-                buttons.FlatStyle = FlatStyle.Popup;
-                buttons.CellTemplate.Style.BackColor = Color.Red;
-                buttons.CellTemplate.Style.ForeColor = Color.White;
 
-                buttons.Name = "acciones";           
+            try
+            {
+                 DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
+                {
+                    buttons.HeaderText = "Acciones";
+                    buttons.Text = "X";
+                    buttons.UseColumnTextForButtonValue = true;
+                    //buttons.AutoSizeMode =
+                    //   DataGridViewAutoSizeColumnMode.AllCells;
+                    buttons.FlatStyle = FlatStyle.Popup;
+                    buttons.CellTemplate.Style.BackColor = Color.Red;
+                    buttons.CellTemplate.Style.ForeColor = Color.White;
+
+                    buttons.Name = "acciones";           
+                }
+
+                dgvDetalleOrdenCompra.Columns.Add(buttons);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "add btn eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            dgvDetalleOrdenCompra.Columns.Add(buttons);
+
 
         }
-        
+
         private async void cargarMonedas()
         {
             try
@@ -396,7 +432,7 @@ namespace Admeli.Compras.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar monedas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -423,7 +459,7 @@ namespace Admeli.Compras.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "cargar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar fecha del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -433,15 +469,12 @@ namespace Admeli.Compras.Nuevo
             {
                 productos = await productoModel.productos();
                 productoBindingSource.DataSource = productos;
-
-
-
                 cbxCodigoProducto.SelectedIndex = -1;
                 cbxDescripcion.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "cargar Productos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -470,14 +503,11 @@ namespace Admeli.Compras.Nuevo
 
         private async void calculoSubtotal()
         {
+            try
+            {
 
             if (cbxTipoMoneda.SelectedValue == null)
-                return;
-
-
-
-
-            
+                return;          
             double subTotalLocal = 0;
             foreach (DetalleOrden item in detalleA)
             {
@@ -493,27 +523,56 @@ namespace Admeli.Compras.Nuevo
             lbSubtotal.Text = moneda.simbolo + ". " + darformato(subTotalLocal);
             // determinar impuesto de cada producto
             double impuestoTotal = 0;
+
+            
+            double impuesto = 0;
             foreach (DetalleOrden item in detalleA)
             {
                 List<Impuesto> list = await impuestoModel.impuestoProductoSucursal(item.idPresentacion, ConfigModel.sucursal.idSucursal);
                 double impuestolocal = 0;
+                double porcentual = 0;
+                double efectivo = 0;
                 foreach (Impuesto I in list)
                 {
 
-                    impuestolocal += I.valorImpuesto;
+                    if (item.estado == 1)
+                    {
 
+                        if(I.porcentual)
+                            porcentual += I.valorImpuesto;
+                        else
+                        {
+                            efectivo += I.valorImpuesto;
+                        }
+
+                    }
+                  
                 }
+                
+            double i1 = item.cantidad*item.precioUnitario * porcentual / 100;
+           
+            i1 += efectivo;
 
-                if (item.estado == 1)
-                    impuestoTotal += impuestolocal;
+                impuesto += i1;
 
             }
-            this.impuesto = impuestoTotal;
-            lbImpuesto.Text = moneda.simbolo + ". " + darformato(impuestoTotal);
+           
+
+            this.impuesto = impuesto;
+            
+            lbImpuesto.Text = moneda.simbolo + ". " + darformato(impuesto);
 
             // determinar impuesto de cada producto
             this.total = impuesto + subTotalLocal;
-            lbTotalCompra.Text = moneda.simbolo + ". " + darformato(subTotalLocal + impuestoTotal);
+            lbTotalCompra.Text = moneda.simbolo + ". " + darformato(total);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "calcular subTotal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         /// <summary>
@@ -525,12 +584,10 @@ namespace Admeli.Compras.Nuevo
             {
                 if (txtCantidad.Text.Trim() == "") txtTotalProducto.Text = "0";
                 if (txtPrecioUnitario.Text.Trim() == "" || txtCantidad.Text.Trim() == "" || txtDescuento.Text.Trim() == "") return; /// Validación
-
                 double precioUnidario = double.Parse(txtPrecioUnitario.Text, CultureInfo.GetCultureInfo("en-US"));
                 double cantidad = double.Parse(txtCantidad.Text, CultureInfo.GetCultureInfo("en-US"));
                 double descuento = double.Parse(txtDescuento.Text, CultureInfo.GetCultureInfo("en-US"));
                 double total = (precioUnidario * cantidad) - (descuento / 100) * (precioUnidario * cantidad);
-
                 txtTotalProducto.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, total);
             }
             catch (Exception ex)
@@ -606,11 +663,109 @@ namespace Admeli.Compras.Nuevo
 
         }
 
+        private void calcularDescuento()
+        {
+
+
+            try
+            {
+
+                if (cbxTipoMoneda.SelectedValue == null)
+                    return;
+
+                double descuentoTotal = 0;
+                Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
+
+                // calcular el descuento total
+                foreach (DetalleOrden C in detalleA)
+                {
+                    // calculamos el decuento para cada elemento
+
+                    if (C.estado == 1)
+                    {
+                        double total = C.precioUnitario * C.cantidad;
+                        double descuentoC = total - C.total;
+                        descuentoTotal += descuentoC;
+                    }
+
+                }
+                this.Descuento = descuentoTotal;
+
+                lbDescuentoCompras.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Calcular descuento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+
+        }
+
+
+        private bool exitePresentacion(int idPresentacion)
+        {
+            foreach (DetalleOrden C in detalleA)
+            {
+                if (C.idPresentacion == idPresentacion)
+                    return true;
+            }
+
+            return false;
+
+        }
+
+        private void decorationDataGridView()
+        {
+
+            try
+            {
+
+                if (dgvDetalleOrdenCompra.Rows.Count == 0) return;
+
+                foreach (DataGridViewRow row in dgvDetalleOrdenCompra.Rows)
+                {
+                    int idPresentacion = Convert.ToInt32(row.Cells[1].Value); // obteniedo el idCategoria del datagridview
+
+                    DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion); // Buscando la categoria en las lista de categorias
+                    if (aux.estado == 0 || aux.estado == 9)
+                    {
+                        dgvDetalleOrdenCompra.ClearSelection();
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
+                        row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
+                    }
+                }
+
+            }
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Calcular descuento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+
+        private void limpiarCamposProducto()
+        {
+            cbxCodigoProducto.SelectedIndex = -1;
+            cbxDescripcion.SelectedIndex = -1;
+
+            cbxVariacion.SelectedIndex = -1;
+            txtCantidad.Text = "";
+            txtDescuento.Text = "";
+            txtPrecioUnitario.Text = "";
+            txtTotalProducto.Text = "";
+        }
+
 
 
         #endregion
 
-        // comenzando eventos
+        #region=========== Eventos ========================
 
         private void cbxCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -621,12 +776,6 @@ namespace Admeli.Compras.Nuevo
         {
             cargarProductoDetalle(1);
         }
-
-
-
-
-
-
 
         // validaciones
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -651,11 +800,9 @@ namespace Admeli.Compras.Nuevo
 
         private void dgvDetalleCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-
-                int y = e.ColumnIndex;
-
-                if (dgvDetalleOrdenCompra.Columns[y].Name == "acciones")
+           
+            int y = e.ColumnIndex;
+            if (dgvDetalleOrdenCompra.Columns[y].Name == "acciones")
                 {
                     if (dgvDetalleOrdenCompra.Rows.Count == 0)
                     {
@@ -681,27 +828,21 @@ namespace Admeli.Compras.Nuevo
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index;
                         int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
                         DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion);
-
-                        aux.estado = 9;
-                        
+                        aux.estado = 9;                       
                         dgvDetalleOrdenCompra.ClearSelection();
                         dgvDetalleOrdenCompra.Rows[index].DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
                         dgvDetalleOrdenCompra.Rows[index].DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
-
                         decorationDataGridView();
                         calculoSubtotal();
                         calcularDescuento();
-
-
                      }
 
-                }
-
-            
-            
-           
-
-
+                btnAgregar.Enabled = true;
+                btnModificar.Enabled = false;
+                cbxCodigoProducto.Enabled = true;
+                cbxDescripcion.Enabled = true;
+            }
+          
         }
 
         private void dgvDetalleCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -726,6 +867,9 @@ namespace Admeli.Compras.Nuevo
             btnAgregar.Enabled = false;
             btnModificar.Enabled = true;
 
+            cbxCodigoProducto.Enabled = false;
+
+            cbxDescripcion.Enabled = false;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -749,6 +893,12 @@ namespace Admeli.Compras.Nuevo
             calculoSubtotal();
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
+
+
+            cbxCodigoProducto.Enabled = true;
+           
+            cbxDescripcion.Enabled = true;
+
         }
 
 
@@ -932,85 +1082,7 @@ namespace Admeli.Compras.Nuevo
         private void txtDescuento_TextChanged(object sender, EventArgs e)
         {
             calcularTotal();
-        }
-
-        
-
-
-        private void calcularDescuento()
-        {
-
-
-
-            if (cbxTipoMoneda.SelectedValue == null)
-                return;
-
-            double descuentoTotal = 0;
-            Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
-
-            // calcular el descuento total
-            foreach (DetalleOrden C in detalleA)
-            {
-                // calculamos el decuento para cada elemento
-
-                if (C.estado == 1)
-                {
-                    double total = C.precioUnitario * C.cantidad;
-                    double descuentoC = total - C.total;
-                    descuentoTotal += descuentoC;
-                }
-                   
-            }
-            this.Descuento = descuentoTotal;
-
-            lbDescuentoCompras.Text = moneda.simbolo + ". " + darformato(descuentoTotal);
-
-        }
-
-        
-        private bool exitePresentacion(int idPresentacion)
-        {
-            foreach (DetalleOrden C in detalleA)
-            {
-                if (C.idPresentacion == idPresentacion)
-                    return true;
-            }
-
-            return false;
-
-        }
-
-        private void decorationDataGridView()
-        {
-            if (dgvDetalleOrdenCompra.Rows.Count == 0) return;
-
-            foreach (DataGridViewRow row in dgvDetalleOrdenCompra.Rows)
-            {
-                int idPresentacion = Convert.ToInt32(row.Cells[1].Value); // obteniedo el idCategoria del datagridview
-
-                DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion); // Buscando la categoria en las lista de categorias
-                if (aux.estado == 0 || aux.estado==9)
-                {
-                    dgvDetalleOrdenCompra.ClearSelection();
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
-                    row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
-                }
-            }
-        }
-      
-
-        private void limpiarCamposProducto()
-        {
-            cbxCodigoProducto.SelectedIndex = -1;
-            cbxDescripcion.SelectedIndex = -1;
-
-            cbxVariacion.SelectedIndex = -1;
-            txtCantidad.Text = "";
-            txtDescuento.Text = "";
-            txtPrecioUnitario.Text = "";
-            txtTotalProducto.Text = "";
-        }
-
+        }      
         private async void btnComprar_Click(object sender, EventArgs e)
         {
 
@@ -1119,13 +1191,7 @@ namespace Admeli.Compras.Nuevo
             }
             else
                 btnComprar.Enabled = false;
-        }
-
-        private void Observaciones_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        }     
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
 
@@ -1300,5 +1366,13 @@ namespace Admeli.Compras.Nuevo
                 MessageBox.Show("no exite orden de compra", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
+        private void txtRuc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validator.isDecimal(e, txtRuc.Text);
+        }
+
+        #endregion=========== Eventos ========================
+
+       
     }
 }

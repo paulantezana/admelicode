@@ -194,5 +194,20 @@ namespace Admeli.Compras.Nuevo.Detalle
         {
             Validator.isNumber(e);
         }
+
+        private void textNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validator.isString(e);
+        }
+
+        private void textApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validator.isString(e);
+        }
+
+        private void textEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validator.IsValidEmail(textEmail.Text);
+        }
     }
 }
