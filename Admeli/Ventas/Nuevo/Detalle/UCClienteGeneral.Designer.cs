@@ -45,9 +45,9 @@
             this.textCelular = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label2 = new System.Windows.Forms.Label();
             this.textZipCode = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbGrupo = new System.Windows.Forms.Label();
             this.textDireccion = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
             this.textEmail = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.cbxNivel3 = new System.Windows.Forms.ComboBox();
             this.nivel3BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,7 +71,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.cbxSexo = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbsexo = new System.Windows.Forms.Label();
             this.txtDatosEnvio = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnGrupoNuevo = new System.Windows.Forms.Button();
@@ -192,12 +192,12 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.label7.Location = new System.Drawing.Point(19, 127);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 19);
+            this.label7.Size = new System.Drawing.Size(145, 19);
             this.label7.TabIndex = 60;
             this.label7.Text = "Nro. Identificador";
             // 
@@ -219,6 +219,7 @@
             this.textNIdentificacion.Size = new System.Drawing.Size(300, 33);
             this.textNIdentificacion.TabIndex = 0;
             this.textNIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textNIdentificacion.OnValueChanged += new System.EventHandler(this.textNIdentificacion_OnValueChanged);
             this.textNIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNIdentificacion_KeyPress);
             // 
             // cbxTipoGrupo
@@ -233,7 +234,7 @@
             this.cbxTipoGrupo.Location = new System.Drawing.Point(23, 344);
             this.cbxTipoGrupo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTipoGrupo.Name = "cbxTipoGrupo";
-            this.cbxTipoGrupo.Size = new System.Drawing.Size(262, 32);
+            this.cbxTipoGrupo.Size = new System.Drawing.Size(265, 32);
             this.cbxTipoGrupo.TabIndex = 4;
             this.cbxTipoGrupo.ValueMember = "idGrupoCliente";
             // 
@@ -303,17 +304,17 @@
             this.textZipCode.TabIndex = 3;
             this.textZipCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // label3
+            // lbGrupo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label3.Location = new System.Drawing.Point(24, 320);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 19);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "grupo";
+            this.lbGrupo.AutoSize = true;
+            this.lbGrupo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.lbGrupo.Location = new System.Drawing.Point(19, 320);
+            this.lbGrupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbGrupo.Name = "lbGrupo";
+            this.lbGrupo.Size = new System.Drawing.Size(59, 19);
+            this.lbGrupo.TabIndex = 69;
+            this.lbGrupo.Text = "Grupo";
             // 
             // textDireccion
             // 
@@ -334,17 +335,17 @@
             this.textDireccion.TabIndex = 10;
             this.textDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // label5
+            // lbEmail
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label5.Location = new System.Drawing.Point(24, 383);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 19);
-            this.label5.TabIndex = 71;
-            this.label5.Text = "Email";
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.lbEmail.Location = new System.Drawing.Point(24, 383);
+            this.lbEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(49, 19);
+            this.lbEmail.TabIndex = 71;
+            this.lbEmail.Text = "Email";
             // 
             // textEmail
             // 
@@ -553,6 +554,7 @@
             this.cbxDocumento.Size = new System.Drawing.Size(300, 32);
             this.cbxDocumento.TabIndex = 107;
             this.cbxDocumento.ValueMember = "idDocumento";
+            this.cbxDocumento.SelectedIndexChanged += new System.EventHandler(this.cbxDocumento_SelectedIndexChanged);
             // 
             // documentoIdentificacionBindingSource
             // 
@@ -576,16 +578,17 @@
             this.txtNombreCliente.Size = new System.Drawing.Size(300, 33);
             this.txtNombreCliente.TabIndex = 108;
             this.txtNombreCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCliente_KeyPress);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.label10.Location = new System.Drawing.Point(19, 189);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(144, 19);
+            this.label10.Size = new System.Drawing.Size(155, 19);
             this.label10.TabIndex = 109;
             this.label10.Text = "Nombre del cliente";
             // 
@@ -593,12 +596,12 @@
             // 
             this.label12.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label12.Location = new System.Drawing.Point(22, 67);
+            this.label12.Location = new System.Drawing.Point(19, 67);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(127, 19);
+            this.label12.Size = new System.Drawing.Size(138, 19);
             this.label12.TabIndex = 110;
             this.label12.Text = "Tipo Documento";
             // 
@@ -620,17 +623,17 @@
             this.cbxSexo.TabIndex = 111;
             this.cbxSexo.ValueMember = "idMarca";
             // 
-            // label13
+            // lbsexo
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label13.Location = new System.Drawing.Point(24, 254);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 19);
-            this.label13.TabIndex = 112;
-            this.label13.Text = "Sexo";
+            this.lbsexo.AutoSize = true;
+            this.lbsexo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbsexo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.lbsexo.Location = new System.Drawing.Point(24, 254);
+            this.lbsexo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbsexo.Name = "lbsexo";
+            this.lbsexo.Size = new System.Drawing.Size(45, 19);
+            this.lbsexo.TabIndex = 112;
+            this.lbsexo.Text = "Sexo";
             // 
             // txtDatosEnvio
             // 
@@ -654,6 +657,8 @@
             // 
             // btnGrupoNuevo
             // 
+            this.btnGrupoNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnGrupoNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
             this.btnGrupoNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGrupoNuevo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
@@ -663,10 +668,10 @@
             this.btnGrupoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrupoNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrupoNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnGrupoNuevo.Location = new System.Drawing.Point(291, 343);
+            this.btnGrupoNuevo.Location = new System.Drawing.Point(285, 344);
             this.btnGrupoNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupoNuevo.Name = "btnGrupoNuevo";
-            this.btnGrupoNuevo.Size = new System.Drawing.Size(29, 33);
+            this.btnGrupoNuevo.Size = new System.Drawing.Size(35, 32);
             this.btnGrupoNuevo.TabIndex = 115;
             this.btnGrupoNuevo.Text = "+";
             this.btnGrupoNuevo.UseVisualStyleBackColor = false;
@@ -679,7 +684,7 @@
             this.Controls.Add(this.btnGrupoNuevo);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtDatosEnvio);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.lbsexo);
             this.Controls.Add(this.cbxSexo);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -696,9 +701,9 @@
             this.Controls.Add(this.lblNivel1);
             this.Controls.Add(this.cbxPaises);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.textEmail);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbGrupo);
             this.Controls.Add(this.textDireccion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textZipCode);
@@ -749,9 +754,9 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox textCelular;
         private System.Windows.Forms.Label label2;
         private Bunifu.Framework.UI.BunifuMetroTextbox textZipCode;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbGrupo;
         private Bunifu.Framework.UI.BunifuMetroTextbox textDireccion;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbEmail;
         private Bunifu.Framework.UI.BunifuMetroTextbox textEmail;
         private System.Windows.Forms.ComboBox cbxNivel3;
         private System.Windows.Forms.Label lblNivel3;
@@ -769,7 +774,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label8;
         private Bunifu.Framework.UI.BunifuMetroTextbox textTelefono;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbsexo;
         private System.Windows.Forms.ComboBox cbxSexo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;

@@ -187,9 +187,9 @@
             this.label7.Location = new System.Drawing.Point(52, 38);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 19);
+            this.label7.Size = new System.Drawing.Size(185, 19);
             this.label7.TabIndex = 60;
-            this.label7.Text = "Nro. Identificador";
+            this.label7.Text = "Número de Identificador";
             // 
             // textNIdentificacion
             // 
@@ -209,6 +209,7 @@
             this.textNIdentificacion.Size = new System.Drawing.Size(300, 33);
             this.textNIdentificacion.TabIndex = 0;
             this.textNIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textNIdentificacion.OnValueChanged += new System.EventHandler(this.textNIdentificacion_OnValueChanged);
             this.textNIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNIdentificacion_KeyPress);
             // 
             // cbxTipoProveedor
@@ -380,9 +381,9 @@
             this.lblNivel3.Location = new System.Drawing.Point(376, 234);
             this.lblNivel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel3.Name = "lblNivel3";
-            this.lblNivel3.Size = new System.Drawing.Size(50, 19);
+            this.lblNivel3.Size = new System.Drawing.Size(57, 19);
             this.lblNivel3.TabIndex = 102;
-            this.lblNivel3.Text = "nivel3";
+            this.lblNivel3.Text = "Nivel 3";
             this.lblNivel3.Visible = false;
             // 
             // cbxNivel2
@@ -412,9 +413,9 @@
             this.lblNivel2.Location = new System.Drawing.Point(376, 176);
             this.lblNivel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel2.Name = "lblNivel2";
-            this.lblNivel2.Size = new System.Drawing.Size(50, 19);
+            this.lblNivel2.Size = new System.Drawing.Size(57, 19);
             this.lblNivel2.TabIndex = 100;
-            this.lblNivel2.Text = "nivel2";
+            this.lblNivel2.Text = "Nivel 2";
             this.lblNivel2.Visible = false;
             // 
             // cbxNivel1
@@ -444,9 +445,9 @@
             this.lblNivel1.Location = new System.Drawing.Point(376, 111);
             this.lblNivel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel1.Name = "lblNivel1";
-            this.lblNivel1.Size = new System.Drawing.Size(50, 19);
+            this.lblNivel1.Size = new System.Drawing.Size(57, 19);
             this.lblNivel1.TabIndex = 98;
-            this.lblNivel1.Text = "nivel1";
+            this.lblNivel1.Text = "Nivel 1";
             this.lblNivel1.Visible = false;
             // 
             // cbxPaises

@@ -134,11 +134,11 @@ namespace Admeli.Ventas
         #region ======================= Loads =======================
         private void cargarComponentes()
         {
-            // Cargando el combobox ce estados
-           
-            // Cargando el combobox de personales
-            // loadState(true);
-            
+            //Cargando el combobox ce estados
+
+            //Cargando el combobox de personales
+             loadState(true);
+
         }
 
         private async void cargarRegistros()
@@ -435,6 +435,18 @@ namespace Admeli.Ventas
             }
         }
 
+
         #endregion
+
+      
+
+        private void textBuscar_TextChanged(object sender, EventArgs e)
+        {
+            
+            BindingList<Cliente> filtered = new BindingList<Cliente>(clientes.Where(obj => obj.nombreCliente.Trim().ToUpper().Contains(textBuscar.Text.Trim().ToUpper())).ToList());
+            clienteBindingSource.DataSource = filtered;
+            dataGridView.Update();
+           
+        }
     }
 }

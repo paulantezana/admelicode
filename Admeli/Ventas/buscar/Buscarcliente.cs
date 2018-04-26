@@ -14,7 +14,7 @@ namespace Admeli.Ventas.Buscar
 {
     public partial class Buscarcliente : Form
     {
-        private ProveedorModel proveedorModel = new ProveedorModel();
+        
 
         private ClienteModel clienteModel = new ClienteModel();
         private RootObject<Cliente> clienteRoot;
@@ -26,6 +26,7 @@ namespace Admeli.Ventas.Buscar
             InitializeComponent();
         }
 
+        #region==============Root Load=============
         private void BuscarProveedor_Load(object sender, EventArgs e)
         {
             this.reLoad();
@@ -33,15 +34,16 @@ namespace Admeli.Ventas.Buscar
 
         private void reLoad()
         {
-            cargarProceedoresLike();
+            cargarClienteLike();
         }
-
-        private async void cargarProceedoresLike()
+        #endregion==============Root Load=============
+        #region==============Load=============
+        private async void cargarClienteLike()
         {
             loadState(true);
             try
             {
-                RootObject<Proveedor> proveedorRoot;
+                
                 if (textBuscar.Text == "")
                 {
                     clienteRoot = await clienteModel.clientes(1, 2000);
@@ -49,13 +51,7 @@ namespace Admeli.Ventas.Buscar
                 else
                 {
                     clienteRoot = await clienteModel.buscarClientesLike(textBuscar.Text,1, 2000);
-                }
-
-                // actualizando datos de páginacón
-                // paginacion.itemsCount = ordenCompra.nro_registros;
-                // paginacion.reload();
-
-                // Ingresando
+                }              
                 clientes = clienteRoot.datos;
                clienteBindingSource1.DataSource = clientes;
                 dataGridView.Refresh();
@@ -63,7 +59,7 @@ namespace Admeli.Ventas.Buscar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Listar Clientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
@@ -84,12 +80,15 @@ namespace Admeli.Ventas.Buscar
                 progressBarApp.Style = ProgressBarStyle.Blocks;
             }
         }
+        #endregion==============Load=============
 
+
+        #region==============eventos=============
         private void textBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                cargarProceedoresLike();
+                cargarClienteLike();
             }
         }
 
@@ -108,5 +107,7 @@ namespace Admeli.Ventas.Buscar
                 MessageBox.Show("Error! " + ex.Message, "Error proveedor", MessageBoxButtons.OK,MessageBoxIcon.Stop);
             }
         }
+
+        #endregion==============eventos=============
     }
 }

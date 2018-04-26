@@ -89,9 +89,17 @@ namespace Admeli.AlmacenBox.buscar
 
         private async void cargarCompras()
         {
-            listCompraNEntrada = await compraModel.comprasSinNota(ConfigModel.sucursal.idSucursal);
+            try
+            {
+                listCompraNEntrada = await compraModel.comprasSinNota(ConfigModel.sucursal.idSucursal);
 
-            compraNEntradaBindingSource.DataSource = listCompraNEntrada; 
+                compraNEntradaBindingSource.DataSource = listCompraNEntrada;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Compras", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
         }
         #endregion

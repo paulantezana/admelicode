@@ -220,7 +220,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textNombre);
             this.Name = "FormTipoDocumentoNuevo";
-            this.Text = "FormTipoDocumentoNuevo";
+            this.Text = "Tipo Documento Nuevo";
             this.Load += new System.EventHandler(this.FormTipoDocumentoNuevo_Load);
             this.panelFooter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

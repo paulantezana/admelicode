@@ -81,26 +81,40 @@ namespace Admeli.Compras.Nuevo.Detalle
 
         internal async void reLoad()
         {
-            await cargarPaises();
-            crearNivelesPais();
-            cargarDatosModificar();
+            try
+            {
+                await cargarPaises();
+                crearNivelesPais();
+                cargarDatosModificar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "reload Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async Task cargarPaises()
         {
-            // cargando los paises
-            paisBindingSource.DataSource = await locationModel.paises();
+            try
+            {
+                // cargando los paises
+                paisBindingSource.DataSource = await locationModel.paises();
 
-            // cargando la ubicacion geografica por defecto
-            if (formProveedorNuevo.nuevo)
-            {
-                ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                // cargando la ubicacion geografica por defecto
+                if (formProveedorNuevo.nuevo)
+                {
+                    ubicacionGeografica = await locationModel.ubigeoActual(ConfigModel.sucursal.idUbicacionGeografica);
+                }
+                else
+                {
+                    ubicacionGeografica = await locationModel.ubigeoActual(formProveedorNuevo.currentProveedor.idUbicacionGeografica);
+                }
+                cbxPaises.SelectedValue = ubicacionGeografica.idPais;
             }
-            else
+            catch (Exception ex)
             {
-                ubicacionGeografica = await locationModel.ubigeoActual(formProveedorNuevo.currentProveedor.idUbicacionGeografica);
+                MessageBox.Show("Error: " + ex.Message, "Cargar Paises", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            cbxPaises.SelectedValue = ubicacionGeografica.idPais;
         } 
         #endregion
 
@@ -452,30 +466,34 @@ namespace Admeli.Compras.Nuevo.Detalle
         // TAREA hacer los cambios en todos los formularios de clientes y proveedores ver lo de paises 
         private async void textNIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            Validator.isDecimal(e, textNIdentificacion.Text );
+
             String aux = textNIdentificacion.Text;
 
-            int nroCarateres=aux.Length;
 
-            if(nroCarateres==11 || nroCarateres==8)
-                if ((int)e.KeyChar == (int)Keys.Enter)
+            int nroCarateres = aux.Length;
+
+            if (nroCarateres == 11 || nroCarateres == 8)
+
+            {
+
+                try
                 {
 
-                    try
-                    {
-                        
-                        respuestaSunat = await sunatModel.obtenerDatos(aux);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    
-                   // Ver(aux);
-                    
+                    respuestaSunat = await sunatModel.obtenerDatos(aux);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                // Ver(aux);
+
+            }
             if (respuestaSunat != null)
             {
-                if(respuestaSunat.success)
+                if (respuestaSunat.success)
                 {
                     dataSunat = respuestaSunat.result;
                     textNIdentificacion.Text = dataSunat.RUC;
@@ -490,7 +508,7 @@ namespace Admeli.Compras.Nuevo.Detalle
 
                     textNombreEmpresa.Text = dataSunat.RazonSocial;
                     textActividadPrincipal.Text = dataSunat.Oficio;
-                
+
 
                     textDireccion.Text = concidencias(dataSunat.Direccion);
                     //cbxPaises.Text = concidencias(dataSunat.Pais);
@@ -501,60 +519,18 @@ namespace Admeli.Compras.Nuevo.Detalle
                 {
                     respuestaSunat = null;
                     if (textNIdentificacion.Text.Length > 0)
-                    textNIdentificacion.Text = textNIdentificacion.Text.Substring(0, textNIdentificacion.Text.Length-1);
+                        textNIdentificacion.Text = textNIdentificacion.Text.Substring(0, textNIdentificacion.Text.Length - 1);
                     MessageBox.Show("Error: " + "no exite este ruc o DNI", "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
 
 
             }
-           
 
         }
         
 
-        private async void textNIdentificacion_TextChanged(object sender, EventArgs e)
-        {
-            String aux = textNIdentificacion.Text;
-
-            int nroCarateres = aux.Length;
-
-            if (nroCarateres == 11 || nroCarateres == 8)
-            { 
-
-                    try
-                    {
-
-                        respuestaSunat = await sunatModel.obtenerDatos(aux);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-
-                    // Ver(aux);
-
-              }
-            if (respuestaSunat != null)
-            {
-
-                dataSunat = respuestaSunat.result;
-                textNIdentificacion.Text = dataSunat.RUC;
-                textTelefono.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length - 1);
-                textNombreEmpresa.Text = dataSunat.RazonSocial;
-                textActividadPrincipal.Text = dataSunat.Oficio;
-
-
-                textDireccion.Text = concidencias(dataSunat.Direccion);
-                //cbxPaises.Text = concidencias(dataSunat.Pais);
-
-
-                respuestaSunat = null;
-
-            }
-
-        }
-
+        
         private string concidencias(string direccion)
         {
             int lenght = direccion.Length;
@@ -601,6 +577,11 @@ namespace Admeli.Compras.Nuevo.Detalle
         }
 
         private async void textNIdentificacion_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textNIdentificacion_OnValueChanged_1(object sender, EventArgs e)
         {
 
         }

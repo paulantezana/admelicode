@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using Modelo;
 using Entidad;
 using Admeli.Componentes;
-using Admeli.Ventas.DescuentosOfertas.Descuento;
-using Admeli.Ventas.DescuentosOfertas.Ofertas;
 using Admeli.Ventas.Nuevo;
 
 namespace Admeli.Ventas

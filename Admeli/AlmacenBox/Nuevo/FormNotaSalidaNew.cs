@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.AlmacenBox.buscar;
 using Admeli.Componentes;
+using Admeli.Properties;
 using Entidad;
 using Entidad.Configuracion;
 using Modelo;
-
+using Newtonsoft.Json;
 
 namespace Admeli.AlmacenBox.Nuevo
 {
@@ -73,6 +76,13 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private NotaSalida currentNotaSalida { get; set; }
 
+        private int numberOfItemsPerPage = 0;
+        private int numberOfItemsPrintedSoFar = 0;
+
+        List<FormatoDocumento> listformato;
+
+       
+
         public FormNotaSalidaNew()
         {
             InitializeComponent();
@@ -123,13 +133,31 @@ namespace Admeli.AlmacenBox.Nuevo
             cargarProductos();
             cargarPresentacion();
             cargarObjetos();
+            cargarFormatoDocumento();
         }
 
         #endregion
 
         #region ============================== Load ==============================
 
+        private void cargarFormatoDocumento()
+        {
 
+
+            TipoDocumento tipoDocumento = ConfigModel.tipoDocumento.Find(X => X.idTipoDocumento == 8);// nota salida
+            listformato = JsonConvert.DeserializeObject<List<FormatoDocumento>>(tipoDocumento.formatoDocumento);
+            foreach (FormatoDocumento f in listformato)
+            {
+                string textoNormalizado = f.value.Normalize(NormalizationForm.FormD);
+                //coincide todo lo que no sean letras y números ascii o espacio
+                //y lo reemplazamos por una cadena vacía.
+                Regex reg = new Regex("[^a-zA-Z0-9 ]");
+                f.value = reg.Replace(textoNormalizado, "");
+                f.value = f.value.Replace(" ", "");
+
+            }
+            string info = JsonConvert.SerializeObject(listformato);
+        }
         private async void cargarNotaSalida()
         {
 
@@ -168,10 +196,17 @@ namespace Admeli.AlmacenBox.Nuevo
 
             }
             cbxEstado.Text = estado;
-            // cargar detalles de la nota
-            listDetalleNotaSalida =await notaSalidaModel.cargarDetallesNota(currentNotaSalida.idNotaSalida);
+            try
+            {
+                // cargar detalles de la nota
+                listDetalleNotaSalida = await notaSalidaModel.cargarDetallesNota(currentNotaSalida.idNotaSalida);
 
-            detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+                detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Detalles de la Nota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
         }
@@ -195,33 +230,49 @@ namespace Admeli.AlmacenBox.Nuevo
             object6 = new object();
             object7 = new object();
             listElementosNotaSalida = new List<object>();
+
+           
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
         }
         private async void cargarAlmacenes()
         {
-            //listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
-
-            listAlmacen = await AlmacenModel.almacenesAsignados(1, 1);
-
-            almacenBindingSource.DataSource = listAlmacen;
-            cbxAlmacen.SelectedIndex = 0;
-            currentAlmacen = listAlmacen[0];
-
-            if (nuevo)
+            try
             {
+                //listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
 
-                cargarDocCorrelativo(currentAlmacen.idAlmacen);
+                listAlmacen = await AlmacenModel.almacenesAsignados(1, 1);
+
+                almacenBindingSource.DataSource = listAlmacen;
+                cbxAlmacen.SelectedIndex = 0;
+                currentAlmacen = listAlmacen[0];
+
+                if (nuevo)
+                {
+
+                    cargarDocCorrelativo(currentAlmacen.idAlmacen);
+                }
             }
-           
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Almacenes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
         }
         private async void cargarDocCorrelativo(int idAlmacen)
         {
-            listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen);
-            currentCorrelativoA = listCorrelativoA[0];
-            txtSerie.Text = currentCorrelativoA.serie;
-            txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+            try
+            {
+                listCorrelativoA = await AlmacenModel.DocCorrelativoAlmacen(idAlmacen);
+                currentCorrelativoA = listCorrelativoA[0];
+                txtSerie.Text = currentCorrelativoA.serie;
+                txtCorrelativo.Text = currentCorrelativoA.correlativoActual;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Doc Correlativo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void cargarProductos()
@@ -306,10 +357,17 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private  async void  cargarDetalle(int idVenta)
         {
-            listDetalleNotaSalida = await notaSalidaModel.cargarDetalleNotaSalida(idVenta);
-            detalleNotaSalidaBindingSource.DataSource = null;
-            detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
-            dgvDetalleNotaSalida.Refresh();
+            try
+            {
+                listDetalleNotaSalida = await notaSalidaModel.cargarDetalleNotaSalida(idVenta);
+                detalleNotaSalidaBindingSource.DataSource = null;
+                detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
+                dgvDetalleNotaSalida.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Detalle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void cargarProductoDetalle(int tipo)
         {
@@ -366,9 +424,16 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private async void cargarPresentaciones(int idProducto, int tipo)
         {
-            List<Presentacion> listPresentacionaux = await presentacionModel.presentacionVentas(idProducto);
-            currentPresentacion = listPresentacionaux[0];
-            cbxDescripcion.Text = currentPresentacion.descripcion;
+            try
+            {
+                List<Presentacion> listPresentacionaux = await presentacionModel.presentacionVentas(idProducto);
+                currentPresentacion = listPresentacionaux[0];
+                cbxDescripcion.Text = currentPresentacion.descripcion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Presentaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
@@ -638,84 +703,90 @@ namespace Admeli.AlmacenBox.Nuevo
 
             }
             comprobarNota.dato = listint;
-
-            ResponseNotaSalida responseNotaSalida = await notaSalidaModel.verifcar(comprobarNota);
-
-            if (responseNotaSalida.cumple.cumple == 1)
+            try
             {
+                ResponseNotaSalida responseNotaSalida = await notaSalidaModel.verifcar(comprobarNota);
 
-               
-                listElementosNotaSalida.Add(almacenSalida);
-                listElementosNotaSalida.Add(ventaSalida);
-                listElementosNotaSalida.Add(DetallesNotaSalida);
-                listElementosNotaSalida.Add(dictionary);
-                listElementosNotaSalida.Add(object4);
-                listElementosNotaSalida.Add(object5);
-                listElementosNotaSalida.Add(object6);
-                listElementosNotaSalida.Add(object7);
-                ResponseNotaGuardar notaGuardar = null;
-                bool modificar = false;
-                if (nuevo)
+                if (responseNotaSalida.cumple.cumple == 1)
                 {
-                    notaGuardar = await notaSalidaModel.guardar(listElementosNotaSalida);
 
-                    this.Close();
-                }
-                else
-                {
-                    notaGuardar = await notaSalidaModel.modificar(listElementosNotaSalida);
-                    modificar = true;
-                }
 
-                if (notaGuardar.id > 0)
-                {
-                    if (!modificar)
+                    listElementosNotaSalida.Add(almacenSalida);
+                    listElementosNotaSalida.Add(ventaSalida);
+                    listElementosNotaSalida.Add(DetallesNotaSalida);
+                    listElementosNotaSalida.Add(dictionary);
+                    listElementosNotaSalida.Add(object4);
+                    listElementosNotaSalida.Add(object5);
+                    listElementosNotaSalida.Add(object6);
+                    listElementosNotaSalida.Add(object7);
+                    ResponseNotaGuardar notaGuardar = null;
+                    bool modificar = false;
+                    if (nuevo)
                     {
+                        notaGuardar = await notaSalidaModel.guardar(listElementosNotaSalida);
 
-                        DialogResult dialog = MessageBox.Show("¿Desea hacer la guia de remision?", "guia remision",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                        if (dialog == DialogResult.No)
+                        this.Close();
+                    }
+                    else
+                    {
+                        notaGuardar = await notaSalidaModel.modificar(listElementosNotaSalida);
+                        modificar = true;
+                    }
+
+                    if (notaGuardar.id > 0)
+                    {
+                        if (!modificar)
                         {
 
-                            this.Close();
-                            return;
-                        } 
-                           
-                        // currentNotaSalida= 
-                        List<NotaSalidaR>   listNotasalida3 = await notaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
+                            DialogResult dialog = MessageBox.Show("¿Desea hacer la guia de remision?", "guia remision",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                            if (dialog == DialogResult.No)
+                            {
 
-                        FormRemisionNew formRemisionNew = new FormRemisionNew(listNotasalida3.Find(X=>X.idNotaSalida== notaGuardar.id));
-                        formRemisionNew.ShowDialog();
-                        this.Close();
+                                this.Close();
+                                return;
+                            }
+
+                            // currentNotaSalida= 
+                            List<NotaSalidaR> listNotasalida3 = await notaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
+
+                            FormRemisionNew formRemisionNew = new FormRemisionNew(listNotasalida3.Find(X => X.idNotaSalida == notaGuardar.id));
+                            formRemisionNew.ShowDialog();
+                            this.Close();
+
+                        }
+                        else
+                        {
+
+                            MessageBox.Show(notaGuardar.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+
+                        }
+
 
                     }
                     else
                     {
+                        MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        MessageBox.Show(notaGuardar.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
 
                     }
-               
 
                 }
                 else
                 {
-                    MessageBox.Show(notaGuardar.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                    MessageBox.Show(" no cumple" + "exite: " + responseNotaSalida.abastece.cantidades + "  producto: " + responseNotaSalida.abastece.productos, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    dictionary.Clear();
+                    DetallesNotaSalida.Clear();
+                    listint.Clear();
 
                 }
-               
             }
-            else
+            catch (Exception ex)
             {
-
-                MessageBox.Show(" no cumple" + "exite: " + responseNotaSalida.abastece.cantidades + "  producto: " + responseNotaSalida.abastece.productos, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                dictionary.Clear();
-                DetallesNotaSalida.Clear();
-                listint.Clear();
-
+                MessageBox.Show("Error: " + ex.Message, "btnGuardar_Click", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -756,6 +827,271 @@ namespace Admeli.AlmacenBox.Nuevo
             limpiarCamposProducto();
 
 
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            int X = 0;
+            int Y = 0;
+            int XI = 0;
+
+
+            Dictionary<string, Point> dictionary = new Dictionary<string, Point>();
+            foreach (FormatoDocumento doc in listformato)
+            {
+
+
+                string tipo = doc.tipo;
+
+                switch (tipo)
+                {
+                    case "Label":
+
+                        int v = 0;
+                        if (this.Controls.Find("txt" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("txt" + doc.value, true).First() as TextBox) != null))
+                            {
+                                TextBox textBox = this.Controls.Find("txt" + doc.value, true).First() as TextBox;
+                                e.Graphics.DrawString(textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+                                v++;
+                            }
+                        if (this.Controls.Find("cbx" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("cbx" + doc.value, true).First() as ComboBox) != null))
+                            {
+                                ComboBox textBox = this.Controls.Find("cbx" + doc.value, true).First() as ComboBox;
+                                e.Graphics.DrawString(textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+                                v++;
+                            }
+                        if (this.Controls.Find("dtp" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("dtp" + doc.value, true).First() as DateTimePicker) != null))
+                            {
+                                DateTimePicker textBox = this.Controls.Find("dtp" + doc.value, true).First() as DateTimePicker;
+                                e.Graphics.DrawString(textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+                                v++;
+                            }
+
+
+                        if (v == 0)
+                        {
+
+                            switch (doc.value)
+                            {
+                                case "SerieCorrelativo":
+
+                                    e.Graphics.DrawString(txtSerie.Text + "-" + txtCorrelativo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+                                case "DescripcionEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.razonSocial, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+
+                                case "DireccionEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.direccion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+                                case "DocumentoEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.ruc, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+                                case "NombreEmpresa":
+
+                                    e.Graphics.DrawString(ConfigModel.datosGenerales.razonSocial, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x, doc.y));
+
+
+                                    break;
+
+
+
+
+                            }
+
+
+
+
+                        }
+
+                        break;
+                    case "ListGrid":
+                        X = (int)doc.x;
+                        Y = (int)doc.y;
+                        XI = X;
+                        break;
+                    case "ListGridField":
+
+                        e.Graphics.DrawString(doc.value, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(XI, Y));
+                        dictionary.Add(doc.value, new Point(XI, Y));
+
+                        //int YI = Y+30;
+                        //foreach(DetalleV V in  detalleVentas)
+                        //{
+                        //    e.Graphics.DrawString(V.cantidad, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(XI, YI));
+                        //    YI += 30;
+                        //}
+                        XI += X + (int)(doc.w);
+
+
+
+
+                        break;
+                    case "Img":
+
+                        Image image = Resources.logo1;
+
+                        e.Graphics.DrawImage(image, doc.x, doc.y, (int)doc.w, (int)doc.h);
+
+                        break;
+
+                }
+
+
+            }
+
+            Point point = dictionary["codigoProducto"];
+            int YI = point.Y + 30;
+            Point point1 = new Point();
+
+            if (listDetalleNotaSalida == null) listDetalleNotaSalida = new List<DetalleNotaSalida>();
+
+
+
+            for (int i = numberOfItemsPrintedSoFar; i < listDetalleNotaSalida.Count; i++)
+            {
+                numberOfItemsPerPage++;
+
+                if (numberOfItemsPerPage <= 2)
+                {
+                    numberOfItemsPrintedSoFar++;
+
+                    if (numberOfItemsPrintedSoFar <= listDetalleNotaSalida.Count)
+                    {
+
+                        if (dictionary.ContainsKey("codigoProducto"))
+                        {
+
+                            point1 = dictionary["codigoProducto"];
+                            e.Graphics.DrawString(listDetalleNotaSalida[i].codigoProducto, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+
+                        if (dictionary.ContainsKey("nombreCombinacion"))
+                        {
+                            point1 = dictionary["nombreCombinacion"];
+                            e.Graphics.DrawString(listDetalleNotaSalida[i].nombreCombinacion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+
+                        }
+                        if (dictionary.ContainsKey("cantidad"))
+                        {
+                            point1 = dictionary["cantidad"];
+                            e.Graphics.DrawString(darformato( listDetalleNotaSalida[i].cantidad), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                        if (dictionary.ContainsKey("cantidadcantidadUnitaria"))
+                        {
+                            point1 = dictionary["cantidadcantidadUnitaria"];
+                            e.Graphics.DrawString(darformato(listDetalleNotaSalida[i].cantidadUnitaria), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+
+                        if (dictionary.ContainsKey("nombrePresentacion"))
+                        {
+                            point1 = dictionary["nombrePresentacion"];
+                            e.Graphics.DrawString(listDetalleNotaSalida[i].nombrePresentacion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                        if (dictionary.ContainsKey("descripcion"))
+                        {
+                            point1 = dictionary["descripcion"];
+                            e.Graphics.DrawString(listDetalleNotaSalida[i].descripcion, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+
+                        }
+                        if (dictionary.ContainsKey("nombreMarca"))
+                        {
+                            point1 = dictionary["nombreMarca"];
+                            e.Graphics.DrawString(listDetalleNotaSalida[i].nombreMarca, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                       
+
+                        if (dictionary.ContainsKey("total"))
+                        {
+                            point1 = dictionary["total"];
+
+
+                            e.Graphics.DrawString(darformato(listDetalleNotaSalida[i].total), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(point1.X, YI));
+                        }
+                       
+                        YI += 30;
+
+
+
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                    }
+                }
+                else
+                {
+                    numberOfItemsPerPage = 0;
+                    e.HasMorePages = true;
+                    return;
+                }
+            }
+
+
+
+            numberOfItemsPerPage = 0;
+            numberOfItemsPrintedSoFar = 0;
+
+            foreach (FormatoDocumento doc in listformato)
+            {
+
+
+                string tipo = doc.tipo;
+
+                switch (tipo)
+                {
+                    case "Label":
+
+
+                        if (this.Controls.Find("lb" + doc.value, true).Count() > 0)
+                            if (((this.Controls.Find("lb" + doc.value, true).First() as Label) != null))
+                            {
+                                Label textBox = this.Controls.Find("lb" + doc.value, true).First() as Label;
+                                if (doc.value == "Total")
+                                {
+                                    e.Graphics.DrawString(doc.value + ": " + textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x - 5, doc.y));
+
+
+                                }
+                                else
+                                    e.Graphics.DrawString(doc.value + ": " + textBox.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(doc.x - 31, doc.y));
+                            }
+
+                        break;
+                }
+            }
+
+            numberOfItemsPerPage = 0;
+            numberOfItemsPrintedSoFar = 0;
+
+
+
+
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            FormatoDocumento doc = listformato.Last();
+            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("tamaño pagina", (int)doc.w, (int)doc.h);
+
+            // pre visualizacion
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
     }
 }

@@ -81,8 +81,8 @@ namespace Modelo
         {
             try
             {
-                // localhost:8080/admeli/xcore/services.php/productos/descuentototalalafechagrupo
-                return await webService.POST<DescuentoSubmit, List<DescuentoReceive>>("productos", "descuentototalalafechagrupo", param);
+                // localhost:8080/admeli/xcore/services.php/productos/descuentototalentrefechasgrupo
+                return await webService.POST<DescuentoSubmit, List<DescuentoReceive>>("productos", "descuentototalentrefechasgrupo", param);
             }
             catch (Exception ex)
             {

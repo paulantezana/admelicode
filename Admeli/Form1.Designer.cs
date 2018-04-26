@@ -1,6 +1,6 @@
-﻿namespace Admeli.Ventas.Modificar
+﻿namespace Admeli
 {
-    partial class FormCuentaPagarModificar
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FormCuentaPagarModificar
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 540);
-            this.Name = "FormCuentaPagarModificar";
-            this.Text = "FormCuentaPagarModificar";
-            this.ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.printButton = new System.Windows.Forms.Button();
+
+            this.ClientSize = new System.Drawing.Size(504, 381);
+            this.Text = "Print Example";
+
+            printButton.ImageAlign =
+               System.Drawing.ContentAlignment.MiddleLeft;
+            printButton.Location = new System.Drawing.Point(32, 110);
+            printButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            printButton.TabIndex = 0;
+            printButton.Text = "Print the file.";
+            printButton.Size = new System.Drawing.Size(136, 40);
+            printButton.Click += new System.EventHandler(printButton_Click);
+
+            this.Controls.Add(printButton);
 
         }
 

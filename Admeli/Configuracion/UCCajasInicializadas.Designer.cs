@@ -93,7 +93,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(814, 502);
@@ -567,10 +567,12 @@
             this.idCajaSesionDataGridViewTextBoxColumn.HeaderText = "IDCajaSesion";
             this.idCajaSesionDataGridViewTextBoxColumn.Name = "idCajaSesionDataGridViewTextBoxColumn";
             this.idCajaSesionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCajaSesionDataGridViewTextBoxColumn.Visible = false;
             // 
             // fechaInicioDataGridViewTextBoxColumn
             // 
             this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "fechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.FillWeight = 131F;
             this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "Fecha de Inicio";
             this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
             this.fechaInicioDataGridViewTextBoxColumn.ReadOnly = true;
@@ -578,6 +580,7 @@
             // fechaCierreDataGridViewTextBoxColumn
             // 
             this.fechaCierreDataGridViewTextBoxColumn.DataPropertyName = "fechaCierre";
+            this.fechaCierreDataGridViewTextBoxColumn.FillWeight = 135F;
             this.fechaCierreDataGridViewTextBoxColumn.HeaderText = "Fecha de Cierre";
             this.fechaCierreDataGridViewTextBoxColumn.Name = "fechaCierreDataGridViewTextBoxColumn";
             this.fechaCierreDataGridViewTextBoxColumn.ReadOnly = true;
@@ -585,6 +588,7 @@
             // totalIngresoDataGridViewTextBoxColumn
             // 
             this.totalIngresoDataGridViewTextBoxColumn.DataPropertyName = "totalIngreso";
+            this.totalIngresoDataGridViewTextBoxColumn.FillWeight = 115F;
             this.totalIngresoDataGridViewTextBoxColumn.HeaderText = "Ingreso Total";
             this.totalIngresoDataGridViewTextBoxColumn.Name = "totalIngresoDataGridViewTextBoxColumn";
             this.totalIngresoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -592,6 +596,7 @@
             // totalEgresoDataGridViewTextBoxColumn
             // 
             this.totalEgresoDataGridViewTextBoxColumn.DataPropertyName = "totalEgreso";
+            this.totalEgresoDataGridViewTextBoxColumn.FillWeight = 111F;
             this.totalEgresoDataGridViewTextBoxColumn.HeaderText = "Egreso Total";
             this.totalEgresoDataGridViewTextBoxColumn.Name = "totalEgresoDataGridViewTextBoxColumn";
             this.totalEgresoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -623,9 +628,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCCajasInicializadas";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(830, 518);
             this.Load += new System.EventHandler(this.UCCajasInicializadas_Load);
             this.panelContainer.ResumeLayout(false);

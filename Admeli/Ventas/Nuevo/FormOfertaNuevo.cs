@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Admeli.Componentes;
 using Admeli.Configuracion.Nuevo;
 using Entidad;
 using Modelo;
@@ -217,5 +218,10 @@ namespace Admeli.Ventas.Nuevo
             this.Close();
         }
         #endregion
+
+        private void textDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validator.isDecimal(e, textDescuento.Text);
+        }
     }
 }

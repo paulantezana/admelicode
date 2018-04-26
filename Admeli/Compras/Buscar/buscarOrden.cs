@@ -127,7 +127,7 @@ namespace Admeli.Compras.Buscar
 
         private void dgvOrdenCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            seleccionarOrden();
         }
 
 
@@ -135,6 +135,7 @@ namespace Admeli.Compras.Buscar
         public void seleccionarOrden()
         {
                 if (dgvOrdenCompra.Rows.Count == 0) return;
+
                 try
                 {
                     int index = dgvOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
