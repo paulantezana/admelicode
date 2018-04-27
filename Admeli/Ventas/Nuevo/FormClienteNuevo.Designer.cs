@@ -102,6 +102,7 @@
             // 
             // panelMainNP
             // 
+            this.panelMainNP.AutoSize = true;
             this.panelMainNP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainNP.Location = new System.Drawing.Point(80, 4);
             this.panelMainNP.Margin = new System.Windows.Forms.Padding(4);
@@ -126,6 +127,7 @@
             this.Load += new System.EventHandler(this.FormProveedorNuevo_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
