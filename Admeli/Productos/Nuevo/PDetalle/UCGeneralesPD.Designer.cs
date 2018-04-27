@@ -62,7 +62,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbxMarcas = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelPresentacionBase = new System.Windows.Forms.Panel();
             this.cbxPresentacionBase = new System.Windows.Forms.ComboBox();
             this.presentacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelPresentacionBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.presentacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -519,14 +519,15 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Marca";
             // 
-            // panel3
+            // panelPresentacionBase
             // 
-            this.panel3.Controls.Add(this.cbxPresentacionBase);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(379, 221);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(328, 40);
-            this.panel3.TabIndex = 14;
+            this.panelPresentacionBase.Controls.Add(this.cbxPresentacionBase);
+            this.panelPresentacionBase.Controls.Add(this.label6);
+            this.panelPresentacionBase.Location = new System.Drawing.Point(379, 221);
+            this.panelPresentacionBase.Name = "panelPresentacionBase";
+            this.panelPresentacionBase.Size = new System.Drawing.Size(328, 40);
+            this.panelPresentacionBase.TabIndex = 14;
+            this.panelPresentacionBase.Visible = false;
             // 
             // cbxPresentacionBase
             // 
@@ -565,7 +566,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelPresentacionBase);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.label1);
@@ -601,8 +602,8 @@
             this.panel12.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelPresentacionBase.ResumeLayout(false);
+            this.panelPresentacionBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.presentacionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -643,7 +644,7 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.ComboBox cbxUnidadMedida;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelPresentacionBase;
         private System.Windows.Forms.ComboBox cbxPresentacionBase;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.BindingSource presentacionBindingSource;

@@ -226,7 +226,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         #region ================================== CRUD Precentacion ==================================
         private void dataGridViewPresentacion_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            executeModificarPrecentacion();
+            //executeModificarPrecentacion();
         }
 
         private void btnNuevoPrecentacion_Click(object sender, EventArgs e)
