@@ -841,6 +841,8 @@ namespace Admeli.Compras.Nuevo
                 btnModificar.Enabled = false;
                 cbxCodigoProducto.Enabled = true;
                 cbxDescripcion.Enabled = true;
+
+                limpiarCamposProducto();
             }
           
         }
@@ -898,7 +900,7 @@ namespace Admeli.Compras.Nuevo
             cbxCodigoProducto.Enabled = true;
            
             cbxDescripcion.Enabled = true;
-
+            limpiarCamposProducto();
         }
 
 

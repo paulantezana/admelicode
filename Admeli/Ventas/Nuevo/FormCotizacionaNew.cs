@@ -97,7 +97,8 @@ namespace Admeli.Ventas.Nuevo
         private int numberOfItemsPrintedSoFar = 0;
 
         List<FormatoDocumento> listformato;
-        
+        private bool seleccionado;
+
 
 
 
@@ -571,8 +572,14 @@ namespace Admeli.Ventas.Nuevo
             alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
             alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
             cbxVariacion.SelectedIndex = -1;
-            cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+            if (!seleccionado)
+                cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+            else
+            {
 
+                cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
+
+            }
             if (!nuevo)
             {
                 if (cbxVariacion.SelectedIndex != -1 && currentdetalleV != null)
@@ -962,7 +969,14 @@ namespace Admeli.Ventas.Nuevo
                 alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxDescripcion.SelectedValue));
                 alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
                 cbxVariacion.SelectedIndex = -1;
-                cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+                if (!seleccionado)
+                    cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+                else
+                {
+
+                    cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
+
+                }
                 if (!nuevo)
                 {
                     if (cbxVariacion.SelectedIndex != -1 && currentdetalleV != null)
@@ -1089,18 +1103,13 @@ namespace Admeli.Ventas.Nuevo
         {
             cbxCodigoProducto.SelectedIndex = -1;
             cbxDescripcion.SelectedIndex = -1;
-
             cbxVariacion.SelectedIndex = -1;
             txtCantidad.Text = "";
             txtDescuento.Text = "";
             txtPrecioUnitario.Text = "";
             txtTotalProducto.Text = "";
+            currentdetalleV = null;
         }
-
-
-
-
-
         #endregion  
         #region=========================== eventos======================================  
 
@@ -1143,7 +1152,7 @@ namespace Admeli.Ventas.Nuevo
 
             try
             {
-
+                DetalleV aux = null;
                 int y = e.ColumnIndex;
 
                 if (dgvDetalleOrdenCompra.Columns[y].Name == "acciones")
@@ -1158,7 +1167,7 @@ namespace Admeli.Ventas.Nuevo
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
                         int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                        DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
+                        aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
 
                         dgvDetalleOrdenCompra.Rows.RemoveAt(index);
 
@@ -1171,7 +1180,7 @@ namespace Admeli.Ventas.Nuevo
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index;
                         int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                        DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
+                        aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
 
                         aux.estado = 9;
                         
@@ -1186,15 +1195,25 @@ namespace Admeli.Ventas.Nuevo
 
                      }
 
+
+                   
+                    if (currentdetalleV != null)
+                        if (currentdetalleV.idPresentacion == aux.idPresentacion)
+                        {   seleccionado = false;
+
+                                btnAgregar.Enabled = true;
+                                btnModificar.Enabled = false;
+                                enModificar = false;
+
+                                cbxCodigoProducto.Enabled = true;
+                                cbxDescripcion.Enabled = true;
+
+                                 limpiarCamposProducto();
+                        } 
+
                 }
 
-                btnAgregar.Enabled = true;
-                btnModificar.Enabled = false;
-                enModificar = false;
-
-                cbxCodigoProducto.Enabled = true;
-                cbxDescripcion.Enabled = true;
-
+               
             }
                
 
@@ -1237,7 +1256,9 @@ namespace Admeli.Ventas.Nuevo
                 btnAgregar.Enabled = false;
                 btnModificar.Enabled = true;
                 cbxCodigoProducto.Enabled = false;
+                cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
                 cbxDescripcion.Enabled = false;
+                seleccionado = true;
             }
             catch (Exception ex)
             {
@@ -1305,7 +1326,8 @@ namespace Admeli.Ventas.Nuevo
 
                 cbxCodigoProducto.Enabled = true;
                 cbxDescripcion.Enabled = true;
-
+                seleccionado = false;
+                limpiarCamposProducto();
              }
                
 
@@ -1546,7 +1568,15 @@ namespace Admeli.Ventas.Nuevo
         private void btnActulizar_Click(object sender, EventArgs e)
         {            
             cargarProductos();
-                    
+            cargarPresentacion();
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = false;
+            enModificar = false;
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;                       
+            seleccionado = false;
+            limpiarCamposProducto();
+
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)
@@ -1557,10 +1587,15 @@ namespace Admeli.Ventas.Nuevo
                 FormProductoNuevo formProductoNuevo = new FormProductoNuevo();
                 formProductoNuevo.ShowDialog();
                 cargarProductos();
-
+                cargarPresentacion();
+                btnAgregar.Enabled = true;
+                btnModificar.Enabled = false;
+                enModificar = false;
+                cbxCodigoProducto.Enabled = true;
+                cbxDescripcion.Enabled = true;
+                seleccionado = false;
+                limpiarCamposProducto(); 
             }
-          
-
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Nuevo Producto ", MessageBoxButtons.OK, MessageBoxIcon.Warning);

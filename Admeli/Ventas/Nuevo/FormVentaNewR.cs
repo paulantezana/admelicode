@@ -119,6 +119,8 @@ namespace Admeli.Ventas.Nuevo
 
         private bool nuevo { get; set; }
         private bool enModificar { get; set; }
+
+        private bool seleccionado { get; set; }
         private int idPresentacionDatagriview = 0;
         int nroDecimales = 2;
         string formato { get; set; }
@@ -817,8 +819,14 @@ namespace Admeli.Ventas.Nuevo
             alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
             alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
             cbxVariacion.SelectedIndex = -1;
-            cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+            if (!seleccionado)
+                cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+            else
+            {
 
+                cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
+
+            }
             if (!nuevo)
             {
                 if (cbxVariacion.SelectedIndex != -1 && currentdetalleV != null)
@@ -1095,7 +1103,14 @@ namespace Admeli.Ventas.Nuevo
             alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxDescripcion.SelectedValue));
             alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
             cbxVariacion.SelectedIndex = -1;
-            cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+            if(!seleccionado)
+                cbxVariacion.SelectedValue = alternativaCombinacion[0].idCombinacionAlternativa;
+            else
+            {
+
+                cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
+
+            }
             if (!nuevo)
             {
                 if (cbxVariacion.SelectedIndex != -1 && currentdetalleV != null)
@@ -1136,8 +1151,8 @@ namespace Admeli.Ventas.Nuevo
 
         private void dgvDetalleCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
 
+                DetalleV aux= null;
                 int y = e.ColumnIndex;
 
                 if (dgvDetalleOrdenCompra.Columns[y].Name == "acciones")
@@ -1152,7 +1167,7 @@ namespace Admeli.Ventas.Nuevo
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
                         int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                        DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
+                        aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
 
                         dgvDetalleOrdenCompra.Rows.RemoveAt(index);
 
@@ -1165,7 +1180,7 @@ namespace Admeli.Ventas.Nuevo
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index;
                         int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                        DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
+                         aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
 
                         aux.estado = 9;
                         
@@ -1179,6 +1194,21 @@ namespace Admeli.Ventas.Nuevo
 
 
                      }
+
+                   
+                    if (currentdetalleV != null)
+                        if (currentdetalleV.idPresentacion == aux.idPresentacion)
+                        {
+                            seleccionado = false;
+                            btnAgregar.Enabled = true;
+                            btnModificar.Enabled = false;
+                            enModificar = false;
+
+                            cbxCodigoProducto.Enabled = true;
+                            cbxDescripcion.Enabled = true;
+
+                            limpiarCamposProducto();
+                        }
 
                 }
 
@@ -1211,41 +1241,40 @@ namespace Admeli.Ventas.Nuevo
             cbxVariacion.Text = currentdetalleV.nombreCombinacion;               
             txtPrecioUnitario.Text = darformato(currentdetalleV.precioVentaReal);
             txtDescuento.Text = darformato(currentdetalleV.descuento);
-            txtTotalProducto.Text = darformato(currentdetalleV.totalGeneral);               
+            txtTotalProducto.Text = darformato(currentdetalleV.totalGeneral);
             btnAgregar.Enabled = false;
             btnModificar.Enabled = true;
-           
+            cbxCodigoProducto.Enabled = false;
+            cbxDescripcion.Enabled = false;
+            seleccionado = true;
+            cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
+
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvDetalleOrdenCompra.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-            DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
 
 
 
-            aux.cantidad = txtCantidad.Text.Trim(); 
-            aux.cantidadUnitaria= txtCantidad.Text.Trim();
+
+            currentdetalleV.idCombinacionAlternativa = (int)cbxVariacion.SelectedValue;
+            currentdetalleV.cantidad = txtCantidad.Text.Trim();
+            currentdetalleV.cantidadUnitaria= txtCantidad.Text.Trim();
             double descuento = toDouble(txtDescuento.Text.Trim());
-            aux.descuento = darformato(descuento);
+            currentdetalleV.descuento = darformato(descuento);
             double precioUnitario = toDouble(txtPrecioUnitario.Text.Trim());
 
-            aux.precioVentaReal = darformato(precioUnitario);
+            currentdetalleV.precioVentaReal = darformato(precioUnitario);
             double precioUnitarioDescuento = precioUnitario - (descuento / 100) * precioUnitario;
-            aux.precioVenta = darformato(precioUnitarioDescuento);
+            currentdetalleV.precioVenta = darformato(precioUnitarioDescuento);
 
             // si es que exite impuesto al producto 
 
             // impuestoProducto
             // calculamos lo impuesto posibles del producto
-            double porcentual = toDouble(aux.Porcentual);
-            double efectivo = toDouble(aux.Efectivo);                      
+            double porcentual = toDouble(currentdetalleV.Porcentual);
+            double efectivo = toDouble(currentdetalleV.Efectivo);                      
             double precioUnitarioI1 = precioUnitarioDescuento;
             if (porcentual != 0)
             {
@@ -1253,9 +1282,9 @@ namespace Admeli.Ventas.Nuevo
                 precioUnitarioI1 = precioUnitarioDescuento / datoaux;
             }
             double precioUnitarioImpuesto = precioUnitarioI1 - efectivo;
-            aux.precioUnitario = darformato(precioUnitarioImpuesto);
-            aux.total = darformato(precioUnitarioImpuesto * toDouble(aux.cantidad));// utilizar para sacar el subtotal
-            aux.totalGeneral = darformato(precioUnitarioDescuento * toDouble(aux.cantidad));//utilizar para sacar el suTotal 
+            currentdetalleV.precioUnitario = darformato(precioUnitarioImpuesto);
+            currentdetalleV.total = darformato(precioUnitarioImpuesto * toDouble(currentdetalleV.cantidad));// utilizar para sacar el subtotal
+            currentdetalleV.totalGeneral = darformato(precioUnitarioDescuento * toDouble(currentdetalleV.cantidad));//utilizar para sacar el suTotal 
 
 
             detalleVBindingSource.DataSource = null;
@@ -1265,9 +1294,12 @@ namespace Admeli.Ventas.Nuevo
             descuentoTotal();
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;
             limpiarCamposProducto();
             enModificar = false;
-            
+            seleccionado = true;
+            limpiarCamposProducto();
         }
 
 
@@ -1535,6 +1567,8 @@ namespace Admeli.Ventas.Nuevo
             txtDescuento.Text = "";
             txtPrecioUnitario.Text = "";
             txtTotalProducto.Text = "";
+
+            currentdetalleV = null;
         }
 
         private async void btnComprar_Click(object sender, EventArgs e)
@@ -1719,8 +1753,18 @@ namespace Admeli.Ventas.Nuevo
 
         private void btnActulizar_Click(object sender, EventArgs e)
         {            
+            
             cargarProductos();
-                    
+            cargarPresentacion();
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = false;
+            enModificar = false;
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;
+            seleccionado = false;
+            limpiarCamposProducto();
+
+
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)
@@ -1728,7 +1772,15 @@ namespace Admeli.Ventas.Nuevo
             FormProductoNuevo formProductoNuevo = new FormProductoNuevo();
             formProductoNuevo.ShowDialog();
             cargarProductos();
-           
+            cargarPresentacion();
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = false;
+            enModificar = false;
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;
+            seleccionado = false;
+            limpiarCamposProducto();
+
         }
 
         private void txtDni_TextChanged(object sender, EventArgs e)

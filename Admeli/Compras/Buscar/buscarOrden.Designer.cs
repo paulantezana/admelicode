@@ -97,7 +97,7 @@
             this.panel6.Controls.Add(this.tableLayoutPanel11);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 4);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1096, 107);
             this.panel6.TabIndex = 47;
@@ -340,7 +340,7 @@
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 111);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel1.Size = new System.Drawing.Size(1096, 567);
@@ -369,7 +369,7 @@
             this.panel3.Controls.Add(this.flowLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(16, 423);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
             this.panel3.Size = new System.Drawing.Size(1038, 105);
@@ -401,7 +401,7 @@
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
             this.btnAceptar.Location = new System.Drawing.Point(4, 4);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(120, 68);
             this.btnAceptar.TabIndex = 13;
@@ -425,7 +425,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.Location = new System.Drawing.Point(132, 4);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(120, 68);
             this.btnNuevo.TabIndex = 12;
@@ -449,7 +449,7 @@
             this.btnsalir.ForeColor = System.Drawing.Color.White;
             this.btnsalir.Image = ((System.Drawing.Image)(resources.GetObject("btnsalir.Image")));
             this.btnsalir.Location = new System.Drawing.Point(260, 4);
-            this.btnsalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnsalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnsalir.Name = "btnsalir";
             this.btnsalir.Size = new System.Drawing.Size(120, 68);
             this.btnsalir.TabIndex = 14;
@@ -656,7 +656,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.progressBarApp);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "buscarOrden";
             this.Text = "Buscar Orden";
             this.Load += new System.EventHandler(this.BuscarProveedor_Load);
