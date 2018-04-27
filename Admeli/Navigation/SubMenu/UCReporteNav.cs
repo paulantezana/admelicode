@@ -65,6 +65,7 @@ namespace Admeli.Navigation.SubMenu
                         this.uCReporteIngresoVentas.Name = "uCReporteIngresoVentas";
                         this.uCReporteIngresoVentas.Size = new System.Drawing.Size(250, 776);
                         this.uCReporteIngresoVentas.TabIndex = 0;
+                        
                     }
                     else
                     {

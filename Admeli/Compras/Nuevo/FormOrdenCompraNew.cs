@@ -1203,7 +1203,7 @@ namespace Admeli.Compras.Nuevo
                     nroNuevo = 1;
                 }
                 else
-                    MessageBox.Show("Datos  modificador", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Datos  modificador", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -1332,7 +1332,12 @@ namespace Admeli.Compras.Nuevo
         private void btnActulizar_Click(object sender, EventArgs e)
         {            
             cargarProductos();
-            cargarPresentacion();            
+            cargarPresentacion();
+            btnModificar.Enabled = false;
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;
+            btnAgregar.Enabled = true;
+            limpiarCamposProducto();
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)

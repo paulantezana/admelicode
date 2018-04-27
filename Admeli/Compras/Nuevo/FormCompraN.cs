@@ -1354,7 +1354,11 @@ namespace Admeli.Compras.Nuevo
                 formProductoNuevo.ShowDialog();
                 cargarProductos();
                 cargarPresentacion();
-
+                btnModificar.Enabled = false;
+                cbxCodigoProducto.Enabled = true;
+                cbxDescripcion.Enabled = true;
+                btnAgregar.Enabled = true;
+                limpiarCamposProducto();
             }
 
 
@@ -1364,8 +1368,18 @@ namespace Admeli.Compras.Nuevo
             }
         }
 
+
         #endregion ================================ eventos ================================
 
-       
+        private void btnActulizar_Click(object sender, EventArgs e)
+        {
+            cargarProductos();
+            cargarPresentacion();
+            btnModificar.Enabled = false;
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;
+            btnAgregar.Enabled = true;
+            limpiarCamposProducto();
+        }
     }
 }
