@@ -26,5 +26,18 @@ namespace Modelo
                 throw ex;
             }
         }
+
+        public async Task<int> obtenerDatos1(string dni)
+        {
+            try
+            {
+                // localhost/admeli/xcore2/xcore/services.php/sunat/dni
+                return await webService.GET<int>("sunat", String.Format("{0}", dni));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -244,6 +244,11 @@ namespace Admeli.Reportes
             elegirCamposExportar formElegirCamposExportar = new elegirCamposExportar(dgvProductos);
             formElegirCamposExportar.ShowDialog();
         }
+
+        private void textBuscar_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class ObjectReporteProducto

@@ -560,7 +560,7 @@ namespace Admeli.Compras.Nuevo.Detalle
         {
             try
             {
-                respuestaSunat = await sunatModel.obtenerDatos(aux);
+                //respuestaSunat = await sunatModel.obtenerDatos(aux);
 
             }
             catch (Exception ex)

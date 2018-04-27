@@ -11,6 +11,7 @@ using Modelo;
 using Entidad.Location;
 using Entidad;
 using Admeli.Componentes;
+using Newtonsoft.Json;
 
 namespace Admeli.Ventas.Nuevo.Detalle
 {
@@ -390,7 +391,6 @@ namespace Admeli.Ventas.Nuevo.Detalle
                     MessageBox.Show(rest.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.formClienteNuevo.Close();
 
-
                 }
                 else
                 {
@@ -588,9 +588,80 @@ namespace Admeli.Ventas.Nuevo.Detalle
         }
 
         // TAREA hacer los cambios en todos los formularios de clientes y proveedores ver lo de paises 
-        private void textNIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
+        private async void textNIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validator.isNumber(e);          
+            Validator.isNumber(e);  
+             String aux = textNIdentificacion.Text;
+                int nroCarateres=aux.Length;
+
+                if(nroCarateres==11 || nroCarateres==8)               
+                 {
+                        if (e.KeyChar == (char)Keys.Enter)
+                        {
+                            try
+                            {
+                                this.formClienteNuevo.loadStateApp(true);
+                        //respuestaSunat
+                                 respuestaSunat = await sunatModel.obtenerDatos(aux);
+                            }
+                            catch (Exception ex)
+                            {
+                                JsonReaderException ex1 = new JsonReaderException(); ;
+                                if(Object.ReferenceEquals(ex.GetType(), ex1.GetType())){
+
+                                     MessageBox.Show("tiempo de respuesta terminado", "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                else
+                                {
+                                    MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                }
+                               
+                            }
+                           
+                        }
+                       // Ver(aux);
+                    
+                }
+            try
+            {
+
+                if (respuestaSunat != null)
+                {
+                    if (respuestaSunat.success)
+                    {
+                        dataSunat = respuestaSunat.result;
+                        textNIdentificacion.Text = dataSunat.RUC;
+                        textCelular.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length - 1);
+                        txtNombreCliente.Text = dataSunat.RazonSocial;
+                        textDireccion.Text = concidencias(dataSunat.Direccion);
+                        respuestaSunat = null;
+
+                    }
+                    else
+                    {
+                        this.formClienteNuevo.loadStateApp(false);
+                        MessageBox.Show("Error: " + " no exite en la sunat", "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        respuestaSunat = null;
+                    }
+                }
+
+            }
+            catch( Exception  ex)
+            {
+                MessageBox.Show("Error: " + ex.Message , "cargando datos sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+            }
+            finally
+            {
+                this.formClienteNuevo.loadStateApp(false);
+            }
+                
+              
+            
+                
+
         }
 
 
@@ -662,52 +733,25 @@ namespace Admeli.Ventas.Nuevo.Detalle
         private async void textNIdentificacion_OnValueChanged(object sender, EventArgs e)
         {
 
-            String aux = textNIdentificacion.Text;
-            int nroCarateres=aux.Length;
+            //if (formClienteNuevo.nuevo)
+            //{
+               
 
-            if(nroCarateres==11 || nroCarateres==8)               
-                {
 
-                    try
-                    {
-                        
-                        respuestaSunat = await sunatModel.obtenerDatos(aux);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    
-                   // Ver(aux);
-                    
-                }
-            if (respuestaSunat != null)
-            {
-                if (respuestaSunat.success)
-                {
-                    dataSunat = respuestaSunat.result;
-                    textNIdentificacion.Text = dataSunat.RUC;
-                    textCelular.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length-1);
-                    txtNombreCliente.Text = dataSunat.RazonSocial;             
-                    textDireccion.Text = concidencias(dataSunat.Direccion);
-                    respuestaSunat = null;
-
-                }
-                else
-                {
-                    MessageBox.Show("Error: " + " no exite en la sunat", "consulta sunat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
-
-                }
-              
-            
-            }
+            //}
+           
            
         }
 
         private void txtNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validator.isString(e);
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            
+            this.formClienteNuevo.Close();
         }
     }
 }
