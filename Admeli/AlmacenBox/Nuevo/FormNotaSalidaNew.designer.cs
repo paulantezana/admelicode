@@ -76,6 +76,7 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvDetalleNotaSalida = new System.Windows.Forms.DataGridView();
             this.idPresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +87,6 @@
             this.nroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDetalleNotaSalidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.varianteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alternativasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.presentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -649,6 +649,7 @@
             this.dgvDetalleNotaSalida.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleNotaSalida.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idPresentacionDataGridViewTextBoxColumn,
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn,
             this.codigoProductoDataGridViewTextBoxColumn,
             this.descripcionDataGridViewTextBoxColumn,
             this.nombreMarcaDataGridViewTextBoxColumn,
@@ -659,7 +660,6 @@
             this.nroDataGridViewTextBoxColumn,
             this.idDetalleNotaSalidaDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn,
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn,
             this.varianteDataGridViewTextBoxColumn,
             this.alternativasDataGridViewTextBoxColumn,
             this.presentacionDataGridViewTextBoxColumn,
@@ -711,6 +711,15 @@
             this.idPresentacionDataGridViewTextBoxColumn.ReadOnly = true;
             this.idPresentacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idPresentacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idCombinacionAlternativaDataGridViewTextBoxColumn
+            // 
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.DataPropertyName = "idCombinacionAlternativa";
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.HeaderText = "IDCombinación Alternativa";
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.Name = "idCombinacionAlternativaDataGridViewTextBoxColumn";
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idCombinacionAlternativaDataGridViewTextBoxColumn.Visible = false;
             // 
             // codigoProductoDataGridViewTextBoxColumn
             // 
@@ -794,14 +803,6 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idCombinacionAlternativaDataGridViewTextBoxColumn
-            // 
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn.DataPropertyName = "idCombinacionAlternativa";
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn.HeaderText = "IDCombinación Alternativa";
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn.Name = "idCombinacionAlternativaDataGridViewTextBoxColumn";
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idCombinacionAlternativaDataGridViewTextBoxColumn.Visible = false;
             // 
             // varianteDataGridViewTextBoxColumn
             // 
@@ -985,7 +986,7 @@
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(79)))), ((int)(((byte)(53)))));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.Location = new System.Drawing.Point(3, 2);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -993,6 +994,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(109, 119);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -1524,7 +1526,11 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.BindingSource detalleNotaSalidaBindingSource;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.TextBox txtNombreDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPresentacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCombinacionAlternativaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreMarcaDataGridViewTextBoxColumn;
@@ -1535,7 +1541,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDetalleNotaSalidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCombinacionAlternativaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn varianteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn alternativasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn presentacionDataGridViewTextBoxColumn;
@@ -1546,8 +1551,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precioEnvioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descuentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idVentaDataGridViewTextBoxColumn;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.TextBox txtNombreDocumento;
     }
 }

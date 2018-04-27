@@ -80,7 +80,12 @@ namespace Admeli.AlmacenBox.Nuevo
         private int numberOfItemsPerPage = 0;
         private int numberOfItemsPrintedSoFar = 0;
 
-        List<FormatoDocumento> listformato;
+
+        private DetalleNotaSalida CurrentDetalle { get; set; }
+
+        private List<FormatoDocumento> listformato;
+        private int indice;
+
         public FormRemisionNew()
         {
             InitializeComponent();
@@ -125,14 +130,14 @@ namespace Admeli.AlmacenBox.Nuevo
             notaSalidaR.fecha = notaSalida.fecha;
             notaSalidaR.fechaSalida = notaSalida.fechaSalida;
             notaSalidaR.idAlmacen = notaSalida.idAlmacen;
-            notaSalidaR.idNotaSalida = notaSalida.idNotaSalida;         
+            notaSalidaR.idNotaSalida = notaSalida.idNotaSalida;
             notaSalidaR.idTipoDocumento = notaSalida.idTipoDocumento;
             notaSalidaR.idVenta = notaSalida.idVenta;
-           notaSalidaR.motivo = notaSalida.motivo;
-   
+            notaSalidaR.motivo = notaSalida.motivo;
+
             notaSalidaR.nombreCliente = notaSalida.nombreCliente;
             notaSalidaR.numeroDocumento = notaSalida.numeroDocumento;
-    
+
             notaSalidaR.rucDni = notaSalida.rucDni;
             notaSalidaR.serie = notaSalida.serie;
 
@@ -145,7 +150,7 @@ namespace Admeli.AlmacenBox.Nuevo
             cargarFechaSistema();
 
             btnEliminar.Enabled = false;
-            
+
         }
 
 
@@ -182,7 +187,7 @@ namespace Admeli.AlmacenBox.Nuevo
             cargarFormatoDocumento();
             if (nuevo)
                 cargarDocCorrelativo(currentNotaSalida.idAlmacen);
-           else
+            else
                 cargarDocCorrelativo(currentguiaRemision.idAlmacen);
             cargarObjetos();
 
@@ -191,7 +196,21 @@ namespace Admeli.AlmacenBox.Nuevo
         #endregion
 
         #region ============================== Load ==============================
+        private DetalleNotaSalida buscarElemento(int idPresentacion, int idCombinacion)
+        {
 
+            try
+            {
+                return listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion && x.idCombinacionAlternativa == idCombinacion);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar fechas del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+
+        }
         private void cargarFormatoDocumento()
         {
 
@@ -212,13 +231,13 @@ namespace Admeli.AlmacenBox.Nuevo
         }
 
 
-        private async void cargarubigeoActual(int idUbicacionGeografica,bool destino=true)
+        private async void cargarubigeoActual(int idUbicacionGeografica, bool destino = true)
         {
 
             cadena = "";
             try
             {
-                 UbicacionGeografica CurrentUbicacionGeografica = await locationModel.ubigeoActual(idUbicacionGeografica);
+                UbicacionGeografica CurrentUbicacionGeografica = await locationModel.ubigeoActual(idUbicacionGeografica);
 
                 cadena = CurrentUbicacionGeografica.nombreP + " - " + CurrentUbicacionGeografica.nombreN1;
                 if (CurrentUbicacionGeografica.nombreN2 != "")
@@ -241,12 +260,12 @@ namespace Admeli.AlmacenBox.Nuevo
             {
 
                 txtDestino.Text = cadena;
-             
+
 
             }
             else
             {
-                txtOrigen.Text =cadena;
+                txtOrigen.Text = cadena;
 
             }
 
@@ -254,11 +273,11 @@ namespace Admeli.AlmacenBox.Nuevo
 
 
 
-        private  async void cargarGuiaRemision()
+        private async void cargarGuiaRemision()
         {
             //datos
 
-            
+
             txtNroDocumento.Text = currentguiaRemision.numeroDocumento;
             txtMotivo.Text = currentguiaRemision.motivo;
             // serie
@@ -304,7 +323,7 @@ namespace Admeli.AlmacenBox.Nuevo
 
 
         }
-        private  void cargarObjetos()
+        private void cargarObjetos()
         {
             guiaRemisionGuardar = new GuiaRemisionGuardar();
             ListDetallesGuiaRemision = new Dictionary<string, DetalleNotaSalida>();
@@ -313,7 +332,7 @@ namespace Admeli.AlmacenBox.Nuevo
 
             listObjetos = new List<object>();
         }
-        private async  void cargarMotivo(){
+        private async void cargarMotivo() {
             try
             {
 
@@ -352,7 +371,7 @@ namespace Admeli.AlmacenBox.Nuevo
             }
 
         }
-        private  void cargarNotaSalida()
+        private void cargarNotaSalida()
         {
             txtNroDocumento.Text = currentNotaSalida.serie + "-" + currentNotaSalida.correlativo;
             txtMotivo.Text = currentNotaSalida.motivo;
@@ -360,7 +379,7 @@ namespace Admeli.AlmacenBox.Nuevo
         }
 
 
-      
+
         private async void cargarDocCorrelativo(int idAlmacen)
         {
             try
@@ -385,11 +404,11 @@ namespace Admeli.AlmacenBox.Nuevo
         {
             try
             {
-                listProducto  = await productoModel.productos();
+                listProducto = await productoModel.productos();
                 productoBindingSource.DataSource = listProducto;
 
 
-        
+
             }
             catch (Exception ex)
             {
@@ -402,7 +421,7 @@ namespace Admeli.AlmacenBox.Nuevo
             {
                 if (!nuevo) return;
                 fechaSistema = await fechaModel.fechaSistema();
-              
+
 
             }
             catch (Exception ex)
@@ -444,7 +463,7 @@ namespace Admeli.AlmacenBox.Nuevo
 
             if (nuevo)
             {
-            formBuscardetalleNotaSalida = new FormBuscardetalleNotaSalida(currentNotaSalida);
+                formBuscardetalleNotaSalida = new FormBuscardetalleNotaSalida(currentNotaSalida);
             }
             else
             {
@@ -453,7 +472,7 @@ namespace Admeli.AlmacenBox.Nuevo
                 formBuscardetalleNotaSalida = new FormBuscardetalleNotaSalida(notaSalidaR);
 
             }
-            
+
             formBuscardetalleNotaSalida.ShowDialog();
             detalleNotaSalidaBindingSource.DataSource = null;
             listDetalleNotaSalida = formBuscardetalleNotaSalida.listDestalleSubmit;
@@ -484,7 +503,7 @@ namespace Admeli.AlmacenBox.Nuevo
 
             }
 
-           
+
 
 
         }
@@ -507,7 +526,7 @@ namespace Admeli.AlmacenBox.Nuevo
                 txtDestino.Text = formGeografia.cadena;
 
             }
-            
+
         }
 
         private void btnNewMotivo_Click(object sender, EventArgs e)
@@ -522,7 +541,7 @@ namespace Admeli.AlmacenBox.Nuevo
         {
             FormTransporteNew formTransporteNew = new FormTransporteNew();
             formTransporteNew.ShowDialog();
-            
+
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -537,27 +556,20 @@ namespace Admeli.AlmacenBox.Nuevo
             if (formBuscarNotaSalida.currentNotaSalida != null)
             {
                 currentNotaSalida = formBuscarNotaSalida.currentNotaSalida;
-           
+
                 cargarNotaSalida();
             }
-                
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvDetalleSalida.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            int index = dgvDetalleSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleSalida.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
-            DetalleNotaSalida aux = listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion);           
+          
             btnEliminar.Enabled = false;
-            dgvDetalleSalida.Rows.RemoveAt(index);
-            listDetalleNotaSalida.Remove(aux);
-            lbinfo.Text = aux.codigoProducto + " eliminado";
+            dgvDetalleSalida.Rows.RemoveAt(indice);
+            listDetalleNotaSalida.Remove(CurrentDetalle);
+            lbinfo.Text = CurrentDetalle.codigoProducto + " eliminado";
+            indice = 0;
         }
 
         private void dgvDetalleSalida_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -568,10 +580,12 @@ namespace Admeli.AlmacenBox.Nuevo
                 return;
             }
 
-            int index = dgvDetalleSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleSalida.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
-            DetalleNotaSalida aux = listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion);
-            lbinfo.Text = aux.codigoProducto + " seleccionado";  
+            indice = dgvDetalleSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idPresentacion = Convert.ToInt32(dgvDetalleSalida.Rows[indice].Cells[1].Value);
+            int idCombinacion= Convert.ToInt32(dgvDetalleSalida.Rows[indice].Cells[2].Value);
+            // obteniedo el idRegistro del datagridview
+            CurrentDetalle = buscarElemento( idPresentacion, idCombinacion);
+            lbinfo.Text = CurrentDetalle.codigoProducto + " seleccionado";  
             btnEliminar.Enabled = true;
 
         }

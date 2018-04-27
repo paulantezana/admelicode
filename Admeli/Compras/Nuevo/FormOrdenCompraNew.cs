@@ -75,6 +75,8 @@ namespace Admeli.Compras.Nuevo
         private Proveedor currentProveedor { get; set; }
         private Presentacion currentPresentacion { get; set; }
         private OrdenCompra currentOrdenCompra { get; set; }
+
+        private DetalleOrden currentDetalleOrden { get; set; }
         private int currentIdOrden { get; set; }
         private Sucursal_correlativo sucursal_correlativo = new Sucursal_correlativo();
         /// Se preparan para realizar la compra de productos
@@ -761,6 +763,10 @@ namespace Admeli.Compras.Nuevo
             txtTotalProducto.Text = "";
         }
 
+        private DetalleOrden buscarElemento(int idPresentacion, int idCombinacion)
+        {
+            return detalleA.Find(x => x.idPresentacion == idPresentacion && x.idCombinacionAlternativa == idCombinacion);
+        }
 
 
         #endregion
@@ -813,9 +819,14 @@ namespace Admeli.Compras.Nuevo
                     if (nuevo)
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
-                        DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion);
+                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value);
+                        int idCombinacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[2].Value);
 
+
+
+
+                         // obteniedo el idRegistro del datagridview
+                        DetalleOrden aux = buscarElemento(idPresentacion, idCombinacion); 
                         dgvDetalleOrdenCompra.Rows.RemoveAt(index);
 
                         detalleA.Remove(aux);
@@ -826,8 +837,10 @@ namespace Admeli.Compras.Nuevo
                     else
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index;
-                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
-                        DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion);
+                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value);
+                        int idCombinacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[2].Value);
+                        // obteniedo el idRegistro del datagridview
+                        DetalleOrden aux = buscarElemento(idPresentacion, idCombinacion);
                         aux.estado = 9;                       
                         dgvDetalleOrdenCompra.ClearSelection();
                         dgvDetalleOrdenCompra.Rows[index].DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
@@ -856,16 +869,22 @@ namespace Admeli.Compras.Nuevo
                 return;
             }
             int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
-            DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
-            cbxCodigoProducto.Text = aux.codigoProducto;
-            cbxDescripcion.Text = aux.descripcion;
-            cbxVariacion.Text = aux.nombreCombinacion;
-            cbxDescripcion.Text = aux.nombrePresentacion;
-            txtCantidad.Text =darformato(aux.cantidad);
-            txtPrecioUnitario.Text = darformato(aux.precioUnitario);
-            txtDescuento.Text = darformato( aux.descuento);
-            txtTotalProducto.Text = darformato( aux.total);
+            int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value);
+            int idCombinacion= Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[2].Value);
+
+
+
+
+            // obteniedo el idRegistro del datagridview
+            currentDetalleOrden = buscarElemento(idPresentacion, idCombinacion); // Buscando la registro especifico en la lista de registros
+            cbxCodigoProducto.Text = currentDetalleOrden.codigoProducto;
+            cbxDescripcion.Text = currentDetalleOrden.descripcion;
+            cbxVariacion.Text = currentDetalleOrden.nombreCombinacion;
+            cbxDescripcion.Text = currentDetalleOrden.nombrePresentacion;
+            txtCantidad.Text =darformato(currentDetalleOrden.cantidad);
+            txtPrecioUnitario.Text = darformato(currentDetalleOrden.precioUnitario);
+            txtDescuento.Text = darformato(currentDetalleOrden.descuento);
+            txtTotalProducto.Text = darformato(currentDetalleOrden.total);
             btnAgregar.Enabled = false;
             btnModificar.Enabled = true;
 
@@ -876,18 +895,11 @@ namespace Admeli.Compras.Nuevo
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvDetalleOrdenCompra.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
-            DetalleOrden aux = detalleA.Find(x => x.idPresentacion == idPresentacion);
-            aux.cantidad =toDouble(txtCantidad.Text);
-            aux.precioUnitario = toDouble(txtPrecioUnitario.Text);
-            aux.total =toDouble(txtTotalProducto.Text);
-            aux.descuento= toDouble(txtDescuento.Text);
+
+            currentDetalleOrden.cantidad =toDouble(txtCantidad.Text);
+            currentDetalleOrden.precioUnitario = toDouble(txtPrecioUnitario.Text);
+            currentDetalleOrden.total =toDouble(txtTotalProducto.Text);
+            currentDetalleOrden.descuento= toDouble(txtDescuento.Text);
             detalleCompraBindingSource.DataSource = null;
             detalleCompraBindingSource.DataSource = detalleA;
             dgvDetalleOrdenCompra.Refresh();
@@ -937,7 +949,10 @@ namespace Admeli.Compras.Nuevo
                 if (detalleA == null) detalleA = new List<DetalleOrden>();
                 DetalleOrden detalleCompra = new DetalleOrden();
 
-                if (exitePresentacion(Convert.ToInt32(cbxDescripcion.SelectedValue)))
+                DetalleOrden find = buscarElemento(Convert.ToInt32(cbxDescripcion.SelectedValue), (int)cbxVariacion.SelectedValue);
+
+
+                if (find!=null)
                 {
 
                     MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

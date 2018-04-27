@@ -72,6 +72,7 @@ namespace Admeli.Compras.Nuevo
         private Pago currentPago { get; set; }
         private PagoCompra currentPagoCompra { get; set; }
         private AlmacenComra currentAlmacenCompra { get; set; }
+        private DetalleC currentDetalleCompra { get; set; }
         private List<AlmacenComra> Almacen { get; set; }
         bool nuevo { get; set; }
         int nroDecimales = 2;
@@ -575,13 +576,6 @@ namespace Admeli.Compras.Nuevo
 
 
 
-
-
-
-
-
-
-
         private void cargarProductoDetalle(int tipo)
         {
             if (tipo == 0)
@@ -730,6 +724,14 @@ namespace Admeli.Compras.Nuevo
             txtTotalProducto.Text = "";
         }
 
+
+
+        private DetalleC buscarElemento(int idPresentacion, int idCombinacion)
+        {
+            return detalleC.Find(x => x.idPresentacion == idPresentacion && x.idCombinacionAlternativa == idCombinacion);
+        }
+
+
         #endregion
 
         // comenzando eventos
@@ -872,14 +874,13 @@ namespace Admeli.Compras.Nuevo
 
             if (seleccionado)
             {
-
-
-
-
                 if (detalleC == null) detalleC = new List<DetalleC>();
                 DetalleC detalleCompra = new DetalleC();
 
-                if (exitePresentacion(Convert.ToInt32(cbxDescripcion.SelectedValue)))
+                DetalleC find =buscarElemento(Convert.ToInt32(cbxDescripcion.SelectedValue), (int)cbxVariacion.SelectedValue);
+
+
+                if (find!=null)
                 {
 
                     MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -945,8 +946,11 @@ namespace Admeli.Compras.Nuevo
                 if (nuevo)
                 {
                     int index = dgvDetalleCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-                    int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-                    DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion);
+                    int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value);
+                    int idCombinacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[1].Value);
+
+                    // obteniedo el idRegistro del datagridview
+                    DetalleC aux =buscarElemento(idPresentacion, idCombinacion);
 
                     dgvDetalleCompra.Rows.RemoveAt(index);
 
@@ -958,9 +962,10 @@ namespace Admeli.Compras.Nuevo
                 else
                 {
                     int index = dgvDetalleCompra.CurrentRow.Index;
-                    int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-                    DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion);
-
+                    int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value);
+                    int idCombinacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[1].Value);
+                    // obteniedo el idRegistro del datagridview
+                    DetalleC aux = buscarElemento(idPresentacion, idCombinacion);
                     aux.estado = 9;
 
                     dgvDetalleCompra.ClearSelection();
@@ -994,18 +999,18 @@ namespace Admeli.Compras.Nuevo
                 return;
             }
 
-
             int index = dgvDetalleCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
-            cbxCodigoProducto.Text = aux.codigoProducto;
-            cbxDescripcion.Text = aux.descripcion;
-            cbxVariacion.Text = aux.nombreCombinacion;
-            cbxDescripcion.Text = aux.nombrePresentacion;
-            txtCantidad.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, aux.cantidad);
-            txtPrecioUnitario.Text = String.Format(CultureInfo.GetCultureInfo("en-US"), formato, aux.precioUnitario);
-            txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, aux.descuento);
-            txtTotalProducto.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, aux.total);
+            int idCombinacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[1].Value); // obteniedo el idRegistro del datagridview
+            currentDetalleCompra = buscarElemento(  idPresentacion, idCombinacion); // Buscando la registro especifico en la lista de registros
+            cbxCodigoProducto.Text = currentDetalleCompra.codigoProducto;
+            cbxDescripcion.Text = currentDetalleCompra.descripcion;
+            cbxVariacion.Text = currentDetalleCompra.nombreCombinacion;
+            cbxDescripcion.Text = currentDetalleCompra.nombrePresentacion;
+            txtCantidad.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, currentDetalleCompra.cantidad);
+            txtPrecioUnitario.Text = String.Format(CultureInfo.GetCultureInfo("en-US"), formato, currentDetalleCompra.precioUnitario);
+            txtDescuento.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, currentDetalleCompra.descuento);
+            txtTotalProducto.Text = string.Format(CultureInfo.GetCultureInfo("en-US"), formato, currentDetalleCompra.total);
             btnModificar.Enabled = true;
             btnAgregar.Enabled = false;
             cbxCodigoProducto.Enabled = false;
@@ -1015,19 +1020,11 @@ namespace Admeli.Compras.Nuevo
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvDetalleCompra.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
 
-            int index = dgvDetalleCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleCompra.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            DetalleC aux = detalleC.Find(x => x.idPresentacion == idPresentacion);
-            aux.cantidad = toDouble(txtCantidad.Text);
-            aux.cantidadUnitaria = toDouble(txtCantidad.Text);
-            aux.precioUnitario = Convert.ToDouble(txtPrecioUnitario.Text, CultureInfo.GetCultureInfo("en-US"));
-            aux.total = double.Parse(txtTotalProducto.Text, CultureInfo.GetCultureInfo("en-US"));
+            currentDetalleCompra.cantidad = toDouble(txtCantidad.Text);
+            currentDetalleCompra.cantidadUnitaria = toDouble(txtCantidad.Text);
+            currentDetalleCompra.precioUnitario = Convert.ToDouble(txtPrecioUnitario.Text, CultureInfo.GetCultureInfo("en-US"));
+            currentDetalleCompra.total = double.Parse(txtTotalProducto.Text, CultureInfo.GetCultureInfo("en-US"));
             detalleCompraBindingSource.DataSource = null;
             detalleCompraBindingSource.DataSource = detalleC;
             dgvDetalleCompra.Refresh();

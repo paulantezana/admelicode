@@ -76,6 +76,10 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private NotaSalida currentNotaSalida { get; set; }
 
+
+        private DetalleNotaSalida currentdetalleNotaSalida { get; set; }
+        int indice = 0;
+
         private int numberOfItemsPerPage = 0;
         private int numberOfItemsPrintedSoFar = 0;
 
@@ -139,6 +143,31 @@ namespace Admeli.AlmacenBox.Nuevo
         #endregion
 
         #region ============================== Load ==============================
+
+        private DetalleNotaSalida buscarElemento(int idPresentacion, int idCombinacion)
+        {
+
+            try
+            {
+                return listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion && x.idCombinacionAlternativa == idCombinacion);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar fechas del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
 
         private void cargarFormatoDocumento()
         {
@@ -495,7 +524,7 @@ namespace Admeli.AlmacenBox.Nuevo
 
                 currentProducto = listProducto.Find(x => x.idProducto == Convert.ToInt32(cbxCodigoProducto.SelectedValue));     
 
-                DetalleNotaSalida find = listDetalleNotaSalida.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
+                DetalleNotaSalida find = buscarElemento( Convert.ToInt32(cbxDescripcion.SelectedValue), (int)cbxVariacion.SelectedValue);
                 if (find != null)
                 {
 
@@ -571,39 +600,32 @@ namespace Admeli.AlmacenBox.Nuevo
                 MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            int index = dgvDetalleNotaSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleNotaSalida.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-            DetalleNotaSalida aux = listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+            indice = dgvDetalleNotaSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idPresentacion = Convert.ToInt32(dgvDetalleNotaSalida.Rows[indice].Cells[0].Value);
+            int idCombinacion = Convert.ToInt32(dgvDetalleNotaSalida.Rows[indice].Cells[1].Value);// obteniedo el idRegistro del datagridview
+            currentdetalleNotaSalida = buscarElemento(idPresentacion, idCombinacion); // Buscando la registro especifico en la lista de registros
 
-            cbxCodigoProducto.SelectedValue = aux.idProducto;
-            cbxDescripcion.SelectedValue = aux.idPresentacion;
-            cbxVariacion.Text = aux.nombreCombinacion;
-            txtCantidad.Text = Convert.ToInt32(aux.cantidad).ToString();
+            cbxCodigoProducto.SelectedValue = currentdetalleNotaSalida.idProducto;
+            cbxDescripcion.SelectedValue = currentdetalleNotaSalida.idPresentacion;
+            cbxVariacion.Text = currentdetalleNotaSalida.nombreCombinacion;
+            txtCantidad.Text = Convert.ToInt32(currentdetalleNotaSalida.cantidad).ToString();
             
 
             btnModificar.Enabled = true;
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = true;
-
+            cbxDescripcion.Enabled = false;
+            cbxCodigoProducto.Enabled = false;
 
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvDetalleNotaSalida.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            int index = dgvDetalleNotaSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleNotaSalida.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-            DetalleNotaSalida aux = listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion);
-
-            currentPresentacion = listPresentacion.Find(X => X.idPresentacion == idPresentacion);
-            aux.cantidad = toDouble(txtCantidad.Text);
-            aux.cantidadUnitaria = toDouble(txtCantidad.Text);
-            aux.total = toDouble(txtCantidad.Text) * toDouble(currentPresentacion.precioCompra);
+            
+            currentPresentacion = listPresentacion.Find(X => X.idPresentacion == currentdetalleNotaSalida.idPresentacion);
+            currentdetalleNotaSalida.cantidad = toDouble(txtCantidad.Text);
+            currentdetalleNotaSalida.cantidadUnitaria = toDouble(txtCantidad.Text);
+            currentdetalleNotaSalida.total = toDouble(txtCantidad.Text) * toDouble(currentPresentacion.precioCompra);
 
             detalleNotaSalidaBindingSource.DataSource = null;
             detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
@@ -611,30 +633,15 @@ namespace Admeli.AlmacenBox.Nuevo
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
+            cbxDescripcion.Enabled = true;
+            cbxCodigoProducto.Enabled = true;
+            indice = 0;
             limpiarCamposProducto();
 
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-            if (dgvDetalleNotaSalida.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            int index = dgvDetalleNotaSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleNotaSalida.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-            DetalleNotaSalida aux = listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion);
-            btnAgregar.Enabled = true;
-            btnModificar.Enabled = false;
-            btnEliminar.Enabled = false;
-            dgvDetalleNotaSalida.Rows.RemoveAt(index);
-            listDetalleNotaSalida.Remove(aux);
-            limpiarCamposProducto();
-        }
+      
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             // comprobamos la nota 
@@ -810,23 +817,14 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            if (dgvDetalleNotaSalida.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            int index = dgvDetalleNotaSalida.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleNotaSalida.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-            DetalleNotaSalida aux = listDetalleNotaSalida.Find(x => x.idPresentacion == idPresentacion);
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
-            dgvDetalleNotaSalida.Rows.RemoveAt(index);
-            listDetalleNotaSalida.Remove(aux);
+            cbxDescripcion.Enabled = true;
+            cbxCodigoProducto.Enabled = true;
+            dgvDetalleNotaSalida.Rows.RemoveAt(indice);
+            listDetalleNotaSalida.Remove(currentdetalleNotaSalida);
             limpiarCamposProducto();
-
-
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

@@ -69,6 +69,7 @@
             this.presentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idNotaSalidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alternativasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,8 +85,9 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(8, 395);
+            this.splitter1.Size = new System.Drawing.Size(11, 486);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
@@ -97,20 +99,21 @@
             this.panel2.Controls.Add(this.tableLayoutPanel28);
             this.panel2.Controls.Add(this.splitter2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(8, 0);
+            this.panel2.Location = new System.Drawing.Point(11, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(854, 395);
+            this.panel2.Size = new System.Drawing.Size(1138, 486);
             this.panel2.TabIndex = 4;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.flowLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 306);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(0, 376);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.panel3.Size = new System.Drawing.Size(854, 78);
+            this.panel3.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
+            this.panel3.Size = new System.Drawing.Size(1138, 96);
             this.panel3.TabIndex = 10;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -119,10 +122,10 @@
             this.flowLayoutPanel2.Controls.Add(this.btnAceptar);
             this.flowLayoutPanel2.Controls.Add(this.btnsalir);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(675, 12);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(900, 15);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(166, 54);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(221, 66);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
             // btnAceptar
@@ -139,9 +142,10 @@
             this.btnAceptar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
-            this.btnAceptar.Location = new System.Drawing.Point(3, 3);
+            this.btnAceptar.Location = new System.Drawing.Point(4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(79, 49);
+            this.btnAceptar.Size = new System.Drawing.Size(105, 64);
             this.btnAceptar.TabIndex = 13;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -163,9 +167,10 @@
             this.btnsalir.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsalir.ForeColor = System.Drawing.Color.White;
             this.btnsalir.Image = ((System.Drawing.Image)(resources.GetObject("btnsalir.Image")));
-            this.btnsalir.Location = new System.Drawing.Point(88, 3);
+            this.btnsalir.Location = new System.Drawing.Point(117, 4);
+            this.btnsalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(75, 49);
+            this.btnsalir.Size = new System.Drawing.Size(100, 64);
             this.btnsalir.TabIndex = 14;
             this.btnsalir.Text = "Salir";
             this.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -177,10 +182,11 @@
             this.panel13.AutoScroll = true;
             this.panel13.Controls.Add(this.dgvNotaSalida);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(0, 59);
+            this.panel13.Location = new System.Drawing.Point(0, 73);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
-            this.panel13.Size = new System.Drawing.Size(854, 325);
+            this.panel13.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
+            this.panel13.Size = new System.Drawing.Size(1138, 399);
             this.panel13.TabIndex = 9;
             // 
             // dgvNotaSalida
@@ -205,7 +211,6 @@
             this.dgvNotaSalida.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNotaSalida.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chkbxseleccionDetalleNotaSalida,
             this.idPresentacion,
             this.codigoProductoDataGridViewTextBoxColumn,
             this.descripcionDataGridViewTextBoxColumn,
@@ -222,6 +227,7 @@
             this.presentacionDataGridViewTextBoxColumn,
             this.idProductoDataGridViewTextBoxColumn,
             this.idNotaSalidaDataGridViewTextBoxColumn,
+            this.chkbxseleccionDetalleNotaSalida,
             this.alternativasDataGridViewTextBoxColumn});
             this.dgvNotaSalida.DataSource = this.detalleNotaSalidaBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -235,8 +241,8 @@
             this.dgvNotaSalida.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNotaSalida.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvNotaSalida.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvNotaSalida.Location = new System.Drawing.Point(17, 15);
-            this.dgvNotaSalida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNotaSalida.Location = new System.Drawing.Point(23, 18);
+            this.dgvNotaSalida.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dgvNotaSalida.MultiSelect = false;
             this.dgvNotaSalida.Name = "dgvNotaSalida";
             this.dgvNotaSalida.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -253,8 +259,8 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.dgvNotaSalida.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvNotaSalida.RowTemplate.Height = 30;
-            this.dgvNotaSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvNotaSalida.Size = new System.Drawing.Size(820, 295);
+            this.dgvNotaSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNotaSalida.Size = new System.Drawing.Size(1092, 363);
             this.dgvNotaSalida.TabIndex = 50;
             this.dgvNotaSalida.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotaSalida_CellDoubleClick);
             // 
@@ -269,12 +275,12 @@
             this.tableLayoutPanel28.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel28.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
-            this.tableLayoutPanel28.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.tableLayoutPanel28.Padding = new System.Windows.Forms.Padding(7, 6, 7, 0);
             this.tableLayoutPanel28.RowCount = 1;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(854, 59);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(1138, 73);
             this.tableLayoutPanel28.TabIndex = 7;
             // 
             // panel7
@@ -283,18 +289,19 @@
             this.panel7.Controls.Add(this.pictureBox2);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(8, 8);
+            this.panel7.Location = new System.Drawing.Point(11, 10);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(838, 45);
+            this.panel7.Size = new System.Drawing.Size(1116, 55);
             this.panel7.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(11, 6);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 7);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 30);
+            this.pictureBox2.Size = new System.Drawing.Size(43, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -303,10 +310,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(51, 14);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(68, 17);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(293, 15);
+            this.label9.Size = new System.Drawing.Size(386, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "SELECCION DE DETALLES DE UNA NOTA DE SALIDA";
             // 
@@ -314,10 +321,10 @@
             // 
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter2.Location = new System.Drawing.Point(0, 384);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter2.Location = new System.Drawing.Point(0, 472);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(854, 11);
+            this.splitter2.Size = new System.Drawing.Size(1138, 14);
             this.splitter2.TabIndex = 1;
             this.splitter2.TabStop = false;
             // 
@@ -344,7 +351,7 @@
             // 
             // chkbxseleccionDetalleNotaSalida
             // 
-            this.chkbxseleccionDetalleNotaSalida.FillWeight = 15F;
+            this.chkbxseleccionDetalleNotaSalida.FillWeight = 30F;
             this.chkbxseleccionDetalleNotaSalida.HeaderText = "";
             this.chkbxseleccionDetalleNotaSalida.Name = "chkbxseleccionDetalleNotaSalida";
             // 
@@ -480,6 +487,14 @@
             this.idNotaSalidaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idNotaSalidaDataGridViewTextBoxColumn.Visible = false;
             // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "alternativas";
+            this.dataGridViewTextBoxColumn4.HeaderText = "alternativas";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
             // alternativasDataGridViewTextBoxColumn
             // 
             this.alternativasDataGridViewTextBoxColumn.DataPropertyName = "alternativas";
@@ -490,12 +505,13 @@
             // 
             // FormBuscardetalleNotaSalida
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(862, 395);
+            this.ClientSize = new System.Drawing.Size(1149, 486);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormBuscardetalleNotaSalida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -552,5 +568,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idNotaSalidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn alternativasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

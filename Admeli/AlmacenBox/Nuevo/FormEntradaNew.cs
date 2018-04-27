@@ -74,11 +74,16 @@ namespace Admeli.AlmacenBox.Nuevo
        private Presentacion currentPresentacion { get; set; }
 
         private NotaEntrada currentNotaEntrada { get; set; }
+        private CargaCompraSinNota currentDetalleNEntrada { get; set; }
+
+
+
         private int numberOfItemsPerPage = 0;
         private int numberOfItemsPrintedSoFar = 0;
 
         List<FormatoDocumento> listformato;
 
+        int indice = 0;
 
         public FormEntradaNew()
         {
@@ -157,10 +162,6 @@ namespace Admeli.AlmacenBox.Nuevo
             }
             string info = JsonConvert.SerializeObject(listformato);
         }
-
-
-
-
         private async void cargarDatosNotaEntrada()
         {
             try
@@ -294,8 +295,29 @@ namespace Admeli.AlmacenBox.Nuevo
                 MessageBox.Show("Error: " + ex.Message, "cargar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
+
         #endregion
 
+        #region ================= METODOS DE APOYO ===================
+        private CargaCompraSinNota buscarElemento(int idPresentacion, int idCombinacion)
+        {
+
+            try
+            {
+                return listcargaCompraSinNota.Find(x => x.idPresentacion == idPresentacion && x.idCombinacionAlternativa == idCombinacion);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "cargar fechas del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+
+        }
+
+        #endregion====================================================
 
         //eventos
 
@@ -472,8 +494,10 @@ namespace Admeli.AlmacenBox.Nuevo
                 CargaCompraSinNota detalleNota = new CargaCompraSinNota();
 
                 currentPresentacion = listPresentacion.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
-                CargaCompraSinNota find = listcargaCompraSinNota.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
-                if (find != null)
+
+
+                currentDetalleNEntrada = buscarElemento(Convert.ToInt32(cbxDescripcion.SelectedValue),(int)cbxVariacion.SelectedValue);
+                if (currentDetalleNEntrada != null)
                 {
 
                     MessageBox.Show("Este dato ya fue agregado", "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -628,19 +652,25 @@ namespace Admeli.AlmacenBox.Nuevo
                 MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            int index = dgvDetalleNota.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleNota.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            CargaCompraSinNota aux = listcargaCompraSinNota.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+
+
+            indice = dgvDetalleNota.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idPresentacion = Convert.ToInt32(dgvDetalleNota.Rows[indice].Cells[3].Value);
+            int idCombinacion = Convert.ToInt32(dgvDetalleNota.Rows[indice].Cells[4].Value);
+            // obteniedo el idRegistro del datagridview
+            currentDetalleNEntrada = buscarElemento(idPresentacion,idCombinacion); // Buscando la registro especifico en la lista de registros
             
-            cbxCodigoProducto.SelectedValue = aux.idProducto;
-            cbxDescripcion.SelectedValue = aux.idPresentacion;
-            cbxVariacion.Text = aux.nombreCombinacion;
-            txtCantidad.Text = Convert.ToInt32(aux.cantidad).ToString();
-            txtCantidadRecibida.Text =Convert.ToInt32(aux.cantidadRecibida).ToString();
+            cbxCodigoProducto.SelectedValue = currentDetalleNEntrada.idProducto;
+            cbxDescripcion.SelectedValue = currentDetalleNEntrada.idPresentacion;
+            cbxVariacion.Text = currentDetalleNEntrada.nombreCombinacion;
+            txtCantidad.Text = Convert.ToInt32(currentDetalleNEntrada.cantidad).ToString();
+            txtCantidadRecibida.Text =Convert.ToInt32(currentDetalleNEntrada.cantidadRecibida).ToString();
 
             btnModificar.Enabled = true;
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = true;
+            cbxCodigoProducto.Enabled = false;
+            cbxDescripcion.Enabled = false;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -651,18 +681,18 @@ namespace Admeli.AlmacenBox.Nuevo
                 return;
             }
 
-            int index = dgvDetalleNota.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleNota.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            CargaCompraSinNota aux = listcargaCompraSinNota.Find(x => x.idPresentacion == idPresentacion);
-            aux.cantidad = toDouble(txtCantidad.Text);
-            aux.cantidadUnitaria = toDouble(txtCantidad.Text);
-            aux.cantidadRecibida= toDouble(txtCantidadRecibida.Text);
+            currentDetalleNEntrada.cantidad = toDouble(txtCantidad.Text);
+            currentDetalleNEntrada.cantidadUnitaria = toDouble(txtCantidad.Text);
+            currentDetalleNEntrada.cantidadRecibida= toDouble(txtCantidadRecibida.Text);
             detalleCompraBindingSource.DataSource = null;
             detalleCompraBindingSource.DataSource = listcargaCompraSinNota;
             dgvDetalleNota.Refresh();
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
             btnEliminar.Enabled= false;
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;
+            indice = 0;
             limpiarCamposProducto();
 
 
@@ -675,21 +705,17 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvDetalleNota.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            int index = dgvDetalleNota.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idPresentacion = Convert.ToInt32(dgvDetalleNota.Rows[index].Cells[3].Value); // obteniedo el idRegistro del datagridview
-            CargaCompraSinNota aux = listcargaCompraSinNota.Find(x => x.idPresentacion == idPresentacion);                    
+           
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
-            dgvDetalleNota.Rows.RemoveAt(index);
-            listcargaCompraSinNota.Remove(aux);
+            cbxCodigoProducto.Enabled = true;
+            cbxDescripcion.Enabled = true;
+            
+            dgvDetalleNota.Rows.RemoveAt(indice);
+            listcargaCompraSinNota.Remove(currentDetalleNEntrada);
             limpiarCamposProducto();
+            indice = 0;
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
