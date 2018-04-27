@@ -1110,6 +1110,14 @@ namespace Admeli.Ventas.Nuevo
             txtTotalProducto.Text = "";
             currentdetalleV = null;
         }
+
+
+
+
+        private DetalleV buscarElemento(int idPresentacion , int idCombinacion)
+        {
+            return  detalleVentas.Find(x => x.idPresentacion == idPresentacion &&  x.idCombinacionAlternativa== idCombinacion); 
+        }
         #endregion  
         #region=========================== eventos======================================  
 
@@ -1166,9 +1174,10 @@ namespace Admeli.Ventas.Nuevo
                     if (nuevo)
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                        aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
-
+                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value);
+                        int idCombinacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value);
+                        // obteniedo el idRegistro del datagridview
+                        aux = buscarElemento(idPresentacion, idCombinacion);
                         dgvDetalleOrdenCompra.Rows.RemoveAt(index);
 
                         detalleVentas.Remove(aux);
@@ -1179,9 +1188,10 @@ namespace Admeli.Ventas.Nuevo
                     else
                     {
                         int index = dgvDetalleOrdenCompra.CurrentRow.Index;
-                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                        aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion);
-
+                        int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value);
+                        int idCombinacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value);
+                        // obteniedo el idRegistro del datagridview
+                        aux = buscarElemento(idPresentacion, idCombinacion);
                         aux.estado = 9;
                         
                         dgvDetalleOrdenCompra.ClearSelection();
@@ -1198,7 +1208,7 @@ namespace Admeli.Ventas.Nuevo
 
                    
                     if (currentdetalleV != null)
-                        if (currentdetalleV.idPresentacion == aux.idPresentacion)
+                        if (currentdetalleV.idPresentacion == aux.idPresentacion && currentdetalleV.idCombinacionAlternativa == aux.idCombinacionAlternativa)
                         {   seleccionado = false;
 
                                 btnAgregar.Enabled = true;
@@ -1240,8 +1250,12 @@ namespace Admeli.Ventas.Nuevo
 
                 enModificar = true;
                 index = dgvDetalleOrdenCompra.CurrentRow.Index; // Identificando la fila actual del datagridview
-                int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-                currentdetalleV = detalleVentas.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+                int idPresentacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[0].Value);
+                int idCombinacion = Convert.ToInt32(dgvDetalleOrdenCompra.Rows[index].Cells[1].Value);
+
+
+                // obteniedo el idRegistro del datagridview
+                currentdetalleV = buscarElemento  (idPresentacion, idCombinacion); // Buscando la registro especifico en la lista de registros
 
                 txtCantidad.Text = darformato(toDouble(currentdetalleV.cantidad));
                 cbxCodigoProducto.Text = currentdetalleV.codigoProducto;
@@ -1372,7 +1386,7 @@ namespace Admeli.Ventas.Nuevo
                     if (detalleVentas == null) detalleVentas = new List<DetalleV>();
                     DetalleV detalleV = new DetalleV();
 
-                    DetalleV aux = detalleVentas.Find(X => X.idPresentacion == (int)cbxDescripcion.SelectedValue);
+                    DetalleV aux = buscarElemento( (int)cbxDescripcion.SelectedValue, (int)cbxVariacion.SelectedValue );
                     if (aux != null)
                     {
 
@@ -1786,73 +1800,7 @@ namespace Admeli.Ventas.Nuevo
         }
 
         // para graficar lo que va imprimir
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            //Image image = Properties.Resources.logo2;
-
-            //e.Graphics.DrawImage(image, 0, 0, image.Width, image.Height);
-
-            //e.Graphics.DrawString("Date: " + DateTime.Now.ToShortDateString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 160));
-
-            //e.Graphics.DrawString("Client Name: " + ClientNameTextBox.Text.Trim(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 190));
-
-            //e.Graphics.DrawString("------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 235));
-
-            //e.Graphics.DrawString("Item Name", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(30, 255));
-            //e.Graphics.DrawString("Quantity", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(380, 255));
-            //e.Graphics.DrawString("Unit Price", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(510, 255));
-            //e.Graphics.DrawString("Total Price", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(660, 255));
-            //e.Graphics.DrawString("------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 270));
-
-            //int yPos = 295;
-
-            //for (int i = numberOfItemsPrintedSoFar; i < shoppingCart.Count; i++)
-            //{
-            //    numberOfItemsPerPage++;
-
-            //    if (numberOfItemsPerPage <= 25)
-            //    {
-            //        numberOfItemsPrintedSoFar++;
-
-            //        if (numberOfItemsPrintedSoFar <= shoppingCart.Count)
-            //        {
-            //            e.Graphics.DrawString(shoppingCart[i].ItemName, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(30, yPos));
-            //            e.Graphics.DrawString(shoppingCart[i].Quantity.ToString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(400, yPos));
-            //            e.Graphics.DrawString(shoppingCart[i].UnitPrice.ToString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(525, yPos));
-            //            e.Graphics.DrawString(shoppingCart[i].TotalPrice.ToString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(675, yPos));
-
-            //            yPos += 30;
-            //        }
-            //        else
-            //        {
-            //            e.HasMorePages = false;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        numberOfItemsPerPage = 0;
-            //        e.HasMorePages = true;
-            //        return;
-            //    }
-            //}
-
-            //e.Graphics.DrawString("------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, yPos));
-
-            //e.Graphics.DrawString("Total Amount:      £" + TotalAmountTextBox.Text.Trim(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(550, yPos + 30));
-            //e.Graphics.DrawString("Sales Tax (16%): £" + SalesTaxTextBox.Text.Trim(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(550, yPos + 60));
-            //e.Graphics.DrawString("Total To Pay:       £" + TotalToPayTextBox.Text.Trim(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(550, yPos + 90));
-
-            //// reset the variables
-            //numberOfItemsPerPage = 0;
-            //numberOfItemsPrintedSoFar = 0;
-
-
-          
-
-
-        }
-
-       
+        
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
