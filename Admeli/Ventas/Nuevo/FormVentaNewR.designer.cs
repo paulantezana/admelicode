@@ -260,7 +260,7 @@
             this.Observaciones.Size = new System.Drawing.Size(122, 19);
             this.Observaciones.TabIndex = 5;
             this.Observaciones.Text = "Observaciones:";
-            this.Observaciones.Click += new System.EventHandler(this.Observaciones_Click);
+            
             // 
             // txtObservaciones
             // 
@@ -295,8 +295,7 @@
             this.panel8.Margin = new System.Windows.Forms.Padding(5);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(406, 357);
-            this.panel8.TabIndex = 1;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            this.panel8.TabIndex = 1;            
             // 
             // cbxNombreDocumento
             // 
