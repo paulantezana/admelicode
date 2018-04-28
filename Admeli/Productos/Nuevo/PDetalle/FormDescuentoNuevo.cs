@@ -17,7 +17,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
     {
         private FormProductoNuevo formProductoNuevo;
 
-        private Descuento currentDescuento { get; set; }
+        private DescuentoEnviar currentDescuento { get; set; }
         private int currentIDDescuento { get; set; }
         private bool nuevo { get; set; }
 
@@ -39,11 +39,24 @@ namespace Admeli.Productos.Nuevo.PDetalle
             nuevo = true;
         }
 
-        public FormDescuentoNuevo(FormProductoNuevo formProductoNuevo, Descuento currentDescuento)
+        public FormDescuentoNuevo(FormProductoNuevo formProductoNuevo, Descuento currentDescuentoR)
         {
             InitializeComponent();
             this.formProductoNuevo = formProductoNuevo;
-            this.currentDescuento = currentDescuento;
+            this.currentDescuento = new DescuentoEnviar();
+            this.currentDescuento.cantidadMaxima = currentDescuentoR.cantidadMaxima;
+            this.currentDescuento.cantidadMinima = currentDescuentoR.cantidadMinima;
+            this.currentDescuento.codigo = currentDescuentoR.codigo;
+            this.currentDescuento.descuento = currentDescuentoR.descuento;
+            this.currentDescuento.estado = currentDescuentoR.estado;
+            this.currentDescuento.fechaFin = currentDescuentoR.SFechaFin;
+            this.currentDescuento.fechaInicio = currentDescuentoR.SFechaInicio;
+            this.currentDescuento.idAfectoProducto= currentDescuentoR.idAfectoProducto;
+            this.currentDescuento.idDescuentoProductoGrupo = currentDescuentoR.idDescuentoProductoGrupo;
+            this.currentDescuento.idGrupoCliente = currentDescuentoR.idGrupoCliente;
+            this.currentDescuento.idPresentacion = currentDescuentoR.idPresentacion;
+            this.currentDescuento.idProducto = currentDescuentoR.idProducto;
+            this.currentDescuento.idSucursal = currentDescuentoR.idSucursal;
             nuevo = false;
         }
         #endregion
@@ -131,7 +144,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 crearObjetoSucursal();
                 if (nuevo)
                 {
-                    currentDescuento = new Descuento();
+                    currentDescuento = new DescuentoEnviar();
                     
                     string dateFin = String.Format("{0:u}", dtpFechaFin.Value);
                     dateFin = dateFin.Substring(0, dateFin.Length - 1);
