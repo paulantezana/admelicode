@@ -12,12 +12,12 @@ namespace Modelo
     {
         private WebService webService = new WebService();
 
-        public async Task<Response> guardar(Descuento param)
+        public async Task<Response> guardar(DescuentoEnviar param)
         {
             try
             {
                 // localhost:8080/admeli/xcore2/xcore/services.php/descuento/guardar
-                return await webService.POST<Descuento, Response>("descuento", "guardar", param);
+                return await webService.POST<DescuentoEnviar, Response>("descuento", "guardar", param);
             }
             catch (Exception ex)
             {
