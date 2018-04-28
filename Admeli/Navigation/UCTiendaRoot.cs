@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.Navigation.SubMenu;
+using Modelo;
 
 namespace Admeli.Navigation
 {
@@ -37,10 +38,80 @@ namespace Admeli.Navigation
         {
             InitializeComponent();
             this.formPrincipal = formPrincipal;
+            //No mostrar botons a los que no puede acceder
+            if (ConfigModel.asignacionPersonal.idCaja == 0)
+            {
+                if (panel4.Controls.Contains(btnCaja))
+                {
+                    this.btnCaja.Click -= new System.EventHandler(this.btnCaja_Click);
+                    panel4.Controls.Remove(btnCaja);
+                    btnCaja.Dispose();
+                }
+            }
+
+            if (ConfigModel.asignacionPersonal.idAlmacen == 0)
+            {
+                if (panel4.Controls.Contains(btnAlmacen))
+                {
+                    this.btnAlmacen.Click -= new System.EventHandler(this.btnAlmacen_Click);
+                    panel4.Controls.Remove(btnAlmacen);
+                    btnAlmacen.Dispose();
+                }
+                if (panel4.Controls.Contains(btnProducto))
+                {
+                    this.btnProducto.Click -= new System.EventHandler(this.btnProducto_Click);
+                    panel4.Controls.Remove(btnProducto);
+                    btnProducto.Dispose();
+                }
+            }
+
+            if (ConfigModel.asignacionPersonal.idPuntoCompra == 0)
+            {
+                if (panel4.Controls.Contains(btnCompra))
+                {
+                    this.btnCompra.Click -= new System.EventHandler(this.btnCompra_Click);
+                    panel4.Controls.Remove(btnCompra);
+                    btnCompra.Dispose();
+                }
+            }
+
+            if (ConfigModel.asignacionPersonal.idPuntoVenta == 0)
+            {
+                if (panel4.Controls.Contains(btnVenta))
+                {
+                    this.btnVenta.Click -= new System.EventHandler(this.btnVenta_Click);
+                    panel4.Controls.Remove(btnVenta);
+                    btnVenta.Dispose();
+                }
+            }
+
+            if (ConfigModel.asignacionPersonal.idPuntoAdministracion == 0)
+            {
+                if (panel4.Controls.Contains(btnHerramienta))
+                {
+                    this.btnHerramienta.Click -= new System.EventHandler(this.btnHerramienta_Click);
+                    panel4.Controls.Remove(btnHerramienta);
+                    btnHerramienta.Dispose();
+                }
+                if (panel4.Controls.Contains(btnReporte))
+                {
+                    this.btnReporte.Click -= new System.EventHandler(this.btnReporte_Click);
+                    panel4.Controls.Remove(btnReporte);
+                    btnReporte.Dispose();
+                }
+            }
+
+            if (ConfigModel.asignacionPersonal.idPuntoGerencia == 0 && ConfigModel.asignacionPersonal.idPuntoAdministracion == 0)
+            {
+                if (panel4.Controls.Contains(btnConfiguracion))
+                {
+                    this.btnConfiguracion.Click -= new System.EventHandler(this.btnConfiguracion_Click);
+                    panel4.Controls.Remove(btnConfiguracion);
+                    btnConfiguracion.Dispose();
+                }
+            }
         }
         
-
-      
         internal void togglePanelAsideMain(string panelName)
         {
             this.panelMulos.Controls.Clear();
