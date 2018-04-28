@@ -604,9 +604,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.progressBarApp);
             this.Controls.Add(this.panelAsideContainer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrincipal";
-            this.Text = "FormPrueba";
+            this.Text = "ADMELI V1.0 BETA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FormPrueba_Load);

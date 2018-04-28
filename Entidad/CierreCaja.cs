@@ -19,4 +19,12 @@ namespace Entidad
         public int idSucursal { get; set; }
         public string nombre { get; set; }
     }
+
+
+    public class  DineroCompra
+    {
+        public int idMoneda { get; set; }
+        public string moneda { get; set; }
+        public double total { get; set; }
+    }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVarianteNuevo));
             this.panelFooter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -51,10 +52,11 @@
             // 
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 342);
+            this.panelFooter.Location = new System.Drawing.Point(0, 421);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(395, 49);
+            this.panelFooter.Size = new System.Drawing.Size(527, 60);
             this.panelFooter.TabIndex = 33;
             // 
             // panel1
@@ -62,9 +64,10 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(-4, 1);
+            this.panel1.Location = new System.Drawing.Point(-5, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 48);
+            this.panel1.Size = new System.Drawing.Size(536, 59);
             this.panel1.TabIndex = 6;
             // 
             // btnAceptar
@@ -77,9 +80,10 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(58, 6);
+            this.btnAceptar.Location = new System.Drawing.Point(77, 7);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(152, 36);
+            this.btnAceptar.Size = new System.Drawing.Size(203, 44);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -96,9 +100,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnClose.Location = new System.Drawing.Point(230, 6);
+            this.btnClose.Location = new System.Drawing.Point(307, 7);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(114, 36);
+            this.btnClose.Size = new System.Drawing.Size(152, 44);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -110,8 +115,9 @@
             this.panelHeader.Controls.Add(this.label4);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(395, 42);
+            this.panelHeader.Size = new System.Drawing.Size(527, 52);
             this.panelHeader.TabIndex = 32;
             // 
             // label4
@@ -119,10 +125,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label4.Location = new System.Drawing.Point(16, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(21, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 16);
+            this.label4.Size = new System.Drawing.Size(192, 19);
             this.label4.TabIndex = 11;
             this.label4.Text = "Mantenimiento Variante";
             // 
@@ -131,10 +136,9 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label9.Location = new System.Drawing.Point(42, 146);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(56, 180);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 16);
+            this.label9.Size = new System.Drawing.Size(85, 19);
             this.label9.TabIndex = 3;
             this.label9.Text = "Es Combo";
             // 
@@ -145,7 +149,8 @@
             this.chkEsCombo.Checked = true;
             this.chkEsCombo.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkEsCombo.ForeColor = System.Drawing.Color.White;
-            this.chkEsCombo.Location = new System.Drawing.Point(17, 144);
+            this.chkEsCombo.Location = new System.Drawing.Point(23, 177);
+            this.chkEsCombo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chkEsCombo.Name = "chkEsCombo";
             this.chkEsCombo.Size = new System.Drawing.Size(20, 20);
             this.chkEsCombo.TabIndex = 2;
@@ -155,10 +160,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label7.Location = new System.Drawing.Point(14, 65);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(19, 80);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 16);
+            this.label7.Size = new System.Drawing.Size(131, 19);
             this.label7.TabIndex = 0;
             this.label7.Text = "Nombre Variante";
             // 
@@ -173,11 +177,11 @@
             this.textNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombre.isPassword = false;
-            this.textNombre.Location = new System.Drawing.Point(13, 85);
-            this.textNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.textNombre.Location = new System.Drawing.Point(17, 105);
+            this.textNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textNombre.Size = new System.Drawing.Size(367, 35);
+            this.textNombre.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.textNombre.Size = new System.Drawing.Size(489, 43);
             this.textNombre.TabIndex = 1;
             this.textNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -185,9 +189,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(14, 166);
+            this.label3.Location = new System.Drawing.Point(19, 204);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 13);
+            this.label3.Size = new System.Drawing.Size(273, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Como mostramos la variante en la página.";
             // 
@@ -198,11 +203,11 @@
             // FormVarianteNuevo
             // 
             this.AcceptButton = this.btnAceptar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(395, 391);
+            this.ClientSize = new System.Drawing.Size(527, 481);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.chkEsCombo);
@@ -210,6 +215,8 @@
             this.Controls.Add(this.textNombre);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormVarianteNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormVarianteNuevo";

@@ -110,7 +110,7 @@ namespace Modelo
         }
 
         //http://localhost:8080/admeli/xcore/services.php/producto/4/combinacion/0/stock/suc/1/personal/1
-        public async Task<List<StockReceive>> getStockProductoByIdProductoIdCombinacionIdSucursal(int idProducto, int idCombinacion , int idSucursul, int idPersonal)
+        public async Task<List<StockReceive>> getStockProductoCombinacion(int idProducto, int idCombinacion , int idSucursul, int idPersonal)
         {
             try
             {

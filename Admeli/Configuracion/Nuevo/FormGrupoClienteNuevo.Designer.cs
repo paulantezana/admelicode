@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupoClienteNuevo));
             this.panelFooter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -54,10 +55,11 @@
             // 
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 404);
+            this.panelFooter.Location = new System.Drawing.Point(0, 498);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(368, 49);
+            this.panelFooter.Size = new System.Drawing.Size(491, 60);
             this.panelFooter.TabIndex = 31;
             this.panelFooter.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFooter_Paint);
             // 
@@ -66,9 +68,10 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(-17, 1);
+            this.panel1.Location = new System.Drawing.Point(-23, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 48);
+            this.panel1.Size = new System.Drawing.Size(536, 59);
             this.panel1.TabIndex = 6;
             // 
             // btnAceptar
@@ -81,9 +84,10 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(58, 6);
+            this.btnAceptar.Location = new System.Drawing.Point(77, 7);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(152, 36);
+            this.btnAceptar.Size = new System.Drawing.Size(203, 44);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -100,9 +104,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnClose.Location = new System.Drawing.Point(230, 6);
+            this.btnClose.Location = new System.Drawing.Point(307, 7);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(114, 36);
+            this.btnClose.Size = new System.Drawing.Size(152, 44);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -113,8 +118,9 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(368, 42);
+            this.panel2.Size = new System.Drawing.Size(491, 52);
             this.panel2.TabIndex = 30;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -123,10 +129,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label4.Location = new System.Drawing.Point(16, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(21, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(195, 16);
+            this.label4.Size = new System.Drawing.Size(237, 19);
             this.label4.TabIndex = 11;
             this.label4.Text = "Mantenimiento Grupo Cliente";
             // 
@@ -135,10 +140,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label2.Location = new System.Drawing.Point(16, 62);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(21, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 16);
+            this.label2.Size = new System.Drawing.Size(123, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nombre Grupo*";
             // 
@@ -153,11 +157,11 @@
             this.textNombreGCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreGCL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreGCL.isPassword = false;
-            this.textNombreGCL.Location = new System.Drawing.Point(19, 80);
-            this.textNombreGCL.Margin = new System.Windows.Forms.Padding(4);
+            this.textNombreGCL.Location = new System.Drawing.Point(25, 98);
+            this.textNombreGCL.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textNombreGCL.Name = "textNombreGCL";
-            this.textNombreGCL.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textNombreGCL.Size = new System.Drawing.Size(330, 35);
+            this.textNombreGCL.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.textNombreGCL.Size = new System.Drawing.Size(440, 43);
             this.textNombreGCL.TabIndex = 1;
             this.textNombreGCL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -166,22 +170,21 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label5.Location = new System.Drawing.Point(16, 130);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(21, 160);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
+            this.label5.Size = new System.Drawing.Size(97, 19);
             this.label5.TabIndex = 2;
             this.label5.Text = "Descripción";
             // 
             // textDescripcionGCL
             // 
             this.textDescripcionGCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDescripcionGCL.Location = new System.Drawing.Point(19, 148);
-            this.textDescripcionGCL.Margin = new System.Windows.Forms.Padding(2);
+            this.textDescripcionGCL.Location = new System.Drawing.Point(25, 182);
+            this.textDescripcionGCL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textDescripcionGCL.Multiline = true;
             this.textDescripcionGCL.Name = "textDescripcionGCL";
             this.textDescripcionGCL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textDescripcionGCL.Size = new System.Drawing.Size(330, 115);
+            this.textDescripcionGCL.Size = new System.Drawing.Size(439, 141);
             this.textDescripcionGCL.TabIndex = 3;
             // 
             // label1
@@ -189,10 +192,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label1.Location = new System.Drawing.Point(16, 274);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(21, 337);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 16);
+            this.label1.Size = new System.Drawing.Size(119, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Mínimo Orden*";
             // 
@@ -207,11 +209,11 @@
             this.textMinimoOrdenGCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textMinimoOrdenGCL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textMinimoOrdenGCL.isPassword = false;
-            this.textMinimoOrdenGCL.Location = new System.Drawing.Point(19, 292);
-            this.textMinimoOrdenGCL.Margin = new System.Windows.Forms.Padding(4);
+            this.textMinimoOrdenGCL.Location = new System.Drawing.Point(25, 359);
+            this.textMinimoOrdenGCL.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textMinimoOrdenGCL.Name = "textMinimoOrdenGCL";
-            this.textMinimoOrdenGCL.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textMinimoOrdenGCL.Size = new System.Drawing.Size(330, 35);
+            this.textMinimoOrdenGCL.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.textMinimoOrdenGCL.Size = new System.Drawing.Size(440, 43);
             this.textMinimoOrdenGCL.TabIndex = 5;
             this.textMinimoOrdenGCL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textMinimoOrdenGCL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMinimoOrdenGCL_KeyPress);
@@ -221,10 +223,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label3.Location = new System.Drawing.Point(44, 345);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(59, 425);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 16);
+            this.label3.Size = new System.Drawing.Size(65, 19);
             this.label3.TabIndex = 7;
             this.label3.Text = "Activo *";
             // 
@@ -235,7 +236,8 @@
             this.chkActivoGCL.Checked = true;
             this.chkActivoGCL.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoGCL.ForeColor = System.Drawing.Color.White;
-            this.chkActivoGCL.Location = new System.Drawing.Point(19, 343);
+            this.chkActivoGCL.Location = new System.Drawing.Point(25, 422);
+            this.chkActivoGCL.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chkActivoGCL.Name = "chkActivoGCL";
             this.chkActivoGCL.Size = new System.Drawing.Size(20, 20);
             this.chkActivoGCL.TabIndex = 6;
@@ -247,11 +249,11 @@
             // FormGrupoClienteNuevo
             // 
             this.AcceptButton = this.btnAceptar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(368, 453);
+            this.ClientSize = new System.Drawing.Size(491, 558);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chkActivoGCL);
             this.Controls.Add(this.label1);
@@ -262,6 +264,8 @@
             this.Controls.Add(this.textNombreGCL);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormGrupoClienteNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupo Cliente Nuevo";

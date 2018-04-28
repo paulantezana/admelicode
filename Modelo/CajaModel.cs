@@ -137,6 +137,24 @@ namespace Modelo
             {
                 throw ex;
             }
+        }      
+        public async Task<List<DineroCompra>> totalCajaCompra(int idMedioPago, int idCajasesion, int idCompra )
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore/services.php///cierrecajaingresomenosegresocompra/mediopago/1/cajasesion/2/compra/0
+
+                
+                List<DineroCompra> list = await webService.GET<List<DineroCompra>>("cierrecajaingresomenosegresocompra", String.Format("mediopago/{0}/cajasesion/{1}/compra/{2}", idMedioPago, idCajasesion, idCompra));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
+
     }
 }

@@ -77,10 +77,11 @@
             this.panel2.Controls.Add(this.bunifuSeparator2);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 49);
+            this.panel2.Location = new System.Drawing.Point(0, 60);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panel2.Size = new System.Drawing.Size(633, 70);
+            this.panel2.Size = new System.Drawing.Size(844, 86);
             this.panel2.TabIndex = 1;
             // 
             // label7
@@ -88,10 +89,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label7.Location = new System.Drawing.Point(7, 6);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(9, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 16);
+            this.label7.Size = new System.Drawing.Size(73, 19);
             this.label7.TabIndex = 86;
             this.label7.Text = "Principal";
             // 
@@ -104,10 +104,10 @@
             this.cbxCategoriaPrincipal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoriaPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCategoriaPrincipal.FormattingEnabled = true;
-            this.cbxCategoriaPrincipal.Location = new System.Drawing.Point(10, 24);
-            this.cbxCategoriaPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxCategoriaPrincipal.Location = new System.Drawing.Point(13, 30);
+            this.cbxCategoriaPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxCategoriaPrincipal.Name = "cbxCategoriaPrincipal";
-            this.cbxCategoriaPrincipal.Size = new System.Drawing.Size(219, 32);
+            this.cbxCategoriaPrincipal.Size = new System.Drawing.Size(291, 37);
             this.cbxCategoriaPrincipal.TabIndex = 13;
             this.cbxCategoriaPrincipal.ValueMember = "idCategoria";
             // 
@@ -121,9 +121,10 @@
             this.bunifuSeparator2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(0, 57);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(0, 70);
+            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(633, 12);
+            this.bunifuSeparator2.Size = new System.Drawing.Size(844, 15);
             this.bunifuSeparator2.TabIndex = 11;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
@@ -135,10 +136,9 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(365, 33);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(487, 41);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(175, 16);
+            this.label5.Size = new System.Drawing.Size(223, 19);
             this.label5.TabIndex = 10;
             this.label5.Text = "Seleccione la categoría aquí.";
             // 
@@ -148,10 +148,11 @@
             this.treeViewFrom.ImageIndex = 0;
             this.treeViewFrom.ImageList = this.imageList;
             this.treeViewFrom.LabelEdit = true;
-            this.treeViewFrom.Location = new System.Drawing.Point(10, 43);
+            this.treeViewFrom.Location = new System.Drawing.Point(13, 53);
+            this.treeViewFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeViewFrom.Name = "treeViewFrom";
             this.treeViewFrom.SelectedImageIndex = 0;
-            this.treeViewFrom.Size = new System.Drawing.Size(248, 235);
+            this.treeViewFrom.Size = new System.Drawing.Size(331, 290);
             this.treeViewFrom.TabIndex = 2;
             // 
             // imageList
@@ -166,10 +167,11 @@
             this.treeViewTo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewTo.ImageIndex = 0;
             this.treeViewTo.ImageList = this.imageList;
-            this.treeViewTo.Location = new System.Drawing.Point(10, 43);
+            this.treeViewTo.Location = new System.Drawing.Point(13, 53);
+            this.treeViewTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeViewTo.Name = "treeViewTo";
             this.treeViewTo.SelectedImageIndex = 0;
-            this.treeViewTo.Size = new System.Drawing.Size(269, 235);
+            this.treeViewTo.Size = new System.Drawing.Size(359, 290);
             this.treeViewTo.TabIndex = 3;
             // 
             // panelBody
@@ -178,9 +180,10 @@
             this.panelBody.Controls.Add(this.panel3);
             this.panelBody.Controls.Add(this.panel1);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBody.Location = new System.Drawing.Point(0, 119);
+            this.panelBody.Location = new System.Drawing.Point(0, 146);
+            this.panelBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(633, 288);
+            this.panelBody.Size = new System.Drawing.Size(844, 355);
             this.panelBody.TabIndex = 4;
             // 
             // panel6
@@ -188,9 +191,10 @@
             this.panel6.Controls.Add(this.btnMovIzquierda);
             this.panel6.Controls.Add(this.btnMovDerecha);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(268, 0);
+            this.panel6.Location = new System.Drawing.Point(357, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(76, 288);
+            this.panel6.Size = new System.Drawing.Size(102, 355);
             this.panel6.TabIndex = 6;
             // 
             // btnMovIzquierda
@@ -204,9 +208,10 @@
             this.btnMovIzquierda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMovIzquierda.ForeColor = System.Drawing.Color.White;
             this.btnMovIzquierda.Image = ((System.Drawing.Image)(resources.GetObject("btnMovIzquierda.Image")));
-            this.btnMovIzquierda.Location = new System.Drawing.Point(4, 168);
+            this.btnMovIzquierda.Location = new System.Drawing.Point(5, 207);
+            this.btnMovIzquierda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMovIzquierda.Name = "btnMovIzquierda";
-            this.btnMovIzquierda.Size = new System.Drawing.Size(67, 35);
+            this.btnMovIzquierda.Size = new System.Drawing.Size(89, 43);
             this.btnMovIzquierda.TabIndex = 55;
             this.btnMovIzquierda.UseVisualStyleBackColor = false;
             this.btnMovIzquierda.Click += new System.EventHandler(this.btnMovIzquierda_Click);
@@ -222,9 +227,10 @@
             this.btnMovDerecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMovDerecha.ForeColor = System.Drawing.Color.Black;
             this.btnMovDerecha.Image = ((System.Drawing.Image)(resources.GetObject("btnMovDerecha.Image")));
-            this.btnMovDerecha.Location = new System.Drawing.Point(4, 116);
+            this.btnMovDerecha.Location = new System.Drawing.Point(5, 143);
+            this.btnMovDerecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMovDerecha.Name = "btnMovDerecha";
-            this.btnMovDerecha.Size = new System.Drawing.Size(67, 35);
+            this.btnMovDerecha.Size = new System.Drawing.Size(89, 43);
             this.btnMovDerecha.TabIndex = 54;
             this.btnMovDerecha.UseVisualStyleBackColor = false;
             this.btnMovDerecha.Click += new System.EventHandler(this.btnMovDerecha_Click);
@@ -234,10 +240,11 @@
             this.panel3.Controls.Add(this.treeViewTo);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(344, 0);
+            this.panel3.Location = new System.Drawing.Point(459, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.panel3.Size = new System.Drawing.Size(289, 288);
+            this.panel3.Padding = new System.Windows.Forms.Padding(13, 0, 13, 12);
+            this.panel3.Size = new System.Drawing.Size(385, 355);
             this.panel3.TabIndex = 5;
             // 
             // panel5
@@ -245,9 +252,10 @@
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
             this.panel5.Controls.Add(this.label3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(10, 0);
+            this.panel5.Location = new System.Drawing.Point(13, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(269, 43);
+            this.panel5.Size = new System.Drawing.Size(359, 53);
             this.panel5.TabIndex = 4;
             // 
             // label3
@@ -255,9 +263,10 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(49, 13);
+            this.label3.Location = new System.Drawing.Point(65, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 16);
+            this.label3.Size = new System.Drawing.Size(200, 19);
             this.label3.TabIndex = 1;
             this.label3.Text = "Categorías del Producto";
             // 
@@ -267,9 +276,10 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.panel1.Size = new System.Drawing.Size(268, 288);
+            this.panel1.Padding = new System.Windows.Forms.Padding(13, 0, 13, 12);
+            this.panel1.Size = new System.Drawing.Size(357, 355);
             this.panel1.TabIndex = 4;
             // 
             // panel4
@@ -277,9 +287,10 @@
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(10, 0);
+            this.panel4.Location = new System.Drawing.Point(13, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(248, 43);
+            this.panel4.Size = new System.Drawing.Size(331, 53);
             this.panel4.TabIndex = 3;
             // 
             // label2
@@ -287,9 +298,10 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(90, 13);
+            this.label2.Location = new System.Drawing.Point(120, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 16);
+            this.label2.Size = new System.Drawing.Size(94, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Categorías";
             // 
@@ -300,8 +312,9 @@
             this.panelHeder.Controls.Add(this.label4);
             this.panelHeder.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeder.Location = new System.Drawing.Point(0, 0);
+            this.panelHeder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelHeder.Name = "panelHeder";
-            this.panelHeder.Size = new System.Drawing.Size(633, 49);
+            this.panelHeder.Size = new System.Drawing.Size(844, 60);
             this.panelHeder.TabIndex = 5;
             // 
             // bunifuSeparator1
@@ -310,9 +323,10 @@
             this.bunifuSeparator1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 37);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 45);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(633, 12);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(844, 15);
             this.bunifuSeparator1.TabIndex = 1;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -322,10 +336,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label4.Location = new System.Drawing.Point(19, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(25, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 16);
+            this.label4.Size = new System.Drawing.Size(182, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "ELEGIR CATEGORIAS";
             // 
@@ -333,10 +346,11 @@
             // 
             this.panelFooter.Controls.Add(this.panel7);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 407);
+            this.panelFooter.Location = new System.Drawing.Point(0, 501);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(633, 49);
+            this.panelFooter.Size = new System.Drawing.Size(844, 60);
             this.panelFooter.TabIndex = 55;
             // 
             // panel7
@@ -344,9 +358,10 @@
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.Controls.Add(this.btnAceptar);
             this.panel7.Controls.Add(this.btnClose);
-            this.panel7.Location = new System.Drawing.Point(142, 0);
+            this.panel7.Location = new System.Drawing.Point(189, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(328, 49);
+            this.panel7.Size = new System.Drawing.Size(437, 60);
             this.panel7.TabIndex = 6;
             // 
             // btnAceptar
@@ -359,9 +374,10 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(37, 9);
+            this.btnAceptar.Location = new System.Drawing.Point(49, 11);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(116, 30);
+            this.btnAceptar.Size = new System.Drawing.Size(155, 37);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -378,9 +394,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnClose.Location = new System.Drawing.Point(180, 9);
+            this.btnClose.Location = new System.Drawing.Point(240, 11);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(114, 30);
+            this.btnClose.Size = new System.Drawing.Size(152, 37);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -388,14 +405,16 @@
             // 
             // FormElegirCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(633, 456);
+            this.ClientSize = new System.Drawing.Size(844, 561);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelHeder);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormElegirCategoria";
             this.Text = "FormElegirCategoria";
             this.Load += new System.EventHandler(this.FormElegirCategoria_Load);

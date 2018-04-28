@@ -117,4 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA37AAAN+wELdzWbAAAAB3RJ
+        TUUH4gQLEgIt3ZJ4AQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEhSURBVFhH
+        7ZXNCcJAFIRTQhK82IUdiDc7sAKzdqAd6M2jLXjxkA2iHViIDXjxD0GdkRXibg6+TTwIOzAEsm/Gj+VJ
+        orISpWfwo6Yvqcr7plImhGsDpErP8fSDQLA2AHu8IRBqBIDygkCgMQBKDIHhRgEoEQQGGwegvobAUBXA
+        LRnpaZIVkw/zHc+seVPl6A0RZ3nPvHKFgdoAzlzZKt9jZmZ+zhUPP8p+4/8E2OH6tjIzU9klBjjFQ92N
+        h+uOzLrLrNVFhx34P4BzK1u1zcjXYoZZq4v2uoFjooqDzMxUdoUdkO9AqooBv2QyFwNmrS7a6wY28FJo
+        Zqq6wg6IAe74uCzw5JnArwyyTp8Y4AqP8d8eyczMK2v3hR0IAAGgBBBFT6ofJf9klniGAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <metadata name="tipoDocumentoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 17</value>
+  </metadata>
+  <metadata name="sucursalBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="sucursalBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="impuestoGeneralBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>288, 60</value>
+  </metadata>
+  <metadata name="impuestoGeneralBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>288, 60</value>
+  </metadata>
+  <metadata name="impuestoGeneralBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 60</value>
+  </metadata>
+  <metadata name="impuestoGeneralBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 60</value>
+  </metadata>
 </root>
