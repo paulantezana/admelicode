@@ -105,6 +105,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
                 // Ingresando
                 descuentos = responseList;
+                descuentoBindingSource.DataSource = null;
                 descuentoBindingSource.DataSource = descuentos;
                 dataGridViewDescuento.Refresh();
 
