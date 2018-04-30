@@ -366,6 +366,7 @@ namespace Admeli.Productos
             loadState(true);
             try
             {
+                
                 Dictionary<string, int> list = new Dictionary<string, int>();
                 list.Add("id0", 0);
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
@@ -754,6 +755,7 @@ namespace Admeli.Productos
             {
                 cargarRegistrosStock();
             }
+            else
             {
                 cargarRegistros();
             }

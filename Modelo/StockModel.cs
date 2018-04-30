@@ -24,7 +24,20 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<Response> guardarproductosp(List<ProductoData> param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/productosp/guardar
+                return await webService.POST<List<ProductoData>, Response>("productosp", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        // productosp/guardar
         public async Task<Response> modificar(Stock param)
         {
             try

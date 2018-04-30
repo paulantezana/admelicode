@@ -72,4 +72,16 @@ namespace Entidad
 
 
 
+    public class ProductoStock
+    {
+        public int idProducto { get; set; }
+        public string stock { get; set; }
+        public string precioVenta { get; set; }
+        public string utilidad { get; set; }
+        public string precioCompra { get; set; }
+        public string idSucursal { get; set; }
+        public string idAlmacen { get; set; }
+    }
+
+
 }
