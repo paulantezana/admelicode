@@ -24,6 +24,7 @@ namespace Admeli.Productos.Importar
 
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
+            appLoadState(true);
             try
             {
                 dgvProductos.DataSource = ExternalFiles.ImporExcel();
@@ -33,6 +34,21 @@ namespace Admeli.Productos.Importar
             {
                 MessageBox.Show("Error! " + ex.Message, "Importar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            appLoadState(false);
+        }
+
+        public void appLoadState(bool state)
+        {
+            if (state)
+            {
+                progressBarApp.Visible = true;
+                progressBarApp.Style = ProgressBarStyle.Marquee;
+            }
+            else
+            {
+                progressBarApp.Visible = false;
+                progressBarApp.Style = ProgressBarStyle.Blocks;
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -41,10 +57,12 @@ namespace Admeli.Productos.Importar
             guardarProductos();
             //Usar el servicio de guardar varios productos
             // string request = JsonConvert.SerializeObject(productoFila);
-            
+
         }
         private async void guardarProductos()
         {
+            btnGuardar.Enabled = false;
+            appLoadState(true);
             try
             {
                 ResponseD response = await productoModel.guardarVariosProductos(listaProductos);
@@ -54,9 +72,13 @@ namespace Admeli.Productos.Importar
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            btnGuardar.Enabled = true;
+            appLoadState(false);
         }
         private void extraerProductos()
         {
+            appLoadState(true);
+            btnGuardar.Enabled = false;
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 ObjectSaveProducto productoFila = new ObjectSaveProducto();
@@ -67,11 +89,15 @@ namespace Admeli.Productos.Importar
                 productoFila.marca = row.Cells[4].Value.ToString();
                 productoFila.unidad = row.Cells[5].Value.ToString();
                 productoFila.stock = row.Cells[6].Value.ToString();
+                productoFila.categoria= row.Cells[7].Value.ToString();
+
 
                 listaProductos.Add(productoFila);
                 //MessageBox.Show(row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " +
                 //    row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString()+" "+ row.Cells[5].Value.ToString()+ " "+row.Cells[6].Value.ToString());
             }
+            btnGuardar.Enabled = true;
+            appLoadState(false);
         }
     }
 
@@ -84,6 +110,6 @@ namespace Admeli.Productos.Importar
         public string marca { get; set; }
         public string unidad { get; set; }
         public string stock { get; set; }
-
+        public string categoria { get; set; }
     }
 }
