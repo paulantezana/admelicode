@@ -32,6 +32,7 @@
             this.panelAsideContainer = new System.Windows.Forms.Panel();
             this.panelAsideMain = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnOcultar = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleMenuRigth = new System.Windows.Forms.Button();
             this.lblTitlePage = new System.Windows.Forms.Label();
-            this.btnOcultar = new System.Windows.Forms.Button();
             this.panelAsideContainer.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -117,6 +117,20 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(359, 167);
             this.panel5.TabIndex = 0;
+            // 
+            // btnOcultar
+            // 
+            this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOcultar.FlatAppearance.BorderSize = 0;
+            this.btnOcultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOcultar.Image = ((System.Drawing.Image)(resources.GetObject("btnOcultar.Image")));
+            this.btnOcultar.Location = new System.Drawing.Point(290, 107);
+            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOcultar.Name = "btnOcultar";
+            this.btnOcultar.Size = new System.Drawing.Size(62, 60);
+            this.btnOcultar.TabIndex = 11;
+            this.btnOcultar.UseVisualStyleBackColor = true;
+            this.btnOcultar.Click += new System.EventHandler(this.btnToggleMenu_Click);
             // 
             // button10
             // 
@@ -598,21 +612,6 @@
             this.lblTitlePage.TabIndex = 6;
             this.lblTitlePage.Text = "Nombre del modulo actual";
             this.lblTitlePage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnOcultar
-            // 
-            this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOcultar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnOcultar.FlatAppearance.BorderSize = 0;
-            this.btnOcultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOcultar.Image = ((System.Drawing.Image)(resources.GetObject("btnOcultar.Image")));
-            this.btnOcultar.Location = new System.Drawing.Point(280, 86);
-            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOcultar.Name = "btnOcultar";
-            this.btnOcultar.Size = new System.Drawing.Size(79, 81);
-            this.btnOcultar.TabIndex = 11;
-            this.btnOcultar.UseVisualStyleBackColor = true;
-            this.btnOcultar.Click += new System.EventHandler(this.btnToggleMenu_Click);
             // 
             // FormPrincipal
             // 

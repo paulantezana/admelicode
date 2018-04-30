@@ -66,7 +66,7 @@
             this.errorProvider1.SetIconPadding(this.textPassword, -30);
             this.textPassword.isPassword = true;
             this.textPassword.Location = new System.Drawing.Point(494, 190);
-            this.textPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textPassword.Name = "textPassword";
             this.textPassword.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.textPassword.Size = new System.Drawing.Size(239, 37);
@@ -86,7 +86,7 @@
             this.errorProvider1.SetIconPadding(this.textUsuario, -30);
             this.textUsuario.isPassword = false;
             this.textUsuario.Location = new System.Drawing.Point(494, 137);
-            this.textUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.textUsuario.Size = new System.Drawing.Size(239, 37);
@@ -122,7 +122,7 @@
             this.progressbar.BackColor = System.Drawing.Color.White;
             this.progressbar.BorderRadius = 5;
             this.progressbar.Location = new System.Drawing.Point(354, 392);
-            this.progressbar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressbar.Margin = new System.Windows.Forms.Padding(4);
             this.progressbar.MaximumValue = 100;
             this.progressbar.Name = "progressbar";
             this.progressbar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(202)))), ((int)(((byte)(59)))));
@@ -194,9 +194,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(662, 351);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 22);
+            this.label2.Size = new System.Drawing.Size(83, 22);
             this.label2.TabIndex = 50;
-            this.label2.Text = "1.0.0.0";
+            this.label2.Text = "v 1.0.0.0";
             // 
             // FormLogin
             // 
