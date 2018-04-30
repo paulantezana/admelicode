@@ -52,20 +52,24 @@ namespace Entidad
     {
         public string impuestos { get; set; }
     }
-
-    public class ImpuestosSiglas
+    public class ImpuestoGeneral
     {
-        public int idImpuesto { get; set; }
-        public string nombreImpuesto { get; set; }
-        public string siglasImpuesto { get; set; } 
-    }
 
-
-    public class ImpuestoDocumento
-    {
         public int idImpuesto { get; set; }
         public string nombreImpuesto { get; set; }
         public string siglasImpuesto { get; set; }
+
+
+    }   
+    public class ImpuestosSiglas : ImpuestoGeneral
+    {
+      
+    }
+
+
+    public class ImpuestoDocumento: ImpuestoGeneral
+    {
+       
     }
 
     public class ImpuestoProducto
@@ -74,6 +78,12 @@ namespace Entidad
         public string valorImpuesto { get; set; }
         public string siglasImpuesto { get; set; }
         public bool porcentual { get; set; }
+    }
+    public class ImpuestoComprobante
+    {
+        public int idTipoDocumento { get; set; }
+        public int idSucursal { get; set; }
+        public string impuestos { get; set; }
     }
 
 

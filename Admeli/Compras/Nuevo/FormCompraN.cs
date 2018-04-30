@@ -49,6 +49,8 @@ namespace Admeli.Compras.Nuevo
         private CompraModel compra = new CompraModel();
         private ProveedorModel proveedormodel = new ProveedorModel();
         private ImpuestoModel ImpuestoModel = new ImpuestoModel();
+
+        private CajaModel cajaModel = new CajaModel();
         /// Sus datos se cargan al abrir el formulario
         private List<Moneda> monedas { get; set; }
         private List<TipoDocumento> tipoDocumentos { get; set; }
@@ -191,10 +193,20 @@ namespace Admeli.Compras.Nuevo
                 chbxPagarCompra.Enabled = false;
                 chbxPagarCompra.Checked = false;
             }
+          
         }
         #endregion
 
-        #region ============================== Load ==============================     
+        #region ============================== Load ==============================   
+
+
+        private async void cargarDinero() {
+
+
+
+
+
+        }
         private async void cargarProveedores()
         {
 
@@ -1240,8 +1252,37 @@ namespace Admeli.Compras.Nuevo
 
 
                 MessageBox.Show("no hay ningun proveedor seleccionado", "proveedor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
 
             }
+            int i = ConfigModel.cajaSesion != null ? ConfigModel.cajaSesion.idCajaSesion : 0;
+            if (i > 0)
+            {
+
+                int idCompra = currentCompra != null ? currentCompra.idCompra : 0; 
+                List<DineroCompra>  list=        await  cajaModel.totalCajaCompra(medioPagos[0].idMedioPago, ConfigModel.cajaSesion.idCajaSesion, idCompra);// unico medio de pago
+                DineroCompra dineroCompra = list.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
+
+                if ((dineroCompra.total - total) < 0)
+                {
+                    MessageBox.Show("no exite sufciente dinero ", "caja ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    return;
+                }
+
+            }
+
+            if (currentAlmacenCompra == null)
+            {
+
+                MessageBox.Show("Almacen no asignado ", "Almacen ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return;
+
+            } 
+          
+
+
 
 
             //pago

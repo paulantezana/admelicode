@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admeli.Componentes;
 using Admeli.Compras;
+using Admeli.Configuracion.Modificar;
 using Admeli.NavDarck;
 using Admeli.Navigation;
 using Admeli.Productos;
@@ -438,5 +439,17 @@ namespace Admeli
             drawShape.leftLine(panelMenuRight);
         }
         #endregion
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.panelMain.Dock = DockStyle.None;
+            ResizeableControl resizeableControl = new ResizeableControl(this.panelMain);
+            //uCTiendaRoot.Size = new Size(95,this.panelAsideMain.Size.Width);
+        }
     }
 }

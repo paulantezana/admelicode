@@ -24,7 +24,7 @@ namespace Admeli.Herramientas
         private SucursalModel sucursalModel = new SucursalModel();
         private AlmacenModel almacenModel = new AlmacenModel();
         private ProductoModel productoModel = new ProductoModel();
-
+        private StockModel stockModel = new StockModel();
         private Paginacion paginacion;
         private List<ProductoData> productos { get; set; }
         private ProductoData currentProdcuto { get; set; }
@@ -597,7 +597,7 @@ namespace Admeli.Herramientas
             executeModificar();
         }
 
-        private void executeModificar()
+        private void executeModificar() // no cargar el form de producto
         {
             // Verificando la existencia de datos en el datagridview
             if (dataGridView.Rows.Count == 0)
@@ -626,8 +626,46 @@ namespace Admeli.Herramientas
             cargarRegistros(); // recargando loas registros en el datagridview
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+
+
+        }
+
+       
+
+        private async void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+
+            loadState(true);
+                try
+            {
+
+                Response response=  await stockModel.guardarproductosp(productos);
+                if (response.id >0)
+                {
+
+                    MessageBox.Show("Mensaje: " + response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            finally
+            {
+
+                loadState(false);
+
+            }
+
+
+
 
         }
     }
@@ -641,51 +679,5 @@ public class RootObjectData
     public int nro_registros { get; set; }
 }
 
-public class ImpuestoData
-{
-    public int idImpuesto { get; set; }
-    public string valorImpuesto { get; set; }
-    public bool porcentual { get; set; }
-}
 
-public class ProductoData 
-{
-    public int idProducto { get; set; }
-    public string codigoProducto { get; set; }
-    public string nombreProducto { get; set; }
-    public string descripcionCorta { get; set; }
-    public string precioCompra { get; set; }
-    public object precioConImpuesto { get; set; }
-    public string utilidad { get; set; }
-    public int estado { get; set; }
-    public int idUnidadMedida { get; set; }
-    public int idMarca { get; set; }
-    public string nombreUnidad { get; set; }
-    public string nombreMarca { get; set; }
-    public bool enUso { get; set; }
-    public bool mostrarWeb { get; set; }
-    public bool mostrarPrecioWeb { get; set; }
-    public string precioVenta { get; set; }
-    public string stock { get; set; }
-    public string stockFinanciero { get; set; }
-    public int idSucursal { get; set; }
-    public string sucursal { get; set; }
-    public int idAlmacen { get; set; }
-    public string almacen { get; set; }
-    public string productoAlmacen { get; set; }
-    private string estadoString;
-    public List<ImpuestoData> impuesto { get; set; }
-       
-    public string EstadoString
-    {
-        get
-        {
-            if (estado == 1) { return "Activo"; }
-            else { return "Anulado"; }
-        }
-        set
-        {
-            estadoString = value;
-        }
-    }
-}
+

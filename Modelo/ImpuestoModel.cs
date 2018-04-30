@@ -24,6 +24,26 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
+
+
+        //tipodocumentoimpuesto/guardar
+
+        public async Task<Response> guardarImpuestoDocumento(ImpuestoComprobante param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/tipodocumentoimpuesto/guardar
+                return await webService.POST<ImpuestoComprobante, Response>("tipodocumentoimpuesto", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         // InsertarImpuestosProductosArray iproductoarray
         public async Task<Response> InsertarImpuestosProductosArray(List<Dictionary<string, int>> list)
         {
@@ -192,6 +212,8 @@ namespace Modelo
         }
         //listarImpuestosByIdSucursalEIdTipoDocumento
         //tipodocumentoimpuesto/sucursal/:ids/tipodoc/:idtd
+
+        
         public async Task<List<ImpuestoDocumento >> impuestoTipoDoc(int idSucursal,int idTipoDoc)
         {
             try

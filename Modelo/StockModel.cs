@@ -24,7 +24,20 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<Response> guardarproductosp(List<ProductoData> param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/productosp/guardar
+                return await webService.POST<List<ProductoData>, Response>("productosp", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        // productosp/guardar
         public async Task<Response> modificar(Stock param)
         {
             try
@@ -110,7 +123,7 @@ namespace Modelo
         }
 
         //http://localhost:8080/admeli/xcore/services.php/producto/4/combinacion/0/stock/suc/1/personal/1
-        public async Task<List<StockReceive>> getStockProductoByIdProductoIdCombinacionIdSucursal(int idProducto, int idCombinacion , int idSucursul, int idPersonal)
+        public async Task<List<StockReceive>> getStockProductoCombinacion(int idProducto, int idCombinacion , int idSucursul, int idPersonal)
         {
             try
             {

@@ -85,6 +85,7 @@ namespace Admeli.Ventas.Nuevo
         private CotizacionBuscar currentCotizacion { get; set; }
         private Venta currentVenta { get; set; }
         private DetalleV currentdetalleV { get; set; }
+        private double stockPresentacion { get; set; }
         public int nroNuevo = 0;
         private bool nuevo { get; set; }
         private bool enModificar { get; set; }
@@ -1058,48 +1059,44 @@ namespace Admeli.Ventas.Nuevo
 
             try
             {
-                // determinamos el stock del producto seleccionado
-                List<StockReceive> stockReceive = await stockModel.getStockProductoByIdProductoIdCombinacionIdSucursal((int)cbxCodigoProducto.SelectedValue, cbxVariacion.SelectedValue == null ? 0 : (int)cbxVariacion.SelectedValue, ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
+                List<StockReceive> stockReceive = await stockModel.getStockProductoCombinacion((int)cbxCodigoProducto.SelectedValue, cbxVariacion.SelectedValue == null ? 0 : (int)cbxVariacion.SelectedValue, ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
                 double stockTotal = stockReceive[0].stock_total;
+
                 double stockDetalle = 0;
                 // si exite en el producto en lista detalle
                 if (detalleVentas != null && (cbxDescripcion.SelectedIndex != -1))
                 {
                     foreach (DetalleV V in detalleVentas)
                     {
-                        if (V.idPresentacion == (int)cbxDescripcion.SelectedValue)
+                        if (V.idPresentacion == (int)cbxDescripcion.SelectedValue && V.idCombinacionAlternativa == (int)cbxVariacion.SelectedValue)
                         {
                             stockDetalle = toDouble(V.cantidad);
                         }
 
                     }
                 }
-                // restamos si exite en detalles de venta
-
-
-                if (cantidad == 0)
+                stockPresentacion = stockTotal - stockDetalle;
+                if (stockPresentacion > 0)
                 {
-
-                    if (stockTotal == 0)
-                    {
-                        lbStock.Text = "/0";
-                    }
-                    else
-                    {
-                        stockTotal -= stockDetalle;
-                        lbStock.Text = "/" + stockTotal.ToString();
-                    }
+                    lbStock1.Text = "/" + stockTotal.ToString();
+                    lbStock1.ForeColor = Color.Green;
                 }
                 else
                 {
-
-                    if (stockTotal == 0)
+                    if (stockPresentacion < 0)
                     {
-                        lbStock.Text = "/0";
+                        lbStock1.Text = "no exite stock suficiente";
+                        lbStock1.ForeColor = Color.Red;
                     }
                     else
-                        lbStock.Text = "/" + stockTotal.ToString();
+                    {
+
+                        lbStock1.Text = "no hay stock";
+                        lbStock1.ForeColor = Color.Yellow;
+                    }
+
                 }
+
             }
             catch (Exception ex)
             {
@@ -1434,6 +1431,7 @@ namespace Admeli.Ventas.Nuevo
             enModificar = false;
             seleccionado = false;
             limpiarCamposProducto();
+            decorationDataGridView();
         }
 
 
@@ -1561,14 +1559,7 @@ namespace Admeli.Ventas.Nuevo
                 // determinar el impuesto                 
 
                 detalleV.eliminar = "";
-                int scotk = 0;
-                if (lbStock.Text != "")
-                {
-                    scotk = Convert.ToInt32(lbStock.Text.Substring(1, lbStock.Text.Length - 1));
-
-                }
-
-                detalleV.existeStock = (scotk > 0 && scotk >= Convert.ToInt32(txtCantidad.Text.Trim())) ? 1 : 0;             
+                detalleV.existeStock = (stockPresentacion > 0 && stockPresentacion >= Convert.ToInt32(toDouble(txtCantidad.Text.Trim()))) ? 1 : 0;
                 ProductoVenta aux1 = listProductos.Find(x => x.idProducto == (int)cbxCodigoProducto.SelectedValue);
                 detalleV.nombreMarca = aux1.nombreMarca;
                 detalleV.nombrePresentacion = findPresentacion.nombrePresentacion;
@@ -1591,6 +1582,7 @@ namespace Admeli.Ventas.Nuevo
                 descuentoTotal();
 
                 limpiarCamposProducto();
+                decorationDataGridView();
 
             }
             else
@@ -1638,14 +1630,15 @@ namespace Admeli.Ventas.Nuevo
 
         private void decorationDataGridView()
         {
+        
             if (dgvDetalleOrdenCompra.Rows.Count == 0) return;
 
             foreach (DataGridViewRow row in dgvDetalleOrdenCompra.Rows)
             {
                 int idPresentacion = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
-
-                DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion); // Buscando la categoria en las lista de categorias
-                if (aux.estado == 0 || aux.estado==9)
+                int idCombinacion = Convert.ToInt32(row.Cells[1].Value);
+                DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion && x.idCombinacionAlternativa == idCombinacion); // Buscando la categoria en las lista de categorias
+                if (aux.existeStock == 0)
                 {
                     dgvDetalleOrdenCompra.ClearSelection();
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
@@ -2110,7 +2103,7 @@ namespace Admeli.Ventas.Nuevo
             currentProducto = listProductos.Find(X => X.idProducto == (int)cbxCodigoProducto.SelectedValue);
             double precioUnitario = toDouble(currentProducto.precioVenta) + toDouble(alternativa.precio);
             txtPrecioUnitario.Text = darformato(precioUnitario);
-
+            determinarStock(0);
         }
 
         private async void btnVenta_Click(object sender, EventArgs e)

@@ -43,10 +43,11 @@
             this.panel1.Controls.Add(this.btnContacto);
             this.panel1.Controls.Add(this.btnGenerales);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Location = new System.Drawing.Point(0, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 70, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(60, 496);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 86, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(80, 610);
             this.panel1.TabIndex = 7;
             // 
             // btnContacto
@@ -59,10 +60,10 @@
             this.btnContacto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.btnContacto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContacto.Image = ((System.Drawing.Image)(resources.GetObject("btnContacto.Image")));
-            this.btnContacto.Location = new System.Drawing.Point(0, 130);
+            this.btnContacto.Location = new System.Drawing.Point(0, 160);
             this.btnContacto.Margin = new System.Windows.Forms.Padding(0);
             this.btnContacto.Name = "btnContacto";
-            this.btnContacto.Size = new System.Drawing.Size(60, 60);
+            this.btnContacto.Size = new System.Drawing.Size(80, 74);
             this.btnContacto.TabIndex = 1;
             this.btnContacto.UseVisualStyleBackColor = true;
             this.btnContacto.Click += new System.EventHandler(this.btnContacto_Click);
@@ -77,10 +78,10 @@
             this.btnGenerales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.btnGenerales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerales.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerales.Image")));
-            this.btnGenerales.Location = new System.Drawing.Point(0, 70);
+            this.btnGenerales.Location = new System.Drawing.Point(0, 86);
             this.btnGenerales.Margin = new System.Windows.Forms.Padding(0);
             this.btnGenerales.Name = "btnGenerales";
-            this.btnGenerales.Size = new System.Drawing.Size(60, 60);
+            this.btnGenerales.Size = new System.Drawing.Size(80, 74);
             this.btnGenerales.TabIndex = 0;
             this.btnGenerales.UseVisualStyleBackColor = true;
             this.btnGenerales.Click += new System.EventHandler(this.btnGenerales_Click);
@@ -90,34 +91,36 @@
             this.progressBarApp.BackColor = System.Drawing.Color.White;
             this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBarApp.Location = new System.Drawing.Point(0, 0);
-            this.progressBarApp.Margin = new System.Windows.Forms.Padding(2);
+            this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBarApp.MarqueeAnimationSpeed = 10;
             this.progressBarApp.Maximum = 200;
             this.progressBarApp.Name = "progressBarApp";
             this.progressBarApp.RightToLeftLayout = true;
-            this.progressBarApp.Size = new System.Drawing.Size(772, 3);
+            this.progressBarApp.Size = new System.Drawing.Size(1029, 4);
             this.progressBarApp.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBarApp.TabIndex = 1;
             // 
             // panelMainNP
             // 
             this.panelMainNP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainNP.Location = new System.Drawing.Point(60, 3);
+            this.panelMainNP.Location = new System.Drawing.Point(80, 4);
+            this.panelMainNP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMainNP.Name = "panelMainNP";
-            this.panelMainNP.Size = new System.Drawing.Size(712, 496);
+            this.panelMainNP.Size = new System.Drawing.Size(949, 610);
             this.panelMainNP.TabIndex = 9;
             // 
             // FormProveedorNuevo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(772, 499);
+            this.ClientSize = new System.Drawing.Size(1029, 614);
             this.Controls.Add(this.panelMainNP);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.progressBarApp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormProveedorNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                                                    ";
