@@ -30,6 +30,22 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
+        public async Task<Response> desactivar(VentaAnular param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/venta/anular
+                return await webService.POST<VentaAnular, Response>("venta", "anular", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public void modificar()
         {
 
@@ -87,10 +103,7 @@ namespace Modelo
             throw new NotImplementedException();
         }
 
-        public Task<Response> desactivar(Venta currentVenta)
-        {
-            throw new NotImplementedException();
-        }
+       
         public async Task<List<Venta_correlativo>> listarNroDocumentoVenta(int idTipoDocumento, int idPuntoVenta)
         {
             try

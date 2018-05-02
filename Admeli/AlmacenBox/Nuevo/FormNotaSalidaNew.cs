@@ -755,7 +755,7 @@ namespace Admeli.AlmacenBox.Nuevo
                             }
 
                             // currentNotaSalida= 
-                            List<NotaSalidaR> listNotasalida3 = await notaSalidaModel.nSalida(ConfigModel.currentIdAlmacen);
+                            List<NotaSalidaR> listNotasalida3 = await notaSalidaModel.nSalida((int)cbxAlmacen.SelectedValue);
 
                             FormRemisionNew formRemisionNew = new FormRemisionNew(listNotasalida3.Find(X => X.idNotaSalida == notaGuardar.id));
                             formRemisionNew.ShowDialog();

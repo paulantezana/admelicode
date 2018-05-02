@@ -199,7 +199,7 @@ namespace Admeli.Herramientas
             //Loop and check and uncheck all row CheckBoxes based on Header Cell CheckBox.
             foreach (DataGridViewRow row in dgvProducto.Rows)
             {
-                DataGridViewCheckBoxCell checkBox = (row.Cells["chbxselecProducto"] as DataGridViewCheckBoxCell);
+                DataGridViewCheckBoxCell checkBox = (row.Cells[0] as DataGridViewCheckBoxCell);
                 checkBox.Value = HeaderCheckBoxProducto.Checked;
             }
         }
@@ -211,7 +211,7 @@ namespace Admeli.Herramientas
             //Loop and check and uncheck all row CheckBoxes based on Header Cell CheckBox.
             foreach (DataGridViewRow row in dgvImpuestos.Rows)
             {
-                DataGridViewCheckBoxCell checkBox = (row.Cells["chbxselectimpuesto"] as DataGridViewCheckBoxCell);
+                DataGridViewCheckBoxCell checkBox = (row.Cells[0] as DataGridViewCheckBoxCell);
                 checkBox.Value = HeaderCheckBoxImpuesto.Checked;
             }
         }
@@ -224,7 +224,7 @@ namespace Admeli.Herramientas
                 bool isChecked = true;
                 foreach (DataGridViewRow row in dgvProducto.Rows)
                 {
-                    if (Convert.ToBoolean(row.Cells["chbxselecProducto"].EditedFormattedValue) == false)
+                    if (Convert.ToBoolean(row.Cells[0].EditedFormattedValue) == false)
                     {
                         isChecked = false;
                         break;
@@ -242,7 +242,7 @@ namespace Admeli.Herramientas
                 bool isChecked = true;
                 foreach (DataGridViewRow row in dgvImpuestos.Rows)
                 {
-                    if (Convert.ToBoolean(row.Cells["chbxselectimpuesto"].EditedFormattedValue) == false)
+                    if (Convert.ToBoolean(row.Cells[0].EditedFormattedValue) == false)
                     {
                         isChecked = false;
                         break;
@@ -268,8 +268,7 @@ namespace Admeli.Herramientas
         #region=================================
         private void cbxSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxSucursales.SelectedValue!=null)
-                cargarProductos((int)cbxSucursales.SelectedValue);
+            
         }
 
         #endregion=============================================
@@ -310,9 +309,9 @@ namespace Admeli.Herramientas
                 }
 
             }
-            if (cbxSucursales.SelectedValue != null)
+            if (cbxSucursal.SelectedValue != null)
             {
-                listSucursal.Add("idSucursal" , Convert.ToInt32(cbxSucursales.SelectedValue));
+                listSucursal.Add("idSucursal" , Convert.ToInt32(cbxSucursal.SelectedValue));
 
             }
             else
@@ -344,6 +343,12 @@ namespace Admeli.Herramientas
                 MessageBox.Show("Error: " + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void cbxSucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSucursal.SelectedValue != null)
+                cargarProductos((int)cbxSucursal.SelectedValue);
         }
     }
 }

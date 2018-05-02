@@ -21,4 +21,19 @@ namespace Entidad
         public string stockIdeal { get; set; }
         public string stockMinimo { get; set; }
     }
+
+
+    public class CombinacionStock
+    {
+        public int idCombinacionAlternativa { get; set; }
+        public string alternativas { get; set; }
+        public string precio { get; set; }
+        public string nombreCombinacion { get; set; }
+        public int idPresentacion { get; set; }
+        public int idProducto { get; set; }
+        public string codigoSku { get; set; }
+        public string stock { get; set; }
+        public int idAlmacen { get; set; }
+        public string productoAlmacen { get; set; }
+    }
 }

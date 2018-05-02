@@ -134,14 +134,20 @@ namespace Entidad
         public int generarNotaSalida { get; set; }
     }
 
-public class VentaTotal
-{
-    public Cobrov cobro { get; set; }
-    public Ventav venta { get; set; }
-    public List<DetalleV> detalle { get; set; }
-    public CobroVentaV cobroventa { get; set; }
-    public NotasalidaVenta notasalida { get; set; }
-}
+    public class VentaTotal
+    {
+        public Cobrov cobro { get; set; }
+        public Ventav venta { get; set; }
+        public List<DetalleV> detalle { get; set; }
+        public CobroVentaV cobroventa { get; set; }
+        public NotasalidaVenta notasalida { get; set; }
+    }
+
+    public class VentaAnular
+    {      
+        public int idCajaSesion { get; set; }
+        public int idVenta { get; set; }
+    }
 
 
 }

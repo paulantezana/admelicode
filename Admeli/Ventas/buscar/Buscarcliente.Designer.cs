@@ -31,14 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.panel6 = new System.Windows.Forms.Panel();
             this.textBuscar = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.btnAddMarca = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.progressBarApp = new System.Windows.Forms.ProgressBar();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +53,10 @@
             this.idDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.progressBarApp = new System.Windows.Forms.ProgressBar();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -69,7 +68,6 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.textBuscar);
-            this.panel6.Controls.Add(this.btnAddMarca);
             this.panel6.Controls.Add(this.label19);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 4);
@@ -98,25 +96,6 @@
             this.textBuscar.TabIndex = 56;
             this.textBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBuscar_KeyUp);
-            // 
-            // btnAddMarca
-            // 
-            this.btnAddMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMarca.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMarca.FlatAppearance.BorderSize = 0;
-            this.btnAddMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMarca.ForeColor = System.Drawing.Color.White;
-            this.btnAddMarca.Location = new System.Drawing.Point(973, 17);
-            this.btnAddMarca.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddMarca.Name = "btnAddMarca";
-            this.btnAddMarca.Size = new System.Drawing.Size(107, 32);
-            this.btnAddMarca.TabIndex = 55;
-            this.btnAddMarca.Text = "Agregar";
-            this.btnAddMarca.UseVisualStyleBackColor = false;
             // 
             // label19
             // 
@@ -178,31 +157,6 @@
             this.dataGridView.Size = new System.Drawing.Size(1070, 429);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
-            // 
-            // clienteBindingSource1
-            // 
-            this.clienteBindingSource1.DataSource = typeof(Entidad.Cliente);
-            // 
-            // proveedorBindingSource
-            // 
-            this.proveedorBindingSource.DataSource = typeof(Entidad.Proveedor);
-            // 
-            // progressBarApp
-            // 
-            this.progressBarApp.BackColor = System.Drawing.Color.White;
-            this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBarApp.Location = new System.Drawing.Point(0, 0);
-            this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.progressBarApp.MarqueeAnimationSpeed = 10;
-            this.progressBarApp.Maximum = 200;
-            this.progressBarApp.Name = "progressBarApp";
-            this.progressBarApp.RightToLeftLayout = true;
-            this.progressBarApp.Size = new System.Drawing.Size(1096, 4);
-            this.progressBarApp.TabIndex = 49;
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(Entidad.Cliente);
             // 
             // idClienteDataGridViewTextBoxColumn
             // 
@@ -351,6 +305,31 @@
             this.tipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.tipoDocumentoDataGridViewTextBoxColumn.Visible = false;
             // 
+            // clienteBindingSource1
+            // 
+            this.clienteBindingSource1.DataSource = typeof(Entidad.Cliente);
+            // 
+            // proveedorBindingSource
+            // 
+            this.proveedorBindingSource.DataSource = typeof(Entidad.Proveedor);
+            // 
+            // progressBarApp
+            // 
+            this.progressBarApp.BackColor = System.Drawing.Color.White;
+            this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBarApp.Location = new System.Drawing.Point(0, 0);
+            this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.progressBarApp.MarqueeAnimationSpeed = 10;
+            this.progressBarApp.Maximum = 200;
+            this.progressBarApp.Name = "progressBarApp";
+            this.progressBarApp.RightToLeftLayout = true;
+            this.progressBarApp.Size = new System.Drawing.Size(1096, 4);
+            this.progressBarApp.TabIndex = 49;
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(Entidad.Cliente);
+            // 
             // Buscarcliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -379,7 +358,6 @@
 
         private System.Windows.Forms.Panel panel6;
         private Bunifu.Framework.UI.BunifuMetroTextbox textBuscar;
-        private System.Windows.Forms.Button btnAddMarca;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView;
