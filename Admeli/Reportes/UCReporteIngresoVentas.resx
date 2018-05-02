@@ -117,27 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnImportExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAVxJREFUOE9j
-        GDrAoMFAQL/O2FG/xrhYr9ZwqU6VuThUCj8wqDWx1qs1qtKrNV4NpO8C8X9k7LDAOdp7g78LMvZdE6wB
-        1Y4AurWG+9E1I2OPlT7/fdYHoOP9UO0IQMig5sNt/2O3J/zvPzsJjMsOVeI2yLjB/P/G85v/Zy/O/W9Q
-        b/J//dkN/+NmJ4IN2n9v//+8fYX/L7++AsYLri7C76Jp+2b8v/ni1v+69Y3/b7+889+w3hRs0PQzM/8n
-        7Uz7v+z6CjBuOdGO3yCzJqv/zz+8+P/p+6f/iXNT4F5bdXXN/4w92f/3PNwHxpPOTcVvkHmz9f+n75/+
-        //Dt4/+MhdnkG7Ti5Kr/+68f+N+0qfX/sw/PwQaDxEnymlWr3f+VJ1f/D54S9h8U8MtOrPgfOysBbBDJ
-        gY0LkxT92AyAYaITJKEsYj/Hydd7fYAxCl4brATVjhuQnWkHCWBgAACo+Ih1A9oFrAAAAABJRU5ErkJg
-        gg==
-</value>
-  </data>
-  <data name="btnGuardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAPVJREFUOE9j
-        GLzAZMatmfrdJ55pN+/7GjL1wI9pm47+RcYztx7/OXv7ya+tG8+8Nplx+6TZjLsmUK2oACi5X6/z6H/N
-        hp3/Y2bs/b9h31E47pu96L+akQWYnrjl9H+gWhD+YjL9tgNUOwKQYRAI74NqRwAyDdoP1Y4AIEGDiRf/
-        67Qf+u/Qf/h/17oj/3vXI3DfppP/+7ec+p+6/BJhg5AUEItpbNDqKx/+EwtWAdXiNGjzjY//f/3+8//2
-        o6d4MUgNSC1eg/7+/fv/7YdPeDFIDf0MoorX1lwlPrBXA9ViNch0+u0ek+l3dpOCQXqg2gcdYGAAAGWA
-        UFEd7FneAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>
