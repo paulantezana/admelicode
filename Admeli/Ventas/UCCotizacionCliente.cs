@@ -367,7 +367,7 @@ namespace Admeli.Ventas
                 currentCotizacion.idCotizacion = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
 
                 loadState(true); // cambiando el estado
-                Response response = await cotizacionModel.eliminar(currentCotizacion); // Eliminando con el webservice correspondiente
+                Response response = await cotizacionModel.desactivar(currentCotizacion); // Eliminando con el webservice correspondiente
                 MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cargarRegistros(); // recargando el datagridview
             }

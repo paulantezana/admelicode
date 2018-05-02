@@ -71,8 +71,14 @@ namespace Admeli
                     }
                     else
                     {
-                        if (ConfigModel.puntosDeVenta.Count >= 1) { ConfigModel.currentPuntoVenta = ConfigModel.puntosDeVenta[0].idAsignarPuntoVenta; }
-                        if (ConfigModel.alamacenes.Count >= 1) { ConfigModel.currentIdAlmacen = ConfigModel.alamacenes[0].idAlmacen; }
+
+                        // Estableciendo el almacen y punto de venta al personal asignado
+                        // este ya esta definido arriba
+
+                        if (ConfigModel.puntosDeVenta.Count > 0) { ConfigModel.currentPuntoVenta = ConfigModel.puntosDeVenta[0].idAsignarPuntoVenta; }
+                        if (ConfigModel.alamacenes.Count > 0) { ConfigModel.currentIdAlmacen = ConfigModel.alamacenes[0].idAlmacen; }
+                        //
+                            
                         // Ocultar este formulario
                         this.Hide();
 

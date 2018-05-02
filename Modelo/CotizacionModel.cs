@@ -60,9 +60,18 @@ namespace Modelo
             throw new NotImplementedException();
         }
 
-        public Task<Response> desactivar(Cotizacion currentCotizacion)
+        public async Task<Response> desactivar(Cotizacion currentCotizacion)
         {
-            throw new NotImplementedException();
+            //cotizacion/eliminar
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/contactoproveedor/guardar
+                return await webService.POST<Cotizacion, Response>("cotizacion", "eliminar", currentCotizacion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
 

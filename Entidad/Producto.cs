@@ -48,6 +48,12 @@ namespace Entidad
                 estadoString = value;
             }
         }
+
+        public string precioVenta { get; set; }
+        public string stock { get; set; }
+        public string stockFinanciero { get; set; }
+        public int idPresentacionAfectada { get; set; }
+
     }
 
     public class ProductoVenta

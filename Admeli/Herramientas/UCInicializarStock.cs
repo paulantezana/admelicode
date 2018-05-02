@@ -606,24 +606,19 @@ namespace Admeli.Herramientas
                 return;
             }
 
+           
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+            dataGridView.ReadOnly = false;
+            dataGridView.Rows[index].ReadOnly = false;
+            dataGridView.Rows[index].Cells[2].ReadOnly= true; 
 
-            currentProdcuto = productos.Find(x => x.idProducto == idProducto); // Buscando la registro especifico en la lista de registros
-
-            Producto auxProducto = new Producto();
-
-            auxProducto.nombreProducto = currentProdcuto.nombreProducto;
-            auxProducto.codigoProducto= currentProdcuto.codigoProducto;
-            auxProducto.precioCompra= currentProdcuto.precioCompra;
-            auxProducto.descripcionCorta=currentProdcuto.descripcionCorta;
-            auxProducto.idProducto = currentProdcuto.idProducto;
+           
 
 
             // Mostrando el formulario de modificacion
-            FormProductoNuevo formProducto = new FormProductoNuevo(auxProducto);
-            formProducto.ShowDialog();
-            cargarRegistros(); // recargando loas registros en el datagridview
+            //FormProductoNuevo formProducto = new FormProductoNuevo(auxProducto);
+            //formProducto.ShowDialog();
+            //cargarRegistros(); // recargando loas registros en el datagridview
         }
 
         

@@ -348,17 +348,29 @@ namespace Admeli.Productos.Nuevo
                 if (nuevo)
                 {
                     Response response = await productoModel.guardar(currentProducto);
-                    //Guardar las Categorias si es que se eligió uno
-                    this.nuevo = false;
-                    this.currentIDProducto = response.id;
-                    if (currentCategorias.Count > 0)
+                    //personalizar la respueste 
+                    if(response.id>0)
+
                     {
-                        Response responseCat=await guardarCategoria();
+                        this.currentIDProducto = response.id; 
+                        if (currentCategorias.Count > 0)
+                        {
+                            Response responseCat = await guardarCategoria();
+                        }
+                        MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Consulta de guardar =============================================
+                        this.nuevo = false;
+                        this.currentIDProducto = response.id;
+                        this.reLoad();
+
+
                     }
+
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Consulta de guardar =============================================
                     
                     this.reLoad();
+
                 }
                 else
                 {

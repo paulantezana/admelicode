@@ -34,11 +34,11 @@ namespace Admeli.Ventas.Nuevo
         TotalCotizacion totalCotizacion { get; set; }
         //webservice utilizados     
         private TipoDocumentoModel tipoDocumentoModel = new TipoDocumentoModel();
-        private DocCorrelativoModel docCorrelativoModel = new DocCorrelativoModel();       
-        private AlternativaModel alternativaModel = new AlternativaModel();      
-        private FechaModel fechaModel = new FechaModel();    
-        private MedioPagoModel medioPagoModel = new MedioPagoModel();       
-        private LocationModel locationModel = new LocationModel();       
+        private DocCorrelativoModel docCorrelativoModel = new DocCorrelativoModel();
+        private AlternativaModel alternativaModel = new AlternativaModel();
+        private FechaModel fechaModel = new FechaModel();
+        private MedioPagoModel medioPagoModel = new MedioPagoModel();
+        private LocationModel locationModel = new LocationModel();
         private MonedaModel monedaModel = new MonedaModel();
         private DocumentoIdentificacionModel documentoIdentificacionModel = new DocumentoIdentificacionModel();
         private ClienteModel clienteModel = new ClienteModel();
@@ -51,14 +51,14 @@ namespace Admeli.Ventas.Nuevo
         /// Sus datos se cargan al abrir el formulario
         private List<Moneda> monedas { get; set; }
         private List<TipoDocumento> tipoDocumentos { get; set; }
-        private FechaSistema fechaSistema { get; set; }      
-        private List<MedioPago> medioPagos { get; set; }          
+        private FechaSistema fechaSistema { get; set; }
+        private List<MedioPago> medioPagos { get; set; }
         private List<DocumentoIdentificacion> documentoIdentificacion { get; set; }
         private List<Cliente> listClientes { get; set; }
         private List<Impuesto> listImpuesto { get; set; }
         private List<ImpuestoDocumento> listIDocumento { get; set; }
         private List<ProductoVenta> listProductos { get; set; }
-        private DescuentoProductoReceive  descuentoProducto{ get; set; }
+        private DescuentoProductoReceive descuentoProducto { get; set; }
         private List<DetalleV> detalleVentas { get; set; }
         private List<Presentacion> listPresentacion { get; set; }
         private List<ImpuestoProducto> listImpuestosProducto { get; set; }
@@ -66,9 +66,9 @@ namespace Admeli.Ventas.Nuevo
         List<AlternativaCombinacion> alternativaCombinacion { get; set; }
 
 
-        public UbicacionGeografica CurrentUbicacionGeografica;      
+        public UbicacionGeografica CurrentUbicacionGeografica;
         /// Llenan los datos en las interacciones en el formulario                
-        private Presentacion currentPresentacion { get; set; }      
+        private Presentacion currentPresentacion { get; set; }
         private CorrelativoCotizacion correlativoCotizacion { get; set; }
         private ProductoVenta currentProducto { get; set; }
         private ImpuestoProducto impuestoProducto { get; set; }
@@ -77,21 +77,21 @@ namespace Admeli.Ventas.Nuevo
         private DetalleV currentdetalleV { get; set; }
 
 
-        private Cotizacion  currentCotizacion { get; set; }
+        private Cotizacion currentCotizacion { get; set; }
 
 
-        private double stockPresentacion{ get; set; }
-        bool enModificar = false;     
-        public int nroNuevo = 0;      
+        private double stockPresentacion { get; set; }
+        bool enModificar = false;
+        public int nroNuevo = 0;
         private bool nuevo { get; set; }
         int nroDecimales = 2;
-        string formato { get; set; }     
+        string formato { get; set; }
         private double SubTotal = 0;
         private double Descuento = 0;
         private double impuesto = 0;
         private double total = 0;
 
-
+        private int tab = 0;
 
 
         // variables para poder imprimir la cotizacion
@@ -111,12 +111,12 @@ namespace Admeli.Ventas.Nuevo
         {
             InitializeComponent();
             this.nuevo = true;
-            cargarFechaSistema();                         
-            formato = "{0:n" + nroDecimales + "}";                    
+            cargarFechaSistema();
+            formato = "{0:n" + nroDecimales + "}";
             cargarResultadosIniciales();
         }
 
-     
+
         #region============= metods de apoyo en formato de decimales
 
         private void cargarResultadosIniciales()
@@ -139,7 +139,7 @@ namespace Admeli.Ventas.Nuevo
         {
 
             string var1 = string.Format(CultureInfo.GetCultureInfo("en-US"), this.formato, dato);
-            var1= var1.Replace(",","");
+            var1 = var1.Replace(",", "");
             return var1;
         }
 
@@ -157,12 +157,12 @@ namespace Admeli.Ventas.Nuevo
 
         public FormCotizacionaNew(Cotizacion currentCotizacion)
         {
-            
+
             InitializeComponent();
-            this.currentCotizacion = currentCotizacion; 
-            this.nuevo = false;       
+            this.currentCotizacion = currentCotizacion;
+            this.nuevo = false;
             formato = "{0:n" + nroDecimales + "}";
-         
+
         }
 
         #endregion ================================ Construtor ================================
@@ -175,14 +175,14 @@ namespace Admeli.Ventas.Nuevo
             if (nuevo == true)
             {
                 this.reLoad();
-               
-               
+
+
             }
             else
             {
                 this.reLoad();
 
-                cargarCotizacion();                    
+                cargarCotizacion();
             }
 
             AddButtonColumn();
@@ -191,10 +191,10 @@ namespace Admeli.Ventas.Nuevo
         }
         private void reLoad()
         {
-                      
-            cargarMonedas();        
+
+            cargarMonedas();
             cargarFechaSistema();
-            cargarProductos();                             
+            cargarProductos();
             cargartiposDocumentos();
             cargarClientes();
             cargarCorrelactivo();
@@ -207,26 +207,26 @@ namespace Admeli.Ventas.Nuevo
         }
         #endregion
         #region ============================== Load ==============================
-        private  void cargarFormatoDocumento()
+        private void cargarFormatoDocumento()
         {
 
 
-           TipoDocumento tipoDocumento=   ConfigModel.tipoDocumento.Find(X => X.idTipoDocumento ==2);// cotizacion
+            TipoDocumento tipoDocumento = ConfigModel.tipoDocumento.Find(X => X.idTipoDocumento == 2);// cotizacion
             listformato = JsonConvert.DeserializeObject<List<FormatoDocumento>>(tipoDocumento.formatoDocumento);
             foreach (FormatoDocumento f in listformato)
             {
-                
+
                 string textoNormalizado = f.value.Normalize(NormalizationForm.FormD);
                 //coincide todo lo que no sean letras y números ascii o espacio
                 //y lo reemplazamos por una cadena vacía.
                 Regex reg = new Regex("[^a-zA-Z0-9 ]");
                 f.value = reg.Replace(textoNormalizado, "");
-                f.value = f.value.Replace(" ","");
+                f.value = f.value.Replace(" ", "");
 
 
 
             }
-            string info  = JsonConvert.SerializeObject(listformato);
+            string info = JsonConvert.SerializeObject(listformato);
         }
 
 
@@ -235,18 +235,18 @@ namespace Admeli.Ventas.Nuevo
         {
 
             try
-            {           
-            detalleVentas=  await cotizacionModel.detalleCotizacion(currentCotizacion.idCotizacion);
+            {
+                detalleVentas = await cotizacionModel.detalleCotizacion(currentCotizacion.idCotizacion);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "cargar Cotizacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             txtObservaciones.Text = currentCotizacion.observacion;
-            double impuesto = 0; 
-            foreach(DetalleV V in detalleVentas)
+            double impuesto = 0;
+            foreach (DetalleV V in detalleVentas)
             {
-               
+
                 double Im = toDouble(V.valor);
                 impuesto += Im;
 
@@ -257,23 +257,23 @@ namespace Admeli.Ventas.Nuevo
 
                 V.precioUnitario = darformato(precioUnitario);
                 V.cantidad = darformato(cantidad);
-                V.cantidadUnitaria= darformato(cantidad1);
+                V.cantidadUnitaria = darformato(cantidad1);
 
                 double total1 = toDouble(V.total);
-                V.total = darformato(total1);             
+                V.total = darformato(total1);
                 double total = precioUnitario * cantidad + Im;
                 V.totalGeneral = darformato(total);
-                V.precioVenta = darformato(total/ cantidad);
+                V.precioVenta = darformato(total / cantidad);
 
                 double precioVenta = toDouble(V.precioVenta);
-                double d=  1-toDouble(V.descuento) / 100;
-                
+                double d = 1 - toDouble(V.descuento) / 100;
 
 
-                V.precioVentaReal = darformato(precioVenta/d);
+
+                V.precioVentaReal = darformato(precioVenta / d);
                 listImpuestosProducto = await impuestoModel.impuestoProducto(V.idProducto, ConfigModel.sucursal.idSucursal);
-               
-                
+
+
                 // calculamos lo impuesto posibles del producto
                 double porcentual = 0;
                 double efectivo = 0;
@@ -345,11 +345,11 @@ namespace Admeli.Ventas.Nuevo
                 }
 
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "cargar Clientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-                    
+
         }
         private async void cargartiposDocumentos()
         {
@@ -360,13 +360,13 @@ namespace Admeli.Ventas.Nuevo
                 documentoIdentificacion = await documentoIdentificacionModel.docIdentificacion();
                 documentoIdentificacionBindingSource.DataSource = documentoIdentificacion;
 
-                
+
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "cargar Doc", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }       
+            }
         }
         private async void cargarImpuesto()
         {
@@ -377,7 +377,7 @@ namespace Admeli.Ventas.Nuevo
 
                 listIDocumento = await impuestoModel.impuestoTipoDoc(ConfigModel.sucursal.idSucursal, 4); // tipo documento 4 
 
-              
+
             }
             catch (Exception ex)
             {
@@ -413,7 +413,7 @@ namespace Admeli.Ventas.Nuevo
 
             }
 
-          
+
         }
         private async void cargarMonedas()
         {
@@ -424,7 +424,7 @@ namespace Admeli.Ventas.Nuevo
                 if (!nuevo)
                 {
 
-                    Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);  
+                    Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
                     cbxTipoMoneda.SelectedValue = currentCotizacion.idMoneda;
                     txtObservaciones.Text = currentCotizacion.observacion;
                     this.Descuento = toDouble(currentCotizacion.descuento);
@@ -454,8 +454,8 @@ namespace Admeli.Ventas.Nuevo
                 if (!nuevo)
                 {
                     dtpFechaEmision.Value = currentCotizacion.fechaEmision.date;
-                    dtpFechaVecimiento.Value= currentCotizacion.fechaVencimiento.date;
-               
+                    dtpFechaVecimiento.Value = currentCotizacion.fechaVencimiento.date;
+
                 }
                 else
                 {
@@ -472,7 +472,7 @@ namespace Admeli.Ventas.Nuevo
                 MessageBox.Show("Error: " + ex.Message, "cargar Fecha", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-     
+
         private void AddButtonColumn()
         {
             DataGridViewButtonColumn buttons = new DataGridViewButtonColumn();
@@ -486,13 +486,13 @@ namespace Admeli.Ventas.Nuevo
                 buttons.CellTemplate.Style.BackColor = Color.Red;
                 buttons.CellTemplate.Style.ForeColor = Color.White;
 
-                buttons.Name = "acciones";           
+                buttons.Name = "acciones";
             }
 
             dgvDetalleOrdenCompra.Columns.Add(buttons);
 
         }
-        
+
 
         private void cargarProductoDetalle()
         {
@@ -505,13 +505,13 @@ namespace Admeli.Ventas.Nuevo
                 cbxDescripcion.Text = currentProducto.codigoProducto;
                 // Llenar los campos del producto escogido.............!!!!!
 
-                if(!enModificar)
+                if (!enModificar)
                 {
 
                     txtCantidad.Text = "1";
                     txtDescuento.Text = "0";
                 }
-               
+
                 /// Cargando presentaciones
                 cargarPresentacionesProducto();
                 /// Cargando alternativas del producto
@@ -525,18 +525,18 @@ namespace Admeli.Ventas.Nuevo
             }
         }
 
-        private  void cargarPresentacionesProducto()
+        private void cargarPresentacionesProducto()
         {
 
             // arreglar esto  no es necesrio ir a un servicio
             if (cbxCodigoProducto.SelectedIndex == -1) return; /// validacion   
             int idProducto = (int)cbxCodigoProducto.SelectedValue;
-            ProductoVenta productoVenta=  listProductos.Find(X => X.idProducto == idProducto);
+            ProductoVenta productoVenta = listProductos.Find(X => X.idProducto == idProducto);
             /// Cargar las precentacione
-            cbxDescripcion.SelectedValue =productoVenta.idPresentacion ;
+            cbxDescripcion.SelectedValue = productoVenta.idPresentacion;
             presentacionBindingSource.DataSource = listPresentacion;
-            
-        
+
+
         }
         private void calcularPrecioUnitarioProducto()
         {
@@ -586,25 +586,38 @@ namespace Admeli.Ventas.Nuevo
             if (!nuevo)
             {
                 if (cbxVariacion.SelectedIndex != -1 && currentdetalleV != null)
-                    cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa ;
+                    cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
 
             }
 
 
-            if(alternativaCombinacion[0].idCombinacionAlternativa<=0)
+            if (alternativaCombinacion[0].idCombinacionAlternativa <= 0)
                 calcularPrecioUnitarioProducto();
             calcularTotal();
         }
 
 
 
-   
+
         #endregion
+
+        #region =========================== Estados ===========================
+        private void loadState(bool state)
+        {
+
+            panelProducto.Enabled = !state;
+
+            panelInfo.Enabled = !state;
+
+          
+        }
+        #endregion
+
 
         #region=========== METODOS DE APOYO EN EL CALCULO
 
 
-        private  void calculoSubtotal()
+        private void calculoSubtotal()
         {
 
 
@@ -874,19 +887,10 @@ namespace Admeli.Ventas.Nuevo
                         lbStock1.ForeColor = Color.Green;
                     }
                     else
-                    {                        
-                        if (stockPresentacion < 0)
-                        {
-                            lbStock1.Text = "no exite stock suficiente";
-                            lbStock1.ForeColor = Color.Red; 
-                        }
-                        else
-                        {
-                            
-                            lbStock1.Text = "no hay stock";
-                            lbStock1.ForeColor = Color.Yellow;
-                        }
-                       
+                    {                                              
+                        lbStock1.Text = "no exite stock suficiente";
+                        lbStock1.ForeColor = Color.Red; 
+                                                                
                     }
               
                
@@ -1353,13 +1357,11 @@ namespace Admeli.Ventas.Nuevo
             }
 
         }
-
-
-        private async void btnAgregar_Click(object sender, EventArgs e)
+        public   async void agregar()
         {
-
-
-            try { 
+            loadState(true);
+            try
+            {
                 if (txtPrecioUnitario.Text == "")
                 {
                     txtPrecioUnitario.Text = "0";
@@ -1387,7 +1389,7 @@ namespace Admeli.Ventas.Nuevo
                     if (detalleVentas == null) detalleVentas = new List<DetalleV>();
                     DetalleV detalleV = new DetalleV();
 
-                    DetalleV aux = buscarElemento( (int)cbxDescripcion.SelectedValue, (int)cbxVariacion.SelectedValue );
+                    DetalleV aux = buscarElemento((int)cbxDescripcion.SelectedValue, (int)cbxVariacion.SelectedValue);
                     if (aux != null)
                     {
 
@@ -1399,15 +1401,15 @@ namespace Admeli.Ventas.Nuevo
 
 
                     // Creando la lista
-                    detalleV.cantidad = darformato( toDouble( txtCantidad.Text.Trim()));//1
+                    detalleV.cantidad = darformato(toDouble(txtCantidad.Text.Trim()));//1
 
                     //determinamos el stock
                     determinarStock(0);
                     /// Busqueda presentacion
                     Presentacion findPresentacion = listPresentacion.Find(x => x.idPresentacion == Convert.ToInt32(cbxDescripcion.SelectedValue));
 
-                    detalleV.idDetalleCotizacion=0;
-                    detalleV.idCotizacion = currentCotizacion!=null ? currentCotizacion.idCotizacion :0;// depende luego 
+                    detalleV.idDetalleCotizacion = 0;
+                    detalleV.idCotizacion = currentCotizacion != null ? currentCotizacion.idCotizacion : 0;// depende luego 
                     detalleV.cantidadUnitaria = darformato(txtCantidad.Text.Trim());
                     detalleV.codigoProducto = cbxCodigoProducto.Text.Trim();
                     detalleV.descripcion = findPresentacion.descripcion;
@@ -1438,7 +1440,7 @@ namespace Admeli.Ventas.Nuevo
                             efectivo += toDouble(I.valorImpuesto);
                         }
                     }
-                    detalleV.Porcentual =darformato( porcentual);
+                    detalleV.Porcentual = darformato(porcentual);
                     detalleV.Efectivo = darformato(efectivo);
 
                     double precioUnitarioI1 = precioUnitarioDescuento;
@@ -1468,9 +1470,9 @@ namespace Admeli.Ventas.Nuevo
                     // determinar el impuesto                 
 
                     detalleV.eliminar = "";
-                   
 
-                    detalleV.existeStock = (stockPresentacion > 0 && stockPresentacion >= Convert.ToInt32( toDouble( txtCantidad.Text.Trim()))) ? 1 : 0;             
+
+                    detalleV.existeStock = (stockPresentacion > 0 && stockPresentacion >= Convert.ToInt32(toDouble(txtCantidad.Text.Trim()))) ? 1 : 0;
                     ProductoVenta aux1 = listProductos.Find(x => x.idProducto == (int)cbxCodigoProducto.SelectedValue);
                     detalleV.nombreMarca = aux1.nombreMarca;
                     detalleV.nombrePresentacion = findPresentacion.nombrePresentacion;
@@ -1500,20 +1502,42 @@ namespace Admeli.Ventas.Nuevo
                 {
 
                     MessageBox.Show("Error: elemento no seleccionado", "agregar Elemento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    tab = 1;
                 }
 
             }
-               
+
 
 
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "agregar Producto ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
+
+                loadState(false);
+                if (tab == 0)
+                {
+
+                    this.cbxCodigoProducto.Focus();
+
+                }
+                else
+                {
+
+                    this.dgvDetalleOrdenCompra.Focus();
+                    tab = 0;
+                }
+            }
 
 
+        }
 
+        private  void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+            agregar();
 
         }
 
@@ -1620,7 +1644,7 @@ namespace Admeli.Ventas.Nuevo
 
             int nroCaracteres = aux.Length;
             bool exiteProveedor = false;
-            if (nroCaracteres == 11 || nroCaracteres ==8)
+            if (nroCaracteres == txtDocumentoCliente.MaxLength)
             {
                 try
                 {                    
@@ -1710,8 +1734,31 @@ namespace Admeli.Ventas.Nuevo
       
         private async void btnCotizacion_Click_1(object sender, EventArgs e)
         {
+            if (detalleVentas == null)
+            {
+                detalleVentas = new List<DetalleV>();
+            }
+
+            loadState(true);
             try
             {
+
+                if(CurrentCliente == null)
+                {
+
+                    MessageBox.Show("Error: " + " cliente no seleccionado", "cliente ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbxNombreRazonCliente.Focus();
+                    return;
+
+                }
+                if (   detalleVentas.Count == 0)
+                {
+                    MessageBox.Show("Error: " + " Productos no seleccionados", "Productos ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbxCodigoProducto.Focus();
+                    return;
+
+                }
+
                 cotizacionG.correlativo = txtCorrelativo.Text.Trim();
                 cotizacionG.descuento = darformatoGuardar(this.Descuento);
                 cotizacionG.direccion = txtDireccionCliente.Text.Trim();
@@ -1769,7 +1816,12 @@ namespace Admeli.Ventas.Nuevo
             {
                 MessageBox.Show("Error: " + ex.Message, "ASIGNAR COTIZACION ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
 
+
+                loadState(false);
+            }
             Response response = null;
             try
             {
@@ -1782,6 +1834,10 @@ namespace Admeli.Ventas.Nuevo
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar Cotizacion ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally {
+
+                loadState(false);
+              }
             if (response.id > 0)
             {
                 if (nuevo)
@@ -2074,6 +2130,117 @@ namespace Admeli.Ventas.Nuevo
         private void lbStock_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxCodigoProducto_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void cbxDescripcion_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void cbxVariacion_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void txtPrecioUnitario_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void txtDescuento_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void txtTotalProducto_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+                this.btnAgregar.Focus();
+            }
+        }
+
+        private void dgvDetalleOrdenCompra_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                this.cbxCodigoProducto.Focus();
+
+            }
+        }
+        private void limpiarCamposCliente()
+        {
+            txtDocumentoCliente.Clear();
+            cbxNombreRazonCliente.SelectedIndex = -1;
+            txtDireccionCliente.Clear();
+
+
+        }
+        private void cbxTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoDocumento.SelectedIndex == -1 || cbxNombreRazonCliente.SelectedIndex == -1) return;
+            if (nuevo)
+            {
+                if (cbxTipoDocumento.SelectedIndex == -1) return;
+                int idTipoDocumento = (int)cbxTipoDocumento.SelectedValue;
+                DocumentoIdentificacion tipoDocumento = documentoIdentificacion.Find(X => X.idDocumento == idTipoDocumento);
+                txtDocumentoCliente.MaxLength = tipoDocumento.numeroDigitos;
+                if (tipoDocumento.tipoDocumento == "Jurídico")
+                {
+                    if (listClientes == null ) return;
+                  
+                    Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento  &&  X.idCliente==(int)cbxNombreRazonCliente.SelectedValue);// && falta lo de 
+                    if (cliente == null)
+                    {
+
+                        limpiarCamposCliente();
+                    }
+
+                }
+
+                else
+                {
+                    if ( listClientes == null ) return;                        
+                    Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento && X.idCliente == (int)cbxNombreRazonCliente.SelectedValue);
+                    if (cliente == null)
+                    {
+                        limpiarCamposCliente();
+                    }
+                }
+
+
+
+            }
         }
     }
 

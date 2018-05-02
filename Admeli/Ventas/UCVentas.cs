@@ -458,9 +458,11 @@ namespace Admeli.Ventas
                     MessageBox.Show("Este registro ya esta desactivado", "Desactivar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-
+                VentaAnular ventaAnular = new VentaAnular();
+                ventaAnular.idVenta = currentVenta.idVenta;
+                ventaAnular.idCajaSesion = ConfigModel.cajaSesion!=null ? ConfigModel.cajaSesion.idCajaSesion :0;
                 // Procediendo con las desactivacion
-                Response response = await ventaModel.desactivar(currentVenta);
+                Response response = await ventaModel.desactivar(ventaAnular);
                 MessageBox.Show(response.msj, "Desactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cargarRegistros(); // recargando los registros en el datagridview
             }

@@ -71,7 +71,34 @@ namespace Modelo.Recursos
                 throw ex;
             }
         }
+        public async Task<K> POSTSerializado<K>(string servicio, string request)
+        {
+            try
+            {                             
+                StringContent content = new StringContent(request, Encoding.UTF8, "application/json");
 
+                // Creando un nuevo cliente
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(this.domainName);
+                string url = string.Format("{0}/{1}", this.directory, servicio);
+                HttpResponseMessage response = await client.PostAsync(url, content);
+
+                // Validando la respuesta
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception(response.StatusCode.ToString()); // si hay un error mandar un exception con statuscode
+                }
+                string result = await response.Content.ReadAsStringAsync();
+
+                // retornando los valores como un objeto
+                K dataResponse = JsonConvert.DeserializeObject<K>(result);
+                return dataResponse;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         /// <summary>
         /// Enviar y recivir datos mediante el metodo POST
         /// </summary>
