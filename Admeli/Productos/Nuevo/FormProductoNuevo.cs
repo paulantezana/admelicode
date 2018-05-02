@@ -350,6 +350,7 @@ namespace Admeli.Productos.Nuevo
                     Response response = await productoModel.guardar(currentProducto);
                     //personalizar la respueste 
                     if(response.id>0)
+
                     {
                         this.currentIDProducto = response.id; 
                         if (currentCategorias.Count > 0)
@@ -365,8 +366,11 @@ namespace Admeli.Productos.Nuevo
 
                     }
 
-                   
-                   
+                    MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Consulta de guardar =============================================
+                    
+                    this.reLoad();
+
                 }
                 else
                 {

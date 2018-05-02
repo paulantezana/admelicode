@@ -60,6 +60,7 @@ namespace Admeli
                     });
 
                     // Mostrar el formulario dependiendo de la cantidad de puntos de venta y almacenes
+
                     if (ConfigModel.puntosDeVenta.Count > 1 || ConfigModel.alamacenes.Count > 1)
                     {
                         // Ocultar este formulario
@@ -70,6 +71,7 @@ namespace Admeli
                     }
                     else
                     {
+
                         // Estableciendo el almacen y punto de venta al personal asignado
                         // este ya esta definido arriba
 
