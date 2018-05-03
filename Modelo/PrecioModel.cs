@@ -25,7 +25,10 @@ namespace Modelo
                 throw ex;
             }
         }
+        //public async Task<Response> precioModificar(Precio precio)
+        //{
 
+        //}
         public Task<Response> desactivar(Precio currentPrecio)
         {
             throw new NotImplementedException();

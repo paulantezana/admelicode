@@ -754,7 +754,7 @@ namespace Admeli.Productos
             if (chkVerStock.Checked)
             {
                 // activar las columnas  var ver stock
-                dataGridView.Columns[0].Visible=true;
+                dataGridView.Columns[0].Visible=false;
                 dataGridView.Columns[1].Visible = true;
                 dataGridView.Columns[2].Visible = true;
                 dataGridView.Columns[3].Visible = false;
@@ -763,24 +763,24 @@ namespace Admeli.Productos
                 dataGridView.Columns[6].Visible = false;
                 dataGridView.Columns[7].Visible = true;
                 dataGridView.Columns[8].Visible = true;
-                dataGridView.Columns[9].Visible = true;
+                dataGridView.Columns[9].Visible = false;
                 dataGridView.Columns[10].Visible = false;
 
                 cargarRegistrosStock();
             }
             else
             {
-                dataGridView.Columns[0].Visible = true;
+                dataGridView.Columns[0].Visible = false;
                 dataGridView.Columns[1].Visible = true;
                 dataGridView.Columns[2].Visible = true;
-                dataGridView.Columns[3].Visible = true;
+                dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = true;
                 dataGridView.Columns[5].Visible = true;
                 dataGridView.Columns[6].Visible = true;
                 dataGridView.Columns[7].Visible = false;
                 dataGridView.Columns[8].Visible = false;
                 dataGridView.Columns[9].Visible = false;
-                dataGridView.Columns[10].Visible = true;
+                dataGridView.Columns[10].Visible = false;
                 cargarRegistros();
             }
 

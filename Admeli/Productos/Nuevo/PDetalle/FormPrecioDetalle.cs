@@ -19,7 +19,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private MonedaModel monedaModel = new MonedaModel();
         private SucursalModel sucursalModel = new SucursalModel();
         private ImpuestoModel impuestoModel = new ImpuestoModel();
-
+        private string precioCompra;
         private Precio currentPrecio;
 
         public FormPrecioDetalle()
@@ -33,8 +33,16 @@ namespace Admeli.Productos.Nuevo.PDetalle
             this.currentPrecio = currentPrecio;
         }
 
+        public FormPrecioDetalle(Precio currentPrecio, string precioCompra)
+        {
+            InitializeComponent();
+            this.currentPrecio = currentPrecio;
+            this.precioCompra = precioCompra;
+        }
+
         private void cargarDatosModificar()
         {
+            textPrecioCompra.Text = precioCompra.ToString();
             textPrecioVenta.Text = currentPrecio.precioVenta;
             textPrecioCompetencia.Text = currentPrecio.precioCompetencia;
             textPrecioUtilidad.Text = currentPrecio.utilidad;
@@ -86,5 +94,38 @@ namespace Admeli.Productos.Nuevo.PDetalle
             formSucursalNuevo.ShowDialog();
             this.cargarSucursales();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            ejecutarGuardar();
+        }
+
+        private void cargarValores()
+        {
+            currentPrecio.utilidad = textPrecioUtilidad.Text;
+            currentPrecio.precioVenta = textPrecioVenta.Text;
+            currentPrecio.precioCompetencia = textPrecioVenta.Text;
+        }
+
+        private async void ejecutarGuardar()
+        {
+            try
+            {
+                //Crear objeto Precio
+                cargarValores();
+                //Guardamos el PrecioProducto
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
+
 }
