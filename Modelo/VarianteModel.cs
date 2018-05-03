@@ -25,6 +25,19 @@ namespace Modelo
             }
         }
 
+        public async Task<ResponseStock> modificarStockCombinacion(CombinacioneGuaradar param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/calternativa/herramienta
+                return await webService.POST<CombinacioneGuaradar, ResponseStock>("calternativa", "herramienta", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<Response> modificar(Variante param)
         {
             try

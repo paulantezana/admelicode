@@ -84,7 +84,7 @@ namespace Entidad
         public string nombreProducto { get; set; }
         public string descripcionCorta { get; set; }
         public string precioCompra { get; set; }
-        public object precioConImpuesto { get; set; }
+        public string precioConImpuesto { get; set; }
         public string utilidad { get; set; }
         public int estado { get; set; }
         public int idUnidadMedida { get; set; }
@@ -117,6 +117,14 @@ namespace Entidad
                 estadoString = value;
             }
         }
+
+        public int idPresentacion { get; set; }
+        public string codigo { get; set; }
+        public string nombrePresentacion { get; set; }
+     
+
+
+
     }
     public class ImpuestoData
     {
@@ -124,7 +132,10 @@ namespace Entidad
         public string valorImpuesto { get; set; }
         public bool porcentual { get; set; }
     }
-
+    public class ProductoStockGuardar
+    {
+        public List<ProductoData> datos { get; set; }
+    }
 
 
 }

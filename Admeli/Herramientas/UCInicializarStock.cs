@@ -12,6 +12,9 @@ using Modelo;
 using Entidad;
 using Admeli.Productos;
 using Admeli.Productos.Nuevo;
+using System.Text.RegularExpressions;
+using System.Globalization;
+using Admeli.Herramientas.Detalle;
 
 namespace Admeli.Herramientas
 {
@@ -27,7 +30,10 @@ namespace Admeli.Herramientas
         private StockModel stockModel = new StockModel();
         private Paginacion paginacion;
         private List<ProductoData> productos { get; set; }
+        List<CombinacionStock> combinaciones { get; set; }
+        List<CombinacionStock> combinacionesProducto { get; set; }
         private ProductoData currentProdcuto { get; set; }
+        TextBox txt { get; set; }
 
         #region ================================ CONSTRUCTOR ================================
         public UCInicializarStock()
@@ -158,7 +164,7 @@ namespace Admeli.Herramientas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Listar categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             loadState(false);
         }
@@ -274,7 +280,7 @@ namespace Admeli.Herramientas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Listar sucursales", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private async void cargarAlmacenes()
@@ -287,7 +293,7 @@ namespace Admeli.Herramientas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Listar sucursales", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -313,7 +319,8 @@ namespace Admeli.Herramientas
 
                     // Ingresando
                     productos = rootObjectData.productos;
-                    productoBindingSource.DataSource = productos;
+                    productoDataBindingSource.DataSource = productos;
+                    combinaciones = rootObjectData.combinacion; 
                     dataGridView.Refresh();
 
                     // Mostrando la paginacion
@@ -328,8 +335,8 @@ namespace Admeli.Herramientas
                     paginacion.reload();
 
                     // Ingresando
-                 
-                    productoBindingSource.DataSource=null;
+
+                    productoDataBindingSource.DataSource=null;
                     dataGridView.Refresh();
 
                     // Mostrando la paginacion
@@ -342,7 +349,7 @@ namespace Admeli.Herramientas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Listar Registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
@@ -377,7 +384,8 @@ namespace Admeli.Herramientas
 
                 // Ingresando
                 productos = rootObjectData.productos;
-                productoBindingSource.DataSource = productos;
+                combinaciones = rootObjectData.combinacion;
+                productoDataBindingSource.DataSource = productos;
                 dataGridView.Refresh();
 
                 // Mostrando la paginacion
@@ -563,7 +571,29 @@ namespace Admeli.Herramientas
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            executeModificar();
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            dataGridView.ReadOnly = false;
+            foreach (DataGridViewRow R in dataGridView.Rows)
+            {
+
+                R.ReadOnly = true;
+            }
+            
+            dataGridView.Rows[index].ReadOnly = false;
+            dataGridView.Rows[index].Cells[1].ReadOnly = true;
+            dataGridView.Rows[index].Cells[2].ReadOnly = true;
+            dataGridView.Rows[index].Cells[3].ReadOnly = true;
+            dataGridView.Rows[index].Cells[4].ReadOnly = true;
+            dataGridView.Rows[index].Cells[7].ReadOnly = true;  
+            dataGridView.Rows[index].Cells[5].ReadOnly = false;
+            dataGridView.Rows[index].Cells[6].ReadOnly = false;
+            dataGridView.Rows[index].Cells[8].ReadOnly = false;
+            dataGridView.Rows[index].Cells[9].ReadOnly = false;
         }
 
         private void btnNuevoCategoria_Click(object sender, EventArgs e)
@@ -599,32 +629,40 @@ namespace Admeli.Herramientas
 
         private void executeModificar() // no cargar el form de producto
         {
-            // Verificando la existencia de datos en el datagridview
+         
+
+
+
             if (dataGridView.Rows.Count == 0)
             {
                 MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-           
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-            dataGridView.ReadOnly = false;
-            dataGridView.Rows[index].ReadOnly = false;
-            dataGridView.Rows[index].Cells[2].ReadOnly= true; 
+            int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
 
-           
+            currentProdcuto = productos.Find(x => x.idProducto == idProducto); // Buscando la registro especifico en la lista de registros
+
+            Producto auxProducto = new Producto();
+
+            auxProducto.nombreProducto = currentProdcuto.nombreProducto;
+            auxProducto.codigoProducto = currentProdcuto.codigoProducto;
+            auxProducto.precioCompra = currentProdcuto.precioCompra;
+            auxProducto.descripcionCorta = currentProdcuto.descripcionCorta;
+            auxProducto.idProducto = currentProdcuto.idProducto;
 
 
             // Mostrando el formulario de modificacion
-            //FormProductoNuevo formProducto = new FormProductoNuevo(auxProducto);
-            //formProducto.ShowDialog();
-            //cargarRegistros(); // recargando loas registros en el datagridview
+            FormProductoNuevo formProducto = new FormProductoNuevo(auxProducto);
+            formProducto.ShowDialog();
+            cargarRegistros(); // recargando loas registros en el datagridview
         }
 
         
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+          
 
 
         }
@@ -638,7 +676,12 @@ namespace Admeli.Herramientas
                 try
             {
 
-                Response response=  await stockModel.guardarproductosp(productos);
+
+               BindingSource bindingSource=    dataGridView.DataSource as BindingSource ;
+               productos= bindingSource.DataSource as List<ProductoData>;
+               ProductoStockGuardar productoStockGuardar = new ProductoStockGuardar();
+                productoStockGuardar.datos = productos;
+                Response response=  await stockModel.guardarproductosp(productoStockGuardar);
                 if (response.id >0)
                 {
 
@@ -663,6 +706,93 @@ namespace Admeli.Herramientas
 
 
         }
+
+        private void dataGridView_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            //string aux = dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            //Validator.isDecimal(e, aux);
+        }
+
+        private void dataGridView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+            string valor = dataGridView.CurrentCell.Value.ToString();
+            Validator.isDecimal(e, valor);
+        }
+
+        private void dataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+           
+           
+        }
+
+        private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (dataGridView.CurrentCell.ColumnIndex == 5 || dataGridView.CurrentCell.ColumnIndex == 6 || dataGridView.CurrentCell.ColumnIndex ==8 ||
+                dataGridView.CurrentCell.ColumnIndex ==9 )
+            {
+
+                 txt = e.Control as TextBox;
+               
+                if (txt != null)
+                {
+                    txt.KeyPress -= new KeyPressEventHandler(dataGridview_KeyPress);
+                    txt.KeyPress += new KeyPressEventHandler(dataGridview_KeyPress);
+                }
+
+            }
+        }
+        private void dataGridview_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string texto = txt.Text;
+
+            Validator.isDecimal(e, texto);
+
+        }
+
+
+        private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //string valor = dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+          
+        }
+
+        private void dataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                if (dataGridView.Rows.Count == 0 || dataGridView.CurrentRow == null)
+                {
+                    MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+                int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+
+                ProductoData   data = productos.Find(X => X.idProducto == idProducto);
+                combinacionesProducto = combinaciones.Where(X => X.idProducto == idProducto).ToList(); ;
+                FormDetalleStock detalleStock = new FormDetalleStock(combinacionesProducto , data);
+                detalleStock.ShowDialog();
+            }
+        }
     }
 }
 
@@ -670,9 +800,11 @@ namespace Admeli.Herramientas
 public class RootObjectData
 {
     public List<ProductoData> productos { get; set; }
-    public List<object> combinacion { get; set; }
+    public List<CombinacionStock> combinacion { get; set; }
     public int nro_registros { get; set; }
 }
+
+
 
 
 

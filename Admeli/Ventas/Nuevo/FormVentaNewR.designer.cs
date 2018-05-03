@@ -165,6 +165,7 @@
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -1544,19 +1545,21 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnImprimir);
             this.flowLayoutPanel2.Controls.Add(this.btnVenta);
+            this.flowLayoutPanel2.Controls.Add(this.btnSalir);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+
             this.flowLayoutPanel2.Location = new System.Drawing.Point(443, 12);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(245, 105);
+
             this.flowLayoutPanel2.TabIndex = 20;
             // 
             // btnImprimir
             // 
             this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(133)))), ((int)(((byte)(10)))));
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
@@ -1569,6 +1572,7 @@
             this.btnImprimir.Location = new System.Drawing.Point(7, 9);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(110, 89);
+
             this.btnImprimir.TabIndex = 12;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1587,11 +1591,12 @@
             this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVenta.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta.ForeColor = System.Drawing.Color.White;
-            this.btnVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta.Image")));
+
             this.btnVenta.Location = new System.Drawing.Point(124, 8);
             this.btnVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(110, 89);
+
             this.btnVenta.TabIndex = 13;
             this.btnVenta.Text = "Finalizar";
             this.btnVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1612,7 +1617,9 @@
             this.panel11.Controls.Add(this.lbSubtotal);
             this.panel11.Controls.Add(this.label1);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
+
             this.panel11.Location = new System.Drawing.Point(349, 12);
+
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(473, 105);
             this.panel11.TabIndex = 17;
@@ -1739,7 +1746,9 @@
             this.panel5.Location = new System.Drawing.Point(153, 12);
             this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
+
             this.panel5.Size = new System.Drawing.Size(196, 105);
+
             this.panel5.TabIndex = 16;
             // 
             // label20
@@ -1750,9 +1759,11 @@
             this.label20.Location = new System.Drawing.Point(27, 27);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
+
             this.label20.Size = new System.Drawing.Size(157, 16);
+
             this.label20.TabIndex = 65;
-            this.label20.Text = "Generar Guia Remision";
+            this.label20.Text = "Guia Remision";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chbxGuiaRemision
@@ -1855,6 +1866,28 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(34)))), ((int)(((byte)(24)))));
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.Location = new System.Drawing.Point(260, 10);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(118, 105);
+            this.btnSalir.TabIndex = 14;
+            this.btnSalir.Text = "Finalizar";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // FormVentaNewR
             // 
@@ -2059,5 +2092,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eliminarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn existeStockDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lbStock1;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
