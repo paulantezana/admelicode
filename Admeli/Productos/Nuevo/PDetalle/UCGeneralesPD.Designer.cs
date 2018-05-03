@@ -312,6 +312,7 @@
             this.textCodigoProducto.Size = new System.Drawing.Size(329, 38);
             this.textCodigoProducto.TabIndex = 56;
             this.textCodigoProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textCodigoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCodigoProducto_KeyPress);
             this.textCodigoProducto.Validated += new System.EventHandler(this.textCodigoProducto_Validated);
             // 
             // textNombreProducto

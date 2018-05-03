@@ -123,8 +123,6 @@ namespace Admeli.Ventas.Nuevo
             {
                 chbxPagarCompra.Checked = false;
                 chbxPagarCompra.Enabled = false;
-
-
             }
             chbxGuiaRemision.Checked = false;
             chbxGuiaRemision.Enabled = false;
@@ -133,14 +131,11 @@ namespace Admeli.Ventas.Nuevo
 
         }
 
-
-
         #region============= metods de apoyo en formato de decimales
 
         private void cargarResultadosIniciales()
         {
-
-
+            
             lbSubtotal.Text = "s/" + ". " + darformato(0);
             lbDescuentoVenta.Text = "s/" + ". " + darformato(0);
             lbImpuesto.Text = "s/" + ". " + darformato(0);

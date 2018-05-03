@@ -360,5 +360,16 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             formProductoNuevo.executeCerrar();
         }
+
+        private void textCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+            //evitarespacios
+            if (char.IsSeparator(e.KeyChar))
+            {  e.Handled = true;  }
+
+            else
+            {  e.Handled = false;  }
+        }
     }
 }

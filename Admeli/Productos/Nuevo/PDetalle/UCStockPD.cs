@@ -158,7 +158,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             currentPrecio = precios.Find(x => x.idPrecioProducto == idPrecioProducto); // Buscando la registro especifico en la lista de registros
 
             // Mostrando el formulario de modificacion
-            FormPrecioDetalle formPrecioDetalle = new FormPrecioDetalle(currentPrecio);
+            FormPrecioDetalle formPrecioDetalle = new FormPrecioDetalle(currentPrecio,formProductoNuevo.currentProducto.precioCompra.ToString());
             formPrecioDetalle.ShowDialog();
             this.cargarPrecios(); // recargando loas registros en el datagridview
         }
