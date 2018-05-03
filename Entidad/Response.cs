@@ -62,7 +62,15 @@ namespace Entidad
         public string msj { get; set; }
         public int id { get; set; }
     }
-   
+    public class Id
+    {
+    }
+
+    public class ResponseStock
+    {
+        public string msj { get; set; }
+        public Id id { get; set; }
+    }
 
 
 }
