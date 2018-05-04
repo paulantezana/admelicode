@@ -25,10 +25,21 @@ namespace Modelo
                 throw ex;
             }
         }
-        //public async Task<Response> precioModificar(Precio precio)
-        //{
 
-        //}
+        public async Task<Response> precioModificar(Precio precio)
+        {
+            try
+            {
+                // www.lineatienda.com/services.php/precio/producto/445
+                Response rpt = await webService.POST<Precio, Response>("precio", "modificar", precio);
+                return rpt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public Task<Response> desactivar(Precio currentPrecio)
         {
             throw new NotImplementedException();
