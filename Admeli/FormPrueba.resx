@@ -120,9 +120,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnOcultar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAEJJREFUOE9j
-        GO4gYbsCQ8p2B7IwSC8cpGxtYEje9p8sDNILB1Rz0eADSdsTGFK2HSALg/TCAdUMGnxgNEEOJcDAAABw
-        9NBhh0DxVwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAABfSURBVEhLYxgFIxz8//9/FxCfpiLeBTUaAYCCr4GYmuA11GgEAAq6ALE3FbEL1OhRQCYAhmE9
+        EHdTEddDjUYAoCBdUhftfTIKSALAMKR9jgcK0iV10b4UHgUjCTAwAABEx7cLwkAcpgAAAABJRU5ErkJg
+        gg==
 </value>
   </data>
   <data name="button10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
