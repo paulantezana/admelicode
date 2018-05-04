@@ -45,6 +45,8 @@ namespace Modelo
         public static bool cajaIniciada { get; set; }
         public static Dictionary<string, int> currentProductoCategory = new Dictionary<string, int>();
 
+
+        
         public async Task<Response> guardarDatosGenerales(UbicacionGeografica ubicacionGeografica, DatosGenerales datosGenerales)
         {
             try

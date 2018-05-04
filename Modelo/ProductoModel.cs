@@ -309,9 +309,22 @@ namespace Modelo
                 throw ex;
             }
         }
+       
+        public async Task<List<Producto>> BuscarProducto(int idProducto)
+        {
+            try
+            {
+                // localhost/admeli/xcore/services.php/producto//1
+                List<Producto> list = await webService.GET<List<Producto>>("producto", String.Format("{0}", idProducto));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
-        
 
     }
 }

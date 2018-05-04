@@ -405,6 +405,7 @@
             this.cbxSucursales.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxSucursales.DataSource = this.sucursalBindingSource;
             this.cbxSucursales.DisplayMember = "nombre";
+            this.cbxSucursales.Enabled = false;
             this.cbxSucursales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSucursales.FormattingEnabled = true;
@@ -903,6 +904,9 @@
             // codigoProductoDataGridViewTextBoxColumn
             // 
             this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
+
+            this.codigoProductoDataGridViewTextBoxColumn.FillWeight = 70F;
+
             this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "Codigo";
             this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
             this.codigoProductoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -911,6 +915,8 @@
             // nombreProductoDataGridViewTextBoxColumn
             // 
             this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
+
+            this.nombreProductoDataGridViewTextBoxColumn.FillWeight = 130F;
             this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
             this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -936,7 +942,9 @@
             // precioCompraDataGridViewTextBoxColumn
             // 
             this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "precioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "P.Compra";
+
+            this.precioCompraDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "P. Compra";
             this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
             this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioCompraDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -944,7 +952,10 @@
             // precioConImpuestoDataGridViewTextBoxColumn
             // 
             this.precioConImpuestoDataGridViewTextBoxColumn.DataPropertyName = "precioConImpuesto";
-            this.precioConImpuestoDataGridViewTextBoxColumn.HeaderText = "P.Impuestos";
+
+            this.precioConImpuestoDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.precioConImpuestoDataGridViewTextBoxColumn.HeaderText = "P.  Impuesto";
+
             this.precioConImpuestoDataGridViewTextBoxColumn.Name = "precioConImpuestoDataGridViewTextBoxColumn";
             this.precioConImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioConImpuestoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -952,6 +963,8 @@
             // utilidadDataGridViewTextBoxColumn
             // 
             this.utilidadDataGridViewTextBoxColumn.DataPropertyName = "utilidad";
+
+            this.utilidadDataGridViewTextBoxColumn.FillWeight = 70F;
             this.utilidadDataGridViewTextBoxColumn.HeaderText = "Utilidad";
             this.utilidadDataGridViewTextBoxColumn.Name = "utilidadDataGridViewTextBoxColumn";
             this.utilidadDataGridViewTextBoxColumn.ReadOnly = true;
@@ -960,7 +973,9 @@
             // precioVentaDataGridViewTextBoxColumn
             // 
             this.precioVentaDataGridViewTextBoxColumn.DataPropertyName = "precioVenta";
-            this.precioVentaDataGridViewTextBoxColumn.HeaderText = "P.Venta";
+
+            this.precioVentaDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.precioVentaDataGridViewTextBoxColumn.HeaderText = "P. Venta";
             this.precioVentaDataGridViewTextBoxColumn.Name = "precioVentaDataGridViewTextBoxColumn";
             this.precioVentaDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioVentaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -968,6 +983,8 @@
             // stockDataGridViewTextBoxColumn
             // 
             this.stockDataGridViewTextBoxColumn.DataPropertyName = "stock";
+
+            this.stockDataGridViewTextBoxColumn.FillWeight = 70F;
             this.stockDataGridViewTextBoxColumn.HeaderText = "Stock";
             this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
             this.stockDataGridViewTextBoxColumn.ReadOnly = true;
