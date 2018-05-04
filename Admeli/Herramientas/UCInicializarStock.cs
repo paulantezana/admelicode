@@ -32,6 +32,10 @@ namespace Admeli.Herramientas
         private List<ProductoData> productos { get; set; }
         List<CombinacionStock> combinaciones { get; set; }
         List<CombinacionStock> combinacionesProducto { get; set; }
+        private List<Sucursal> listSuc { get; set; }
+        private List<Sucursal> listSucCargar { get; set; }
+        private List<Almacen> listAlm { get; set; }
+        private List<Almacen> listAlmCargar { get; set; }
         private ProductoData currentProdcuto { get; set; }
         TextBox txt { get; set; }
 
@@ -70,6 +74,28 @@ namespace Admeli.Herramientas
             drawShape.lineBorder(panelSucursal);
             drawShape.lineBorder(panelAlmacen);
         }
+
+
+        private void decorationDataGridView()
+        {
+            if (dataGridView.Rows.Count == 0) return;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                int idPresentacion = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
+               
+
+                ProductoData data = productos.Find(X => X.idProducto == idPresentacion);
+                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idProducto).ToList(); ;
+                
+                if (combinacionesProducto.Count>0)
+                {
+                    dataGridView.ClearSelection();
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(122,255,105);
+                    row.DefaultCellStyle.ForeColor = Color.Green;
+                }
+            }
+        }
         #endregion
 
         #region ============================= ROOT LOAD =============================
@@ -105,8 +131,7 @@ namespace Admeli.Herramientas
         // Evento que se dispara cuando el padre cambia
         private void ParentChange(object sender, EventArgs e)
         {
-            // cambiar la propiedad de lisenerKeyEvents de este modulo
-            if (lisenerKeyEvents) lisenerKeyEvents = false;
+
         }
 
         // Escuchando los Eventos de teclado
@@ -276,7 +301,17 @@ namespace Admeli.Herramientas
             loadState(true);
             try
             {
-                cbxSucursales.DataSource = await sucursalModel.sucursales();
+                listSuc = new List<Sucursal>();
+                listSucCargar = new List<Sucursal>();
+                listSuc = await sucursalModel.sucursales();
+                Sucursal sucursal = new Sucursal();
+                sucursal.idSucursal = 0;
+                sucursal.nombre = "Todas";
+                listSucCargar.Add(sucursal);
+                listSucCargar.AddRange(listSuc);
+
+                sucursalBindingSource.DataSource = listSucCargar;
+                cbxSucursales.SelectedValue = 0;
             }
             catch (Exception ex)
             {
@@ -289,7 +324,16 @@ namespace Admeli.Herramientas
             loadState(true);
             try
             {
-                cbxAlmacenes.DataSource = await almacenModel.almacenes();
+                listAlm = new List<Almacen>();
+                listAlmCargar = new List<Almacen>();
+                listAlm = await almacenModel.almacenes();
+                Almacen sucursal = new Almacen();
+                sucursal.idAlmacen = 0;
+                sucursal.nombre = "Todas";
+                listAlmCargar.Add(sucursal);
+                listAlmCargar.AddRange(listAlm);
+                almacenBindingSource.DataSource = listAlmCargar;
+                cbxAlmacenes.SelectedValue = ConfigModel.currentIdAlmacen;
             }
             catch (Exception ex)
             {
@@ -306,7 +350,6 @@ namespace Admeli.Herramientas
               
                 
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
-
                 int sucursalId = (cbxSucursales.SelectedIndex == -1) ? ConfigModel.sucursal.idSucursal : Convert.ToInt32(cbxSucursales.SelectedValue);
                 int almacenID = (cbxAlmacenes.SelectedIndex == -1) ? ConfigModel.currentIdAlmacen : Convert.ToInt32(cbxAlmacenes.SelectedValue);
                 RootObjectData rootObjectData=null;
@@ -343,8 +386,8 @@ namespace Admeli.Herramientas
                     mostrarPaginado();
 
                 }
-                
-                
+                decorationDataGridView();
+
 
             }
             catch (Exception ex)
@@ -369,29 +412,51 @@ namespace Admeli.Herramientas
                 }
 
                 Dictionary<string, int> list = new Dictionary<string, int>();
-                list.Add("id0", 0);
+             
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
 
                 int sucursalId = (cbxSucursales.SelectedIndex == -1) ? ConfigModel.sucursal.idSucursal : Convert.ToInt32(cbxSucursales.SelectedValue);
                 int almacenID = (cbxAlmacenes.SelectedIndex == -1) ? ConfigModel.currentIdAlmacen : Convert.ToInt32(cbxAlmacenes.SelectedValue);
+                RootObjectData rootObjectData = null;
+              
+               
+                if (sendList.Count > 0)
+                {
+                     rootObjectData = await productoModel.stockHerramientaLike<RootObjectData>(sendList, textBuscar.Text, almacenID, sucursalId, paginacion.currentPage, paginacion.speed);
+                    // actualizando datos de páginacón
+                    paginacion.itemsCount = rootObjectData.nro_registros;
+                    paginacion.reload();
 
-                RootObjectData rootObjectData = await productoModel.stockHerramientaLike<RootObjectData>(sendList, textBuscar.Text, almacenID, sucursalId, paginacion.currentPage, paginacion.speed);
+                    // Ingresando
+                    productos = rootObjectData.productos;
+                    combinaciones= rootObjectData.combinacion;
 
+                    productoDataBindingSource.DataSource = null;
+                    productoDataBindingSource.DataSource = productos;
+                    combinaciones = rootObjectData.combinacion;
+                    dataGridView.Refresh();
 
-                // actualizando datos de páginacón
-                paginacion.itemsCount = rootObjectData.nro_registros;
-                paginacion.reload();
+                    // Mostrando la paginacion
+                    mostrarPaginado();
 
-                // Ingresando
-                productos = rootObjectData.productos;
-                combinaciones = rootObjectData.combinacion;
-                productoDataBindingSource.DataSource = productos;
-                dataGridView.Refresh();
+                    // Formato de celdas
+                }
 
-                // Mostrando la paginacion
-                mostrarPaginado();
+                else
+                {
+                    paginacion.itemsCount = 0;
+                    paginacion.reload();
 
-                // Formato de celdas
+                    // Ingresando
+
+                    productoDataBindingSource.DataSource = null;
+                    dataGridView.Refresh();
+
+                    // Mostrando la paginacion
+                    mostrarPaginado();
+
+                }
+                decorationDataGridView();
 
             }
             catch (Exception ex)
@@ -427,7 +492,7 @@ namespace Admeli.Herramientas
             if (lblCurrentPage.Text != "1")
             {
                 paginacion.firstPage();
-                cargarRegistros();
+                cargarRegistrosBuscar();
             }
         }
 
@@ -437,7 +502,7 @@ namespace Admeli.Herramientas
             if (lblPageCount.Text != lblCurrentPage.Text)
             {
                 paginacion.nextPage();
-                cargarRegistros();
+                cargarRegistrosBuscar();
             }
         }
 
@@ -447,7 +512,7 @@ namespace Admeli.Herramientas
             if (lblPageCount.Text != lblCurrentPage.Text)
             {
                 paginacion.lastPage();
-                cargarRegistros();
+                cargarRegistrosBuscar();
             }
         }
 
@@ -457,7 +522,7 @@ namespace Admeli.Herramientas
             {
                 paginacion.speed = Convert.ToInt32(lblSpeedPages.Text);
                 paginacion.currentPage = 1;
-                cargarRegistros();
+                cargarRegistrosBuscar();
             }
         }
 
@@ -466,7 +531,7 @@ namespace Admeli.Herramientas
             if (e.KeyCode == Keys.Enter)
             {
                 paginacion.reloadPage(Convert.ToInt32(lblCurrentPage.Text));
-                cargarRegistros();
+                cargarRegistrosBuscar();
             }
         }
 
@@ -493,12 +558,12 @@ namespace Admeli.Herramientas
         #region ============================ Tools Events ============================
         private void cbxSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarRegistros();
+            cargarRegistrosBuscar();
         }
 
         private void cbxAlmacenes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarRegistros();
+            cargarRegistrosBuscar();
         }
 
         private void textBuscar_KeyUp(object sender, KeyEventArgs e)
@@ -532,7 +597,7 @@ namespace Admeli.Herramientas
             getRecursiveNodes(mainNode);
 
             // cargando los registros
-            cargarRegistros();
+            cargarRegistrosBuscar();
         }
         public void getRecursiveNodes(TreeNode parentNode)
         {
@@ -578,22 +643,45 @@ namespace Admeli.Herramientas
             }
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
             dataGridView.ReadOnly = false;
+
             foreach (DataGridViewRow R in dataGridView.Rows)
             {
 
                 R.ReadOnly = true;
+                foreach (DataGridViewCell C in R.Cells)
+                {
+                    C.Style.SelectionBackColor = R.DefaultCellStyle.SelectionBackColor;
+
+                }
             }
-            
+
             dataGridView.Rows[index].ReadOnly = false;
+
             dataGridView.Rows[index].Cells[1].ReadOnly = true;
             dataGridView.Rows[index].Cells[2].ReadOnly = true;
             dataGridView.Rows[index].Cells[3].ReadOnly = true;
             dataGridView.Rows[index].Cells[4].ReadOnly = true;
-            dataGridView.Rows[index].Cells[7].ReadOnly = true;  
+            dataGridView.Rows[index].Cells[7].ReadOnly = true;
+
             dataGridView.Rows[index].Cells[5].ReadOnly = false;
+            dataGridView.Rows[index].Cells[5].Selected = true;
+            dataGridView.Rows[index].Cells[5].Style.SelectionBackColor = Color.FromArgb(255,247,178);
+            dataGridView.Rows[index].Cells[5].Style.SelectionForeColor = Color.Black;
+
             dataGridView.Rows[index].Cells[6].ReadOnly = false;
+            dataGridView.Rows[index].Cells[6].Selected = true;
+            dataGridView.Rows[index].Cells[6].Style.SelectionBackColor = Color.FromArgb(255, 247, 178);
+            dataGridView.Rows[index].Cells[6].Style.SelectionForeColor = Color.Black;
+
             dataGridView.Rows[index].Cells[8].ReadOnly = false;
+            dataGridView.Rows[index].Cells[8].Selected = true;
+            dataGridView.Rows[index].Cells[8].Style.SelectionBackColor = Color.FromArgb(255, 247, 178);
+            dataGridView.Rows[index].Cells[8].Style.SelectionForeColor = Color.Black;
+
             dataGridView.Rows[index].Cells[9].ReadOnly = false;
+            dataGridView.Rows[index].Cells[9].Selected = true;
+            dataGridView.Rows[index].Cells[9].Style.SelectionBackColor = Color.FromArgb(255, 247, 178);
+            dataGridView.Rows[index].Cells[9].Style.SelectionForeColor = Color.Black;
         }
 
         private void btnNuevoCategoria_Click(object sender, EventArgs e)
@@ -788,9 +876,14 @@ namespace Admeli.Herramientas
                 int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
 
                 ProductoData   data = productos.Find(X => X.idProducto == idProducto);
-                combinacionesProducto = combinaciones.Where(X => X.idProducto == idProducto).ToList(); ;
-                FormDetalleStock detalleStock = new FormDetalleStock(combinacionesProducto , data);
-                detalleStock.ShowDialog();
+                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idProducto  ).ToList();
+                if (combinacionesProducto.Count > 0)
+                {
+                    FormDetalleStock detalleStock = new FormDetalleStock(combinacionesProducto , data);
+                    detalleStock.ShowDialog();
+
+                }
+              
             }
         }
     }

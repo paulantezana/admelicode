@@ -48,23 +48,24 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textPrecioCompetencia = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnAddMoneda = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cbxMoneda = new System.Windows.Forms.ComboBox();
             this.monedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnAddSucursal = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.cbxSucursal = new System.Windows.Forms.ComboBox();
             this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelIzquierdo = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelImpuestos = new System.Windows.Forms.Panel();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.panelIzquierdo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelFooter
@@ -163,6 +164,7 @@
             this.textPrecioCompra.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textPrecioCompra.BorderThickness = 1;
             this.textPrecioCompra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textPrecioCompra.Enabled = false;
             this.textPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPrecioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textPrecioCompra.isPassword = false;
@@ -170,7 +172,7 @@
             this.textPrecioCompra.Margin = new System.Windows.Forms.Padding(4);
             this.textPrecioCompra.Name = "textPrecioCompra";
             this.textPrecioCompra.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textPrecioCompra.Size = new System.Drawing.Size(367, 35);
+            this.textPrecioCompra.Size = new System.Drawing.Size(288, 35);
             this.textPrecioCompra.TabIndex = 43;
             this.textPrecioCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -194,6 +196,7 @@
             this.textPrecioConImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textPrecioConImpuesto.BorderThickness = 1;
             this.textPrecioConImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textPrecioConImpuesto.Enabled = false;
             this.textPrecioConImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPrecioConImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textPrecioConImpuesto.isPassword = false;
@@ -201,7 +204,7 @@
             this.textPrecioConImpuesto.Margin = new System.Windows.Forms.Padding(4);
             this.textPrecioConImpuesto.Name = "textPrecioConImpuesto";
             this.textPrecioConImpuesto.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textPrecioConImpuesto.Size = new System.Drawing.Size(367, 35);
+            this.textPrecioConImpuesto.Size = new System.Drawing.Size(288, 35);
             this.textPrecioConImpuesto.TabIndex = 47;
             this.textPrecioConImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -232,15 +235,16 @@
             this.textPrecioUtilidad.Margin = new System.Windows.Forms.Padding(4);
             this.textPrecioUtilidad.Name = "textPrecioUtilidad";
             this.textPrecioUtilidad.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textPrecioUtilidad.Size = new System.Drawing.Size(367, 35);
+            this.textPrecioUtilidad.Size = new System.Drawing.Size(288, 35);
             this.textPrecioUtilidad.TabIndex = 49;
             this.textPrecioUtilidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textPrecioUtilidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textPrecioUtilidad_KeyUp);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label5.Location = new System.Drawing.Point(12, 146);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -263,15 +267,16 @@
             this.textPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
             this.textPrecioVenta.Name = "textPrecioVenta";
             this.textPrecioVenta.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textPrecioVenta.Size = new System.Drawing.Size(367, 35);
+            this.textPrecioVenta.Size = new System.Drawing.Size(288, 35);
             this.textPrecioVenta.TabIndex = 51;
             this.textPrecioVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textPrecioVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textPrecioVenta_KeyUp);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label6.Location = new System.Drawing.Point(12, 212);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
@@ -294,7 +299,7 @@
             this.textPrecioCompetencia.Margin = new System.Windows.Forms.Padding(4);
             this.textPrecioCompetencia.Name = "textPrecioCompetencia";
             this.textPrecioCompetencia.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textPrecioCompetencia.Size = new System.Drawing.Size(367, 35);
+            this.textPrecioCompetencia.Size = new System.Drawing.Size(288, 35);
             this.textPrecioCompetencia.TabIndex = 53;
             this.textPrecioCompetencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -302,7 +307,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label7.Location = new System.Drawing.Point(12, 279);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
@@ -310,30 +315,12 @@
             this.label7.TabIndex = 52;
             this.label7.Text = "Precio competencia";
             // 
-            // btnAddMoneda
-            // 
-            this.btnAddMoneda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMoneda.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMoneda.FlatAppearance.BorderSize = 0;
-            this.btnAddMoneda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMoneda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddMoneda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMoneda.ForeColor = System.Drawing.Color.White;
-            this.btnAddMoneda.Location = new System.Drawing.Point(342, 362);
-            this.btnAddMoneda.Name = "btnAddMoneda";
-            this.btnAddMoneda.Size = new System.Drawing.Size(40, 26);
-            this.btnAddMoneda.TabIndex = 58;
-            this.btnAddMoneda.Text = "+";
-            this.btnAddMoneda.UseVisualStyleBackColor = false;
-            this.btnAddMoneda.Click += new System.EventHandler(this.btnAddMoneda_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label8.Location = new System.Drawing.Point(12, 344);
+            this.label8.Location = new System.Drawing.Point(12, 345);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 16);
@@ -346,12 +333,13 @@
             this.cbxMoneda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxMoneda.DataSource = this.monedaBindingSource;
             this.cbxMoneda.DisplayMember = "moneda";
+            this.cbxMoneda.Enabled = false;
             this.cbxMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMoneda.FormattingEnabled = true;
-            this.cbxMoneda.Location = new System.Drawing.Point(15, 362);
+            this.cbxMoneda.Location = new System.Drawing.Point(15, 363);
             this.cbxMoneda.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMoneda.Name = "cbxMoneda";
-            this.cbxMoneda.Size = new System.Drawing.Size(328, 26);
+            this.cbxMoneda.Size = new System.Drawing.Size(288, 26);
             this.cbxMoneda.TabIndex = 56;
             this.cbxMoneda.ValueMember = "idMoneda";
             // 
@@ -359,30 +347,12 @@
             // 
             this.monedaBindingSource.DataSource = typeof(Entidad.Configuracion.Moneda);
             // 
-            // btnAddSucursal
-            // 
-            this.btnAddSucursal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddSucursal.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddSucursal.FlatAppearance.BorderSize = 0;
-            this.btnAddSucursal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddSucursal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(201)))), ((int)(((byte)(59)))));
-            this.btnAddSucursal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSucursal.ForeColor = System.Drawing.Color.White;
-            this.btnAddSucursal.Location = new System.Drawing.Point(342, 420);
-            this.btnAddSucursal.Name = "btnAddSucursal";
-            this.btnAddSucursal.Size = new System.Drawing.Size(40, 26);
-            this.btnAddSucursal.TabIndex = 61;
-            this.btnAddSucursal.Text = "+";
-            this.btnAddSucursal.UseVisualStyleBackColor = false;
-            this.btnAddSucursal.Click += new System.EventHandler(this.btnAddSucursal_Click);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label9.Location = new System.Drawing.Point(12, 402);
+            this.label9.Location = new System.Drawing.Point(12, 404);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 16);
@@ -395,12 +365,13 @@
             this.cbxSucursal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxSucursal.DataSource = this.sucursalBindingSource;
             this.cbxSucursal.DisplayMember = "nombre";
+            this.cbxSucursal.Enabled = false;
             this.cbxSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSucursal.FormattingEnabled = true;
-            this.cbxSucursal.Location = new System.Drawing.Point(15, 420);
+            this.cbxSucursal.Location = new System.Drawing.Point(15, 422);
             this.cbxSucursal.Margin = new System.Windows.Forms.Padding(2);
             this.cbxSucursal.Name = "cbxSucursal";
-            this.cbxSucursal.Size = new System.Drawing.Size(328, 26);
+            this.cbxSucursal.Size = new System.Drawing.Size(288, 26);
             this.cbxSucursal.TabIndex = 59;
             this.cbxSucursal.ValueMember = "idSucursal";
             // 
@@ -408,37 +379,74 @@
             // 
             this.sucursalBindingSource.DataSource = typeof(Entidad.Sucursal);
             // 
-            // panel3
+            // panelIzquierdo
             // 
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.btnAddSucursal);
-            this.panel3.Controls.Add(this.textPrecioCompra);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.cbxSucursal);
-            this.panel3.Controls.Add(this.textPrecioConImpuesto);
-            this.panel3.Controls.Add(this.btnAddMoneda);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.textPrecioUtilidad);
-            this.panel3.Controls.Add(this.cbxMoneda);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.textPrecioCompetencia);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.textPrecioVenta);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 42);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(817, 465);
-            this.panel3.TabIndex = 62;
+            this.panelIzquierdo.Controls.Add(this.label11);
+            this.panelIzquierdo.Controls.Add(this.label10);
+            this.panelIzquierdo.Controls.Add(this.label1);
+            this.panelIzquierdo.Controls.Add(this.label2);
+            this.panelIzquierdo.Controls.Add(this.textPrecioCompra);
+            this.panelIzquierdo.Controls.Add(this.label9);
+            this.panelIzquierdo.Controls.Add(this.label3);
+            this.panelIzquierdo.Controls.Add(this.cbxSucursal);
+            this.panelIzquierdo.Controls.Add(this.textPrecioConImpuesto);
+            this.panelIzquierdo.Controls.Add(this.label5);
+            this.panelIzquierdo.Controls.Add(this.label8);
+            this.panelIzquierdo.Controls.Add(this.textPrecioUtilidad);
+            this.panelIzquierdo.Controls.Add(this.cbxMoneda);
+            this.panelIzquierdo.Controls.Add(this.label6);
+            this.panelIzquierdo.Controls.Add(this.textPrecioCompetencia);
+            this.panelIzquierdo.Controls.Add(this.label7);
+            this.panelIzquierdo.Controls.Add(this.textPrecioVenta);
+            this.panelIzquierdo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelIzquierdo.Location = new System.Drawing.Point(0, 42);
+            this.panelIzquierdo.Name = "panelIzquierdo";
+            this.panelIzquierdo.Size = new System.Drawing.Size(817, 465);
+            this.panelIzquierdo.TabIndex = 62;
             // 
-            // panel4
+            // label11
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(400, 42);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(417, 465);
-            this.panel4.TabIndex = 63;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 8F);
+            this.label11.ForeColor = System.Drawing.Color.Gray;
+            this.label11.Location = new System.Drawing.Point(305, 315);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 14);
+            this.label11.TabIndex = 64;
+            this.label11.Text = "(de referencia)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 8F);
+            this.label10.ForeColor = System.Drawing.Color.Gray;
+            this.label10.Location = new System.Drawing.Point(305, 182);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 14);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "% (porcentual)";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 8F);
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(305, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 14);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Sin impuestos";
+            // 
+            // panelImpuestos
+            // 
+            this.panelImpuestos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelImpuestos.Location = new System.Drawing.Point(400, 42);
+            this.panelImpuestos.Name = "panelImpuestos";
+            this.panelImpuestos.Size = new System.Drawing.Size(417, 465);
+            this.panelImpuestos.TabIndex = 63;
             // 
             // FormPrecioDetalle
             // 
@@ -446,8 +454,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(817, 556);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelImpuestos);
+            this.Controls.Add(this.panelIzquierdo);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -462,8 +470,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monedaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sucursalBindingSource)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelIzquierdo.ResumeLayout(false);
+            this.panelIzquierdo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -488,15 +496,16 @@
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuMetroTextbox textPrecioCompetencia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnAddMoneda;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbxMoneda;
-        private System.Windows.Forms.Button btnAddSucursal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbxSucursal;
         private System.Windows.Forms.BindingSource sucursalBindingSource;
         private System.Windows.Forms.BindingSource monedaBindingSource;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelImpuestos;
+        private System.Windows.Forms.Panel panelIzquierdo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
     }
 }

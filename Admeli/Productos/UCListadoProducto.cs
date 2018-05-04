@@ -28,6 +28,10 @@ namespace Admeli.Productos
 
         public bool lisenerKeyEvents { get; set; }
         private List<Producto> productos { get; set; }
+        private List<Sucursal> listSuc { get; set; }
+        private List<Sucursal> listSucCargar { get; set; }
+        private List<Almacen> listAlm { get; set; }
+        private List<Almacen> listAlmCargar { get; set; }
         private Producto currentProducto { get; set; }
 
         #region ============================== Constructor ==============================
@@ -133,12 +137,21 @@ namespace Admeli.Productos
             loadState(true);
             try
             {
-                sucursalBindingSource.DataSource = await sucursalModel.sucursales();
-                cbxSucursales.SelectedValue = ConfigModel.sucursal.idSucursal;
+                listSuc = new List<Sucursal>();
+                listSucCargar = new List<Sucursal>();
+                listSuc = await sucursalModel.sucursales();
+                Sucursal sucursal = new Sucursal();
+                sucursal.idSucursal = 0;
+                sucursal.nombre = "Todas";
+                listSucCargar.Add(sucursal);
+                listSucCargar.AddRange(listSuc);
+
+                sucursalBindingSource.DataSource = listSucCargar;
+                cbxSucursales.SelectedValue = 0;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Listar sucursal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -148,7 +161,15 @@ namespace Admeli.Productos
             loadState(true);
             try
             {
-                almacenBindingSource.DataSource = await almacenModel.almacenes();
+                listAlm = new List<Almacen>();
+                listAlmCargar = new List<Almacen>();
+                listAlm = await almacenModel.almacenes();
+                Almacen sucursal = new Almacen();
+                sucursal.idAlmacen = 0;
+                sucursal.nombre = "Todas";
+                listAlmCargar.Add(sucursal);
+                listAlmCargar.AddRange(listAlm);
+                almacenBindingSource.DataSource = listAlmCargar;                     
                 cbxAlmacenes.SelectedValue = ConfigModel.currentIdAlmacen;
             }
             catch (Exception ex)
@@ -313,6 +334,7 @@ namespace Admeli.Productos
 
                 // Ingresando
                 productos = productosRoot.datos;
+                productoBindingSource.DataSource = null;
                 productoBindingSource.DataSource = productos;
                 dataGridView.Refresh();
 
@@ -328,6 +350,8 @@ namespace Admeli.Productos
             finally
             {
                 loadState(false);
+               
+                currentProducto = productos.Find(x => x.idProducto == 808);
             }
         }
 
@@ -345,8 +369,9 @@ namespace Admeli.Productos
                 // actualizando datos de páginacón
                 paginacion.itemsCount = productos.nro_registros;
                 paginacion.reload();
-
+                this.productos = productos.datos;
                 // Ingresando
+                productoBindingSource.DataSource = null;
                 productoBindingSource.DataSource = productos.datos;
                 dataGridView.Refresh();
                 mostrarPaginado();
@@ -381,6 +406,8 @@ namespace Admeli.Productos
                 paginacion.reload();
 
                 // Ingresando
+                this.productos = productos.datos;
+                productoBindingSource.DataSource = null;
                 productoBindingSource.DataSource = productos.datos;
                 dataGridView.Refresh();
                 mostrarPaginado();
@@ -407,13 +434,15 @@ namespace Admeli.Productos
                 int idAlmacen = Convert.ToInt32(cbxAlmacenes.SelectedValue);
                 int idSucursal = Convert.ToInt32(cbxSucursales.SelectedValue);
 
-                RootObject<Producto> productos = await productoModel.productosStock(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
+                RootObject<Producto> productos = await productoModel.productosStockLike(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
 
                 // actualizando datos de páginacón
                 paginacion.itemsCount = productos.nro_registros;
                 paginacion.reload();
 
                 // Ingresando
+                this.productos = productos.datos;
+                productoBindingSource.DataSource = null;
                 productoBindingSource.DataSource = productos.datos;
                 dataGridView.Refresh();
                 mostrarPaginado();
@@ -710,7 +739,7 @@ namespace Admeli.Productos
             getRecursiveNodes(mainNode);
 
             // cargando los registros
-            cargarRegistros();
+            cargarStock();
         }
         public void getRecursiveNodes(TreeNode parentNode)
         {
@@ -766,7 +795,15 @@ namespace Admeli.Productos
                 dataGridView.Columns[9].Visible = false;
                 dataGridView.Columns[10].Visible = false;
 
-                cargarRegistrosStock();
+                if (textBuscar.Text != "")
+                {
+
+                    cargarRegistrosStockLike();
+                }
+                else
+                {
+                    cargarRegistrosStock(); }
+                
             }
             else
             {
@@ -781,7 +818,18 @@ namespace Admeli.Productos
                 dataGridView.Columns[8].Visible = false;
                 dataGridView.Columns[9].Visible = false;
                 dataGridView.Columns[10].Visible = false;
-                cargarRegistros();
+
+                if (textBuscar.Text != "")
+                {
+
+                    cargarRegistrosBuscar();
+                }
+                else
+                {
+                    cargarRegistros(); }
+               
+
+                
             }
 
         }
@@ -793,18 +841,12 @@ namespace Admeli.Productos
 
         private void cbxSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (chkVerStock.Checked)
-            {
-                cargarRegistrosStock();
-            }
+            cargarStock();
         }
 
         private void cbxAlmacenes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (chkVerStock.Checked)
-            {
-                cargarRegistrosStock();
-            }
+            cargarStock();
         }
 
         private void btnImportar_Click_1(object sender, EventArgs e)

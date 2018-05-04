@@ -121,13 +121,14 @@ namespace Admeli.Herramientas.Detalle
         private async  void btnAceptar_Click(object sender, EventArgs e)
         {
 
+            BindingSource bindingSource = dgvCombinacion.DataSource as BindingSource;
+            list = bindingSource.DataSource as List<CombinacionStock>;
             CombinacioneGuaradar combinacioneGuaradar = new CombinacioneGuaradar();
             combinacioneGuaradar.datos = list;
             combinacioneGuaradar.idAlmacen = productoData.idAlmacen;
             combinacioneGuaradar.idProducto = productoData.idProducto;
             ResponseStock response = await varianteModel.modificarStockCombinacion(combinacioneGuaradar);
             MessageBox.Show("Mensaje: " + response.msj, "Stock Combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             this.Close();
         }
 
