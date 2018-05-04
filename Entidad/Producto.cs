@@ -83,7 +83,11 @@ namespace Entidad
         public string codigoProducto { get; set; }
         public string nombreProducto { get; set; }
         public string descripcionCorta { get; set; }
+        
         public string precioCompra { get; set; }
+      
+
+
         public string precioConImpuesto { get; set; }
         public string utilidad { get; set; }
         public int estado { get; set; }

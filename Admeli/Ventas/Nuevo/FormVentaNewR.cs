@@ -2083,7 +2083,7 @@ namespace Admeli.Ventas.Nuevo
 
         private void cbxTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxTipoDocumento.SelectedIndex == -1 || cbxNombreRazonCliente.SelectedIndex== -1) return;
+           
             if (nuevo)
             {
                 if (cbxTipoDocumento.SelectedIndex == -1) return;
@@ -2099,7 +2099,7 @@ namespace Admeli.Ventas.Nuevo
 
                     TipoDocumento tipoDocumento2 = tipoDocumentos.Find(X => X.tipoCliente == 2);
                     cbxNombreDocumento.SelectedValue = tipoDocumento2.idTipoDocumento;
-
+                    if (cbxNombreRazonCliente.SelectedIndex == -1) return;
                     Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento && X.idCliente == (int)cbxNombreRazonCliente.SelectedValue);
 
                     if (cliente == null)
@@ -2117,7 +2117,7 @@ namespace Admeli.Ventas.Nuevo
 
                     TipoDocumento tipoDocumento2 = tipoDocumentos.Find(X => X.tipoCliente == 1);
                     cbxNombreDocumento.SelectedValue = tipoDocumento2.idTipoDocumento;
-
+                    if (cbxNombreRazonCliente.SelectedIndex == -1) return;
                     Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento && X.idCliente == (int)cbxNombreRazonCliente.SelectedValue);
                     if (cliente == null)
                     {
