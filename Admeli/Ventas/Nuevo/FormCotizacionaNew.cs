@@ -2259,6 +2259,11 @@ namespace Admeli.Ventas.Nuevo
 
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
   

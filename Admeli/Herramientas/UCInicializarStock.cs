@@ -775,7 +775,7 @@ namespace Admeli.Herramientas
 
                     MessageBox.Show("Mensaje: " + response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
+                    cargarRegistrosBuscar();
                 }
 
             }
@@ -876,7 +876,7 @@ namespace Admeli.Herramientas
                 int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
 
                 ProductoData   data = productos.Find(X => X.idProducto == idProducto);
-                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idProducto  ).ToList();
+                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idProducto &&  X.idAlmacen==data.idAlmacen  ).ToList();
                 if (combinacionesProducto.Count > 0)
                 {
                     FormDetalleStock detalleStock = new FormDetalleStock(combinacionesProducto , data);

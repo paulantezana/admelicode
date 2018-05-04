@@ -2662,5 +2662,10 @@ namespace Admeli.Ventas.Nuevo
                 this.cbxCodigoProducto.Focus();
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

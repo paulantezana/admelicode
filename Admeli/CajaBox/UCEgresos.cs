@@ -92,6 +92,7 @@ namespace Admeli.CajaBox
                 cargarPersonales();
                 cargarSucursales();
                 cargarRegistros();
+                formPrincipal.cargarDatosAsideRight();
             }
             lisenerKeyEvents = true; 
         }

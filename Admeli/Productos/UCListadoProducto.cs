@@ -488,7 +488,7 @@ namespace Admeli.Productos
             if (lblCurrentPage.Text != "1")
             {
                 paginacion.previousPage();
-                cargarRegistros();
+                cargarStock();
             }
         }
 
@@ -497,7 +497,7 @@ namespace Admeli.Productos
             if (lblCurrentPage.Text != "1")
             {
                 paginacion.firstPage();
-                cargarRegistros();
+                cargarStock ();
             }
         }
 
@@ -507,7 +507,7 @@ namespace Admeli.Productos
             if (lblPageCount.Text != lblCurrentPage.Text)
             {
                 paginacion.nextPage();
-                cargarRegistros();
+                cargarStock();
             }
         }
 
@@ -517,7 +517,7 @@ namespace Admeli.Productos
             if (lblPageCount.Text != lblCurrentPage.Text)
             {
                 paginacion.lastPage();
-                cargarRegistros();
+                cargarStock();
             }
         }
 
@@ -527,7 +527,7 @@ namespace Admeli.Productos
             {
                 paginacion.speed = Convert.ToInt32(lblSpeedPages.Text);
                 paginacion.currentPage = 1;
-                cargarRegistros();
+                cargarStock();
             }
         }
 
@@ -536,7 +536,7 @@ namespace Admeli.Productos
             if (e.KeyCode == Keys.Enter)
             {
                 paginacion.reloadPage(Convert.ToInt32(lblCurrentPage.Text));
-                cargarRegistros();
+                cargarStock();
             }
         }
 
@@ -559,7 +559,7 @@ namespace Admeli.Productos
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            cargarRegistros();
+            cargarStock();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
