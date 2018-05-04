@@ -72,6 +72,7 @@ namespace Admeli.CajaBox
                 cargarSucursales();
                 cargarPersonales();
                 cargarRegistros();
+                formPrincipal.cargarDatosAsideRight();
                 //desblo
             }
             // Active lisener key events

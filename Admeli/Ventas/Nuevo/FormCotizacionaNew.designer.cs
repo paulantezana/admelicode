@@ -78,6 +78,8 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuProgressBar1 = new Bunifu.Framework.UI.BunifuProgressBar();
             this.dgvDetalleOrdenCompra = new System.Windows.Forms.DataGridView();
             this.idPresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCombinacionAlternativaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -157,8 +159,7 @@
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuProgressBar1 = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panelDatos.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -174,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelInfo.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleOrdenCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleVBindingSource)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -195,7 +197,6 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDatos
@@ -692,6 +693,28 @@
             this.panelInfo.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
             this.panelInfo.Size = new System.Drawing.Size(1411, 614);
             this.panelInfo.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.bunifuProgressBar1);
+            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1407, 16);
+            this.panel1.TabIndex = 301;
+            // 
+            // bunifuProgressBar1
+            // 
+            this.bunifuProgressBar1.BackColor = System.Drawing.Color.Silver;
+            this.bunifuProgressBar1.BorderRadius = 5;
+            this.bunifuProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuProgressBar1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuProgressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuProgressBar1.MaximumValue = 100;
+            this.bunifuProgressBar1.Name = "bunifuProgressBar1";
+            this.bunifuProgressBar1.ProgressColor = System.Drawing.Color.Teal;
+            this.bunifuProgressBar1.Size = new System.Drawing.Size(1407, 16);
+            this.bunifuProgressBar1.TabIndex = 0;
+            this.bunifuProgressBar1.Value = 0;
             // 
             // dgvDetalleOrdenCompra
             // 
@@ -1521,12 +1544,13 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnImprimir);
             this.flowLayoutPanel2.Controls.Add(this.btnCotizacion);
+            this.flowLayoutPanel2.Controls.Add(this.btnSalir);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1123, 15);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(997, 15);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(348, 129);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(474, 129);
             this.flowLayoutPanel2.TabIndex = 16;
             // 
             // btnImprimir
@@ -1545,7 +1569,7 @@
             this.btnImprimir.Location = new System.Drawing.Point(9, 9);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(146, 104);
+            this.btnImprimir.Size = new System.Drawing.Size(136, 93);
             this.btnImprimir.TabIndex = 12;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1565,11 +1589,11 @@
             this.btnCotizacion.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCotizacion.ForeColor = System.Drawing.Color.White;
             this.btnCotizacion.Image = ((System.Drawing.Image)(resources.GetObject("btnCotizacion.Image")));
-            this.btnCotizacion.Location = new System.Drawing.Point(164, 10);
+            this.btnCotizacion.Location = new System.Drawing.Point(154, 10);
             this.btnCotizacion.Margin = new System.Windows.Forms.Padding(5);
             this.btnCotizacion.Name = "btnCotizacion";
             this.btnCotizacion.Padding = new System.Windows.Forms.Padding(5);
-            this.btnCotizacion.Size = new System.Drawing.Size(146, 104);
+            this.btnCotizacion.Size = new System.Drawing.Size(136, 93);
             this.btnCotizacion.TabIndex = 13;
             this.btnCotizacion.Text = "Finalizar";
             this.btnCotizacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1731,27 +1755,28 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // panel1
+            // btnSalir
             // 
-            this.panel1.Controls.Add(this.bunifuProgressBar1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1407, 16);
-            this.panel1.TabIndex = 301;
-            // 
-            // bunifuProgressBar1
-            // 
-            this.bunifuProgressBar1.BackColor = System.Drawing.Color.Silver;
-            this.bunifuProgressBar1.BorderRadius = 5;
-            this.bunifuProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuProgressBar1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuProgressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuProgressBar1.MaximumValue = 100;
-            this.bunifuProgressBar1.Name = "bunifuProgressBar1";
-            this.bunifuProgressBar1.ProgressColor = System.Drawing.Color.Teal;
-            this.bunifuProgressBar1.Size = new System.Drawing.Size(1407, 16);
-            this.bunifuProgressBar1.TabIndex = 0;
-            this.bunifuProgressBar1.Value = 0;
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(34)))), ((int)(((byte)(24)))));
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.Location = new System.Drawing.Point(302, 11);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(136, 93);
+            this.btnSalir.TabIndex = 15;
+            this.btnSalir.Text = "Finalizar";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FormCotizacionaNew
             // 
@@ -1789,6 +1814,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panelInfo.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleOrdenCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleVBindingSource)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1818,7 +1844,6 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1949,5 +1974,6 @@
         private System.Windows.Forms.Label lbStock1;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar1;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

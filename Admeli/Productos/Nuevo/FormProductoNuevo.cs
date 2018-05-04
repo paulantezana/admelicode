@@ -306,6 +306,7 @@ namespace Admeli.Productos.Nuevo
         #region ========================== Guardar ==========================
         public async Task<Response> guardarCategoria()
         {
+            appLoadState(true);
             // Ejecutando el guardado
             try
             {
@@ -316,6 +317,11 @@ namespace Admeli.Productos.Nuevo
             catch(Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+
+                appLoadState(false);
             }
         }
 
@@ -343,6 +349,9 @@ namespace Admeli.Productos.Nuevo
         internal async void executeGuardar()
         {
             // Ejecutando el guardado
+            appLoadState(true);
+
+
             try
             {
                 if (nuevo)
@@ -382,6 +391,12 @@ namespace Admeli.Productos.Nuevo
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
+
+
+            }
+
         }
 
         internal async void executeGuardarSalir()

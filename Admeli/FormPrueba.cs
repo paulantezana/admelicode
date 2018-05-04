@@ -47,7 +47,7 @@ namespace Admeli
         private ConfigModel configModel = new ConfigModel();
         private PersonalModel personalModel = new PersonalModel();
         private SunatModel sunatModel = new SunatModel();
-
+        private CajaModel cajaModel = new CajaModel();
 
         //datos generales usados por todos los uc
         public static Asignacion asignacion;
@@ -90,7 +90,7 @@ namespace Admeli
             cargarAsignacion();
         }
 
-        private void cargarDatosAsideRight()
+        public async void cargarDatosAsideRight()
         {
             lblName.Text = PersonalModel.personal.nombres;
             lblLastName.Text = PersonalModel.personal.apellidos;
@@ -108,6 +108,22 @@ namespace Admeli
                 createElements(y, cambio);
                 y += 22;
             }
+
+            y = lbTotalEfectivo.Location.Y + 50;
+           
+            if (ConfigModel.cajaSesion != null)
+            {
+
+               foreach(Moneda  M in   await cajaModel.cierreCajaIngresoMenosEgreso(1, ConfigModel.cajaSesion.idCajaSesion)){
+
+                    createElementsMoneda(y, M);
+                    y += 22;
+
+                }
+
+            }
+           
+
         }
 
         private async void cargarAsignacion()
@@ -423,6 +439,43 @@ namespace Admeli
             /// 
             panelMenuRight.Controls.Add(lblEfectivoName);
             panelMenuRight.Controls.Add(lblEfectivoValue);
+        }
+        private void createElementsMoneda(int y, Moneda param)
+        {
+            /// 
+            /// lblEfectivoName
+            /// 
+            Label lblEfectivoName = new System.Windows.Forms.Label()
+            {
+                AutoSize = true,
+                Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                ForeColor = Color.FromArgb(84, 110, 122),
+                Location = new System.Drawing.Point(13, y),
+                Name = "lblMoneda",
+                Size = new System.Drawing.Size(44, 16),
+                TabIndex = 10,
+                Text = param.moneda
+            };
+
+            /// 
+            /// lblEfectivoValue
+            /// 
+            Label lblEfectivoValue = new System.Windows.Forms.Label()
+            {
+                AutoSize = true,
+                ForeColor = System.Drawing.SystemColors.ControlDarkDark,
+                Location = new System.Drawing.Point(150, y),
+                Name = "lbtotal",
+                Size = new System.Drawing.Size(65, 13),
+                TabIndex = 11,
+                Text = String.Format("{0:0.00}", param.total)
+            };
+
+            /// 
+            /// Add Controls
+            /// 
+            panelTotal.Controls.Add(lblEfectivoName);
+            panelTotal.Controls.Add(lblEfectivoValue);
         }
         #endregion
 
