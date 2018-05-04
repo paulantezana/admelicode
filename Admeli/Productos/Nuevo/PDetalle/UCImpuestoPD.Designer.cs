@@ -57,14 +57,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvImpuestoTodo = new System.Windows.Forms.DataGridView();
-            this.idImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siglasImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcentualDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.porDefectoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enUsoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.impuestoBindingSourceT = new System.Windows.Forms.BindingSource(this.components);
             this.panel9 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -78,6 +70,13 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvImpuestoProducto = new System.Windows.Forms.DataGridView();
+            this.impuestoBindingSourceP = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnGuardarImpustos = new System.Windows.Forms.Button();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.btnProductoATodo = new System.Windows.Forms.ToolStripButton();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.idImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.siglasImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,13 +85,14 @@
             this.porDefectoDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.estadoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enUsoDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.impuestoBindingSourceP = new System.Windows.Forms.BindingSource(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnGuardarImpustos = new System.Windows.Forms.Button();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.btnProductoATodo = new System.Windows.Forms.ToolStripButton();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.idImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siglasImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentualDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.porDefectoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enUsoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -372,70 +372,6 @@
             this.dgvImpuestoTodo.Size = new System.Drawing.Size(519, 373);
             this.dgvImpuestoTodo.TabIndex = 2;
             // 
-            // idImpuestoDataGridViewTextBoxColumn
-            // 
-            this.idImpuestoDataGridViewTextBoxColumn.DataPropertyName = "idImpuesto";
-            this.idImpuestoDataGridViewTextBoxColumn.HeaderText = "idImpuesto";
-            this.idImpuestoDataGridViewTextBoxColumn.Name = "idImpuestoDataGridViewTextBoxColumn";
-            this.idImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idImpuestoDataGridViewTextBoxColumn.Width = 103;
-            // 
-            // nombreImpuestoDataGridViewTextBoxColumn
-            // 
-            this.nombreImpuestoDataGridViewTextBoxColumn.DataPropertyName = "nombreImpuesto";
-            this.nombreImpuestoDataGridViewTextBoxColumn.HeaderText = "nombreImpuesto";
-            this.nombreImpuestoDataGridViewTextBoxColumn.Name = "nombreImpuestoDataGridViewTextBoxColumn";
-            this.nombreImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreImpuestoDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // siglasImpuestoDataGridViewTextBoxColumn
-            // 
-            this.siglasImpuestoDataGridViewTextBoxColumn.DataPropertyName = "siglasImpuesto";
-            this.siglasImpuestoDataGridViewTextBoxColumn.HeaderText = "siglasImpuesto";
-            this.siglasImpuestoDataGridViewTextBoxColumn.Name = "siglasImpuestoDataGridViewTextBoxColumn";
-            this.siglasImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.siglasImpuestoDataGridViewTextBoxColumn.Width = 127;
-            // 
-            // valorImpuestoDataGridViewTextBoxColumn
-            // 
-            this.valorImpuestoDataGridViewTextBoxColumn.DataPropertyName = "valorImpuesto";
-            this.valorImpuestoDataGridViewTextBoxColumn.HeaderText = "valorImpuesto";
-            this.valorImpuestoDataGridViewTextBoxColumn.Name = "valorImpuestoDataGridViewTextBoxColumn";
-            this.valorImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valorImpuestoDataGridViewTextBoxColumn.Width = 123;
-            // 
-            // porcentualDataGridViewCheckBoxColumn
-            // 
-            this.porcentualDataGridViewCheckBoxColumn.DataPropertyName = "porcentual";
-            this.porcentualDataGridViewCheckBoxColumn.HeaderText = "porcentual";
-            this.porcentualDataGridViewCheckBoxColumn.Name = "porcentualDataGridViewCheckBoxColumn";
-            this.porcentualDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.porcentualDataGridViewCheckBoxColumn.Width = 82;
-            // 
-            // porDefectoDataGridViewCheckBoxColumn
-            // 
-            this.porDefectoDataGridViewCheckBoxColumn.DataPropertyName = "porDefecto";
-            this.porDefectoDataGridViewCheckBoxColumn.HeaderText = "porDefecto";
-            this.porDefectoDataGridViewCheckBoxColumn.Name = "porDefectoDataGridViewCheckBoxColumn";
-            this.porDefectoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.porDefectoDataGridViewCheckBoxColumn.Width = 83;
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
-            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
-            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // enUsoDataGridViewCheckBoxColumn
-            // 
-            this.enUsoDataGridViewCheckBoxColumn.DataPropertyName = "enUso";
-            this.enUsoDataGridViewCheckBoxColumn.HeaderText = "enUso";
-            this.enUsoDataGridViewCheckBoxColumn.Name = "enUsoDataGridViewCheckBoxColumn";
-            this.enUsoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.enUsoDataGridViewCheckBoxColumn.Width = 53;
-            // 
             // impuestoBindingSourceT
             // 
             this.impuestoBindingSourceT.DataSource = typeof(Entidad.Impuesto);
@@ -622,70 +558,6 @@
             this.dgvImpuestoProducto.Size = new System.Drawing.Size(595, 373);
             this.dgvImpuestoProducto.TabIndex = 2;
             // 
-            // idImpuestoDataGridViewTextBoxColumn1
-            // 
-            this.idImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "idImpuesto";
-            this.idImpuestoDataGridViewTextBoxColumn1.HeaderText = "idImpuesto";
-            this.idImpuestoDataGridViewTextBoxColumn1.Name = "idImpuestoDataGridViewTextBoxColumn1";
-            this.idImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idImpuestoDataGridViewTextBoxColumn1.Width = 103;
-            // 
-            // nombreImpuestoDataGridViewTextBoxColumn1
-            // 
-            this.nombreImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "nombreImpuesto";
-            this.nombreImpuestoDataGridViewTextBoxColumn1.HeaderText = "nombreImpuesto";
-            this.nombreImpuestoDataGridViewTextBoxColumn1.Name = "nombreImpuestoDataGridViewTextBoxColumn1";
-            this.nombreImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nombreImpuestoDataGridViewTextBoxColumn1.Width = 140;
-            // 
-            // siglasImpuestoDataGridViewTextBoxColumn1
-            // 
-            this.siglasImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "siglasImpuesto";
-            this.siglasImpuestoDataGridViewTextBoxColumn1.HeaderText = "siglasImpuesto";
-            this.siglasImpuestoDataGridViewTextBoxColumn1.Name = "siglasImpuestoDataGridViewTextBoxColumn1";
-            this.siglasImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.siglasImpuestoDataGridViewTextBoxColumn1.Width = 127;
-            // 
-            // valorImpuestoDataGridViewTextBoxColumn1
-            // 
-            this.valorImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "valorImpuesto";
-            this.valorImpuestoDataGridViewTextBoxColumn1.HeaderText = "valorImpuesto";
-            this.valorImpuestoDataGridViewTextBoxColumn1.Name = "valorImpuestoDataGridViewTextBoxColumn1";
-            this.valorImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.valorImpuestoDataGridViewTextBoxColumn1.Width = 123;
-            // 
-            // porcentualDataGridViewCheckBoxColumn1
-            // 
-            this.porcentualDataGridViewCheckBoxColumn1.DataPropertyName = "porcentual";
-            this.porcentualDataGridViewCheckBoxColumn1.HeaderText = "porcentual";
-            this.porcentualDataGridViewCheckBoxColumn1.Name = "porcentualDataGridViewCheckBoxColumn1";
-            this.porcentualDataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.porcentualDataGridViewCheckBoxColumn1.Width = 82;
-            // 
-            // porDefectoDataGridViewCheckBoxColumn1
-            // 
-            this.porDefectoDataGridViewCheckBoxColumn1.DataPropertyName = "porDefecto";
-            this.porDefectoDataGridViewCheckBoxColumn1.HeaderText = "porDefecto";
-            this.porDefectoDataGridViewCheckBoxColumn1.Name = "porDefectoDataGridViewCheckBoxColumn1";
-            this.porDefectoDataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.porDefectoDataGridViewCheckBoxColumn1.Width = 83;
-            // 
-            // estadoDataGridViewTextBoxColumn1
-            // 
-            this.estadoDataGridViewTextBoxColumn1.DataPropertyName = "estado";
-            this.estadoDataGridViewTextBoxColumn1.HeaderText = "estado";
-            this.estadoDataGridViewTextBoxColumn1.Name = "estadoDataGridViewTextBoxColumn1";
-            this.estadoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn1.Width = 75;
-            // 
-            // enUsoDataGridViewCheckBoxColumn1
-            // 
-            this.enUsoDataGridViewCheckBoxColumn1.DataPropertyName = "enUso";
-            this.enUsoDataGridViewCheckBoxColumn1.HeaderText = "enUso";
-            this.enUsoDataGridViewCheckBoxColumn1.Name = "enUsoDataGridViewCheckBoxColumn1";
-            this.enUsoDataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.enUsoDataGridViewCheckBoxColumn1.Width = 53;
-            // 
             // impuestoBindingSourceP
             // 
             this.impuestoBindingSourceP.DataSource = typeof(Entidad.Impuesto);
@@ -767,6 +639,141 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Impuestos del Producto";
             // 
+            // idImpuestoDataGridViewTextBoxColumn1
+            // 
+            this.idImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "idImpuesto";
+            this.idImpuestoDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idImpuestoDataGridViewTextBoxColumn1.Name = "idImpuestoDataGridViewTextBoxColumn1";
+            this.idImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idImpuestoDataGridViewTextBoxColumn1.Width = 45;
+            // 
+            // nombreImpuestoDataGridViewTextBoxColumn1
+            // 
+            this.nombreImpuestoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "nombreImpuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn1.HeaderText = "Impuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn1.Name = "nombreImpuestoDataGridViewTextBoxColumn1";
+            this.nombreImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // siglasImpuestoDataGridViewTextBoxColumn1
+            // 
+            this.siglasImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn1.HeaderText = "Siglas";
+            this.siglasImpuestoDataGridViewTextBoxColumn1.Name = "siglasImpuestoDataGridViewTextBoxColumn1";
+            this.siglasImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.siglasImpuestoDataGridViewTextBoxColumn1.Width = 72;
+            // 
+            // valorImpuestoDataGridViewTextBoxColumn1
+            // 
+            this.valorImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "valorImpuesto";
+            this.valorImpuestoDataGridViewTextBoxColumn1.HeaderText = "Valor";
+            this.valorImpuestoDataGridViewTextBoxColumn1.Name = "valorImpuestoDataGridViewTextBoxColumn1";
+            this.valorImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.valorImpuestoDataGridViewTextBoxColumn1.Width = 66;
+            // 
+            // porcentualDataGridViewCheckBoxColumn1
+            // 
+            this.porcentualDataGridViewCheckBoxColumn1.DataPropertyName = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn1.HeaderText = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn1.Name = "porcentualDataGridViewCheckBoxColumn1";
+            this.porcentualDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.porcentualDataGridViewCheckBoxColumn1.Visible = false;
+            this.porcentualDataGridViewCheckBoxColumn1.Width = 82;
+            // 
+            // porDefectoDataGridViewCheckBoxColumn1
+            // 
+            this.porDefectoDataGridViewCheckBoxColumn1.DataPropertyName = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn1.HeaderText = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn1.Name = "porDefectoDataGridViewCheckBoxColumn1";
+            this.porDefectoDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.porDefectoDataGridViewCheckBoxColumn1.Visible = false;
+            this.porDefectoDataGridViewCheckBoxColumn1.Width = 83;
+            // 
+            // estadoDataGridViewTextBoxColumn1
+            // 
+            this.estadoDataGridViewTextBoxColumn1.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn1.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn1.Name = "estadoDataGridViewTextBoxColumn1";
+            this.estadoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn1.Width = 75;
+            // 
+            // enUsoDataGridViewCheckBoxColumn1
+            // 
+            this.enUsoDataGridViewCheckBoxColumn1.DataPropertyName = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn1.HeaderText = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn1.Name = "enUsoDataGridViewCheckBoxColumn1";
+            this.enUsoDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.enUsoDataGridViewCheckBoxColumn1.Visible = false;
+            this.enUsoDataGridViewCheckBoxColumn1.Width = 53;
+            // 
+            // idImpuestoDataGridViewTextBoxColumn
+            // 
+            this.idImpuestoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idImpuestoDataGridViewTextBoxColumn.DataPropertyName = "idImpuesto";
+            this.idImpuestoDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idImpuestoDataGridViewTextBoxColumn.Name = "idImpuestoDataGridViewTextBoxColumn";
+            this.idImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idImpuestoDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // nombreImpuestoDataGridViewTextBoxColumn
+            // 
+            this.nombreImpuestoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreImpuestoDataGridViewTextBoxColumn.DataPropertyName = "nombreImpuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn.HeaderText = "Impuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn.Name = "nombreImpuestoDataGridViewTextBoxColumn";
+            this.nombreImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // siglasImpuestoDataGridViewTextBoxColumn
+            // 
+            this.siglasImpuestoDataGridViewTextBoxColumn.DataPropertyName = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn.HeaderText = "Siglas";
+            this.siglasImpuestoDataGridViewTextBoxColumn.Name = "siglasImpuestoDataGridViewTextBoxColumn";
+            this.siglasImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.siglasImpuestoDataGridViewTextBoxColumn.Width = 72;
+            // 
+            // valorImpuestoDataGridViewTextBoxColumn
+            // 
+            this.valorImpuestoDataGridViewTextBoxColumn.DataPropertyName = "valorImpuesto";
+            this.valorImpuestoDataGridViewTextBoxColumn.HeaderText = "Valor";
+            this.valorImpuestoDataGridViewTextBoxColumn.Name = "valorImpuestoDataGridViewTextBoxColumn";
+            this.valorImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valorImpuestoDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // porcentualDataGridViewCheckBoxColumn
+            // 
+            this.porcentualDataGridViewCheckBoxColumn.DataPropertyName = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn.HeaderText = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn.Name = "porcentualDataGridViewCheckBoxColumn";
+            this.porcentualDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.porcentualDataGridViewCheckBoxColumn.Visible = false;
+            this.porcentualDataGridViewCheckBoxColumn.Width = 82;
+            // 
+            // porDefectoDataGridViewCheckBoxColumn
+            // 
+            this.porDefectoDataGridViewCheckBoxColumn.DataPropertyName = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn.HeaderText = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn.Name = "porDefectoDataGridViewCheckBoxColumn";
+            this.porDefectoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.porDefectoDataGridViewCheckBoxColumn.Visible = false;
+            this.porDefectoDataGridViewCheckBoxColumn.Width = 83;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // enUsoDataGridViewCheckBoxColumn
+            // 
+            this.enUsoDataGridViewCheckBoxColumn.DataPropertyName = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn.HeaderText = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn.Name = "enUsoDataGridViewCheckBoxColumn";
+            this.enUsoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.enUsoDataGridViewCheckBoxColumn.Visible = false;
+            this.enUsoDataGridViewCheckBoxColumn.Width = 53;
+            // 
             // UCImpuestoPD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -838,23 +845,7 @@
         private System.Windows.Forms.DataGridView dgvImpuestoTodo;
         private System.Windows.Forms.DataGridView dgvImpuestoProducto;
         private System.Windows.Forms.BindingSource sucursalBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuestoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreImpuestoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn siglasImpuestoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorImpuestoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn porcentualDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn porDefectoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn enUsoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource impuestoBindingSourceT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuestoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreImpuestoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn siglasImpuestoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorImpuestoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn porcentualDataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn porDefectoDataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn enUsoDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.BindingSource impuestoBindingSourceP;
         private System.Windows.Forms.ToolStripButton btnActualizarImpuesto;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -865,5 +856,21 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnGuardarImpustos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siglasImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porcentualDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porDefectoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn enUsoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuestoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreImpuestoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siglasImpuestoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorImpuestoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porcentualDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porDefectoDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn enUsoDataGridViewCheckBoxColumn1;
     }
 }

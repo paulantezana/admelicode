@@ -878,7 +878,7 @@
             // codigoDataGridViewTextBoxColumn
             // 
             this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Código";
             this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
             this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -893,35 +893,35 @@
             // nombrePresentacionDataGridViewTextBoxColumn
             // 
             this.nombrePresentacionDataGridViewTextBoxColumn.DataPropertyName = "nombrePresentacion";
-            this.nombrePresentacionDataGridViewTextBoxColumn.HeaderText = "nombrePresentacion";
+            this.nombrePresentacionDataGridViewTextBoxColumn.HeaderText = "Presentación";
             this.nombrePresentacionDataGridViewTextBoxColumn.Name = "nombrePresentacionDataGridViewTextBoxColumn";
             this.nombrePresentacionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
             this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // simboloPresentacionDataGridViewTextBoxColumn
             // 
             this.simboloPresentacionDataGridViewTextBoxColumn.DataPropertyName = "simboloPresentacion";
-            this.simboloPresentacionDataGridViewTextBoxColumn.HeaderText = "simboloPresentacion";
+            this.simboloPresentacionDataGridViewTextBoxColumn.HeaderText = "Simbolo";
             this.simboloPresentacionDataGridViewTextBoxColumn.Name = "simboloPresentacionDataGridViewTextBoxColumn";
             this.simboloPresentacionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // precioCompraDataGridViewTextBoxColumn
             // 
             this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "precioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "precioCompra";
+            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "P.Compra";
             this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
             this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cantidadUnitariaDataGridViewTextBoxColumn
             // 
             this.cantidadUnitariaDataGridViewTextBoxColumn.DataPropertyName = "cantidadUnitaria";
-            this.cantidadUnitariaDataGridViewTextBoxColumn.HeaderText = "cantidadUnitaria";
+            this.cantidadUnitariaDataGridViewTextBoxColumn.HeaderText = "Cant.U";
             this.cantidadUnitariaDataGridViewTextBoxColumn.Name = "cantidadUnitariaDataGridViewTextBoxColumn";
             this.cantidadUnitariaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -931,6 +931,7 @@
             this.presentacionPorDefectoDataGridViewCheckBoxColumn.HeaderText = "presentacionPorDefecto";
             this.presentacionPorDefectoDataGridViewCheckBoxColumn.Name = "presentacionPorDefectoDataGridViewCheckBoxColumn";
             this.presentacionPorDefectoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.presentacionPorDefectoDataGridViewCheckBoxColumn.Visible = false;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -967,19 +968,19 @@
             // 
             // idProductoDataGridViewTextBoxColumn1
             // 
+            this.idProductoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idProductoDataGridViewTextBoxColumn1.DataPropertyName = "idProducto";
             this.idProductoDataGridViewTextBoxColumn1.HeaderText = "idProducto";
             this.idProductoDataGridViewTextBoxColumn1.Name = "idProductoDataGridViewTextBoxColumn1";
             this.idProductoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idProductoDataGridViewTextBoxColumn1.Width = 102;
             // 
             // nombreVarianteDataGridViewTextBoxColumn
             // 
+            this.nombreVarianteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nombreVarianteDataGridViewTextBoxColumn.DataPropertyName = "nombreVariante";
-            this.nombreVarianteDataGridViewTextBoxColumn.HeaderText = "nombreVariante";
+            this.nombreVarianteDataGridViewTextBoxColumn.HeaderText = "Variante";
             this.nombreVarianteDataGridViewTextBoxColumn.Name = "nombreVarianteDataGridViewTextBoxColumn";
             this.nombreVarianteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreVarianteDataGridViewTextBoxColumn.Width = 135;
             // 
             // esComboDataGridViewCheckBoxColumn
             // 
@@ -1010,19 +1011,20 @@
             // 
             // estadoDataGridViewTextBoxColumn1
             // 
+            this.estadoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.estadoDataGridViewTextBoxColumn1.DataPropertyName = "estado";
             this.estadoDataGridViewTextBoxColumn1.HeaderText = "estado";
             this.estadoDataGridViewTextBoxColumn1.Name = "estadoDataGridViewTextBoxColumn1";
             this.estadoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn1.Visible = false;
-            this.estadoDataGridViewTextBoxColumn1.Width = 75;
             // 
             // idAlternativaDataGridViewTextBoxColumn
             // 
+            this.idAlternativaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idAlternativaDataGridViewTextBoxColumn.DataPropertyName = "idAlternativa";
             this.idAlternativaDataGridViewTextBoxColumn.HeaderText = "idAlternativa";
             this.idAlternativaDataGridViewTextBoxColumn.Name = "idAlternativaDataGridViewTextBoxColumn";
             this.idAlternativaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idAlternativaDataGridViewTextBoxColumn.Visible = false;
             this.idAlternativaDataGridViewTextBoxColumn.Width = 114;
             // 
             // idVarianteDataGridViewTextBoxColumn1
@@ -1036,11 +1038,11 @@
             // 
             // descripcionAlternativaDataGridViewTextBoxColumn
             // 
+            this.descripcionAlternativaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descripcionAlternativaDataGridViewTextBoxColumn.DataPropertyName = "descripcionAlternativa";
-            this.descripcionAlternativaDataGridViewTextBoxColumn.HeaderText = "descripcionAlternativa";
+            this.descripcionAlternativaDataGridViewTextBoxColumn.HeaderText = "Alternativa";
             this.descripcionAlternativaDataGridViewTextBoxColumn.Name = "descripcionAlternativaDataGridViewTextBoxColumn";
             this.descripcionAlternativaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionAlternativaDataGridViewTextBoxColumn.Width = 175;
             // 
             // seleccionadoDataGridViewCheckBoxColumn
             // 
@@ -1053,11 +1055,11 @@
             // 
             // ordenPosicionDataGridViewTextBoxColumn
             // 
+            this.ordenPosicionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ordenPosicionDataGridViewTextBoxColumn.DataPropertyName = "ordenPosicion";
             this.ordenPosicionDataGridViewTextBoxColumn.HeaderText = "ordenPosicion";
             this.ordenPosicionDataGridViewTextBoxColumn.Name = "ordenPosicionDataGridViewTextBoxColumn";
             this.ordenPosicionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ordenPosicionDataGridViewTextBoxColumn.Width = 124;
             // 
             // estadoDataGridViewTextBoxColumn2
             // 
@@ -1175,12 +1177,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPresentacionBaseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAlternativaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idVarianteDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionAlternativaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionadoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ordenPosicionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn idVarianteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreVarianteDataGridViewTextBoxColumn;
@@ -1188,5 +1184,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAlternativaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idVarianteDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionAlternativaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordenPosicionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn2;
     }
 }

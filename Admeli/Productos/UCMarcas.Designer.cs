@@ -38,6 +38,7 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.marcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCrud = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.lblPageAllItems = new System.Windows.Forms.Label();
-            this.marcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,10 +69,10 @@
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).BeginInit();
             this.panelCrud.SuspendLayout();
             this.panelNavigation.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -83,7 +83,7 @@
             this.panelContainer.Controls.Add(this.panelNavigation);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(1095, 551);
@@ -96,7 +96,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(1093, 429);
             this.panel1.TabIndex = 20;
             // 
@@ -159,6 +159,10 @@
             this.dataGridView.Size = new System.Drawing.Size(1073, 409);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // marcaBindingSource
+            // 
+            this.marcaBindingSource.DataSource = typeof(Entidad.Marca);
             // 
             // panelCrud
             // 
@@ -481,16 +485,14 @@
             this.lblPageAllItems.Text = "10 Registros";
             this.lblPageAllItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // marcaBindingSource
-            // 
-            this.marcaBindingSource.DataSource = typeof(Entidad.Marca);
-            // 
             // idMarcaDataGridViewTextBoxColumn
             // 
+            this.idMarcaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idMarcaDataGridViewTextBoxColumn.DataPropertyName = "idMarca";
-            this.idMarcaDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idMarcaDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idMarcaDataGridViewTextBoxColumn.Name = "idMarcaDataGridViewTextBoxColumn";
             this.idMarcaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idMarcaDataGridViewTextBoxColumn.Width = 40;
             // 
             // nombreMarcaDataGridViewTextBoxColumn
             // 
@@ -505,6 +507,7 @@
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción ";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.Visible = false;
             // 
             // sitioWebDataGridViewTextBoxColumn
             // 
@@ -519,6 +522,7 @@
             this.ubicacionLogoDataGridViewTextBoxColumn.HeaderText = "Logo";
             this.ubicacionLogoDataGridViewTextBoxColumn.Name = "ubicacionLogoDataGridViewTextBoxColumn";
             this.ubicacionLogoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ubicacionLogoDataGridViewTextBoxColumn.Visible = false;
             // 
             // captionImagenDataGridViewTextBoxColumn
             // 
@@ -526,6 +530,7 @@
             this.captionImagenDataGridViewTextBoxColumn.HeaderText = "Imagen ";
             this.captionImagenDataGridViewTextBoxColumn.Name = "captionImagenDataGridViewTextBoxColumn";
             this.captionImagenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.captionImagenDataGridViewTextBoxColumn.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -533,6 +538,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Tiene Registros";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -544,29 +550,31 @@
             // 
             // EstadoString
             // 
+            this.EstadoString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.EstadoString.DataPropertyName = "EstadoString";
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
+            this.EstadoString.Width = 150;
             // 
             // UCMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCMarcas";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(1111, 567);
             this.Load += new System.EventHandler(this.UCMarcas_Load);
             this.panelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).EndInit();
             this.panelCrud.ResumeLayout(false);
             this.panelNavigation.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

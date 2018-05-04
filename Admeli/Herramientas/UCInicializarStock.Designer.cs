@@ -81,8 +81,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.almacenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,7 +134,7 @@
             this.panelContainer.Controls.Add(this.panelCategoriaContainer);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(1089, 547);
@@ -149,7 +149,7 @@
             this.panelMainContainer.Controls.Add(this.panelCrud);
             this.panelMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainContainer.Location = new System.Drawing.Point(228, 1);
-            this.panelMainContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMainContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelMainContainer.Name = "panelMainContainer";
             this.panelMainContainer.Size = new System.Drawing.Size(860, 545);
             this.panelMainContainer.TabIndex = 5;
@@ -160,7 +160,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 105);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel3.Padding = new System.Windows.Forms.Padding(10);
             this.panel3.Size = new System.Drawing.Size(860, 380);
             this.panel3.TabIndex = 21;
             // 
@@ -185,8 +185,8 @@
             this.dataGridView.ColumnHeadersHeight = 26;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProductoDataGridViewTextBoxColumn,
-            this.codigoProductoDataGridViewTextBoxColumn,
             this.nombreProductoDataGridViewTextBoxColumn,
+            this.codigoProductoDataGridViewTextBoxColumn,
             this.sucursalDataGridViewTextBoxColumn,
             this.almacenDataGridViewTextBoxColumn,
             this.precioCompraDataGridViewTextBoxColumn,
@@ -283,7 +283,7 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(286, 6);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 29);
             this.button1.TabIndex = 19;
@@ -346,7 +346,7 @@
             this.btnIngresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnIngresos.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresos.Image")));
             this.btnIngresos.Location = new System.Drawing.Point(243, 6);
-            this.btnIngresos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnIngresos.Margin = new System.Windows.Forms.Padding(5);
             this.btnIngresos.Name = "btnIngresos";
             this.btnIngresos.Size = new System.Drawing.Size(38, 29);
             this.btnIngresos.TabIndex = 17;
@@ -380,7 +380,7 @@
             this.textBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBuscar.isPassword = false;
             this.textBuscar.Location = new System.Drawing.Point(8, 5);
-            this.textBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Padding = new System.Windows.Forms.Padding(50, 0, 2, 2);
             this.textBuscar.Size = new System.Drawing.Size(228, 36);
@@ -780,7 +780,7 @@
             // 
             this.splitter1.BackColor = System.Drawing.Color.LightGray;
             this.splitter1.Location = new System.Drawing.Point(225, 1);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 545);
             this.splitter1.TabIndex = 4;
@@ -792,7 +792,7 @@
             this.panelCategoriaContainer.Controls.Add(this.flowLayoutPanel1);
             this.panelCategoriaContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelCategoriaContainer.Location = new System.Drawing.Point(1, 1);
-            this.panelCategoriaContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCategoriaContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelCategoriaContainer.Name = "panelCategoriaContainer";
             this.panelCategoriaContainer.Size = new System.Drawing.Size(224, 545);
             this.panelCategoriaContainer.TabIndex = 3;
@@ -802,9 +802,9 @@
             this.panel4.Controls.Add(this.treeViewCategoria);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 60);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel4.Padding = new System.Windows.Forms.Padding(8);
             this.panel4.Size = new System.Drawing.Size(224, 485);
             this.panel4.TabIndex = 1;
             // 
@@ -817,7 +817,7 @@
             this.treeViewCategoria.ImageList = this.imageList;
             this.treeViewCategoria.ItemHeight = 25;
             this.treeViewCategoria.Location = new System.Drawing.Point(8, 8);
-            this.treeViewCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeViewCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewCategoria.Name = "treeViewCategoria";
             this.treeViewCategoria.SelectedImageIndex = 0;
             this.treeViewCategoria.ShowNodeToolTips = true;
@@ -894,33 +894,33 @@
             // 
             // idProductoDataGridViewTextBoxColumn
             // 
+            this.idProductoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
-            this.idProductoDataGridViewTextBoxColumn.HeaderText = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
             this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.idProductoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codigoProductoDataGridViewTextBoxColumn
-            // 
-            this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
-
-            this.codigoProductoDataGridViewTextBoxColumn.FillWeight = 70F;
-
-            this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
-            this.codigoProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idProductoDataGridViewTextBoxColumn.Width = 40;
             // 
             // nombreProductoDataGridViewTextBoxColumn
             // 
+            this.nombreProductoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
-
             this.nombreProductoDataGridViewTextBoxColumn.FillWeight = 130F;
             this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
             this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.nombreProductoDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // codigoProductoDataGridViewTextBoxColumn
+            // 
+            this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
+            this.codigoProductoDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "Código";
+            this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
+            this.codigoProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // sucursalDataGridViewTextBoxColumn
             // 
@@ -942,9 +942,8 @@
             // precioCompraDataGridViewTextBoxColumn
             // 
             this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "precioCompra";
-
             this.precioCompraDataGridViewTextBoxColumn.FillWeight = 70F;
-            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "P. Compra";
+            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "P.Compra";
             this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
             this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioCompraDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -952,10 +951,8 @@
             // precioConImpuestoDataGridViewTextBoxColumn
             // 
             this.precioConImpuestoDataGridViewTextBoxColumn.DataPropertyName = "precioConImpuesto";
-
             this.precioConImpuestoDataGridViewTextBoxColumn.FillWeight = 70F;
-            this.precioConImpuestoDataGridViewTextBoxColumn.HeaderText = "P.  Impuesto";
-
+            this.precioConImpuestoDataGridViewTextBoxColumn.HeaderText = "P.Impuesto";
             this.precioConImpuestoDataGridViewTextBoxColumn.Name = "precioConImpuestoDataGridViewTextBoxColumn";
             this.precioConImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioConImpuestoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -963,7 +960,6 @@
             // utilidadDataGridViewTextBoxColumn
             // 
             this.utilidadDataGridViewTextBoxColumn.DataPropertyName = "utilidad";
-
             this.utilidadDataGridViewTextBoxColumn.FillWeight = 70F;
             this.utilidadDataGridViewTextBoxColumn.HeaderText = "Utilidad";
             this.utilidadDataGridViewTextBoxColumn.Name = "utilidadDataGridViewTextBoxColumn";
@@ -973,22 +969,22 @@
             // precioVentaDataGridViewTextBoxColumn
             // 
             this.precioVentaDataGridViewTextBoxColumn.DataPropertyName = "precioVenta";
-
             this.precioVentaDataGridViewTextBoxColumn.FillWeight = 70F;
-            this.precioVentaDataGridViewTextBoxColumn.HeaderText = "P. Venta";
+            this.precioVentaDataGridViewTextBoxColumn.HeaderText = "P.Venta";
             this.precioVentaDataGridViewTextBoxColumn.Name = "precioVentaDataGridViewTextBoxColumn";
             this.precioVentaDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioVentaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // stockDataGridViewTextBoxColumn
             // 
+            this.stockDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.stockDataGridViewTextBoxColumn.DataPropertyName = "stock";
-
             this.stockDataGridViewTextBoxColumn.FillWeight = 70F;
             this.stockDataGridViewTextBoxColumn.HeaderText = "Stock";
             this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
             this.stockDataGridViewTextBoxColumn.ReadOnly = true;
             this.stockDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.stockDataGridViewTextBoxColumn.Width = 60;
             // 
             // nombre
             // 
@@ -1139,9 +1135,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCInicializarStock";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(1105, 563);
             this.Load += new System.EventHandler(this.UCInicializarStock_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCInicializarStock_Paint);
@@ -1217,8 +1213,8 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.BindingSource productoDataBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sucursalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn almacenDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioCompraDataGridViewTextBoxColumn;
