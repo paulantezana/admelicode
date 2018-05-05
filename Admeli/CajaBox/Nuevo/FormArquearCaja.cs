@@ -275,7 +275,8 @@ namespace Admeli.CajaBox.Nuevo
                 Size = new System.Drawing.Size(whidt, height),
                 TabIndex = 9,
                 TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
-                Text = textBoxValue
+                Text = textBoxValue,
+                Enabled = false
             };
             controls.Add(titlefield);
             controls.Add(textBoxBF1);

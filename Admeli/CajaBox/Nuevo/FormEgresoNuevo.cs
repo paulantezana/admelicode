@@ -138,8 +138,14 @@ namespace Admeli.CajaBox.Nuevo
                 //Verificar Caja Asignada y recuperar idCajaSesion
                 //currentCajaSesion=await cajaModel.cajaSesion(ConfigModel.asignacionPersonal.idAsignarCaja);
                 //Verificar que exista dinero para egresar
+
+                //cbxMoneda.SelectedValue.ToString()
+                
                 List<Moneda> monedas = await cajaModel.cierreCajaIngresoMenosEgreso(mediosDePagos[0].idMedioPago, ConfigModel.cajaSesion.idCajaSesion);
-                if (monedas[0].total < double.Parse(textMonto.Text))
+                int idMoneda = Convert.ToInt32(cbxMoneda.SelectedValue.ToString());
+                Moneda moneda = monedas.Find(x => x.idMoneda == idMoneda);
+
+                if (moneda.total < double.Parse(textMonto.Text))
                 {
                     MessageBox.Show("No Hay dinero suficiente en la caja", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
