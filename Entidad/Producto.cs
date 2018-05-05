@@ -36,6 +36,8 @@ namespace Entidad
         public string nombre { get; set; }
         public string codigo { get; set; }
         private string estadoString;
+
+
         public string EstadoString
         {
             get
@@ -53,6 +55,9 @@ namespace Entidad
         public string stock { get; set; }
         public string stockFinanciero { get; set; }
         public int idPresentacionAfectada { get; set; }
+
+        public string idAlmacen { get; set; }
+        public int nombreAlmacen { get; set; }
 
     }
 
