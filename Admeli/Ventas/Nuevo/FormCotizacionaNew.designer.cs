@@ -79,7 +79,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuProgressBar1 = new Bunifu.Framework.UI.BunifuProgressBar();
             this.dgvDetalleOrdenCompra = new System.Windows.Forms.DataGridView();
             this.idPresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCombinacionAlternativaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,6 +159,7 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.progressBarVenta = new System.Windows.Forms.ProgressBar();
             this.panelDatos.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -696,25 +696,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.bunifuProgressBar1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Controls.Add(this.progressBarVenta);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(23, 580);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1407, 16);
+            this.panel1.Size = new System.Drawing.Size(1365, 16);
             this.panel1.TabIndex = 301;
-            // 
-            // bunifuProgressBar1
-            // 
-            this.bunifuProgressBar1.BackColor = System.Drawing.Color.Silver;
-            this.bunifuProgressBar1.BorderRadius = 5;
-            this.bunifuProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuProgressBar1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuProgressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuProgressBar1.MaximumValue = 100;
-            this.bunifuProgressBar1.Name = "bunifuProgressBar1";
-            this.bunifuProgressBar1.ProgressColor = System.Drawing.Color.Teal;
-            this.bunifuProgressBar1.Size = new System.Drawing.Size(1407, 16);
-            this.bunifuProgressBar1.TabIndex = 0;
-            this.bunifuProgressBar1.Value = 0;
             // 
             // dgvDetalleOrdenCompra
             // 
@@ -1772,11 +1759,19 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(136, 93);
             this.btnSalir.TabIndex = 15;
-            this.btnSalir.Text = "Finalizar";
+            this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // progressBarVenta
+            // 
+            this.progressBarVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBarVenta.Location = new System.Drawing.Point(0, 0);
+            this.progressBarVenta.Name = "progressBarVenta";
+            this.progressBarVenta.Size = new System.Drawing.Size(1365, 16);
+            this.progressBarVenta.TabIndex = 0;
             // 
             // FormCotizacionaNew
             // 
@@ -1973,7 +1968,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn existeStockDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lbStock1;
         private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar1;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ProgressBar progressBarVenta;
     }
 }

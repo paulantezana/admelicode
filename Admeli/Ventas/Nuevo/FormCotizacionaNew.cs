@@ -170,8 +170,7 @@ namespace Admeli.Ventas.Nuevo
         #region ================================ Root Load ================================
         private void FormCompraNew_Load(object sender, EventArgs e)
         {
-
-
+          
             if (nuevo == true)
             {
                 this.reLoad();
@@ -188,10 +187,14 @@ namespace Admeli.Ventas.Nuevo
             AddButtonColumn();
 
             btnModificar.Enabled = false;
+            
+           
+
+           
         }
         private void reLoad()
         {
-
+            
             cargarMonedas();
             cargarFechaSistema();
             cargarProductos();
@@ -210,23 +213,35 @@ namespace Admeli.Ventas.Nuevo
         private void cargarFormatoDocumento()
         {
 
-
-            TipoDocumento tipoDocumento = ConfigModel.tipoDocumento.Find(X => X.idTipoDocumento == 2);// cotizacion
-            listformato = JsonConvert.DeserializeObject<List<FormatoDocumento>>(tipoDocumento.formatoDocumento);
-            foreach (FormatoDocumento f in listformato)
+            loadState(true);
+            try
             {
 
-                string textoNormalizado = f.value.Normalize(NormalizationForm.FormD);
-                //coincide todo lo que no sean letras y números ascii o espacio
-                //y lo reemplazamos por una cadena vacía.
-                Regex reg = new Regex("[^a-zA-Z0-9 ]");
-                f.value = reg.Replace(textoNormalizado, "");
-                f.value = f.value.Replace(" ", "");
+                TipoDocumento tipoDocumento = ConfigModel.tipoDocumento.Find(X => X.idTipoDocumento == 2);// cotizacion
+                listformato = JsonConvert.DeserializeObject<List<FormatoDocumento>>(tipoDocumento.formatoDocumento);
+                foreach (FormatoDocumento f in listformato)
+                {
+
+                    string textoNormalizado = f.value.Normalize(NormalizationForm.FormD);
+                    //coincide todo lo que no sean letras y números ascii o espacio
+                    //y lo reemplazamos por una cadena vacía.
+                    Regex reg = new Regex("[^a-zA-Z0-9 ]");
+                    f.value = reg.Replace(textoNormalizado, "");
+                    f.value = f.value.Replace(" ", "");
 
 
+
+                }
 
             }
-            string info = JsonConvert.SerializeObject(listformato);
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+           
+            
+          
         }
 
 
@@ -300,12 +315,13 @@ namespace Admeli.Ventas.Nuevo
 
         }
         private void cargarObjetos() {
-
+            loadState(true);
             cotizacionG = new CotizacionG();
             totalCotizacion = new TotalCotizacion();
         }
         private async void cargarPresentacion()
-        {                                                                                                    /// Cargar las precentaciones
+        {
+            loadState(true);/// Cargar las precentaciones
             try
             {
                 listPresentacion = await presentacionModel.presentacionesTodas();
@@ -316,9 +332,15 @@ namespace Admeli.Ventas.Nuevo
             {
                 MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
+                if(listProductos != null)
+                 loadState(false);
+            }
         }
         private async void cargarProductos()
         {
+            loadState(true);
             try
             {
                 listProductos = await productoModel.productos(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
@@ -330,9 +352,16 @@ namespace Admeli.Ventas.Nuevo
             {
                 MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
+                if (listPresentacion != null)
+                    loadState(false);
+
+            }
         }
         private async void cargarClientes()
         {
+            loadState(true);
             try
             {
 
@@ -353,7 +382,7 @@ namespace Admeli.Ventas.Nuevo
         }
         private async void cargartiposDocumentos()
         {
-
+            loadState(true);
             try
             {
 
@@ -370,6 +399,7 @@ namespace Admeli.Ventas.Nuevo
         }
         private async void cargarImpuesto()
         {
+            loadState(true);
             try
             {
                 // variables necesarios para el calculo del impuesto de la venta
@@ -387,6 +417,7 @@ namespace Admeli.Ventas.Nuevo
         }
         private async void cargarCorrelactivo()
         {
+            loadState(true);
             if (nuevo)
             {
 
@@ -417,6 +448,8 @@ namespace Admeli.Ventas.Nuevo
         }
         private async void cargarMonedas()
         {
+
+            loadState(true);
             try
             {
                 monedas = await monedaModel.monedas();
@@ -449,6 +482,7 @@ namespace Admeli.Ventas.Nuevo
         }
         private async void cargarFechaSistema()
         {
+            loadState(true);
             try
             {
                 if (!nuevo)
@@ -522,6 +556,12 @@ namespace Admeli.Ventas.Nuevo
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+
+                loadState(false);
+                cbxCodigoProducto.Focus();
             }
         }
 
@@ -602,8 +642,21 @@ namespace Admeli.Ventas.Nuevo
         #endregion
 
         #region =========================== Estados ===========================
+
+        public void appLoadState(bool state)
+        {
+            if (state)
+            {
+                progressBarVenta.Style = ProgressBarStyle.Marquee;
+            }
+            else
+            {
+                progressBarVenta.Style = ProgressBarStyle.Blocks;
+            }
+        }
         private void loadState(bool state)
         {
+            appLoadState(state);
 
             panelProducto.Enabled = !state;
 
@@ -910,6 +963,7 @@ namespace Admeli.Ventas.Nuevo
             {
 
                 loadState(false);
+                cbxDescripcion.Focus();
             }
 
 

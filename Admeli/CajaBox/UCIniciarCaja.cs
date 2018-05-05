@@ -74,6 +74,8 @@ namespace Admeli.CajaBox
                 cargarFecha();
                 // verificaciones
                 verificarEstadoCaja();
+
+                formPrincipal.cargarDatosAsideRight();
             }
         }
         #endregion

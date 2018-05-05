@@ -65,6 +65,7 @@ namespace Admeli.CajaBox
 
                 // Verificar caja
                 this.verificarCaja();
+                formPrincipal.cargarDatosAsideRight();
             }
             lisenerKeyEvents = true; // Active lisener key events
         }
