@@ -48,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvCuentasCobrar = new System.Windows.Forms.DataGridView();
+            this.datoCuentaCobrarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblSpeedPages = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -65,7 +66,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBuscar = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.datoCuentaCobrarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,11 +76,11 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasCobrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datoCuentaCobrarBindingSource)).BeginInit();
             this.panelNavigation.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datoCuentaCobrarBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCrud
@@ -154,7 +154,7 @@
             // 
             // chkTodoCliente
             // 
-            this.chkTodoCliente.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chkTodoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.chkTodoCliente.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.chkTodoCliente.Checked = false;
             this.chkTodoCliente.CheckedOnColor = System.Drawing.Color.DodgerBlue;
@@ -198,7 +198,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvCuentasCobrar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCuentasCobrar.AutoGenerateColumns = false;
-            this.dgvCuentasCobrar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvCuentasCobrar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCuentasCobrar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCuentasCobrar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -248,6 +248,10 @@
             this.dgvCuentasCobrar.TabIndex = 29;
             this.dgvCuentasCobrar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuentasCobrar_CellDoubleClick);
             this.dgvCuentasCobrar.DoubleClick += new System.EventHandler(this.dgvCuentasCobrar_DoubleClick);
+            // 
+            // datoCuentaCobrarBindingSource
+            // 
+            this.datoCuentaCobrarBindingSource.DataSource = typeof(Entidad.DatoCuentaCobrar);
             // 
             // panelNavigation
             // 
@@ -543,33 +547,27 @@
             this.dataGridView.Size = new System.Drawing.Size(878, 378);
             this.dataGridView.TabIndex = 2;
             // 
-            // datoCuentaCobrarBindingSource
-            // 
-            this.datoCuentaCobrarBindingSource.DataSource = typeof(Entidad.DatoCuentaCobrar);
-            // 
             // idClienteDataGridViewTextBoxColumn
             // 
             this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
             this.idClienteDataGridViewTextBoxColumn.HeaderText = "IDCliente";
             this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
             this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idClienteDataGridViewTextBoxColumn.Width = 91;
+            this.idClienteDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreClienteDataGridViewTextBoxColumn
             // 
             this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "nombreCliente";
-            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Nombre de Cliente";
+            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
             this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
             this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreClienteDataGridViewTextBoxColumn.Width = 152;
             // 
             // numeroDocumentoDataGridViewTextBoxColumn
             // 
             this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "numeroDocumento";
-            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Número de Documento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "Nro. Documento";
             this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
             this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numeroDocumentoDataGridViewTextBoxColumn.Width = 179;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
@@ -577,15 +575,13 @@
             this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDataGridViewTextBoxColumn.Width = 93;
             // 
             // nombreGrupoDataGridViewTextBoxColumn
             // 
             this.nombreGrupoDataGridViewTextBoxColumn.DataPropertyName = "nombreGrupo";
-            this.nombreGrupoDataGridViewTextBoxColumn.HeaderText = "Nombre de Grupo";
+            this.nombreGrupoDataGridViewTextBoxColumn.HeaderText = "Grupo";
             this.nombreGrupoDataGridViewTextBoxColumn.Name = "nombreGrupoDataGridViewTextBoxColumn";
             this.nombreGrupoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreGrupoDataGridViewTextBoxColumn.Width = 146;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -593,7 +589,7 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 83;
+            this.nombreDataGridViewTextBoxColumn.Visible = false;
             // 
             // UCCuentaCobrar
             // 
@@ -609,13 +605,13 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasCobrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datoCuentaCobrarBindingSource)).EndInit();
             this.panelNavigation.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panelTools.ResumeLayout(false);
             this.panelTools.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datoCuentaCobrarBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
