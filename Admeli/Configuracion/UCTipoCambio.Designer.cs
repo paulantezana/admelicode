@@ -75,12 +75,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(22, 79);
+            this.label1.Location = new System.Drawing.Point(22, 82);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 16);
+            this.label1.Size = new System.Drawing.Size(92, 16);
             this.label1.TabIndex = 111;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Ingresado por";
             // 
             // lblMonedaPorDefecto
             // 
@@ -108,7 +108,7 @@
             this.textNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombre.isPassword = false;
             this.textNombre.Location = new System.Drawing.Point(18, 79);
-            this.textNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textNombre.Name = "textNombre";
             this.textNombre.Padding = new System.Windows.Forms.Padding(5, 18, 5, 0);
             this.textNombre.Size = new System.Drawing.Size(351, 55);
@@ -123,7 +123,7 @@
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaIngreso.FormatCustom = null;
             this.dtpFechaIngreso.Location = new System.Drawing.Point(18, 15);
-            this.dtpFechaIngreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaIngreso.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(351, 53);
             this.dtpFechaIngreso.TabIndex = 103;
@@ -161,9 +161,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCTipoCambio";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(830, 340);
             this.Load += new System.EventHandler(this.UCTipoCambio_Load);
             this.panelContainer.ResumeLayout(false);

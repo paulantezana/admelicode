@@ -542,6 +542,7 @@
             // nombreCategoriaDataGridViewTextBoxColumn
             // 
             this.nombreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombreCategoria";
+            this.nombreCategoriaDataGridViewTextBoxColumn.FillWeight = 81.13367F;
             this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Nombre de Categoria";
             this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
             this.nombreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -564,8 +565,10 @@
             // 
             // numeroColumnasDataGridViewTextBoxColumn
             // 
+            this.numeroColumnasDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.numeroColumnasDataGridViewTextBoxColumn.DataPropertyName = "numeroColumnas";
-            this.numeroColumnasDataGridViewTextBoxColumn.HeaderText = "Nro de Columnas";
+            this.numeroColumnasDataGridViewTextBoxColumn.FillWeight = 81.13367F;
+            this.numeroColumnasDataGridViewTextBoxColumn.HeaderText = "Nro. Col";
             this.numeroColumnasDataGridViewTextBoxColumn.Name = "numeroColumnasDataGridViewTextBoxColumn";
             this.numeroColumnasDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -588,6 +591,7 @@
             // tituloCategoriaSeoDataGridViewTextBoxColumn
             // 
             this.tituloCategoriaSeoDataGridViewTextBoxColumn.DataPropertyName = "tituloCategoriaSeo";
+            this.tituloCategoriaSeoDataGridViewTextBoxColumn.FillWeight = 81.13367F;
             this.tituloCategoriaSeoDataGridViewTextBoxColumn.HeaderText = "Título Categoria Seo";
             this.tituloCategoriaSeoDataGridViewTextBoxColumn.Name = "tituloCategoriaSeoDataGridViewTextBoxColumn";
             this.tituloCategoriaSeoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -595,6 +599,7 @@
             // urlCategoriaSeoDataGridViewTextBoxColumn
             // 
             this.urlCategoriaSeoDataGridViewTextBoxColumn.DataPropertyName = "urlCategoriaSeo";
+            this.urlCategoriaSeoDataGridViewTextBoxColumn.FillWeight = 81.13367F;
             this.urlCategoriaSeoDataGridViewTextBoxColumn.HeaderText = "URL Categoria Seo";
             this.urlCategoriaSeoDataGridViewTextBoxColumn.Name = "urlCategoriaSeoDataGridViewTextBoxColumn";
             this.urlCategoriaSeoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -602,6 +607,7 @@
             // metaTagsSeoDataGridViewTextBoxColumn
             // 
             this.metaTagsSeoDataGridViewTextBoxColumn.DataPropertyName = "metaTagsSeo";
+            this.metaTagsSeoDataGridViewTextBoxColumn.FillWeight = 81.13367F;
             this.metaTagsSeoDataGridViewTextBoxColumn.HeaderText = "Meta Tags Seo";
             this.metaTagsSeoDataGridViewTextBoxColumn.Name = "metaTagsSeoDataGridViewTextBoxColumn";
             this.metaTagsSeoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -624,19 +630,25 @@
             // 
             // ordenDataGridViewTextBoxColumn
             // 
+            this.ordenDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ordenDataGridViewTextBoxColumn.DataPropertyName = "orden";
+            this.ordenDataGridViewTextBoxColumn.FillWeight = 81.13367F;
             this.ordenDataGridViewTextBoxColumn.HeaderText = "Orden";
             this.ordenDataGridViewTextBoxColumn.Name = "ordenDataGridViewTextBoxColumn";
             this.ordenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ordenDataGridViewTextBoxColumn.Width = 70;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
+            this.estadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.FillWeight = 213.198F;
             this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.estadoDataGridViewTextBoxColumn.Width = 60;
             // 
             // EstadoString
             // 

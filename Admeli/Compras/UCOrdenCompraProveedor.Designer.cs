@@ -72,8 +72,8 @@
             this.serieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correlativoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rucDniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plazoEntregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monedaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,7 +137,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -153,8 +153,8 @@
             this.serieDataGridViewTextBoxColumn,
             this.correlativoDataGridViewTextBoxColumn,
             this.nombreProveedorDataGridViewTextBoxColumn,
-            this.idTipoDocumentoDataGridViewTextBoxColumn,
             this.rucDniDataGridViewTextBoxColumn,
+            this.idTipoDocumentoDataGridViewTextBoxColumn,
             this.plazoEntregaDataGridViewTextBoxColumn,
             this.monedaDataGridViewTextBoxColumn,
             this.observacionDataGridViewTextBoxColumn,
@@ -674,36 +674,45 @@
             // 
             // idOrdenCompraDataGridViewTextBoxColumn
             // 
+            this.idOrdenCompraDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idOrdenCompraDataGridViewTextBoxColumn.DataPropertyName = "idOrdenCompra";
-            this.idOrdenCompraDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idOrdenCompraDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idOrdenCompraDataGridViewTextBoxColumn.Name = "idOrdenCompraDataGridViewTextBoxColumn";
             this.idOrdenCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idOrdenCompraDataGridViewTextBoxColumn.Visible = false;
-            this.idOrdenCompraDataGridViewTextBoxColumn.Width = 46;
+            this.idOrdenCompraDataGridViewTextBoxColumn.Width = 40;
             // 
             // serieDataGridViewTextBoxColumn
             // 
+            this.serieDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.serieDataGridViewTextBoxColumn.DataPropertyName = "serie";
             this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
             this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
             this.serieDataGridViewTextBoxColumn.ReadOnly = true;
-            this.serieDataGridViewTextBoxColumn.Width = 67;
+            this.serieDataGridViewTextBoxColumn.Width = 60;
             // 
             // correlativoDataGridViewTextBoxColumn
             // 
+            this.correlativoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.correlativoDataGridViewTextBoxColumn.DataPropertyName = "correlativo";
             this.correlativoDataGridViewTextBoxColumn.HeaderText = "Correlativo";
             this.correlativoDataGridViewTextBoxColumn.Name = "correlativoDataGridViewTextBoxColumn";
             this.correlativoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativoDataGridViewTextBoxColumn.Width = 103;
             // 
             // nombreProveedorDataGridViewTextBoxColumn
             // 
+            this.nombreProveedorDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nombreProveedorDataGridViewTextBoxColumn.DataPropertyName = "nombreProveedor";
             this.nombreProveedorDataGridViewTextBoxColumn.HeaderText = "Proveedor";
             this.nombreProveedorDataGridViewTextBoxColumn.Name = "nombreProveedorDataGridViewTextBoxColumn";
             this.nombreProveedorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreProveedorDataGridViewTextBoxColumn.Width = 99;
+            // 
+            // rucDniDataGridViewTextBoxColumn
+            // 
+            this.rucDniDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.rucDniDataGridViewTextBoxColumn.DataPropertyName = "rucDni";
+            this.rucDniDataGridViewTextBoxColumn.HeaderText = "Nro. Doc";
+            this.rucDniDataGridViewTextBoxColumn.Name = "rucDniDataGridViewTextBoxColumn";
+            this.rucDniDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // idTipoDocumentoDataGridViewTextBoxColumn
             // 
@@ -711,31 +720,24 @@
             this.idTipoDocumentoDataGridViewTextBoxColumn.HeaderText = "Tipo de Documento";
             this.idTipoDocumentoDataGridViewTextBoxColumn.Name = "idTipoDocumentoDataGridViewTextBoxColumn";
             this.idTipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idTipoDocumentoDataGridViewTextBoxColumn.Width = 157;
-            // 
-            // rucDniDataGridViewTextBoxColumn
-            // 
-            this.rucDniDataGridViewTextBoxColumn.DataPropertyName = "rucDni";
-            this.rucDniDataGridViewTextBoxColumn.HeaderText = "Número de Documento";
-            this.rucDniDataGridViewTextBoxColumn.Name = "rucDniDataGridViewTextBoxColumn";
-            this.rucDniDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rucDniDataGridViewTextBoxColumn.Width = 179;
+            this.idTipoDocumentoDataGridViewTextBoxColumn.Visible = false;
             // 
             // plazoEntregaDataGridViewTextBoxColumn
             // 
+            this.plazoEntregaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.plazoEntregaDataGridViewTextBoxColumn.DataPropertyName = "plazoEntrega";
-            this.plazoEntregaDataGridViewTextBoxColumn.HeaderText = "Plazo de Entrega";
+            this.plazoEntregaDataGridViewTextBoxColumn.HeaderText = "Plazo Entrega";
             this.plazoEntregaDataGridViewTextBoxColumn.Name = "plazoEntregaDataGridViewTextBoxColumn";
             this.plazoEntregaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.plazoEntregaDataGridViewTextBoxColumn.Width = 142;
+            this.plazoEntregaDataGridViewTextBoxColumn.Width = 110;
             // 
             // monedaDataGridViewTextBoxColumn
             // 
+            this.monedaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.monedaDataGridViewTextBoxColumn.DataPropertyName = "moneda";
             this.monedaDataGridViewTextBoxColumn.HeaderText = "Moneda";
             this.monedaDataGridViewTextBoxColumn.Name = "monedaDataGridViewTextBoxColumn";
             this.monedaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.monedaDataGridViewTextBoxColumn.Width = 84;
             // 
             // observacionDataGridViewTextBoxColumn
             // 
@@ -743,7 +745,6 @@
             this.observacionDataGridViewTextBoxColumn.HeaderText = "Observación";
             this.observacionDataGridViewTextBoxColumn.Name = "observacionDataGridViewTextBoxColumn";
             this.observacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.observacionDataGridViewTextBoxColumn.Width = 112;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
@@ -751,7 +752,6 @@
             this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección de Entrega";
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDataGridViewTextBoxColumn.Width = 166;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -760,15 +760,15 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            this.estadoDataGridViewTextBoxColumn.Width = 75;
             // 
             // EstadoString
             // 
+            this.EstadoString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.EstadoString.DataPropertyName = "EstadoString";
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
-            this.EstadoString.Width = 75;
+            this.EstadoString.Width = 80;
             // 
             // estadoCompraDataGridViewTextBoxColumn
             // 
@@ -777,7 +777,6 @@
             this.estadoCompraDataGridViewTextBoxColumn.Name = "estadoCompraDataGridViewTextBoxColumn";
             this.estadoCompraDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoCompraDataGridViewTextBoxColumn.Visible = false;
-            this.estadoCompraDataGridViewTextBoxColumn.Width = 149;
             // 
             // fechaDataGridViewTextBoxColumn
             // 
@@ -786,7 +785,6 @@
             this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
             this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaDataGridViewTextBoxColumn.Visible = false;
-            this.fechaDataGridViewTextBoxColumn.Width = 72;
             // 
             // idUbicacionGeograficaDataGridViewTextBoxColumn
             // 
@@ -795,7 +793,6 @@
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.Name = "idUbicacionGeograficaDataGridViewTextBoxColumn";
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.ReadOnly = true;
             this.idUbicacionGeograficaDataGridViewTextBoxColumn.Visible = false;
-            this.idUbicacionGeograficaDataGridViewTextBoxColumn.Width = 183;
             // 
             // direccionProveedorDataGridViewTextBoxColumn
             // 
@@ -804,7 +801,6 @@
             this.direccionProveedorDataGridViewTextBoxColumn.Name = "direccionProveedorDataGridViewTextBoxColumn";
             this.direccionProveedorDataGridViewTextBoxColumn.ReadOnly = true;
             this.direccionProveedorDataGridViewTextBoxColumn.Visible = false;
-            this.direccionProveedorDataGridViewTextBoxColumn.Width = 183;
             // 
             // idCompraDataGridViewTextBoxColumn
             // 
@@ -813,7 +809,6 @@
             this.idCompraDataGridViewTextBoxColumn.Name = "idCompraDataGridViewTextBoxColumn";
             this.idCompraDataGridViewTextBoxColumn.ReadOnly = true;
             this.idCompraDataGridViewTextBoxColumn.Visible = false;
-            this.idCompraDataGridViewTextBoxColumn.Width = 96;
             // 
             // subTotalDataGridViewTextBoxColumn
             // 
@@ -822,7 +817,6 @@
             this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
             this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
             this.subTotalDataGridViewTextBoxColumn.Visible = false;
-            this.subTotalDataGridViewTextBoxColumn.Width = 89;
             // 
             // totalDataGridViewTextBoxColumn
             // 
@@ -831,7 +825,6 @@
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             this.totalDataGridViewTextBoxColumn.Visible = false;
-            this.totalDataGridViewTextBoxColumn.Width = 64;
             // 
             // idPagoDataGridViewTextBoxColumn
             // 
@@ -840,7 +833,6 @@
             this.idPagoDataGridViewTextBoxColumn.Name = "idPagoDataGridViewTextBoxColumn";
             this.idPagoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idPagoDataGridViewTextBoxColumn.Visible = false;
-            this.idPagoDataGridViewTextBoxColumn.Width = 79;
             // 
             // idProveedorDataGridViewTextBoxColumn
             // 
@@ -849,7 +841,6 @@
             this.idProveedorDataGridViewTextBoxColumn.Name = "idProveedorDataGridViewTextBoxColumn";
             this.idProveedorDataGridViewTextBoxColumn.ReadOnly = true;
             this.idProveedorDataGridViewTextBoxColumn.Visible = false;
-            this.idProveedorDataGridViewTextBoxColumn.Width = 112;
             // 
             // nombresDataGridViewTextBoxColumn
             // 
@@ -858,7 +849,6 @@
             this.nombresDataGridViewTextBoxColumn.Name = "nombresDataGridViewTextBoxColumn";
             this.nombresDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombresDataGridViewTextBoxColumn.Visible = false;
-            this.nombresDataGridViewTextBoxColumn.Width = 89;
             // 
             // UCOrdenCompraProveedor
             // 
@@ -928,8 +918,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn correlativoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProveedorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTipoDocumentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rucDniDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTipoDocumentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn plazoEntregaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn monedaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn observacionDataGridViewTextBoxColumn;

@@ -575,7 +575,9 @@
             // 
             // rucDataGridViewTextBoxColumn
             // 
+            this.rucDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.rucDataGridViewTextBoxColumn.DataPropertyName = "ruc";
+            this.rucDataGridViewTextBoxColumn.FillWeight = 457.3604F;
             this.rucDataGridViewTextBoxColumn.HeaderText = "RUC";
             this.rucDataGridViewTextBoxColumn.Name = "rucDataGridViewTextBoxColumn";
             this.rucDataGridViewTextBoxColumn.ReadOnly = true;
@@ -583,22 +585,25 @@
             // razonSocialDataGridViewTextBoxColumn
             // 
             this.razonSocialDataGridViewTextBoxColumn.DataPropertyName = "razonSocial";
-            this.razonSocialDataGridViewTextBoxColumn.FillWeight = 117F;
+            this.razonSocialDataGridViewTextBoxColumn.FillWeight = 19.16521F;
             this.razonSocialDataGridViewTextBoxColumn.HeaderText = "Razon Social";
             this.razonSocialDataGridViewTextBoxColumn.Name = "razonSocialDataGridViewTextBoxColumn";
             this.razonSocialDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tipoProveedorDataGridViewTextBoxColumn
             // 
+            this.tipoProveedorDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.tipoProveedorDataGridViewTextBoxColumn.DataPropertyName = "tipoProveedor";
-            this.tipoProveedorDataGridViewTextBoxColumn.FillWeight = 131F;
-            this.tipoProveedorDataGridViewTextBoxColumn.HeaderText = "Tipo Proveedor";
+            this.tipoProveedorDataGridViewTextBoxColumn.FillWeight = 306.4314F;
+            this.tipoProveedorDataGridViewTextBoxColumn.HeaderText = "Tipo";
             this.tipoProveedorDataGridViewTextBoxColumn.Name = "tipoProveedorDataGridViewTextBoxColumn";
             this.tipoProveedorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoProveedorDataGridViewTextBoxColumn.Width = 66;
             // 
             // telefonoDataGridViewTextBoxColumn
             // 
             this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "telefono";
+            this.telefonoDataGridViewTextBoxColumn.FillWeight = 16.38053F;
             this.telefonoDataGridViewTextBoxColumn.HeaderText = "Teléfono";
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
             this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -606,6 +611,7 @@
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.FillWeight = 16.38053F;
             this.emailDataGridViewTextBoxColumn.HeaderText = "Correo";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
@@ -613,14 +619,16 @@
             // actividadPrincipalDataGridViewTextBoxColumn
             // 
             this.actividadPrincipalDataGridViewTextBoxColumn.DataPropertyName = "actividadPrincipal";
-            this.actividadPrincipalDataGridViewTextBoxColumn.FillWeight = 153F;
+            this.actividadPrincipalDataGridViewTextBoxColumn.FillWeight = 31.3326F;
             this.actividadPrincipalDataGridViewTextBoxColumn.HeaderText = "Actividad Principal";
             this.actividadPrincipalDataGridViewTextBoxColumn.Name = "actividadPrincipalDataGridViewTextBoxColumn";
             this.actividadPrincipalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actividadPrincipalDataGridViewTextBoxColumn.Visible = false;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
             this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
+            this.direccionDataGridViewTextBoxColumn.FillWeight = 16.38053F;
             this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
@@ -635,7 +643,9 @@
             // 
             // EstadoString
             // 
+            this.EstadoString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.EstadoString.DataPropertyName = "EstadoString";
+            this.EstadoString.FillWeight = 37.56874F;
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;

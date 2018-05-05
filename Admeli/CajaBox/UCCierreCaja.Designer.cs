@@ -618,7 +618,7 @@
             this.idCierreCajaDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idCierreCajaDataGridViewTextBoxColumn.Name = "idCierreCajaDataGridViewTextBoxColumn";
             this.idCierreCajaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idCierreCajaDataGridViewTextBoxColumn.Width = 30;
+            this.idCierreCajaDataGridViewTextBoxColumn.Width = 40;
             // 
             // fechaInicioDataGridViewTextBoxColumn
             // 
