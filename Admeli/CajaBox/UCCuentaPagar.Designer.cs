@@ -59,13 +59,13 @@
             this.lblPageAllItems = new System.Windows.Forms.Label();
             this.panelCuerpo = new System.Windows.Forms.Panel();
             this.dgvCuentasPagar = new System.Windows.Forms.DataGridView();
+            this.datoCuentaPagarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idProveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.razonSocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rucDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actividadPrincipalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoProveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datoCuentaPagarBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoProveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelCrud.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelTools.SuspendLayout();
@@ -459,8 +459,8 @@
             this.razonSocialDataGridViewTextBoxColumn,
             this.rucDataGridViewTextBoxColumn,
             this.actividadPrincipalDataGridViewTextBoxColumn,
-            this.tipoProveedorDataGridViewTextBoxColumn,
-            this.direccionDataGridViewTextBoxColumn});
+            this.direccionDataGridViewTextBoxColumn,
+            this.tipoProveedorDataGridViewTextBoxColumn});
             this.dgvCuentasPagar.DataSource = this.datoCuentaPagarBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -493,12 +493,17 @@
             this.dgvCuentasPagar.TabIndex = 30;
             this.dgvCuentasPagar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuentasCobrar_CellDoubleClick);
             // 
+            // datoCuentaPagarBindingSource
+            // 
+            this.datoCuentaPagarBindingSource.DataSource = typeof(Entidad.DatoCuentaPagar);
+            // 
             // idProveedorDataGridViewTextBoxColumn
             // 
             this.idProveedorDataGridViewTextBoxColumn.DataPropertyName = "idProveedor";
             this.idProveedorDataGridViewTextBoxColumn.HeaderText = "IDProveedor";
             this.idProveedorDataGridViewTextBoxColumn.Name = "idProveedorDataGridViewTextBoxColumn";
             this.idProveedorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProveedorDataGridViewTextBoxColumn.Visible = false;
             // 
             // razonSocialDataGridViewTextBoxColumn
             // 
@@ -520,13 +525,7 @@
             this.actividadPrincipalDataGridViewTextBoxColumn.HeaderText = "Actividad Principal";
             this.actividadPrincipalDataGridViewTextBoxColumn.Name = "actividadPrincipalDataGridViewTextBoxColumn";
             this.actividadPrincipalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tipoProveedorDataGridViewTextBoxColumn
-            // 
-            this.tipoProveedorDataGridViewTextBoxColumn.DataPropertyName = "tipoProveedor";
-            this.tipoProveedorDataGridViewTextBoxColumn.HeaderText = "Tipo de Proveedor";
-            this.tipoProveedorDataGridViewTextBoxColumn.Name = "tipoProveedorDataGridViewTextBoxColumn";
-            this.tipoProveedorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actividadPrincipalDataGridViewTextBoxColumn.Visible = false;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
@@ -535,9 +534,12 @@
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // datoCuentaPagarBindingSource
+            // tipoProveedorDataGridViewTextBoxColumn
             // 
-            this.datoCuentaPagarBindingSource.DataSource = typeof(Entidad.DatoCuentaPagar);
+            this.tipoProveedorDataGridViewTextBoxColumn.DataPropertyName = "tipoProveedor";
+            this.tipoProveedorDataGridViewTextBoxColumn.HeaderText = "Tipo de Proveedor";
+            this.tipoProveedorDataGridViewTextBoxColumn.Name = "tipoProveedorDataGridViewTextBoxColumn";
+            this.tipoProveedorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // UCCuentaPagar
             // 
@@ -600,7 +602,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn razonSocialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rucDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actividadPrincipalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProveedorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProveedorDataGridViewTextBoxColumn;
     }
 }

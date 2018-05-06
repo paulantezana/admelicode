@@ -119,7 +119,7 @@
             this.panelContainer.Controls.Add(this.lblCajaEstado);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(952, 474);
@@ -132,7 +132,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 151);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(950, 262);
             this.panel1.TabIndex = 16;
             // 
@@ -143,7 +143,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -716,11 +716,12 @@
             // 
             // idIngresoDataGridViewTextBoxColumn
             // 
+            this.idIngresoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idIngresoDataGridViewTextBoxColumn.DataPropertyName = "idIngreso";
             this.idIngresoDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idIngresoDataGridViewTextBoxColumn.Name = "idIngresoDataGridViewTextBoxColumn";
             this.idIngresoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idIngresoDataGridViewTextBoxColumn.Width = 46;
+            this.idIngresoDataGridViewTextBoxColumn.Width = 40;
             // 
             // fechaDataGridViewTextBoxColumn
             // 
@@ -802,7 +803,7 @@
             this.idCajaSesionDataGridViewTextBoxColumn.Name = "idCajaSesionDataGridViewTextBoxColumn";
             this.idCajaSesionDataGridViewTextBoxColumn.ReadOnly = true;
             this.idCajaSesionDataGridViewTextBoxColumn.Visible = false;
-            this.idCajaSesionDataGridViewTextBoxColumn.Width = 104;
+            this.idCajaSesionDataGridViewTextBoxColumn.Width = 142;
             // 
             // idDetalleCobroDataGridViewTextBoxColumn
             // 
@@ -811,7 +812,7 @@
             this.idDetalleCobroDataGridViewTextBoxColumn.Name = "idDetalleCobroDataGridViewTextBoxColumn";
             this.idDetalleCobroDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDetalleCobroDataGridViewTextBoxColumn.Visible = false;
-            this.idDetalleCobroDataGridViewTextBoxColumn.Width = 105;
+            this.idDetalleCobroDataGridViewTextBoxColumn.Width = 153;
             // 
             // idMedioPagoDataGridViewTextBoxColumn
             // 
@@ -820,6 +821,7 @@
             this.idMedioPagoDataGridViewTextBoxColumn.Name = "idMedioPagoDataGridViewTextBoxColumn";
             this.idMedioPagoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idMedioPagoDataGridViewTextBoxColumn.Visible = false;
+            this.idMedioPagoDataGridViewTextBoxColumn.Width = 142;
             // 
             // esDeVentaDataGridViewTextBoxColumn
             // 
@@ -844,7 +846,7 @@
             this.idAsignarCajaDataGridViewTextBoxColumn.Name = "idAsignarCajaDataGridViewTextBoxColumn";
             this.idAsignarCajaDataGridViewTextBoxColumn.ReadOnly = true;
             this.idAsignarCajaDataGridViewTextBoxColumn.Visible = false;
-            this.idAsignarCajaDataGridViewTextBoxColumn.Width = 116;
+            this.idAsignarCajaDataGridViewTextBoxColumn.Width = 127;
             // 
             // montoCierreDataGridViewTextBoxColumn
             // 
@@ -884,9 +886,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCIngresos";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(968, 490);
             this.Load += new System.EventHandler(this.UCIngresos_Load);
             this.panelContainer.ResumeLayout(false);

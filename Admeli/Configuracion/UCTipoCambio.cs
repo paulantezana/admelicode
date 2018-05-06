@@ -156,12 +156,11 @@ namespace Admeli.Configuracion
             this.panelContainer.Controls.Add(textMoneda1);
             Control[] textMoneda3  = this.panelContainer.Controls.Find("1002",false);
 
-            if (textMoneda3 != null)
-            {
-
-                BunifuMetroTextbox textMoneda14 = textMoneda3[0] as BunifuMetroTextbox;
-            }
-           
+            //Se comentó, porque genra error y no sabe para que es usado
+            //if (textMoneda3 != null)
+            //{
+            //    BunifuMetroTextbox textMoneda14 = textMoneda3[0] as BunifuMetroTextbox;
+            //}
         }
 
         private void textMoneda1_OnValueChanged(object sender, EventArgs e)

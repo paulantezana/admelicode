@@ -98,7 +98,7 @@ namespace Admeli.Configuracion.Nuevo
 
                 crearNivelesPais();
                 cargarDocIdentificacion();
-                // cargarSucursales();
+                cargarSucursales();
                 cargarDatosModificar();
             }
             catch (Exception ex)

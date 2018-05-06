@@ -38,23 +38,6 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.idEgresoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroOperacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medioPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monedaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.observacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMonedaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCajaSesionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDetallePagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMedioPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.esDeCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.egresoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -87,6 +70,23 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblCajaEstado = new System.Windows.Forms.Label();
+            this.idEgresoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroOperacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medioPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monedaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMonedaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCajaSesionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDetallePagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMedioPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.esDeCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -149,12 +149,12 @@
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idEgresoDataGridViewTextBoxColumn,
-            this.numeroOperacionDataGridViewTextBoxColumn,
             this.fechaDataGridViewTextBoxColumn,
             this.fechaPagoDataGridViewTextBoxColumn,
+            this.numeroOperacionDataGridViewTextBoxColumn,
             this.montoDataGridViewTextBoxColumn,
-            this.motivoDataGridViewTextBoxColumn,
             this.medioPagoDataGridViewTextBoxColumn,
+            this.motivoDataGridViewTextBoxColumn,
             this.monedaDataGridViewTextBoxColumn,
             this.observacionDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn,
@@ -195,131 +195,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(881, 231);
             this.dataGridView.TabIndex = 2;
-            // 
-            // idEgresoDataGridViewTextBoxColumn
-            // 
-            this.idEgresoDataGridViewTextBoxColumn.DataPropertyName = "idEgreso";
-            this.idEgresoDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idEgresoDataGridViewTextBoxColumn.Name = "idEgresoDataGridViewTextBoxColumn";
-            this.idEgresoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numeroOperacionDataGridViewTextBoxColumn
-            // 
-            this.numeroOperacionDataGridViewTextBoxColumn.DataPropertyName = "numeroOperacion";
-            this.numeroOperacionDataGridViewTextBoxColumn.HeaderText = "Número Operación";
-            this.numeroOperacionDataGridViewTextBoxColumn.Name = "numeroOperacionDataGridViewTextBoxColumn";
-            this.numeroOperacionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaPagoDataGridViewTextBoxColumn
-            // 
-            this.fechaPagoDataGridViewTextBoxColumn.DataPropertyName = "fechaPago";
-            this.fechaPagoDataGridViewTextBoxColumn.HeaderText = "Fecha de Pago";
-            this.fechaPagoDataGridViewTextBoxColumn.Name = "fechaPagoDataGridViewTextBoxColumn";
-            this.fechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // montoDataGridViewTextBoxColumn
-            // 
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
-            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // motivoDataGridViewTextBoxColumn
-            // 
-            this.motivoDataGridViewTextBoxColumn.DataPropertyName = "motivo";
-            this.motivoDataGridViewTextBoxColumn.HeaderText = "Motivo";
-            this.motivoDataGridViewTextBoxColumn.Name = "motivoDataGridViewTextBoxColumn";
-            this.motivoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // medioPagoDataGridViewTextBoxColumn
-            // 
-            this.medioPagoDataGridViewTextBoxColumn.DataPropertyName = "medioPago";
-            this.medioPagoDataGridViewTextBoxColumn.HeaderText = "Medio de Pago";
-            this.medioPagoDataGridViewTextBoxColumn.Name = "medioPagoDataGridViewTextBoxColumn";
-            this.medioPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // monedaDataGridViewTextBoxColumn
-            // 
-            this.monedaDataGridViewTextBoxColumn.DataPropertyName = "moneda";
-            this.monedaDataGridViewTextBoxColumn.HeaderText = "Moneda";
-            this.monedaDataGridViewTextBoxColumn.Name = "monedaDataGridViewTextBoxColumn";
-            this.monedaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // observacionDataGridViewTextBoxColumn
-            // 
-            this.observacionDataGridViewTextBoxColumn.DataPropertyName = "observacion";
-            this.observacionDataGridViewTextBoxColumn.HeaderText = "Observación";
-            this.observacionDataGridViewTextBoxColumn.Name = "observacionDataGridViewTextBoxColumn";
-            this.observacionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
-            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
-            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // EstadoString
-            // 
-            this.EstadoString.DataPropertyName = "EstadoString";
-            this.EstadoString.HeaderText = "Estado";
-            this.EstadoString.Name = "EstadoString";
-            this.EstadoString.ReadOnly = true;
-            // 
-            // personalDataGridViewTextBoxColumn
-            // 
-            this.personalDataGridViewTextBoxColumn.DataPropertyName = "personal";
-            this.personalDataGridViewTextBoxColumn.HeaderText = "Personal";
-            this.personalDataGridViewTextBoxColumn.Name = "personalDataGridViewTextBoxColumn";
-            this.personalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idMonedaDataGridViewTextBoxColumn
-            // 
-            this.idMonedaDataGridViewTextBoxColumn.DataPropertyName = "idMoneda";
-            this.idMonedaDataGridViewTextBoxColumn.HeaderText = "idMoneda";
-            this.idMonedaDataGridViewTextBoxColumn.Name = "idMonedaDataGridViewTextBoxColumn";
-            this.idMonedaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idMonedaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idCajaSesionDataGridViewTextBoxColumn
-            // 
-            this.idCajaSesionDataGridViewTextBoxColumn.DataPropertyName = "idCajaSesion";
-            this.idCajaSesionDataGridViewTextBoxColumn.HeaderText = "IDSesión de Caja";
-            this.idCajaSesionDataGridViewTextBoxColumn.Name = "idCajaSesionDataGridViewTextBoxColumn";
-            this.idCajaSesionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idCajaSesionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idDetallePagoDataGridViewTextBoxColumn
-            // 
-            this.idDetallePagoDataGridViewTextBoxColumn.DataPropertyName = "idDetallePago";
-            this.idDetallePagoDataGridViewTextBoxColumn.HeaderText = "IDDetalle de Pago";
-            this.idDetallePagoDataGridViewTextBoxColumn.Name = "idDetallePagoDataGridViewTextBoxColumn";
-            this.idDetallePagoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDetallePagoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idMedioPagoDataGridViewTextBoxColumn
-            // 
-            this.idMedioPagoDataGridViewTextBoxColumn.DataPropertyName = "idMedioPago";
-            this.idMedioPagoDataGridViewTextBoxColumn.HeaderText = "IDMedio de Pago";
-            this.idMedioPagoDataGridViewTextBoxColumn.Name = "idMedioPagoDataGridViewTextBoxColumn";
-            this.idMedioPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idMedioPagoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // esDeCompraDataGridViewTextBoxColumn
-            // 
-            this.esDeCompraDataGridViewTextBoxColumn.DataPropertyName = "esDeCompra";
-            this.esDeCompraDataGridViewTextBoxColumn.HeaderText = "EsDeCompra";
-            this.esDeCompraDataGridViewTextBoxColumn.Name = "esDeCompraDataGridViewTextBoxColumn";
-            this.esDeCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            this.esDeCompraDataGridViewTextBoxColumn.Visible = false;
             // 
             // egresoBindingSource
             // 
@@ -791,6 +666,135 @@
             this.lblCajaEstado.Text = "alert message";
             this.lblCajaEstado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // idEgresoDataGridViewTextBoxColumn
+            // 
+            this.idEgresoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idEgresoDataGridViewTextBoxColumn.DataPropertyName = "idEgreso";
+            this.idEgresoDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idEgresoDataGridViewTextBoxColumn.Name = "idEgresoDataGridViewTextBoxColumn";
+            this.idEgresoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEgresoDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaPagoDataGridViewTextBoxColumn
+            // 
+            this.fechaPagoDataGridViewTextBoxColumn.DataPropertyName = "fechaPago";
+            this.fechaPagoDataGridViewTextBoxColumn.HeaderText = "F. Pago";
+            this.fechaPagoDataGridViewTextBoxColumn.Name = "fechaPagoDataGridViewTextBoxColumn";
+            this.fechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numeroOperacionDataGridViewTextBoxColumn
+            // 
+            this.numeroOperacionDataGridViewTextBoxColumn.DataPropertyName = "numeroOperacion";
+            this.numeroOperacionDataGridViewTextBoxColumn.HeaderText = "Número Operación";
+            this.numeroOperacionDataGridViewTextBoxColumn.Name = "numeroOperacionDataGridViewTextBoxColumn";
+            this.numeroOperacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numeroOperacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // montoDataGridViewTextBoxColumn
+            // 
+            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
+            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // medioPagoDataGridViewTextBoxColumn
+            // 
+            this.medioPagoDataGridViewTextBoxColumn.DataPropertyName = "medioPago";
+            this.medioPagoDataGridViewTextBoxColumn.HeaderText = "Medio de Pago";
+            this.medioPagoDataGridViewTextBoxColumn.Name = "medioPagoDataGridViewTextBoxColumn";
+            this.medioPagoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // motivoDataGridViewTextBoxColumn
+            // 
+            this.motivoDataGridViewTextBoxColumn.DataPropertyName = "motivo";
+            this.motivoDataGridViewTextBoxColumn.HeaderText = "Motivo";
+            this.motivoDataGridViewTextBoxColumn.Name = "motivoDataGridViewTextBoxColumn";
+            this.motivoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // monedaDataGridViewTextBoxColumn
+            // 
+            this.monedaDataGridViewTextBoxColumn.DataPropertyName = "moneda";
+            this.monedaDataGridViewTextBoxColumn.HeaderText = "Moneda";
+            this.monedaDataGridViewTextBoxColumn.Name = "monedaDataGridViewTextBoxColumn";
+            this.monedaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // observacionDataGridViewTextBoxColumn
+            // 
+            this.observacionDataGridViewTextBoxColumn.DataPropertyName = "observacion";
+            this.observacionDataGridViewTextBoxColumn.HeaderText = "Observación";
+            this.observacionDataGridViewTextBoxColumn.Name = "observacionDataGridViewTextBoxColumn";
+            this.observacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // EstadoString
+            // 
+            this.EstadoString.DataPropertyName = "EstadoString";
+            this.EstadoString.HeaderText = "Estado";
+            this.EstadoString.Name = "EstadoString";
+            this.EstadoString.ReadOnly = true;
+            this.EstadoString.Visible = false;
+            // 
+            // personalDataGridViewTextBoxColumn
+            // 
+            this.personalDataGridViewTextBoxColumn.DataPropertyName = "personal";
+            this.personalDataGridViewTextBoxColumn.HeaderText = "Personal";
+            this.personalDataGridViewTextBoxColumn.Name = "personalDataGridViewTextBoxColumn";
+            this.personalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idMonedaDataGridViewTextBoxColumn
+            // 
+            this.idMonedaDataGridViewTextBoxColumn.DataPropertyName = "idMoneda";
+            this.idMonedaDataGridViewTextBoxColumn.HeaderText = "idMoneda";
+            this.idMonedaDataGridViewTextBoxColumn.Name = "idMonedaDataGridViewTextBoxColumn";
+            this.idMonedaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idMonedaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idCajaSesionDataGridViewTextBoxColumn
+            // 
+            this.idCajaSesionDataGridViewTextBoxColumn.DataPropertyName = "idCajaSesion";
+            this.idCajaSesionDataGridViewTextBoxColumn.HeaderText = "IDSesión de Caja";
+            this.idCajaSesionDataGridViewTextBoxColumn.Name = "idCajaSesionDataGridViewTextBoxColumn";
+            this.idCajaSesionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCajaSesionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDetallePagoDataGridViewTextBoxColumn
+            // 
+            this.idDetallePagoDataGridViewTextBoxColumn.DataPropertyName = "idDetallePago";
+            this.idDetallePagoDataGridViewTextBoxColumn.HeaderText = "IDDetalle de Pago";
+            this.idDetallePagoDataGridViewTextBoxColumn.Name = "idDetallePagoDataGridViewTextBoxColumn";
+            this.idDetallePagoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDetallePagoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idMedioPagoDataGridViewTextBoxColumn
+            // 
+            this.idMedioPagoDataGridViewTextBoxColumn.DataPropertyName = "idMedioPago";
+            this.idMedioPagoDataGridViewTextBoxColumn.HeaderText = "IDMedio de Pago";
+            this.idMedioPagoDataGridViewTextBoxColumn.Name = "idMedioPagoDataGridViewTextBoxColumn";
+            this.idMedioPagoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idMedioPagoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // esDeCompraDataGridViewTextBoxColumn
+            // 
+            this.esDeCompraDataGridViewTextBoxColumn.DataPropertyName = "esDeCompra";
+            this.esDeCompraDataGridViewTextBoxColumn.HeaderText = "EsDeCompra";
+            this.esDeCompraDataGridViewTextBoxColumn.Name = "esDeCompraDataGridViewTextBoxColumn";
+            this.esDeCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.esDeCompraDataGridViewTextBoxColumn.Visible = false;
+            // 
             // UCEgresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -860,12 +864,12 @@
         private System.Windows.Forms.BindingSource sucursalBindingSource;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEgresoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numeroOperacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPagoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroOperacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn motivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn medioPagoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn motivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn monedaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn observacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
