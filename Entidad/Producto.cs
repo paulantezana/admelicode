@@ -56,8 +56,8 @@ namespace Entidad
         public string stockFinanciero { get; set; }
         public int idPresentacionAfectada { get; set; }
 
-        public string idAlmacen { get; set; }
-        public int nombreAlmacen { get; set; }
+        public int idAlmacen { get; set; }
+        public string nombreAlmacen { get; set; }
 
     }
 

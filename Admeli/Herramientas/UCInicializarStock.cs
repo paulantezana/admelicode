@@ -738,7 +738,7 @@ namespace Admeli.Herramientas
             auxProducto.codigoProducto = currentProdcuto.codigoProducto;
             auxProducto.precioCompra = currentProdcuto.precioCompra;
             auxProducto.descripcionCorta = currentProdcuto.descripcionCorta;
-            auxProducto.idProducto = currentProdcuto.idProducto;
+            auxProducto.idProducto = currentProdcuto.idPresentacion;
 
 
             // Mostrando el formulario de modificacion
@@ -803,7 +803,11 @@ namespace Admeli.Herramientas
 
         private void dataGridView_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (dataGridView.Rows.Count == 0)
+            { 
+            
+                return;
+            }
 
             string valor = dataGridView.CurrentCell.Value.ToString();
             Validator.isDecimal(e, valor);
