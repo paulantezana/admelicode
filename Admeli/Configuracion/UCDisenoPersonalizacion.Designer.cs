@@ -38,10 +38,10 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelCrud = new System.Windows.Forms.FlowLayoutPanel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idTipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreLabelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,8 +57,8 @@
             this.panelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.panelCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
+            this.panelCrud.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -68,7 +68,7 @@
             this.panelContainer.Controls.Add(this.panelCrud);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(8, 8);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(814, 324);
@@ -81,7 +81,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(812, 262);
             this.panel1.TabIndex = 20;
             // 
@@ -92,7 +92,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.AutoGenerateColumns = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -147,6 +147,10 @@
             this.dataGridView.Size = new System.Drawing.Size(792, 242);
             this.dataGridView.TabIndex = 2;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            // 
+            // tipoDocumentoBindingSource
+            // 
+            this.tipoDocumentoBindingSource.DataSource = typeof(Entidad.Configuracion.TipoDocumento);
             // 
             // panelCrud
             // 
@@ -206,10 +210,6 @@
             this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
-            // tipoDocumentoBindingSource
-            // 
-            this.tipoDocumentoBindingSource.DataSource = typeof(Entidad.Configuracion.TipoDocumento);
-            // 
             // idTipoDocumentoDataGridViewTextBoxColumn
             // 
             this.idTipoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "idTipoDocumento";
@@ -217,7 +217,6 @@
             this.idTipoDocumentoDataGridViewTextBoxColumn.Name = "idTipoDocumentoDataGridViewTextBoxColumn";
             this.idTipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idTipoDocumentoDataGridViewTextBoxColumn.Visible = false;
-            this.idTipoDocumentoDataGridViewTextBoxColumn.Width = 46;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -225,16 +224,14 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 83;
+            this.nombreDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreLabelDataGridViewTextBoxColumn
             // 
             this.nombreLabelDataGridViewTextBoxColumn.DataPropertyName = "nombreLabel";
-            this.nombreLabelDataGridViewTextBoxColumn.HeaderText = "nombreLabel";
+            this.nombreLabelDataGridViewTextBoxColumn.HeaderText = "Nombre Label";
             this.nombreLabelDataGridViewTextBoxColumn.Name = "nombreLabelDataGridViewTextBoxColumn";
             this.nombreLabelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreLabelDataGridViewTextBoxColumn.Visible = false;
-            this.nombreLabelDataGridViewTextBoxColumn.Width = 118;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
@@ -242,7 +239,7 @@
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.Width = 107;
+            this.descripcionDataGridViewTextBoxColumn.Visible = false;
             // 
             // comprobanteDataGridViewCheckBoxColumn
             // 
@@ -250,6 +247,7 @@
             this.comprobanteDataGridViewCheckBoxColumn.HeaderText = "Comprobante";
             this.comprobanteDataGridViewCheckBoxColumn.Name = "comprobanteDataGridViewCheckBoxColumn";
             this.comprobanteDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.comprobanteDataGridViewCheckBoxColumn.Visible = false;
             // 
             // areaDataGridViewTextBoxColumn
             // 
@@ -257,7 +255,6 @@
             this.areaDataGridViewTextBoxColumn.HeaderText = "Área";
             this.areaDataGridViewTextBoxColumn.Name = "areaDataGridViewTextBoxColumn";
             this.areaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.areaDataGridViewTextBoxColumn.Width = 63;
             // 
             // tipoClienteDataGridViewTextBoxColumn
             // 
@@ -265,7 +262,7 @@
             this.tipoClienteDataGridViewTextBoxColumn.HeaderText = "Tipo de Cliente";
             this.tipoClienteDataGridViewTextBoxColumn.Name = "tipoClienteDataGridViewTextBoxColumn";
             this.tipoClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoClienteDataGridViewTextBoxColumn.Width = 130;
+            this.tipoClienteDataGridViewTextBoxColumn.Visible = false;
             // 
             // formatoDocumentoDataGridViewTextBoxColumn
             // 
@@ -273,7 +270,7 @@
             this.formatoDocumentoDataGridViewTextBoxColumn.HeaderText = "Formato de Documento";
             this.formatoDocumentoDataGridViewTextBoxColumn.Name = "formatoDocumentoDataGridViewTextBoxColumn";
             this.formatoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.formatoDocumentoDataGridViewTextBoxColumn.Width = 182;
+            this.formatoDocumentoDataGridViewTextBoxColumn.Visible = false;
             // 
             // redimensionarModeloDataGridViewCheckBoxColumn
             // 
@@ -281,7 +278,7 @@
             this.redimensionarModeloDataGridViewCheckBoxColumn.HeaderText = "Redimensionar Modelo";
             this.redimensionarModeloDataGridViewCheckBoxColumn.Name = "redimensionarModeloDataGridViewCheckBoxColumn";
             this.redimensionarModeloDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.redimensionarModeloDataGridViewCheckBoxColumn.Width = 161;
+            this.redimensionarModeloDataGridViewCheckBoxColumn.Visible = false;
             // 
             // bordeDetalleDataGridViewCheckBoxColumn
             // 
@@ -289,7 +286,7 @@
             this.bordeDetalleDataGridViewCheckBoxColumn.HeaderText = "Borde Detalle";
             this.bordeDetalleDataGridViewCheckBoxColumn.Name = "bordeDetalleDataGridViewCheckBoxColumn";
             this.bordeDetalleDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.bordeDetalleDataGridViewCheckBoxColumn.Width = 101;
+            this.bordeDetalleDataGridViewCheckBoxColumn.Visible = false;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -298,7 +295,6 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.Visible = false;
-            this.estadoDataGridViewTextBoxColumn.Width = 75;
             // 
             // EstadoString
             // 
@@ -306,23 +302,23 @@
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
-            this.EstadoString.Width = 75;
+            this.EstadoString.Visible = false;
             // 
             // UCDisenoPersonalizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCDisenoPersonalizacion";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(830, 340);
             this.Load += new System.EventHandler(this.UCDisenoPersonalizacion_Load);
             this.panelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.panelCrud.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();
+            this.panelCrud.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

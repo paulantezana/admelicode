@@ -1120,10 +1120,14 @@
             // 
             // idPresentacionDataGridViewTextBoxColumn
             // 
+            this.idPresentacionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idPresentacionDataGridViewTextBoxColumn.DataPropertyName = "idPresentacion";
             this.idPresentacionDataGridViewTextBoxColumn.HeaderText = "idPresentacion";
             this.idPresentacionDataGridViewTextBoxColumn.Name = "idPresentacionDataGridViewTextBoxColumn";
             this.idPresentacionDataGridViewTextBoxColumn.ReadOnly = true;
+
+            this.idPresentacionDataGridViewTextBoxColumn.Width = 40;
+
             // 
             // codigoDataGridViewTextBoxColumn
             // 
