@@ -23,6 +23,8 @@ namespace Modelo
         public static List<Moneda> monedas { get; set; }
         public static List<TipoCambioMoneda> tipoCambioMonedas { get; set; }
 
+        public static List<Sucursal> listSucursales { get; set; }
+
         // TIPOS DE DOCUMENTO       www.lineatienda.com/services.php/tipodoc21/estado/1
         // ALMACENES                www.lineatienda.com/services.php/personalalmacenes/per/8/suc/1
         // ASIGNACION PERSONAL      www.lineatienda.com/services.php/asignarpuntoventas/sucursal/1/personal/8
@@ -44,9 +46,9 @@ namespace Modelo
         public static int currentPuntoVenta { get; set; }
         public static bool cajaIniciada { get; set; }
         public static Dictionary<string, int> currentProductoCategory = new Dictionary<string, int>();
+        public static Dictionary<string, int> currentProductoCategoryStock = new Dictionary<string, int>();
 
 
-      
         public async Task<Response> guardarDatosGenerales(UbicacionGeografica ubicacionGeografica, DatosGenerales datosGenerales)
         {
             try
@@ -238,23 +240,7 @@ namespace Modelo
                 throw ex;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         public async Task loadDatosGenerales()
         {
             try
@@ -288,9 +274,9 @@ namespace Modelo
             try
             {
                 // www.lineatienda.com/services.php/sucursalespersonal/8
-                List<Sucursal> list = await webService.GET<List<Sucursal>>("sucursalespersonal",idPersonal.ToString());
-                if (list.Count == 0) throw new Exception("Usted no pertenece a una sucursal no podrá ingresar al sistema.");
-                sucursal = list[0];
+                 listSucursales = await webService.GET<List<Sucursal>>("sucursalespersonal",idPersonal.ToString());
+                if (listSucursales.Count == 0) throw new Exception("Usted no pertenece a una sucursal no podrá ingresar al sistema.");
+                sucursal = listSucursales[0];
             }
             catch (Exception ex)
             {

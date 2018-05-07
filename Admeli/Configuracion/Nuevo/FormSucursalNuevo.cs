@@ -96,35 +96,41 @@ namespace Admeli.Configuracion.Nuevo
             chkPrincipalSucursal.Checked = currentSucursal.principal;
             chkActivoSucursal.Checked = Convert.ToBoolean(currentSucursal.estado);
 
-            /*loadPuntoAdministracion();
+            loadPuntoAdministracion();
             loadPuntoCompra();
             loadPuntoVenta();
             loadCajas();
-            loadPuntoGerencia();*/
+            loadPuntoGerencia();
         }
 
 
-        /*
-        private async void loadPuntoAdministracion(){
+
+        private async void loadPuntoAdministracion()
+        {
             puntoAdministracion = await puntoModel.puntoAdministracion(currentSucursal.idSucursal);
-            chkAdministracionSucursal.Checked = Convert.ToBoolean(puntoAdministracion.estado);
+            chkAdministracionSucursal.Checked = puntoAdministracion == null ? false: Convert.ToBoolean(puntoAdministracion.estado);
         }
-        private async void loadPuntoCompra() {
+        private async void loadPuntoCompra()
+        {
             puntoCompra = await puntoModel.puntoCompra(currentSucursal.idSucursal);
-            chkCompraSucursal.Checked = Convert.ToBoolean(puntoCompra.estado);
+            chkCompraSucursal.Checked = puntoCompra == null ? false: Convert.ToBoolean(puntoCompra.estado);
         }
-        private async void loadPuntoVenta() {
+        private async void loadPuntoVenta()
+        {
             puntosDeVenta = await puntoModel.puntoVentas(currentSucursal.idSucursal);
-            chkVentaSucursal.Checked = Convert.ToBoolean((puntosDeVenta.Count > 0) ? puntosDeVenta[0].estado : 0);
+            chkVentaSucursal.Checked = puntosDeVenta == null ? false:Convert.ToBoolean((puntosDeVenta.Count > 0) ? puntosDeVenta[0].estado : 0);
         }
-        private async void loadCajas() {
+        private async void loadCajas()
+        {
             cajas = await puntoModel.cajas(currentSucursal.idSucursal);
-            chkCajaSucursal.Checked = Convert.ToBoolean(cajas[0].estado);
+           
+            chkCajaSucursal.Checked = cajas == null ?  false:Convert.ToBoolean((cajas.Count > 0) ? cajas[0].estado:0);
         }
-        private async void loadPuntoGerencia() {
+        private async void loadPuntoGerencia()
+        {
             puntoGerencia = await puntoModel.puntoGerencia(currentSucursal.idSucursal);
-            chkGerenciaSucursal.Checked = Convert.ToBoolean(puntoGerencia.estado);
-        }*/
+            chkGerenciaSucursal.Checked = puntoGerencia == null ? false: Convert.ToBoolean(puntoGerencia.estado);
+        }
 
         private async Task cargarPaises()
         {

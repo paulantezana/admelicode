@@ -45,14 +45,25 @@ namespace Admeli.Configuracion.Nuevo
         public AsignarPuntoAdministracion asignarPuntoAdministracion { get; set; }
         public AsignarPuntoGerencia asignarPuntoGerencia { get; set; }
         public Responsabilidades responsabilidades { get; set; }
+        public List<Sucursal> listSucursal { get; set; }
 
+        Dictionary<int ,  List<Permisos>> matrizPersimos { get; set; }
+        Dictionary<int, List<TreeNode>> matrizNodes { get; set; }
 
+        bool activadoAlmacen = false;
+        bool activadoPunto = false;
+        int nroNodosAlmacen = 0;
+        int nroNodosVentas= 0;
+        int contadorA = 0;
+        int contadorP = 0;
         public FormPersonalNuevo()
         {
             InitializeComponent();
             this.nuevo = true;
-            listarPuntosByIdSucursal(0);
 
+            this.currentIDPersonal = 0;
+            matrizPersimos = new Dictionary<int, List<Permisos>>();
+            matrizNodes = new Dictionary<int, List<TreeNode>>();
         }
 
         public FormPersonalNuevo(Personal currentPersonal)
@@ -61,7 +72,9 @@ namespace Admeli.Configuracion.Nuevo
             this.currentPersonal = currentPersonal;
             this.currentIDPersonal = currentPersonal.idPersonal;
             this.nuevo = false;
-            listarPuntosByIdSucursal(currentIDPersonal);
+            matrizPersimos = new Dictionary<int, List<Permisos>>();
+            matrizNodes = new Dictionary<int, List<TreeNode>>();
+        
         }
 
         #region ============================ PAINT ============================
@@ -110,7 +123,7 @@ namespace Admeli.Configuracion.Nuevo
         #endregion
 
         #region ============================ Loads ============================
-        private async void listarPuntosByIdSucursal(int idPersonal)
+        private async void listarPuntosByIdSucursal(int idSucursal, int idPersonal)
         {
 
 
@@ -119,44 +132,12 @@ namespace Admeli.Configuracion.Nuevo
             {
                 // Cargando las categorias desde el webservice
 
-                listPermisos = await personalModel.listarPuntosByIdSucursal(ConfigModel.sucursal.idSucursal, idPersonal);
+                listPermisos = await personalModel.listarPuntosByIdSucursal(idSucursal, idPersonal);
+       
+                listNode = new List<TreeNode>();           
 
-
-                // Cargando
-                treeViewPermisos.Nodes.Clear(); // limpiando              
-                listNode = new List<TreeNode>();
-
-                foreach (Permisos permiso in listPermisos)
-                {
-                    TreeNode aux = new TreeNode(permiso.nombre);
-                    aux.Checked = permiso.estado;
-                    aux.Name = permiso.idRegistro.ToString();
-                    listNode.Add(aux);
-
-                }
-
-                // solo es para dos nievels
-                int i = 0;
-                foreach (TreeNode tree in listNode)
-                {
-                    Permisos aux = listPermisos[i++];
-                    if (aux.idPadre == 0)
-                    {
-                        treeViewPermisos.Nodes.Add(tree);
-                    }
-                    else
-                    {
-                        TreeNode tree1 = buscarPadre(aux, listNode);
-                        tree1.Nodes.Add(tree);
-
-                    }
-
-
-                }
-
-
-
-
+                matrizPersimos.Add(idSucursal, listPermisos);
+                matrizNodes.Add(idSucursal,listNode);
 
             }
             catch (Exception ex)
@@ -167,12 +148,79 @@ namespace Admeli.Configuracion.Nuevo
 
         }
 
-        private TreeNode buscarPadre(Permisos permisos, List<TreeNode> listNode)
+
+        
+
+        #region ======================= Control de isChecked en el treeview =======================
+        private void CheckTreeViewNode(TreeNode node, Boolean isChecked)
+        {
+            foreach (TreeNode item in node.Nodes)
+            {
+                item.Checked = isChecked;
+
+                if (item.Nodes.Count > 0)
+                {
+                    this.CheckTreeViewNode(item, isChecked);
+                }
+            }
+        }
+
+        private void treeViewCategoria_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            CheckTreeViewNode(e.Node, e.Node.Checked);
+        }
+        #endregion
+        private void cargarTreeview(List<TreeNode>  listN, List<Permisos> listP)
+        {
+
+            treeViewPermisos.Nodes.Clear(); // limpiando              
+            if (listN.Count == 0)
+            {
+
+                foreach (Permisos permiso in listP)
+                {
+                
+                    TreeNode aux = new TreeNode(permiso.nombre);
+                    aux.Checked = permiso.estado;
+                    aux.Name = permiso.idRegistro.ToString();               
+                    listN.Add(aux);
+
+                }
+
+            } 
+            
+
+            // solo es para dos nievels
+            int i = 0;
+            foreach (TreeNode tree in listN)
+            {
+                Permisos aux = listP[i++];
+                if (aux.idPadre == 0)
+                {
+                    treeViewPermisos.Nodes.Add(tree);
+                }
+                else
+                {
+                    TreeNode tree1 = buscarPadre(aux, listN, listP);
+                    if (!tree1.Nodes.Contains(tree))
+                    {
+                        tree1.Nodes.Add(tree);
+                    }
+                    
+
+                }
+
+
+            }
+        }
+
+
+        private TreeNode buscarPadre(Permisos permisos, List<TreeNode> listNode, List<Permisos> listP)
         {
             int i = 0;
             foreach (TreeNode tree in listNode)
             {
-                Permisos aux = listPermisos[i++];
+                Permisos aux = listP[i++];
                 if (aux.idRegistro == permisos.idPadre)
                 {
                     tree.ImageIndex = 1;
@@ -213,7 +261,17 @@ namespace Admeli.Configuracion.Nuevo
         {
             try
             {
-                sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+                listSucursal= await sucursalModel.sucursales();
+                sucursalBindingSource.DataSource = listSucursal;
+                foreach(Sucursal s in listSucursal)
+                {
+                    listarPuntosByIdSucursal(s.idSucursal, currentIDPersonal);
+                  
+                }
+
+                treeViewPermisos.Nodes.Clear();
+               
+                // cargar sus o
             }
             catch (Exception ex)
             {
@@ -221,7 +279,7 @@ namespace Admeli.Configuracion.Nuevo
             }
         }
 
-       
+
 
         private async void cargarDocIdentificacion()
         {
@@ -253,8 +311,8 @@ namespace Admeli.Configuracion.Nuevo
                 loadStateApp(true);
                 // Cargando desde el web service
                 int idPersonal = (nuevo) ? 0 : 1;
-                int index = dataGridView1.CurrentRow.Index;
-                currentIDSucursal = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                int index = dataGridView.CurrentRow.Index;
+                currentIDSucursal = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
 
                 // Cargando las categorias desde el webservice
                 List<Departamento> departamentos = await departamentoModel.listarAreasPorSucursal(currentIDSucursal, idPersonal);
@@ -481,16 +539,16 @@ namespace Admeli.Configuracion.Nuevo
             guardarPersonal();
 
 
-          
-            
+
+
 
         }
 
 
-        private void asignarResponsablidad(string Nombre , Permisos permisos, TreeNode treeNode)
+        private void asignarResponsablidad(string Nombre, Permisos permisos, TreeNode treeNode, int nroNodos)
         {
-      
-            int status= estado(treeNode);
+
+            int status = estado(treeNode);
             int id = permisos.idDepartamento;
             int idPersonal = currentPersonalAux.idPersonal;
 
@@ -499,41 +557,19 @@ namespace Admeli.Configuracion.Nuevo
                 case "CAJA":
 
                     asignarCaja = new AsignarCaja();
-                  
                     asignarCaja.estado = status;
                     asignarCaja.idCaja = id;
                     asignarCaja.idPersonal = idPersonal;
-                    break;
-                case "Almacén":
-
-                    PersonalAlmacen personal = new PersonalAlmacen();
-                    personalAlmacen = new List<PersonalAlmacen>();
-
-                    personal.estado = treeNode.Checked;
-                    personal.idAlmacen = id;
-                    personal.idPersonal = idPersonal;
-                    personalAlmacen.Add(personal);
-
-
-                    break;
+                    break;             
                 case "COMPRA":
                     asignarPuntoCompra = new AsignarPuntoCompra();
 
                     asignarPuntoCompra.estado = status;
                     asignarPuntoCompra.idPersonal = idPersonal;
                     asignarPuntoCompra.idPuntoCompra = id;
-                    
-                    break;
-                case "Punto venta":
-
-                    AsignarPuntoVenta asignarPunto = new AsignarPuntoVenta();
-                    asignarPuntoVenta = new List<AsignarPuntoVenta>();
-                    asignarPunto.estado = treeNode.Checked;
-                    asignarPunto.idPersonal = idPersonal;
-                    asignarPunto.idPuntoVenta = id;
-                    asignarPuntoVenta.Add(asignarPunto);
 
                     break;
+              
                 case "ADMINISTRACIÓN":
                     asignarPuntoAdministracion = new AsignarPuntoAdministracion();
                     asignarPuntoAdministracion.estado = status;
@@ -551,7 +587,67 @@ namespace Admeli.Configuracion.Nuevo
 
             }
 
+             if (activadoAlmacen)
+            {
 
+                if (nroNodosAlmacen > contadorA)
+                {
+
+                    PersonalAlmacen personal = new PersonalAlmacen();
+                    personalAlmacen = new List<PersonalAlmacen>();
+                    personal.estado = treeNode.Checked;
+                    personal.idAlmacen = id;
+                    personal.idPersonal = idPersonal;
+                    personalAlmacen.Add(personal);
+                    contadorA++;
+                }
+                else
+                {
+                    activadoAlmacen = false;
+
+                    contadorA = 0;
+                    nroNodosAlmacen = 0;
+                }
+            }
+
+            if (activadoPunto)
+            {
+
+                if (nroNodosVentas > contadorP)
+                {
+
+                    AsignarPuntoVenta asignarPunto = new AsignarPuntoVenta();
+                    asignarPuntoVenta = new List<AsignarPuntoVenta>();
+                    asignarPunto.estado = treeNode.Checked;
+                    asignarPunto.idPersonal = idPersonal;
+                    asignarPunto.idPuntoVenta = id;
+                    asignarPuntoVenta.Add(asignarPunto);
+                    contadorP++;
+                }
+                else
+                {
+                    activadoPunto = false;
+
+                    contadorP = 0;
+                    nroNodosVentas = 0;
+                }
+            }
+            if(Nombre== "ALMACÉN")
+            {
+                activadoAlmacen = true;
+              
+                nroNodosAlmacen = nroNodos;
+                
+
+            }
+            if (Nombre == "VENTA")
+            {              
+                activadoPunto = true;              
+                nroNodosVentas = nroNodos;
+
+            }
+
+           
 
         }
 
@@ -589,32 +685,39 @@ namespace Admeli.Configuracion.Nuevo
                 else
                 {
                     Response response = await personalModel.modificar(currentPersonalAux);
-                   
+
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
 
-                int i = 0;
-                foreach (TreeNode T in this.listNode)
+                foreach (Sucursal S in listSucursal)
                 {
-                    Permisos permisos = listPermisos[i++];
 
-                    if (T.Nodes.Count == 0)
+                    List<TreeNode> listN = matrizNodes[S.idSucursal];
+                    List<Permisos> listP = matrizPersimos[S.idSucursal];
+                    int i = 0;
+                    foreach (TreeNode T in listN)
                     {
-                        asignarResponsablidad(permisos.nombre, permisos, T);
+                        Permisos permisos = listP[i++];
+
+                        
+                            asignarResponsablidad(permisos.nombre, permisos, T, T.Nodes.Count);
+
+                       
+                        
 
                     }
 
+                    responsabilidades = new Responsabilidades();
+                    responsabilidades.asignarCaja = asignarCaja;
+                    responsabilidades.asignarPuntoAdministracion = asignarPuntoAdministracion;
+                    responsabilidades.asignarPuntoCompra = asignarPuntoCompra;
+                    responsabilidades.asignarPuntoGerencia = asignarPuntoGerencia;
+                    responsabilidades.asignarPuntoVenta = asignarPuntoVenta;
+                    responsabilidades.personalAlmacen = personalAlmacen;
+                    await personalModel.Asignacion(responsabilidades);
                 }
-
-                responsabilidades = new Responsabilidades();
-                responsabilidades.asignarCaja = asignarCaja;
-                responsabilidades.asignarPuntoAdministracion = asignarPuntoAdministracion;
-                responsabilidades.asignarPuntoCompra = asignarPuntoCompra;
-                responsabilidades.asignarPuntoGerencia = asignarPuntoGerencia;
-                responsabilidades.asignarPuntoVenta = asignarPuntoVenta;
-                responsabilidades.personalAlmacen = personalAlmacen;
-                await personalModel.Asignacion(responsabilidades);
+               
+                
 
 
                 this.Close();
@@ -658,173 +761,173 @@ namespace Admeli.Configuracion.Nuevo
             ubicacionGeografica.idNivel1 = (cbxNivel1.SelectedIndex == -1) ? ubicacionGeografica.idNivel1 : Convert.ToInt32(cbxNivel1.SelectedValue);
             ubicacionGeografica.idNivel2 = (cbxNivel2.SelectedIndex == -1) ? ubicacionGeografica.idNivel2 : Convert.ToInt32(cbxNivel2.SelectedValue);
             ubicacionGeografica.idNivel3 = (cbxNivel3.SelectedIndex == -1) ? ubicacionGeografica.idNivel3 : Convert.ToInt32(cbxNivel3.SelectedValue);
-         }
+        }
 
-         private bool validarCampos()
-         {
-             this.isValid = true;        // IS Valid ============ TRUE
+        private bool validarCampos()
+        {
+            this.isValid = true;        // IS Valid ============ TRUE
 
-             switch (labelUbicaciones.Count)
-             {
-                 case 1:
-                     if (cbxNivel1.SelectedIndex == -1)
-                     {
-                         errorProvider1.SetError(cbxNivel1, "No se seleccionó ningún elemento");
-                         cbxNivel1.Focus();
-                         this.isValid = false;
-                     }
-                     errorProvider1.Clear();
-                     break;
-                 case 2:
-                     if (cbxNivel2.SelectedIndex == -1)
-                     {
-                         errorProvider1.SetError(cbxNivel2, "No se seleccionó ningún elemento");
-                         cbxNivel2.Focus();
-                         this.isValid = false;
-                     }
-                     errorProvider1.Clear();
-                     break;
-                 case 3:
-                     if (cbxNivel3.SelectedIndex == -1)
-                     {
-                         errorProvider1.SetError(cbxNivel3, "No se seleccionó ningún elemento");
-                         cbxNivel3.Focus();
-                         this.isValid = false;
-                     }
-                     errorProvider1.Clear();
-                     break;
-                 default:
-                     break;
-             }
+            switch (labelUbicaciones.Count)
+            {
+                case 1:
+                    if (cbxNivel1.SelectedIndex == -1)
+                    {
+                        errorProvider1.SetError(cbxNivel1, "No se seleccionó ningún elemento");
+                        cbxNivel1.Focus();
+                        this.isValid = false;
+                    }
+                    errorProvider1.Clear();
+                    break;
+                case 2:
+                    if (cbxNivel2.SelectedIndex == -1)
+                    {
+                        errorProvider1.SetError(cbxNivel2, "No se seleccionó ningún elemento");
+                        cbxNivel2.Focus();
+                        this.isValid = false;
+                    }
+                    errorProvider1.Clear();
+                    break;
+                case 3:
+                    if (cbxNivel3.SelectedIndex == -1)
+                    {
+                        errorProvider1.SetError(cbxNivel3, "No se seleccionó ningún elemento");
+                        cbxNivel3.Focus();
+                        this.isValid = false;
+                    }
+                    errorProvider1.Clear();
+                    break;
+                default:
+                    break;
+            }
 
-             if (textNombreUsuario.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textNombreUsuario, "Campo obligatorio");
-                 Validator.textboxValidateColor(textNombreUsuario, 0);
-                 this.isValid = false;
-             }
+            if (textNombreUsuario.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textNombreUsuario, "Campo obligatorio");
+                Validator.textboxValidateColor(textNombreUsuario, 0);
+                this.isValid = false;
+            }
 
-             if (textApellidoUsuario.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textApellidoUsuario, "Campo obligatorio");
-                 Validator.textboxValidateColor(textApellidoUsuario, 0);
-                 this.isValid = false;
-             }
+            if (textApellidoUsuario.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textApellidoUsuario, "Campo obligatorio");
+                Validator.textboxValidateColor(textApellidoUsuario, 0);
+                this.isValid = false;
+            }
 
-             if (textNumeroDocumento.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textNumeroDocumento, "Campo obligatorio");
-                 Validator.textboxValidateColor(textNumeroDocumento, 0);
-                 this.isValid = false;
-             }
+            if (textNumeroDocumento.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textNumeroDocumento, "Campo obligatorio");
+                Validator.textboxValidateColor(textNumeroDocumento, 0);
+                this.isValid = false;
+            }
 
-             if (textEmail.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textEmail, "Campo obligatorio");
-                 Validator.textboxValidateColor(textEmail, 0);
-                 this.isValid = false;
-             }
+            if (textEmail.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textEmail, "Campo obligatorio");
+                Validator.textboxValidateColor(textEmail, 0);
+                this.isValid = false;
+            }
 
-             if (textDirecionUsuario.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textDirecionUsuario, "Campo obligatorio");
-                 Validator.textboxValidateColor(textDirecionUsuario, 0);
-                 this.isValid = false;
-             }
+            if (textDirecionUsuario.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textDirecionUsuario, "Campo obligatorio");
+                Validator.textboxValidateColor(textDirecionUsuario, 0);
+                this.isValid = false;
+            }
 
-             if (dtpFechaNacimiento.Value.Year == DateTime.Now.Year)
-             {
-                 errorProvider1.SetError(dtpFechaNacimiento, "Fecha de nacimiento invalido");
-                 this.isValid = false;
-             }
+            if (dtpFechaNacimiento.Value.Year == DateTime.Now.Year)
+            {
+                errorProvider1.SetError(dtpFechaNacimiento, "Fecha de nacimiento invalido");
+                this.isValid = false;
+            }
 
-             if (!this.isValid)
-             {
-                 return false;
-             }
-             return true;
-         }
+            if (!this.isValid)
+            {
+                return false;
+            }
+            return true;
+        }
 
-         #endregion
+        #endregion
 
-         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
-         {
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
             // cargarDeprtametnoSucursal();
-         }
+        }
 
-         #region ============================== Validacion tiempo real ==============================
-         private void textNombreUsuario_Validated(object sender, EventArgs e)
-         {
-             if (textNombreUsuario.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textNombreUsuario, "Campo obligatorio");
-                 Validator.textboxValidateColor(textNombreUsuario, 0);
-                 return;
-             }
-             errorProvider1.Clear();
-             Validator.textboxValidateColor(textNombreUsuario, 1);
-         }
+        #region ============================== Validacion tiempo real ==============================
+        private void textNombreUsuario_Validated(object sender, EventArgs e)
+        {
+            if (textNombreUsuario.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textNombreUsuario, "Campo obligatorio");
+                Validator.textboxValidateColor(textNombreUsuario, 0);
+                return;
+            }
+            errorProvider1.Clear();
+            Validator.textboxValidateColor(textNombreUsuario, 1);
+        }
 
-         private void textApellidoUsuario_Validated(object sender, EventArgs e)
-         {
-             if (textApellidoUsuario.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textApellidoUsuario, "Campo obligatorio");
-                 Validator.textboxValidateColor(textApellidoUsuario, 0);
-                 return;
-             }
-             errorProvider1.Clear();
-             Validator.textboxValidateColor(textApellidoUsuario, 1);
-         }
+        private void textApellidoUsuario_Validated(object sender, EventArgs e)
+        {
+            if (textApellidoUsuario.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textApellidoUsuario, "Campo obligatorio");
+                Validator.textboxValidateColor(textApellidoUsuario, 0);
+                return;
+            }
+            errorProvider1.Clear();
+            Validator.textboxValidateColor(textApellidoUsuario, 1);
+        }
 
-         private void textNumeroDocumento_Validated(object sender, EventArgs e)
-         {
-             if (textNumeroDocumento.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textNumeroDocumento, "Campo obligatorio");
-                 Validator.textboxValidateColor(textNumeroDocumento, 0);
-                 return;
-             }
-             errorProvider1.Clear();
-             Validator.textboxValidateColor(textNumeroDocumento, 1);
-         }
+        private void textNumeroDocumento_Validated(object sender, EventArgs e)
+        {
+            if (textNumeroDocumento.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textNumeroDocumento, "Campo obligatorio");
+                Validator.textboxValidateColor(textNumeroDocumento, 0);
+                return;
+            }
+            errorProvider1.Clear();
+            Validator.textboxValidateColor(textNumeroDocumento, 1);
+        }
 
-         private void textEmail_Validated(object sender, EventArgs e)
-         {
-             if (textEmail.Text.Trim() == "")
-             {
-                 errorProvider1.SetError(textEmail, "Campo obligatorio");
-                 Validator.textboxValidateColor(textEmail, 0);
-                 return;
-             }
-             errorProvider1.Clear();
-             Validator.textboxValidateColor(textEmail, 1);
+        private void textEmail_Validated(object sender, EventArgs e)
+        {
+            if (textEmail.Text.Trim() == "")
+            {
+                errorProvider1.SetError(textEmail, "Campo obligatorio");
+                Validator.textboxValidateColor(textEmail, 0);
+                return;
+            }
+            errorProvider1.Clear();
+            Validator.textboxValidateColor(textEmail, 1);
 
-             if (!Validator.IsValidEmail(textEmail.Text))
-             {
-                 errorProvider1.SetError(textEmail, "Email invalido");
-                 Validator.textboxValidateColor(textEmail, 0);
-                 return;
-             }
-             errorProvider1.Clear();
-             Validator.textboxValidateColor(textEmail, 1);
-         }
+            if (!Validator.IsValidEmail(textEmail.Text))
+            {
+                errorProvider1.SetError(textEmail, "Email invalido");
+                Validator.textboxValidateColor(textEmail, 0);
+                return;
+            }
+            errorProvider1.Clear();
+            Validator.textboxValidateColor(textEmail, 1);
+        }
 
-         private void textTelefono_Validated(object sender, EventArgs e)
-         {
-             ////////////////////////////////////////
-         }
+        private void textTelefono_Validated(object sender, EventArgs e)
+        {
+            ////////////////////////////////////////
+        }
 
-         private void textCelular_Validated(object sender, EventArgs e)
-         {
-             /*  if (textCelular.Text.Trim() == "")
-               {
-                   errorProvider1.SetError(textCelular, "Campo obligatorio");
-                   Validator.textboxValidateColor(textCelular, false);
-                   return;
-               }
-               errorProvider1.Clear();
-               Validator.textboxValidateColor(textCelular, true);*/
+        private void textCelular_Validated(object sender, EventArgs e)
+        {
+            /*  if (textCelular.Text.Trim() == "")
+              {
+                  errorProvider1.SetError(textCelular, "Campo obligatorio");
+                  Validator.textboxValidateColor(textCelular, false);
+                  return;
+              }
+              errorProvider1.Clear();
+              Validator.textboxValidateColor(textCelular, true);*/
         }
 
         private void textTelefono_KeyPress(object sender, KeyPressEventArgs e)
@@ -854,8 +957,26 @@ namespace Admeli.Configuracion.Nuevo
         {
             textNombreUsuario.Focus();
         }
-    }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idSucursal = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+            treeViewPermisos.Nodes.Clear();
+
+            cargarTreeview(matrizNodes[idSucursal], matrizPersimos[idSucursal]);
+
+
+                    
+        }
+    }
     public class PersonalAux
     {
         public string apellidos { get; set; }
