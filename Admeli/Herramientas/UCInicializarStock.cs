@@ -46,7 +46,7 @@ namespace Admeli.Herramientas
 
             lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();     // carganto los items por página
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
-            ConfigModel.currentProductoCategory.Add("id0", 0);
+            ConfigModel.currentProductoCategoryStock.Add("id0", 0);
         }
 
         public UCInicializarStock(FormPrincipal formPrincipal)
@@ -57,7 +57,7 @@ namespace Admeli.Herramientas
             lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();     // carganto los items por página
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
 
-            ConfigModel.currentProductoCategory.Add("id0", 0);
+            ConfigModel.currentProductoCategoryStock.Add("id0", 0);
         } 
         #endregion
 
@@ -349,7 +349,7 @@ namespace Admeli.Herramientas
                 Dictionary<string, int> list = new Dictionary<string, int>();
               
                 
-                Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
+                Dictionary<string, int> sendList = (ConfigModel.currentProductoCategoryStock.Count == 0) ? list : ConfigModel.currentProductoCategoryStock;
                 int sucursalId = (cbxSucursales.SelectedIndex == -1) ? ConfigModel.sucursal.idSucursal : Convert.ToInt32(cbxSucursales.SelectedValue);
                 int almacenID = (cbxAlmacenes.SelectedIndex == -1) ? ConfigModel.currentIdAlmacen : Convert.ToInt32(cbxAlmacenes.SelectedValue);
                 RootObjectData rootObjectData=null;
@@ -413,7 +413,7 @@ namespace Admeli.Herramientas
 
                 Dictionary<string, int> list = new Dictionary<string, int>();
              
-                Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
+                Dictionary<string, int> sendList = (ConfigModel.currentProductoCategoryStock.Count == 0) ? list : ConfigModel.currentProductoCategoryStock;
 
                 int sucursalId = (cbxSucursales.SelectedIndex == -1) ? ConfigModel.sucursal.idSucursal : Convert.ToInt32(cbxSucursales.SelectedValue);
                 int almacenID = (cbxAlmacenes.SelectedIndex == -1) ? ConfigModel.currentIdAlmacen : Convert.ToInt32(cbxAlmacenes.SelectedValue);
@@ -593,7 +593,7 @@ namespace Admeli.Herramientas
             TreeNode mainNode = treeViewCategoria.Nodes[0];
             itemNumber = 0;
             
-            ConfigModel.currentProductoCategory.Clear();
+            ConfigModel.currentProductoCategoryStock.Clear();
             getRecursiveNodes(mainNode);
 
             // cargando los registros
@@ -603,7 +603,7 @@ namespace Admeli.Herramientas
         {
             if (parentNode.Checked)
             {
-                ConfigModel.currentProductoCategory.Add("id" + itemNumber.ToString(), Convert.ToInt32(parentNode.Name));
+                ConfigModel.currentProductoCategoryStock.Add("id" + itemNumber.ToString(), Convert.ToInt32(parentNode.Name));
                 itemNumber++;
             }
             foreach (TreeNode subNode in parentNode.Nodes)
@@ -738,7 +738,6 @@ namespace Admeli.Herramientas
             auxProducto.codigoProducto = currentProdcuto.codigoProducto;
             auxProducto.precioCompra = currentProdcuto.precioCompra;
             auxProducto.descripcionCorta = currentProdcuto.descripcionCorta;
-            //auxProducto.idProducto = currentProdcuto.idProducto;
             auxProducto.idProducto = currentProdcuto.idPresentacion;
 
 
@@ -804,7 +803,11 @@ namespace Admeli.Herramientas
 
         private void dataGridView_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (dataGridView.Rows.Count == 0)
+            { 
+            
+                return;
+            }
 
             string valor = dataGridView.CurrentCell.Value.ToString();
             Validator.isDecimal(e, valor);

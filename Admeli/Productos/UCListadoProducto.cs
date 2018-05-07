@@ -794,7 +794,8 @@ namespace Admeli.Productos
                 dataGridView.Columns[8].Visible = true;
                 dataGridView.Columns[9].Visible = false;
                 dataGridView.Columns[10].Visible = false;
-
+                dataGridView.Columns["nombreAlmacen"].Visible = true;
+                
                 if (textBuscar.Text != "")
                 {
 
@@ -818,6 +819,7 @@ namespace Admeli.Productos
                 dataGridView.Columns[8].Visible = false;
                 dataGridView.Columns[9].Visible = false;
                 dataGridView.Columns[10].Visible = false;
+                dataGridView.Columns["nombreAlmacen"].Visible = false;
 
                 if (textBuscar.Text != "")
                 {
@@ -853,6 +855,11 @@ namespace Admeli.Productos
         {
             FormImportarProduto formImportarProduto = new FormImportarProduto();
             formImportarProduto.ShowDialog();
+        }
+
+        private void textBuscar_OnValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

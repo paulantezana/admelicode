@@ -156,7 +156,7 @@
             // 
             // unidadMedidaBindingSource
             // 
-            this.unidadMedidaBindingSource.DataSource = typeof(Entidad.UnidadMedida);
+           
             // 
             // panelCrud
             // 

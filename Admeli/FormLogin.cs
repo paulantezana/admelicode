@@ -63,7 +63,7 @@ namespace Admeli
 
                     if (ConfigModel.puntosDeVenta.Count > 1 || ConfigModel.alamacenes.Count > 1)
                     {
-                        // Ocultar este formulario
+                        //Ocultar este formulario
                         this.Hide();
 
                         FormConfigInicial formConfig = new FormConfigInicial(this);
@@ -78,7 +78,7 @@ namespace Admeli
                         if (ConfigModel.puntosDeVenta.Count > 0) { ConfigModel.currentPuntoVenta = ConfigModel.puntosDeVenta[0].idAsignarPuntoVenta; }
                         if (ConfigModel.alamacenes.Count > 0) { ConfigModel.currentIdAlmacen = ConfigModel.alamacenes[0].idAlmacen; }
                         //
-                            
+
                         // Ocultar este formulario
                         this.Hide();
 

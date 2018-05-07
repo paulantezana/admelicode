@@ -18,7 +18,10 @@ namespace Modelo
             {
                 // www.admeli.com/demo2/services.php/puntoadministracion/suc/5
                 List<PuntoAdministracion> responseData = await webService.GET<List<PuntoAdministracion>>("puntoadministracion", String.Format("suc/{0}",idSucursal));
-                return responseData[0];
+                if (responseData.Count > 0)
+                    return responseData[0];
+                else
+                   return null;
             }
             catch (Exception ex)
             {
@@ -31,7 +34,13 @@ namespace Modelo
             {
                 // www.admeli.com/demo2/services.php/puntocompra/suc/5
                 List<PuntoCompra> responseData = await webService.GET<List<PuntoCompra>>("puntocompra", String.Format("suc/{0}", idSucursal));
-                return responseData[0];
+
+                if (responseData.Count > 0)
+                    return responseData[0];
+                else
+                    return null;
+
+                
             }
             catch (Exception ex)
             {
@@ -70,7 +79,10 @@ namespace Modelo
             {
                 // www.admeli.com/demo2/services.php/puntogerencia/suc/5
                 List<PuntoGerencia> responseData = await webService.GET<List<PuntoGerencia>>("puntogerencia", String.Format("suc/{0}", idSucursal));
-                return responseData[0];
+                if (responseData.Count > 0)
+                    return responseData[0];
+                else
+                    return null;
             }
             catch (Exception ex)
             {
