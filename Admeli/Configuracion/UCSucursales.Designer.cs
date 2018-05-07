@@ -59,11 +59,11 @@
             this.lblPageAllItems = new System.Windows.Forms.Label();
             this.idSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.principalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUbicacionGeograficaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tieneRegistrosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContainer.SuspendLayout();
@@ -121,11 +121,11 @@
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idSucursalDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
+            this.direccionDataGridViewTextBoxColumn,
             this.principalDataGridViewCheckBoxColumn,
             this.estadoDataGridViewTextBoxColumn,
             this.EstadoString,
             this.estadosDataGridViewTextBoxColumn,
-            this.direccionDataGridViewTextBoxColumn,
             this.idUbicacionGeograficaDataGridViewTextBoxColumn,
             this.tieneRegistrosDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.sucursalBindingSource;
@@ -487,11 +487,12 @@
             // 
             // idSucursalDataGridViewTextBoxColumn
             // 
+            this.idSucursalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idSucursalDataGridViewTextBoxColumn.DataPropertyName = "idSucursal";
-            this.idSucursalDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idSucursalDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idSucursalDataGridViewTextBoxColumn.Name = "idSucursalDataGridViewTextBoxColumn";
             this.idSucursalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idSucursalDataGridViewTextBoxColumn.Visible = false;
+            this.idSucursalDataGridViewTextBoxColumn.Width = 40;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -500,12 +501,21 @@
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // principalDataGridViewCheckBoxColumn
             // 
+            this.principalDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.principalDataGridViewCheckBoxColumn.DataPropertyName = "principal";
             this.principalDataGridViewCheckBoxColumn.HeaderText = "Principal";
             this.principalDataGridViewCheckBoxColumn.Name = "principalDataGridViewCheckBoxColumn";
             this.principalDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.principalDataGridViewCheckBoxColumn.Width = 150;
             // 
             // estadoDataGridViewTextBoxColumn
             // 
@@ -517,10 +527,12 @@
             // 
             // EstadoString
             // 
+            this.EstadoString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.EstadoString.DataPropertyName = "EstadoString";
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
+            this.EstadoString.Width = 150;
             // 
             // estadosDataGridViewTextBoxColumn
             // 
@@ -528,13 +540,6 @@
             this.estadosDataGridViewTextBoxColumn.HeaderText = "Estados";
             this.estadosDataGridViewTextBoxColumn.Name = "estadosDataGridViewTextBoxColumn";
             this.estadosDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // direccionDataGridViewTextBoxColumn
-            // 
-            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
-            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
-            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // idUbicacionGeograficaDataGridViewTextBoxColumn
             // 
@@ -551,6 +556,7 @@
             this.tieneRegistrosDataGridViewTextBoxColumn.HeaderText = "Tiene Registros";
             this.tieneRegistrosDataGridViewTextBoxColumn.Name = "tieneRegistrosDataGridViewTextBoxColumn";
             this.tieneRegistrosDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tieneRegistrosDataGridViewTextBoxColumn.Visible = false;
             // 
             // UCSucursales
             // 
@@ -600,11 +606,11 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSucursalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn principalDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoString;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUbicacionGeograficaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tieneRegistrosDataGridViewTextBoxColumn;
     }

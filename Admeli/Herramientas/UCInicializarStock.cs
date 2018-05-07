@@ -738,7 +738,8 @@ namespace Admeli.Herramientas
             auxProducto.codigoProducto = currentProdcuto.codigoProducto;
             auxProducto.precioCompra = currentProdcuto.precioCompra;
             auxProducto.descripcionCorta = currentProdcuto.descripcionCorta;
-            auxProducto.idProducto = currentProdcuto.idProducto;
+            //auxProducto.idProducto = currentProdcuto.idProducto;
+            auxProducto.idProducto = currentProdcuto.idPresentacion;
 
 
             // Mostrando el formulario de modificacion
