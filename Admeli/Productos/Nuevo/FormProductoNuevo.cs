@@ -19,6 +19,7 @@ namespace Admeli.Productos.Nuevo
         private UCDescuentosPD uCDescuentosPD { get; set; }
         private UCGeneralesPD uCGeneralesPD { get; set; }
         private UCImpuestoPD uCImpuestoPD { get; set; }
+        private UCImpuestoPDN uCImpuestoPDN { get; set; }
         private UCStockPD uCStockPD { get; set; }
         private UCTiendaOnlinePD uCTiendaOnlinePD { get; set; } 
 

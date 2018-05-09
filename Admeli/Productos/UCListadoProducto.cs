@@ -819,7 +819,7 @@ namespace Admeli.Productos
                 dataGridView.Columns[8].Visible = false;
                 dataGridView.Columns[9].Visible = false;
                 dataGridView.Columns[10].Visible = false;
-                dataGridView.Columns["nombreAlmacen"].Visible = false;
+                dataGridView.Columns["nombreAlmacen"].Visible = true;
 
                 if (textBuscar.Text != "")
                 {
