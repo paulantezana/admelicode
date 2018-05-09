@@ -21,15 +21,14 @@ using Entidad.Configuracion;
 using Entidad.Location;
 using Modelo;
 using Newtonsoft.Json;
-using System.Runtime.InteropServices;
+
 
 namespace Admeli.Ventas.Nuevo
 {
     public partial class FormCotizacionaNew : Form
     {
 
-        [DllImport("user32.dll")]
-        private static extern void BlockInput(bool fBlock);
+       
 
      
 
@@ -84,13 +83,13 @@ namespace Admeli.Ventas.Nuevo
 
 
         private Cotizacion currentCotizacion { get; set; }
-
+        public bool lisenerKeyEvents { get; set; }
 
         private double stockPresentacion { get; set; }
         bool enModificar = false;
         public int nroNuevo = 0;
         private bool nuevo { get; set; }
-        int nroDecimales = 2;
+        int nroDecimales = ConfigModel.configuracionGeneral.numeroDecimales;
         string formato { get; set; }
         private double SubTotal = 0;
         private double Descuento = 0;
@@ -193,10 +192,15 @@ namespace Admeli.Ventas.Nuevo
             AddButtonColumn();
 
             btnModificar.Enabled = false;
-            
-           
 
-           
+            this.ParentChanged += ParentChange; // Evetno que se dispara cuando el padre cambia // Este eveto se usa para desactivar lisener key events de este modulo
+            if (TopLevelControl is Form) // Escuchando los eventos del formulario padre
+            {
+                (TopLevelControl as Form).KeyPreview = true;
+                TopLevelControl.KeyUp += TopLevelControl_KeyUp;
+            }
+
+
         }
         private void reLoad()
         {
@@ -211,10 +215,46 @@ namespace Admeli.Ventas.Nuevo
             cargarPresentacion();
             cargarObjetos();
             cargarFormatoDocumento();
-
+            lisenerKeyEvents = true;
 
         }
         #endregion
+        #region ======================== KEYBOARD ========================
+        // Evento que se dispara cuando el padre cambia
+        private void ParentChange(object sender, EventArgs e)
+        {
+            // cambiar la propiedad de lisenerKeyEvents de este modulo
+            if (lisenerKeyEvents) lisenerKeyEvents = false;
+        }
+
+        // Escuchando los Eventos de teclado
+        private void TopLevelControl_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!lisenerKeyEvents) return;
+            switch (e.KeyCode)
+            {
+                case Keys.F2: // productos
+                    
+                    break;
+                case Keys.F4:
+                   
+                    break;
+                case Keys.F5:
+                   
+                    break;
+                case Keys.F6:
+                   
+                    break;
+                case Keys.F7:
+                  
+                    break;
+                default:
+                    break;
+            }
+        }
+        #endregion
+
+
         #region ============================== Load ==============================
         private void cargarFormatoDocumento()
         {
@@ -674,12 +714,23 @@ namespace Admeli.Ventas.Nuevo
 
 
             appLoadState(state);
-            BlockInput(state);
+          
             panelProducto.Enabled = !state;
 
             panelInfo.Enabled = !state;
             panelDatos.Enabled = !state;
             panelFooter.Enabled= !state;
+
+            if (state)
+            {
+
+                this.Cursor = Cursors.WaitCursor;
+            }
+            else
+            {
+                this.Cursor = Cursors.Default;
+
+            }
         }
         #endregion
 
@@ -797,14 +848,14 @@ namespace Admeli.Ventas.Nuevo
             {
                 MessageBox.Show("Error: " + ex.Message, "determinar Descuento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+          
 
         }
 
         public async void determinarDescuento()
         {
 
-            loadState(true);
+            
             try
             {
                 string dateEmision = String.Format("{0:u}", dtpFechaEmision.Value);
@@ -919,6 +970,22 @@ namespace Admeli.Ventas.Nuevo
 
 
                 this.Descuento = descuentoTotal;
+
+
+                if(Descuento>0)
+                {
+
+                    lbDescuentoVentas.Visible = true;
+                    label4.Visible = true;
+                }
+                else
+                {
+
+                    lbDescuentoVentas.Visible = false;
+                    label4.Visible = false;
+                }
+
+            
                 Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
 
 
@@ -1493,7 +1560,14 @@ namespace Admeli.Ventas.Nuevo
                         return;
 
                     }
+                    if (toDouble(txtCantidad.Text.Trim())<1)
+                    {
 
+                        MessageBox.Show("cantidad igual "+ toDouble(txtCantidad.Text.Trim()), "presentacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        tab = 1;
+                        return;
+
+                    }
 
 
                     // Creando la lista
@@ -1640,7 +1714,23 @@ namespace Admeli.Ventas.Nuevo
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
-            determinarDescuentoEImpuesto();
+            loadState(true);
+            try
+            {
+                determinarDescuentoEImpuesto();
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+
+                loadState(false);
+                txtCantidad.Focus();
+            }
+            
         }
 
         private void txtPrecioUnitario_TextChanged(object sender, EventArgs e)
@@ -1663,16 +1753,25 @@ namespace Admeli.Ventas.Nuevo
                 if (cbxNombreRazonCliente.SelectedIndex == -1) return;
 
                 CurrentCliente = listClientes.Find(X => X.idCliente == (int)cbxNombreRazonCliente.SelectedValue);
+                datosClientes();
+
+                determinarDescuento();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar Cotizacion ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
 
-            datosClientes();
+                loadState(false);
+            }
 
-            determinarDescuento();
+            
+
+
+            
         }
         private void btnModificar_EnabledChanged(object sender, EventArgs e)
         {
@@ -2339,6 +2438,17 @@ namespace Admeli.Ventas.Nuevo
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbxDescripcion_TextChanged(object sender, EventArgs e)
+        {
+           
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

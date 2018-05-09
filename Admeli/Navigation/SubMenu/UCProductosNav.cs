@@ -135,6 +135,9 @@ namespace Admeli.Navigation.SubMenu
             btnColor(); /// Reset color
             togglePanelMain("listadoProducto");
             btnProductos.Textcolor = Color.White; /// Color active 
+
+            formPrincipal.ocultarMenuLeft();
+
         }
 
         private void btnMarcas_Click(object sender, EventArgs e)
