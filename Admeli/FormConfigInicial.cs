@@ -41,43 +41,9 @@ namespace Admeli
 
         }
 
-        private  async void FormConfigInicial_Shown(object sender, EventArgs e)
+        private async void FormConfigInicial_Shown(object sender, EventArgs e)
         {
 
-            foreach(Sucursal S  in ConfigModel.listSucursales )
-            {
-
-                await configModel.loadAlmacenes(PersonalModel.personal.idPersonal, S.idSucursal);
-
-
-                await configModel.loadPuntoDeVenta(PersonalModel.personal.idPersonal, S.idSucursal);
-                List<Almacen> list = ConfigModel.alamacenes;
-                foreach(Almacen a in list)
-                {
-
-                    a.idSucursal = S.idSucursal;
-
-                }
-                List<PuntoDeVenta> list2 = ConfigModel.puntosDeVenta;
-                foreach (PuntoDeVenta a in list2)
-                {
-
-                    a.idSucursal = S.idSucursal;
-
-                }
-
-                listAlmacenes.AddRange(list);
-                listpuntos.AddRange(list2);
-            }       
-              
-            almacenBindingSource.DataSource = listAlmacenes;
-            cbxAlmacenes.SelectedIndex = -1;
-          
-
-
-            puntoDeVentaBindingSource.DataSource = listpuntos;
-            cbxPuntosVenta.SelectedIndex =-1;
-            cbxAlmacenes.SelectedIndex = 0;
 
         }
 
@@ -90,7 +56,7 @@ namespace Admeli
                 Cursor.Current = Cursors.WaitCursor;
                 if (validarCampos())
                 {
-                    
+
 
                     // cargar componentes desde el webservice
                     await cargarComponente();
@@ -108,32 +74,19 @@ namespace Admeli
                         }
                     });
 
-                    if (cbxAlmacenes.SelectedIndex == -1)
-                    {
-                        errorProvider1.SetError(cbxAlmacenes, "No se seleccionó nungun almacen");
-                        cbxAlmacenes.Focus();
-                        return;
-                    }
-                    errorProvider1.Clear();
-
-                    if (cbxPuntosVenta.SelectedIndex == -1)
-                    {
-                        errorProvider1.SetError(cbxPuntosVenta, "No se seleccionó nungun puntos de venta");
-                        cbxPuntosVenta.Focus();
-                        return;
-                    }
-                    errorProvider1.Clear();
+                  
 
                     // Estableciendo el almacen y punto de venta al personal asignado
                     ConfigModel.currentIdAlmacen = Convert.ToInt32(cbxAlmacenes.SelectedValue.ToString());
-                    ConfigModel.currentPuntoVenta = Convert.ToInt32(cbxPuntosVenta.SelectedValue.ToString());
+                    
+                    ConfigModel.currentPuntoVenta = cbxPuntosVenta.SelectedValue!=null ? Convert.ToInt32(cbxPuntosVenta.SelectedValue.ToString()):-1;
 
                     // Mostrando el formulario principal
                     this.Hide();
                     FormPrincipal formPrincipal = new FormPrincipal(this.formLogin);
                     formPrincipal.ShowDialog();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -152,12 +105,12 @@ namespace Admeli
 
 
         private async Task cargarComponente()
-        {           
-           loadState("asignacion del personal");
+        {
+            loadState("asignacion del personal");
             await configModel.loadAsignacionPersonales(PersonalModel.personal.idPersonal, ConfigModel.sucursal.idSucursal);
             this.nLoads++;
-            
-          
+
+
             // await configModel.loadCierreIngresoEgreso(1, ConfigModel.cajaSesion.idCajaSesion); // Falta Buscar de donde viene el primer parametro
         }
         private void loadState(string message)
@@ -171,20 +124,13 @@ namespace Admeli
             if (cbxAlmacenes.Text.Trim() == "")
             {
                 errorProvider1.SetError(cbxAlmacenes, "Campo obligatorio");
-               
+
                 cbxAlmacenes.Focus();
                 return false;
             }
             errorProvider1.Clear();
 
-            if (cbxAlmacenes.Text.Trim() == "")
-            {
-                errorProvider1.SetError(cbxAlmacenes, "Campo obligatorio");
-               
-                cbxAlmacenes.Focus();
-                return false;
-            }
-            errorProvider1.Clear();
+          
 
             return true;
         }
@@ -215,6 +161,42 @@ namespace Admeli
         private void FormConfigInicial_Load(object sender, EventArgs e)
         {
 
+            cargar();
+
+
+        }
+
+        public  async void cargar(){
+
+            btnContinuar.Enabled = false;
+            cbxPuntosVenta.Enabled = false;
+            cbxAlmacenes.Enabled = false;
+            await configModel.loadAlmacenes(PersonalModel.personal.idPersonal, 0);
+            listAlmacenes = ConfigModel.alamacenes;
+            foreach(Almacen A in  listAlmacenes)
+            {
+                A.nombreSucursal = ConfigModel.listSucursales.Find(X => X.idSucursal == A.idSucursal).nombre;
+                
+            }
+
+            await configModel.loadPuntoDeVenta(PersonalModel.personal.idPersonal, 0);
+            listpuntos = ConfigModel.puntosDeVenta;
+           
+
+            cbxPuntosVenta.Enabled = true;
+            cbxAlmacenes.Enabled = true;
+
+
+            almacenBindingSource.DataSource = listAlmacenes;
+            cbxAlmacenes.SelectedIndex = -1;
+
+
+
+            puntoDeVentaBindingSource.DataSource = listpuntos;
+            cbxPuntosVenta.SelectedIndex = -1;
+            cbxAlmacenes.SelectedIndex = 0;
+            btnContinuar.Enabled = true;
+
         }
 
         private void cbxAlmacenes_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,7 +204,22 @@ namespace Admeli
             if (cbxAlmacenes.SelectedIndex == -1) return;
             Almacen almacen = listAlmacenes.Find(X=>X.idAlmacen== (int)cbxAlmacenes.SelectedValue);
             ConfigModel.sucursal=ConfigModel.listSucursales.Find(X => X.idSucursal == almacen.idSucursal);
-            cbxPuntosVenta.DataSource= listpuntos.Where(X => X.idSucursal == ConfigModel.sucursal.idSucursal).ToList();
+             List<PuntoDeVenta> list = listpuntos.Where(X => X.idSucursal == ConfigModel.sucursal.idSucursal).ToList();
+            if (list.Count == 0)
+            {
+
+                cbxPuntosVenta.SelectedIndex = -1;
+                puntoDeVentaBindingSource.DataSource = null;
+                puntoDeVentaBindingSource.DataSource = list;
+                
+            }
+            else
+            {
+
+                puntoDeVentaBindingSource.DataSource = list;
+            }
+
+           
         }
     }
 }

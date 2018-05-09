@@ -960,21 +960,27 @@ namespace Admeli.Configuracion.Nuevo
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if(matrizNodes.Count == 0)  return;
+            if(matrizPersimos.Count == 0) return;
             if (dataGridView.Rows.Count == 0)
             {
-                MessageBox.Show("No hay un registro seleccionado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No hay un registro seleccionado", "seleccionar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            loadStateApp(true);
+            try
+            {
+                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+                int idSucursal = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+                treeViewPermisos.Nodes.Clear();
+                cargarTreeview(matrizNodes[idSucursal], matrizPersimos[idSucursal]);
 
-            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idSucursal = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
-            treeViewPermisos.Nodes.Clear();
-
-            cargarTreeview(matrizNodes[idSucursal], matrizPersimos[idSucursal]);
-
-
-                    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" +ex.Message, "seleccionar treeview ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            loadStateApp(false);
         }
     }
     public class PersonalAux

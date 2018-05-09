@@ -13,6 +13,7 @@ using Modelo;
 using Entidad;
 using Newtonsoft.Json;
 using Admeli.Productos.Importar;
+using Entidad.Configuracion;
 
 namespace Admeli.Productos
 {
@@ -22,6 +23,20 @@ namespace Admeli.Productos
         private CategoriaModel categoriaModel = new CategoriaModel();
         private SucursalModel sucursalModel = new SucursalModel();
         private AlmacenModel almacenModel = new AlmacenModel();
+        private LocationModel locationModel = new LocationModel();
+        
+        private PuntoModel puntoModel = new PuntoModel();
+
+       
+
+        private PuntoAdministracion puntoAdministracion { get; set; }
+        private PuntoCompra puntoCompra { get; set; }
+        private List<PuntoDeVenta> puntosDeVenta { get; set; }
+        private List<Caja> cajas { get; set; }
+        private PuntoGerencia puntoGerencia { get; set; }
+
+
+
 
         private Paginacion paginacion;
         private FormPrincipal formPrincipal;
@@ -41,6 +56,9 @@ namespace Admeli.Productos
 
             lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();     // carganto los items por página
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
+
+            visualizar();
+
         }
 
         public UCListadoProducto(FormPrincipal formPrincipal)
@@ -50,6 +68,37 @@ namespace Admeli.Productos
 
             lblSpeedPages.Text = ConfigModel.configuracionGeneral.itemPorPagina.ToString();     // carganto los items por página
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
+            visualizar();
+        }
+        private void visualizar()
+        {
+            loadPuntoCompra();
+            loadPuntoVenta();
+        }
+
+
+        private async void loadPuntoCompra()
+        {
+
+            AsignacionPersonal asignacionPersonal = ConfigModel.asignacionPersonal;
+            puntoCompra = await puntoModel.puntoCompra(ConfigModel.sucursal.idSucursal);
+            if (asignacionPersonal.idPuntoCompra == 0)
+            {
+                dataGridView.Columns["precioCompra"].Visible = false;
+
+
+            }
+
+        }
+        private async void loadPuntoVenta()
+        {
+            puntosDeVenta = await puntoModel.puntoVentas(ConfigModel.sucursal.idSucursal);
+            if (ConfigModel.asignacionPersonal.idPuntoVenta == 0)
+            {
+
+                dataGridView.Columns["precioVenta"].Visible = false;
+            }
+
         }
         #endregion
 
@@ -131,23 +180,16 @@ namespace Admeli.Productos
         #endregion
 
         #region ======================= Loads =======================
-        private async void cargarSucursales()
+        private void cargarSucursales()
         {
             // Cargando el combobox de personales
             loadState(true);
             try
             {
                 listSuc = new List<Sucursal>();
-                listSucCargar = new List<Sucursal>();
-                listSuc = await sucursalModel.sucursales();
-                Sucursal sucursal = new Sucursal();
-                sucursal.idSucursal = 0;
-                sucursal.nombre = "Todas";
-                listSucCargar.Add(sucursal);
-                listSucCargar.AddRange(listSuc);
-
-                sucursalBindingSource.DataSource = listSucCargar;
-                cbxSucursales.SelectedValue = 0;
+                listSuc = ConfigModel.listSucursales;
+                sucursalBindingSource.DataSource = listSuc;
+              
             }
             catch (Exception ex)
             {
@@ -155,22 +197,17 @@ namespace Admeli.Productos
             }
         }
 
-        private async void cargarAlmacenes()
+        private  void cargarAlmacenes()
         {
             // Cargando el combobox de personales
             loadState(true);
             try
-            {
-                listAlm = new List<Almacen>();
-                listAlmCargar = new List<Almacen>();
-                listAlm = await almacenModel.almacenes();
-                Almacen sucursal = new Almacen();
-                sucursal.idAlmacen = 0;
-                sucursal.nombre = "Todas";
-                listAlmCargar.Add(sucursal);
-                listAlmCargar.AddRange(listAlm);
-                almacenBindingSource.DataSource = listAlmCargar;                     
+            {                        
+                listAlm = ConfigModel.alamacenes;            
+                almacenBindingSource.DataSource = listAlm;                     
                 cbxAlmacenes.SelectedValue = ConfigModel.currentIdAlmacen;
+                cbxSucursales.SelectedIndex = -1;
+                cbxSucursales.SelectedValue = ConfigModel.sucursal.idSucursal;
             }
             catch (Exception ex)
             {
@@ -843,7 +880,16 @@ namespace Admeli.Productos
 
         private void cbxSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarStock();
+            if (cbxSucursales.SelectedIndex == -1)
+                return;
+
+
+            List<Almacen> list= listAlm.Where(X => X.idSucursal == (int)cbxSucursales.SelectedValue).ToList();
+            Almacen almacen = new Almacen();
+            almacen.nombre = "todos";
+            almacen.idAlmacen = 0;
+            list.Add(almacen);
+            almacenBindingSource.DataSource = list;
         }
 
         private void cbxAlmacenes_SelectedIndexChanged(object sender, EventArgs e)

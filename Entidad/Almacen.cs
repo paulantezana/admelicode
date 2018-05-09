@@ -32,6 +32,15 @@ namespace Entidad
                 estadoString = value;
             }
         }
+        public string descripcion;
+
+          public string Descripcion
+            { get { return nombre + " - " + nombreSucursal; }
+
+                set{ descripcion = value; }
+            }
+ 
+
     }
     //para hacer cambios
 

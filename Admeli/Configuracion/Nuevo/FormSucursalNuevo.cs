@@ -365,11 +365,14 @@ namespace Admeli.Configuracion.Nuevo
                 if (nuevo)
                 {
                     Response response = await sucursalModel.guardar(ubicacionGeografica, currentSucursal);
+                    currentSucursal.idSucursal = response.id;
+                   
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Response response = await sucursalModel.modificar(ubicacionGeografica, currentSucursal);
+                    cargarEstados();
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 this.Close();
@@ -397,18 +400,52 @@ namespace Admeli.Configuracion.Nuevo
             currentSucursal.tieneRegistros = "0";
 
             // Cargando estados
-            currentSucursal.estados = "";
-            currentSucursal.estados = Convert.ToInt32(chkGerenciaSucursal.Checked) + ",";
-            currentSucursal.estados = Convert.ToInt32(chkAdministracionSucursal.Checked) + ",";
-            currentSucursal.estados = Convert.ToInt32(chkCajaSucursal.Checked) + ",";
-            currentSucursal.estados = Convert.ToInt32(chkVentaSucursal.Checked) + ",";
-            currentSucursal.estados = Convert.ToInt32(chkCompraSucursal.Checked).ToString();
+            currentSucursal.estados += "";
+            currentSucursal.estados += Convert.ToInt32(chkGerenciaSucursal.Checked) + ",";
+            currentSucursal.estados += Convert.ToInt32(chkAdministracionSucursal.Checked) + ",";
+            currentSucursal.estados += Convert.ToInt32(chkCajaSucursal.Checked) + ",";
+            currentSucursal.estados += Convert.ToInt32(chkVentaSucursal.Checked) + ",";
+            currentSucursal.estados += Convert.ToInt32(chkCompraSucursal.Checked).ToString();
 
             // Ubicacion geografica
             ubicacionGeografica.idPais = (cbxPaises.SelectedIndex == -1) ? ubicacionGeografica.idPais : Convert.ToInt32(cbxPaises.SelectedValue);
             ubicacionGeografica.idNivel1 = (cbxNivel1.SelectedIndex == -1) ? ubicacionGeografica.idNivel1 : Convert.ToInt32(cbxNivel1.SelectedValue);
             ubicacionGeografica.idNivel2 = (cbxNivel2.SelectedIndex == -1) ? ubicacionGeografica.idNivel2 : Convert.ToInt32(cbxNivel2.SelectedValue);
             ubicacionGeografica.idNivel3 = (cbxNivel3.SelectedIndex == -1) ? ubicacionGeografica.idNivel3 : Convert.ToInt32(cbxNivel3.SelectedValue);
+        }
+
+        private async void cargarEstados()
+        {
+            //caja puntoventa/modificar
+            cajaS cajaS = new cajaS();
+            cajaS.estado =Convert.ToInt32( chkCajaSucursal.Checked);
+            cajaS.idCaja = cajas[0].idCaja;
+            cajaS.idSucursal = currentSucursal.idSucursal;
+            await sucursalModel.modificarCaja(cajaS);
+            //puntoadministracion
+            AdministracionS administracionS = new AdministracionS();
+            administracionS.estado= Convert.ToInt32(chkAdministracionSucursal.Checked);
+            administracionS.idPuntoAdministracion = puntoAdministracion.idPuntoAdministracion;
+            administracionS.idSucursal= currentSucursal.idSucursal;
+            await sucursalModel.modificarAdministracion(administracionS);
+            //puntogerencia
+            GerenciaS gerenciaS = new GerenciaS();
+            gerenciaS.estado= Convert.ToInt32(chkGerenciaSucursal.Checked);
+            gerenciaS.idPuntoGerencia = puntoGerencia.idPuntoGerencia;
+            gerenciaS.idSucursal= currentSucursal.idSucursal;
+            await sucursalModel.modificarGerencia(gerenciaS);
+            //puntocompra
+            CompraS compraS = new CompraS();
+            compraS.estado= Convert.ToInt32(chkCompraSucursal.Checked);
+            compraS.idPuntoCompra = puntoCompra.idPuntoCompra;
+            compraS.idSucursal = currentSucursal.idSucursal;
+            await sucursalModel.modificarpuntocompra(compraS);
+            //puntoVenta
+            VentaS ventaS = new VentaS();
+            ventaS.estado= Convert.ToInt32(chkVentaSucursal.Checked);
+            ventaS.idPuntoVenta = puntosDeVenta[0].idPuntoVenta;
+            ventaS.idSucursal= currentSucursal.idSucursal;
+            await sucursalModel.modificarpuntoventa(ventaS);
         }
 
         private bool validarCampos()
@@ -535,4 +572,7 @@ namespace Admeli.Configuracion.Nuevo
         } 
         #endregion
     }
+
+
+   
 }

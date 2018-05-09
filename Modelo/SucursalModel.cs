@@ -48,7 +48,74 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<Response> modificarCaja(cajaS cajaS)
+        {
+            try
+            {
+              
+                return await webService.POST<cajaS, Response>("caja", "modificar", cajaS);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        //puntoadministracion/modificar
+        public async Task<Response> modificarAdministracion(AdministracionS param)
+        {
+            try
+            {
+
+                return await webService.POST<AdministracionS, Response>("puntoadministracion", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //puntogerencia/modificar
+        public async Task<Response> modificarGerencia(GerenciaS param)
+        {
+            try
+            {
+
+                return await webService.POST<GerenciaS, Response>("puntogerencia", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //puntocompra/modificar
+        public async Task<Response> modificarpuntocompra(CompraS param)
+        {
+            try
+            {
+
+                return await webService.POST<CompraS, Response>("puntocompra", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //puntoventa/modificar
+
+        public async Task<Response> modificarpuntoventa(VentaS param)
+        {
+            try
+            {
+
+                return await webService.POST<VentaS, Response>("puntoventa", "modificar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<Response> eliminar(Sucursal param)
         {
             try
@@ -61,6 +128,9 @@ namespace Modelo
                 throw ex;
             }
         }
+
+       
+
 
         public async Task<Response> existeSucursal(string nombre, int idSucursal)
         {
