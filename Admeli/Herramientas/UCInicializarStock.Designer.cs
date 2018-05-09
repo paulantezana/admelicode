@@ -39,6 +39,34 @@
             this.panelMainContainer = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.almacenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioConImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utilidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioVentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionCortaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUnidadMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUnidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreMarcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enUsoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mostrarWebDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.stockFinancieroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idAlmacenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productoAlmacenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrePresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productoDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -80,6 +108,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,6 +137,7 @@
             this.estadoStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombrePresentacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.panelContainer.SuspendLayout();
             this.panelMainContainer.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -158,7 +188,10 @@
             // 
             this.panel3.Controls.Add(this.dataGridView);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 105);
+
+            this.panel3.Location = new System.Drawing.Point(0, 129);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
             this.panel3.Size = new System.Drawing.Size(860, 380);
@@ -223,7 +256,9 @@
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.GridColor = System.Drawing.Color.Gainsboro;
+
             this.dataGridView.Location = new System.Drawing.Point(10, 10);
+
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -253,6 +288,245 @@
             this.dataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowEnter);
             this.dataGridView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView_KeyPress);
             // 
+            // idProductoDataGridViewTextBoxColumn
+            // 
+            this.idProductoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idProductoDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // nombreProductoDataGridViewTextBoxColumn
+            // 
+            this.nombreProductoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
+            this.nombreProductoDataGridViewTextBoxColumn.FillWeight = 130F;
+            this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
+            this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.nombreProductoDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // codigoProductoDataGridViewTextBoxColumn
+            // 
+            this.codigoProductoDataGridViewTextBoxColumn.DataPropertyName = "codigoProducto";
+            this.codigoProductoDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.codigoProductoDataGridViewTextBoxColumn.HeaderText = "Código";
+            this.codigoProductoDataGridViewTextBoxColumn.Name = "codigoProductoDataGridViewTextBoxColumn";
+            this.codigoProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoProductoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // sucursalDataGridViewTextBoxColumn
+            // 
+            this.sucursalDataGridViewTextBoxColumn.DataPropertyName = "sucursal";
+            this.sucursalDataGridViewTextBoxColumn.HeaderText = "Sucursal";
+            this.sucursalDataGridViewTextBoxColumn.Name = "sucursalDataGridViewTextBoxColumn";
+            this.sucursalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sucursalDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sucursalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // almacenDataGridViewTextBoxColumn
+            // 
+            this.almacenDataGridViewTextBoxColumn.DataPropertyName = "almacen";
+            this.almacenDataGridViewTextBoxColumn.HeaderText = "Almacen";
+            this.almacenDataGridViewTextBoxColumn.Name = "almacenDataGridViewTextBoxColumn";
+            this.almacenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.almacenDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // precioCompraDataGridViewTextBoxColumn
+            // 
+            this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "precioCompra";
+            this.precioCompraDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "P.Compra";
+            this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
+            this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioCompraDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // precioConImpuestoDataGridViewTextBoxColumn
+            // 
+            this.precioConImpuestoDataGridViewTextBoxColumn.DataPropertyName = "precioConImpuesto";
+            this.precioConImpuestoDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.precioConImpuestoDataGridViewTextBoxColumn.HeaderText = "P.Impuesto";
+            this.precioConImpuestoDataGridViewTextBoxColumn.Name = "precioConImpuestoDataGridViewTextBoxColumn";
+            this.precioConImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioConImpuestoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // utilidadDataGridViewTextBoxColumn
+            // 
+            this.utilidadDataGridViewTextBoxColumn.DataPropertyName = "utilidad";
+            this.utilidadDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.utilidadDataGridViewTextBoxColumn.HeaderText = "Utilidad";
+            this.utilidadDataGridViewTextBoxColumn.Name = "utilidadDataGridViewTextBoxColumn";
+            this.utilidadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utilidadDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // precioVentaDataGridViewTextBoxColumn
+            // 
+            this.precioVentaDataGridViewTextBoxColumn.DataPropertyName = "precioVenta";
+            this.precioVentaDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.precioVentaDataGridViewTextBoxColumn.HeaderText = "P.Venta";
+            this.precioVentaDataGridViewTextBoxColumn.Name = "precioVentaDataGridViewTextBoxColumn";
+            this.precioVentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioVentaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // stockDataGridViewTextBoxColumn
+            // 
+            this.stockDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.stockDataGridViewTextBoxColumn.DataPropertyName = "stock";
+            this.stockDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.stockDataGridViewTextBoxColumn.HeaderText = "Stock";
+            this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            this.stockDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.stockDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "estadoString";
+            this.nombre.HeaderText = "Estado";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Visible = false;
+            // 
+            // descripcionCortaDataGridViewTextBoxColumn
+            // 
+            this.descripcionCortaDataGridViewTextBoxColumn.DataPropertyName = "descripcionCorta";
+            this.descripcionCortaDataGridViewTextBoxColumn.HeaderText = "descripcionCorta";
+            this.descripcionCortaDataGridViewTextBoxColumn.Name = "descripcionCortaDataGridViewTextBoxColumn";
+            this.descripcionCortaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionCortaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idUnidadMedidaDataGridViewTextBoxColumn
+            // 
+            this.idUnidadMedidaDataGridViewTextBoxColumn.DataPropertyName = "idUnidadMedida";
+            this.idUnidadMedidaDataGridViewTextBoxColumn.HeaderText = "idUnidadMedida";
+            this.idUnidadMedidaDataGridViewTextBoxColumn.Name = "idUnidadMedidaDataGridViewTextBoxColumn";
+            this.idUnidadMedidaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idUnidadMedidaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idMarcaDataGridViewTextBoxColumn
+            // 
+            this.idMarcaDataGridViewTextBoxColumn.DataPropertyName = "idMarca";
+            this.idMarcaDataGridViewTextBoxColumn.HeaderText = "idMarca";
+            this.idMarcaDataGridViewTextBoxColumn.Name = "idMarcaDataGridViewTextBoxColumn";
+            this.idMarcaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idMarcaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreUnidadDataGridViewTextBoxColumn
+            // 
+            this.nombreUnidadDataGridViewTextBoxColumn.DataPropertyName = "nombreUnidad";
+            this.nombreUnidadDataGridViewTextBoxColumn.HeaderText = "nombreUnidad";
+            this.nombreUnidadDataGridViewTextBoxColumn.Name = "nombreUnidadDataGridViewTextBoxColumn";
+            this.nombreUnidadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreUnidadDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreMarcaDataGridViewTextBoxColumn
+            // 
+            this.nombreMarcaDataGridViewTextBoxColumn.DataPropertyName = "nombreMarca";
+            this.nombreMarcaDataGridViewTextBoxColumn.HeaderText = "nombreMarca";
+            this.nombreMarcaDataGridViewTextBoxColumn.Name = "nombreMarcaDataGridViewTextBoxColumn";
+            this.nombreMarcaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreMarcaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // enUsoDataGridViewCheckBoxColumn
+            // 
+            this.enUsoDataGridViewCheckBoxColumn.DataPropertyName = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn.HeaderText = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn.Name = "enUsoDataGridViewCheckBoxColumn";
+            this.enUsoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.enUsoDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // mostrarWebDataGridViewCheckBoxColumn
+            // 
+            this.mostrarWebDataGridViewCheckBoxColumn.DataPropertyName = "mostrarWeb";
+            this.mostrarWebDataGridViewCheckBoxColumn.HeaderText = "mostrarWeb";
+            this.mostrarWebDataGridViewCheckBoxColumn.Name = "mostrarWebDataGridViewCheckBoxColumn";
+            this.mostrarWebDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.mostrarWebDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // mostrarPrecioWebDataGridViewCheckBoxColumn
+            // 
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn.DataPropertyName = "mostrarPrecioWeb";
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn.HeaderText = "mostrarPrecioWeb";
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn.Name = "mostrarPrecioWebDataGridViewCheckBoxColumn";
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.mostrarPrecioWebDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // stockFinancieroDataGridViewTextBoxColumn
+            // 
+            this.stockFinancieroDataGridViewTextBoxColumn.DataPropertyName = "stockFinanciero";
+            this.stockFinancieroDataGridViewTextBoxColumn.HeaderText = "stockFinanciero";
+            this.stockFinancieroDataGridViewTextBoxColumn.Name = "stockFinancieroDataGridViewTextBoxColumn";
+            this.stockFinancieroDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockFinancieroDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idSucursalDataGridViewTextBoxColumn
+            // 
+            this.idSucursalDataGridViewTextBoxColumn.DataPropertyName = "idSucursal";
+            this.idSucursalDataGridViewTextBoxColumn.HeaderText = "idSucursal";
+            this.idSucursalDataGridViewTextBoxColumn.Name = "idSucursalDataGridViewTextBoxColumn";
+            this.idSucursalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idSucursalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idAlmacenDataGridViewTextBoxColumn
+            // 
+            this.idAlmacenDataGridViewTextBoxColumn.DataPropertyName = "idAlmacen";
+            this.idAlmacenDataGridViewTextBoxColumn.HeaderText = "idAlmacen";
+            this.idAlmacenDataGridViewTextBoxColumn.Name = "idAlmacenDataGridViewTextBoxColumn";
+            this.idAlmacenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idAlmacenDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productoAlmacenDataGridViewTextBoxColumn
+            // 
+            this.productoAlmacenDataGridViewTextBoxColumn.DataPropertyName = "productoAlmacen";
+            this.productoAlmacenDataGridViewTextBoxColumn.HeaderText = "productoAlmacen";
+            this.productoAlmacenDataGridViewTextBoxColumn.Name = "productoAlmacenDataGridViewTextBoxColumn";
+            this.productoAlmacenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productoAlmacenDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // estadoStringDataGridViewTextBoxColumn
+            // 
+            this.estadoStringDataGridViewTextBoxColumn.DataPropertyName = "EstadoString";
+            this.estadoStringDataGridViewTextBoxColumn.HeaderText = "EstadoString";
+            this.estadoStringDataGridViewTextBoxColumn.Name = "estadoStringDataGridViewTextBoxColumn";
+            this.estadoStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoStringDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idPresentacionDataGridViewTextBoxColumn
+            // 
+            this.idPresentacionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idPresentacionDataGridViewTextBoxColumn.DataPropertyName = "idPresentacion";
+            this.idPresentacionDataGridViewTextBoxColumn.HeaderText = "idPresentacion";
+            this.idPresentacionDataGridViewTextBoxColumn.Name = "idPresentacionDataGridViewTextBoxColumn";
+            this.idPresentacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPresentacionDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombrePresentacionDataGridViewTextBoxColumn
+            // 
+            this.nombrePresentacionDataGridViewTextBoxColumn.DataPropertyName = "nombrePresentacion";
+            this.nombrePresentacionDataGridViewTextBoxColumn.HeaderText = "nombrePresentacion";
+            this.nombrePresentacionDataGridViewTextBoxColumn.Name = "nombrePresentacionDataGridViewTextBoxColumn";
+            this.nombrePresentacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombrePresentacionDataGridViewTextBoxColumn.Visible = false;
+            // 
             // productoDataBindingSource
             // 
             this.productoDataBindingSource.DataSource = typeof(Entidad.ProductoData);
@@ -266,7 +540,9 @@
             this.panel1.Controls.Add(this.textBuscar);
             this.panel1.Controls.Add(this.panelSucursal);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+
             this.panel1.Location = new System.Drawing.Point(0, 60);
+
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(860, 45);
             this.panel1.TabIndex = 20;
@@ -295,7 +571,9 @@
             // 
             this.panelAlmacen.Controls.Add(this.cbxAlmacenes);
             this.panelAlmacen.Controls.Add(this.label2);
+
             this.panelAlmacen.Location = new System.Drawing.Point(568, 5);
+
             this.panelAlmacen.Name = "panelAlmacen";
             this.panelAlmacen.Size = new System.Drawing.Size(224, 37);
             this.panelAlmacen.TabIndex = 18;
@@ -311,7 +589,9 @@
             this.cbxAlmacenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxAlmacenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAlmacenes.FormattingEnabled = true;
+
             this.cbxAlmacenes.Location = new System.Drawing.Point(70, 11);
+
             this.cbxAlmacenes.Name = "cbxAlmacenes";
             this.cbxAlmacenes.Size = new System.Drawing.Size(150, 24);
             this.cbxAlmacenes.TabIndex = 1;
@@ -379,8 +659,10 @@
             this.textBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBuscar.isPassword = false;
+
             this.textBuscar.Location = new System.Drawing.Point(8, 5);
             this.textBuscar.Margin = new System.Windows.Forms.Padding(4);
+
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Padding = new System.Windows.Forms.Padding(50, 0, 2, 2);
             this.textBuscar.Size = new System.Drawing.Size(228, 36);
@@ -392,7 +674,9 @@
             // 
             this.panelSucursal.Controls.Add(this.cbxSucursales);
             this.panelSucursal.Controls.Add(this.lblNivel1);
+
             this.panelSucursal.Location = new System.Drawing.Point(332, 6);
+
             this.panelSucursal.Name = "panelSucursal";
             this.panelSucursal.Size = new System.Drawing.Size(226, 36);
             this.panelSucursal.TabIndex = 16;
@@ -405,11 +689,12 @@
             this.cbxSucursales.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxSucursales.DataSource = this.sucursalBindingSource;
             this.cbxSucursales.DisplayMember = "nombre";
-            this.cbxSucursales.Enabled = false;
             this.cbxSucursales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSucursales.FormattingEnabled = true;
+
             this.cbxSucursales.Location = new System.Drawing.Point(75, 10);
+
             this.cbxSucursales.Name = "cbxSucursales";
             this.cbxSucursales.Size = new System.Drawing.Size(147, 24);
             this.cbxSucursales.TabIndex = 1;
@@ -439,7 +724,9 @@
             this.panelNavigation.Controls.Add(this.panel5);
             this.panelNavigation.Controls.Add(this.lblPageAllItems);
             this.panelNavigation.Dock = System.Windows.Forms.DockStyle.Bottom;
+
             this.panelNavigation.Location = new System.Drawing.Point(0, 485);
+
             this.panelNavigation.Name = "panelNavigation";
             this.panelNavigation.Size = new System.Drawing.Size(860, 60);
             this.panelNavigation.TabIndex = 23;
@@ -488,7 +775,9 @@
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.btnPrevious);
             this.panel5.Controls.Add(this.btnNext);
+
             this.panel5.Location = new System.Drawing.Point(258, 3);
+
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(344, 55);
             this.panel5.TabIndex = 0;
@@ -653,6 +942,7 @@
             this.panelCrud.Controls.Add(this.btnGuardar);
             this.panelCrud.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCrud.Location = new System.Drawing.Point(0, 0);
+
             this.panelCrud.Name = "panelCrud";
             this.panelCrud.Padding = new System.Windows.Forms.Padding(10, 15, 0, 0);
             this.panelCrud.Size = new System.Drawing.Size(860, 60);
@@ -839,6 +1129,7 @@
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 15, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(224, 60);
@@ -892,6 +1183,7 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.btnActualizarCategoria_Click);
             // 
+
             // idProductoDataGridViewTextBoxColumn
             // 
             this.idProductoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -1131,6 +1423,7 @@
             this.nombrePresentacionDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombrePresentacionDataGridViewTextBoxColumn.Visible = false;
             // 
+
             // UCInicializarStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

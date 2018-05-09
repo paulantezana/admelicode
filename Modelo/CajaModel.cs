@@ -38,7 +38,8 @@ namespace Modelo
                 throw ex;
             }
         }
-
+        
+        //
         public async Task<T> correlativoSerie<T>(int idCaja, int tipo = 0)
         {
             try

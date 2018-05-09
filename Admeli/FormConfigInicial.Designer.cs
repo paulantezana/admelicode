@@ -34,21 +34,21 @@
             this.btnCLose = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbxAlmacenes = new System.Windows.Forms.ComboBox();
+            this.almacenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbxPuntosVenta = new System.Windows.Forms.ComboBox();
+            this.puntoDeVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblNivel3 = new System.Windows.Forms.Label();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.progressbar = new Bunifu.Framework.UI.BunifuProgressBar();
             this.lblProgress = new System.Windows.Forms.Label();
-            this.almacenBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.puntoDeVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCLose)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.almacenBindingSource)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             this.btnCLose.Image = ((System.Drawing.Image)(resources.GetObject("btnCLose.Image")));
             this.btnCLose.ImageActive = null;
             this.btnCLose.Location = new System.Drawing.Point(947, 26);
-            this.btnCLose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCLose.Margin = new System.Windows.Forms.Padding(4);
             this.btnCLose.Name = "btnCLose";
             this.btnCLose.Size = new System.Drawing.Size(52, 48);
             this.btnCLose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -79,7 +79,7 @@
             this.panel2.Controls.Add(this.cbxAlmacenes);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(583, 183);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(339, 49);
             this.panel2.TabIndex = 152;
@@ -92,17 +92,21 @@
             this.cbxAlmacenes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxAlmacenes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.cbxAlmacenes.DataSource = this.almacenBindingSource;
-            this.cbxAlmacenes.DisplayMember = "nombre";
+            this.cbxAlmacenes.DisplayMember = "Descripcion";
             this.cbxAlmacenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxAlmacenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAlmacenes.FormattingEnabled = true;
             this.cbxAlmacenes.Location = new System.Drawing.Point(4, 17);
-            this.cbxAlmacenes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxAlmacenes.Margin = new System.Windows.Forms.Padding(4);
             this.cbxAlmacenes.Name = "cbxAlmacenes";
             this.cbxAlmacenes.Size = new System.Drawing.Size(328, 28);
             this.cbxAlmacenes.TabIndex = 1;
             this.cbxAlmacenes.ValueMember = "idAlmacen";
             this.cbxAlmacenes.SelectedIndexChanged += new System.EventHandler(this.cbxAlmacenes_SelectedIndexChanged);
+            // 
+            // almacenBindingSource
+            // 
+            this.almacenBindingSource.DataSource = typeof(Entidad.Almacen);
             // 
             // label3
             // 
@@ -122,7 +126,7 @@
             this.panel3.Controls.Add(this.cbxPuntosVenta);
             this.panel3.Controls.Add(this.lblNivel3);
             this.panel3.Location = new System.Drawing.Point(583, 252);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(339, 49);
             this.panel3.TabIndex = 151;
@@ -140,11 +144,15 @@
             this.cbxPuntosVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPuntosVenta.FormattingEnabled = true;
             this.cbxPuntosVenta.Location = new System.Drawing.Point(4, 21);
-            this.cbxPuntosVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxPuntosVenta.Margin = new System.Windows.Forms.Padding(4);
             this.cbxPuntosVenta.Name = "cbxPuntosVenta";
             this.cbxPuntosVenta.Size = new System.Drawing.Size(328, 28);
             this.cbxPuntosVenta.TabIndex = 1;
             this.cbxPuntosVenta.ValueMember = "idPuntoVenta";
+            // 
+            // puntoDeVentaBindingSource
+            // 
+            this.puntoDeVentaBindingSource.DataSource = typeof(Entidad.Configuracion.PuntoDeVenta);
             // 
             // lblNivel3
             // 
@@ -207,14 +215,6 @@
             this.lblProgress.TabIndex = 154;
             this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // almacenBindingSource
-            // 
-            this.almacenBindingSource.DataSource = typeof(Entidad.Almacen);
-            // 
-            // puntoDeVentaBindingSource
-            // 
-            this.puntoDeVentaBindingSource.DataSource = typeof(Entidad.Configuracion.PuntoDeVenta);
-            // 
             // FormConfigInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -232,7 +232,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormConfigInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormConfigInicial";
@@ -242,9 +242,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCLose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.almacenBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.almacenBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).EndInit();
             this.ResumeLayout(false);
 

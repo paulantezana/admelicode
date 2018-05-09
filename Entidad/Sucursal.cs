@@ -37,4 +37,37 @@ namespace Entidad
         public string correlativoActual { get; set; }
 
     }
+
+
+
+    public class cajaS
+    {
+        public int idCaja { get; set; }
+        public int estado { get; set; }
+        public int idSucursal { get; set; }
+    }
+    public class AdministracionS
+    {
+        public int idPuntoAdministracion { get; set; }
+        public int estado { get; set; }
+        public int idSucursal { get; set; }
+    }
+    public class GerenciaS
+    {
+        public int idPuntoGerencia { get; set; }
+        public int estado { get; set; }
+        public int idSucursal { get; set; }
+    }
+    public class CompraS
+    {
+        public int idPuntoCompra { get; set; }
+        public int estado { get; set; }
+        public int idSucursal { get; set; }
+    }
+    public class VentaS
+    {
+        public int idPuntoVenta { get; set; }
+        public int estado { get; set; }
+        public int idSucursal { get; set; }
+    }
 }

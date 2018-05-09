@@ -86,7 +86,7 @@ namespace Admeli.Herramientas
                
 
                 ProductoData data = productos.Find(X => X.idProducto == idPresentacion);
-                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idProducto).ToList(); ;
+                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
                 
                 if (combinacionesProducto.Count>0)
                 {
@@ -295,7 +295,7 @@ namespace Admeli.Herramientas
         
 
           
-        private async void cargarSucursales()
+        private  void cargarSucursales()
         {
             // Cargando el combobox de personales
             loadState(true);
@@ -303,13 +303,12 @@ namespace Admeli.Herramientas
             {
                 listSuc = new List<Sucursal>();
                 listSucCargar = new List<Sucursal>();
-                listSuc = await sucursalModel.sucursales();
+                listSuc = ConfigModel.listSucursales;
                 Sucursal sucursal = new Sucursal();
                 sucursal.idSucursal = 0;
                 sucursal.nombre = "Todas";
                 listSucCargar.Add(sucursal);
                 listSucCargar.AddRange(listSuc);
-
                 sucursalBindingSource.DataSource = listSucCargar;
                 cbxSucursales.SelectedValue = 0;
             }
@@ -318,7 +317,7 @@ namespace Admeli.Herramientas
                 MessageBox.Show("Error: " + ex.Message, "Listar sucursales", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private async void cargarAlmacenes()
+        private  void cargarAlmacenes()
         {
             // Cargando el combobox de personales
             loadState(true);
@@ -326,7 +325,7 @@ namespace Admeli.Herramientas
             {
                 listAlm = new List<Almacen>();
                 listAlmCargar = new List<Almacen>();
-                listAlm = await almacenModel.almacenes();
+                listAlm = ConfigModel.alamacenes;
                 Almacen sucursal = new Almacen();
                 sucursal.idAlmacen = 0;
                 sucursal.nombre = "Todas";
@@ -334,6 +333,10 @@ namespace Admeli.Herramientas
                 listAlmCargar.AddRange(listAlm);
                 almacenBindingSource.DataSource = listAlmCargar;
                 cbxAlmacenes.SelectedValue = ConfigModel.currentIdAlmacen;
+                cbxSucursales.SelectedIndex = -1;
+                cbxSucursales.SelectedValue = ConfigModel.sucursal.idSucursal;
+
+
             }
             catch (Exception ex)
             {
@@ -558,7 +561,30 @@ namespace Admeli.Herramientas
         #region ============================ Tools Events ============================
         private void cbxSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarRegistrosBuscar();
+            if (cbxSucursales.SelectedIndex == -1)
+                return;
+
+            if ((int)cbxSucursales.SelectedValue == 0)
+            {
+
+
+                almacenBindingSource.DataSource = listAlmCargar;
+
+            }
+            else
+            {
+                List<Almacen> listA = new List<Almacen>();
+                Almacen almacen = new Almacen();
+                almacen.idAlmacen = 0;
+                almacen.nombre = "Todas";
+                listA.Add(almacen);
+
+
+                List<Almacen> list = listAlm.Where(X => X.idSucursal == (int)cbxSucursales.SelectedValue).ToList();
+                listA.AddRange(list);
+                almacenBindingSource.DataSource = listA;
+            }
+           
         }
 
         private void cbxAlmacenes_SelectedIndexChanged(object sender, EventArgs e)
@@ -718,9 +744,6 @@ namespace Admeli.Herramientas
         private void executeModificar() // no cargar el form de producto
         {
          
-
-
-
             if (dataGridView.Rows.Count == 0)
             {
                 MessageBox.Show("No hay un registro seleccionado", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -880,7 +903,7 @@ namespace Admeli.Herramientas
                 int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
 
                 ProductoData   data = productos.Find(X => X.idProducto == idProducto);
-                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idProducto &&  X.idAlmacen==data.idAlmacen  ).ToList();
+                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion &&  X.idAlmacen==data.idAlmacen  ).ToList();
                 if (combinacionesProducto.Count > 0)
                 {
                     FormDetalleStock detalleStock = new FormDetalleStock(combinacionesProducto , data);

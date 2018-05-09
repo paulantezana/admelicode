@@ -61,35 +61,61 @@ namespace Admeli
 
                     // Mostrar el formulario dependiendo de la cantidad de puntos de venta y almacenes
 
-                    if (ConfigModel.puntosDeVenta.Count > 1 || ConfigModel.alamacenes.Count > 1)
-                    {
-                        //Ocultar este formulario
-                        this.Hide();
 
-                        FormConfigInicial formConfig = new FormConfigInicial(this);
-                        formConfig.Show();
+                    if (ConfigModel.listSucursales.Count == 1)
+                    {
+
+
+                        if (ConfigModel.puntosDeVenta.Count > 1 || ConfigModel.alamacenes.Count > 1)
+                        {
+                            //Ocultar este formulario
+                            this.Hide();
+                            FormConfigInicial formConfig = new FormConfigInicial(this);
+                            formConfig.Show();
+                        }
+                        else
+                        {
+
+                            // Estableciendo el almacen y punto de venta al personal asignado
+                            // este ya esta definido arriba
+
+                            if (ConfigModel.puntosDeVenta.Count > 0) { ConfigModel.currentPuntoVenta = ConfigModel.puntosDeVenta[0].idAsignarPuntoVenta; }
+                            if (ConfigModel.alamacenes.Count > 0) { ConfigModel.currentIdAlmacen = ConfigModel.alamacenes[0].idAlmacen; }
+                            //
+
+                            // Ocultar este formulario
+                            this.Hide();
+
+                            // Mostrar el formulario principal
+                            //formHomeDarck = new FormPrincipal(this);
+                            //formHomeDarck.Show();
+                            formHome = new FormPrincipal(this);
+                            formHome.Show();
+                            //FormPrueba formPrueba = new FormPrueba();
+                            //formPrueba.Show();
+                    }
+
+
+
                     }
                     else
                     {
 
-                        // Estableciendo el almacen y punto de venta al personal asignado
-                        // este ya esta definido arriba
+                        if(ConfigModel.listSucursales.Count > 1)
+                        {
+                            this.Hide();
+                            FormConfigInicial formConfig = new FormConfigInicial(this);
+                            formConfig.Show();
 
-                        if (ConfigModel.puntosDeVenta.Count > 0) { ConfigModel.currentPuntoVenta = ConfigModel.puntosDeVenta[0].idAsignarPuntoVenta; }
-                        if (ConfigModel.alamacenes.Count > 0) { ConfigModel.currentIdAlmacen = ConfigModel.alamacenes[0].idAlmacen; }
-                        //
+                        }
+                        else
+                        {
+                            MessageBox.Show(" no hay sucursales ", "Login Personal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        // Ocultar este formulario
-                        this.Hide();
+                        }
 
-                        // Mostrar el formulario principal
-                        //formHomeDarck = new FormPrincipal(this);
-                        //formHomeDarck.Show();
-                        formHome = new FormPrincipal(this);
-                        formHome.Show();
-                        //FormPrueba formPrueba = new FormPrueba();
-                        //formPrueba.Show();
                     }
+                    
                 }
             }
             catch (Exception ex)
