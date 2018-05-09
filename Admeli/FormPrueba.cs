@@ -313,6 +313,12 @@ namespace Admeli
 
         private void btnToggleMenu_Click(object sender, EventArgs e)
         {
+            ocultarMenuLeft();
+        }
+
+        public void ocultarMenuLeft()
+        {
+
             if (panelAsideContainer.Size.Width > 60)
             {
                 panelAsideContainer.Size = new Size(58, 700);
@@ -322,6 +328,7 @@ namespace Admeli
                 panelAsideContainer.Size = new Size(250, 700);
             }
         }
+
 
         public void showMenuLeft()
         {

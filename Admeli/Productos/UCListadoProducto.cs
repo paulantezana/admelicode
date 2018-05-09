@@ -186,10 +186,17 @@ namespace Admeli.Productos
             loadState(true);
             try
             {
-                listSuc = new List<Sucursal>();
+               
+                listSucCargar = new List<Sucursal>();
                 listSuc = ConfigModel.listSucursales;
-                sucursalBindingSource.DataSource = listSuc;
-              
+                Sucursal sucursal = new Sucursal();
+                sucursal.idSucursal = 0;
+                sucursal.nombre = "Todas";
+                listSucCargar.Add(sucursal);
+                listSucCargar.AddRange(listSuc);
+                sucursalBindingSource.DataSource = listSucCargar;
+                cbxSucursales.SelectedValue = 0;
+
             }
             catch (Exception ex)
             {
@@ -202,12 +209,19 @@ namespace Admeli.Productos
             // Cargando el combobox de personales
             loadState(true);
             try
-            {                        
-                listAlm = ConfigModel.alamacenes;            
-                almacenBindingSource.DataSource = listAlm;                     
-                cbxAlmacenes.SelectedValue = ConfigModel.currentIdAlmacen;
+            {
+                listAlm = new List<Almacen>();
+                listAlmCargar = new List<Almacen>();
+                listAlm = ConfigModel.alamacenes;
+                Almacen sucursal = new Almacen();
+                sucursal.idAlmacen = 0;
+                sucursal.nombre = "Todas";
+                listAlmCargar.Add(sucursal);
+                listAlmCargar.AddRange(listAlm);
+                almacenBindingSource.DataSource = listAlmCargar;
+               
                 cbxSucursales.SelectedIndex = -1;
-                cbxSucursales.SelectedValue = ConfigModel.sucursal.idSucursal;
+                cbxSucursales.SelectedValue = 0;
             }
             catch (Exception ex)
             {
@@ -433,8 +447,9 @@ namespace Admeli.Productos
                 list.Add("id0", 0);
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
 
-                int idAlmacen = Convert.ToInt32(cbxAlmacenes.SelectedValue);
-                int idSucursal = Convert.ToInt32(cbxSucursales.SelectedValue);
+                int idAlmacen = cbxAlmacenes.SelectedIndex == -1 ? 0 : Convert.ToInt32(cbxAlmacenes.SelectedValue);
+                int idSucursal = cbxSucursales.SelectedIndex == -1 ? 0 : Convert.ToInt32(cbxSucursales.SelectedValue);
+
 
                 RootObject<Producto> productos = await productoModel.productosStock(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
 
@@ -468,8 +483,8 @@ namespace Admeli.Productos
                 list.Add("id0", 0);
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
 
-                int idAlmacen = Convert.ToInt32(cbxAlmacenes.SelectedValue);
-                int idSucursal = Convert.ToInt32(cbxSucursales.SelectedValue);
+                int idAlmacen = cbxAlmacenes.SelectedIndex==-1?0:    Convert.ToInt32(cbxAlmacenes.SelectedValue);
+                int idSucursal = cbxSucursales.SelectedIndex ==-1 ? 0 : Convert.ToInt32(cbxSucursales.SelectedValue);
 
                 RootObject<Producto> productos = await productoModel.productosStockLike(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
 
@@ -623,8 +638,10 @@ namespace Admeli.Productos
         {
             if (e.KeyCode == Keys.Enter && textBuscar.Text.Trim() != "")
             {
+                paginacion.currentPage = 1;
                 if (chkVerStock.Checked)
                 {
+                   
                     cargarRegistrosStockLike();
                 }
                 else
@@ -774,7 +791,7 @@ namespace Admeli.Productos
             itemNumber = 0;
             ConfigModel.currentProductoCategory.Clear();
             getRecursiveNodes(mainNode);
-
+            paginacion.currentPage = 1;
             // cargando los registros
             cargarStock();
         }
@@ -875,6 +892,7 @@ namespace Admeli.Productos
 
         private void chkActivoAlmacen_OnChange(object sender, EventArgs e)
         {
+            paginacion.currentPage = 1;
             cargarStock();
         }
 
@@ -883,17 +901,36 @@ namespace Admeli.Productos
             if (cbxSucursales.SelectedIndex == -1)
                 return;
 
+            if ((int)cbxSucursales.SelectedValue == 0)
+            {
 
-            List<Almacen> list= listAlm.Where(X => X.idSucursal == (int)cbxSucursales.SelectedValue).ToList();
-            Almacen almacen = new Almacen();
-            almacen.nombre = "todos";
-            almacen.idAlmacen = 0;
-            list.Add(almacen);
-            almacenBindingSource.DataSource = list;
+
+                almacenBindingSource.DataSource = listAlmCargar;
+                cbxAlmacenes.SelectedIndex = -1;
+                cbxAlmacenes.SelectedIndex = 0;
+
+            }
+            else
+            {
+                List<Almacen> listA = new List<Almacen>();
+                Almacen almacen = new Almacen();
+                almacen.idAlmacen = 0;
+                almacen.nombre = "Todas";
+                listA.Add(almacen);
+
+
+                List<Almacen> list = listAlm.Where(X => X.idSucursal == (int)cbxSucursales.SelectedValue).ToList();
+                listA.AddRange(list);
+                almacenBindingSource.DataSource = listA;
+                cbxAlmacenes.SelectedIndex = -1;
+                cbxAlmacenes.SelectedIndex = 0;
+
+            }
         }
 
         private void cbxAlmacenes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            paginacion.currentPage = 1;
             cargarStock();
         }
 

@@ -594,7 +594,8 @@ namespace Admeli.Configuracion.Nuevo
                 {
 
                     PersonalAlmacen personal = new PersonalAlmacen();
-                    personalAlmacen = new List<PersonalAlmacen>();
+                    if (personalAlmacen == null)
+                        personalAlmacen = new List<PersonalAlmacen>();                   
                     personal.estado = treeNode.Checked;
                     personal.idAlmacen = id;
                     personal.idPersonal = idPersonal;
@@ -617,7 +618,8 @@ namespace Admeli.Configuracion.Nuevo
                 {
 
                     AsignarPuntoVenta asignarPunto = new AsignarPuntoVenta();
-                    asignarPuntoVenta = new List<AsignarPuntoVenta>();
+                    if(asignarPuntoVenta==null)
+                        asignarPuntoVenta = new List<AsignarPuntoVenta>();
                     asignarPunto.estado = treeNode.Checked;
                     asignarPunto.idPersonal = idPersonal;
                     asignarPunto.idPuntoVenta = id;
@@ -667,7 +669,7 @@ namespace Admeli.Configuracion.Nuevo
             try
             {
                 btnAceptar.Enabled = false;
-
+                this.Cursor = Cursors.WaitCursor;
                 // Procediendo con el guardado
                 crearObjetoSucursal();
 
@@ -694,6 +696,8 @@ namespace Admeli.Configuracion.Nuevo
 
                     List<TreeNode> listN = matrizNodes[S.idSucursal];
                     List<Permisos> listP = matrizPersimos[S.idSucursal];
+                    asignarPuntoVenta = new List<AsignarPuntoVenta>();
+                    personalAlmacen = new List<PersonalAlmacen>();
                     int i = 0;
                     foreach (TreeNode T in listN)
                     {
@@ -729,6 +733,7 @@ namespace Admeli.Configuracion.Nuevo
             finally
             {
                 btnAceptar.Enabled = true;
+                this.Cursor = Cursors.Default;
             }
         }
 

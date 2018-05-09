@@ -116,6 +116,7 @@ namespace Admeli.Navigation.SubMenu
             btnColor(); /// Reset Color
             togglePanelMain("inicializarStock");
             btnPrecioStock.Textcolor = Color.White; /// Color active
+            formPrincipal.ocultarMenuLeft();
         }
 
         private void btnAsignarCategoria_Click(object sender, EventArgs e)
