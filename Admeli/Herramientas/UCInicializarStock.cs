@@ -110,6 +110,7 @@ namespace Admeli.Herramientas
                 (TopLevelControl as Form).KeyPreview = true;
                 TopLevelControl.KeyUp += TopLevelControl_KeyUp;
             }
+          
         }
 
         internal void reLoad(bool refreshData = true)
@@ -131,7 +132,7 @@ namespace Admeli.Herramientas
         // Evento que se dispara cuando el padre cambia
         private void ParentChange(object sender, EventArgs e)
         {
-
+            dataGridView.ReadOnly = true;
         }
 
         // Escuchando los Eventos de teclado
@@ -688,7 +689,7 @@ namespace Admeli.Herramientas
 
                 }
             }
-
+           
             dataGridView.Rows[index].ReadOnly = false;
 
             dataGridView.Rows[index].Cells[1].ReadOnly = true;
@@ -700,6 +701,7 @@ namespace Admeli.Herramientas
             dataGridView.Rows[index].Cells[5].ReadOnly = false;
             dataGridView.Rows[index].Cells[5].Selected = true;
             dataGridView.Rows[index].Cells[5].Style.SelectionBackColor = Color.FromArgb(255,247,178);
+           
             dataGridView.Rows[index].Cells[5].Style.SelectionForeColor = Color.Black;
 
             dataGridView.Rows[index].Cells[6].ReadOnly = false;
@@ -716,6 +718,7 @@ namespace Admeli.Herramientas
             dataGridView.Rows[index].Cells[9].Selected = true;
             dataGridView.Rows[index].Cells[9].Style.SelectionBackColor = Color.FromArgb(255, 247, 178);
             dataGridView.Rows[index].Cells[9].Style.SelectionForeColor = Color.Black;
+
         }
 
         private void btnNuevoCategoria_Click(object sender, EventArgs e)
