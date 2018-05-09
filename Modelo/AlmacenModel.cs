@@ -106,6 +106,7 @@ namespace Modelo
         {
             try
             {
+                // wwww.lineatienda.com/services.php/personalalmacenes/per/1/suc/2
                 // www.lineatienda.com/services.php/almacenes/id/nombre/estado/1
                 List<Almacen> list = await webService.GET<List<Almacen>>("almacenes", String.Format("id/nombre/estado/{0}",estado));
                 return list;

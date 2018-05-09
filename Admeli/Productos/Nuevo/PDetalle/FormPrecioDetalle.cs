@@ -223,13 +223,17 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private void textPrecioVenta_KeyUp(object sender, KeyEventArgs e)
         {
-            if (string.IsNullOrEmpty(textPrecioVenta.Text))
+            if (double.Parse(textPrecioConImpuesto.Text) > 0)
             {
-                textPrecioUtilidad.Text = (((0 - double.Parse(textPrecioConImpuesto.Text)) / double.Parse(textPrecioConImpuesto.Text)) * 100).ToString();
-            }
-            else
-            {
-                textPrecioUtilidad.Text = (((double.Parse(textPrecioVenta.Text) - double.Parse(textPrecioConImpuesto.Text)) / double.Parse(textPrecioConImpuesto.Text))*100).ToString();
+
+                if (string.IsNullOrEmpty(textPrecioVenta.Text))
+                {
+                    textPrecioUtilidad.Text = (((0 - double.Parse(textPrecioConImpuesto.Text)) / double.Parse(textPrecioConImpuesto.Text)) * 100).ToString();
+                }
+                else
+                {
+                    textPrecioUtilidad.Text = (((double.Parse(textPrecioVenta.Text) - double.Parse(textPrecioConImpuesto.Text)) / double.Parse(textPrecioConImpuesto.Text)) * 100).ToString();
+                }
             }
         }
     }
