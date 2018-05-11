@@ -70,12 +70,12 @@
             this.textNombreUM.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombreUM.BorderThickness = 1;
             this.textNombreUM.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreUM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreUM.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreUM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombreUM, -30);
             this.textNombreUM.isPassword = false;
             this.textNombreUM.Location = new System.Drawing.Point(16, 28);
-            this.textNombreUM.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombreUM.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreUM.Name = "textNombreUM";
             this.textNombreUM.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
             this.textNombreUM.Size = new System.Drawing.Size(439, 49);
@@ -91,12 +91,12 @@
             this.textSimboloUM.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textSimboloUM.BorderThickness = 1;
             this.textSimboloUM.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textSimboloUM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSimboloUM.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSimboloUM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textSimboloUM, -30);
             this.textSimboloUM.isPassword = false;
             this.textSimboloUM.Location = new System.Drawing.Point(16, 92);
-            this.textSimboloUM.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textSimboloUM.Margin = new System.Windows.Forms.Padding(5);
             this.textSimboloUM.Name = "textSimboloUM";
             this.textSimboloUM.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
             this.textSimboloUM.Size = new System.Drawing.Size(439, 49);
@@ -137,7 +137,7 @@
             this.panel3.Controls.Add(this.chkActivoUM);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(472, 506);
             this.panel3.TabIndex = 0;
@@ -148,7 +148,7 @@
             this.progressBar.BorderRadius = 0;
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBar.Location = new System.Drawing.Point(0, 0);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(5);
             this.progressBar.MaximumValue = 100;
             this.progressBar.Name = "progressBar";
             this.progressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(202)))), ((int)(((byte)(34)))));
@@ -161,7 +161,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 446);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(472, 60);
@@ -173,7 +173,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(24, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(425, 59);
             this.panel1.TabIndex = 0;
@@ -190,7 +190,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(21, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 37);
             this.btnAceptar.TabIndex = 0;
@@ -210,7 +210,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(251, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 37);
             this.btnClose.TabIndex = 1;
@@ -261,7 +261,7 @@
             this.chkActivoUM.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoUM.ForeColor = System.Drawing.Color.White;
             this.chkActivoUM.Location = new System.Drawing.Point(25, 192);
-            this.chkActivoUM.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkActivoUM.Margin = new System.Windows.Forms.Padding(5);
             this.chkActivoUM.Name = "chkActivoUM";
             this.chkActivoUM.Size = new System.Drawing.Size(20, 20);
             this.chkActivoUM.TabIndex = 6;

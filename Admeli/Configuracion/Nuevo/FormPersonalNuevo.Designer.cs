@@ -230,7 +230,7 @@
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(437, 233);
+            this.dataGridView.Size = new System.Drawing.Size(370, 233);
             this.dataGridView.TabIndex = 31;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
@@ -314,7 +314,7 @@
             this.treeViewPermisos.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewPermisos.Name = "treeViewPermisos";
             this.treeViewPermisos.SelectedImageIndex = 0;
-            this.treeViewPermisos.Size = new System.Drawing.Size(403, 172);
+            this.treeViewPermisos.Size = new System.Drawing.Size(352, 172);
             this.treeViewPermisos.TabIndex = 32;
             this.treeViewPermisos.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategoria_AfterCheck);
             // 
@@ -375,7 +375,7 @@
             this.textNombreUsuario.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombreUsuario.BorderThickness = 1;
             this.textNombreUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreUsuario.isPassword = false;
             this.textNombreUsuario.Location = new System.Drawing.Point(17, 69);
@@ -407,7 +407,7 @@
             this.textApellidoUsuario.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textApellidoUsuario.BorderThickness = 1;
             this.textApellidoUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textApellidoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textApellidoUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textApellidoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textApellidoUsuario.isPassword = false;
             this.textApellidoUsuario.Location = new System.Drawing.Point(17, 132);
@@ -439,7 +439,7 @@
             this.textEmail.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textEmail.BorderThickness = 1;
             this.textEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textEmail.isPassword = false;
             this.textEmail.Location = new System.Drawing.Point(16, 423);
@@ -471,7 +471,7 @@
             this.textTelefono.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textTelefono.BorderThickness = 1;
             this.textTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTelefono.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textTelefono.isPassword = false;
             this.textTelefono.Location = new System.Drawing.Point(16, 486);
@@ -574,7 +574,7 @@
             this.textNumeroDocumento.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNumeroDocumento.BorderThickness = 1;
             this.textNumeroDocumento.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNumeroDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNumeroDocumento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNumeroDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNumeroDocumento.isPassword = false;
             this.textNumeroDocumento.Location = new System.Drawing.Point(17, 308);
@@ -645,7 +645,7 @@
             this.textCelular.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textCelular.BorderThickness = 1;
             this.textCelular.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCelular.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCelular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textCelular.isPassword = false;
             this.textCelular.Location = new System.Drawing.Point(16, 545);
@@ -834,7 +834,7 @@
             this.textDirecionUsuario.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textDirecionUsuario.BorderThickness = 1;
             this.textDirecionUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textDirecionUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDirecionUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDirecionUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textDirecionUsuario.isPassword = false;
             this.textDirecionUsuario.Location = new System.Drawing.Point(487, 308);
@@ -937,14 +937,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.treeViewPermisos, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(977, 366);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(961, 366);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.54386F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.45614F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(421, 228);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(370, 228);
             this.tableLayoutPanel1.TabIndex = 34;
             // 
             // panel4
@@ -954,7 +954,7 @@
             this.panel4.Location = new System.Drawing.Point(8, 7);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(405, 34);
+            this.panel4.Size = new System.Drawing.Size(354, 34);
             this.panel4.TabIndex = 33;
             // 
             // label1
@@ -962,7 +962,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(405, 34);
+            this.label1.Size = new System.Drawing.Size(354, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista Permisos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

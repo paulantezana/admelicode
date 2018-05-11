@@ -56,7 +56,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 498);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(491, 60);
@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(-23, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(536, 59);
             this.panel1.TabIndex = 6;
@@ -85,7 +85,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(77, 7);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 44);
             this.btnAceptar.TabIndex = 0;
@@ -105,7 +105,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(307, 7);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 44);
             this.btnClose.TabIndex = 1;
@@ -118,7 +118,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(491, 52);
             this.panel2.TabIndex = 30;
@@ -154,11 +154,11 @@
             this.textNombreGCL.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNombreGCL.BorderThickness = 1;
             this.textNombreGCL.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreGCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreGCL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreGCL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreGCL.isPassword = false;
             this.textNombreGCL.Location = new System.Drawing.Point(25, 98);
-            this.textNombreGCL.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombreGCL.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreGCL.Name = "textNombreGCL";
             this.textNombreGCL.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textNombreGCL.Size = new System.Drawing.Size(440, 43);
@@ -210,7 +210,7 @@
             this.textMinimoOrdenGCL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textMinimoOrdenGCL.isPassword = false;
             this.textMinimoOrdenGCL.Location = new System.Drawing.Point(25, 359);
-            this.textMinimoOrdenGCL.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textMinimoOrdenGCL.Margin = new System.Windows.Forms.Padding(5);
             this.textMinimoOrdenGCL.Name = "textMinimoOrdenGCL";
             this.textMinimoOrdenGCL.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textMinimoOrdenGCL.Size = new System.Drawing.Size(440, 43);
@@ -237,7 +237,7 @@
             this.chkActivoGCL.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoGCL.ForeColor = System.Drawing.Color.White;
             this.chkActivoGCL.Location = new System.Drawing.Point(25, 422);
-            this.chkActivoGCL.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkActivoGCL.Margin = new System.Windows.Forms.Padding(5);
             this.chkActivoGCL.Name = "chkActivoGCL";
             this.chkActivoGCL.Size = new System.Drawing.Size(20, 20);
             this.chkActivoGCL.TabIndex = 6;
@@ -265,7 +265,7 @@
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormGrupoClienteNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupo Cliente Nuevo";

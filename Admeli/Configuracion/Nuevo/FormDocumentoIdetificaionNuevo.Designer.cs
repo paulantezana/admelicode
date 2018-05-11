@@ -59,7 +59,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 361);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(487, 60);
@@ -72,7 +72,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(37, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(411, 59);
             this.panel1.TabIndex = 0;
@@ -88,7 +88,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(15, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 37);
             this.btnAceptar.TabIndex = 0;
@@ -108,7 +108,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(244, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 37);
             this.btnClose.TabIndex = 1;
@@ -135,7 +135,7 @@
             this.chkActivoDI.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoDI.ForeColor = System.Drawing.Color.White;
             this.chkActivoDI.Location = new System.Drawing.Point(24, 288);
-            this.chkActivoDI.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkActivoDI.Margin = new System.Windows.Forms.Padding(5);
             this.chkActivoDI.Name = "chkActivoDI";
             this.chkActivoDI.Size = new System.Drawing.Size(20, 20);
             this.chkActivoDI.TabIndex = 9;
@@ -152,12 +152,12 @@
             this.textDigitosDocumentoIdenti.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textDigitosDocumentoIdenti.BorderThickness = 1;
             this.textDigitosDocumentoIdenti.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textDigitosDocumentoIdenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDigitosDocumentoIdenti.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDigitosDocumentoIdenti.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textDigitosDocumentoIdenti, -30);
             this.textDigitosDocumentoIdenti.isPassword = false;
             this.textDigitosDocumentoIdenti.Location = new System.Drawing.Point(20, 92);
-            this.textDigitosDocumentoIdenti.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textDigitosDocumentoIdenti.Margin = new System.Windows.Forms.Padding(5);
             this.textDigitosDocumentoIdenti.Name = "textDigitosDocumentoIdenti";
             this.textDigitosDocumentoIdenti.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
             this.textDigitosDocumentoIdenti.Size = new System.Drawing.Size(439, 49);
@@ -174,12 +174,12 @@
             this.textNombreDocumentoIdenti.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombreDocumentoIdenti.BorderThickness = 1;
             this.textNombreDocumentoIdenti.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreDocumentoIdenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreDocumentoIdenti.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreDocumentoIdenti.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombreDocumentoIdenti, -30);
             this.textNombreDocumentoIdenti.isPassword = false;
             this.textNombreDocumentoIdenti.Location = new System.Drawing.Point(21, 33);
-            this.textNombreDocumentoIdenti.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombreDocumentoIdenti.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreDocumentoIdenti.Name = "textNombreDocumentoIdenti";
             this.textNombreDocumentoIdenti.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
             this.textNombreDocumentoIdenti.Size = new System.Drawing.Size(439, 49);
@@ -204,7 +204,7 @@
             this.panel12.Controls.Add(this.cbxTipoDocumento);
             this.panel12.Controls.Add(this.lblNivel3);
             this.panel12.Location = new System.Drawing.Point(21, 180);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(437, 49);
             this.panel12.TabIndex = 6;
@@ -219,7 +219,7 @@
             this.cbxTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTipoDocumento.FormattingEnabled = true;
             this.cbxTipoDocumento.Location = new System.Drawing.Point(4, 17);
-            this.cbxTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxTipoDocumento.Margin = new System.Windows.Forms.Padding(4);
             this.cbxTipoDocumento.Name = "cbxTipoDocumento";
             this.cbxTipoDocumento.Size = new System.Drawing.Size(427, 28);
             this.cbxTipoDocumento.TabIndex = 1;
@@ -317,7 +317,7 @@
             this.Controls.Add(this.chkActivoDI);
             this.Controls.Add(this.panelFooter);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDocumentoIdetificaionNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DOCUMENTOS DE IDENTIFICACIÓN";

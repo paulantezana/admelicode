@@ -82,11 +82,13 @@ namespace Admeli.Herramientas
 
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
+
                 int idProducto = Convert.ToInt32(row.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
                
 
                 ProductoData data = productos.Find(X => X.idProducto == idProducto);
                 combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
+
                 
                 if (combinacionesProducto.Count>0)
                 {
@@ -483,7 +485,7 @@ namespace Admeli.Herramientas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Listar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Listar presentaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {

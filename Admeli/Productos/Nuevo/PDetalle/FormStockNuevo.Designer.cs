@@ -63,7 +63,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 554);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(541, 60);
@@ -75,7 +75,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(67, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(409, 59);
             this.panel1.TabIndex = 6;
@@ -91,7 +91,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(13, 7);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 44);
             this.btnAceptar.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(243, 7);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 44);
             this.btnClose.TabIndex = 5;
@@ -125,7 +125,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(541, 52);
             this.panel2.TabIndex = 32;
@@ -149,11 +149,11 @@
             this.textStock.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textStock.BorderThickness = 1;
             this.textStock.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textStock.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textStock.isPassword = false;
             this.textStock.Location = new System.Drawing.Point(24, 94);
-            this.textStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textStock.Margin = new System.Windows.Forms.Padding(5);
             this.textStock.Name = "textStock";
             this.textStock.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textStock.Size = new System.Drawing.Size(489, 43);
@@ -179,11 +179,11 @@
             this.textStockIdeal.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textStockIdeal.BorderThickness = 1;
             this.textStockIdeal.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textStockIdeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textStockIdeal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStockIdeal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textStockIdeal.isPassword = false;
             this.textStockIdeal.Location = new System.Drawing.Point(24, 177);
-            this.textStockIdeal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textStockIdeal.Margin = new System.Windows.Forms.Padding(5);
             this.textStockIdeal.Name = "textStockIdeal";
             this.textStockIdeal.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textStockIdeal.Size = new System.Drawing.Size(489, 43);
@@ -209,11 +209,11 @@
             this.textStockMinimo.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textStockMinimo.BorderThickness = 1;
             this.textStockMinimo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textStockMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textStockMinimo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStockMinimo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textStockMinimo.isPassword = false;
             this.textStockMinimo.Location = new System.Drawing.Point(24, 265);
-            this.textStockMinimo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textStockMinimo.Margin = new System.Windows.Forms.Padding(5);
             this.textStockMinimo.Name = "textStockMinimo";
             this.textStockMinimo.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textStockMinimo.Size = new System.Drawing.Size(489, 43);
@@ -239,11 +239,11 @@
             this.textStockAlerta.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textStockAlerta.BorderThickness = 1;
             this.textStockAlerta.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textStockAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textStockAlerta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStockAlerta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textStockAlerta.isPassword = false;
             this.textStockAlerta.Location = new System.Drawing.Point(25, 345);
-            this.textStockAlerta.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textStockAlerta.Margin = new System.Windows.Forms.Padding(5);
             this.textStockAlerta.Name = "textStockAlerta";
             this.textStockAlerta.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textStockAlerta.Size = new System.Drawing.Size(489, 43);
@@ -280,7 +280,7 @@
             this.chkActivoStock.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoStock.ForeColor = System.Drawing.Color.White;
             this.chkActivoStock.Location = new System.Drawing.Point(25, 407);
-            this.chkActivoStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkActivoStock.Margin = new System.Windows.Forms.Padding(5);
             this.chkActivoStock.Name = "chkActivoStock";
             this.chkActivoStock.Size = new System.Drawing.Size(20, 20);
             this.chkActivoStock.TabIndex = 56;
@@ -296,7 +296,7 @@
             this.btnAddAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAlmacen.ForeColor = System.Drawing.Color.White;
             this.btnAddAlmacen.Location = new System.Drawing.Point(461, 471);
-            this.btnAddAlmacen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddAlmacen.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddAlmacen.Name = "btnAddAlmacen";
             this.btnAddAlmacen.Size = new System.Drawing.Size(53, 32);
             this.btnAddAlmacen.TabIndex = 55;
@@ -362,7 +362,7 @@
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormStockNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStockNuevo";

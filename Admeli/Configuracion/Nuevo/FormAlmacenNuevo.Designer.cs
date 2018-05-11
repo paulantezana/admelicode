@@ -89,7 +89,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 501);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(979, 60);
@@ -102,7 +102,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(221, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(425, 59);
             this.panel1.TabIndex = 0;
@@ -118,7 +118,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(21, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 37);
             this.btnAceptar.TabIndex = 0;
@@ -138,7 +138,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(251, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 37);
             this.btnClose.TabIndex = 1;
@@ -158,7 +158,7 @@
             this.btnSucursalNuevo.ForeColor = System.Drawing.Color.White;
             this.btnSucursalNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnSucursalNuevo.Image")));
             this.btnSucursalNuevo.Location = new System.Drawing.Point(429, 41);
-            this.btnSucursalNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSucursalNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnSucursalNuevo.Name = "btnSucursalNuevo";
             this.btnSucursalNuevo.Size = new System.Drawing.Size(37, 49);
             this.btnSucursalNuevo.TabIndex = 17;
@@ -184,7 +184,7 @@
             this.chkActivoAlmacen.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoAlmacen.ForeColor = System.Drawing.Color.White;
             this.chkActivoAlmacen.Location = new System.Drawing.Point(33, 295);
-            this.chkActivoAlmacen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkActivoAlmacen.Margin = new System.Windows.Forms.Padding(5);
             this.chkActivoAlmacen.Name = "chkActivoAlmacen";
             this.chkActivoAlmacen.Size = new System.Drawing.Size(20, 20);
             this.chkActivoAlmacen.TabIndex = 9;
@@ -208,7 +208,7 @@
             this.chkPrincipalAlmacen.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkPrincipalAlmacen.ForeColor = System.Drawing.Color.White;
             this.chkPrincipalAlmacen.Location = new System.Drawing.Point(33, 230);
-            this.chkPrincipalAlmacen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkPrincipalAlmacen.Margin = new System.Windows.Forms.Padding(5);
             this.chkPrincipalAlmacen.Name = "chkPrincipalAlmacen";
             this.chkPrincipalAlmacen.Size = new System.Drawing.Size(20, 20);
             this.chkPrincipalAlmacen.TabIndex = 6;
@@ -249,12 +249,12 @@
             this.textDirecionAlmacen.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textDirecionAlmacen.BorderThickness = 1;
             this.textDirecionAlmacen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textDirecionAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDirecionAlmacen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDirecionAlmacen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textDirecionAlmacen, -30);
             this.textDirecionAlmacen.isPassword = false;
             this.textDirecionAlmacen.Location = new System.Drawing.Point(28, 162);
-            this.textDirecionAlmacen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textDirecionAlmacen.Margin = new System.Windows.Forms.Padding(5);
             this.textDirecionAlmacen.Name = "textDirecionAlmacen";
             this.textDirecionAlmacen.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
             this.textDirecionAlmacen.Size = new System.Drawing.Size(439, 49);
@@ -270,12 +270,12 @@
             this.textNombreAlmacen.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombreAlmacen.BorderThickness = 1;
             this.textNombreAlmacen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreAlmacen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreAlmacen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombreAlmacen, -30);
             this.textNombreAlmacen.isPassword = false;
             this.textNombreAlmacen.Location = new System.Drawing.Point(28, 103);
-            this.textNombreAlmacen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombreAlmacen.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreAlmacen.Name = "textNombreAlmacen";
             this.textNombreAlmacen.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
             this.textNombreAlmacen.Size = new System.Drawing.Size(439, 49);
@@ -313,7 +313,7 @@
             this.panelLevel3.Controls.Add(this.cbxNivel3);
             this.panelLevel3.Controls.Add(this.lblNivel3);
             this.panelLevel3.Location = new System.Drawing.Point(507, 222);
-            this.panelLevel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevel3.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevel3.Name = "panelLevel3";
             this.panelLevel3.Size = new System.Drawing.Size(437, 49);
             this.panelLevel3.TabIndex = 15;
@@ -331,7 +331,7 @@
             this.cbxNivel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel3.FormattingEnabled = true;
             this.cbxNivel3.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxNivel3.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNivel3.Name = "cbxNivel3";
             this.cbxNivel3.Size = new System.Drawing.Size(427, 28);
             this.cbxNivel3.TabIndex = 1;
@@ -353,7 +353,7 @@
             this.panelLevel2.Controls.Add(this.cbxNivel2);
             this.panelLevel2.Controls.Add(this.lblNivel2);
             this.panelLevel2.Location = new System.Drawing.Point(507, 161);
-            this.panelLevel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevel2.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevel2.Name = "panelLevel2";
             this.panelLevel2.Size = new System.Drawing.Size(437, 49);
             this.panelLevel2.TabIndex = 14;
@@ -371,7 +371,7 @@
             this.cbxNivel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel2.FormattingEnabled = true;
             this.cbxNivel2.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxNivel2.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNivel2.Name = "cbxNivel2";
             this.cbxNivel2.Size = new System.Drawing.Size(427, 28);
             this.cbxNivel2.TabIndex = 1;
@@ -394,7 +394,7 @@
             this.panelLevel1.Controls.Add(this.cbxNivel1);
             this.panelLevel1.Controls.Add(this.lblNivel1);
             this.panelLevel1.Location = new System.Drawing.Point(507, 102);
-            this.panelLevel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevel1.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevel1.Name = "panelLevel1";
             this.panelLevel1.Size = new System.Drawing.Size(437, 49);
             this.panelLevel1.TabIndex = 13;
@@ -412,7 +412,7 @@
             this.cbxNivel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel1.FormattingEnabled = true;
             this.cbxNivel1.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxNivel1.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNivel1.Name = "cbxNivel1";
             this.cbxNivel1.Size = new System.Drawing.Size(427, 28);
             this.cbxNivel1.TabIndex = 1;
@@ -435,7 +435,7 @@
             this.panelLevelPais.Controls.Add(this.cbxPaises);
             this.panelLevelPais.Controls.Add(this.label11);
             this.panelLevelPais.Location = new System.Drawing.Point(507, 43);
-            this.panelLevelPais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevelPais.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevelPais.Name = "panelLevelPais";
             this.panelLevelPais.Size = new System.Drawing.Size(437, 49);
             this.panelLevelPais.TabIndex = 12;
@@ -452,7 +452,7 @@
             this.cbxPaises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPaises.FormattingEnabled = true;
             this.cbxPaises.Location = new System.Drawing.Point(4, 17);
-            this.cbxPaises.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxPaises.Margin = new System.Windows.Forms.Padding(4);
             this.cbxPaises.Name = "cbxPaises";
             this.cbxPaises.Size = new System.Drawing.Size(427, 28);
             this.cbxPaises.TabIndex = 1;
@@ -487,7 +487,7 @@
             this.panel2.Controls.Add(this.cbxSucursal);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(28, 41);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(401, 49);
             this.panel2.TabIndex = 1;
@@ -504,7 +504,7 @@
             this.cbxSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSucursal.FormattingEnabled = true;
             this.cbxSucursal.Location = new System.Drawing.Point(4, 17);
-            this.cbxSucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxSucursal.Margin = new System.Windows.Forms.Padding(4);
             this.cbxSucursal.Name = "cbxSucursal";
             this.cbxSucursal.Size = new System.Drawing.Size(391, 28);
             this.cbxSucursal.TabIndex = 1;
@@ -572,7 +572,7 @@
             this.Controls.Add(this.panelFooter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAlmacenNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento Almacén";

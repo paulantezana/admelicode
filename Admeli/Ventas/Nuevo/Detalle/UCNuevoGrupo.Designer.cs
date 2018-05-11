@@ -122,7 +122,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(195, 16);
+            this.label4.Size = new System.Drawing.Size(237, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Mantenimiento Grupo Cliente";
             // 
@@ -134,7 +134,7 @@
             this.label9.Location = new System.Drawing.Point(88, 430);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 16);
+            this.label9.Size = new System.Drawing.Size(65, 19);
             this.label9.TabIndex = 63;
             this.label9.Text = "Activo *";
             // 
@@ -146,7 +146,7 @@
             this.chkEstado.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkEstado.ForeColor = System.Drawing.Color.White;
             this.chkEstado.Location = new System.Drawing.Point(62, 429);
-            this.chkEstado.Margin = new System.Windows.Forms.Padding(4);
+            this.chkEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(20, 20);
             this.chkEstado.TabIndex = 11;
@@ -159,7 +159,7 @@
             this.label1.Location = new System.Drawing.Point(56, 170);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.Size = new System.Drawing.Size(116, 19);
             this.label1.TabIndex = 65;
             this.label1.Text = "Minimo Orden:";
             // 
@@ -173,7 +173,7 @@
             this.txtMinimoOrden.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtMinimoOrden.BorderThickness = 1;
             this.txtMinimoOrden.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMinimoOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMinimoOrden.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinimoOrden.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtMinimoOrden.isPassword = false;
             this.txtMinimoOrden.Location = new System.Drawing.Point(60, 189);
@@ -192,7 +192,7 @@
             this.label8.Location = new System.Drawing.Point(56, 101);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 16);
+            this.label8.Size = new System.Drawing.Size(147, 19);
             this.label8.TabIndex = 106;
             this.label8.Text = "Nombre del Grupo:";
             // 
@@ -206,7 +206,7 @@
             this.txtNombreGrupo.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtNombreGrupo.BorderThickness = 1;
             this.txtNombreGrupo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreGrupo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombreGrupo.isPassword = false;
             this.txtNombreGrupo.Location = new System.Drawing.Point(60, 124);
@@ -239,7 +239,7 @@
             this.label14.Location = new System.Drawing.Point(56, 226);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(76, 16);
+            this.label14.Size = new System.Drawing.Size(97, 19);
             this.label14.TabIndex = 114;
             this.label14.Text = "Descripción";
             // 
@@ -268,7 +268,7 @@
             // 
             // UCNuevoGrupo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 9F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblGrupo);
             this.Controls.Add(this.label2);

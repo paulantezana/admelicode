@@ -210,14 +210,14 @@
             this.textNIdentificacion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNIdentificacion.BorderThickness = 1;
             this.textNIdentificacion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNIdentificacion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNIdentificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNIdentificacion.isPassword = false;
             this.textNIdentificacion.Location = new System.Drawing.Point(20, 149);
             this.textNIdentificacion.Margin = new System.Windows.Forms.Padding(4);
             this.textNIdentificacion.Name = "textNIdentificacion";
             this.textNIdentificacion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textNIdentificacion.Size = new System.Drawing.Size(300, 33);
+            this.textNIdentificacion.Size = new System.Drawing.Size(252, 33);
             this.textNIdentificacion.TabIndex = 0;
             this.textNIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textNIdentificacion.OnValueChanged += new System.EventHandler(this.textNIdentificacion_OnValueChanged);
@@ -235,7 +235,7 @@
             this.cbxTipoGrupo.Location = new System.Drawing.Point(23, 344);
             this.cbxTipoGrupo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTipoGrupo.Name = "cbxTipoGrupo";
-            this.cbxTipoGrupo.Size = new System.Drawing.Size(265, 32);
+            this.cbxTipoGrupo.Size = new System.Drawing.Size(214, 32);
             this.cbxTipoGrupo.TabIndex = 4;
             this.cbxTipoGrupo.ValueMember = "idGrupoCliente";
             // 
@@ -263,14 +263,14 @@
             this.textCelular.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textCelular.BorderThickness = 1;
             this.textCelular.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCelular.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCelular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textCelular.isPassword = false;
             this.textCelular.Location = new System.Drawing.Point(353, 149);
             this.textCelular.Margin = new System.Windows.Forms.Padding(4);
             this.textCelular.Name = "textCelular";
             this.textCelular.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textCelular.Size = new System.Drawing.Size(300, 33);
+            this.textCelular.Size = new System.Drawing.Size(267, 33);
             this.textCelular.TabIndex = 2;
             this.textCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -294,14 +294,14 @@
             this.textZipCode.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textZipCode.BorderThickness = 1;
             this.textZipCode.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textZipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textZipCode.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textZipCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textZipCode.isPassword = false;
             this.textZipCode.Location = new System.Drawing.Point(353, 213);
             this.textZipCode.Margin = new System.Windows.Forms.Padding(4);
             this.textZipCode.Name = "textZipCode";
             this.textZipCode.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textZipCode.Size = new System.Drawing.Size(300, 33);
+            this.textZipCode.Size = new System.Drawing.Size(267, 33);
             this.textZipCode.TabIndex = 3;
             this.textZipCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -325,14 +325,14 @@
             this.textDireccion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textDireccion.BorderThickness = 1;
             this.textDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDireccion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textDireccion.isPassword = false;
             this.textDireccion.Location = new System.Drawing.Point(701, 343);
             this.textDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.textDireccion.Name = "textDireccion";
             this.textDireccion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textDireccion.Size = new System.Drawing.Size(300, 33);
+            this.textDireccion.Size = new System.Drawing.Size(256, 33);
             this.textDireccion.TabIndex = 10;
             this.textDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -356,14 +356,14 @@
             this.textEmail.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textEmail.BorderThickness = 1;
             this.textEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEmail.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textEmail.isPassword = false;
-            this.textEmail.Location = new System.Drawing.Point(23, 403);
+            this.textEmail.Location = new System.Drawing.Point(20, 403);
             this.textEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textEmail.Name = "textEmail";
             this.textEmail.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textEmail.Size = new System.Drawing.Size(300, 33);
+            this.textEmail.Size = new System.Drawing.Size(249, 33);
             this.textEmail.TabIndex = 5;
             this.textEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -376,7 +376,7 @@
             this.cbxNivel3.FormattingEnabled = true;
             this.cbxNivel3.Location = new System.Drawing.Point(701, 279);
             this.cbxNivel3.Name = "cbxNivel3";
-            this.cbxNivel3.Size = new System.Drawing.Size(300, 28);
+            this.cbxNivel3.Size = new System.Drawing.Size(256, 28);
             this.cbxNivel3.TabIndex = 9;
             this.cbxNivel3.ValueMember = "idNivel3";
             this.cbxNivel3.Visible = false;
@@ -407,7 +407,7 @@
             this.cbxNivel2.FormattingEnabled = true;
             this.cbxNivel2.Location = new System.Drawing.Point(701, 212);
             this.cbxNivel2.Name = "cbxNivel2";
-            this.cbxNivel2.Size = new System.Drawing.Size(300, 28);
+            this.cbxNivel2.Size = new System.Drawing.Size(256, 28);
             this.cbxNivel2.TabIndex = 8;
             this.cbxNivel2.ValueMember = "idNivel2";
             this.cbxNivel2.Visible = false;
@@ -439,7 +439,7 @@
             this.cbxNivel1.FormattingEnabled = true;
             this.cbxNivel1.Location = new System.Drawing.Point(701, 152);
             this.cbxNivel1.Name = "cbxNivel1";
-            this.cbxNivel1.Size = new System.Drawing.Size(300, 28);
+            this.cbxNivel1.Size = new System.Drawing.Size(256, 28);
             this.cbxNivel1.TabIndex = 7;
             this.cbxNivel1.ValueMember = "idNivel1";
             this.cbxNivel1.Visible = false;
@@ -471,7 +471,7 @@
             this.cbxPaises.FormattingEnabled = true;
             this.cbxPaises.Location = new System.Drawing.Point(701, 89);
             this.cbxPaises.Name = "cbxPaises";
-            this.cbxPaises.Size = new System.Drawing.Size(300, 28);
+            this.cbxPaises.Size = new System.Drawing.Size(256, 28);
             this.cbxPaises.TabIndex = 6;
             this.cbxPaises.ValueMember = "idPais";
             this.cbxPaises.SelectedIndexChanged += new System.EventHandler(this.cbxPaises_SelectedIndexChanged);
@@ -528,14 +528,14 @@
             this.textTelefono.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textTelefono.BorderThickness = 1;
             this.textTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTelefono.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textTelefono.isPassword = false;
             this.textTelefono.Location = new System.Drawing.Point(353, 84);
             this.textTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.textTelefono.Name = "textTelefono";
             this.textTelefono.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.textTelefono.Size = new System.Drawing.Size(300, 33);
+            this.textTelefono.Size = new System.Drawing.Size(267, 33);
             this.textTelefono.TabIndex = 1;
             this.textTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTelefono_KeyPress);
@@ -552,7 +552,7 @@
             this.cbxDocumento.Location = new System.Drawing.Point(20, 86);
             this.cbxDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.cbxDocumento.Name = "cbxDocumento";
-            this.cbxDocumento.Size = new System.Drawing.Size(300, 32);
+            this.cbxDocumento.Size = new System.Drawing.Size(252, 32);
             this.cbxDocumento.TabIndex = 107;
             this.cbxDocumento.ValueMember = "idDocumento";
             this.cbxDocumento.SelectedIndexChanged += new System.EventHandler(this.cbxDocumento_SelectedIndexChanged);
@@ -563,20 +563,21 @@
             // 
             // txtNombreCliente
             // 
+            this.txtNombreCliente.AutoSize = true;
             this.txtNombreCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.txtNombreCliente.BorderColorFocused = System.Drawing.Color.DodgerBlue;
             this.txtNombreCliente.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.txtNombreCliente.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtNombreCliente.BorderThickness = 1;
             this.txtNombreCliente.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombreCliente.isPassword = false;
             this.txtNombreCliente.Location = new System.Drawing.Point(20, 212);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.txtNombreCliente.Size = new System.Drawing.Size(300, 33);
+            this.txtNombreCliente.Size = new System.Drawing.Size(252, 33);
             this.txtNombreCliente.TabIndex = 108;
             this.txtNombreCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCliente_KeyPress);
@@ -620,7 +621,7 @@
             this.cbxSexo.Location = new System.Drawing.Point(20, 275);
             this.cbxSexo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxSexo.Name = "cbxSexo";
-            this.cbxSexo.Size = new System.Drawing.Size(300, 32);
+            this.cbxSexo.Size = new System.Drawing.Size(252, 32);
             this.cbxSexo.TabIndex = 111;
             this.cbxSexo.ValueMember = "idMarca";
             // 
@@ -638,10 +639,11 @@
             // 
             // txtDatosEnvio
             // 
+            this.txtDatosEnvio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDatosEnvio.Location = new System.Drawing.Point(353, 275);
             this.txtDatosEnvio.Multiline = true;
             this.txtDatosEnvio.Name = "txtDatosEnvio";
-            this.txtDatosEnvio.Size = new System.Drawing.Size(300, 101);
+            this.txtDatosEnvio.Size = new System.Drawing.Size(267, 101);
             this.txtDatosEnvio.TabIndex = 113;
             // 
             // label14
@@ -669,7 +671,7 @@
             this.btnGrupoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrupoNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrupoNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnGrupoNuevo.Location = new System.Drawing.Point(285, 344);
+            this.btnGrupoNuevo.Location = new System.Drawing.Point(237, 343);
             this.btnGrupoNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupoNuevo.Name = "btnGrupoNuevo";
             this.btnGrupoNuevo.Size = new System.Drawing.Size(35, 32);
