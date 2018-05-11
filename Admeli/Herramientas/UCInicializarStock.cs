@@ -82,11 +82,13 @@ namespace Admeli.Herramientas
 
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                int idProducto = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
+
+                int idProducto = Convert.ToInt32(row.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
                
 
                 ProductoData data = productos.Find(X => X.idProducto == idProducto);
-                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); 
+                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
+
                 
                 if (combinacionesProducto.Count>0)
                 {
@@ -101,6 +103,7 @@ namespace Admeli.Herramientas
         #region ============================= ROOT LOAD =============================
         private void UCInicializarStock_Load(object sender, EventArgs e)
         {
+            this.darFormatoDecimales();
             this.reLoad();
 
             // Preparando para los eventos de teclado
@@ -113,8 +116,26 @@ namespace Admeli.Herramientas
           
         }
 
+        private void darFormatoDecimales()
+        {
+            //Compra,Impuesto,Utilidad,Venta,Stock
+            dataGridView.Columns["precioCompraDataGridViewTextBoxColumn"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["precioConImpuestoDataGridViewTextBoxColumn"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["utilidadDataGridViewTextBoxColumn"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["precioVentaDataGridViewTextBoxColumn"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["stockDataGridViewTextBoxColumn"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            
+            dataGridView.Columns["precioCompraDataGridViewTextBoxColumn"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView.Columns["precioConImpuestoDataGridViewTextBoxColumn"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView.Columns["utilidadDataGridViewTextBoxColumn"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView.Columns["precioVentaDataGridViewTextBoxColumn"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView.Columns["stockDataGridViewTextBoxColumn"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+        }
+
         internal void reLoad(bool refreshData = true)
         {
+            //Dar formato
+            
             if (refreshData)
             {
                 this.cargarCategorias(); // 
@@ -391,7 +412,6 @@ namespace Admeli.Herramientas
 
                 }
                 decorationDataGridView();
-
 
             }
             catch (Exception ex)
@@ -762,9 +782,9 @@ namespace Admeli.Herramientas
             }
 
             int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+            int idPresentacion = Convert.ToInt32(dataGridView.Rows[index].Cells["idPresentacionDataGridViewTextBoxColumn"].Value); // obteniedo el idRegistro del datagridview
 
-            currentProdcuto = productos.Find(x => x.idProducto == idProducto); // Buscando la registro especifico en la lista de registros
+            currentProdcuto = productos.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
 
             Producto auxProducto = new Producto();
 
@@ -911,9 +931,9 @@ namespace Admeli.Herramientas
                 }
 
                 int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-                int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+                int idPresentacion = Convert.ToInt32(dataGridView.Rows[index].Cells["idPresentacionDataGridViewTextBoxColumn"].Value);
 
-                ProductoData   data = productos.Find(X => X.idProducto == idProducto);
+                ProductoData   data = productos.Find(X => X.idPresentacion == idPresentacion);
                 combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion &&  X.idAlmacen==data.idAlmacen  ).ToList();
                 if (combinacionesProducto.Count > 0)
                 {

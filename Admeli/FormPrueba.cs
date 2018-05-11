@@ -71,7 +71,19 @@ namespace Admeli
         #region ============================ ROOT LOAD ============================
         private void FormPrueba_Load(object sender, EventArgs e)
         {
+            //Establecer formato de decimales
+            this.fijarFormatoDecimal();
             this.reLoad();
+        }
+        private void fijarFormatoDecimal()
+        {
+            int nroDec = ConfigModel.configuracionGeneral.numeroDecimales;
+            string formato = "0.";
+            for(int i = 0; i < nroDec; i++)
+            {
+                formato += "#";
+            }
+            ConfigModel.configuracionGeneral.formatoDecimales = formato;
         }
 
         private void reLoad()

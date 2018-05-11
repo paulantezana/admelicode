@@ -60,6 +60,7 @@
             this.areaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreLabelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCorrelativoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +70,6 @@
             this.finDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idOperacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContainer.SuspendLayout();
@@ -129,6 +129,7 @@
             this.areaDataGridViewTextBoxColumn,
             this.idSucursalDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
+            this.operacionDataGridViewTextBoxColumn,
             this.nombreLabelDataGridViewTextBoxColumn,
             this.idCorrelativoDataGridViewTextBoxColumn,
             this.serieDataGridViewTextBoxColumn,
@@ -138,7 +139,6 @@
             this.finDataGridViewCheckBoxColumn,
             this.idDocumentoDataGridViewTextBoxColumn,
             this.idOperacionDataGridViewTextBoxColumn,
-            this.operacionDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn,
             this.EstadoString});
             this.dataGridView.DataSource = this.docCorrelativoBindingSource;
@@ -459,11 +459,12 @@
             // 
             // idDataGridViewTextBoxColumn
             // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 40;
             // 
             // areaDataGridViewTextBoxColumn
             // 
@@ -483,17 +484,23 @@
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Sucursal";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // operacionDataGridViewTextBoxColumn
+            // 
+            this.operacionDataGridViewTextBoxColumn.DataPropertyName = "operacion";
+            this.operacionDataGridViewTextBoxColumn.HeaderText = "Operación ";
+            this.operacionDataGridViewTextBoxColumn.Name = "operacionDataGridViewTextBoxColumn";
+            this.operacionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nombreLabelDataGridViewTextBoxColumn
             // 
             this.nombreLabelDataGridViewTextBoxColumn.DataPropertyName = "nombreLabel";
-            this.nombreLabelDataGridViewTextBoxColumn.HeaderText = "nombreLabel";
+            this.nombreLabelDataGridViewTextBoxColumn.HeaderText = "Sucursal";
             this.nombreLabelDataGridViewTextBoxColumn.Name = "nombreLabelDataGridViewTextBoxColumn";
             this.nombreLabelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreLabelDataGridViewTextBoxColumn.Visible = false;
             // 
             // idCorrelativoDataGridViewTextBoxColumn
             // 
@@ -505,10 +512,12 @@
             // 
             // serieDataGridViewTextBoxColumn
             // 
+            this.serieDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.serieDataGridViewTextBoxColumn.DataPropertyName = "serie";
             this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
             this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
             this.serieDataGridViewTextBoxColumn.ReadOnly = true;
+            this.serieDataGridViewTextBoxColumn.Width = 60;
             // 
             // correlativoInicioDataGridViewTextBoxColumn
             // 
@@ -517,6 +526,7 @@
             this.correlativoInicioDataGridViewTextBoxColumn.HeaderText = "Correlativo Inicio";
             this.correlativoInicioDataGridViewTextBoxColumn.Name = "correlativoInicioDataGridViewTextBoxColumn";
             this.correlativoInicioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.correlativoInicioDataGridViewTextBoxColumn.Visible = false;
             // 
             // correlativoFinDataGridViewTextBoxColumn
             // 
@@ -525,14 +535,17 @@
             this.correlativoFinDataGridViewTextBoxColumn.HeaderText = "Correlativo Fin";
             this.correlativoFinDataGridViewTextBoxColumn.Name = "correlativoFinDataGridViewTextBoxColumn";
             this.correlativoFinDataGridViewTextBoxColumn.ReadOnly = true;
+            this.correlativoFinDataGridViewTextBoxColumn.Visible = false;
             // 
             // correlativoActualDataGridViewTextBoxColumn
             // 
+            this.correlativoActualDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.correlativoActualDataGridViewTextBoxColumn.DataPropertyName = "correlativoActual";
             this.correlativoActualDataGridViewTextBoxColumn.FillWeight = 147F;
             this.correlativoActualDataGridViewTextBoxColumn.HeaderText = "Correlativo Actual";
             this.correlativoActualDataGridViewTextBoxColumn.Name = "correlativoActualDataGridViewTextBoxColumn";
             this.correlativoActualDataGridViewTextBoxColumn.ReadOnly = true;
+            this.correlativoActualDataGridViewTextBoxColumn.Width = 130;
             // 
             // finDataGridViewCheckBoxColumn
             // 
@@ -558,13 +571,6 @@
             this.idOperacionDataGridViewTextBoxColumn.ReadOnly = true;
             this.idOperacionDataGridViewTextBoxColumn.Visible = false;
             // 
-            // operacionDataGridViewTextBoxColumn
-            // 
-            this.operacionDataGridViewTextBoxColumn.DataPropertyName = "operacion";
-            this.operacionDataGridViewTextBoxColumn.HeaderText = "Operación ";
-            this.operacionDataGridViewTextBoxColumn.Name = "operacionDataGridViewTextBoxColumn";
-            this.operacionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // estadoDataGridViewTextBoxColumn
             // 
             this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
@@ -575,10 +581,12 @@
             // 
             // EstadoString
             // 
+            this.EstadoString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.EstadoString.DataPropertyName = "EstadoString";
             this.EstadoString.HeaderText = "Estado";
             this.EstadoString.Name = "EstadoString";
             this.EstadoString.ReadOnly = true;
+            this.EstadoString.Width = 80;
             // 
             // UCAsignarCorrelativo
             // 
@@ -629,6 +637,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSucursalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreLabelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCorrelativoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn;
@@ -638,7 +647,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn finDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDocumentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idOperacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoString;
     }

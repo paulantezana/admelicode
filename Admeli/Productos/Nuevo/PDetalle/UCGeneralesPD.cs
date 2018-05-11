@@ -22,7 +22,9 @@ namespace Admeli.Productos.Nuevo.PDetalle
         public ProductoModel productoModel = new ProductoModel();
         public PresentacionModel presentacionModel = new PresentacionModel();
         private CategoriaProducto catProducto = new CategoriaProducto();
-        private bool isFieldsValid { get; set; }
+        private bool nombreValido { get; set; }
+        private bool codigoValido { get; set; }
+        private bool precioValido { get; set; }
         public bool lisenerKeyEvents { get; internal set; }
         private FormProductoNuevo formProductoNuevo;
 
@@ -90,9 +92,11 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
             textNombreProducto.Text = formProductoNuevo.currentProducto.nombreProducto;
             textCodigoProducto.Text = formProductoNuevo.currentProducto.codigoProducto;
-            textPrecioCompra.Text = formProductoNuevo.currentProducto.precioCompra;
+            textPrecioCompra.Text = formProductoNuevo.currentProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
             textDescripcion.Text = formProductoNuevo.currentProducto.descripcionCorta;
-            isFieldsValid = true;
+            codigoValido = true;
+            nombreValido = true;
+            precioValido = true;
         }
 
         internal async void cargarMarcas()
@@ -143,7 +147,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             // Validando los campos
-            if (!isFieldsValid)
+
+            if (!codigoValido || !nombreValido || !precioValido)
             {
                 MessageBox.Show("Datos incorrectos", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -199,7 +204,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             formProductoNuevo.currentProducto.nombreProducto = textNombreProducto.Text;
             formProductoNuevo.currentProducto.nombreUnidad = cbxUnidadMedida.Text;
 
-            formProductoNuevo.currentProducto.precioCompra = double.Parse(textPrecioCompra.Text, CultureInfo.GetCultureInfo("en-US"));
+            formProductoNuevo.currentProducto.precioCompra = Decimal.Parse(textPrecioCompra.Text);
         }
 
         #region ================================ Validation ===============================
@@ -209,12 +214,12 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 Validator.textboxValidateColor(textPrecioCompra, 0);
                 errorProvider1.SetError(textPrecioCompra, "Campo obligatorio");
-                this.isFieldsValid = false;
+                this.precioValido = false;
                 return;
             }
             Validator.textboxValidateColor(textPrecioCompra, 1);
             errorProvider1.Clear();
-            this.isFieldsValid = true;
+            this.precioValido = true;
         }
 
         private async void validarProductoNombreCodigo()
@@ -224,7 +229,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 Validator.textboxValidateColor(textNombreProducto, 0);
                 errorProvider1.SetError(textNombreProducto, "Campo obligatorio");
-                this.isFieldsValid = false;
+                this.nombreValido = false;
                 return;
             }
 
@@ -239,14 +244,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 errorProvider1.SetError(textNombreProducto, "Ya existe un producto con el mismo nombre.");
                 Validator.textboxValidateColor(textNombreProducto, 0);
-                this.isFieldsValid = false;
+                this.nombreValido = false;
                 return;
             }
 
             // Dando el formato adecuado cuando paso toda las validaciones
             Validator.textboxValidateColor(textNombreProducto, 1);
             errorProvider1.Clear();
-            this.isFieldsValid = true;
+            this.nombreValido = true;
         }
 
         private async void validarProductoNombre()
@@ -256,14 +261,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 Validator.textboxValidateColor(textNombreProducto, 0);
                 errorProvider1.SetError(textNombreProducto, "Campo obligatorio");
-                this.isFieldsValid = false;
+                this.nombreValido = false;
                 return;
             }
 
             // Creando el objeto para enviar
             Producto np = new Producto();
             np.nombre = textNombreProducto.Text;
-            np.idProducto = (formProductoNuevo.nuevo) ? 0 : formProductoNuevo.currentProducto.idProducto;
+            np.idProducto = (formProductoNuevo.nuevo) ? 0 : formProductoNuevo.currentIDProducto;
 
             // validando si el codigo del producto existe
             List<Producto> list = await productoModel.validarProducto(np);
@@ -271,14 +276,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 errorProvider1.SetError(textNombreProducto, "Ya existe un producto con el mismo nombre.");
                 Validator.textboxValidateColor(textNombreProducto, 0);
-                this.isFieldsValid = false;
+                this.nombreValido = false;
                 return;
             }
 
             // Dando el formato adecuado cuando paso toda las validaciones
             Validator.textboxValidateColor(textNombreProducto, 1);
             errorProvider1.Clear();
-            this.isFieldsValid = true;
+            this.nombreValido = true;
         }
 
         private async void validarProductoCodigo()
@@ -289,14 +294,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 Validator.textboxValidateColor(textCodigoProducto, 0);
                 errorProvider1.SetError(textCodigoProducto, "Campo obligatorio");
-                this.isFieldsValid = false;
+                this.codigoValido = false;
                 return;
             }
 
             // Creando el objeto para enviar
             Producto np = new Producto();
             np.codigo = textCodigoProducto.Text;
-            np.idProducto = (formProductoNuevo.nuevo) ? 0 : formProductoNuevo.currentProducto.idProducto;
+            np.idProducto = (formProductoNuevo.nuevo) ? 0 : formProductoNuevo.currentIDProducto;
 
             // validando si el codigo del producto existe
             List<Producto> list = await productoModel.validarProducto(np);
@@ -304,14 +309,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 errorProvider1.SetError(textCodigoProducto, "Ya existe un producto con el mismo código.");
                 Validator.textboxValidateColor(textCodigoProducto, 0);
-                this.isFieldsValid = false;
+                this.codigoValido = false;
                 return;
             }
 
             // Dando el formato adecuado cuando paso toda las validaciones
             Validator.textboxValidateColor(textCodigoProducto, 1);
             errorProvider1.Clear();
-            this.isFieldsValid = true;
+            this.codigoValido = true;
         }
 
         /**
@@ -343,7 +348,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void btnGuardarSalir_Click(object sender, EventArgs e)
         {
             // Validando los campos
-            if (!isFieldsValid)
+            if (!codigoValido || !nombreValido || !precioValido)
             {
                 MessageBox.Show("Datos incorrectos", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
