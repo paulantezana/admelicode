@@ -97,8 +97,8 @@ namespace Admeli.Ventas.Nuevo
         private double total = 0;
 
         private int tab = 0;
-
-
+        private bool faltaCliente=false;
+        private bool faltaProducto = false;
         // variables para poder imprimir la cotizacion
 
         private int numberOfItemsPerPage = 0;
@@ -150,10 +150,20 @@ namespace Admeli.Ventas.Nuevo
 
         private double toDouble(string texto)
         {
-            return double.Parse(texto, CultureInfo.GetCultureInfo("en-US")); ;
+            if (texto == "")
+            {
+
+                return 0;
+            }
+            return double.Parse(texto, CultureInfo.GetCultureInfo("en-US")); 
         }
         private int toEntero(string texto)
         {
+            if (texto == "")
+            {
+
+                return 0;
+            }
             return Int32.Parse(texto, CultureInfo.GetCultureInfo("en-US")); ;
         }
 
@@ -234,23 +244,29 @@ namespace Admeli.Ventas.Nuevo
             switch (e.KeyCode)
             {
                 case Keys.F2: // productos
-                    
+                    cbxCodigoProducto.Focus();
+                    break;
+                case Keys.F3:
+                    cbxTipoDocumento.Focus();
                     break;
                 case Keys.F4:
-                   
-                    break;
-                case Keys.F5:
-                   
-                    break;
-                case Keys.F6:
-                   
-                    break;
-                case Keys.F7:
-                  
-                    break;
+
+                    lbEditar.ForeColor = Color.Red;
+                    chbxEditar.Focus();
+                    break;           
+              
                 default:
+                    if (e.Control &&  e.KeyValue ==13)
+                    {
+                        HacerCotizacion();
+                    }
+
                     break;
             }
+
+           
+
+
         }
         #endregion
 
@@ -702,11 +718,17 @@ namespace Admeli.Ventas.Nuevo
         {
             if (state)
             {
+                panel1.Visible = state;
+                progressBarVenta.Visible = state;
+               
                 progressBarVenta.Style = ProgressBarStyle.Marquee;
             }
             else
             {
+               
                 progressBarVenta.Style = ProgressBarStyle.Blocks;
+                progressBarVenta.Visible = state;
+                panel1.Visible = state;
             }
         }
         private void loadState(bool state)
@@ -846,7 +868,7 @@ namespace Admeli.Ventas.Nuevo
 
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "determinar Descuento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "determinar Descuento I", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
           
 
@@ -993,7 +1015,7 @@ namespace Admeli.Ventas.Nuevo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "determinar Descuento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "determinar Descuento total" , MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -1426,7 +1448,7 @@ namespace Admeli.Ventas.Nuevo
 
                 txtCantidad.Text = darformato(toDouble(currentdetalleV.cantidad));
                 cbxCodigoProducto.Text = currentdetalleV.codigoProducto;
-                cbxDescripcion.Text = currentdetalleV.descripcion;
+                cbxDescripcion.Text = currentdetalleV.nombrePresentacion;
                 cbxVariacion.SelectedValue = currentdetalleV.idCombinacionAlternativa;
                 txtCantidad.Text = darformato(toDouble(currentdetalleV.cantidad));
 
@@ -1541,7 +1563,7 @@ namespace Admeli.Ventas.Nuevo
                 bool seleccionado = false;
                 if (cbxCodigoProducto.SelectedValue != null)
                     seleccionado = true;
-                if (cbxDescripcion.SelectedValue != null)
+                if (cbxDescripcion.SelectedValue != null && seleccionado)
                     seleccionado = true;
                 // if(idProducto)
 
@@ -1865,7 +1887,7 @@ namespace Admeli.Ventas.Nuevo
                         //llenamos los datos en FormproveerdorNuevo
                         FormClienteNuevo formClienteNuevo = new FormClienteNuevo(aux);
                         formClienteNuevo.ShowDialog();
-                        cargarClientes();
+                        
                         Response response = formClienteNuevo.uCClienteGeneral.rest;
                         if (response != null)
                             if (response.id > 0)
@@ -1924,8 +1946,18 @@ namespace Admeli.Ventas.Nuevo
         }
 
       
-        private async void btnCotizacion_Click_1(object sender, EventArgs e)
+        private  void btnCotizacion_Click_1(object sender, EventArgs e)
         {
+            HacerCotizacion();
+
+        }
+
+
+        public async  void HacerCotizacion()
+        {
+
+            btnCotizacion.Focus();
+            btnCotizacion.Select();
             if (detalleVentas == null)
             {
                 detalleVentas = new List<DetalleV>();
@@ -1937,15 +1969,22 @@ namespace Admeli.Ventas.Nuevo
 
                 if(CurrentCliente == null)
                 {
-
-                    MessageBox.Show("Error: " + " cliente no seleccionado", "cliente ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    cbxNombreRazonCliente.Focus();
+                    
+                    MessageBox.Show("Error: " + " cliente no seleccionado", "cliente ",0, MessageBoxIcon.Warning);
+                    loadState(false);
+                    faltaCliente = true;
+                    cbxTipoDocumento.Select();
+                    cbxTipoDocumento.Focus();
+                    
                     return;
 
                 }
                 if (   detalleVentas.Count == 0)
                 {
+                  
                     MessageBox.Show("Error: " + " Productos no seleccionados", "Productos ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    loadState(false);
+                    faltaProducto = true;
                     cbxCodigoProducto.Focus();
                     return;
 
@@ -2046,6 +2085,8 @@ namespace Admeli.Ventas.Nuevo
 
 
             }
+
+
         }
 
         // para graficar lo que va imprimir
@@ -2326,67 +2367,120 @@ namespace Admeli.Ventas.Nuevo
 
         private void cbxCodigoProducto_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+            if (faltaProducto)
+            {
+                faltaProducto = false;
             }
         }
 
         private void cbxDescripcion_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+            if (e.Control)
+            {
+                btnCotizacion.Select();
+
+
+
             }
         }
 
         private void cbxVariacion_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+            if (e.Control)
+            {
+                btnCotizacion.Select();
+
+
+
             }
         }
 
         private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+            if (e.Control)
+            {
+                btnCotizacion.Select();
+
+
+
             }
         }
 
         private void txtPrecioUnitario_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+            if (e.Control)
+            {
+                btnCotizacion.Select();
+
+
+
             }
         }
 
         private void txtDescuento_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+            if (e.Control)
+            {
+                btnCotizacion.Select();
+
+
+
             }
         }
 
         private void txtTotalProducto_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
                 this.btnAgregar.Focus();
+            }
+            if (e.Control)
+            {
+                btnCotizacion.Select();
+
+
+
             }
         }
 
         private void dgvDetalleOrdenCompra_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !faltaCliente && !faltaProducto)
             {
 
                 this.cbxCodigoProducto.Focus();
+
+            }
+            if (e.Control)
+            {
+                btnCotizacion.Select();
+
+
 
             }
         }
@@ -2400,7 +2494,7 @@ namespace Admeli.Ventas.Nuevo
         }
         private void cbxTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxTipoDocumento.SelectedIndex == -1 || cbxNombreRazonCliente.SelectedIndex == -1) return;
+         
             if (nuevo)
             {
                 if (cbxTipoDocumento.SelectedIndex == -1) return;
@@ -2410,7 +2504,7 @@ namespace Admeli.Ventas.Nuevo
                 if (tipoDocumento.tipoDocumento == "Jurídico")
                 {
                     if (listClientes == null ) return;
-                  
+                    if(cbxNombreRazonCliente.SelectedIndex == -1) return;
                     Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento  &&  X.idCliente==(int)cbxNombreRazonCliente.SelectedValue);// && falta lo de 
                     if (cliente == null)
                     {
@@ -2422,7 +2516,8 @@ namespace Admeli.Ventas.Nuevo
 
                 else
                 {
-                    if ( listClientes == null ) return;                        
+                    if ( listClientes == null ) return;
+                    if (cbxNombreRazonCliente.SelectedIndex == -1) return;
                     Cliente cliente = listClientes.Find(X => X.idDocumento == tipoDocumento.idDocumento && X.idCliente == (int)cbxNombreRazonCliente.SelectedValue);
                     if (cliente == null)
                     {
@@ -2447,6 +2542,155 @@ namespace Admeli.Ventas.Nuevo
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCotizacion_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbxTipoDocumento_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+               
+            }
+            else
+            {
+                faltaCliente = false;
+
+            }
+            //if()
+        }
+
+        private void txtDocumentoCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void panel7_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSerie_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        
+
+        private void cbxNombreRazonCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                txtDireccionCliente.Focus();
+            }
+            if(e.KeyCode== Keys.Right)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+
+            }
+        }
+
+
+        // ver en detalle esta parte para un mejor buscador
+        private void btnBuscarCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        
+
+        private void txtDireccionCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+                lbEditar.ForeColor = Color.Red;
+            }
+        }
+
+        private void chbxEditar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+                lbEditar.ForeColor = Color.Black;
+            }
+            if (e.KeyCode == Keys.Add)
+            {
+                chbxEditar.Checked = true;
+                txtCorrelativo.Enabled = true;
+            }
+            if (e.KeyCode == Keys.Subtract)
+            {
+                chbxEditar.Checked = false;
+                txtCorrelativo.Enabled = false;
+            }
+       
+        
+        }
+
+        private void txtCorrelativo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+
+            }
+        }
+
+        private void cbxTipoMoneda_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+
+            }
+        }
+
+        private void dtpFechaEmision_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaEmision_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+
+            }
+        }
+
+        private void dtpFechaVecimiento_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !faltaCliente)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+
+            }
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

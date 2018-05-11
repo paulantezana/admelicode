@@ -944,5 +944,20 @@ namespace Admeli.Productos
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBuscar_OnValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBuscar_KeyUp_1(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

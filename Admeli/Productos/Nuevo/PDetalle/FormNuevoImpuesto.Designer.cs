@@ -64,7 +64,7 @@
             this.panelHeader.Controls.Add(this.label4);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(601, 52);
             this.panelHeader.TabIndex = 33;
@@ -85,7 +85,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 466);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(601, 60);
@@ -97,7 +97,7 @@
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(32, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(536, 59);
             this.panel1.TabIndex = 6;
@@ -113,7 +113,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(77, 7);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(203, 44);
             this.btnGuardar.TabIndex = 0;
@@ -133,7 +133,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(307, 7);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 44);
             this.btnClose.TabIndex = 1;
@@ -159,11 +159,11 @@
             this.textNombreImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNombreImpuesto.BorderThickness = 1;
             this.textNombreImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreImpuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreImpuesto.isPassword = false;
             this.textNombreImpuesto.Location = new System.Drawing.Point(8, 85);
-            this.textNombreImpuesto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombreImpuesto.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreImpuesto.Name = "textNombreImpuesto";
             this.textNombreImpuesto.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textNombreImpuesto.Size = new System.Drawing.Size(576, 43);
@@ -190,11 +190,11 @@
             this.textSiglasImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textSiglasImpuesto.BorderThickness = 1;
             this.textSiglasImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textSiglasImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSiglasImpuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSiglasImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textSiglasImpuesto.isPassword = false;
             this.textSiglasImpuesto.Location = new System.Drawing.Point(9, 169);
-            this.textSiglasImpuesto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textSiglasImpuesto.Margin = new System.Windows.Forms.Padding(5);
             this.textSiglasImpuesto.Name = "textSiglasImpuesto";
             this.textSiglasImpuesto.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textSiglasImpuesto.Size = new System.Drawing.Size(303, 43);
@@ -221,7 +221,7 @@
             this.chkPorcentual.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkPorcentual.ForeColor = System.Drawing.Color.White;
             this.chkPorcentual.Location = new System.Drawing.Point(12, 229);
-            this.chkPorcentual.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkPorcentual.Margin = new System.Windows.Forms.Padding(5);
             this.chkPorcentual.Name = "chkPorcentual";
             this.chkPorcentual.Size = new System.Drawing.Size(20, 20);
             this.chkPorcentual.TabIndex = 53;
@@ -245,11 +245,11 @@
             this.textValorImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textValorImpuesto.BorderThickness = 1;
             this.textValorImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textValorImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textValorImpuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textValorImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textValorImpuesto.isPassword = false;
             this.textValorImpuesto.Location = new System.Drawing.Point(8, 292);
-            this.textValorImpuesto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textValorImpuesto.Margin = new System.Windows.Forms.Padding(5);
             this.textValorImpuesto.Name = "textValorImpuesto";
             this.textValorImpuesto.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textValorImpuesto.Size = new System.Drawing.Size(304, 43);
@@ -275,7 +275,7 @@
             this.chkPorDefecto.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkPorDefecto.ForeColor = System.Drawing.Color.White;
             this.chkPorDefecto.Location = new System.Drawing.Point(9, 350);
-            this.chkPorDefecto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkPorDefecto.Margin = new System.Windows.Forms.Padding(5);
             this.chkPorDefecto.Name = "chkPorDefecto";
             this.chkPorDefecto.Size = new System.Drawing.Size(20, 20);
             this.chkPorDefecto.TabIndex = 57;
@@ -299,7 +299,7 @@
             this.chkActivo.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
             this.chkActivo.Location = new System.Drawing.Point(9, 415);
-            this.chkActivo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(5);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 59;
@@ -365,7 +365,7 @@
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormNuevoImpuesto";
             this.Text = "FormNuevoImpuesto";
             this.panelHeader.ResumeLayout(false);
