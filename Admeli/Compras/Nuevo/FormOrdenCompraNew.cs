@@ -611,7 +611,7 @@ namespace Admeli.Compras.Nuevo
                 {
                     if (cbxDescripcion.SelectedIndex == -1)
                     {
-                        txtPrecioUnitario.Text = currentProducto.precioCompra;
+                        txtPrecioUnitario.Text = currentProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
                     }
                     else
                     {
@@ -620,7 +620,7 @@ namespace Admeli.Compras.Nuevo
                         Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == idPresentacion);
 
                         // Realizando el calculo
-                        double precioCompra = double.Parse(currentProducto.precioCompra, CultureInfo.GetCultureInfo("en-US"));
+                        double precioCompra = double.Parse(currentProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
                         double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
                         double precioUnidatio = precioCompra * cantidadUnitario;
 
@@ -646,8 +646,8 @@ namespace Admeli.Compras.Nuevo
                     Producto findProducto = productos.Find(x => x.idProducto == findPresentacion.idProducto);
                     cbxCodigoProducto.Text = findProducto.codigoProducto;
                     // Realizando el calculo
-                    double precioCompra = double.Parse(findProducto.precioCompra, CultureInfo.GetCultureInfo("en-US"));
-                    double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
+                    double precioCompra = double.Parse(findProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
+                    double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria);
                     double precioUnidatio = precioCompra * cantidadUnitario;
 
                     // Imprimiendo valor

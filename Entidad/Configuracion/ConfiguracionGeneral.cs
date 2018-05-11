@@ -11,6 +11,7 @@ namespace Entidad.Configuracion
         public int idConfiguracionGeneral { get; set; }
         public int numeroDecimales { get; set; }
         public int itemPorPagina { get; set; }
+        public string formatoDecimales = "0.##";
         public string porcentajeUtilidad { get; set; }
         public string imagenPorDefecto { get; set; }
         public string logoImpresion { get; set; }

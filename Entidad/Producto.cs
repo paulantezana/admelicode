@@ -8,6 +8,7 @@ namespace Entidad
 {
     public class Producto
     {
+        //Compra,Venta,Stock cambiado el tipo de string a Decimal
         public int idProducto { get; set; }
         public bool cantidadFraccion { get; set; }
         public string codigoBarras { get; set; }
@@ -30,13 +31,12 @@ namespace Entidad
         public string nombreMarca { get; set; }
         public string nombreProducto { get; set; }
         public string nombreUnidad { get; set; }
-        public dynamic precioCompra { get; set; }
+        public Decimal precioCompra { get; set; }
         public string urlVideo { get; set; }
         public bool ventaVarianteSinStock { get; set; }
         public string nombre { get; set; }
         public string codigo { get; set; }
         private string estadoString;
-
 
         public string EstadoString
         {
@@ -50,15 +50,12 @@ namespace Entidad
                 estadoString = value;
             }
         }
-
-        public string precioVenta { get; set; }
-        public string stock { get; set; }
+        public Decimal precioVenta { get; set; }
+        public Decimal stock { get; set; }
         public string stockFinanciero { get; set; }
         public int idPresentacionAfectada { get; set; }
-
         public int idAlmacen { get; set; }
         public string nombreAlmacen { get; set; }
-
     }
 
     public class ProductoVenta
@@ -84,17 +81,14 @@ namespace Entidad
     }
     public class ProductoData
     {
+        //Compra,Impuesto,Utilidad,Venta,Stock cambiando los tipos de string a Decimal
         public int idProducto { get; set; }
         public string codigoProducto { get; set; }
         public string nombreProducto { get; set; }
-        public string descripcionCorta { get; set; }
-        
-        public string precioCompra { get; set; }
-      
-
-
-        public string precioConImpuesto { get; set; }
-        public string utilidad { get; set; }
+        public string descripcionCorta { get; set; }        
+        public Decimal precioCompra { get; set; }
+        public Decimal precioConImpuesto { get; set; }
+        public Decimal utilidad { get; set; }
         public int estado { get; set; }
         public int idUnidadMedida { get; set; }
         public int idMarca { get; set; }
@@ -103,8 +97,8 @@ namespace Entidad
         public bool enUso { get; set; }
         public bool mostrarWeb { get; set; }
         public bool mostrarPrecioWeb { get; set; }
-        public string precioVenta { get; set; }
-        public string stock { get; set; }
+        public Decimal precioVenta { get; set; }
+        public Decimal stock { get; set; }
         public string stockFinanciero { get; set; }
         public int idSucursal { get; set; }
         public string sucursal { get; set; }
@@ -131,7 +125,7 @@ namespace Entidad
         public string codigo { get; set; }
         public string nombrePresentacion { get; set; }
      
-
+        
 
 
     }

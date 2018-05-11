@@ -375,8 +375,6 @@ namespace Admeli.Productos.Nuevo
 
 
                     }
-
-                    MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Consulta de guardar =============================================
                     
                     this.reLoad();

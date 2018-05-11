@@ -105,6 +105,7 @@ namespace Admeli.Productos
         #region ============================== Root Load ==============================
         private void UCListadoProducto_Load(object sender, EventArgs e)
         {
+            this.darFormatoDecimales();
             this.reLoad();
 
             // Preparando para los eventos de teclado
@@ -114,6 +115,16 @@ namespace Admeli.Productos
                 (TopLevelControl as Form).KeyPreview = true;
                 TopLevelControl.KeyUp += TopLevelControl_KeyUp;
             }
+        }
+
+        private void darFormatoDecimales()
+        {
+            dataGridView.Columns["precioCompra"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["precioVenta"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["stock"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["precioCompra"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView.Columns["precioVenta"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView.Columns["stock"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;            
         }
 
         internal void reLoad(bool refreshData = true)
