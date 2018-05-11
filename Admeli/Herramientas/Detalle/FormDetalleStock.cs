@@ -161,10 +161,10 @@ namespace Admeli.Herramientas.Detalle
 
         }
 
-
-
-
-
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 

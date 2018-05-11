@@ -171,6 +171,7 @@
             this.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnsalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnsalir.UseVisualStyleBackColor = false;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
             // panel13
             // 

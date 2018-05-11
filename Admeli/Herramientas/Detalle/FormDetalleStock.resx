@@ -148,18 +148,17 @@
   </metadata>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACJklEQVRIS63WPWgUURDA8QdB
-        8asQBCvthBQiNnY2FsFaCBYqgjlxNRrb2CSFWqggmkZNKykVBBFB10TQGGLEYBDiF6IkdoaQBDSXeLfj
-        f3zn3b63L2Y38eB3H8ObmX07d7tnTMfAcvbhKgYxgSlMYgg9aEETQrmWOREvpRWDqEL+IcEwDiFUhyYR
-        T66tuAtZgQfYBremF9iBcYQK5PUZO9Gom/qgO/iAUGJRX7EdmSb3EUpYqX40od7kINxFxx8X59eI4hL+
-        NFmD0VrQOvVETOczMeeeF6N56TpR/B7rtcn+VNAeEQlTP37JYjWRhUo+cwtVMd0vxJQyOzqgTXqdoH73
-        zwyIufFGTO+YmFs53cTZpzY/XS+Kb2uTMS9oFx55KOZwAbpe805mTtm4Npn2gmLa+8V0sfXuofx0veb5
-        taJ4RpvMO8HaTKbnK5IkIowll5+LiW1WepRuoMraZMYJ/p3Jtddiekbzu876DvKyM5nTJu+84P+eySdt
-        0ucF7bk9PyzmYgEXcJq87E7uaJNWJ1ibyWy5IkUeZX4rS8zkqDbZiI+poD2iSyNirhRw+ZWdpbuTb9is
-        TVR7LdjQxhEdK0DXZ09VJ+oXyLV4CX/RarzFBjiX+mZ8RyihqFnshq1df2PtxWob6e+uBY26zgdrF0YQ
-        KrAcvQ7ugVszE7DWQYf2BaFivkl0YROy9YLBhi3Qu9s96H27DC2qrxPQW3YE/X8QykdsfgN0PP0m80TL
-        eAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAImSURBVEhLrdY9aBRREMDxB0HxqxAEK+2EFCI2djYW
+        wVoIFiqCOXE1GtvYJIVaqCCaRk0rKRUEEUHXRNAYYsRgEOIXoiR2hpAENJd4t+N/fOfdvrcvZjfx4Hcf
+        w5uZfTt3u2dMx8By9uEqBjGBKUxiCD1oQRNCuZY5ES+lFYOoQv4hwTAOIVSHJhFPrq24C1mBB9gGt6YX
+        2IFxhArk9Rk70aib+qA7+IBQYlFfsR2ZJvcRSlipfjSh3uQg3EXHHxfn14jiEv40WYPRWtA69URM5zMx
+        554Xo3npOlH8Huu1yf5U0B4RCVM/fsliNZGFSj5zC1Ux3S/ElDI7OqBNep2gfvfPDIi58UZM75iYWznd
+        xNmnNj9dL4pva5MxL2gXHnko5nABul7zTmZO2bg2mfaCYtr7xXSx9e6h/HS95vm1onhGm8w7wdpMpucr
+        kiQijCWXn4uJbVZ6lG6gytpkxgn+ncm112J6RvO7zvoO8rIzmdMm77zg/57JJ23S5wXtuT0/LOZiARdw
+        mrzsTu5ok1YnWJvJbLkiRR5lfitLzOSoNtmIj6mgPaJLI2KuFHD5lZ2lu5Nv2KxNVHst2NDGER0rQNdn
+        T1Un6hfItXgJf9FqvMUGOJf6ZnxHKKGoWeyGrV1/Y+3Fahvp764FjbrOB2sXRhAqsBy9Du6BWzMTsNZB
+        h/YFoWK+SXRhE7L1gsGGLdC72z3ofbsMLaqvE9BbdgT9fxDKR2x+A3Q8/SbzRMt4AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="detalleNotaSalidaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
