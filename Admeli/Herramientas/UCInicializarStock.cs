@@ -73,30 +73,42 @@ namespace Admeli.Herramientas
             DrawShape drawShape = new DrawShape();
             drawShape.lineBorder(panelSucursal);
             drawShape.lineBorder(panelAlmacen);
+           
         }
 
 
         private void decorationDataGridView()
         {
             if (dataGridView.Rows.Count == 0) return;
-
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            try
             {
 
-                int idProducto = Convert.ToInt32(row.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+
+                    int idProducto = Convert.ToInt32(row.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
                
 
-                ProductoData data = productos.Find(X => X.idProducto == idProducto);
-                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
+                    ProductoData data = productos.Find(X => X.idProducto == idProducto);
+                    combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
 
                 
-                if (combinacionesProducto.Count>0)
-                {
-                    dataGridView.ClearSelection();
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(122,255,105);
-                    row.DefaultCellStyle.ForeColor = Color.Green;
+                    if (combinacionesProducto.Count>0)
+                    {
+                        dataGridView.ClearSelection();
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(122,255,105);
+                        row.DefaultCellStyle.ForeColor = Color.Green;
+                    }
                 }
+
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "mostrar combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            
+
         }
         #endregion
 
@@ -446,15 +458,13 @@ namespace Admeli.Herramientas
                
                 if (sendList.Count > 0)
                 {
-                     rootObjectData = await productoModel.stockHerramientaLike<RootObjectData>(sendList, textBuscar.Text, almacenID, sucursalId, paginacion.currentPage, paginacion.speed);
+                     rootObjectData = await productoModel.stockHerramientaLike<RootObjectData>(sendList, textBuscar.Text.Trim(), almacenID, sucursalId, paginacion.currentPage, paginacion.speed);
                     // actualizando datos de páginacón
                     paginacion.itemsCount = rootObjectData.nro_registros;
                     paginacion.reload();
 
                     // Ingresando
-                    productos = rootObjectData.productos;
-                    combinaciones= rootObjectData.combinacion;
-
+                    productos = rootObjectData.productos;                   
                     productoDataBindingSource.DataSource = null;
                     productoDataBindingSource.DataSource = productos;
                     combinaciones = rootObjectData.combinacion;

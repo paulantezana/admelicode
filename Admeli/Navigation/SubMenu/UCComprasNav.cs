@@ -13,8 +13,7 @@ namespace Admeli.Navigation.SubMenu
 {
     public partial class UCComprasNav : UserControl
     {
-        private UCCompras uCCompras;
-        private UCCuentaPagar uCCuentaPagar;
+        private UCCompras uCCompras;      
         private UCOrdenCompraProveedor uCOrdenCompraProveedor;
         private UCProveedores uCProveedores;
 
@@ -56,24 +55,7 @@ namespace Admeli.Navigation.SubMenu
                     }
                     this.formPrincipal.lblTitlePage.Text = "Compra - Compras";
                     break;
-                case "cuentaPagar":
-                    if (uCCuentaPagar == null)
-                    {
-                        this.uCCuentaPagar = new Admeli.Compras.UCCuentaPagar(this.formPrincipal);
-                        this.formPrincipal.panelMain.Controls.Add(uCCuentaPagar);
-                        this.uCCuentaPagar.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCCuentaPagar.Location = new System.Drawing.Point(0, 0);
-                        this.uCCuentaPagar.Name = "uCCuentaPagar";
-                        this.uCCuentaPagar.Size = new System.Drawing.Size(250, 776);
-                        this.uCCuentaPagar.TabIndex = 0;
-                    }
-                    else
-                    {
-                        this.formPrincipal.panelMain.Controls.Add(uCCuentaPagar);
-                        this.uCCuentaPagar.reLoad();
-                    }
-                    this.formPrincipal.lblTitlePage.Text = "Compra - Cuentas a pagar";
-                    break;
+            
                 case "ordenCompraProveedor":
                     if (uCOrdenCompraProveedor == null)
                     {

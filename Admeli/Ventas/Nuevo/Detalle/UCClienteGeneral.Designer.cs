@@ -120,7 +120,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(58, 6);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(152, 36);
-            this.btnAceptar.TabIndex = 0;
+            this.btnAceptar.TabIndex = 18;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -139,7 +139,7 @@
             this.btnClose.Location = new System.Drawing.Point(230, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 36);
-            this.btnClose.TabIndex = 5;
+            this.btnClose.TabIndex = 19;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
@@ -218,7 +218,7 @@
             this.textNIdentificacion.Name = "textNIdentificacion";
             this.textNIdentificacion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textNIdentificacion.Size = new System.Drawing.Size(252, 33);
-            this.textNIdentificacion.TabIndex = 0;
+            this.textNIdentificacion.TabIndex = 2;
             this.textNIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textNIdentificacion.OnValueChanged += new System.EventHandler(this.textNIdentificacion_OnValueChanged);
             this.textNIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNIdentificacion_KeyPress);
@@ -236,7 +236,7 @@
             this.cbxTipoGrupo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTipoGrupo.Name = "cbxTipoGrupo";
             this.cbxTipoGrupo.Size = new System.Drawing.Size(214, 32);
-            this.cbxTipoGrupo.TabIndex = 4;
+            this.cbxTipoGrupo.TabIndex = 5;
             this.cbxTipoGrupo.ValueMember = "idGrupoCliente";
             // 
             // grupoClienteCBindingSource
@@ -271,7 +271,7 @@
             this.textCelular.Name = "textCelular";
             this.textCelular.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textCelular.Size = new System.Drawing.Size(267, 33);
-            this.textCelular.TabIndex = 2;
+            this.textCelular.TabIndex = 9;
             this.textCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label2
@@ -302,7 +302,7 @@
             this.textZipCode.Name = "textZipCode";
             this.textZipCode.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textZipCode.Size = new System.Drawing.Size(267, 33);
-            this.textZipCode.TabIndex = 3;
+            this.textZipCode.TabIndex = 10;
             this.textZipCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lbGrupo
@@ -333,7 +333,7 @@
             this.textDireccion.Name = "textDireccion";
             this.textDireccion.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textDireccion.Size = new System.Drawing.Size(256, 33);
-            this.textDireccion.TabIndex = 10;
+            this.textDireccion.TabIndex = 16;
             this.textDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lbEmail
@@ -364,7 +364,7 @@
             this.textEmail.Name = "textEmail";
             this.textEmail.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textEmail.Size = new System.Drawing.Size(249, 33);
-            this.textEmail.TabIndex = 5;
+            this.textEmail.TabIndex = 7;
             this.textEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // cbxNivel3
@@ -377,7 +377,7 @@
             this.cbxNivel3.Location = new System.Drawing.Point(701, 279);
             this.cbxNivel3.Name = "cbxNivel3";
             this.cbxNivel3.Size = new System.Drawing.Size(256, 28);
-            this.cbxNivel3.TabIndex = 9;
+            this.cbxNivel3.TabIndex = 15;
             this.cbxNivel3.ValueMember = "idNivel3";
             this.cbxNivel3.Visible = false;
             // 
@@ -408,7 +408,7 @@
             this.cbxNivel2.Location = new System.Drawing.Point(701, 212);
             this.cbxNivel2.Name = "cbxNivel2";
             this.cbxNivel2.Size = new System.Drawing.Size(256, 28);
-            this.cbxNivel2.TabIndex = 8;
+            this.cbxNivel2.TabIndex = 14;
             this.cbxNivel2.ValueMember = "idNivel2";
             this.cbxNivel2.Visible = false;
             this.cbxNivel2.SelectedIndexChanged += new System.EventHandler(this.cbxNivel2_SelectedIndexChanged);
@@ -440,7 +440,7 @@
             this.cbxNivel1.Location = new System.Drawing.Point(701, 152);
             this.cbxNivel1.Name = "cbxNivel1";
             this.cbxNivel1.Size = new System.Drawing.Size(256, 28);
-            this.cbxNivel1.TabIndex = 7;
+            this.cbxNivel1.TabIndex = 13;
             this.cbxNivel1.ValueMember = "idNivel1";
             this.cbxNivel1.Visible = false;
             this.cbxNivel1.SelectedIndexChanged += new System.EventHandler(this.cbxNivel1_SelectedIndexChanged);
@@ -472,7 +472,7 @@
             this.cbxPaises.Location = new System.Drawing.Point(701, 89);
             this.cbxPaises.Name = "cbxPaises";
             this.cbxPaises.Size = new System.Drawing.Size(256, 28);
-            this.cbxPaises.TabIndex = 6;
+            this.cbxPaises.TabIndex = 12;
             this.cbxPaises.ValueMember = "idPais";
             this.cbxPaises.SelectedIndexChanged += new System.EventHandler(this.cbxPaises_SelectedIndexChanged);
             // 
@@ -536,7 +536,7 @@
             this.textTelefono.Name = "textTelefono";
             this.textTelefono.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.textTelefono.Size = new System.Drawing.Size(267, 33);
-            this.textTelefono.TabIndex = 1;
+            this.textTelefono.TabIndex = 8;
             this.textTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTelefono_KeyPress);
             // 
@@ -553,7 +553,7 @@
             this.cbxDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.cbxDocumento.Name = "cbxDocumento";
             this.cbxDocumento.Size = new System.Drawing.Size(252, 32);
-            this.cbxDocumento.TabIndex = 107;
+            this.cbxDocumento.TabIndex = 1;
             this.cbxDocumento.ValueMember = "idDocumento";
             this.cbxDocumento.SelectedIndexChanged += new System.EventHandler(this.cbxDocumento_SelectedIndexChanged);
             // 
@@ -578,7 +578,7 @@
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.txtNombreCliente.Size = new System.Drawing.Size(252, 33);
-            this.txtNombreCliente.TabIndex = 108;
+            this.txtNombreCliente.TabIndex = 3;
             this.txtNombreCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCliente_KeyPress);
             // 
@@ -622,7 +622,7 @@
             this.cbxSexo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxSexo.Name = "cbxSexo";
             this.cbxSexo.Size = new System.Drawing.Size(252, 32);
-            this.cbxSexo.TabIndex = 111;
+            this.cbxSexo.TabIndex = 4;
             this.cbxSexo.ValueMember = "idMarca";
             // 
             // lbsexo
@@ -644,7 +644,7 @@
             this.txtDatosEnvio.Multiline = true;
             this.txtDatosEnvio.Name = "txtDatosEnvio";
             this.txtDatosEnvio.Size = new System.Drawing.Size(267, 101);
-            this.txtDatosEnvio.TabIndex = 113;
+            this.txtDatosEnvio.TabIndex = 11;
             // 
             // label14
             // 
@@ -675,7 +675,7 @@
             this.btnGrupoNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupoNuevo.Name = "btnGrupoNuevo";
             this.btnGrupoNuevo.Size = new System.Drawing.Size(35, 32);
-            this.btnGrupoNuevo.TabIndex = 115;
+            this.btnGrupoNuevo.TabIndex = 6;
             this.btnGrupoNuevo.Text = "+";
             this.btnGrupoNuevo.UseVisualStyleBackColor = false;
             this.btnGrupoNuevo.Click += new System.EventHandler(this.btnGrupoNuevo_Click);
@@ -684,6 +684,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.btnGrupoNuevo);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtDatosEnvio);

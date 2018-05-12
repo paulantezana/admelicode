@@ -46,6 +46,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenuRight = new System.Windows.Forms.Panel();
+            this.panelTotal = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbTotalEfectivo = new System.Windows.Forms.Label();
             this.lblSucursal = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -68,9 +71,6 @@
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleMenuRigth = new System.Windows.Forms.Button();
             this.lblTitlePage = new System.Windows.Forms.Label();
-            this.panelTotal = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbTotalEfectivo = new System.Windows.Forms.Label();
             this.panelAsideContainer.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -79,11 +79,11 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelMenuRight.SuspendLayout();
+            this.panelTotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panelTotal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAsideContainer
@@ -112,7 +112,7 @@
             this.btnOcultar.ForeColor = System.Drawing.Color.Gray;
             this.btnOcultar.Image = ((System.Drawing.Image)(resources.GetObject("btnOcultar.Image")));
             this.btnOcultar.Location = new System.Drawing.Point(0, 689);
-            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4);
             this.btnOcultar.Name = "btnOcultar";
             this.btnOcultar.Size = new System.Drawing.Size(73, 69);
             this.btnOcultar.TabIndex = 11;
@@ -153,7 +153,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
             this.button10.Location = new System.Drawing.Point(157, 107);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(79, 62);
             this.button10.TabIndex = 10;
@@ -167,7 +167,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.Location = new System.Drawing.Point(79, 106);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(79, 62);
             this.button9.TabIndex = 9;
@@ -181,7 +181,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.Location = new System.Drawing.Point(0, 106);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(79, 62);
             this.button8.TabIndex = 8;
@@ -230,7 +230,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(307, 14);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(23, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -242,7 +242,7 @@
             // 
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.Location = new System.Drawing.Point(8, 14);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(77, 62);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -317,6 +317,39 @@
             this.panelMenuRight.TabIndex = 0;
             this.panelMenuRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuRight_Paint);
             // 
+            // panelTotal
+            // 
+            this.panelTotal.Controls.Add(this.pictureBox1);
+            this.panelTotal.Controls.Add(this.lbTotalEfectivo);
+            this.panelTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelTotal.Location = new System.Drawing.Point(1, 391);
+            this.panelTotal.Name = "panelTotal";
+            this.panelTotal.Size = new System.Drawing.Size(298, 236);
+            this.panelTotal.TabIndex = 62;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(23, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbTotalEfectivo
+            // 
+            this.lbTotalEfectivo.AutoSize = true;
+            this.lbTotalEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalEfectivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.lbTotalEfectivo.Location = new System.Drawing.Point(58, 18);
+            this.lbTotalEfectivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTotalEfectivo.Name = "lbTotalEfectivo";
+            this.lbTotalEfectivo.Size = new System.Drawing.Size(172, 24);
+            this.lbTotalEfectivo.TabIndex = 61;
+            this.lbTotalEfectivo.Text = "TOTAL EFECTIVO";
+            // 
             // lblSucursal
             // 
             this.lblSucursal.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -334,7 +367,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(24, 218);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(33, 31);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -345,7 +378,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(24, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -502,7 +535,7 @@
             this.btnVentaTocuh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnVentaTocuh.Image = ((System.Drawing.Image)(resources.GetObject("btnVentaTocuh.Image")));
             this.btnVentaTocuh.Location = new System.Drawing.Point(415, 0);
-            this.btnVentaTocuh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVentaTocuh.Margin = new System.Windows.Forms.Padding(4);
             this.btnVentaTocuh.Name = "btnVentaTocuh";
             this.btnVentaTocuh.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnVentaTocuh.Size = new System.Drawing.Size(167, 58);
@@ -522,7 +555,7 @@
             this.btnCompra2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnCompra2.Image = ((System.Drawing.Image)(resources.GetObject("btnCompra2.Image")));
             this.btnCompra2.Location = new System.Drawing.Point(582, 0);
-            this.btnCompra2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCompra2.Margin = new System.Windows.Forms.Padding(4);
             this.btnCompra2.Name = "btnCompra2";
             this.btnCompra2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnCompra2.Size = new System.Drawing.Size(149, 58);
@@ -542,7 +575,7 @@
             this.btnVenta2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnVenta2.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta2.Image")));
             this.btnVenta2.Location = new System.Drawing.Point(731, 0);
-            this.btnVenta2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVenta2.Margin = new System.Windows.Forms.Padding(4);
             this.btnVenta2.Name = "btnVenta2";
             this.btnVenta2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnVenta2.Size = new System.Drawing.Size(133, 58);
@@ -562,7 +595,7 @@
             this.btnProductos2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.btnProductos2.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos2.Image")));
             this.btnProductos2.Location = new System.Drawing.Point(864, 0);
-            this.btnProductos2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProductos2.Margin = new System.Windows.Forms.Padding(4);
             this.btnProductos2.Name = "btnProductos2";
             this.btnProductos2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnProductos2.Size = new System.Drawing.Size(164, 58);
@@ -578,7 +611,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(1028, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(64, 58);
             this.button3.TabIndex = 9;
@@ -592,7 +625,7 @@
             this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFullScreen.Image = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.Image")));
             this.btnFullScreen.Location = new System.Drawing.Point(1092, 0);
-            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(4);
             this.btnFullScreen.Name = "btnFullScreen";
             this.btnFullScreen.Size = new System.Drawing.Size(64, 58);
             this.btnFullScreen.TabIndex = 8;
@@ -607,7 +640,7 @@
             this.btnToggleMenuRigth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToggleMenuRigth.Image = ((System.Drawing.Image)(resources.GetObject("btnToggleMenuRigth.Image")));
             this.btnToggleMenuRigth.Location = new System.Drawing.Point(1156, 0);
-            this.btnToggleMenuRigth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnToggleMenuRigth.Margin = new System.Windows.Forms.Padding(4);
             this.btnToggleMenuRigth.Name = "btnToggleMenuRigth";
             this.btnToggleMenuRigth.Size = new System.Drawing.Size(64, 58);
             this.btnToggleMenuRigth.TabIndex = 7;
@@ -628,39 +661,6 @@
             this.lblTitlePage.Text = "Nombre del modulo actual";
             this.lblTitlePage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panelTotal
-            // 
-            this.panelTotal.Controls.Add(this.pictureBox1);
-            this.panelTotal.Controls.Add(this.lbTotalEfectivo);
-            this.panelTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTotal.Location = new System.Drawing.Point(1, 391);
-            this.panelTotal.Name = "panelTotal";
-            this.panelTotal.Size = new System.Drawing.Size(298, 236);
-            this.panelTotal.TabIndex = 62;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(23, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 62;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lbTotalEfectivo
-            // 
-            this.lbTotalEfectivo.AutoSize = true;
-            this.lbTotalEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalEfectivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.lbTotalEfectivo.Location = new System.Drawing.Point(58, 18);
-            this.lbTotalEfectivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTotalEfectivo.Name = "lbTotalEfectivo";
-            this.lbTotalEfectivo.Size = new System.Drawing.Size(172, 24);
-            this.lbTotalEfectivo.TabIndex = 61;
-            this.lbTotalEfectivo.Text = "TOTAL EFECTIVO";
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -672,7 +672,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrincipal";
-            this.Text = "ADMELI V1.0 BETA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FormPrueba_Load);
@@ -685,12 +684,12 @@
             this.panel4.ResumeLayout(false);
             this.panelMenuRight.ResumeLayout(false);
             this.panelMenuRight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.panelTotal.ResumeLayout(false);
             this.panelTotal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

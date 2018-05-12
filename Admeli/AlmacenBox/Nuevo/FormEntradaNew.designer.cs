@@ -1334,7 +1334,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEntradaNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nota Salida";
+            this.Text = "Nota Entrada";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormNotaSalidaNew_Load);
             this.panel1.ResumeLayout(false);

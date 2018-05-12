@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContactoNuevo));
             this.label10 = new System.Windows.Forms.Label();
             this.textEmail = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label8 = new System.Windows.Forms.Label();
@@ -81,11 +82,11 @@
             this.textEmail.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textEmail.BorderThickness = 1;
             this.textEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEmail.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textEmail.isPassword = false;
             this.textEmail.Location = new System.Drawing.Point(428, 346);
-            this.textEmail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textEmail.Margin = new System.Windows.Forms.Padding(5);
             this.textEmail.Name = "textEmail";
             this.textEmail.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textEmail.Size = new System.Drawing.Size(360, 41);
@@ -112,11 +113,11 @@
             this.textCelular.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textCelular.BorderThickness = 1;
             this.textCelular.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCelular.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCelular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textCelular.isPassword = false;
             this.textCelular.Location = new System.Drawing.Point(29, 346);
-            this.textCelular.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textCelular.Margin = new System.Windows.Forms.Padding(5);
             this.textCelular.Name = "textCelular";
             this.textCelular.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textCelular.Size = new System.Drawing.Size(360, 41);
@@ -143,11 +144,11 @@
             this.textTelefono.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textTelefono.BorderThickness = 1;
             this.textTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTelefono.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textTelefono.isPassword = false;
             this.textTelefono.Location = new System.Drawing.Point(429, 191);
-            this.textTelefono.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textTelefono.Margin = new System.Windows.Forms.Padding(5);
             this.textTelefono.Name = "textTelefono";
             this.textTelefono.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textTelefono.Size = new System.Drawing.Size(360, 41);
@@ -174,11 +175,11 @@
             this.textDireccion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textDireccion.BorderThickness = 1;
             this.textDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDireccion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textDireccion.isPassword = false;
             this.textDireccion.Location = new System.Drawing.Point(29, 191);
-            this.textDireccion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textDireccion.Margin = new System.Windows.Forms.Padding(5);
             this.textDireccion.Name = "textDireccion";
             this.textDireccion.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textDireccion.Size = new System.Drawing.Size(360, 41);
@@ -204,7 +205,7 @@
             this.chkEstado.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkEstado.ForeColor = System.Drawing.Color.White;
             this.chkEstado.Location = new System.Drawing.Point(37, 404);
-            this.chkEstado.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkEstado.Margin = new System.Windows.Forms.Padding(5);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(20, 20);
             this.chkEstado.TabIndex = 8;
@@ -228,11 +229,11 @@
             this.textNDocumento.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNDocumento.BorderThickness = 1;
             this.textNDocumento.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNDocumento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNDocumento.isPassword = false;
             this.textNDocumento.Location = new System.Drawing.Point(429, 266);
-            this.textNDocumento.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNDocumento.Margin = new System.Windows.Forms.Padding(5);
             this.textNDocumento.Name = "textNDocumento";
             this.textNDocumento.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textNDocumento.Size = new System.Drawing.Size(360, 41);
@@ -294,7 +295,7 @@
             this.textApellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textApellidos.isPassword = false;
             this.textApellidos.Location = new System.Drawing.Point(429, 111);
-            this.textApellidos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textApellidos.Margin = new System.Windows.Forms.Padding(5);
             this.textApellidos.Name = "textApellidos";
             this.textApellidos.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textApellidos.Size = new System.Drawing.Size(360, 41);
@@ -321,11 +322,11 @@
             this.textNombres.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNombres.BorderThickness = 1;
             this.textNombres.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombres.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombres.isPassword = false;
             this.textNombres.Location = new System.Drawing.Point(29, 111);
-            this.textNombres.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombres.Margin = new System.Windows.Forms.Padding(5);
             this.textNombres.Name = "textNombres";
             this.textNombres.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.textNombres.Size = new System.Drawing.Size(360, 41);
@@ -342,7 +343,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 446);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(829, 60);
@@ -354,7 +355,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(147, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(536, 60);
             this.panel1.TabIndex = 6;
@@ -370,7 +371,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(77, 7);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 44);
             this.btnAceptar.TabIndex = 0;
@@ -390,7 +391,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(307, 7);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 44);
             this.btnClose.TabIndex = 1;
@@ -404,7 +405,7 @@
             this.panelHeader.Controls.Add(this.label4);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.panelHeader.Size = new System.Drawing.Size(829, 60);
@@ -417,9 +418,9 @@
             this.label4.Location = new System.Drawing.Point(21, 20);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 19);
+            this.label4.Size = new System.Drawing.Size(81, 19);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Proveedor";
+            this.label4.Text = "Contacto";
             // 
             // FormContactoNuevo
             // 
@@ -449,7 +450,8 @@
             this.Controls.Add(this.textApellidos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textNombres);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormContactoNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contacto Nuevo";

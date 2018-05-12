@@ -343,7 +343,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.panel1.Size = new System.Drawing.Size(1096, 567);
+            this.panel1.Size = new System.Drawing.Size(1096, 498);
             this.panel1.TabIndex = 48;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -361,18 +361,18 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.03468F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.96532F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1070, 543);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1070, 474);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.flowLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(16, 423);
+            this.panel3.Location = new System.Drawing.Point(16, 369);
             this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
-            this.panel3.Size = new System.Drawing.Size(1038, 105);
+            this.panel3.Size = new System.Drawing.Size(1038, 90);
             this.panel3.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -384,7 +384,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(633, 15);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(388, 75);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(388, 60);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
             // btnAceptar
@@ -403,7 +403,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(4, 4);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(120, 68);
+            this.btnAceptar.Size = new System.Drawing.Size(120, 57);
             this.btnAceptar.TabIndex = 13;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -427,7 +427,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(132, 4);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(120, 68);
+            this.btnNuevo.Size = new System.Drawing.Size(120, 57);
             this.btnNuevo.TabIndex = 12;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -451,7 +451,7 @@
             this.btnsalir.Location = new System.Drawing.Point(260, 4);
             this.btnsalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(120, 68);
+            this.btnsalir.Size = new System.Drawing.Size(124, 57);
             this.btnsalir.TabIndex = 14;
             this.btnsalir.Text = "Salir";
             this.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -499,7 +499,7 @@
             this.dgvOrdenCompra.RowHeadersVisible = false;
             this.dgvOrdenCompra.RowTemplate.Height = 24;
             this.dgvOrdenCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenCompra.Size = new System.Drawing.Size(1042, 404);
+            this.dgvOrdenCompra.Size = new System.Drawing.Size(1042, 350);
             this.dgvOrdenCompra.TabIndex = 0;
             this.dgvOrdenCompra.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenCompra_CellDoubleClick);
             // 
@@ -652,10 +652,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1096, 678);
+            this.ClientSize = new System.Drawing.Size(1096, 609);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.progressBarApp);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "buscarOrden";
             this.Text = "Buscar Orden";

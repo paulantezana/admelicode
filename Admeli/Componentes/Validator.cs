@@ -29,6 +29,28 @@ namespace Admeli.Componentes
                 throw ex;
             }
         }
+        public static void isNroDocumento(KeyPressEventArgs e , int tamano, int nrocMaximo)
+        {
+            try
+            {
+                if (Char.IsDigit(e.KeyChar)) { e.Handled = false; }
+                else if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
+                else if (Char.IsSeparator(e.KeyChar)) { e.Handled = false; }             
+                else { e.Handled = true; }
+                if (tamano == nrocMaximo) {
+
+                    e.Handled = true;
+                    if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public static  void isDecimal(KeyPressEventArgs e, string texto)
         {
             try

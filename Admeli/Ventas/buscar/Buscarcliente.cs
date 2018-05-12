@@ -94,7 +94,11 @@ namespace Admeli.Ventas.Buscar
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView.Rows.Count == 0) return;
+            seleccionarCliente();
+        }
+        private void seleccionarCliente()
+        {
+            if(dataGridView.Rows.Count == 0) return;
             try
             {
                 int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
@@ -104,10 +108,23 @@ namespace Admeli.Ventas.Buscar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error! " + ex.Message, "Error proveedor", MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                MessageBox.Show("Error! " + ex.Message, "Error proveedor", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+
         }
 
+
+
         #endregion==============eventos=============
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            seleccionarCliente();
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -77,7 +77,18 @@ namespace Modelo
                 throw ex;
             }
         }
-
+        public async Task<ValorcambioMoneda> cambiarMoneda(CambioMoneda param)
+        {
+            try
+            {
+                // localhost:8080/admeli/xcore2/xcore/services.php/moneda/eliminar
+                return await webService.POST<CambioMoneda, ValorcambioMoneda>("valormonedas", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<RootObject<Moneda>> monedas(int page, int items)
         {
             try
@@ -121,6 +132,9 @@ namespace Modelo
                 throw ex;
             }
         }
+
+
+
 
     }
 }
