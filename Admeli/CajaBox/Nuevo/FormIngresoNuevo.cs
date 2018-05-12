@@ -119,10 +119,22 @@ namespace Admeli.CajaBox.Nuevo
         {
             guardarIngreso();
         }
-
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
+        }
         private async void guardarIngreso()
         {
-            if (!validarCampos()) return;
+            bloquear(true);
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
                 if (nuevo)
@@ -137,12 +149,13 @@ namespace Admeli.CajaBox.Nuevo
                     //Response response = await ingresoModel.modificarEnUno(currentSaveObject);
                     //MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
+                bloquear(false);
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                bloquear(false);
             }
         }
 

@@ -161,6 +161,11 @@ namespace Admeli.Productos.Nuevo.PDetalle
             formProductoNuevo.executeGuardar();
         }
 
+        private void appLoadState(bool estado)
+        {
+            btnAceptar.Enabled = !estado;
+            this.Enabled=!estado;
+        }
         private void cargarObjeto()
         {
             if(formProductoNuevo.nuevo) formProductoNuevo.currentProducto = new Producto();

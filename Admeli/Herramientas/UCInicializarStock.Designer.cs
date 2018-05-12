@@ -900,7 +900,7 @@
             // 
             this.idPresentacionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idPresentacionDataGridViewTextBoxColumn.DataPropertyName = "idPresentacion";
-            this.idPresentacionDataGridViewTextBoxColumn.HeaderText = "IdPresentacion";
+            this.idPresentacionDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idPresentacionDataGridViewTextBoxColumn.Name = "idPresentacionDataGridViewTextBoxColumn";
             this.idPresentacionDataGridViewTextBoxColumn.ReadOnly = true;
             this.idPresentacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;

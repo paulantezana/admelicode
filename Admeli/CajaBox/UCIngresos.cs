@@ -50,6 +50,7 @@ namespace Admeli.CajaBox
         #region ============================ Root load ============================
         private void UCIngresos_Load(object sender, EventArgs e)
         {
+            this.darFormatoDecimales();
             this.reLoad();
 
             // Preparando para los eventos de teclado
@@ -59,6 +60,12 @@ namespace Admeli.CajaBox
                 (TopLevelControl as Form).KeyPreview = true;
                 TopLevelControl.KeyUp += TopLevelControl_KeyUp;
             }
+        }
+
+        private void darFormatoDecimales()
+        {
+            dataGridView.Columns["monto"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridView.Columns["monto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         internal void reLoad(bool refreshData = true)

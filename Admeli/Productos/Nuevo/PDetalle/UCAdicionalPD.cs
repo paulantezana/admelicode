@@ -46,7 +46,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
         #region ================================== Root Load ==================================
         private void UCAdicionalPD_Load(object sender, EventArgs e)
         {
+            this.darFormatoDecimales();
             this.reLoad();
+        }
+        private void darFormatoDecimales()
+        {
+            
+            dataGridViewPresentacion.Columns["cantidadUnitaria"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewPresentacion.Columns["cantidadUnitaria"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         internal void reLoad()
@@ -441,6 +448,11 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private void executeNuevoAlternativa()
         {
+            if (dataGridViewVariante.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay una variante seleccionada", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             int index = dataGridViewVariante.CurrentRow.Index; // Identificando la fila actual del datagridview
             int idVariante = Convert.ToInt32(dataGridViewVariante.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
 

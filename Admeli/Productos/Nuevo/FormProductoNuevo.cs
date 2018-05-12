@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -116,20 +117,35 @@ namespace Admeli.Productos.Nuevo
                     }
                     break;
                 case "impuestos":
-                    if (uCImpuestoPD == null)
+                    //if (uCImpuestoPD == null)
+                    //{
+                    //    this.uCImpuestoPD = new Admeli.Productos.Nuevo.PDetalle.UCImpuestoPD(this);
+                    //    this.panelMainNP.Controls.Add(uCImpuestoPD);
+                    //    this.uCImpuestoPD.Dock = System.Windows.Forms.DockStyle.Fill;
+                    //    this.uCImpuestoPD.Location = new System.Drawing.Point(0, 0);
+                    //    this.uCImpuestoPD.Name = "uCImpuestoPD";
+                    //    this.uCImpuestoPD.Size = new System.Drawing.Size(250, 776);
+                    //    this.uCImpuestoPD.TabIndex = 0;
+                    //}
+                    //else
+                    //{
+                    //    this.panelMainNP.Controls.Add(uCImpuestoPD);
+                    //    this.uCImpuestoPD.reLoad();
+                    //}
+                    if (uCImpuestoPDN == null)
                     {
-                        this.uCImpuestoPD = new Admeli.Productos.Nuevo.PDetalle.UCImpuestoPD(this);
-                        this.panelMainNP.Controls.Add(uCImpuestoPD);
-                        this.uCImpuestoPD.Dock = System.Windows.Forms.DockStyle.Fill;
-                        this.uCImpuestoPD.Location = new System.Drawing.Point(0, 0);
-                        this.uCImpuestoPD.Name = "uCImpuestoPD";
-                        this.uCImpuestoPD.Size = new System.Drawing.Size(250, 776);
-                        this.uCImpuestoPD.TabIndex = 0;
+                        this.uCImpuestoPDN = new Admeli.Productos.Nuevo.PDetalle.UCImpuestoPDN(this);
+                        this.panelMainNP.Controls.Add(uCImpuestoPDN);
+                        this.uCImpuestoPDN.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.uCImpuestoPDN.Location = new System.Drawing.Point(0, 0);
+                        this.uCImpuestoPDN.Name = "uCImpuestoPD";
+                        this.uCImpuestoPDN.Size = new System.Drawing.Size(250, 776);
+                        this.uCImpuestoPDN.TabIndex = 0;
                     }
                     else
                     {
-                        this.panelMainNP.Controls.Add(uCImpuestoPD);
-                        this.uCImpuestoPD.reLoad();
+                        this.panelMainNP.Controls.Add(uCImpuestoPDN);
+                        this.uCImpuestoPDN.reLoad();
                     }
                     break;
                 case "stock":
@@ -204,6 +220,8 @@ namespace Admeli.Productos.Nuevo
                 Cursor.Current = Cursors.Default;
                 progressBarApp.Style = ProgressBarStyle.Blocks;
             }
+            panelMainNP.Enabled = !state;
+            panel1.Enabled = !state;
         }
 
         private void FormProductoNuevo_Load(object sender, EventArgs e)
@@ -351,8 +369,6 @@ namespace Admeli.Productos.Nuevo
         {
             // Ejecutando el guardado
             appLoadState(true);
-
-
             try
             {
                 if (nuevo)
@@ -360,7 +376,6 @@ namespace Admeli.Productos.Nuevo
                     Response response = await productoModel.guardar(currentProducto);
                     //personalizar la respueste 
                     if(response.id>0)
-
                     {
                         this.currentIDProducto = response.id; 
                         if (currentCategorias.Count > 0)
@@ -372,13 +387,9 @@ namespace Admeli.Productos.Nuevo
                         this.nuevo = false;
                         this.currentIDProducto = response.id;
                         this.reLoad();
-
-
                     }
                     // Consulta de guardar =============================================
-                    
                     this.reLoad();
-
                 }
                 else
                 {
@@ -392,8 +403,7 @@ namespace Admeli.Productos.Nuevo
             }
             finally
             {
-
-
+                appLoadState(false);
             }
 
         }

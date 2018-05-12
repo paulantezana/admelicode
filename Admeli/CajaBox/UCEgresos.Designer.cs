@@ -74,10 +74,10 @@
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroOperacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medioPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monedaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoString = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,10 +152,10 @@
             this.fechaDataGridViewTextBoxColumn,
             this.fechaPagoDataGridViewTextBoxColumn,
             this.numeroOperacionDataGridViewTextBoxColumn,
-            this.montoDataGridViewTextBoxColumn,
             this.medioPagoDataGridViewTextBoxColumn,
-            this.motivoDataGridViewTextBoxColumn,
+            this.monto,
             this.monedaDataGridViewTextBoxColumn,
+            this.motivoDataGridViewTextBoxColumn,
             this.observacionDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn,
             this.EstadoString,
@@ -692,17 +692,9 @@
             // numeroOperacionDataGridViewTextBoxColumn
             // 
             this.numeroOperacionDataGridViewTextBoxColumn.DataPropertyName = "numeroOperacion";
-            this.numeroOperacionDataGridViewTextBoxColumn.HeaderText = "Número Operación";
+            this.numeroOperacionDataGridViewTextBoxColumn.HeaderText = "Nro. Operación";
             this.numeroOperacionDataGridViewTextBoxColumn.Name = "numeroOperacionDataGridViewTextBoxColumn";
             this.numeroOperacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numeroOperacionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // montoDataGridViewTextBoxColumn
-            // 
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
-            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // medioPagoDataGridViewTextBoxColumn
             // 
@@ -711,12 +703,14 @@
             this.medioPagoDataGridViewTextBoxColumn.Name = "medioPagoDataGridViewTextBoxColumn";
             this.medioPagoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // motivoDataGridViewTextBoxColumn
+            // monto
             // 
-            this.motivoDataGridViewTextBoxColumn.DataPropertyName = "motivo";
-            this.motivoDataGridViewTextBoxColumn.HeaderText = "Motivo";
-            this.motivoDataGridViewTextBoxColumn.Name = "motivoDataGridViewTextBoxColumn";
-            this.motivoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.monto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.monto.DataPropertyName = "monto";
+            this.monto.HeaderText = "Monto";
+            this.monto.Name = "monto";
+            this.monto.ReadOnly = true;
+            this.monto.Width = 80;
             // 
             // monedaDataGridViewTextBoxColumn
             // 
@@ -724,6 +718,13 @@
             this.monedaDataGridViewTextBoxColumn.HeaderText = "Moneda";
             this.monedaDataGridViewTextBoxColumn.Name = "monedaDataGridViewTextBoxColumn";
             this.monedaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // motivoDataGridViewTextBoxColumn
+            // 
+            this.motivoDataGridViewTextBoxColumn.DataPropertyName = "motivo";
+            this.motivoDataGridViewTextBoxColumn.HeaderText = "Motivo";
+            this.motivoDataGridViewTextBoxColumn.Name = "motivoDataGridViewTextBoxColumn";
+            this.motivoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // observacionDataGridViewTextBoxColumn
             // 
@@ -867,10 +868,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPagoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroOperacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn medioPagoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn motivoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn monedaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn motivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn observacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoString;

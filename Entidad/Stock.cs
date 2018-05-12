@@ -11,10 +11,10 @@ namespace Entidad
         public int idProductoStockAlmacen { get; set; }
         public int idProducto { get; set; }
         public int idAlmacen { get; set; }
-        public string stock { get; set; }
-        public string stockIdeal { get; set; }
-        public string stockMinimo { get; set; }
-        public string alertaStock { get; set; }
+        public Decimal stock { get; set; }
+        public Decimal stockIdeal { get; set; }
+        public Decimal stockMinimo { get; set; }
+        public Decimal alertaStock { get; set; }
         public int estado { get; set; }
         public string nombreAlmacen { get; set; }
     }

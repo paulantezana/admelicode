@@ -59,7 +59,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             textNombre.Text = currentPresentacion.nombrePresentacion;
             textSimbolo.Text = currentPresentacion.simboloPresentacion;
-            textCantidad.Text = currentPresentacion.cantidadUnitaria;
+            textCantidad.Text = currentPresentacion.cantidadUnitaria.ToString();
             chkEstado.Checked = Convert.ToBoolean(currentPresentacion.estado);
         }
 
@@ -68,10 +68,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             executeGuardar();
         }
-
         private async void executeGuardar()
         {
-            if (!validarCampos()) return;
+            bloquear(true);
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
                 crearObjetoSucursal();
@@ -91,6 +91,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            bloquear(false);
         }
 
         internal async void cargarPresentacion(int idProducto)
@@ -115,7 +116,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
             currentPresentacion.nombrePresentacion = textNombre.Text;
             currentPresentacion.simboloPresentacion = textSimbolo.Text;
-            currentPresentacion.cantidadUnitaria = textCantidad.Text;
+            currentPresentacion.cantidadUnitaria = Decimal.Parse(textCantidad.Text);
             currentPresentacion.estado = Convert.ToInt32(chkEstado.Checked);
             currentPresentacion.idProducto = formProductoNuevo.currentIDProducto;
             currentPresentacion.idPresentacionBase = Convert.ToInt32(cbxPresentacionBase.SelectedValue);
@@ -151,6 +152,13 @@ namespace Admeli.Productos.Nuevo.PDetalle
             this.Close();
         }
         #endregion
+
+        public void bloquear(bool state)
+        {
+            if (state) { Cursor.Current = Cursors.WaitCursor; }
+            else { Cursor.Current = Cursors.Default; }
+            this.Enabled = !state;
+        }
 
     }
 }

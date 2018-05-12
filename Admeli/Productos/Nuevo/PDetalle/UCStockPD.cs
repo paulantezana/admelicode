@@ -43,7 +43,28 @@ namespace Admeli.Productos.Nuevo.PDetalle
         #region =========================== Root Load ===========================
         private void UCStockPD_Load(object sender, EventArgs e)
         {
+            this.darFormatoDecimales();
             this.reLoad();
+        }
+
+        private void darFormatoDecimales()
+        {
+            //Precio
+            dataGridViewPrecios.Columns["precioCompetencia"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewPrecios.Columns["utilidad"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewPrecios.Columns["precioVenta"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewPrecios.Columns["precioCompetencia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewPrecios.Columns["utilidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewPrecios.Columns["precioVenta"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //Stock
+            dataGridViewStock.Columns["stock"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewStock.Columns["stockIdeal"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewStock.Columns["stockMin"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewStock.Columns["alertaStock"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewStock.Columns["stock"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewStock.Columns["stockIdeal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewStock.Columns["stockMin"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewStock.Columns["alertaStock"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         internal void reLoad()
@@ -103,16 +124,16 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private void decorationDataGridView()
         {
-            if (dataGridViewStocks.Rows.Count == 0) return;
+            if (dataGridViewStock.Rows.Count == 0) return;
 
-            foreach (DataGridViewRow row in dataGridViewStocks.Rows)
+            foreach (DataGridViewRow row in dataGridViewStock.Rows)
             {
                 int idProductoStockAlmacen = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
 
                 currentStock = stocks.Find(x => x.idProductoStockAlmacen == idProductoStockAlmacen); // Buscando la categoria en las lista de categorias
                 if (currentStock.estado == 0)
                 {
-                    dataGridViewStocks.ClearSelection();
+                    dataGridViewStock.ClearSelection();
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
                     row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
                 }
@@ -158,7 +179,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             currentPrecio = precios.Find(x => x.idPrecioProducto == idPrecioProducto); // Buscando la registro especifico en la lista de registros
 
             // Mostrando el formulario de modificacion
-            FormPrecioDetalle formPrecioDetalle = new FormPrecioDetalle(currentPrecio,formProductoNuevo.currentProducto.precioCompra.ToString(),formProductoNuevo.currentIDProducto);
+            FormPrecioDetalle formPrecioDetalle = new FormPrecioDetalle(currentPrecio,formProductoNuevo.currentProducto.precioCompra,formProductoNuevo.currentIDProducto);
             formPrecioDetalle.ShowDialog();
             this.cargarPrecios(); // recargando loas registros en el datagridview
         }
@@ -166,14 +187,14 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void executeModificarStock()
         {
             // Verificando la existencia de datos en el datagridview
-            if (dataGridViewStocks.Rows.Count == 0)
+            if (dataGridViewStock.Rows.Count == 0)
             {
                 MessageBox.Show("No hay un registro seleccionado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            int index = dataGridViewStocks.CurrentRow.Index; // Identificando la fila actual del datagridview
-            int idProductoStockAlmacen = Convert.ToInt32(dataGridViewStocks.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+            int index = dataGridViewStock.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idProductoStockAlmacen = Convert.ToInt32(dataGridViewStock.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
 
             currentStock = stocks.Find(x => x.idProductoStockAlmacen == idProductoStockAlmacen); // Buscando la registro especifico en la lista de registros
 
@@ -225,7 +246,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private async void executeEliminarStock()
         {
             // Verificando la existencia de datos en el datagridview
-            if (dataGridViewStocks.Rows.Count == 0)
+            if (dataGridViewStock.Rows.Count == 0)
             {
                 MessageBox.Show("No hay un registro seleccionado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -241,9 +262,9 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 formProductoNuevo.appLoadState(true); // cambiando el estado
 
-                int index = dataGridViewStocks.CurrentRow.Index; // Identificando la fila actual del datagridview
+                int index = dataGridViewStock.CurrentRow.Index; // Identificando la fila actual del datagridview
                 currentStock = new Stock(); //creando una instancia del objeto categoria
-                currentStock.idProductoStockAlmacen = Convert.ToInt32(dataGridViewStocks.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
+                currentStock.idProductoStockAlmacen = Convert.ToInt32(dataGridViewStock.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
 
                 Response response = await stockModel.eliminar(currentStock); // Eliminando con el webservice correspondiente
                 MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);

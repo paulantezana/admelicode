@@ -51,7 +51,6 @@
             this.tabDescuentos = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewDescuento = new System.Windows.Forms.DataGridView();
-            this.descuentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripCrud = new System.Windows.Forms.ToolStrip();
             this.btnNuevoDescuento = new System.Windows.Forms.ToolStripButton();
             this.btnModificarDescuento = new System.Windows.Forms.ToolStripButton();
@@ -62,7 +61,6 @@
             this.tabOfertas = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridViewOferta = new System.Windows.Forms.DataGridView();
-            this.ofertaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNuevoOferta = new System.Windows.Forms.ToolStripButton();
             this.btnModificarOferta = new System.Windows.Forms.ToolStripButton();
@@ -72,40 +70,42 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SFechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SFechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descuentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadMinima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadMaxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaFinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDescuentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadMinimaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadMaximaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idGrupoClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAfectoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ofertaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idOfertaProductoGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProductoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descuentoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProductoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaInicioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaFinDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuentoOferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreSucursalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreGrupoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAfectoProductoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaInicioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaFinDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProductoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idGrupoClienteDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSucursalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreSucursalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreGrupoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -113,15 +113,15 @@
             this.tabDescuentos.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDescuento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.descuentoBindingSource)).BeginInit();
             this.toolStripCrud.SuspendLayout();
             this.panelHeaderItem1.SuspendLayout();
             this.tabOfertas.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOferta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ofertaBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.descuentoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ofertaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -278,24 +278,24 @@
             this.dataGridViewDescuento.ColumnHeadersHeight = 40;
             this.dataGridViewDescuento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDescuentoProductoGrupoDataGridViewTextBoxColumn,
+            this.codigoDataGridViewTextBoxColumn,
             this.SFechaInicio,
             this.SFechaFin,
-            this.codigoDataGridViewTextBoxColumn,
-            this.descuentoDataGridViewTextBoxColumn,
+            this.cantidadMinima,
+            this.cantidadMaxima,
+            this.descuento,
             this.fechaInicioDataGridViewTextBoxColumn,
             this.fechaFinDataGridViewTextBoxColumn,
+            this.nombreSucursalDataGridViewTextBoxColumn,
             this.tipoDescuentoDataGridViewTextBoxColumn,
-            this.tipoDataGridViewTextBoxColumn,
-            this.cantidadMinimaDataGridViewTextBoxColumn,
-            this.cantidadMaximaDataGridViewTextBoxColumn,
             this.idGrupoClienteDataGridViewTextBoxColumn,
             this.nombreGrupoDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.idAfectoProductoDataGridViewTextBoxColumn,
             this.idProductoDataGridViewTextBoxColumn,
             this.idSucursalDataGridViewTextBoxColumn,
-            this.nombreSucursalDataGridViewTextBoxColumn,
             this.nombreProductoDataGridViewTextBoxColumn,
+            this.tipoDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn});
             this.dataGridViewDescuento.DataSource = this.descuentoBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -328,10 +328,6 @@
             this.dataGridViewDescuento.Size = new System.Drawing.Size(942, 328);
             this.dataGridViewDescuento.TabIndex = 2;
             this.dataGridViewDescuento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDescuento_CellDoubleClick);
-            // 
-            // descuentoBindingSource
-            // 
-            this.descuentoBindingSource.DataSource = typeof(Entidad.Descuento);
             // 
             // toolStripCrud
             // 
@@ -455,7 +451,7 @@
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewOferta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewOferta.AutoGenerateColumns = false;
-            this.dataGridViewOferta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridViewOferta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewOferta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOferta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -469,19 +465,19 @@
             this.dataGridViewOferta.ColumnHeadersHeight = 40;
             this.dataGridViewOferta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idOfertaProductoGrupoDataGridViewTextBoxColumn,
-            this.nombreProductoDataGridViewTextBoxColumn1,
             this.codigoDataGridViewTextBoxColumn1,
-            this.descuentoDataGridViewTextBoxColumn1,
+            this.nombreProductoDataGridViewTextBoxColumn1,
+            this.fechaInicioDataGridViewTextBoxColumn1,
+            this.fechaFinDataGridViewTextBoxColumn1,
+            this.descuentoOferta,
+            this.nombreSucursalDataGridViewTextBoxColumn1,
+            this.nombreGrupoDataGridViewTextBoxColumn1,
             this.tipoDataGridViewTextBoxColumn1,
             this.estadoDataGridViewTextBoxColumn1,
             this.idAfectoProductoDataGridViewTextBoxColumn1,
-            this.fechaInicioDataGridViewTextBoxColumn1,
-            this.fechaFinDataGridViewTextBoxColumn1,
             this.idProductoDataGridViewTextBoxColumn1,
             this.idGrupoClienteDataGridViewTextBoxColumn1,
-            this.idSucursalDataGridViewTextBoxColumn1,
-            this.nombreSucursalDataGridViewTextBoxColumn1,
-            this.nombreGrupoDataGridViewTextBoxColumn1});
+            this.idSucursalDataGridViewTextBoxColumn1});
             this.dataGridViewOferta.DataSource = this.ofertaBindingSource;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
@@ -513,10 +509,6 @@
             this.dataGridViewOferta.Size = new System.Drawing.Size(942, 328);
             this.dataGridViewOferta.TabIndex = 2;
             this.dataGridViewOferta.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOferta_CellDoubleClick);
-            // 
-            // ofertaBindingSource
-            // 
-            this.ofertaBindingSource.DataSource = typeof(Entidad.Oferta);
             // 
             // toolStrip1
             // 
@@ -630,19 +622,10 @@
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.dataGridViewTextBoxColumn2.Width = 110;
             // 
-            // idDescuentoProductoGrupoDataGridViewTextBoxColumn
-            // 
-            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.DataPropertyName = "idDescuentoProductoGrupo";
-            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.Name = "idDescuentoProductoGrupoDataGridViewTextBoxColumn";
-            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.Width = 40;
-            // 
             // SFechaInicio
             // 
             this.SFechaInicio.DataPropertyName = "SFechaInicio";
-            this.SFechaInicio.HeaderText = "FechaInicio";
+            this.SFechaInicio.HeaderText = "Fecha Inicio";
             this.SFechaInicio.Name = "SFechaInicio";
             this.SFechaInicio.ReadOnly = true;
             // 
@@ -653,6 +636,16 @@
             this.SFechaFin.Name = "SFechaFin";
             this.SFechaFin.ReadOnly = true;
             // 
+            // idDescuentoProductoGrupoDataGridViewTextBoxColumn
+            // 
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.DataPropertyName = "idDescuentoProductoGrupo";
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.Name = "idDescuentoProductoGrupoDataGridViewTextBoxColumn";
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.Visible = false;
+            this.idDescuentoProductoGrupoDataGridViewTextBoxColumn.Width = 40;
+            // 
             // codigoDataGridViewTextBoxColumn
             // 
             this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
@@ -660,12 +653,30 @@
             this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
             this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // descuentoDataGridViewTextBoxColumn
+            // cantidadMinima
             // 
-            this.descuentoDataGridViewTextBoxColumn.DataPropertyName = "descuento";
-            this.descuentoDataGridViewTextBoxColumn.HeaderText = "Descuento";
-            this.descuentoDataGridViewTextBoxColumn.Name = "descuentoDataGridViewTextBoxColumn";
-            this.descuentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cantidadMinima.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cantidadMinima.DataPropertyName = "cantidadMinima";
+            this.cantidadMinima.HeaderText = "Cantidad Min.";
+            this.cantidadMinima.Name = "cantidadMinima";
+            this.cantidadMinima.ReadOnly = true;
+            this.cantidadMinima.Width = 70;
+            // 
+            // cantidadMaxima
+            // 
+            this.cantidadMaxima.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cantidadMaxima.DataPropertyName = "cantidadMaxima";
+            this.cantidadMaxima.HeaderText = "Cantidad Max.";
+            this.cantidadMaxima.Name = "cantidadMaxima";
+            this.cantidadMaxima.ReadOnly = true;
+            this.cantidadMaxima.Width = 70;
+            // 
+            // descuento
+            // 
+            this.descuento.DataPropertyName = "descuento";
+            this.descuento.HeaderText = "Descuento";
+            this.descuento.Name = "descuento";
+            this.descuento.ReadOnly = true;
             // 
             // fechaInicioDataGridViewTextBoxColumn
             // 
@@ -683,6 +694,13 @@
             this.fechaFinDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaFinDataGridViewTextBoxColumn.Visible = false;
             // 
+            // nombreSucursalDataGridViewTextBoxColumn
+            // 
+            this.nombreSucursalDataGridViewTextBoxColumn.DataPropertyName = "nombreSucursal";
+            this.nombreSucursalDataGridViewTextBoxColumn.HeaderText = "Sucursal";
+            this.nombreSucursalDataGridViewTextBoxColumn.Name = "nombreSucursalDataGridViewTextBoxColumn";
+            this.nombreSucursalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // tipoDescuentoDataGridViewTextBoxColumn
             // 
             this.tipoDescuentoDataGridViewTextBoxColumn.DataPropertyName = "tipoDescuento";
@@ -690,28 +708,6 @@
             this.tipoDescuentoDataGridViewTextBoxColumn.Name = "tipoDescuentoDataGridViewTextBoxColumn";
             this.tipoDescuentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.tipoDescuentoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tipoDataGridViewTextBoxColumn
-            // 
-            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
-            this.tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
-            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
-            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cantidadMinimaDataGridViewTextBoxColumn
-            // 
-            this.cantidadMinimaDataGridViewTextBoxColumn.DataPropertyName = "cantidadMinima";
-            this.cantidadMinimaDataGridViewTextBoxColumn.HeaderText = "Cantidad Min.";
-            this.cantidadMinimaDataGridViewTextBoxColumn.Name = "cantidadMinimaDataGridViewTextBoxColumn";
-            this.cantidadMinimaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cantidadMaximaDataGridViewTextBoxColumn
-            // 
-            this.cantidadMaximaDataGridViewTextBoxColumn.DataPropertyName = "cantidadMaxima";
-            this.cantidadMaximaDataGridViewTextBoxColumn.HeaderText = "Cantidad Max.";
-            this.cantidadMaximaDataGridViewTextBoxColumn.Name = "cantidadMaximaDataGridViewTextBoxColumn";
-            this.cantidadMaximaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // idGrupoClienteDataGridViewTextBoxColumn
             // 
@@ -760,14 +756,6 @@
             this.idSucursalDataGridViewTextBoxColumn.ReadOnly = true;
             this.idSucursalDataGridViewTextBoxColumn.Visible = false;
             // 
-            // nombreSucursalDataGridViewTextBoxColumn
-            // 
-            this.nombreSucursalDataGridViewTextBoxColumn.DataPropertyName = "nombreSucursal";
-            this.nombreSucursalDataGridViewTextBoxColumn.HeaderText = "Nombre Sucursal";
-            this.nombreSucursalDataGridViewTextBoxColumn.Name = "nombreSucursalDataGridViewTextBoxColumn";
-            this.nombreSucursalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreSucursalDataGridViewTextBoxColumn.Visible = false;
-            // 
             // nombreProductoDataGridViewTextBoxColumn
             // 
             this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
@@ -776,13 +764,29 @@
             this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreProductoDataGridViewTextBoxColumn.Visible = false;
             // 
+            // tipoDataGridViewTextBoxColumn
+            // 
+            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
+            this.tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
+            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // estadoDataGridViewTextBoxColumn
             // 
+            this.estadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
             this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn.Visible = false;
+            this.estadoDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // descuentoBindingSource
+            // 
+            this.descuentoBindingSource.DataSource = typeof(Entidad.Descuento);
+            // 
+            // ofertaBindingSource
+            // 
+            this.ofertaBindingSource.DataSource = typeof(Entidad.Oferta);
             // 
             // idOfertaProductoGrupoDataGridViewTextBoxColumn
             // 
@@ -790,7 +794,14 @@
             this.idOfertaProductoGrupoDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idOfertaProductoGrupoDataGridViewTextBoxColumn.Name = "idOfertaProductoGrupoDataGridViewTextBoxColumn";
             this.idOfertaProductoGrupoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idOfertaProductoGrupoDataGridViewTextBoxColumn.Width = 45;
+            this.idOfertaProductoGrupoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // codigoDataGridViewTextBoxColumn1
+            // 
+            this.codigoDataGridViewTextBoxColumn1.DataPropertyName = "codigo";
+            this.codigoDataGridViewTextBoxColumn1.HeaderText = "Código";
+            this.codigoDataGridViewTextBoxColumn1.Name = "codigoDataGridViewTextBoxColumn1";
+            this.codigoDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // nombreProductoDataGridViewTextBoxColumn1
             // 
@@ -799,40 +810,58 @@
             this.nombreProductoDataGridViewTextBoxColumn1.HeaderText = "Producto";
             this.nombreProductoDataGridViewTextBoxColumn1.Name = "nombreProductoDataGridViewTextBoxColumn1";
             this.nombreProductoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nombreProductoDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // codigoDataGridViewTextBoxColumn1
+            // fechaInicioDataGridViewTextBoxColumn1
             // 
-            this.codigoDataGridViewTextBoxColumn1.DataPropertyName = "codigo";
-            this.codigoDataGridViewTextBoxColumn1.HeaderText = "Código";
-            this.codigoDataGridViewTextBoxColumn1.Name = "codigoDataGridViewTextBoxColumn1";
-            this.codigoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.codigoDataGridViewTextBoxColumn1.Width = 78;
+            this.fechaInicioDataGridViewTextBoxColumn1.DataPropertyName = "fechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn1.HeaderText = "Fecha Inicio";
+            this.fechaInicioDataGridViewTextBoxColumn1.Name = "fechaInicioDataGridViewTextBoxColumn1";
+            this.fechaInicioDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // descuentoDataGridViewTextBoxColumn1
+            // fechaFinDataGridViewTextBoxColumn1
             // 
-            this.descuentoDataGridViewTextBoxColumn1.DataPropertyName = "descuento";
-            this.descuentoDataGridViewTextBoxColumn1.HeaderText = "Descuento";
-            this.descuentoDataGridViewTextBoxColumn1.Name = "descuentoDataGridViewTextBoxColumn1";
-            this.descuentoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.descuentoDataGridViewTextBoxColumn1.Width = 99;
+            this.fechaFinDataGridViewTextBoxColumn1.DataPropertyName = "fechaFin";
+            this.fechaFinDataGridViewTextBoxColumn1.HeaderText = "Fecha Fin";
+            this.fechaFinDataGridViewTextBoxColumn1.Name = "fechaFinDataGridViewTextBoxColumn1";
+            this.fechaFinDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // descuentoOferta
+            // 
+            this.descuentoOferta.DataPropertyName = "descuento";
+            this.descuentoOferta.HeaderText = "Descuento";
+            this.descuentoOferta.Name = "descuentoOferta";
+            this.descuentoOferta.ReadOnly = true;
+            // 
+            // nombreSucursalDataGridViewTextBoxColumn1
+            // 
+            this.nombreSucursalDataGridViewTextBoxColumn1.DataPropertyName = "nombreSucursal";
+            this.nombreSucursalDataGridViewTextBoxColumn1.HeaderText = "Sucursal";
+            this.nombreSucursalDataGridViewTextBoxColumn1.Name = "nombreSucursalDataGridViewTextBoxColumn1";
+            this.nombreSucursalDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nombreGrupoDataGridViewTextBoxColumn1
+            // 
+            this.nombreGrupoDataGridViewTextBoxColumn1.DataPropertyName = "nombreGrupo";
+            this.nombreGrupoDataGridViewTextBoxColumn1.HeaderText = "Grupo";
+            this.nombreGrupoDataGridViewTextBoxColumn1.Name = "nombreGrupoDataGridViewTextBoxColumn1";
+            this.nombreGrupoDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // tipoDataGridViewTextBoxColumn1
             // 
             this.tipoDataGridViewTextBoxColumn1.DataPropertyName = "tipo";
-            this.tipoDataGridViewTextBoxColumn1.HeaderText = "tipo";
+            this.tipoDataGridViewTextBoxColumn1.HeaderText = "Tipo";
             this.tipoDataGridViewTextBoxColumn1.Name = "tipoDataGridViewTextBoxColumn1";
             this.tipoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.tipoDataGridViewTextBoxColumn1.Visible = false;
-            this.tipoDataGridViewTextBoxColumn1.Width = 57;
             // 
             // estadoDataGridViewTextBoxColumn1
             // 
+            this.estadoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.estadoDataGridViewTextBoxColumn1.DataPropertyName = "estado";
-            this.estadoDataGridViewTextBoxColumn1.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn1.HeaderText = "Estado";
             this.estadoDataGridViewTextBoxColumn1.Name = "estadoDataGridViewTextBoxColumn1";
             this.estadoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn1.Visible = false;
-            this.estadoDataGridViewTextBoxColumn1.Width = 75;
+            this.estadoDataGridViewTextBoxColumn1.Width = 70;
             // 
             // idAfectoProductoDataGridViewTextBoxColumn1
             // 
@@ -841,23 +870,6 @@
             this.idAfectoProductoDataGridViewTextBoxColumn1.Name = "idAfectoProductoDataGridViewTextBoxColumn1";
             this.idAfectoProductoDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idAfectoProductoDataGridViewTextBoxColumn1.Visible = false;
-            this.idAfectoProductoDataGridViewTextBoxColumn1.Width = 142;
-            // 
-            // fechaInicioDataGridViewTextBoxColumn1
-            // 
-            this.fechaInicioDataGridViewTextBoxColumn1.DataPropertyName = "fechaInicio";
-            this.fechaInicioDataGridViewTextBoxColumn1.HeaderText = "fechaInicio";
-            this.fechaInicioDataGridViewTextBoxColumn1.Name = "fechaInicioDataGridViewTextBoxColumn1";
-            this.fechaInicioDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.fechaInicioDataGridViewTextBoxColumn1.Width = 103;
-            // 
-            // fechaFinDataGridViewTextBoxColumn1
-            // 
-            this.fechaFinDataGridViewTextBoxColumn1.DataPropertyName = "fechaFin";
-            this.fechaFinDataGridViewTextBoxColumn1.HeaderText = "fechaFin";
-            this.fechaFinDataGridViewTextBoxColumn1.Name = "fechaFinDataGridViewTextBoxColumn1";
-            this.fechaFinDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.fechaFinDataGridViewTextBoxColumn1.Width = 88;
             // 
             // idProductoDataGridViewTextBoxColumn1
             // 
@@ -866,7 +878,6 @@
             this.idProductoDataGridViewTextBoxColumn1.Name = "idProductoDataGridViewTextBoxColumn1";
             this.idProductoDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idProductoDataGridViewTextBoxColumn1.Visible = false;
-            this.idProductoDataGridViewTextBoxColumn1.Width = 102;
             // 
             // idGrupoClienteDataGridViewTextBoxColumn1
             // 
@@ -875,7 +886,6 @@
             this.idGrupoClienteDataGridViewTextBoxColumn1.Name = "idGrupoClienteDataGridViewTextBoxColumn1";
             this.idGrupoClienteDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idGrupoClienteDataGridViewTextBoxColumn1.Visible = false;
-            this.idGrupoClienteDataGridViewTextBoxColumn1.Width = 129;
             // 
             // idSucursalDataGridViewTextBoxColumn1
             // 
@@ -884,22 +894,6 @@
             this.idSucursalDataGridViewTextBoxColumn1.Name = "idSucursalDataGridViewTextBoxColumn1";
             this.idSucursalDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idSucursalDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // nombreSucursalDataGridViewTextBoxColumn1
-            // 
-            this.nombreSucursalDataGridViewTextBoxColumn1.DataPropertyName = "nombreSucursal";
-            this.nombreSucursalDataGridViewTextBoxColumn1.HeaderText = "Sucursal";
-            this.nombreSucursalDataGridViewTextBoxColumn1.Name = "nombreSucursalDataGridViewTextBoxColumn1";
-            this.nombreSucursalDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nombreSucursalDataGridViewTextBoxColumn1.Width = 88;
-            // 
-            // nombreGrupoDataGridViewTextBoxColumn1
-            // 
-            this.nombreGrupoDataGridViewTextBoxColumn1.DataPropertyName = "nombreGrupo";
-            this.nombreGrupoDataGridViewTextBoxColumn1.HeaderText = "Grupo";
-            this.nombreGrupoDataGridViewTextBoxColumn1.Name = "nombreGrupoDataGridViewTextBoxColumn1";
-            this.nombreGrupoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nombreGrupoDataGridViewTextBoxColumn1.Width = 72;
             // 
             // UCDescuentosPD
             // 
@@ -919,7 +913,6 @@
             this.tabDescuentos.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDescuento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.descuentoBindingSource)).EndInit();
             this.toolStripCrud.ResumeLayout(false);
             this.toolStripCrud.PerformLayout();
             this.panelHeaderItem1.ResumeLayout(false);
@@ -927,11 +920,12 @@
             this.tabOfertas.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOferta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ofertaBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.descuentoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ofertaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -971,38 +965,38 @@
         private System.Windows.Forms.DataGridView dataGridViewDescuento;
         private System.Windows.Forms.DataGridView dataGridViewOferta;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDescuentoProductoGrupoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SFechaInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn SFechaFin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descuentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadMinima;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadMaxima;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreSucursalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDescuentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadMinimaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadMaximaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idGrupoClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreGrupoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAfectoProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSucursalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreSucursalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idOfertaProductoGrupoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descuentoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descuentoOferta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreSucursalDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreGrupoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAfectoProductoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idGrupoClienteDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSucursalDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreSucursalDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreGrupoDataGridViewTextBoxColumn1;
     }
 }

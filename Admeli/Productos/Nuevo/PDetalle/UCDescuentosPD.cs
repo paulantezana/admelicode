@@ -41,7 +41,22 @@ namespace Admeli.Productos.Nuevo.PDetalle
         #region ================================ Root Load ================================
         private void UCDescuentosPD_Load(object sender, EventArgs e)
         {
+            this.darFormatoDecimales();
             this.reLoad();
+        }
+        private void darFormatoDecimales()
+        {
+            //Descuentos
+            dataGridViewDescuento.Columns["cantidadMinima"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewDescuento.Columns["cantidadMaxima"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewDescuento.Columns["descuento"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewDescuento.Columns["cantidadMinima"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewDescuento.Columns["cantidadMaxima"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewDescuento.Columns["descuento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //Ofertas
+            dataGridViewOferta.Columns["descuentoOferta"].DefaultCellStyle.Format = ConfigModel.configuracionGeneral.formatoDecimales;
+            dataGridViewOferta.Columns["descuentoOferta"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
         }
 
         internal void reLoad()

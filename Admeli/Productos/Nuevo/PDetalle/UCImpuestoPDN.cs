@@ -213,7 +213,9 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private async void guardarImpuestosProducto()
         {
             response = await impuestoModel.actualizarImpuestoProducto(listaImpuesto, formProductoNuevo.currentIDProducto, int.Parse(cbxSucursal.SelectedValue.ToString()));
-        }
+            //reiniciar lista
+            listaImpuesto = new List<Impuesto>();
+    }
 
         private void extraerImpuestosProducto()
         {
@@ -222,7 +224,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 foreach (DataGridViewRow row in dgvImpuestoProducto.Rows)
                 {
                     Impuesto impuestoFila = new Impuesto();
-                    impuestoFila.idImpuesto = int.Parse(row.Cells["idImpuesto"].Value.ToString());
+                    impuestoFila.idImpuesto = int.Parse(row.Cells["idImpuestoP"].Value.ToString());
                     listaImpuesto.Add(impuestoFila);
                     //MessageBox.Show(row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " +
                     //    row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString()+" "+ row.Cells[5].Value.ToString()+ " "+row.Cells[6].Value.ToString());

@@ -51,9 +51,10 @@
             this.lblPassword2.BackColor = System.Drawing.Color.White;
             this.lblPassword2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword2.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPassword2.Location = new System.Drawing.Point(23, 145);
+            this.lblPassword2.Location = new System.Drawing.Point(17, 118);
+            this.lblPassword2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword2.Name = "lblPassword2";
-            this.lblPassword2.Size = new System.Drawing.Size(126, 16);
+            this.lblPassword2.Size = new System.Drawing.Size(97, 14);
             this.lblPassword2.TabIndex = 23;
             this.lblPassword2.Text = "Nueva Contraseña";
             // 
@@ -68,11 +69,11 @@
             this.textPassword2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPassword2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textPassword2.isPassword = true;
-            this.textPassword2.Location = new System.Drawing.Point(17, 138);
-            this.textPassword2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textPassword2.Location = new System.Drawing.Point(13, 112);
+            this.textPassword2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textPassword2.Name = "textPassword2";
-            this.textPassword2.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textPassword2.Size = new System.Drawing.Size(439, 49);
+            this.textPassword2.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textPassword2.Size = new System.Drawing.Size(329, 40);
             this.textPassword2.TabIndex = 24;
             this.textPassword2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -82,9 +83,10 @@
             this.lblPassword1.BackColor = System.Drawing.Color.White;
             this.lblPassword1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword1.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPassword1.Location = new System.Drawing.Point(23, 86);
+            this.lblPassword1.Location = new System.Drawing.Point(17, 70);
+            this.lblPassword1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword1.Name = "lblPassword1";
-            this.lblPassword1.Size = new System.Drawing.Size(124, 16);
+            this.lblPassword1.Size = new System.Drawing.Size(96, 14);
             this.lblPassword1.TabIndex = 21;
             this.lblPassword1.Text = "Contraseña Actual";
             // 
@@ -99,11 +101,11 @@
             this.textPassword1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPassword1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textPassword1.isPassword = true;
-            this.textPassword1.Location = new System.Drawing.Point(17, 79);
-            this.textPassword1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textPassword1.Location = new System.Drawing.Point(13, 64);
+            this.textPassword1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textPassword1.Name = "textPassword1";
-            this.textPassword1.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textPassword1.Size = new System.Drawing.Size(439, 49);
+            this.textPassword1.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textPassword1.Size = new System.Drawing.Size(329, 40);
             this.textPassword1.TabIndex = 22;
             this.textPassword1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -113,9 +115,10 @@
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(23, 23);
+            this.label13.Location = new System.Drawing.Point(17, 19);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.Size = new System.Drawing.Size(44, 14);
             this.label13.TabIndex = 19;
             this.label13.Text = "Usuario";
             // 
@@ -130,11 +133,11 @@
             this.textUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textUsuario.isPassword = false;
-            this.textUsuario.Location = new System.Drawing.Point(17, 16);
-            this.textUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textUsuario.Location = new System.Drawing.Point(13, 13);
+            this.textUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textUsuario.Name = "textUsuario";
-            this.textUsuario.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textUsuario.Size = new System.Drawing.Size(439, 49);
+            this.textUsuario.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textUsuario.Size = new System.Drawing.Size(329, 40);
             this.textUsuario.TabIndex = 20;
             this.textUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -142,11 +145,10 @@
             // 
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 322);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Location = new System.Drawing.Point(0, 261);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(481, 60);
+            this.panelFooter.Size = new System.Drawing.Size(361, 49);
             this.panelFooter.TabIndex = 34;
             // 
             // panel1
@@ -154,10 +156,9 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(21, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(16, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(437, 59);
+            this.panel1.Size = new System.Drawing.Size(328, 48);
             this.panel1.TabIndex = 0;
             // 
             // btnAceptar
@@ -170,10 +171,9 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(28, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Location = new System.Drawing.Point(21, 9);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(203, 37);
+            this.btnAceptar.Size = new System.Drawing.Size(152, 30);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -190,10 +190,9 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnClose.Location = new System.Drawing.Point(257, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Location = new System.Drawing.Point(193, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(152, 37);
+            this.btnClose.Size = new System.Drawing.Size(114, 30);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -206,11 +205,11 @@
             // FormUsuario
             // 
             this.AcceptButton = this.btnAceptar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(481, 382);
+            this.ClientSize = new System.Drawing.Size(361, 310);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.lblPassword2);
             this.Controls.Add(this.textPassword2);
@@ -218,7 +217,6 @@
             this.Controls.Add(this.textPassword1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormUsuario";
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.FormUsuario_Load);

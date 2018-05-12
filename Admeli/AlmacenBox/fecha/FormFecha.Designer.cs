@@ -62,7 +62,7 @@
             this.panelFooter.Location = new System.Drawing.Point(0, 209);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(302, 49);
+            this.panelFooter.Size = new System.Drawing.Size(326, 49);
             this.panelFooter.TabIndex = 56;
             // 
             // panel1
@@ -118,7 +118,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panelHeader.Size = new System.Drawing.Size(302, 49);
+            this.panelHeader.Size = new System.Drawing.Size(326, 49);
             this.panelHeader.TabIndex = 55;
             // 
             // label4
@@ -127,7 +127,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 19);
+            this.label4.Size = new System.Drawing.Size(47, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Fecha";
             // 
@@ -152,10 +152,10 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label11.Location = new System.Drawing.Point(45, 76);
+            this.label11.Location = new System.Drawing.Point(16, 65);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 19);
+            this.label11.Size = new System.Drawing.Size(45, 16);
             this.label11.TabIndex = 96;
             this.label11.Text = "Desde";
             // 
@@ -167,9 +167,9 @@
             // 
             this.dtpDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(45, 98);
+            this.dtpDesde.Location = new System.Drawing.Point(16, 87);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(200, 24);
+            this.dtpDesde.Size = new System.Drawing.Size(200, 21);
             this.dtpDesde.TabIndex = 103;
             this.dtpDesde.TabStop = false;
             this.dtpDesde.Value = new System.DateTime(2018, 4, 10, 0, 0, 0, 0);
@@ -178,9 +178,9 @@
             // 
             this.dtpHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(45, 169);
+            this.dtpHasta.Location = new System.Drawing.Point(16, 158);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(200, 24);
+            this.dtpHasta.Size = new System.Drawing.Size(200, 21);
             this.dtpHasta.TabIndex = 104;
             this.dtpHasta.TabStop = false;
             // 
@@ -189,18 +189,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label1.Location = new System.Drawing.Point(45, 147);
+            this.label1.Location = new System.Drawing.Point(16, 136);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 19);
+            this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 105;
             this.label1.Text = "Hasta";
             // 
             // FormFecha
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 9F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 258);
+            this.ClientSize = new System.Drawing.Size(326, 258);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpHasta);
             this.Controls.Add(this.dtpDesde);

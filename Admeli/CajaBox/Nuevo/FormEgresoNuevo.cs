@@ -130,9 +130,9 @@ namespace Admeli.CajaBox.Nuevo
         }
         private async void guardarEgreso()
         {
-
+            bloquear(true);
             //validar los campos
-            if (!validarCampos()) return;
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
                 //Verificar Caja Asignada y recuperar idCajaSesion
@@ -162,12 +162,15 @@ namespace Admeli.CajaBox.Nuevo
                     Response response = await egresoModel.modificar(currentEgreso);
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                bloquear(false);
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                bloquear(false);
             }
+            
         }
 
         private async void guardarSucursal()
@@ -280,7 +283,18 @@ namespace Admeli.CajaBox.Nuevo
         {
             textMonto.Focus();
         }
-
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
+        }
     }
     class SaveObjectEgreso
     {

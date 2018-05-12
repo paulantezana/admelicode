@@ -621,7 +621,7 @@ namespace Admeli.Compras.Nuevo
 
                         // Realizando el calculo
                         double precioCompra = double.Parse(currentProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
-                        double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
+                        double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
                         double precioUnidatio = precioCompra * cantidadUnitario;
 
                         // Imprimiendo valor
@@ -647,7 +647,7 @@ namespace Admeli.Compras.Nuevo
                     cbxCodigoProducto.Text = findProducto.codigoProducto;
                     // Realizando el calculo
                     double precioCompra = double.Parse(findProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
-                    double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria);
+                    double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
                     double precioUnidatio = precioCompra * cantidadUnitario;
 
                     // Imprimiendo valor

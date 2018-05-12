@@ -26,17 +26,14 @@ namespace Admeli.AlmacenBox.fecha
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
             if(dtpDesde.Value > dtpHasta.Value)
             {
                 return; 
-
             }
-
             desde = dtpDesde.Value;
             hasta = dtpHasta.Value;
-
             this.Close();
         }
+
     }
 }
