@@ -981,7 +981,7 @@ namespace Admeli.Ventas.Nuevo
                     // Realizando el calculo
                     double precioCompra = toDouble(currentProducto.precioVenta);
 
-                    double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria);
+                    double cantidadUnitario = (double)(findPresentacion.cantidadUnitaria);
                     double precioUnidatio = precioCompra * cantidadUnitario*valorDeCambio;
 
                     // Imprimiendo valor
@@ -1321,7 +1321,7 @@ namespace Admeli.Ventas.Nuevo
                     // Realizando el calculo
                     double precioCompra = toDouble(currentProducto.precioVenta);
 
-                    double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria);
+                    double cantidadUnitario = (double)(findPresentacion.cantidadUnitaria);
                     double precioUnidatio = precioCompra * cantidadUnitario* valorDeCambio;
 
                     // Imprimiendo valor

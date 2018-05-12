@@ -540,7 +540,7 @@ namespace Admeli.Compras.Nuevo
                         // Realizando el calculo
 
                         double precioCompra = (double)currentProducto.precioCompra;
-                        double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria);
+                        double cantidadUnitario = (double)(findPresentacion.cantidadUnitaria);
                         double precioUnidatio = precioCompra * cantidadUnitario;
 
                         // Imprimiendo valor
