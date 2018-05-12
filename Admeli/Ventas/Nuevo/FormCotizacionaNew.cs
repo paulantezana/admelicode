@@ -107,8 +107,8 @@ namespace Admeli.Ventas.Nuevo
         List<FormatoDocumento> listformato;
         private bool seleccionado;
 
-
-
+        private double valorDeCambio = 1;
+        private Moneda monedaActual { get; set; }
 
         #region ================================ Construtor ================================
 
@@ -515,7 +515,14 @@ namespace Admeli.Ventas.Nuevo
             try
             {
                 monedas = await monedaModel.monedas();
-                cbxTipoMoneda.DataSource = monedas;
+                monedaBindingSource.DataSource = monedas;
+
+                //monedas/estado/1
+
+                monedaActual = monedas.Find(X => X.porDefecto == true);
+                cbxTipoMoneda.SelectedValue = monedaActual.idMoneda;
+
+
                 if (!nuevo)
                 {
 
@@ -2684,14 +2691,72 @@ namespace Admeli.Ventas.Nuevo
 
             }
         }
-
-        private void label23_Click(object sender, EventArgs e)
+        public string cambiarValor(string valor, double valorCambio)
         {
 
+            return darformato(toDouble(valor) * valorCambio);
         }
 
-        private void label4_Click(object sender, EventArgs e)
+
+
+        private  async void cbxTipoMoneda_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbxTipoMoneda.SelectedIndex == -1)
+                return;
+
+            Moneda monedaCambio = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
+
+            CambioMoneda cambio = new CambioMoneda();
+            cambio.idMonedaActual = monedaActual.idMoneda;
+            cambio.idMonedaCambio = monedaCambio.idMoneda;
+
+
+            ValorcambioMoneda valorcambioMoneda = await monedaModel.cambiarMoneda(cambio);
+
+            valorDeCambio = toDouble(valorcambioMoneda.cambioMonedaCambio) / toDouble(valorcambioMoneda.cambioMonedaActual);
+
+            if (detalleVentas != null)
+            {
+
+                if (detalleVentas.Count > 0)
+                {
+
+                    foreach (DetalleV v in detalleVentas)
+                    {
+                        v.precioEnvio = cambiarValor(v.precioEnvio, valorDeCambio);
+                        v.precioUnitario = cambiarValor(v.precioUnitario, valorDeCambio);
+                        v.precioVenta = cambiarValor(v.precioVenta, valorDeCambio);
+                        v.precioVentaReal = cambiarValor(v.precioVentaReal, valorDeCambio);
+                        v.total = cambiarValor(v.total, valorDeCambio);
+                        v.totalGeneral = cambiarValor(v.totalGeneral, valorDeCambio);
+                        v.descuento = cambiarValor(v.descuento, valorDeCambio);
+
+                    }
+
+                    detalleVBindingSource.DataSource = null;
+                    detalleVBindingSource.DataSource = detalleVentas;
+                    calculoSubtotal();
+
+                    descuentoTotal();
+
+
+                    decorationDataGridView();
+
+
+
+                }
+            }
+            if (cbxCodigoProducto.SelectedIndex != -1)
+            {
+
+                txtPrecioUnitario.Text = cambiarValor(txtPrecioUnitario.Text, valorDeCambio);
+
+
+            }
+
+            monedaActual = monedaCambio;
+
+
 
         }
     }

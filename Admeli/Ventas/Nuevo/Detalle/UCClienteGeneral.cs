@@ -35,7 +35,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
         public bool lisenerKeyEvents { get; internal set; }
 
         public Response rest { get; set; }
-
+        public int nroMaximoCaracteres = 0;
 
 
         #region====================Construtor=============== 
@@ -55,7 +55,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
             InitializeComponent();
             this.formClienteNuevo = formClienteNuevo;
             this.NroDocumento = NroDocumento;
-
+          
         }
 
         #endregion====================Construtor=============== 
@@ -64,8 +64,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
         private void UCProveedorGeneral_Load(object sender, EventArgs e)
         {
             this.reLoad();
-            textNIdentificacion.Select();
-            textNIdentificacion.Focus();
+           
 
         }
 
@@ -91,6 +90,8 @@ namespace Admeli.Ventas.Nuevo.Detalle
             else
             {
                 textNIdentificacion.Text = NroDocumento;
+                textNIdentificacion.Select();
+                textNIdentificacion.Focus();
             }
         }
 
@@ -116,6 +117,9 @@ namespace Admeli.Ventas.Nuevo.Detalle
 
             documentoIdentificaciones = await documentoIdentificacionModel.docIdentificacion();
             documentoIdentificacionBindingSource.DataSource = documentoIdentificaciones;
+            cbxDocumento.SelectedIndex = -1;
+            cbxDocumento.SelectedValue = documentoIdentificaciones[0].idDocumento;
+
             if (!formClienteNuevo.nuevo)
             {
                 cbxDocumento.SelectedValue = formClienteNuevo.currentCliente.idDocumento;
@@ -191,6 +195,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
             finally
             {
                 formClienteNuevo.loadStateApp(false);
+                textNIdentificacion.Focus();
             }
         }
 
@@ -451,51 +456,7 @@ namespace Admeli.Ventas.Nuevo.Detalle
         
         }
 
-        //private async void guardarSucursal()
-        //{
-        //    if (!validarCampos()) return;
-        //    try
-        //    {
-        //        crearObjetoSucursal();
-        //        if (formClienteNuevo.nuevo)
-        //        {
-        //            Response response = await proveedorModel.guardar(ubicacionGeografica, formClienteNuevo.currentCliente);
-        //            MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        else
-        //        {
-        //            Response response = await proveedorModel.modificar(ubicacionGeografica, formClienteNuevo.currentProveedor);
-        //            MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        this.formClienteNuevo.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}
-
-        //private void crearObjetoSucursal()
-        //{
-        //    formClienteNuevo.currentProveedor = new Proveedor();
-
-        //    if (!formClienteNuevo.nuevo) formClienteNuevo.currentProveedor.idProveedor = formClienteNuevo.currentIDProveedor; // Llenar el id categoria cuando este en esdo modificar
-
-        //    formClienteNuevo.currentProveedor.actividadPrincipal = textActividadPrincipal.Text;
-        //    formClienteNuevo.currentProveedor.direccion = textDireccion.Text;
-        //    formClienteNuevo.currentProveedor.email = textEmail.Text;
-        //    formClienteNuevo.currentProveedor.estado = Convert.ToInt32(chkEstado.Checked);
-        //    formClienteNuevo.currentProveedor.razonSocial = textNombreEmpresa.Text;
-        //    formClienteNuevo.currentProveedor.ruc = textNIdentificacion.Text;
-        //    formClienteNuevo.currentProveedor.telefono = textTelefono.Text;
-        //    formClienteNuevo.currentProveedor.tipoProveedor = cbxTipoProveedor.Text;
-
-        //    // Ubicacion geografica
-        //    ubicacionGeografica.idPais = (cbxPaises.SelectedIndex == -1) ? ubicacionGeografica.idPais : Convert.ToInt32(cbxPaises.SelectedValue);
-        //    ubicacionGeografica.idNivel1 = (cbxNivel1.SelectedIndex == -1) ? ubicacionGeografica.idNivel1 : Convert.ToInt32(cbxNivel1.SelectedValue);
-        //    ubicacionGeografica.idNivel2 = (cbxNivel2.SelectedIndex == -1) ? ubicacionGeografica.idNivel2 : Convert.ToInt32(cbxNivel2.SelectedValue);
-        //    ubicacionGeografica.idNivel3 = (cbxNivel3.SelectedIndex == -1) ? ubicacionGeografica.idNivel3 : Convert.ToInt32(cbxNivel3.SelectedValue);
-        //}
+   
 
         private bool validarCampos()
         {
@@ -585,19 +546,24 @@ namespace Admeli.Ventas.Nuevo.Detalle
         private void textTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validator.isNumber(e);
+           
         }
 
         // TAREA hacer los cambios en todos los formularios de clientes y proveedores ver lo de paises 
         private async void textNIdentificacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validator.isNumber(e);  
-             String aux = textNIdentificacion.Text;
-                int nroCarateres=aux.Length;
+             
+            String aux = textNIdentificacion.Text;
+            int nroCarateres=aux.Length;
+            Validator.isNroDocumento(e,  nroCarateres,nroMaximoCaracteres);
 
-                if(nroCarateres==11 || nroCarateres==8)               
+
+            if (nroCarateres==nroMaximoCaracteres)               
                  {
                         if (e.KeyChar == (char)Keys.Enter)
-                        {
+
+
+                {
                             try
                             {
                                 this.formClienteNuevo.loadStateApp(true);
@@ -631,7 +597,8 @@ namespace Admeli.Ventas.Nuevo.Detalle
                     if (respuestaSunat.success)
                     {
                         dataSunat = respuestaSunat.result;
-                        textNIdentificacion.Text = dataSunat.RUC;
+                        if(dataSunat.RUC.Length==nroMaximoCaracteres)
+                            textNIdentificacion.Text = dataSunat.RUC;
                         textCelular.Text = dataSunat.Telefono.Substring(1, dataSunat.Telefono.Length - 1);
                         txtNombreCliente.Text = dataSunat.RazonSocial;
                         textDireccion.Text = concidencias(dataSunat.Direccion);
@@ -710,10 +677,13 @@ namespace Admeli.Ventas.Nuevo.Detalle
 
         private void cbxDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cbxDocumento.SelectedIndex==-1)return;
+
              DocumentoIdentificacion documentoIdentificacion=  documentoIdentificaciones.Find(X => X.idDocumento == (int)cbxDocumento.SelectedValue);
+            nroMaximoCaracteres = documentoIdentificacion.numeroDigitos;
+
             if (documentoIdentificacion.tipoDocumento == "Jurídico")
             {
-
                 cbxSexo.Visible = false;
                 lbsexo.Visible = false;
 

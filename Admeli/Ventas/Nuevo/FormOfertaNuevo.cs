@@ -21,7 +21,7 @@ namespace Admeli.Ventas.Nuevo
         private OfertaG datosOfertaG;
         private int currentIDOferta { get; set; }
         private bool nuevo { get; set; }
-
+        
         private SucursalModel sucursalModel = new SucursalModel();
         private GrupoClienteModel grupoClienteModel = new GrupoClienteModel();
         private ProductoModel productoModel = new ProductoModel();

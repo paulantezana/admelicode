@@ -386,9 +386,6 @@ namespace Admeli.Compras.Nuevo
             {
                 productos = await productoModel.productos();
                 productoBindingSource.DataSource = productos;
-
-
-
                 cbxCodigoProducto.SelectedIndex = -1;
                 cbxDescripcion.SelectedIndex = -1;
             }
@@ -541,8 +538,9 @@ namespace Admeli.Compras.Nuevo
                         Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == idPresentacion);
 
                         // Realizando el calculo
-                        double precioCompra = double.Parse(currentProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
-                        double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
+
+                        double precioCompra = (double)currentProducto.precioCompra;
+                        double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria);
                         double precioUnidatio = precioCompra * cantidadUnitario;
 
                         // Imprimiendo valor
@@ -1337,7 +1335,7 @@ namespace Admeli.Compras.Nuevo
                 notaEntrada.cantidad = detalle.cantidad;
                 notaEntrada.idCombinacionAlternativa = detalle.idCombinacionAlternativa;
                 notaEntrada.idAlmacen = currentAlmacenCompra.idAlmacen;
-                notaEntrada.descripcion = detalle.descripcion;
+                notaEntrada.descripcion = detalle.nombrePresentacion;
                 datoNotaEntradaC.Add(notaEntrada);
             }
             pagocompraC.idCaja = FormPrincipal.asignacion.idCaja;
@@ -1351,7 +1349,7 @@ namespace Admeli.Compras.Nuevo
             notaentrada.datoNotaEntrada = datoNotaEntradaC;
             notaentrada.generarNotaEntrada = chbxNotaEntrada.Checked == true ? 1 : 0;
             notaentrada.idCompra = currentCompra != null ? currentCompra.idPago : 0; ;
-            notaentrada.idTipoDocumento = (int)cbxTipoDocumento.SelectedValue;
+            notaentrada.idTipoDocumento = 7;// nota de entrada
             notaentrada.idPersonal = PersonalModel.personal.idPersonal;
             compraTotal = new compraTotal();
             compraTotal.detalle = detalleC;

@@ -141,15 +141,12 @@ namespace Admeli.Herramientas.Detalle
             }
             if (dgvCombinacion.CurrentCell.ColumnIndex ==3 || dgvCombinacion.CurrentCell.ColumnIndex ==4 )
             {
-
                 txt = e.Control as TextBox;
-
                 if (txt != null)
                 {
                     txt.KeyPress -= new KeyPressEventHandler(dataGridview_KeyPress);
                     txt.KeyPress += new KeyPressEventHandler(dataGridview_KeyPress);
                 }
-
             }
         }
 

@@ -58,6 +58,10 @@ namespace Admeli.Productos
             paginacion = new Paginacion(Convert.ToInt32(lblCurrentPage.Text), Convert.ToInt32(lblSpeedPages.Text));
 
             visualizar();
+            if (ConfigModel.asignacionPersonal.idPuntoCompra == 0)
+            {
+                btnModificar.Enabled = false;
+            }
 
         }
 
@@ -144,6 +148,7 @@ namespace Admeli.Productos
         {
             DrawShape drawShape = new DrawShape();
             drawShape.lineBorder(panelContainer);
+            drawShape.lineBorder(panel7);
         }
 
         #region ======================== KEYBOARD ========================
@@ -617,7 +622,8 @@ namespace Admeli.Productos
         #region ==================== CRUD ====================
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            executeModificar();
+            if (ConfigModel.asignacionPersonal.idPuntoCompra != 0)
+                executeModificar();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -632,7 +638,10 @@ namespace Admeli.Productos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            executeModificar();
+            if(ConfigModel.asignacionPersonal.idPuntoCompra !=0)
+
+                 executeModificar();
+            
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -843,6 +852,8 @@ namespace Admeli.Productos
 
         private void cargarStock()
         {
+           
+           
             cbxAlmacenes.Enabled = chkVerStock.Checked;
             cbxSucursales.Enabled = chkVerStock.Checked;
             if (chkVerStock.Checked)
@@ -852,7 +863,9 @@ namespace Admeli.Productos
                 dataGridView.Columns[1].Visible = true;
                 dataGridView.Columns[2].Visible = true;
                 dataGridView.Columns[3].Visible = false;
-                dataGridView.Columns[4].Visible = true;
+
+                if(ConfigModel.asignacionPersonal.idPuntoCompra!=0)
+                    dataGridView.Columns[4].Visible = true;
                 dataGridView.Columns[5].Visible = false;
                 dataGridView.Columns[6].Visible = false;
                 dataGridView.Columns[7].Visible = true;
@@ -877,7 +890,9 @@ namespace Admeli.Productos
                 dataGridView.Columns[1].Visible = true;
                 dataGridView.Columns[2].Visible = true;
                 dataGridView.Columns[3].Visible = false;
-                dataGridView.Columns[4].Visible = true;
+                if (ConfigModel.asignacionPersonal.idPuntoCompra != 0)
+                    dataGridView.Columns[4].Visible = true;
+               
                 dataGridView.Columns[5].Visible = true;
                 dataGridView.Columns[6].Visible = true;
                 dataGridView.Columns[7].Visible = false;
@@ -903,6 +918,9 @@ namespace Admeli.Productos
 
         private void chkActivoAlmacen_OnChange(object sender, EventArgs e)
         {
+
+
+
             paginacion.currentPage = 1;
             cargarStock();
         }

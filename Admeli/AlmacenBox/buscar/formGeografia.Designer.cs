@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formGeografia));
             this.panelFooter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -132,7 +133,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 16);
+            this.label4.Size = new System.Drawing.Size(146, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Lugar de Entrega";
             // 
@@ -145,7 +146,7 @@
             this.cbxNivel3.FormattingEnabled = true;
             this.cbxNivel3.Location = new System.Drawing.Point(18, 287);
             this.cbxNivel3.Name = "cbxNivel3";
-            this.cbxNivel3.Size = new System.Drawing.Size(300, 24);
+            this.cbxNivel3.Size = new System.Drawing.Size(300, 28);
             this.cbxNivel3.TabIndex = 9;
             this.cbxNivel3.ValueMember = "idNivel3";
             this.cbxNivel3.Visible = false;
@@ -162,7 +163,7 @@
             this.lblNivel3.Location = new System.Drawing.Point(16, 265);
             this.lblNivel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel3.Name = "lblNivel3";
-            this.lblNivel3.Size = new System.Drawing.Size(46, 16);
+            this.lblNivel3.Size = new System.Drawing.Size(57, 19);
             this.lblNivel3.TabIndex = 102;
             this.lblNivel3.Text = "Nivel 3";
             this.lblNivel3.Visible = false;
@@ -176,7 +177,7 @@
             this.cbxNivel2.FormattingEnabled = true;
             this.cbxNivel2.Location = new System.Drawing.Point(20, 219);
             this.cbxNivel2.Name = "cbxNivel2";
-            this.cbxNivel2.Size = new System.Drawing.Size(300, 24);
+            this.cbxNivel2.Size = new System.Drawing.Size(300, 28);
             this.cbxNivel2.TabIndex = 8;
             this.cbxNivel2.ValueMember = "idNivel2";
             this.cbxNivel2.Visible = false;
@@ -194,7 +195,7 @@
             this.lblNivel2.Location = new System.Drawing.Point(16, 197);
             this.lblNivel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel2.Name = "lblNivel2";
-            this.lblNivel2.Size = new System.Drawing.Size(46, 16);
+            this.lblNivel2.Size = new System.Drawing.Size(57, 19);
             this.lblNivel2.TabIndex = 100;
             this.lblNivel2.Text = "Nivel 2";
             this.lblNivel2.Visible = false;
@@ -208,7 +209,7 @@
             this.cbxNivel1.FormattingEnabled = true;
             this.cbxNivel1.Location = new System.Drawing.Point(20, 158);
             this.cbxNivel1.Name = "cbxNivel1";
-            this.cbxNivel1.Size = new System.Drawing.Size(300, 24);
+            this.cbxNivel1.Size = new System.Drawing.Size(300, 28);
             this.cbxNivel1.TabIndex = 7;
             this.cbxNivel1.ValueMember = "idNivel1";
             this.cbxNivel1.Visible = false;
@@ -226,7 +227,7 @@
             this.lblNivel1.Location = new System.Drawing.Point(16, 136);
             this.lblNivel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel1.Name = "lblNivel1";
-            this.lblNivel1.Size = new System.Drawing.Size(46, 16);
+            this.lblNivel1.Size = new System.Drawing.Size(57, 19);
             this.lblNivel1.TabIndex = 98;
             this.lblNivel1.Text = "Nivel 1";
             this.lblNivel1.Visible = false;
@@ -240,7 +241,7 @@
             this.cbxPaises.FormattingEnabled = true;
             this.cbxPaises.Location = new System.Drawing.Point(20, 96);
             this.cbxPaises.Name = "cbxPaises";
-            this.cbxPaises.Size = new System.Drawing.Size(300, 24);
+            this.cbxPaises.Size = new System.Drawing.Size(300, 28);
             this.cbxPaises.TabIndex = 6;
             this.cbxPaises.ValueMember = "idPais";
             this.cbxPaises.SelectedIndexChanged += new System.EventHandler(this.cbxPaises_SelectedIndexChanged);
@@ -257,7 +258,7 @@
             this.label11.Location = new System.Drawing.Point(16, 74);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 16);
+            this.label11.Size = new System.Drawing.Size(42, 19);
             this.label11.TabIndex = 96;
             this.label11.Text = "País";
             // 
@@ -267,7 +268,7 @@
             // 
             // formGeografia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 9F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 392);
             this.Controls.Add(this.cbxNivel3);
@@ -281,6 +282,7 @@
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formGeografia";
             this.Load += new System.EventHandler(this.UCProveedorGeneral_Load);
             this.panelFooter.ResumeLayout(false);

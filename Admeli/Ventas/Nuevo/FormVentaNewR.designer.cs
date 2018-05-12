@@ -450,6 +450,7 @@
             this.cbxTipoMoneda.Size = new System.Drawing.Size(175, 26);
             this.cbxTipoMoneda.TabIndex = 409;
             this.cbxTipoMoneda.ValueMember = "idMoneda";
+            this.cbxTipoMoneda.SelectedIndexChanged += new System.EventHandler(this.cbxTipoMoneda_SelectedIndexChanged);
             this.cbxTipoMoneda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbxTipoMoneda_KeyUp);
             // 
             // monedaBindingSource
@@ -759,19 +760,19 @@
             // 
             this.panelCargar.Controls.Add(this.progrestatus);
             this.panelCargar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCargar.Location = new System.Drawing.Point(17, 259);
-            this.panelCargar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.panelCargar.Location = new System.Drawing.Point(23, 384);
             this.panelCargar.Name = "panelCargar";
-            this.panelCargar.Size = new System.Drawing.Size(597, 13);
+            this.panelCargar.Size = new System.Drawing.Size(1349, 16);
             this.panelCargar.TabIndex = 301;
             // 
             // progrestatus
             // 
             this.progrestatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.progrestatus.Location = new System.Drawing.Point(0, 0);
-            this.progrestatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.progrestatus.Name = "progrestatus";
-            this.progrestatus.Size = new System.Drawing.Size(597, 13);
+            this.progrestatus.Size = new System.Drawing.Size(1349, 16);
             this.progrestatus.TabIndex = 0;
             // 
             // dgvDetalleOrdenCompra
@@ -918,6 +919,285 @@
             this.precioUnitarioDataGridViewTextBoxColumn.Name = "precioUnitarioDataGridViewTextBoxColumn";
             this.precioUnitarioDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioUnitarioDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+
+            // 
+            // precioVentaDataGridViewTextBoxColumn
+            // 
+            this.precioVentaDataGridViewTextBoxColumn.DataPropertyName = "precioVenta";
+            this.precioVentaDataGridViewTextBoxColumn.HeaderText = "precioVenta";
+            this.precioVentaDataGridViewTextBoxColumn.Name = "precioVentaDataGridViewTextBoxColumn";
+            this.precioVentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioVentaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.precioVentaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // idDetalleVentaDataGridViewTextBoxColumn
+            // 
+            this.idDetalleVentaDataGridViewTextBoxColumn.DataPropertyName = "idDetalleVenta";
+            this.idDetalleVentaDataGridViewTextBoxColumn.HeaderText = "idDetalleVenta";
+            this.idDetalleVentaDataGridViewTextBoxColumn.Name = "idDetalleVentaDataGridViewTextBoxColumn";
+            this.idDetalleVentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDetalleVentaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.descripcionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nroDataGridViewTextBoxColumn
+            // 
+            this.nroDataGridViewTextBoxColumn.DataPropertyName = "nro";
+            this.nroDataGridViewTextBoxColumn.HeaderText = "nro";
+            this.nroDataGridViewTextBoxColumn.Name = "nroDataGridViewTextBoxColumn";
+            this.nroDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nroDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // precioEnvioDataGridViewTextBoxColumn
+            // 
+            this.precioEnvioDataGridViewTextBoxColumn.DataPropertyName = "precioEnvio";
+            this.precioEnvioDataGridViewTextBoxColumn.HeaderText = "precioEnvio";
+            this.precioEnvioDataGridViewTextBoxColumn.Name = "precioEnvioDataGridViewTextBoxColumn";
+            this.precioEnvioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioEnvioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cantidadUnitariaDataGridViewTextBoxColumn
+            // 
+            this.cantidadUnitariaDataGridViewTextBoxColumn.DataPropertyName = "cantidadUnitaria";
+            this.cantidadUnitariaDataGridViewTextBoxColumn.HeaderText = "cantidadUnitaria";
+            this.cantidadUnitariaDataGridViewTextBoxColumn.Name = "cantidadUnitariaDataGridViewTextBoxColumn";
+            this.cantidadUnitariaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cantidadUnitariaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descuentoDataGridViewTextBoxColumn
+            // 
+            this.descuentoDataGridViewTextBoxColumn.DataPropertyName = "descuento";
+            this.descuentoDataGridViewTextBoxColumn.HeaderText = "descuento";
+            this.descuentoDataGridViewTextBoxColumn.Name = "descuentoDataGridViewTextBoxColumn";
+            this.descuentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descuentoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idProductoDataGridViewTextBoxColumn
+            // 
+            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProductoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idVentaDataGridViewTextBoxColumn
+            // 
+            this.idVentaDataGridViewTextBoxColumn.DataPropertyName = "idVenta";
+            this.idVentaDataGridViewTextBoxColumn.HeaderText = "idVenta";
+            this.idVentaDataGridViewTextBoxColumn.Name = "idVentaDataGridViewTextBoxColumn";
+            this.idVentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idVentaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idSucursalDataGridViewTextBoxColumn
+            // 
+            this.idSucursalDataGridViewTextBoxColumn.DataPropertyName = "idSucursal";
+            this.idSucursalDataGridViewTextBoxColumn.HeaderText = "idSucursal";
+            this.idSucursalDataGridViewTextBoxColumn.Name = "idSucursalDataGridViewTextBoxColumn";
+            this.idSucursalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idSucursalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ventaVarianteSinStockDataGridViewCheckBoxColumn
+            // 
+            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.DataPropertyName = "ventaVarianteSinStock";
+            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.HeaderText = "ventaVarianteSinStock";
+            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.Name = "ventaVarianteSinStockDataGridViewCheckBoxColumn";
+            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.ventaVarianteSinStockDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // precioVentaRealDataGridViewTextBoxColumn
+            // 
+            this.precioVentaRealDataGridViewTextBoxColumn.DataPropertyName = "precioVentaReal";
+            this.precioVentaRealDataGridViewTextBoxColumn.HeaderText = "precioVentaReal";
+            this.precioVentaRealDataGridViewTextBoxColumn.Name = "precioVentaRealDataGridViewTextBoxColumn";
+            this.precioVentaRealDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioVentaRealDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalGeneralDataGridViewTextBoxColumn
+            // 
+            this.totalGeneralDataGridViewTextBoxColumn.DataPropertyName = "totalGeneral";
+            this.totalGeneralDataGridViewTextBoxColumn.HeaderText = "totalGeneral";
+            this.totalGeneralDataGridViewTextBoxColumn.Name = "totalGeneralDataGridViewTextBoxColumn";
+            this.totalGeneralDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalGeneralDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // eliminarDataGridViewTextBoxColumn
+            // 
+            this.eliminarDataGridViewTextBoxColumn.DataPropertyName = "eliminar";
+            this.eliminarDataGridViewTextBoxColumn.HeaderText = "eliminar";
+            this.eliminarDataGridViewTextBoxColumn.Name = "eliminarDataGridViewTextBoxColumn";
+            this.eliminarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.eliminarDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // existeStockDataGridViewTextBoxColumn
+            // 
+            this.existeStockDataGridViewTextBoxColumn.DataPropertyName = "existeStock";
+            this.existeStockDataGridViewTextBoxColumn.HeaderText = "existeStock";
+            this.existeStockDataGridViewTextBoxColumn.Name = "existeStockDataGridViewTextBoxColumn";
+            this.existeStockDataGridViewTextBoxColumn.ReadOnly = true;
+            this.existeStockDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // detalleVBindingSource
+            // 
+            this.detalleVBindingSource.DataSource = typeof(Entidad.DetalleV);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnModificar);
+            this.flowLayoutPanel1.Controls.Add(this.btnActulizar);
+            this.flowLayoutPanel1.Controls.Add(this.btnNuevoProducto);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1395, 133);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 11, 9, 5);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(93, 418);
+            this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.Location = new System.Drawing.Point(4, 15);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(51, 49);
+            this.btnModificar.TabIndex = 18;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.EnabledChanged += new System.EventHandler(this.btnModificar_EnabledChanged);
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnActulizar
+            // 
+            this.btnActulizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.btnActulizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActulizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatAppearance.BorderSize = 0;
+            this.btnActulizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnActulizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActulizar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActulizar.ForeColor = System.Drawing.Color.White;
+            this.btnActulizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActulizar.Image")));
+            this.btnActulizar.Location = new System.Drawing.Point(4, 72);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActulizar.Name = "btnActulizar";
+            this.btnActulizar.Size = new System.Drawing.Size(51, 49);
+            this.btnActulizar.TabIndex = 9;
+            this.btnActulizar.UseVisualStyleBackColor = false;
+            this.btnActulizar.Click += new System.EventHandler(this.btnActulizar_Click);
+            // 
+            // btnNuevoProducto
+            // 
+            this.btnNuevoProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.btnNuevoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevoProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatAppearance.BorderSize = 0;
+            this.btnNuevoProducto.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(141)))), ((int)(((byte)(239)))));
+            this.btnNuevoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoProducto.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoProducto.ForeColor = System.Drawing.Color.White;
+            this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
+            this.btnNuevoProducto.Location = new System.Drawing.Point(4, 129);
+            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevoProducto.Name = "btnNuevoProducto";
+            this.btnNuevoProducto.Size = new System.Drawing.Size(51, 49);
+            this.btnNuevoProducto.TabIndex = 10;
+            this.btnNuevoProducto.UseVisualStyleBackColor = false;
+            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
+            // 
+            // panelProductos
+            // 
+            this.panelProductos.ColumnCount = 2;
+            this.panelProductos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.82609F));
+            this.panelProductos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.17391F));
+            this.panelProductos.Controls.Add(this.tableLayoutPanel30, 1, 0);
+            this.panelProductos.Controls.Add(this.tableLayoutPanel11, 0, 0);
+            this.panelProductos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProductos.Location = new System.Drawing.Point(0, 0);
+            this.panelProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelProductos.Name = "panelProductos";
+            this.panelProductos.Padding = new System.Windows.Forms.Padding(7, 6, 7, 0);
+            this.panelProductos.RowCount = 1;
+            this.panelProductos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelProductos.Size = new System.Drawing.Size(1488, 133);
+            this.panelProductos.TabIndex = 7;
+            // 
+            // tableLayoutPanel30
+            // 
+            this.tableLayoutPanel30.ColumnCount = 1;
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel30.Controls.Add(this.btnAgregar, 0, 0);
+            this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(1305, 8);
+            this.tableLayoutPanel30.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tableLayoutPanel30.Name = "tableLayoutPanel30";
+            this.tableLayoutPanel30.RowCount = 1;
+            this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(172, 123);
+            this.tableLayoutPanel30.TabIndex = 1;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.Location = new System.Drawing.Point(3, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(166, 119);
+            this.btnAgregar.TabIndex = 308;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.EnabledChanged += new System.EventHandler(this.btnAgregar_EnabledChanged);
+            this.btnAgregar.TabIndexChanged += new System.EventHandler(this.btnAgregar_TabIndexChanged);
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnAgregar_KeyUp);
             // 
             // precioVentaDataGridViewTextBoxColumn
             // 
@@ -1493,6 +1773,7 @@
             this.cbxDescripcion.DataSource = this.presentacionBindingSource;
             this.cbxDescripcion.DisplayMember = "nombrePresentacion";
             this.cbxDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxDescripcion.DropDownWidth = 410;
             this.cbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
             this.cbxDescripcion.Location = new System.Drawing.Point(2, 54);
@@ -1546,6 +1827,7 @@
             this.cbxCodigoProducto.DataSource = this.productoVentaBindingSource;
             this.cbxCodigoProducto.DisplayMember = "codigoProducto";
             this.cbxCodigoProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxCodigoProducto.DropDownWidth = 220;
             this.cbxCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCodigoProducto.FormattingEnabled = true;
             this.cbxCodigoProducto.Location = new System.Drawing.Point(2, 55);
@@ -1858,10 +2140,10 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(40, 94);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+
+            this.label20.Location = new System.Drawing.Point(54, 116);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(100, 16);
+            this.label20.Size = new System.Drawing.Size(115, 19);
             this.label20.TabIndex = 65;
             this.label20.Text = "Guia Remision";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1889,8 +2171,9 @@
             this.chbxGuiaRemision.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxGuiaRemision.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbxGuiaRemision.ForeColor = System.Drawing.Color.White;
-            this.chbxGuiaRemision.Location = new System.Drawing.Point(20, 94);
-            this.chbxGuiaRemision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
+            this.chbxGuiaRemision.Location = new System.Drawing.Point(26, 116);
+            this.chbxGuiaRemision.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chbxGuiaRemision.Name = "chbxGuiaRemision";
             this.chbxGuiaRemision.Size = new System.Drawing.Size(20, 20);
             this.chbxGuiaRemision.TabIndex = 64;
@@ -1904,8 +2187,9 @@
             this.chbxNotaEntrada.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxNotaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbxNotaEntrada.ForeColor = System.Drawing.Color.White;
-            this.chbxNotaEntrada.Location = new System.Drawing.Point(20, 29);
-            this.chbxNotaEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
+            this.chbxNotaEntrada.Location = new System.Drawing.Point(26, 36);
+            this.chbxNotaEntrada.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chbxNotaEntrada.Name = "chbxNotaEntrada";
             this.chbxNotaEntrada.Size = new System.Drawing.Size(20, 20);
             this.chbxNotaEntrada.TabIndex = 60;
@@ -1914,10 +2198,11 @@
             // 
             this.panel4.Controls.Add(this.tableLayoutPanel1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(13, 12);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.panel4.Location = new System.Drawing.Point(17, 15);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(327, 178);
+            this.panel4.Size = new System.Drawing.Size(436, 219);
             this.panel4.TabIndex = 15;
             // 
             // tableLayoutPanel1
@@ -2099,10 +2384,9 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(26, 5);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Location = new System.Drawing.Point(34, 6);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(24, 17);
+            this.label28.Size = new System.Drawing.Size(28, 20);
             this.label28.TabIndex = 2;
             this.label28.Text = "F5";
             // 
@@ -2133,9 +2417,12 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panelDatos);
+
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormVentaNewR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCompraN";
+            this.Text = "Venta ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormCompraNew_Load);
             this.panelDatos.ResumeLayout(false);

@@ -139,7 +139,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(233, 16);
+            this.label4.Size = new System.Drawing.Size(288, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Mantenimiento Empresa Transporte";
             // 
@@ -171,7 +171,7 @@
             this.txtTelefono.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.txtTelefono.BorderThickness = 1;
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.txtTelefono, -30);
             this.txtTelefono.isPassword = false;
@@ -191,7 +191,7 @@
             this.txtNombreEmpresa.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.txtNombreEmpresa.BorderThickness = 1;
             this.txtNombreEmpresa.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreEmpresa.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreEmpresa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.txtNombreEmpresa, -30);
             this.txtNombreEmpresa.isPassword = false;
@@ -211,7 +211,7 @@
             this.txtNroDocumento.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.txtNroDocumento.BorderThickness = 1;
             this.txtNroDocumento.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNroDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroDocumento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNroDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.txtNroDocumento, -30);
             this.txtNroDocumento.isPassword = false;
@@ -231,7 +231,7 @@
             this.txtUbicacion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.txtUbicacion.BorderThickness = 1;
             this.txtUbicacion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUbicacion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUbicacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.txtUbicacion, -30);
             this.txtUbicacion.isPassword = false;
@@ -251,7 +251,7 @@
             this.txtDireccion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.txtDireccion.BorderThickness = 1;
             this.txtDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.txtDireccion, -30);
             this.txtDireccion.isPassword = false;
@@ -271,7 +271,7 @@
             this.label3.ForeColor = System.Drawing.Color.DimGray;
             this.label3.Location = new System.Drawing.Point(58, 221);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 14);
+            this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 65;
             this.label3.Text = "Telefono";
             // 
@@ -283,7 +283,7 @@
             this.label2.ForeColor = System.Drawing.Color.DimGray;
             this.label2.Location = new System.Drawing.Point(58, 156);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 14);
+            this.label2.Size = new System.Drawing.Size(117, 16);
             this.label2.TabIndex = 63;
             this.label2.Text = "Nombre Empresa";
             // 
@@ -295,7 +295,7 @@
             this.label10.ForeColor = System.Drawing.Color.DimGray;
             this.label10.Location = new System.Drawing.Point(62, 92);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 14);
+            this.label10.Size = new System.Drawing.Size(110, 16);
             this.label10.TabIndex = 61;
             this.label10.Text = "Nro. Documento";
             // 
@@ -307,7 +307,7 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(58, 381);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 14);
+            this.label1.Size = new System.Drawing.Size(150, 16);
             this.label1.TabIndex = 71;
             this.label1.Text = "Ubicación Geogracfica";
             // 
@@ -319,7 +319,7 @@
             this.label6.ForeColor = System.Drawing.Color.DimGray;
             this.label6.Location = new System.Drawing.Point(62, 280);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 14);
+            this.label6.Size = new System.Drawing.Size(67, 16);
             this.label6.TabIndex = 67;
             this.label6.Text = "Direccion";
             // 
@@ -330,7 +330,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.label9.Location = new System.Drawing.Point(91, 344);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 16);
+            this.label9.Size = new System.Drawing.Size(65, 19);
             this.label9.TabIndex = 74;
             this.label9.Text = "Activo *";
             // 
@@ -369,7 +369,7 @@
             // 
             // FormTransporteNew
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 9F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 511);
             this.Controls.Add(this.btnBuscarUbicacion);
@@ -388,6 +388,7 @@
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormTransporteNew";
             this.Load += new System.EventHandler(this.FormTransporteNew_Load);
             this.panelFooter.ResumeLayout(false);

@@ -111,7 +111,9 @@ namespace Admeli.Ventas.Nuevo
         private int numberOfItemsPerPage = 0;
         private int numberOfItemsPrintedSoFar = 0;
         List<FormatoDocumento> listformato;
-
+        // cambio de monedas
+        private Moneda monedaActual { get; set; }
+        private double valorDeCambio = 1;
 
         #region========================== constructor=========================
         public FormVentaNewR()
@@ -165,10 +167,19 @@ namespace Admeli.Ventas.Nuevo
 
         private double toDouble(string texto)
         {
+
+            if (texto == "")
+            {
+                return 0;
+            }
             return double.Parse(texto, CultureInfo.GetCultureInfo("en-US")); ;
         }
         private int toEntero(string texto)
         {
+            if (texto == "")
+            {
+                return 0;
+            }
             return Int32.Parse(texto, CultureInfo.GetCultureInfo("en-US")); ;
         }
         private void deshabilitarControles()
@@ -675,7 +686,12 @@ namespace Admeli.Ventas.Nuevo
             try
             {
                 monedas = await monedaModel.monedas();
-                cbxTipoMoneda.DataSource = monedas;
+                monedaBindingSource.DataSource = monedas;
+
+                //monedas/estado/1
+
+                monedaActual = monedas.Find(X => X.porDefecto ==true);
+                cbxTipoMoneda.SelectedValue = monedaActual.idMoneda;
                 if (!nuevo)
                 {
 
@@ -905,7 +921,7 @@ namespace Admeli.Ventas.Nuevo
                 /// Buscando el producto seleccionado
                 int idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
                 currentProducto = listProductos.Find(x => x.idProducto == idProducto);
-                cbxDescripcion.Text = currentProducto.codigoProducto;
+              
                 // Llenar los campos del producto escogido.............!!!!!
 
                 if (!enModificar)
@@ -938,7 +954,7 @@ namespace Admeli.Ventas.Nuevo
                 ProductoVenta productoVenta = listProductos.Find(X => X.idProducto == idProducto);
                 /// Cargar las precentacione
                 cbxDescripcion.SelectedValue = productoVenta.idPresentacion;
-                presentacionBindingSource.DataSource = listPresentacion;
+              
             }
             catch (Exception ex)
             {
@@ -964,8 +980,9 @@ namespace Admeli.Ventas.Nuevo
 
                     // Realizando el calculo
                     double precioCompra = toDouble(currentProducto.precioVenta);
-                    double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
-                    double precioUnidatio = precioCompra * cantidadUnitario;
+
+                    double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria);
+                    double precioUnidatio = precioCompra * cantidadUnitario*valorDeCambio;
 
                     // Imprimiendo valor
                     txtPrecioUnitario.Text = darformato(precioUnidatio);
@@ -1161,6 +1178,21 @@ namespace Admeli.Ventas.Nuevo
 
                 }
                 this.Descuento = descuentoTotal;
+
+                if (Descuento <= 0)
+                {
+
+
+                    label4.Visible = false;
+                    lbDescuentoVenta.Visible = false;
+                }
+                else
+                {
+
+
+                    label4.Visible = true;
+                    lbDescuentoVenta.Visible = true;
+                }
                 Moneda moneda = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
 
 
@@ -1178,7 +1210,7 @@ namespace Admeli.Ventas.Nuevo
 
         public async void determinarStock(double cantidad)
         {
-
+            if (cbxVariacion.SelectedIndex == -1) return;
             try
             {
                 List<StockReceive> stockReceive = await stockModel.getStockProductoCombinacion((int)cbxCodigoProducto.SelectedValue, cbxVariacion.SelectedValue == null ? 0 : (int)cbxVariacion.SelectedValue, ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
@@ -1187,6 +1219,9 @@ namespace Admeli.Ventas.Nuevo
                 double stockTotal = stockReceive[0].stock_total;
                 double stockDetalle = 0;
                 // si exite en el producto en lista detalle
+
+
+
                 if (detalleVentas != null && (cbxDescripcion.SelectedIndex != -1))
                 {
                     foreach (DetalleV V in detalleVentas)
@@ -1285,8 +1320,9 @@ namespace Admeli.Ventas.Nuevo
 
                     // Realizando el calculo
                     double precioCompra = toDouble(currentProducto.precioVenta);
-                    double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
-                    double precioUnidatio = precioCompra * cantidadUnitario;
+
+                    double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria);
+                    double precioUnidatio = precioCompra * cantidadUnitario* valorDeCambio;
 
                     // Imprimiendo valor
                     txtPrecioUnitario.Text = darformato(precioUnidatio);
@@ -1713,7 +1749,7 @@ namespace Admeli.Ventas.Nuevo
                 decorationDataGridView();
 
 
-                    this.cbxCodigoProducto.Focus();
+                this.cbxCodigoProducto.Focus();
 
 
 
@@ -2269,12 +2305,11 @@ namespace Admeli.Ventas.Nuevo
 
 
             if (cbxVariacion.SelectedIndex == -1) return;
-
-
+            if (cbxCodigoProducto.SelectedIndex == -1) return;
             AlternativaCombinacion alternativa = alternativaCombinacion.Find(X => X.idCombinacionAlternativa == (int)cbxVariacion.SelectedValue);
             currentProducto = listProductos.Find(X => X.idProducto == (int)cbxCodigoProducto.SelectedValue);
             double precioUnitario = toDouble(currentProducto.precioVenta) + toDouble(alternativa.precio);
-            txtPrecioUnitario.Text = darformato(precioUnitario);
+            txtPrecioUnitario.Text = darformato(precioUnitario*valorDeCambio);
             determinarStock(0);
         }
 
@@ -2939,6 +2974,91 @@ namespace Admeli.Ventas.Nuevo
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+
+        public string cambiarValor( string valor, double valorCambio)
+        {
+
+            return  darformato( toDouble(valor) * valorCambio);
+        }
+        
+        private async void cbxTipoMoneda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoMoneda.SelectedIndex == -1)
+                return;
+
+           Moneda monedaCambio = monedas.Find(X => X.idMoneda == (int)cbxTipoMoneda.SelectedValue);
+
+            CambioMoneda cambio = new CambioMoneda();
+            cambio.idMonedaActual = monedaActual.idMoneda;
+            cambio.idMonedaCambio = monedaCambio.idMoneda;
+
+
+           ValorcambioMoneda valorcambioMoneda=await monedaModel.cambiarMoneda(cambio);
+
+            valorDeCambio = toDouble(valorcambioMoneda.cambioMonedaCambio) / toDouble(valorcambioMoneda.cambioMonedaActual);
+
+            if (detalleVentas != null)
+            {
+
+                if (detalleVentas.Count > 0)
+                {
+
+                    foreach(DetalleV v in detalleVentas)
+                    {
+                        v.precioEnvio = cambiarValor(v.precioEnvio, valorDeCambio);
+                        v.precioUnitario = cambiarValor(v.precioUnitario, valorDeCambio);
+                        v.precioVenta = cambiarValor(v.precioVenta, valorDeCambio);
+                        v.precioVentaReal = cambiarValor(v.precioVentaReal, valorDeCambio);
+                        v.total = cambiarValor(v.total, valorDeCambio);
+                        v.totalGeneral = cambiarValor(v.totalGeneral, valorDeCambio);
+                        v.descuento = cambiarValor(v.descuento, valorDeCambio);
+                       
+                    }
+
+                    detalleVBindingSource.DataSource = null;
+                    detalleVBindingSource.DataSource = detalleVentas;
+                    calculoSubtotal();
+
+                    descuentoTotal();
+
+                  
+                    decorationDataGridView();
+
+
+
+                }
+            }
+
+            
+
+
+
+
+
+
+            if (cbxCodigoProducto.SelectedIndex != -1)
+            {
+
+                txtPrecioUnitario.Text = cambiarValor(txtPrecioUnitario.Text, valorDeCambio);
+
+
+            }
+
+            monedaActual = monedaCambio;
+
+            //Moneda moneda=monedas.Find(X.)
+
+
+            //cambio 
+
+            //cambiarMoneda(Valorcambio param)
+
+
+            // cambiar de moneda
+            //post//valormonedas
+
         }
     }
 }

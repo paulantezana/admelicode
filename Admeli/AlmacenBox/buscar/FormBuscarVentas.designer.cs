@@ -521,6 +521,7 @@
             this.ClientSize = new System.Drawing.Size(1149, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormBuscarVentas";
