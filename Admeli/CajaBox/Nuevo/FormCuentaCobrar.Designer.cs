@@ -112,9 +112,11 @@
             this.panelHeader.Controls.Add(this.label4);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
+
             this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
+
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1585, 66);
+            this.panelHeader.Size = new System.Drawing.Size(1171, 54);
             this.panelHeader.TabIndex = 0;
             // 
             // bunifuSeparator1
@@ -123,10 +125,11 @@
             this.bunifuSeparator1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
             this.bunifuSeparator1.LineThickness = 1;
+
             this.bunifuSeparator1.Location = new System.Drawing.Point(0, 51);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(1585, 15);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(1171, 12);
             this.bunifuSeparator1.TabIndex = 5;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -135,10 +138,9 @@
             // 
             this.lbNombreCliente.AutoSize = true;
             this.lbNombreCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombreCliente.Location = new System.Drawing.Point(116, 22);
-            this.lbNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNombreCliente.Location = new System.Drawing.Point(87, 18);
             this.lbNombreCliente.Name = "lbNombreCliente";
-            this.lbNombreCliente.Size = new System.Drawing.Size(136, 19);
+            this.lbNombreCliente.Size = new System.Drawing.Size(112, 16);
             this.lbNombreCliente.TabIndex = 4;
             this.lbNombreCliente.Text = "Cliente Eventual";
             // 
@@ -146,10 +148,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 22);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(15, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 19);
+            this.label4.Size = new System.Drawing.Size(66, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "CLIENTE:";
             // 
@@ -159,21 +160,23 @@
             this.panelFooder.Controls.Add(this.progressbActual);
             this.panelFooder.Controls.Add(this.btnSalir);
             this.panelFooder.Dock = System.Windows.Forms.DockStyle.Bottom;
+
             this.panelFooder.Location = new System.Drawing.Point(0, 667);
             this.panelFooder.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooder.Name = "panelFooder";
-            this.panelFooder.Size = new System.Drawing.Size(1585, 75);
+            this.panelFooder.Size = new System.Drawing.Size(1171, 61);
             this.panelFooder.TabIndex = 1;
             // 
             // progressbActual
             // 
             this.progressbActual.Dock = System.Windows.Forms.DockStyle.Bottom;
+
             this.progressbActual.Location = new System.Drawing.Point(0, 65);
             this.progressbActual.Margin = new System.Windows.Forms.Padding(4);
             this.progressbActual.MarqueeAnimationSpeed = 2;
             this.progressbActual.Maximum = 5;
             this.progressbActual.Name = "progressbActual";
-            this.progressbActual.Size = new System.Drawing.Size(1585, 10);
+            this.progressbActual.Size = new System.Drawing.Size(1171, 8);
             this.progressbActual.TabIndex = 8;
             this.progressbActual.UseWaitCursor = true;
             this.progressbActual.Visible = false;
@@ -189,10 +192,11 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
+
             this.btnSalir.Location = new System.Drawing.Point(1367, 16);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(203, 44);
+            this.btnSalir.Size = new System.Drawing.Size(152, 36);
             this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -204,10 +208,11 @@
             this.panelBody.Controls.Add(this.panel2);
             this.panelBody.Controls.Add(this.panel1);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.panelBody.Location = new System.Drawing.Point(0, 66);
             this.panelBody.Margin = new System.Windows.Forms.Padding(4);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1585, 601);
+            this.panelBody.Size = new System.Drawing.Size(1171, 488);
             this.panelBody.TabIndex = 2;
             // 
             // panel2
@@ -218,18 +223,19 @@
             this.panel2.Location = new System.Drawing.Point(781, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(804, 601);
+            this.panel2.Size = new System.Drawing.Size(585, 488);
             this.panel2.TabIndex = 1;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.dgvDetalleCobro);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.panel7.Location = new System.Drawing.Point(0, 54);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.panel7.Size = new System.Drawing.Size(804, 547);
+            this.panel7.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel7.Size = new System.Drawing.Size(585, 444);
             this.panel7.TabIndex = 3;
             // 
             // dgvDetalleCobro
@@ -273,6 +279,7 @@
             this.dgvDetalleCobro.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalleCobro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleCobro.GridColor = System.Drawing.Color.Gainsboro;
+
             this.dgvDetalleCobro.Location = new System.Drawing.Point(13, 12);
             this.dgvDetalleCobro.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetalleCobro.Name = "dgvDetalleCobro";
@@ -291,10 +298,11 @@
             this.dgvDetalleCobro.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalleCobro.RowTemplate.Height = 30;
             this.dgvDetalleCobro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleCobro.Size = new System.Drawing.Size(778, 523);
+            this.dgvDetalleCobro.Size = new System.Drawing.Size(565, 424);
             this.dgvDetalleCobro.TabIndex = 31;
             this.dgvDetalleCobro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCobro_CellClick);
             // 
+
             // detalleCobroBindingSource
             // 
             this.detalleCobroBindingSource.DataSource = typeof(Entidad.DetalleCobro);
@@ -305,9 +313,10 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(804, 54);
+            this.panel4.Size = new System.Drawing.Size(585, 44);
             this.panel4.TabIndex = 1;
             // 
             // toolStripCrud
@@ -321,10 +330,10 @@
             this.toolStripCrud.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNuevoDetalleCobro,
             this.btnEliminarDetalleCobro});
-            this.toolStripCrud.Location = new System.Drawing.Point(549, 0);
+            this.toolStripCrud.Location = new System.Drawing.Point(412, 0);
             this.toolStripCrud.Name = "toolStripCrud";
-            this.toolStripCrud.Padding = new System.Windows.Forms.Padding(11, 0, 11, 10);
-            this.toolStripCrud.Size = new System.Drawing.Size(255, 54);
+            this.toolStripCrud.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
+            this.toolStripCrud.Size = new System.Drawing.Size(173, 44);
             this.toolStripCrud.TabIndex = 23;
             this.toolStripCrud.Text = "toolStrip1";
             // 
@@ -363,19 +372,19 @@
             this.panel5.Controls.Add(this.label3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
+
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(549, 54);
+            this.panel5.Size = new System.Drawing.Size(412, 44);
             this.panel5.TabIndex = 24;
             // 
             // lbSaldo
             // 
             this.lbSaldo.AutoSize = true;
             this.lbSaldo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaldo.Location = new System.Drawing.Point(372, 17);
-            this.lbSaldo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSaldo.Location = new System.Drawing.Point(279, 14);
             this.lbSaldo.Name = "lbSaldo";
-            this.lbSaldo.Size = new System.Drawing.Size(59, 19);
+            this.lbSaldo.Size = new System.Drawing.Size(47, 16);
             this.lbSaldo.TabIndex = 9;
             this.lbSaldo.Text = "0.0000";
             // 
@@ -383,10 +392,9 @@
             // 
             this.lbTotal.AutoSize = true;
             this.lbTotal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotal.Location = new System.Drawing.Point(171, 16);
-            this.lbTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTotal.Location = new System.Drawing.Point(128, 13);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(59, 19);
+            this.lbTotal.Size = new System.Drawing.Size(47, 16);
             this.lbTotal.TabIndex = 8;
             this.lbTotal.Text = "0.0000";
             // 
@@ -394,10 +402,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(299, 16);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(224, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 19);
+            this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 7;
             this.label6.Text = "Saldo:";
             // 
@@ -405,10 +412,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(103, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(77, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 19);
+            this.label3.Size = new System.Drawing.Size(43, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Total:";
             // 
@@ -418,20 +424,23 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
+
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(781, 601);
+            this.panel1.Size = new System.Drawing.Size(586, 488);
             this.panel1.TabIndex = 0;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.dgvCobros);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.panel6.Location = new System.Drawing.Point(0, 54);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.panel6.Size = new System.Drawing.Size(781, 547);
+            this.panel6.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel6.Size = new System.Drawing.Size(586, 444);
             this.panel6.TabIndex = 2;
             // 
             // dgvCobros
@@ -474,6 +483,7 @@
             this.dgvCobros.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvCobros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCobros.GridColor = System.Drawing.Color.Gainsboro;
+
             this.dgvCobros.Location = new System.Drawing.Point(13, 12);
             this.dgvCobros.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCobros.Name = "dgvCobros";
@@ -492,7 +502,7 @@
             this.dgvCobros.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCobros.RowTemplate.Height = 30;
             this.dgvCobros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCobros.Size = new System.Drawing.Size(755, 523);
+            this.dgvCobros.Size = new System.Drawing.Size(566, 424);
             this.dgvCobros.TabIndex = 30;
             this.dgvCobros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCobros_CellClick);
             // 
@@ -541,6 +551,7 @@
             this.idCobroDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idCobroDataGridViewTextBoxColumn.Name = "idCobroDataGridViewTextBoxColumn";
             this.idCobroDataGridViewTextBoxColumn.ReadOnly = true;
+
             this.idCobroDataGridViewTextBoxColumn.Width = 54;
             // 
             // montoPagarDataGridViewTextBoxColumn
@@ -549,6 +560,7 @@
             this.montoPagarDataGridViewTextBoxColumn.HeaderText = "Monto Pagar";
             this.montoPagarDataGridViewTextBoxColumn.Name = "montoPagarDataGridViewTextBoxColumn";
             this.montoPagarDataGridViewTextBoxColumn.ReadOnly = true;
+
             this.montoPagarDataGridViewTextBoxColumn.Width = 138;
             // 
             // dataGridViewTextBoxColumn1
@@ -557,7 +569,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "fecha";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 80;
+            this.dataGridViewTextBoxColumn1.Width = 68;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -565,6 +577,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Nro Cuotas";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+
             this.dataGridViewTextBoxColumn2.Width = 128;
             // 
             // dataGridViewTextBoxColumn3
@@ -573,7 +586,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Interes";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 92;
+            this.dataGridViewTextBoxColumn3.Width = 76;
             // 
             // fechaModificacionDataGridViewTextBoxColumn
             // 
@@ -581,6 +594,7 @@
             this.fechaModificacionDataGridViewTextBoxColumn.HeaderText = "F. Modificacion";
             this.fechaModificacionDataGridViewTextBoxColumn.Name = "fechaModificacionDataGridViewTextBoxColumn";
             this.fechaModificacionDataGridViewTextBoxColumn.ReadOnly = true;
+
             this.fechaModificacionDataGridViewTextBoxColumn.Width = 153;
             // 
             // dataGridViewTextBoxColumn4
@@ -589,6 +603,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Estado Cobro";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+
             this.dataGridViewTextBoxColumn4.Width = 147;
             // 
             // estadoDataGridViewTextBoxColumn
@@ -597,7 +612,9 @@
             this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+
             this.estadoDataGridViewTextBoxColumn.Width = 93;
+
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -605,6 +622,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "idMoneda";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+
             this.dataGridViewTextBoxColumn5.Visible = false;
             this.dataGridViewTextBoxColumn5.Width = 113;
             // 
@@ -618,6 +636,7 @@
             // 
             // montoInteresDataGridViewTextBoxColumn
             // 
+
             this.montoInteresDataGridViewTextBoxColumn.DataPropertyName = "montoInteres";
             this.montoInteresDataGridViewTextBoxColumn.HeaderText = "M. Interes";
             this.montoInteresDataGridViewTextBoxColumn.Name = "montoInteresDataGridViewTextBoxColumn";
@@ -626,14 +645,17 @@
             // 
             // montoDataGridViewTextBoxColumn
             // 
+
             this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
             this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
             this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
             this.montoDataGridViewTextBoxColumn.ReadOnly = true;
             this.montoDataGridViewTextBoxColumn.Width = 87;
+
             // 
             // fechaCalendarioDataGridViewTextBoxColumn
             // 
+
             this.fechaCalendarioDataGridViewTextBoxColumn.DataPropertyName = "fechaCalendario";
             this.fechaCalendarioDataGridViewTextBoxColumn.HeaderText = "F. Calendario";
             this.fechaCalendarioDataGridViewTextBoxColumn.Name = "fechaCalendarioDataGridViewTextBoxColumn";
@@ -692,14 +714,16 @@
             // 
             // FormCuentaCobrar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1585, 742);
+            this.ClientSize = new System.Drawing.Size(1171, 603);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelFooder);
             this.Controls.Add(this.panelHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+
             this.Margin = new System.Windows.Forms.Padding(4);
+
             this.Name = "FormCuentaCobrar";
             this.Text = "Cuentas por Cobrar";
             this.Load += new System.EventHandler(this.FormCuentaCobrar_Load);

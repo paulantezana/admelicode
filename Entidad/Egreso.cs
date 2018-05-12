@@ -14,7 +14,7 @@ namespace Entidad
         public string numeroOperacion { get; set; }
         public Fecha fecha { get; set; }
         public Fecha fechaPago { get; set; }
-        public string monto { get; set; }
+        public Decimal monto { get; set; }
         public string motivo { get; set; }
         public string observacion { get; set; }
         public string moneda { get; set; }

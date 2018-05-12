@@ -187,9 +187,9 @@ namespace Admeli.Ventas.Nuevo
 
             datosDescuentoG.fechaFin = dateFin;
             datosDescuentoG.fechaInicio = dateInicio;
-            datosDescuentoG.descuento = textDescuento.Text.Trim();
-            datosDescuentoG.cantidadMinima = textMinimaVenta.Text.Trim();
-            datosDescuentoG.cantidadMaxima = textMaximaVenta.Text.Trim();
+            datosDescuentoG.descuento = Decimal.Parse(textDescuento.Text);
+            datosDescuentoG.cantidadMinima = Decimal.Parse(textMinimaVenta.Text.Trim());
+            datosDescuentoG.cantidadMaxima = Decimal.Parse(textMaximaVenta.Text.Trim());
             datosDescuentoG.codigo = textCodigo.Text.Trim();
             datosDescuentoG.tipo = "General";         
             datosDescuentoG.idGrupoCliente = (int)cbxGrupoCliente.SelectedValue;

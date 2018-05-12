@@ -28,7 +28,6 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 cargarObjetoImpuesto();
                 executarGuardar();
-
             }
         }
         private void cargarObjetoImpuesto()
@@ -43,6 +42,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         }
         private async void executarGuardar()
         {
+            bloquear(true);
             try
             {
                 Response response = await impuestoModel.guardar(currentImpuesto);
@@ -52,6 +52,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 MessageBox.Show("Error: "+ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            bloquear(false);
             //Proceder a guardar Impuesto
         }
         private bool validarDatos()
@@ -120,6 +121,18 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void textSiglasImpuesto_Validated(object sender, EventArgs e)
         {
             validarNombreSimboloImpuesto();
+        }
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
         }
     }
 }

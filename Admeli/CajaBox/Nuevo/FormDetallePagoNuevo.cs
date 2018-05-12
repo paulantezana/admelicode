@@ -80,8 +80,9 @@ namespace Admeli.CajaBox.Nuevo
 
         private async void guardarPagoDetalle()
         {
+            bloquear(true);
             //validar los campos
-            if (!validarCampos()) return;
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
                 //Verificar Caja Asignada y recuperar idCajaSesion
@@ -113,6 +114,7 @@ namespace Admeli.CajaBox.Nuevo
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            bloquear(false);
         }
 
         private void crearObjetoPagoDetalle()
@@ -187,6 +189,18 @@ namespace Admeli.CajaBox.Nuevo
         {
             DrawShape drawShape = new DrawShape();
             drawShape.lineBorder(panelMoneda, 157, 157, 157);
+        }
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
         }
     }
 

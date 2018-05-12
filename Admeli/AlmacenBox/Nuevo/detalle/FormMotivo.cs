@@ -27,6 +27,7 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
+            bloquear(true);
             try
             {
                 motivoTraslado = new MotivoTraslado();
@@ -47,11 +48,24 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
             {
                 MessageBox.Show("Error: " + ex.Message, "btnGuardar Response", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            bloquear(false);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
         }
     }
 }

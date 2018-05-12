@@ -21,7 +21,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private SucursalModel sucursalModel = new SucursalModel();
         private ImpuestoModel impuestoModel = new ImpuestoModel();
         private PrecioModel precioModel = new PrecioModel();
-        private string precioCompra;
+        private Decimal precioCompra;
         private double sumaImpuestosProducto=0;
         private Precio currentPrecio;
         private int currentidProducto;
@@ -37,7 +37,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             this.currentPrecio = currentPrecio;
         }
 
-        public FormPrecioDetalle(Precio currentPrecio, string precioCompra,int idProducto)
+        public FormPrecioDetalle(Precio currentPrecio, Decimal precioCompra,int idProducto)
         {
             InitializeComponent();
             this.currentPrecio = currentPrecio;
@@ -48,10 +48,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private void cargarDatosModificar()
         {
-            textPrecioCompra.Text = precioCompra.ToString();
-            textPrecioVenta.Text = currentPrecio.precioVenta;
-            textPrecioCompetencia.Text = currentPrecio.precioCompetencia;
-            textPrecioUtilidad.Text = currentPrecio.utilidad;
+            textPrecioCompra.Text = precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
+            textPrecioVenta.Text = currentPrecio.precioVenta.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
+            textPrecioCompetencia.Text = currentPrecio.precioCompetencia.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
+            textPrecioUtilidad.Text = currentPrecio.utilidad.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
             cbxMoneda.SelectedValue = currentPrecio.idMoneda;
             cbxSucursal.SelectedValue = currentPrecio.idSucursal;
         }
@@ -96,7 +96,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 int rowComplete = Convert.ToInt32(Math.Floor((decimal)(impuestos.Count / columnas))) * columnas; // detectar cuantos fila esta lleno de  registros
                 for (int i = 0; i < impuestos.Count; i++) // for para las filas
                 {
-                    sumaImpuestosProducto += (impuestos[i].valorImpuesto/100)*double.Parse(precioCompra);
+                    sumaImpuestosProducto += (impuestos[i].valorImpuesto/100)*double.Parse(precioCompra.ToString());
                     for (int j = 0; j < columnas; j++) // For para las columnas
                     {
                         if (i > rowComplete) // validacion
@@ -110,7 +110,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
                     y += 60; // cordenada y
                     x = 13; // cordenada x regresando al valor original
                 }
-                textPrecioConImpuesto.Text = (sumaImpuestosProducto+ double.Parse(precioCompra)).ToString();
+                textPrecioConImpuesto.Text = (sumaImpuestosProducto+ double.Parse(precioCompra.ToString())).ToString();
                 // =====
             }
             catch (Exception ex)
@@ -187,9 +187,9 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void cargarValores()
         {
             currentPrecio.idProducto = this.currentidProducto;
-            currentPrecio.utilidad = textPrecioUtilidad.Text;
-            currentPrecio.precioVenta = textPrecioVenta.Text;
-            currentPrecio.precioCompetencia = textPrecioCompetencia.Text;
+            currentPrecio.utilidad = Decimal.Parse(textPrecioUtilidad.Text);
+            currentPrecio.precioVenta = Decimal.Parse(textPrecioVenta.Text);
+            currentPrecio.precioCompetencia = Decimal.Parse(textPrecioCompetencia.Text);
         }
 
         private async void ejecutarGuardar()

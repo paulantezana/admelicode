@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCImpuestoPDN));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelItem2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -77,6 +77,24 @@
             this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.impuestoBindingSourceT = new System.Windows.Forms.BindingSource(this.components);
             this.impuestoBindingSourceP = new System.Windows.Forms.BindingSource(this.components);
+            this.idImpuestoT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siglasImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorImpuestoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentualDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.porDefectoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enUsoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.estadoStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idImpuestoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siglasImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorImpuestoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentualDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.porDefectoDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.estadoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enUsoDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.estadoStringDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelItem2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -104,10 +122,10 @@
             this.panelItem2.Controls.Add(this.panel7);
             this.panelItem2.Controls.Add(this.toolStrip2);
             this.panelItem2.Controls.Add(this.panel8);
-            this.panelItem2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelItem2.Location = new System.Drawing.Point(539, 107);
+            this.panelItem2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelItem2.Location = new System.Drawing.Point(429, 107);
             this.panelItem2.Name = "panelItem2";
-            this.panelItem2.Size = new System.Drawing.Size(615, 401);
+            this.panelItem2.Size = new System.Drawing.Size(433, 401);
             this.panelItem2.TabIndex = 6;
             // 
             // panel7
@@ -118,7 +136,7 @@
             this.panel7.Location = new System.Drawing.Point(0, 86);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(10);
-            this.panel7.Size = new System.Drawing.Size(615, 315);
+            this.panel7.Size = new System.Drawing.Size(433, 315);
             this.panel7.TabIndex = 23;
             // 
             // panel5
@@ -127,55 +145,67 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(10, 10);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(595, 233);
+            this.panel5.Size = new System.Drawing.Size(413, 233);
             this.panel5.TabIndex = 4;
             // 
             // dgvImpuestoProducto
             // 
             this.dgvImpuestoProducto.AllowUserToAddRows = false;
             this.dgvImpuestoProducto.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvImpuestoProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
-            this.dgvImpuestoProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvImpuestoProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvImpuestoProducto.AutoGenerateColumns = false;
+            this.dgvImpuestoProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvImpuestoProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvImpuestoProducto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvImpuestoProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImpuestoProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvImpuestoProducto.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvImpuestoProducto.DefaultCellStyle = dataGridViewCellStyle33;
+            this.dgvImpuestoProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idImpuestoP,
+            this.nombreImpuestoDataGridViewTextBoxColumn1,
+            this.siglasImpuestoDataGridViewTextBoxColumn1,
+            this.valorImpuestoDataGridViewTextBoxColumn1,
+            this.porcentualDataGridViewCheckBoxColumn1,
+            this.porDefectoDataGridViewCheckBoxColumn1,
+            this.estadoDataGridViewTextBoxColumn1,
+            this.enUsoDataGridViewCheckBoxColumn1,
+            this.estadoStringDataGridViewTextBoxColumn1});
+            this.dgvImpuestoProducto.DataSource = this.impuestoBindingSourceP;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvImpuestoProducto.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvImpuestoProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvImpuestoProducto.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvImpuestoProducto.Location = new System.Drawing.Point(0, 0);
             this.dgvImpuestoProducto.Name = "dgvImpuestoProducto";
             this.dgvImpuestoProducto.ReadOnly = true;
             this.dgvImpuestoProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvImpuestoProducto.RowHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImpuestoProducto.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvImpuestoProducto.RowHeadersWidth = 40;
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.dgvImpuestoProducto.RowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.dgvImpuestoProducto.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvImpuestoProducto.RowTemplate.Height = 30;
             this.dgvImpuestoProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvImpuestoProducto.Size = new System.Drawing.Size(595, 233);
+            this.dgvImpuestoProducto.Size = new System.Drawing.Size(413, 233);
             this.dgvImpuestoProducto.TabIndex = 2;
             // 
             // panel2
@@ -184,7 +214,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(10, 243);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(595, 62);
+            this.panel2.Size = new System.Drawing.Size(413, 62);
             this.panel2.TabIndex = 3;
             // 
             // btnGuardarImpustos
@@ -203,6 +233,7 @@
             this.btnGuardarImpustos.TabIndex = 8;
             this.btnGuardarImpustos.Text = "Guardar Impuestos";
             this.btnGuardarImpustos.UseVisualStyleBackColor = false;
+            this.btnGuardarImpustos.Click += new System.EventHandler(this.btnGuardarImpustos_Click);
             // 
             // toolStrip2
             // 
@@ -216,7 +247,7 @@
             this.toolStrip2.Location = new System.Drawing.Point(0, 41);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
-            this.toolStrip2.Size = new System.Drawing.Size(615, 45);
+            this.toolStrip2.Size = new System.Drawing.Size(433, 45);
             this.toolStrip2.TabIndex = 22;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -231,6 +262,7 @@
             this.btnProductoATodo.Size = new System.Drawing.Size(79, 37);
             this.btnProductoATodo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnProductoATodo.ToolTipText = "Enviar a Impuestos Generales";
+            this.btnProductoATodo.Click += new System.EventHandler(this.btnProductoATodo_Click);
             // 
             // panel8
             // 
@@ -239,7 +271,7 @@
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(615, 41);
+            this.panel8.Size = new System.Drawing.Size(433, 41);
             this.panel8.TabIndex = 21;
             // 
             // label4
@@ -261,7 +293,7 @@
             this.panelItem1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelItem1.Location = new System.Drawing.Point(0, 107);
             this.panelItem1.Name = "panelItem1";
-            this.panelItem1.Size = new System.Drawing.Size(539, 401);
+            this.panelItem1.Size = new System.Drawing.Size(429, 401);
             this.panelItem1.TabIndex = 7;
             // 
             // panel3
@@ -272,7 +304,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 86);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(539, 315);
+            this.panel3.Size = new System.Drawing.Size(429, 315);
             this.panel3.TabIndex = 23;
             // 
             // panel6
@@ -281,55 +313,67 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(10, 10);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(519, 233);
+            this.panel6.Size = new System.Drawing.Size(409, 233);
             this.panel6.TabIndex = 3;
             // 
             // dgvImpuestoTodo
             // 
             this.dgvImpuestoTodo.AllowUserToAddRows = false;
             this.dgvImpuestoTodo.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvImpuestoTodo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
-            this.dgvImpuestoTodo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvImpuestoTodo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvImpuestoTodo.AutoGenerateColumns = false;
+            this.dgvImpuestoTodo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvImpuestoTodo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvImpuestoTodo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvImpuestoTodo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImpuestoTodo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvImpuestoTodo.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvImpuestoTodo.DefaultCellStyle = dataGridViewCellStyle38;
+            this.dgvImpuestoTodo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idImpuestoT,
+            this.nombreImpuestoDataGridViewTextBoxColumn,
+            this.siglasImpuestoDataGridViewTextBoxColumn,
+            this.valorImpuestoDataGridViewTextBoxColumn,
+            this.porcentualDataGridViewCheckBoxColumn,
+            this.porDefectoDataGridViewCheckBoxColumn,
+            this.estadoDataGridViewTextBoxColumn,
+            this.enUsoDataGridViewCheckBoxColumn,
+            this.estadoStringDataGridViewTextBoxColumn});
+            this.dgvImpuestoTodo.DataSource = this.impuestoBindingSourceT;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvImpuestoTodo.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvImpuestoTodo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvImpuestoTodo.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvImpuestoTodo.Location = new System.Drawing.Point(0, 0);
             this.dgvImpuestoTodo.Name = "dgvImpuestoTodo";
             this.dgvImpuestoTodo.ReadOnly = true;
             this.dgvImpuestoTodo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvImpuestoTodo.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImpuestoTodo.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvImpuestoTodo.RowHeadersWidth = 40;
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.dgvImpuestoTodo.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.dgvImpuestoTodo.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvImpuestoTodo.RowTemplate.Height = 30;
             this.dgvImpuestoTodo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvImpuestoTodo.Size = new System.Drawing.Size(519, 233);
+            this.dgvImpuestoTodo.Size = new System.Drawing.Size(409, 233);
             this.dgvImpuestoTodo.TabIndex = 2;
             // 
             // panel9
@@ -337,7 +381,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel9.Location = new System.Drawing.Point(10, 243);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(519, 62);
+            this.panel9.Size = new System.Drawing.Size(409, 62);
             this.panel9.TabIndex = 25;
             // 
             // toolStrip1
@@ -355,7 +399,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 41);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
-            this.toolStrip1.Size = new System.Drawing.Size(539, 45);
+            this.toolStrip1.Size = new System.Drawing.Size(429, 45);
             this.toolStrip1.TabIndex = 22;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -370,6 +414,7 @@
             this.btnNuevoImpuesto.Text = "Nuevo";
             this.btnNuevoImpuesto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNuevoImpuesto.ToolTipText = "Agregar un nuevo registro (F3)";
+            this.btnNuevoImpuesto.Click += new System.EventHandler(this.btnNuevoImpuesto_Click);
             // 
             // btnActualizarImpuesto
             // 
@@ -382,6 +427,7 @@
             this.btnActualizarImpuesto.Text = "Actualizar";
             this.btnActualizarImpuesto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnActualizarImpuesto.ToolTipText = "Actualizar registros (F5)\r\n";
+            this.btnActualizarImpuesto.Click += new System.EventHandler(this.btnActualizarImpuesto_Click_1);
             // 
             // toolStripSeparator1
             // 
@@ -399,6 +445,7 @@
             this.btnTodoAProducto.Size = new System.Drawing.Size(79, 37);
             this.btnTodoAProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnTodoAProducto.ToolTipText = "Enviar a Impuestos de Producto";
+            this.btnTodoAProducto.Click += new System.EventHandler(this.btnTodoAProducto_Click);
             // 
             // panel4
             // 
@@ -407,7 +454,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(539, 41);
+            this.panel4.Size = new System.Drawing.Size(429, 41);
             this.panel4.TabIndex = 21;
             // 
             // label3
@@ -430,7 +477,7 @@
             this.panelIHeader2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelIHeader2.Location = new System.Drawing.Point(0, 49);
             this.panelIHeader2.Name = "panelIHeader2";
-            this.panelIHeader2.Size = new System.Drawing.Size(1171, 58);
+            this.panelIHeader2.Size = new System.Drawing.Size(862, 58);
             this.panelIHeader2.TabIndex = 8;
             // 
             // btnAddSucursal
@@ -449,6 +496,7 @@
             this.btnAddSucursal.TabIndex = 53;
             this.btnAddSucursal.Text = "+";
             this.btnAddSucursal.UseVisualStyleBackColor = false;
+            this.btnAddSucursal.Click += new System.EventHandler(this.btnAddSucursal_Click);
             // 
             // label8
             // 
@@ -464,6 +512,7 @@
             // 
             // cbxSucursal
             // 
+            this.cbxSucursal.DataSource = this.sucursalBindingSource;
             this.cbxSucursal.DisplayMember = "nombre";
             this.cbxSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSucursal.FormattingEnabled = true;
@@ -473,6 +522,7 @@
             this.cbxSucursal.Size = new System.Drawing.Size(328, 26);
             this.cbxSucursal.TabIndex = 51;
             this.cbxSucursal.ValueMember = "idSucursal";
+            this.cbxSucursal.SelectedIndexChanged += new System.EventHandler(this.cbxSucursal_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -490,7 +540,7 @@
             this.panelFooter.Location = new System.Drawing.Point(0, 508);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(1171, 49);
+            this.panelFooter.Size = new System.Drawing.Size(862, 49);
             this.panelFooter.TabIndex = 9;
             // 
             // panel1
@@ -499,7 +549,7 @@
             this.panel1.Controls.Add(this.btnGuardarSalir);
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(313, 0);
+            this.panel1.Location = new System.Drawing.Point(159, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(473, 49);
             this.panel1.TabIndex = 6;
@@ -520,6 +570,7 @@
             this.btnGuardarSalir.TabIndex = 9;
             this.btnGuardarSalir.Text = "Guardar y Cerrar";
             this.btnGuardarSalir.UseVisualStyleBackColor = false;
+            this.btnGuardarSalir.Click += new System.EventHandler(this.btnGuardarSalir_Click);
             // 
             // btnAceptar
             // 
@@ -537,6 +588,7 @@
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnClose
             // 
@@ -555,6 +607,7 @@
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panelHeader
             // 
@@ -564,7 +617,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.panelHeader.Size = new System.Drawing.Size(1171, 49);
+            this.panelHeader.Size = new System.Drawing.Size(862, 49);
             this.panelHeader.TabIndex = 10;
             // 
             // label1
@@ -589,6 +642,148 @@
             // 
             this.impuestoBindingSourceP.DataSource = typeof(Entidad.Impuesto);
             // 
+            // idImpuestoT
+            // 
+            this.idImpuestoT.DataPropertyName = "idImpuesto";
+            this.idImpuestoT.HeaderText = "idImpuesto";
+            this.idImpuestoT.Name = "idImpuestoT";
+            this.idImpuestoT.ReadOnly = true;
+            this.idImpuestoT.Visible = false;
+            // 
+            // nombreImpuestoDataGridViewTextBoxColumn
+            // 
+            this.nombreImpuestoDataGridViewTextBoxColumn.DataPropertyName = "nombreImpuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn.HeaderText = "Nombre Impuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn.Name = "nombreImpuestoDataGridViewTextBoxColumn";
+            this.nombreImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // siglasImpuestoDataGridViewTextBoxColumn
+            // 
+            this.siglasImpuestoDataGridViewTextBoxColumn.DataPropertyName = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn.HeaderText = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn.Name = "siglasImpuestoDataGridViewTextBoxColumn";
+            this.siglasImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.siglasImpuestoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // valorImpuestoDataGridViewTextBoxColumn
+            // 
+            this.valorImpuestoDataGridViewTextBoxColumn.DataPropertyName = "valorImpuesto";
+            this.valorImpuestoDataGridViewTextBoxColumn.HeaderText = "valorImpuesto";
+            this.valorImpuestoDataGridViewTextBoxColumn.Name = "valorImpuestoDataGridViewTextBoxColumn";
+            this.valorImpuestoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valorImpuestoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // porcentualDataGridViewCheckBoxColumn
+            // 
+            this.porcentualDataGridViewCheckBoxColumn.DataPropertyName = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn.HeaderText = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn.Name = "porcentualDataGridViewCheckBoxColumn";
+            this.porcentualDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.porcentualDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // porDefectoDataGridViewCheckBoxColumn
+            // 
+            this.porDefectoDataGridViewCheckBoxColumn.DataPropertyName = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn.HeaderText = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn.Name = "porDefectoDataGridViewCheckBoxColumn";
+            this.porDefectoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.porDefectoDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // enUsoDataGridViewCheckBoxColumn
+            // 
+            this.enUsoDataGridViewCheckBoxColumn.DataPropertyName = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn.HeaderText = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn.Name = "enUsoDataGridViewCheckBoxColumn";
+            this.enUsoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.enUsoDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // estadoStringDataGridViewTextBoxColumn
+            // 
+            this.estadoStringDataGridViewTextBoxColumn.DataPropertyName = "EstadoString";
+            this.estadoStringDataGridViewTextBoxColumn.HeaderText = "EstadoString";
+            this.estadoStringDataGridViewTextBoxColumn.Name = "estadoStringDataGridViewTextBoxColumn";
+            this.estadoStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoStringDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idImpuestoP
+            // 
+            this.idImpuestoP.DataPropertyName = "idImpuesto";
+            this.idImpuestoP.HeaderText = "idImpuesto";
+            this.idImpuestoP.Name = "idImpuestoP";
+            this.idImpuestoP.ReadOnly = true;
+            this.idImpuestoP.Visible = false;
+            // 
+            // nombreImpuestoDataGridViewTextBoxColumn1
+            // 
+            this.nombreImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "nombreImpuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn1.HeaderText = "Nombre Impuesto";
+            this.nombreImpuestoDataGridViewTextBoxColumn1.Name = "nombreImpuestoDataGridViewTextBoxColumn1";
+            this.nombreImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // siglasImpuestoDataGridViewTextBoxColumn1
+            // 
+            this.siglasImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn1.HeaderText = "siglasImpuesto";
+            this.siglasImpuestoDataGridViewTextBoxColumn1.Name = "siglasImpuestoDataGridViewTextBoxColumn1";
+            this.siglasImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.siglasImpuestoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // valorImpuestoDataGridViewTextBoxColumn1
+            // 
+            this.valorImpuestoDataGridViewTextBoxColumn1.DataPropertyName = "valorImpuesto";
+            this.valorImpuestoDataGridViewTextBoxColumn1.HeaderText = "valorImpuesto";
+            this.valorImpuestoDataGridViewTextBoxColumn1.Name = "valorImpuestoDataGridViewTextBoxColumn1";
+            this.valorImpuestoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.valorImpuestoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // porcentualDataGridViewCheckBoxColumn1
+            // 
+            this.porcentualDataGridViewCheckBoxColumn1.DataPropertyName = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn1.HeaderText = "porcentual";
+            this.porcentualDataGridViewCheckBoxColumn1.Name = "porcentualDataGridViewCheckBoxColumn1";
+            this.porcentualDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.porcentualDataGridViewCheckBoxColumn1.Visible = false;
+            // 
+            // porDefectoDataGridViewCheckBoxColumn1
+            // 
+            this.porDefectoDataGridViewCheckBoxColumn1.DataPropertyName = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn1.HeaderText = "porDefecto";
+            this.porDefectoDataGridViewCheckBoxColumn1.Name = "porDefectoDataGridViewCheckBoxColumn1";
+            this.porDefectoDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.porDefectoDataGridViewCheckBoxColumn1.Visible = false;
+            // 
+            // estadoDataGridViewTextBoxColumn1
+            // 
+            this.estadoDataGridViewTextBoxColumn1.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn1.HeaderText = "estado";
+            this.estadoDataGridViewTextBoxColumn1.Name = "estadoDataGridViewTextBoxColumn1";
+            this.estadoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // enUsoDataGridViewCheckBoxColumn1
+            // 
+            this.enUsoDataGridViewCheckBoxColumn1.DataPropertyName = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn1.HeaderText = "enUso";
+            this.enUsoDataGridViewCheckBoxColumn1.Name = "enUsoDataGridViewCheckBoxColumn1";
+            this.enUsoDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.enUsoDataGridViewCheckBoxColumn1.Visible = false;
+            // 
+            // estadoStringDataGridViewTextBoxColumn1
+            // 
+            this.estadoStringDataGridViewTextBoxColumn1.DataPropertyName = "EstadoString";
+            this.estadoStringDataGridViewTextBoxColumn1.HeaderText = "EstadoString";
+            this.estadoStringDataGridViewTextBoxColumn1.Name = "estadoStringDataGridViewTextBoxColumn1";
+            this.estadoStringDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.estadoStringDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // UCImpuestoPDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,7 +794,8 @@
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
             this.Name = "UCImpuestoPDN";
-            this.Size = new System.Drawing.Size(1171, 557);
+            this.Size = new System.Drawing.Size(862, 557);
+            this.Load += new System.EventHandler(this.UCImpuestoPD_Load);
             this.panelItem2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -669,5 +865,23 @@
         private System.Windows.Forms.BindingSource sucursalBindingSource;
         private System.Windows.Forms.BindingSource impuestoBindingSourceT;
         private System.Windows.Forms.BindingSource impuestoBindingSourceP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuestoP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreImpuestoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siglasImpuestoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorImpuestoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porcentualDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porDefectoDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn enUsoDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoStringDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idImpuestoT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siglasImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorImpuestoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porcentualDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn porDefectoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn enUsoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoStringDataGridViewTextBoxColumn;
     }
 }

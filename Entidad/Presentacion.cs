@@ -15,7 +15,7 @@ namespace Entidad
         public string descripcion { get; set; }
         public string simboloPresentacion { get; set; }
         public string precioCompra { get; set; }
-        public string cantidadUnitaria { get; set; }
+        public Decimal cantidadUnitaria { get; set; }
         public bool presentacionPorDefecto { get; set; }
         public int estado { get; set; }
         public int idProducto { get; set; }

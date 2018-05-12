@@ -62,10 +62,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             if (this.nuevo) return;
 
-            textStock.Text = currentStock.stock;
-            textStockIdeal.Text = currentStock.stockIdeal;
-            textStockMinimo.Text = currentStock.stockMinimo;
-            textStockAlerta.Text = currentStock.alertaStock;
+            textStock.Text = currentStock.stock.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
+            textStockIdeal.Text = currentStock.stockIdeal.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
+            textStockMinimo.Text = currentStock.stockMinimo.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
+            textStockAlerta.Text = currentStock.alertaStock.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
             cbxAlmace.SelectedValue = Convert.ToInt32(currentStock.idAlmacen);
         }
 
@@ -121,9 +121,9 @@ namespace Admeli.Productos.Nuevo.PDetalle
             errorProvider1.Clear();
             return true;
         }
-
         private async void guardar()
         {
+            bloquear(true);
             try
             {
                 if (nuevo)
@@ -142,16 +142,17 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            bloquear(false);
         }
 
         private void cargarObjeto()
         {
             currentStock = new Stock(); // crea una nueva instancia de la categoria
             if (!nuevo) currentStock.idProductoStockAlmacen = currentIdStock; // Llenar el id categoria cuando este en esdo modificar
-            currentStock.stock = textStock.Text;
-            currentStock.stockIdeal = textStockIdeal.Text;
-            currentStock.stockMinimo = textStockMinimo.Text;
-            currentStock.alertaStock = textStockAlerta.Text;
+            currentStock.stock = Decimal.Parse(textStock.Text);
+            currentStock.stockIdeal = Decimal.Parse(textStockIdeal.Text);
+            currentStock.stockMinimo = Decimal.Parse(textStockMinimo.Text);
+            currentStock.alertaStock = Decimal.Parse(textStockAlerta.Text);
             currentStock.estado = Convert.ToInt32(chkActivoStock.Checked);
             currentStock.idAlmacen = Convert.ToInt32(cbxAlmace.SelectedValue);
             currentStock.idProducto = formProductoNuevo.currentIDProducto;
@@ -161,6 +162,12 @@ namespace Admeli.Productos.Nuevo.PDetalle
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        public void bloquear(bool state)
+        {
+            if (state) { Cursor.Current = Cursors.WaitCursor; }
+            else { Cursor.Current = Cursors.Default; }
+            this.Enabled = !state;
         }
     }
 }

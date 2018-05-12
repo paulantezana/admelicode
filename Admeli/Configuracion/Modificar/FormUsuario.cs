@@ -55,10 +55,10 @@ namespace Admeli.Configuracion.Modificar
         {
             guardarSucursal();
         }
-
         private async void guardarSucursal()
         {
-            if (!validarCampos()) return;
+            bloquear(true);
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
                 crearObjetoSucursal();
@@ -73,6 +73,7 @@ namespace Admeli.Configuracion.Modificar
                     Response response = await personalModel.usuarioActualizar(currentSaveData);
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                bloquear(false);
                 this.Close();
             }
             catch (Exception ex)
@@ -81,6 +82,7 @@ namespace Admeli.Configuracion.Modificar
             }
             finally
             {
+                bloquear(false);
                 btnAceptar.Enabled = true;
             }
         }
@@ -149,6 +151,19 @@ namespace Admeli.Configuracion.Modificar
             this.Close();
         }
         #endregion
+
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
+        }
 
     }
 }

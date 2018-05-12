@@ -130,7 +130,7 @@ namespace Admeli.CajaBox.Nuevo
                         {
                             if (items == j) break; // salir de este for
                         }
-                        this.createElement(panelAside.Controls, x, this.y, ingresos[i].moneda, ingresos[i].monto);
+                        this.createElement(panelAside.Controls, x, this.y, ingresos[i].moneda, ingresos[i].monto.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
                         i = (columnas - 1 == j) ? i : i + 1; // indice de registros aumento
                         x += 170; // cordenada x aumentado
                     }
@@ -341,12 +341,13 @@ namespace Admeli.CajaBox.Nuevo
         }
 
         #region ================================ SAVE AND UPDATE ================================
+
         private async void executeGuardar()
         {
-            if (!validarCampos()) return;
+            bloquear(true);
+            if (!validarCampos()) { bloquear(false); return; }
             try
-            {
-                loadStateApp(true);
+            {   
                 List<Moneda> listResponse = await cajaModel.verificarActividad(currentIdCajaSesion);
                 
                 createObject();
@@ -363,6 +364,7 @@ namespace Admeli.CajaBox.Nuevo
                         Response saveResponseDetalle = await cierreCajaModel.cierreCajaDetalle(currentCierreCajaDetalle);
                     }
                     MessageBox.Show(saveResponse.msj + counter + "Registros guardado", "Cerrar Caja ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bloquear(false);
                     this.Close();
                 }
 
@@ -373,7 +375,7 @@ namespace Admeli.CajaBox.Nuevo
             }
             finally
             {
-                loadStateApp(false);
+                bloquear(false);
             }
         }
 
@@ -433,6 +435,20 @@ namespace Admeli.CajaBox.Nuevo
                 Cursor.Current = Cursors.Default;
             }
             btnAceptar.Enabled = !state;
+        }
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                progressBarApp.Style = ProgressBarStyle.Marquee;
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                progressBarApp.Style = ProgressBarStyle.Blocks;
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
         }
         #endregion
 

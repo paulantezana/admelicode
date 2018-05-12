@@ -538,6 +538,7 @@ namespace Admeli.Compras.Nuevo
                         Presentacion findPresentacion = presentaciones.Find(x => x.idPresentacion == idPresentacion);
 
                         // Realizando el calculo
+
                         double precioCompra = (double)currentProducto.precioCompra;
                         double cantidadUnitario = toDouble(findPresentacion.cantidadUnitaria);
                         double precioUnidatio = precioCompra * cantidadUnitario;
@@ -565,7 +566,7 @@ namespace Admeli.Compras.Nuevo
                     cbxCodigoProducto.Text = findProducto.codigoProducto;
                     // Realizando el calculo
                     double precioCompra = double.Parse(findProducto.precioCompra.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
-                    double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria, CultureInfo.GetCultureInfo("en-US"));
+                    double cantidadUnitario = double.Parse(findPresentacion.cantidadUnitaria.ToString(ConfigModel.configuracionGeneral.formatoDecimales));
                     double precioUnidatio = precioCompra * cantidadUnitario;
 
                     // Imprimiendo valor

@@ -257,6 +257,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private async void btnAceptar_Click(object sender, EventArgs e)
         {
+            bloquear(true);
             if (categoriasDelProducto.Count >= 1)
             {
                 formProductoNuevo.setCategorias(categoriasDelProducto, int.Parse(cbxCategoriaPrincipal.SelectedValue.ToString()));
@@ -272,6 +273,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
                     {
                         MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    bloquear(true);
                 }
                 string textoCategoria = "";
                 foreach (Categoria categoria in categoriasDelProducto)
@@ -282,6 +284,19 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 ugGeneralesPD.cambioTextoCategoria(textoCategoria);
                 Close();
             }
+        }
+
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
         }
     }
 }

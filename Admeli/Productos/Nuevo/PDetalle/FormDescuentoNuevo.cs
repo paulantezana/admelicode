@@ -44,10 +44,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
             InitializeComponent();
             this.formProductoNuevo = formProductoNuevo;
             this.currentDescuento = new DescuentoEnviar();
-            this.currentDescuento.cantidadMaxima = currentDescuentoR.cantidadMaxima;
-            this.currentDescuento.cantidadMinima = currentDescuentoR.cantidadMinima;
+            this.currentDescuento.cantidadMaxima = currentDescuentoR.cantidadMaxima.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
+            this.currentDescuento.cantidadMinima = currentDescuentoR.cantidadMinima.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
             this.currentDescuento.codigo = currentDescuentoR.codigo;
-            this.currentDescuento.descuento = currentDescuentoR.descuento;
+            this.currentDescuento.descuento = currentDescuentoR.descuento.ToString(ConfigModel.configuracionGeneral.formatoDecimales);
             this.currentDescuento.estado = currentDescuentoR.estado;
             this.currentDescuento.fechaFin = currentDescuentoR.SFechaFin;
             this.currentDescuento.fechaInicio = currentDescuentoR.SFechaInicio;
@@ -135,10 +135,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             executeGuardar();
         }
-
         private async void executeGuardar()
         {
-            if (!validarCampos()) return;
+            bloquear(true);
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
                 crearObjetoSucursal();
@@ -182,6 +182,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            bloquear(false);
         }
 
         private void crearObjetoSucursal()
@@ -238,6 +239,18 @@ namespace Admeli.Productos.Nuevo.PDetalle
         }
         #endregion
 
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
+        }
 
     }
 }

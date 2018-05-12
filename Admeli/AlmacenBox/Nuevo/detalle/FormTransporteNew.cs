@@ -75,7 +75,7 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
             empresaTransporte.razonSocial = txtNombreEmpresa.Text;
             empresaTransporte.ruc = txtNroDocumento.Text;
             empresaTransporte.telefono = txtTelefono.Text;
-
+            bloquear(true);
             try
             {
 
@@ -83,7 +83,7 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
                 if (response.id > 0)
                 {
                     MessageBox.Show(response.msj, "guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    bloquear(false);
                     this.Close();
                 }
                 else
@@ -95,8 +95,22 @@ namespace Admeli.AlmacenBox.Nuevo.detalle
             {
                 MessageBox.Show("Error: " + ex.Message, "btnGuardar_Click", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            bloquear(false);
 
 
+        }
+
+        public void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
         }
     }
 }

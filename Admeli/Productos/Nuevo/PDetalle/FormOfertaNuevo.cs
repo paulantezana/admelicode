@@ -120,10 +120,10 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             executeGuardar();
         }
-
         private async void executeGuardar()
         {
-            if (!validarCampos()) return;
+            bloquear(true);
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
                 crearObjetoSucursal();
@@ -143,6 +143,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            bloquear(false);
         }
 
         private void crearObjetoSucursal()
@@ -180,5 +181,11 @@ namespace Admeli.Productos.Nuevo.PDetalle
             this.Close();
         }
         #endregion
+        public void bloquear(bool state)
+        {
+            if (state){ Cursor.Current = Cursors.WaitCursor; }
+            else{ Cursor.Current = Cursors.Default; }
+            this.Enabled = !state;
+        }
     }
 }

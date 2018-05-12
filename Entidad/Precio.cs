@@ -9,10 +9,10 @@ namespace Entidad
     public class Precio
     {
         public int idPrecioProducto { get; set; }
-        public string precioVenta { get; set; }
-        public string precioCompetencia { get; set; }
+        public Decimal precioVenta { get; set; }
+        public Decimal precioCompetencia { get; set; }
         public int estado { get; set; }
-        public string utilidad { get; set; }
+        public Decimal utilidad { get; set; }
         public string moneda { get; set; }
         public int idProducto { get; set; }
         public int idMoneda { get; set; }

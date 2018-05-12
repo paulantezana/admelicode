@@ -68,7 +68,8 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
         private async void executeGuardar()
         {
-            if (!validarCampos()) return;
+            appLoadState(true);
+            if (!validarCampos()) { appLoadState(false); return; }
             try
             {
                 crearObjetoSucursal();
@@ -88,6 +89,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            appLoadState(false);
         }
 
         private void crearObjetoSucursal()
@@ -106,7 +108,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
         {
             if (textValorVariante.Text == "")
             {
-                errorProvider1.SetError(textValorVariante, "Este campo esta bacía");
+                errorProvider1.SetError(textValorVariante, "Este campo esta vacío");
                 textValorVariante.Focus();
                 return false;
             }
@@ -114,7 +116,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
 
             if (textPosicion.Text == "")
             {
-                errorProvider1.SetError(textPosicion, "Este campo esta bacía");
+                errorProvider1.SetError(textPosicion, "Este campo esta vacío");
                 textPosicion.Focus();
                 return false;
             }
@@ -128,6 +130,19 @@ namespace Admeli.Productos.Nuevo.PDetalle
             this.Close();
         }
         #endregion
+
+        public void appLoadState(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
+        }
 
     }
 }
