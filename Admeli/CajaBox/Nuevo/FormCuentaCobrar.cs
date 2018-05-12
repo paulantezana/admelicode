@@ -226,9 +226,9 @@ namespace Admeli.CajaBox.Nuevo
             this.Close();
         }
 
-        private void dgvDetalleCobro_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
     }
 }
