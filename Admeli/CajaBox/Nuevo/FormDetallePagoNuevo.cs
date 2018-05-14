@@ -61,6 +61,7 @@ namespace Admeli.CajaBox.Nuevo
             try
             {
                 monedaBindingSource.DataSource = await monedaModel.monedas();
+                cbxMoneda.SelectedValue = currentPago.idMoneda;
             }
             catch (Exception ex)
             {
