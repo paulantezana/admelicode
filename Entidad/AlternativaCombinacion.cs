@@ -27,7 +27,7 @@ namespace Entidad
     {
         public int idCombinacionAlternativa { get; set; }
         public string alternativas { get; set; }
-        public string precio { get; set; }
+        public double precio { get; set; }
         public string nombreCombinacion { get; set; }
         public int idPresentacion { get; set; }
         public int idProducto { get; set; }
@@ -35,5 +35,21 @@ namespace Entidad
         public string stock { get; set; }
         public int idAlmacen { get; set; }
         public string productoAlmacen { get; set; }
+
+        public double precioVenta { get; set; }
+
+        public string precioVentaTotal;
+        public string PrecioVentaTotal {
+            get {
+
+                return  (precio + precioVenta).ToString();
+
+            } set
+            {
+
+                precioVentaTotal = value;
+            }
+        }
+
     }
-}
+} 

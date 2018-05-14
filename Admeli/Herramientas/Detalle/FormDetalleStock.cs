@@ -33,6 +33,12 @@ namespace Admeli.Herramientas.Detalle
             InitializeComponent();
             this.list = list;
             this.productoData = productoData;
+
+
+
+
+
+
         }
 
 
@@ -53,9 +59,8 @@ namespace Admeli.Herramientas.Detalle
         private void reLoad()
         {
             cargarCombinaciones();
-
-           
-
+            cargarDetalles();
+            cargarPrecioVenta();
         }
 
 
@@ -71,7 +76,42 @@ namespace Admeli.Herramientas.Detalle
 
             try
             {
+
+                cargarPrecioVenta();
+
                 combinacionStockBindingSource.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Nota Salida Detalle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void cargarDetalles()
+        {
+
+            try
+            {
+                lbProducto.Text += ": " + productoData.nombreProducto + " - " + productoData.almacen; 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Cargar Nota Salida Detalle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+        private void cargarPrecioVenta()
+        {
+
+            try
+            {
+                foreach( CombinacionStock combinacionStock in list)
+                {
+
+                    combinacionStock.precioVenta = (double)productoData.precioVenta;
+
+                }
             }
             catch (Exception ex)
             {
@@ -81,10 +121,10 @@ namespace Admeli.Herramientas.Detalle
         }
         #endregion
 
-      
-       
 
-       
+
+
+
 
         private void dgvNotaSalida_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -120,16 +160,28 @@ namespace Admeli.Herramientas.Detalle
 
         private async  void btnAceptar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                BindingSource bindingSource = dgvCombinacion.DataSource as BindingSource;
+                list = bindingSource.DataSource as List<CombinacionStock>;
+                CombinacioneGuaradar combinacioneGuaradar = new CombinacioneGuaradar();
+                combinacioneGuaradar.datos = list;
+                combinacioneGuaradar.idAlmacen = productoData.idAlmacen;
+                combinacioneGuaradar.idProducto = productoData.idProducto;
+                ResponseStock response = await varianteModel.modificarStockCombinacion(combinacioneGuaradar);
+                MessageBox.Show("Mensaje: " + response.msj, "Stock Combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
 
-            BindingSource bindingSource = dgvCombinacion.DataSource as BindingSource;
-            list = bindingSource.DataSource as List<CombinacionStock>;
-            CombinacioneGuaradar combinacioneGuaradar = new CombinacioneGuaradar();
-            combinacioneGuaradar.datos = list;
-            combinacioneGuaradar.idAlmacen = productoData.idAlmacen;
-            combinacioneGuaradar.idProducto = productoData.idProducto;
-            ResponseStock response = await varianteModel.modificarStockCombinacion(combinacioneGuaradar);
-            MessageBox.Show("Mensaje: " + response.msj, "Stock Combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            }
+
+            catch ( Exception ex)
+            {
+
+                MessageBox.Show("Mensaje: " + ex.Message, "Stock Combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+          
         }
 
         private void dgvCombinacion_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

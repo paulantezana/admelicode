@@ -74,17 +74,13 @@ namespace Admeli
             //Establecer formato de decimales
             this.fijarFormatoDecimal();
             this.reLoad();
-
-            
-
-
-
+           
             string almacen = ConfigModel.alamacenes.Find(X => X.idAlmacen == ConfigModel.currentIdAlmacen).nombre;
 
             PuntoDeVenta puntoDeVenta = ConfigModel.puntosDeVenta.Find(X => X.idPuntoVenta == ConfigModel.currentPuntoVenta);
             string punto = puntoDeVenta==null ? "":" - " + puntoDeVenta.nombre;
-            this.Text += almacen + punto + " - " + ConfigModel.sucursal.nombre;   
-
+            this.Text += almacen + punto + " - " + ConfigModel.sucursal.nombre;
+            this.lbinfo.Text = almacen + punto;
 
 
         }

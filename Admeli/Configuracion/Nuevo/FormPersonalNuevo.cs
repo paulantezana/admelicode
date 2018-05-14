@@ -695,6 +695,8 @@ namespace Admeli.Configuracion.Nuevo
                 {
 
                     List<TreeNode> listN = matrizNodes[S.idSucursal];
+                    if (listN.Count <= 0)
+                        continue;
                     List<Permisos> listP = matrizPersimos[S.idSucursal];
                     asignarPuntoVenta = new List<AsignarPuntoVenta>();
                     personalAlmacen = new List<PersonalAlmacen>();
@@ -702,13 +704,8 @@ namespace Admeli.Configuracion.Nuevo
                     foreach (TreeNode T in listN)
                     {
                         Permisos permisos = listP[i++];
-
-                        
-                            asignarResponsablidad(permisos.nombre, permisos, T, T.Nodes.Count);
-
                        
-                        
-
+                        asignarResponsablidad(permisos.nombre, permisos, T, T.Nodes.Count);
                     }
 
                     responsabilidades = new Responsabilidades();

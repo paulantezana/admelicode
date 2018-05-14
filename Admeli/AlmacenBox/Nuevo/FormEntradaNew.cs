@@ -31,7 +31,7 @@ namespace Admeli.AlmacenBox.Nuevo
         //===
         AlmacenNEntrada almacenNEntrada { get; set; }
         CompraEntradaGuardar compraEntradaGuardar { get; set; }
-        Dictionary<string, int> dictionary { get; set; }
+        Dictionary<string, double> dictionary { get; set; }
         Dictionary<string, CargaCompraSinNota> DetallesNota  { get; set; }
 
         object object4 { get; set; }
@@ -202,7 +202,7 @@ namespace Admeli.AlmacenBox.Nuevo
             //===
              almacenNEntrada = new AlmacenNEntrada();
              compraEntradaGuardar = new CompraEntradaGuardar();
-             dictionary = new Dictionary<string, int>();
+             dictionary = new Dictionary<string, double>();
              DetallesNota = new Dictionary<string, CargaCompraSinNota>();
              object4 = new object();
              object5 = new object();
@@ -580,7 +580,7 @@ namespace Admeli.AlmacenBox.Nuevo
                
                 DetallesNota.Add("id" + numert, detalle);
 
-                dictionary.Add("id" + numert, detalle.idPresentacion);
+                dictionary.Add("id" + numert, detalle.cantidadRecibida);
                 numert++;
                 List<int> listaux = new List<int>();
                 listaux.Add(detalle.idProducto);

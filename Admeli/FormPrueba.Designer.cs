@@ -71,6 +71,8 @@
             this.btnFullScreen = new System.Windows.Forms.Button();
             this.btnToggleMenuRigth = new System.Windows.Forms.Button();
             this.lblTitlePage = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbinfo = new System.Windows.Forms.Label();
             this.panelAsideContainer.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -84,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAsideContainer
@@ -135,6 +138,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.button10);
             this.panel5.Controls.Add(this.button9);
             this.panel5.Controls.Add(this.button8);
@@ -661,6 +665,27 @@
             this.lblTitlePage.Text = "Nombre del modulo actual";
             this.lblTitlePage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbinfo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 86);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(359, 26);
+            this.panel1.TabIndex = 11;
+            // 
+            // lbinfo
+            // 
+            this.lbinfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbinfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(203)))), ((int)(((byte)(34)))));
+            this.lbinfo.Location = new System.Drawing.Point(0, 0);
+            this.lbinfo.Name = "lbinfo";
+            this.lbinfo.Size = new System.Drawing.Size(359, 26);
+            this.lbinfo.TabIndex = 0;
+            this.lbinfo.Text = "nombre almacen";
+            this.lbinfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -690,6 +715,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -738,5 +764,7 @@
         private System.Windows.Forms.Panel panelTotal;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbTotalEfectivo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbinfo;
     }
 }

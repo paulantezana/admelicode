@@ -38,7 +38,7 @@ namespace Admeli.Herramientas
         private List<Almacen> listAlmCargar { get; set; }
         private ProductoData currentProdcuto { get; set; }
         TextBox txt { get; set; }
-
+        int index = 0;
         #region ================================ CONSTRUCTOR ================================
         public UCInicializarStock()
         {
@@ -86,11 +86,12 @@ namespace Admeli.Herramientas
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
 
-                    int idProducto = Convert.ToInt32(row.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
-               
+                  // obteniedo el idCategoria del datagridview
+                    int idPresentacion = Convert.ToInt32(row.Cells["idPresentacionDataGridViewTextBoxColumn"].Value);
+                    int idAlmacen = Convert.ToInt32(row.Cells["idAlmacenDataGridViewTextBoxColumn"].Value);
 
-                    ProductoData data = productos.Find(X => X.idProducto == idProducto);
-                    combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
+                    ProductoData data = productos.Find(X => X.idPresentacion == idPresentacion && X.idAlmacen== idAlmacen);
+                    combinacionesProducto = combinaciones.Where(X => X.idPresentacion == idPresentacion && X.idAlmacen == idAlmacen).ToList(); ;
 
                 
                     if (combinacionesProducto.Count>0)
@@ -433,12 +434,15 @@ namespace Admeli.Herramientas
             finally
             {
                 loadState(false);
+                dataGridView.Rows[index].Selected = true;
             }
         }
 
         private async void cargarRegistrosBuscar()
         {
             loadState(true);
+
+            dataGridView.ReadOnly = true;
             try
             {
                 if (textBuscar.Text == "")
@@ -472,7 +476,7 @@ namespace Admeli.Herramientas
 
                     // Mostrando la paginacion
                     mostrarPaginado();
-
+                   
                     // Formato de celdas
                 }
 
@@ -500,6 +504,8 @@ namespace Admeli.Herramientas
             finally
             {
                 loadState(false);
+                if(dataGridView.Rows.Count> 0)
+                    dataGridView.Rows[index].Selected = true;
             }
         }
         #endregion
@@ -517,7 +523,7 @@ namespace Admeli.Herramientas
             if (lblCurrentPage.Text != "1")
             {
                 paginacion.previousPage();
-                cargarRegistros();
+                cargarRegistrosBuscar();
             }
         }
 
@@ -719,7 +725,13 @@ namespace Admeli.Herramientas
 
                 }
             }
-           
+
+            int idProducto = Convert.ToInt32(dataGridView.CurrentRow.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
+
+
+            ProductoData data = productos.Find(X => X.idProducto == idProducto);
+            combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
+
             dataGridView.Rows[index].ReadOnly = false;
 
             dataGridView.Rows[index].Cells[1].ReadOnly = true;
@@ -743,11 +755,18 @@ namespace Admeli.Herramientas
             dataGridView.Rows[index].Cells[8].Selected = true;
             dataGridView.Rows[index].Cells[8].Style.SelectionBackColor = Color.FromArgb(255, 247, 178);
             dataGridView.Rows[index].Cells[8].Style.SelectionForeColor = Color.Black;
+            if (combinacionesProducto.Count == 0)
+            {
+                dataGridView.Rows[index].Cells[9].ReadOnly = false;
+                dataGridView.Rows[index].Cells[9].Selected = true;
+                dataGridView.Rows[index].Cells[9].Style.SelectionBackColor = Color.FromArgb(255, 247, 178);
+                dataGridView.Rows[index].Cells[9].Style.SelectionForeColor = Color.Black;
+            }
+            else
+            {
+                dataGridView.Rows[index].Cells[9].ReadOnly = true;
 
-            dataGridView.Rows[index].Cells[9].ReadOnly = false;
-            dataGridView.Rows[index].Cells[9].Selected = true;
-            dataGridView.Rows[index].Cells[9].Style.SelectionBackColor = Color.FromArgb(255, 247, 178);
-            dataGridView.Rows[index].Cells[9].Style.SelectionForeColor = Color.Black;
+            }
 
         }
 
@@ -940,18 +959,19 @@ namespace Admeli.Herramientas
                     return;
                 }
 
-                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+                index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
                 int idPresentacion = Convert.ToInt32(dataGridView.Rows[index].Cells["idPresentacionDataGridViewTextBoxColumn"].Value);
-
-                ProductoData   data = productos.Find(X => X.idPresentacion == idPresentacion);
-                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion &&  X.idAlmacen==data.idAlmacen  ).ToList();
+                int idAlmacen = Convert.ToInt32(dataGridView.Rows[index].Cells["idAlmacenDataGridViewTextBoxColumn"].Value);
+                ProductoData   data = productos.Find(X => X.idPresentacion == idPresentacion && X.idAlmacen== idAlmacen);
+                combinacionesProducto = combinaciones.Where(X => X.idPresentacion == idPresentacion &&  X.idAlmacen== idAlmacen).ToList();
                 if (combinacionesProducto.Count > 0)
                 {
                     FormDetalleStock detalleStock = new FormDetalleStock(combinacionesProducto , data);
                     detalleStock.ShowDialog();
 
-                }
-              
+                }  
+                cargarRegistrosBuscar();
+                           
             }
         }
     }
