@@ -458,6 +458,8 @@ namespace Admeli.AlmacenBox.Nuevo
                 List<Presentacion> listPresentacionaux = await presentacionModel.presentacionVentas(idProducto);
                 currentPresentacion = listPresentacionaux[0];
                 cbxDescripcion.Text = currentPresentacion.descripcion;
+                //cbxDescripcion.SelectedValue = currentPresentacion.idPresentacion;
+                //cbxDescripcion.SelectedText = currentPresentacion.nombrePresentacion;
             }
             catch (Exception ex)
             {

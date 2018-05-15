@@ -114,7 +114,8 @@ namespace Admeli.Configuracion.Nuevo
 
         private async void guardarSucursal()
         {
-            if (!validarCampos()) return;
+            Bloqueo.bloquear(this, true);
+            if (!validarCampos()) { Bloqueo.bloquear(this, false); return; }
             try
             {
                 crearObjetoDenominacion();
@@ -128,11 +129,13 @@ namespace Admeli.Configuracion.Nuevo
                     Response response = await denominacionModel.modificar(currentDenominacion);
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Bloqueo.bloquear(this, false);
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Bloqueo.bloquear(this, false);
             }
         }
 

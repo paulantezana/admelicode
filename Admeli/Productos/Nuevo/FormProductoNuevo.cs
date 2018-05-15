@@ -41,15 +41,14 @@ namespace Admeli.Productos.Nuevo
             this.nuevo = false;
             this.reLoad();
         }
-        public FormProductoNuevo(Object OcurrentProducto)
-        {
-            InitializeComponent();
-           // OcurrentProducto.
-            this.currentIDProducto = currentIDProducto;
-            this.nuevo = false;
-
-            this.reLoadinStock();
-        }
+        //public FormProductoNuevo(Object OcurrentProducto)
+        //{
+        //    InitializeComponent();
+        //   // OcurrentProducto.
+        //    this.currentIDProducto = currentIDProducto;
+        //    this.nuevo = false;
+        //    this.reLoadinStock();
+        //}
 
         public FormProductoNuevo()
         {
@@ -194,6 +193,7 @@ namespace Admeli.Productos.Nuevo
             if (uCDescuentosPD != null) uCDescuentosPD.lisenerKeyEvents = false;
             if (uCGeneralesPD != null) uCGeneralesPD.lisenerKeyEvents = false;
             if (uCImpuestoPD != null) uCImpuestoPD.lisenerKeyEvents = false;
+            if (uCImpuestoPDN != null) uCImpuestoPDN.lisenerKeyEvents = false;
             if (uCStockPD != null) uCStockPD.lisenerKeyEvents = false;
             if (uCTiendaOnlinePD != null) uCTiendaOnlinePD.lisenerKeyEvents = false;
         }

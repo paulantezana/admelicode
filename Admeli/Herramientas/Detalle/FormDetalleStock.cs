@@ -160,6 +160,7 @@ namespace Admeli.Herramientas.Detalle
 
         private async  void btnAceptar_Click(object sender, EventArgs e)
         {
+            Bloqueo.bloquear(this, true);
             try
             {
                 BindingSource bindingSource = dgvCombinacion.DataSource as BindingSource;
@@ -170,15 +171,15 @@ namespace Admeli.Herramientas.Detalle
                 combinacioneGuaradar.idProducto = productoData.idProducto;
                 ResponseStock response = await varianteModel.modificarStockCombinacion(combinacioneGuaradar);
                 MessageBox.Show("Mensaje: " + response.msj, "Stock Combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Bloqueo.bloquear(this, false);
                 this.Close();
-
             }
 
             catch ( Exception ex)
             {
 
                 MessageBox.Show("Mensaje: " + ex.Message, "Stock Combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                Bloqueo.bloquear(this, false);
             }
 
           
