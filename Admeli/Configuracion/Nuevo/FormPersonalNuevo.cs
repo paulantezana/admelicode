@@ -665,11 +665,10 @@ namespace Admeli.Configuracion.Nuevo
 
         private async void guardarPersonal()
         {
-            if (!validarCampos()) return;
+            Bloqueo.bloquear(this, true);
+            if (!validarCampos()) { Bloqueo.bloquear(this, false); return; }
             try
             {
-                btnAceptar.Enabled = false;
-                this.Cursor = Cursors.WaitCursor;
                 // Procediendo con el guardado
                 crearObjetoSucursal();
 
@@ -717,10 +716,8 @@ namespace Admeli.Configuracion.Nuevo
                     responsabilidades.personalAlmacen = personalAlmacen;
                     await personalModel.Asignacion(responsabilidades);
                 }
-               
                 
-
-
+                Bloqueo.bloquear(this, false);
                 this.Close();
             }
             catch (Exception ex)
@@ -729,8 +726,7 @@ namespace Admeli.Configuracion.Nuevo
             }
             finally
             {
-                btnAceptar.Enabled = true;
-                this.Cursor = Cursors.Default;
+                Bloqueo.bloquear(this, false);
             }
         }
 

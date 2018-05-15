@@ -27,7 +27,7 @@ namespace Admeli.Reportes
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             //crear dgv para exportar
-
+            Bloqueo.bloquear(this, true);
             try
             {
                 DataGridView dgvExportar = new DataGridView();
@@ -47,8 +47,7 @@ namespace Admeli.Reportes
             {
                 MessageBox.Show("Error: " + ex.Message, "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-            
+            Bloqueo.bloquear(this, false);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

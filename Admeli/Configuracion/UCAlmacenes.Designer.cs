@@ -500,7 +500,7 @@
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Almacen";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -513,10 +513,12 @@
             // 
             // principalDataGridViewCheckBoxColumn
             // 
+            this.principalDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.principalDataGridViewCheckBoxColumn.DataPropertyName = "principal";
             this.principalDataGridViewCheckBoxColumn.HeaderText = "Principal";
             this.principalDataGridViewCheckBoxColumn.Name = "principalDataGridViewCheckBoxColumn";
             this.principalDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.principalDataGridViewCheckBoxColumn.Width = 80;
             // 
             // idSucursalDataGridViewTextBoxColumn
             // 
@@ -537,7 +539,7 @@
             // nombreSucursalDataGridViewTextBoxColumn
             // 
             this.nombreSucursalDataGridViewTextBoxColumn.DataPropertyName = "nombreSucursal";
-            this.nombreSucursalDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreSucursalDataGridViewTextBoxColumn.HeaderText = "Sucursal";
             this.nombreSucursalDataGridViewTextBoxColumn.Name = "nombreSucursalDataGridViewTextBoxColumn";
             this.nombreSucursalDataGridViewTextBoxColumn.ReadOnly = true;
             // 

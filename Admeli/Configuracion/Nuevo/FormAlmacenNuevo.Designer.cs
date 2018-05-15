@@ -88,11 +88,10 @@
             // 
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 501);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelFooter.Location = new System.Drawing.Point(0, 407);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(979, 60);
+            this.panelFooter.Size = new System.Drawing.Size(734, 49);
             this.panelFooter.TabIndex = 16;
             this.panelFooter.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFooter_Paint);
             // 
@@ -101,10 +100,9 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(221, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(166, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 59);
+            this.panel1.Size = new System.Drawing.Size(319, 48);
             this.panel1.TabIndex = 0;
             // 
             // btnAceptar
@@ -117,10 +115,9 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(21, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Location = new System.Drawing.Point(16, 9);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(203, 37);
+            this.btnAceptar.Size = new System.Drawing.Size(152, 30);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -137,10 +134,9 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnClose.Location = new System.Drawing.Point(251, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Location = new System.Drawing.Point(188, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(152, 37);
+            this.btnClose.Size = new System.Drawing.Size(114, 30);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -157,10 +153,9 @@
             this.btnSucursalNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSucursalNuevo.ForeColor = System.Drawing.Color.White;
             this.btnSucursalNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnSucursalNuevo.Image")));
-            this.btnSucursalNuevo.Location = new System.Drawing.Point(429, 41);
-            this.btnSucursalNuevo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSucursalNuevo.Location = new System.Drawing.Point(322, 33);
             this.btnSucursalNuevo.Name = "btnSucursalNuevo";
-            this.btnSucursalNuevo.Size = new System.Drawing.Size(37, 49);
+            this.btnSucursalNuevo.Size = new System.Drawing.Size(28, 40);
             this.btnSucursalNuevo.TabIndex = 17;
             this.btnSucursalNuevo.UseVisualStyleBackColor = false;
             this.btnSucursalNuevo.Click += new System.EventHandler(this.btnSucursalNuevo_Click);
@@ -170,9 +165,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label3.Location = new System.Drawing.Point(67, 298);
+            this.label3.Location = new System.Drawing.Point(50, 242);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 19);
+            this.label3.Size = new System.Drawing.Size(52, 16);
             this.label3.TabIndex = 10;
             this.label3.Text = "Activo *";
             // 
@@ -183,8 +179,8 @@
             this.chkActivoAlmacen.Checked = true;
             this.chkActivoAlmacen.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivoAlmacen.ForeColor = System.Drawing.Color.White;
-            this.chkActivoAlmacen.Location = new System.Drawing.Point(33, 295);
-            this.chkActivoAlmacen.Margin = new System.Windows.Forms.Padding(5);
+            this.chkActivoAlmacen.Location = new System.Drawing.Point(25, 240);
+            this.chkActivoAlmacen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkActivoAlmacen.Name = "chkActivoAlmacen";
             this.chkActivoAlmacen.Size = new System.Drawing.Size(20, 20);
             this.chkActivoAlmacen.TabIndex = 9;
@@ -194,9 +190,10 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label16.Location = new System.Drawing.Point(67, 233);
+            this.label16.Location = new System.Drawing.Point(50, 189);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(73, 19);
+            this.label16.Size = new System.Drawing.Size(58, 16);
             this.label16.TabIndex = 7;
             this.label16.Text = "Principal";
             // 
@@ -207,8 +204,8 @@
             this.chkPrincipalAlmacen.Checked = true;
             this.chkPrincipalAlmacen.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkPrincipalAlmacen.ForeColor = System.Drawing.Color.White;
-            this.chkPrincipalAlmacen.Location = new System.Drawing.Point(33, 230);
-            this.chkPrincipalAlmacen.Margin = new System.Windows.Forms.Padding(5);
+            this.chkPrincipalAlmacen.Location = new System.Drawing.Point(25, 187);
+            this.chkPrincipalAlmacen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkPrincipalAlmacen.Name = "chkPrincipalAlmacen";
             this.chkPrincipalAlmacen.Size = new System.Drawing.Size(20, 20);
             this.chkPrincipalAlmacen.TabIndex = 6;
@@ -253,11 +250,11 @@
             this.textDirecionAlmacen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textDirecionAlmacen, -30);
             this.textDirecionAlmacen.isPassword = false;
-            this.textDirecionAlmacen.Location = new System.Drawing.Point(28, 162);
-            this.textDirecionAlmacen.Margin = new System.Windows.Forms.Padding(5);
+            this.textDirecionAlmacen.Location = new System.Drawing.Point(21, 132);
+            this.textDirecionAlmacen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textDirecionAlmacen.Name = "textDirecionAlmacen";
-            this.textDirecionAlmacen.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textDirecionAlmacen.Size = new System.Drawing.Size(439, 49);
+            this.textDirecionAlmacen.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textDirecionAlmacen.Size = new System.Drawing.Size(329, 40);
             this.textDirecionAlmacen.TabIndex = 5;
             this.textDirecionAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textDirecionAlmacen.Validated += new System.EventHandler(this.textDirecionAlmacen_Validated);
@@ -274,11 +271,11 @@
             this.textNombreAlmacen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombreAlmacen, -30);
             this.textNombreAlmacen.isPassword = false;
-            this.textNombreAlmacen.Location = new System.Drawing.Point(28, 103);
-            this.textNombreAlmacen.Margin = new System.Windows.Forms.Padding(5);
+            this.textNombreAlmacen.Location = new System.Drawing.Point(21, 84);
+            this.textNombreAlmacen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textNombreAlmacen.Name = "textNombreAlmacen";
-            this.textNombreAlmacen.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textNombreAlmacen.Size = new System.Drawing.Size(439, 49);
+            this.textNombreAlmacen.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textNombreAlmacen.Size = new System.Drawing.Size(329, 40);
             this.textNombreAlmacen.TabIndex = 3;
             this.textNombreAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textNombreAlmacen.Validated += new System.EventHandler(this.textNombreAlmacen_Validated);
@@ -288,12 +285,12 @@
             this.progressBarApp.BackColor = System.Drawing.Color.White;
             this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBarApp.Location = new System.Drawing.Point(0, 0);
-            this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.progressBarApp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBarApp.MarqueeAnimationSpeed = 10;
             this.progressBarApp.Maximum = 200;
             this.progressBarApp.Name = "progressBarApp";
             this.progressBarApp.RightToLeftLayout = true;
-            this.progressBarApp.Size = new System.Drawing.Size(979, 6);
+            this.progressBarApp.Size = new System.Drawing.Size(734, 5);
             this.progressBarApp.TabIndex = 0;
             // 
             // label4
@@ -302,9 +299,10 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(33, 170);
+            this.label4.Location = new System.Drawing.Point(25, 138);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 16);
+            this.label4.Size = new System.Drawing.Size(59, 14);
             this.label4.TabIndex = 4;
             this.label4.Text = "Dirección *";
             // 
@@ -312,10 +310,9 @@
             // 
             this.panelLevel3.Controls.Add(this.cbxNivel3);
             this.panelLevel3.Controls.Add(this.lblNivel3);
-            this.panelLevel3.Location = new System.Drawing.Point(507, 222);
-            this.panelLevel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLevel3.Location = new System.Drawing.Point(380, 180);
             this.panelLevel3.Name = "panelLevel3";
-            this.panelLevel3.Size = new System.Drawing.Size(437, 49);
+            this.panelLevel3.Size = new System.Drawing.Size(328, 40);
             this.panelLevel3.TabIndex = 15;
             this.panelLevel3.Visible = false;
             // 
@@ -330,10 +327,9 @@
             this.cbxNivel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxNivel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel3.FormattingEnabled = true;
-            this.cbxNivel3.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel3.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxNivel3.Location = new System.Drawing.Point(3, 14);
             this.cbxNivel3.Name = "cbxNivel3";
-            this.cbxNivel3.Size = new System.Drawing.Size(427, 28);
+            this.cbxNivel3.Size = new System.Drawing.Size(321, 24);
             this.cbxNivel3.TabIndex = 1;
             this.cbxNivel3.ValueMember = "idNivel3";
             // 
@@ -342,9 +338,10 @@
             this.lblNivel3.AutoSize = true;
             this.lblNivel3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNivel3.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNivel3.Location = new System.Drawing.Point(3, 1);
+            this.lblNivel3.Location = new System.Drawing.Point(2, 1);
+            this.lblNivel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel3.Name = "lblNivel3";
-            this.lblNivel3.Size = new System.Drawing.Size(50, 16);
+            this.lblNivel3.Size = new System.Drawing.Size(39, 14);
             this.lblNivel3.TabIndex = 0;
             this.lblNivel3.Text = "Nivel 3";
             // 
@@ -352,10 +349,9 @@
             // 
             this.panelLevel2.Controls.Add(this.cbxNivel2);
             this.panelLevel2.Controls.Add(this.lblNivel2);
-            this.panelLevel2.Location = new System.Drawing.Point(507, 161);
-            this.panelLevel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLevel2.Location = new System.Drawing.Point(380, 131);
             this.panelLevel2.Name = "panelLevel2";
-            this.panelLevel2.Size = new System.Drawing.Size(437, 49);
+            this.panelLevel2.Size = new System.Drawing.Size(328, 40);
             this.panelLevel2.TabIndex = 14;
             this.panelLevel2.Visible = false;
             // 
@@ -370,10 +366,9 @@
             this.cbxNivel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxNivel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel2.FormattingEnabled = true;
-            this.cbxNivel2.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel2.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxNivel2.Location = new System.Drawing.Point(3, 14);
             this.cbxNivel2.Name = "cbxNivel2";
-            this.cbxNivel2.Size = new System.Drawing.Size(427, 28);
+            this.cbxNivel2.Size = new System.Drawing.Size(321, 24);
             this.cbxNivel2.TabIndex = 1;
             this.cbxNivel2.ValueMember = "idNivel2";
             this.cbxNivel2.SelectedIndexChanged += new System.EventHandler(this.cbxNivel2_SelectedIndexChanged);
@@ -383,9 +378,10 @@
             this.lblNivel2.AutoSize = true;
             this.lblNivel2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNivel2.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNivel2.Location = new System.Drawing.Point(3, 1);
+            this.lblNivel2.Location = new System.Drawing.Point(2, 1);
+            this.lblNivel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel2.Name = "lblNivel2";
-            this.lblNivel2.Size = new System.Drawing.Size(50, 16);
+            this.lblNivel2.Size = new System.Drawing.Size(39, 14);
             this.lblNivel2.TabIndex = 0;
             this.lblNivel2.Text = "Nivel 2";
             // 
@@ -393,10 +389,9 @@
             // 
             this.panelLevel1.Controls.Add(this.cbxNivel1);
             this.panelLevel1.Controls.Add(this.lblNivel1);
-            this.panelLevel1.Location = new System.Drawing.Point(507, 102);
-            this.panelLevel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLevel1.Location = new System.Drawing.Point(380, 83);
             this.panelLevel1.Name = "panelLevel1";
-            this.panelLevel1.Size = new System.Drawing.Size(437, 49);
+            this.panelLevel1.Size = new System.Drawing.Size(328, 40);
             this.panelLevel1.TabIndex = 13;
             this.panelLevel1.Visible = false;
             // 
@@ -411,10 +406,9 @@
             this.cbxNivel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxNivel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel1.FormattingEnabled = true;
-            this.cbxNivel1.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel1.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxNivel1.Location = new System.Drawing.Point(3, 14);
             this.cbxNivel1.Name = "cbxNivel1";
-            this.cbxNivel1.Size = new System.Drawing.Size(427, 28);
+            this.cbxNivel1.Size = new System.Drawing.Size(321, 24);
             this.cbxNivel1.TabIndex = 1;
             this.cbxNivel1.ValueMember = "idNivel1";
             this.cbxNivel1.SelectedIndexChanged += new System.EventHandler(this.cbxNivel1_SelectedIndexChanged);
@@ -424,9 +418,10 @@
             this.lblNivel1.AutoSize = true;
             this.lblNivel1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNivel1.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNivel1.Location = new System.Drawing.Point(3, 1);
+            this.lblNivel1.Location = new System.Drawing.Point(2, 1);
+            this.lblNivel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNivel1.Name = "lblNivel1";
-            this.lblNivel1.Size = new System.Drawing.Size(50, 16);
+            this.lblNivel1.Size = new System.Drawing.Size(39, 14);
             this.lblNivel1.TabIndex = 0;
             this.lblNivel1.Text = "Nivel 1";
             // 
@@ -434,10 +429,9 @@
             // 
             this.panelLevelPais.Controls.Add(this.cbxPaises);
             this.panelLevelPais.Controls.Add(this.label11);
-            this.panelLevelPais.Location = new System.Drawing.Point(507, 43);
-            this.panelLevelPais.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLevelPais.Location = new System.Drawing.Point(380, 35);
             this.panelLevelPais.Name = "panelLevelPais";
-            this.panelLevelPais.Size = new System.Drawing.Size(437, 49);
+            this.panelLevelPais.Size = new System.Drawing.Size(328, 40);
             this.panelLevelPais.TabIndex = 12;
             // 
             // cbxPaises
@@ -451,10 +445,9 @@
             this.cbxPaises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxPaises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPaises.FormattingEnabled = true;
-            this.cbxPaises.Location = new System.Drawing.Point(4, 17);
-            this.cbxPaises.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxPaises.Location = new System.Drawing.Point(3, 14);
             this.cbxPaises.Name = "cbxPaises";
-            this.cbxPaises.Size = new System.Drawing.Size(427, 28);
+            this.cbxPaises.Size = new System.Drawing.Size(321, 24);
             this.cbxPaises.TabIndex = 1;
             this.cbxPaises.ValueMember = "idPais";
             this.cbxPaises.SelectedIndexChanged += new System.EventHandler(this.cbxPaises_SelectedIndexChanged);
@@ -464,9 +457,10 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(3, 1);
+            this.label11.Location = new System.Drawing.Point(2, 1);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 16);
+            this.label11.Size = new System.Drawing.Size(27, 14);
             this.label11.TabIndex = 0;
             this.label11.Text = "País";
             // 
@@ -476,9 +470,10 @@
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(33, 111);
+            this.label5.Location = new System.Drawing.Point(25, 90);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 16);
+            this.label5.Size = new System.Drawing.Size(115, 14);
             this.label5.TabIndex = 2;
             this.label5.Text = "Nombres del Almacen*";
             // 
@@ -486,10 +481,9 @@
             // 
             this.panel2.Controls.Add(this.cbxSucursal);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(28, 41);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(21, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(401, 49);
+            this.panel2.Size = new System.Drawing.Size(301, 40);
             this.panel2.TabIndex = 1;
             // 
             // cbxSucursal
@@ -503,10 +497,9 @@
             this.cbxSucursal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSucursal.FormattingEnabled = true;
-            this.cbxSucursal.Location = new System.Drawing.Point(4, 17);
-            this.cbxSucursal.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxSucursal.Location = new System.Drawing.Point(3, 14);
             this.cbxSucursal.Name = "cbxSucursal";
-            this.cbxSucursal.Size = new System.Drawing.Size(391, 28);
+            this.cbxSucursal.Size = new System.Drawing.Size(294, 24);
             this.cbxSucursal.TabIndex = 1;
             this.cbxSucursal.ValueMember = "idSucursal";
             // 
@@ -515,9 +508,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(3, 1);
+            this.label2.Location = new System.Drawing.Point(2, 1);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.Size = new System.Drawing.Size(50, 14);
             this.label2.TabIndex = 0;
             this.label2.Text = "Sucursal";
             // 
@@ -527,9 +521,10 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(33, 258);
+            this.label1.Location = new System.Drawing.Point(25, 210);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 16);
+            this.label1.Size = new System.Drawing.Size(136, 14);
             this.label1.TabIndex = 8;
             this.label1.Text = "(Se mostrará por defecto.)";
             // 
@@ -538,20 +533,21 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(33, 324);
+            this.label6.Location = new System.Drawing.Point(25, 263);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(433, 39);
+            this.label6.Size = new System.Drawing.Size(325, 32);
             this.label6.TabIndex = 11;
             this.label6.Text = "Si está desmarcado, no se podrá hacer operaciones con este almacén.";
             // 
             // FormAlmacenNuevo
             // 
             this.AcceptButton = this.btnAceptar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(979, 561);
+            this.ClientSize = new System.Drawing.Size(734, 456);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
@@ -572,7 +568,6 @@
             this.Controls.Add(this.panelFooter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAlmacenNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento Almacén";

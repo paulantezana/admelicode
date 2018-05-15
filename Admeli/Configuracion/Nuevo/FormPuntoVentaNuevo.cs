@@ -94,7 +94,7 @@ namespace Admeli.Configuracion.Nuevo
         {
             try
             {
-                btnAceptar.Enabled = false;
+                Bloqueo.bloquear(this, true);
                 if (nuevo)
                 {
                     Response response = await puntoVentaModel.guardar(puntoVenta);
@@ -105,6 +105,7 @@ namespace Admeli.Configuracion.Nuevo
                     Response response = await puntoVentaModel.modificar(puntoVenta);
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Bloqueo.bloquear(this, false);
                 this.Close();
             }
             catch (Exception ex)
@@ -113,7 +114,7 @@ namespace Admeli.Configuracion.Nuevo
             }
             finally
             {
-                btnAceptar.Enabled = true;
+                Bloqueo.bloquear(this, false);
             }
         }
 
