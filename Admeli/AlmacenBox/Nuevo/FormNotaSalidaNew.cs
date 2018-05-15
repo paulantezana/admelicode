@@ -59,7 +59,7 @@ namespace Admeli.AlmacenBox.Nuevo
 
         private bool  nuevo { get; set; }
         private string formato { get; set; }
-        private int nroDecimales = 2;
+        private int nroDecimales = ConfigModel.configuracionGeneral.numeroDecimales;
         private FechaSistema fechaSistema { get; set; }
 
 
@@ -213,13 +213,13 @@ namespace Admeli.AlmacenBox.Nuevo
             switch (currentNotaSalida.estadoEnvio)
             {
                 case 0:
-                    estado = "pendiente";
+                    estado = "Pendiente";
                     break;
                 case 1:
-                    estado = "renvisado";
+                    estado = "Revisado";
                     break;
                 case 2:
-                    estado = "enviado";
+                    estado = "Enviado";
                     break;
 
 
@@ -270,7 +270,7 @@ namespace Admeli.AlmacenBox.Nuevo
             {
                 //listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
 
-                listAlmacen = await AlmacenModel.almacenesAsignados(1, 1);
+                listAlmacen = await AlmacenModel.almacenesAsignados(ConfigModel.sucursal.idSucursal, PersonalModel.personal.idPersonal);
 
                 almacenBindingSource.DataSource = listAlmacen;
                 cbxAlmacen.SelectedIndex = 0;
@@ -350,22 +350,7 @@ namespace Admeli.AlmacenBox.Nuevo
         }
         #endregion
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnImportarVenta_Click(object sender, EventArgs e)
         {
@@ -457,7 +442,7 @@ namespace Admeli.AlmacenBox.Nuevo
             {
                 List<Presentacion> listPresentacionaux = await presentacionModel.presentacionVentas(idProducto);
                 currentPresentacion = listPresentacionaux[0];
-                cbxDescripcion.Text = currentPresentacion.descripcion;
+                cbxDescripcion.Text = currentPresentacion.nombrePresentacion;
             }
             catch (Exception ex)
             {
@@ -481,15 +466,14 @@ namespace Admeli.AlmacenBox.Nuevo
         }
         private void cargarPresentacionDescripcion(int tipo)
         {
-            cbxDescripcion.Text = currentPresentacion.descripcion;
+            cbxDescripcion.Text = currentPresentacion.nombrePresentacion;
 
         }
         private void cbxCodigoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxCodigoProducto.SelectedIndex == -1) return;
             txtCantidad.Text = "1";
-            
-
+           
             cargarProductoDetalle(0);
         }
 
@@ -626,6 +610,9 @@ namespace Admeli.AlmacenBox.Nuevo
             currentdetalleNotaSalida.cantidad = toDouble(txtCantidad.Text);
             currentdetalleNotaSalida.cantidadUnitaria = toDouble(txtCantidad.Text);
             currentdetalleNotaSalida.total = toDouble(txtCantidad.Text) * toDouble(currentPresentacion.precioCompra);
+            currentdetalleNotaSalida.nombreCombinacion = cbxVariacion.Text;
+            currentdetalleNotaSalida.idCombinacionAlternativa =(int) cbxVariacion.SelectedValue;
+
 
             detalleNotaSalidaBindingSource.DataSource = null;
             detalleNotaSalidaBindingSource.DataSource = listDetalleNotaSalida;
@@ -667,13 +654,13 @@ namespace Admeli.AlmacenBox.Nuevo
             int estado = 0;
             switch (cbxEstado.Text)
             {
-                case "pendiente":
+                case "Pendiente":
                     estado = 0;
                     break;
-                case "renvisado":
+                case "Revisado":
                     estado = 1;
                     break;
-                case "enviado":
+                case "Enviado":
                     estado = 2;
                     break;
 

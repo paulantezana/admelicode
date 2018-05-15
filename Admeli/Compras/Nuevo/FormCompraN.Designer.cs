@@ -198,7 +198,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(427, 741);
+            this.panel1.Size = new System.Drawing.Size(427, 914);
             this.panel1.TabIndex = 2;
             // 
             // panel10
@@ -209,10 +209,10 @@
             this.panel10.Controls.Add(this.txtObservaciones);
             this.panel10.Controls.Add(this.txtNroOrdenCompra);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 656);
+            this.panel10.Location = new System.Drawing.Point(0, 636);
             this.panel10.Margin = new System.Windows.Forms.Padding(5);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(406, 380);
+            this.panel10.Size = new System.Drawing.Size(427, 277);
             this.panel10.TabIndex = 2;
             // 
             // btnImportarOrdenCompra
@@ -226,10 +226,10 @@
             this.btnImportarOrdenCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportarOrdenCompra.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportarOrdenCompra.ForeColor = System.Drawing.Color.White;
-            this.btnImportarOrdenCompra.Location = new System.Drawing.Point(71, 10);
+            this.btnImportarOrdenCompra.Location = new System.Drawing.Point(47, 18);
             this.btnImportarOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportarOrdenCompra.Name = "btnImportarOrdenCompra";
-            this.btnImportarOrdenCompra.Size = new System.Drawing.Size(293, 42);
+            this.btnImportarOrdenCompra.Size = new System.Drawing.Size(317, 42);
             this.btnImportarOrdenCompra.TabIndex = 11;
             this.btnImportarOrdenCompra.Text = "Importar Orden Compra";
             this.btnImportarOrdenCompra.UseVisualStyleBackColor = false;
@@ -239,7 +239,7 @@
             // 
             this.Observaciones.AutoSize = true;
             this.Observaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Observaciones.Location = new System.Drawing.Point(69, 124);
+            this.Observaciones.Location = new System.Drawing.Point(69, 132);
             this.Observaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Observaciones.Name = "Observaciones";
             this.Observaciones.Size = new System.Drawing.Size(122, 19);
@@ -250,7 +250,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(73, 62);
+            this.label27.Location = new System.Drawing.Point(73, 70);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(153, 19);
@@ -260,22 +260,22 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(71, 146);
+            this.txtObservaciones.Location = new System.Drawing.Point(47, 154);
             this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservaciones.Size = new System.Drawing.Size(293, 128);
+            this.txtObservaciones.Size = new System.Drawing.Size(317, 79);
             this.txtObservaciones.TabIndex = 2;
             // 
             // txtNroOrdenCompra
             // 
             this.txtNroOrdenCompra.Enabled = false;
             this.txtNroOrdenCompra.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroOrdenCompra.Location = new System.Drawing.Point(71, 86);
+            this.txtNroOrdenCompra.Location = new System.Drawing.Point(47, 94);
             this.txtNroOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtNroOrdenCompra.Name = "txtNroOrdenCompra";
-            this.txtNroOrdenCompra.Size = new System.Drawing.Size(293, 26);
+            this.txtNroOrdenCompra.Size = new System.Drawing.Size(317, 26);
             this.txtNroOrdenCompra.TabIndex = 1;
             // 
             // panel8
@@ -297,7 +297,7 @@
             this.panel8.Location = new System.Drawing.Point(0, 242);
             this.panel8.Margin = new System.Windows.Forms.Padding(5);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(406, 414);
+            this.panel8.Size = new System.Drawing.Size(427, 394);
             this.panel8.TabIndex = 1;
             // 
             // cbxTipoMoneda
@@ -452,7 +452,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(406, 53);
+            this.panel9.Size = new System.Drawing.Size(427, 53);
             this.panel9.TabIndex = 0;
             // 
             // pictureBox3
@@ -491,7 +491,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(406, 242);
+            this.panel6.Size = new System.Drawing.Size(427, 242);
             this.panel6.TabIndex = 0;
             // 
             // cbxProveedor
@@ -535,7 +535,7 @@
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(406, 53);
+            this.panel7.Size = new System.Drawing.Size(427, 53);
             this.panel7.TabIndex = 0;
             // 
             // pictureBox2
@@ -627,7 +627,7 @@
             this.splitter1.Location = new System.Drawing.Point(427, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(9, 741);
+            this.splitter1.Size = new System.Drawing.Size(9, 914);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
@@ -643,7 +643,7 @@
             this.panel2.Location = new System.Drawing.Point(436, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1389, 741);
+            this.panel2.Size = new System.Drawing.Size(1389, 914);
             this.panel2.TabIndex = 4;
             // 
             // panel13
@@ -655,7 +655,7 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
-            this.panel13.Size = new System.Drawing.Size(1296, 442);
+            this.panel13.Size = new System.Drawing.Size(1296, 615);
             this.panel13.TabIndex = 9;
             // 
             // dgvDetalleCompra
@@ -725,7 +725,7 @@
             this.dgvDetalleCompra.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalleCompra.RowTemplate.Height = 30;
             this.dgvDetalleCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleCompra.Size = new System.Drawing.Size(1250, 406);
+            this.dgvDetalleCompra.Size = new System.Drawing.Size(1250, 579);
             this.dgvDetalleCompra.TabIndex = 50;
             this.dgvDetalleCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellContentClick);
             this.dgvDetalleCompra.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellDoubleClick);
@@ -879,7 +879,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 11, 9, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(93, 442);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(93, 615);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // btnModificar
@@ -1355,7 +1355,7 @@
             // 
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter2.Location = new System.Drawing.Point(0, 575);
+            this.splitter2.Location = new System.Drawing.Point(0, 748);
             this.splitter2.Margin = new System.Windows.Forms.Padding(5);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(1389, 7);
@@ -1369,7 +1369,7 @@
             this.panel3.Controls.Add(this.splitter3);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 582);
+            this.panel3.Location = new System.Drawing.Point(0, 755);
             this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
@@ -1626,7 +1626,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1825, 741);
+            this.ClientSize = new System.Drawing.Size(1825, 914);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);

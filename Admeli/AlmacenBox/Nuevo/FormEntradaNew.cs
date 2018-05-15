@@ -443,7 +443,7 @@ namespace Admeli.AlmacenBox.Nuevo
                 List<Presentacion> presentaciones = await presentacionModel.presentacionVentas(idProducto);
                 currentPresentacion = presentaciones[0];
 
-                cbxDescripcion.Text = currentPresentacion.descripcion;
+                cbxDescripcion.Text = currentPresentacion.nombrePresentacion;
             }
             catch (Exception ex)
             {
@@ -466,7 +466,7 @@ namespace Admeli.AlmacenBox.Nuevo
         }
         private void cargarPresentacionDescripcion(int tipo)
         {
-            cbxDescripcion.Text = currentPresentacion.descripcion;
+            cbxDescripcion.Text = currentPresentacion.nombrePresentacion;
            
         }
 
@@ -684,6 +684,8 @@ namespace Admeli.AlmacenBox.Nuevo
             currentDetalleNEntrada.cantidad = toDouble(txtCantidad.Text);
             currentDetalleNEntrada.cantidadUnitaria = toDouble(txtCantidad.Text);
             currentDetalleNEntrada.cantidadRecibida= toDouble(txtCantidadRecibida.Text);
+            currentDetalleNEntrada.nombreCombinacion = cbxVariacion.Text;
+            currentDetalleNEntrada.idCombinacionAlternativa =(int) cbxVariacion.SelectedValue;
             detalleCompraBindingSource.DataSource = null;
             detalleCompraBindingSource.DataSource = listcargaCompraSinNota;
             dgvDetalleNota.Refresh();

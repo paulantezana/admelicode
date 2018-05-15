@@ -323,11 +323,9 @@ namespace Admeli.Ventas.Nuevo
             double impuesto = 0;
             foreach (DetalleV V in detalleVentas)
             {
-
+                V.existeStock = 1;
                 double Im = toDouble(V.valor);
                 impuesto += Im;
-
-
                 double precioUnitario = toDouble(V.precioUnitario);
                 double cantidad = toDouble(V.cantidad);
                 double cantidad1 = toDouble(V.cantidadUnitaria);
@@ -1249,7 +1247,7 @@ namespace Admeli.Ventas.Nuevo
                 int idPresentacion = Convert.ToInt32(row.Cells[0].Value); // obteniedo el idCategoria del datagridview
                 int idCombinacion = Convert.ToInt32(row.Cells[1].Value);
                 DetalleV aux = detalleVentas.Find(x => x.idPresentacion == idPresentacion && x.idCombinacionAlternativa == idCombinacion); // Buscando la categoria en las lista de categorias
-                if (aux.existeStock == 0)
+                if (aux.existeStock == 0 )
                 {
                     dgvDetalleOrdenCompra.ClearSelection();
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
@@ -1497,6 +1495,7 @@ namespace Admeli.Ventas.Nuevo
 
 
                 aux.idCombinacionAlternativa = (int)cbxVariacion.SelectedValue;
+                aux.nombreCombinacion = cbxVariacion.Text;
                 aux.cantidad = txtCantidad.Text.Trim();
                 aux.cantidadUnitaria = txtCantidad.Text.Trim();
                 double descuento = toDouble(txtDescuento.Text.Trim());
@@ -2757,6 +2756,11 @@ namespace Admeli.Ventas.Nuevo
             monedaActual = monedaCambio;
 
 
+
+        }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
