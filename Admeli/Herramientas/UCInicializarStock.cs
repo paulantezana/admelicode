@@ -433,8 +433,10 @@ namespace Admeli.Herramientas
             }
             finally
             {
+
                 loadState(false);
-                dataGridView.Rows[index].Selected = true;
+                if(dataGridView.Rows.Count>0)
+                    dataGridView.Rows[index].Selected = true;
             }
         }
 
@@ -787,7 +789,7 @@ namespace Admeli.Herramientas
         {
             FormProductoNuevo producto = new FormProductoNuevo();
             producto.ShowDialog();
-            cargarRegistros();
+            cargarRegistrosBuscar();
 
         }
 

@@ -414,7 +414,7 @@ namespace Admeli.Ventas.Nuevo
                     double precioUnitario = toDouble(V.precioUnitario);
                     double cantidad = toDouble(V.cantidad);
                     double cantidad1 = toDouble(V.cantidadUnitaria);
-
+                    V.existeStock =1;
                     V.precioUnitario = darformato(precioUnitario);
                     V.cantidad = darformato(cantidad);
                     V.cantidadUnitaria = darformato(cantidad1);
@@ -1555,6 +1555,7 @@ namespace Admeli.Ventas.Nuevo
 
 
             currentdetalleV.idCombinacionAlternativa = (int)cbxVariacion.SelectedValue;
+            currentdetalleV.nombreCombinacion = cbxVariacion.Text;
             currentdetalleV.cantidad = txtCantidad.Text.Trim();
             currentdetalleV.cantidadUnitaria = txtCantidad.Text.Trim();
             double descuento = toDouble(txtDescuento.Text.Trim());
@@ -1581,7 +1582,7 @@ namespace Admeli.Ventas.Nuevo
             currentdetalleV.precioUnitario = darformato(precioUnitarioImpuesto);
             currentdetalleV.total = darformato(precioUnitarioImpuesto * toDouble(currentdetalleV.cantidad));// utilizar para sacar el subtotal
             currentdetalleV.totalGeneral = darformato(precioUnitarioDescuento * toDouble(currentdetalleV.cantidad));//utilizar para sacar el suTotal 
-
+            
 
             detalleVBindingSource.DataSource = null;
             detalleVBindingSource.DataSource = detalleVentas;
