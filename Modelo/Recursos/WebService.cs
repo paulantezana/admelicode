@@ -29,6 +29,7 @@ namespace Modelo.Recursos
             this.domainName = "http://localhost:8080";
             this.directory = "admeli/xcore/services.php";
 
+
             this.urlBase = String.Format("{0}/{1}", domainName, directory);
         }
 

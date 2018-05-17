@@ -74,7 +74,7 @@
             this.panel3.Controls.Add(this.textValor);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(560, 391);
             this.panel3.TabIndex = 0;
@@ -120,7 +120,7 @@
             this.chkEstado.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkEstado.ForeColor = System.Drawing.Color.White;
             this.chkEstado.Location = new System.Drawing.Point(23, 341);
-            this.chkEstado.Margin = new System.Windows.Forms.Padding(5);
+            this.chkEstado.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(20, 20);
             this.chkEstado.TabIndex = 8;
@@ -132,7 +132,7 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.cbxTipoMoneda);
             this.panel4.Location = new System.Drawing.Point(21, 102);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(1);
             this.panel4.Size = new System.Drawing.Size(519, 62);
@@ -207,10 +207,10 @@
             this.errorProvider1.SetIconPadding(this.textNombre, -30);
             this.textNombre.isPassword = false;
             this.textNombre.Location = new System.Drawing.Point(21, 178);
-            this.textNombre.Margin = new System.Windows.Forms.Padding(5);
+            this.textNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Padding = new System.Windows.Forms.Padding(7, 3, 7, 0);
-            this.textNombre.Size = new System.Drawing.Size(519, 62);
+            this.textNombre.Padding = new System.Windows.Forms.Padding(9, 4, 9, 0);
+            this.textNombre.Size = new System.Drawing.Size(519, 73);
             this.textNombre.TabIndex = 2;
             this.textNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textNombre.Validated += new System.EventHandler(this.textNombre_Validated);
@@ -222,7 +222,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.cbxMoneda);
             this.panel2.Location = new System.Drawing.Point(21, 22);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(1);
             this.panel2.Size = new System.Drawing.Size(519, 62);
@@ -278,10 +278,10 @@
             this.errorProvider1.SetIconPadding(this.textValor, -30);
             this.textValor.isPassword = false;
             this.textValor.Location = new System.Drawing.Point(21, 261);
-            this.textValor.Margin = new System.Windows.Forms.Padding(5);
+            this.textValor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textValor.Name = "textValor";
-            this.textValor.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.textValor.Size = new System.Drawing.Size(519, 62);
+            this.textValor.Padding = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.textValor.Size = new System.Drawing.Size(519, 70);
             this.textValor.TabIndex = 7;
             this.textValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValor_KeyPress);
@@ -292,7 +292,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 395);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(560, 91);
@@ -304,7 +304,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(12, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(536, 59);
             this.panel1.TabIndex = 0;
@@ -320,7 +320,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(7, 7);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(261, 44);
             this.btnAceptar.TabIndex = 0;
@@ -340,7 +340,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(288, 7);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(237, 44);
             this.btnClose.TabIndex = 1;
@@ -363,7 +363,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelFooter);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormDenominacionNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DENOMINACIÓN MONEDA";

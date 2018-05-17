@@ -73,10 +73,10 @@
             this.textNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombre.isPassword = false;
             this.textNombre.Location = new System.Drawing.Point(17, 16);
-            this.textNombre.Margin = new System.Windows.Forms.Padding(5);
+            this.textNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Padding = new System.Windows.Forms.Padding(3, 3, 7, 2);
-            this.textNombre.Size = new System.Drawing.Size(439, 49);
+            this.textNombre.Padding = new System.Windows.Forms.Padding(4, 4, 9, 2);
+            this.textNombre.Size = new System.Drawing.Size(423, 49);
             this.textNombre.TabIndex = 16;
             this.textNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -104,10 +104,10 @@
             this.textNombreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreLabel.isPassword = false;
             this.textNombreLabel.Location = new System.Drawing.Point(17, 75);
-            this.textNombreLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.textNombreLabel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textNombreLabel.Name = "textNombreLabel";
-            this.textNombreLabel.Padding = new System.Windows.Forms.Padding(3, 3, 7, 2);
-            this.textNombreLabel.Size = new System.Drawing.Size(439, 49);
+            this.textNombreLabel.Padding = new System.Windows.Forms.Padding(4, 4, 9, 2);
+            this.textNombreLabel.Size = new System.Drawing.Size(423, 53);
             this.textNombreLabel.TabIndex = 18;
             this.textNombreLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -130,7 +130,7 @@
             this.chkActivo.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
             this.chkActivo.Location = new System.Drawing.Point(17, 138);
-            this.chkActivo.Margin = new System.Windows.Forms.Padding(5);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 21;
@@ -151,7 +151,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 239);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(945, 60);
@@ -163,7 +163,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(260, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(425, 59);
             this.panel1.TabIndex = 0;
@@ -179,7 +179,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(21, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 37);
             this.btnAceptar.TabIndex = 0;
@@ -198,7 +198,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(251, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 37);
             this.btnClose.TabIndex = 1;
@@ -224,7 +224,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textNombre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormTipoDocumentoNuevo";
             this.Text = "Tipo Documento Nuevo";
             this.Load += new System.EventHandler(this.FormTipoDocumentoNuevo_Load);

@@ -210,12 +210,34 @@ namespace Admeli.Productos.Nuevo.PDetalle
             }
         }
 
+        private void bloquear(bool state)
+        {
+            if (state)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+            this.Enabled = !state;
+            this.formProductoNuevo.panel1.Enabled = !state;
+        }
         private async void guardarImpuestosProducto()
         {
-            response = await impuestoModel.actualizarImpuestoProducto(listaImpuesto, formProductoNuevo.currentIDProducto, int.Parse(cbxSucursal.SelectedValue.ToString()));
-            //reiniciar lista
-            listaImpuesto = new List<Impuesto>();
-    }
+            bloquear(true);
+            try
+            {
+                response = await impuestoModel.actualizarImpuestoProducto(listaImpuesto, formProductoNuevo.currentIDProducto, int.Parse(cbxSucursal.SelectedValue.ToString()));
+                //reiniciar lista
+                listaImpuesto = new List<Impuesto>();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            bloquear(false);
+        }
 
         private void extraerImpuestosProducto()
         {

@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVentaNewR));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelDatos = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnImportarCotizacion = new System.Windows.Forms.Button();
@@ -240,9 +240,9 @@
             this.panelDatos.Controls.Add(this.panel6);
             this.panelDatos.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelDatos.Location = new System.Drawing.Point(0, 0);
-            this.panelDatos.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDatos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(427, 838);
+            this.panelDatos.Size = new System.Drawing.Size(427, 813);
             this.panelDatos.TabIndex = 2;
             // 
             // panel10
@@ -252,7 +252,7 @@
             this.panel10.Controls.Add(this.txtObservaciones);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 572);
-            this.panel10.Margin = new System.Windows.Forms.Padding(5);
+            this.panel10.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(427, 238);
             this.panel10.TabIndex = 2;
@@ -268,8 +268,8 @@
             this.btnImportarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportarCotizacion.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportarCotizacion.ForeColor = System.Drawing.Color.White;
-            this.btnImportarCotizacion.Location = new System.Drawing.Point(21, 22);
-            this.btnImportarCotizacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImportarCotizacion.Location = new System.Drawing.Point(28, 27);
+            this.btnImportarCotizacion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnImportarCotizacion.Name = "btnImportarCotizacion";
             this.btnImportarCotizacion.Size = new System.Drawing.Size(357, 42);
             this.btnImportarCotizacion.TabIndex = 412;
@@ -292,12 +292,12 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(20, 112);
-            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservaciones.Location = new System.Drawing.Point(27, 102);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservaciones.Size = new System.Drawing.Size(360, 106);
+            this.txtObservaciones.Size = new System.Drawing.Size(360, 117);
             this.txtObservaciones.TabIndex = 413;
             this.txtObservaciones.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtObservaciones_KeyUp);
             // 
@@ -320,7 +320,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 263);
-            this.panel8.Margin = new System.Windows.Forms.Padding(5);
+            this.panel8.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(427, 309);
             this.panel8.TabIndex = 1;
@@ -353,7 +353,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(327, 138);
+            this.label18.Location = new System.Drawing.Point(327, 145);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(50, 19);
             this.label18.TabIndex = 59;
@@ -369,7 +369,7 @@
             this.chbxEditar.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbxEditar.ForeColor = System.Drawing.Color.White;
-            this.chbxEditar.Location = new System.Drawing.Point(299, 138);
+            this.chbxEditar.Location = new System.Drawing.Point(299, 144);
             this.chbxEditar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.chbxEditar.Name = "chbxEditar";
             this.chbxEditar.Size = new System.Drawing.Size(20, 20);
@@ -415,8 +415,8 @@
             // 
             this.txtCorrelativo.Enabled = false;
             this.txtCorrelativo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorrelativo.Location = new System.Drawing.Point(147, 135);
-            this.txtCorrelativo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorrelativo.Location = new System.Drawing.Point(148, 138);
+            this.txtCorrelativo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtCorrelativo.Name = "txtCorrelativo";
             this.txtCorrelativo.Size = new System.Drawing.Size(139, 26);
             this.txtCorrelativo.TabIndex = 408;
@@ -437,8 +437,8 @@
             // 
             this.txtSerie.Enabled = false;
             this.txtSerie.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSerie.Location = new System.Drawing.Point(23, 135);
-            this.txtSerie.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSerie.Location = new System.Drawing.Point(22, 138);
+            this.txtSerie.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(105, 26);
             this.txtSerie.TabIndex = 11;
@@ -516,7 +516,7 @@
             this.panel9.Controls.Add(this.label16);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(427, 53);
             this.panel9.TabIndex = 0;
@@ -524,8 +524,8 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 7);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox3.Location = new System.Drawing.Point(16, 9);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(43, 37);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -557,7 +557,7 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(427, 263);
             this.panel6.TabIndex = 0;
@@ -573,8 +573,8 @@
             this.btnBuscarCliente.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
-            this.btnBuscarCliente.Location = new System.Drawing.Point(347, 169);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(346, 169);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(31, 28);
             this.btnBuscarCliente.TabIndex = 404;
@@ -702,7 +702,7 @@
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(427, 53);
             this.panel7.TabIndex = 0;
@@ -710,8 +710,8 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(15, 7);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox2.Location = new System.Drawing.Point(20, 9);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(43, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -736,9 +736,9 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(427, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(9, 838);
+            this.splitter1.Size = new System.Drawing.Size(9, 813);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
@@ -752,9 +752,9 @@
             this.panel2.Controls.Add(this.panelFooter);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(436, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1488, 838);
+            this.panel2.Size = new System.Drawing.Size(1488, 813);
             this.panel2.TabIndex = 4;
             // 
             // panelInfo
@@ -764,18 +764,18 @@
             this.panelInfo.Controls.Add(this.dgvDetalleOrdenCompra);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInfo.Location = new System.Drawing.Point(0, 133);
-            this.panelInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.panelInfo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panelInfo.Name = "panelInfo";
             this.panelInfo.Padding = new System.Windows.Forms.Padding(23, 18, 23, 18);
-            this.panelInfo.Size = new System.Drawing.Size(1395, 441);
+            this.panelInfo.Size = new System.Drawing.Size(1395, 416);
             this.panelInfo.TabIndex = 9;
             // 
             // panelCargar
             // 
             this.panelCargar.Controls.Add(this.progrestatus);
             this.panelCargar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCargar.Location = new System.Drawing.Point(23, 403);
-            this.panelCargar.Margin = new System.Windows.Forms.Padding(4);
+            this.panelCargar.Location = new System.Drawing.Point(23, 378);
+            this.panelCargar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panelCargar.Name = "panelCargar";
             this.panelCargar.Size = new System.Drawing.Size(1349, 20);
             this.panelCargar.TabIndex = 301;
@@ -784,7 +784,7 @@
             // 
             this.progrestatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.progrestatus.Location = new System.Drawing.Point(0, 0);
-            this.progrestatus.Margin = new System.Windows.Forms.Padding(4);
+            this.progrestatus.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.progrestatus.Name = "progrestatus";
             this.progrestatus.Size = new System.Drawing.Size(1349, 20);
             this.progrestatus.TabIndex = 0;
@@ -793,20 +793,20 @@
             // 
             this.dgvDetalleOrdenCompra.AllowUserToAddRows = false;
             this.dgvDetalleOrdenCompra.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvDetalleOrdenCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDetalleOrdenCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalleOrdenCompra.AutoGenerateColumns = false;
             this.dgvDetalleOrdenCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalleOrdenCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalleOrdenCompra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(115)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleOrdenCompra.ColumnHeadersHeight = 43;
             this.dgvDetalleOrdenCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idPresentacionDataGridViewTextBoxColumn,
@@ -835,35 +835,35 @@
             this.eliminarDataGridViewTextBoxColumn,
             this.existeStockDataGridViewTextBoxColumn});
             this.dgvDetalleOrdenCompra.DataSource = this.detalleVBindingSource;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleOrdenCompra.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleOrdenCompra.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalleOrdenCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleOrdenCompra.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvDetalleOrdenCompra.Location = new System.Drawing.Point(23, 18);
-            this.dgvDetalleOrdenCompra.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvDetalleOrdenCompra.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.dgvDetalleOrdenCompra.Name = "dgvDetalleOrdenCompra";
             this.dgvDetalleOrdenCompra.ReadOnly = true;
             this.dgvDetalleOrdenCompra.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleOrdenCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleOrdenCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetalleOrdenCompra.RowHeadersWidth = 40;
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.dgvDetalleOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.dgvDetalleOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalleOrdenCompra.RowTemplate.Height = 30;
             this.dgvDetalleOrdenCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleOrdenCompra.Size = new System.Drawing.Size(1349, 405);
+            this.dgvDetalleOrdenCompra.Size = new System.Drawing.Size(1349, 380);
             this.dgvDetalleOrdenCompra.TabIndex = 300;
             this.dgvDetalleOrdenCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellContentClick);
             this.dgvDetalleOrdenCompra.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompra_CellDoubleClick);
@@ -1083,10 +1083,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnNuevoProducto);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1395, 133);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 11, 9, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(93, 441);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(93, 416);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // btnModificar
@@ -1102,8 +1102,8 @@
             this.btnModificar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.Location = new System.Drawing.Point(5, 16);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnModificar.Location = new System.Drawing.Point(7, 17);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(51, 49);
             this.btnModificar.TabIndex = 18;
@@ -1124,8 +1124,8 @@
             this.btnActulizar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActulizar.ForeColor = System.Drawing.Color.White;
             this.btnActulizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActulizar.Image")));
-            this.btnActulizar.Location = new System.Drawing.Point(5, 75);
-            this.btnActulizar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnActulizar.Location = new System.Drawing.Point(7, 78);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(51, 49);
             this.btnActulizar.TabIndex = 9;
@@ -1145,8 +1145,8 @@
             this.btnNuevoProducto.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoProducto.ForeColor = System.Drawing.Color.White;
             this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
-            this.btnNuevoProducto.Location = new System.Drawing.Point(5, 134);
-            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(5);
+            this.btnNuevoProducto.Location = new System.Drawing.Point(7, 139);
+            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnNuevoProducto.Name = "btnNuevoProducto";
             this.btnNuevoProducto.Size = new System.Drawing.Size(51, 49);
             this.btnNuevoProducto.TabIndex = 10;
@@ -1603,8 +1603,8 @@
             // 
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter2.Location = new System.Drawing.Point(0, 574);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(5);
+            this.splitter2.Location = new System.Drawing.Point(0, 549);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(1488, 15);
             this.splitter2.TabIndex = 1;
@@ -1617,8 +1617,8 @@
             this.panelFooter.Controls.Add(this.panel5);
             this.panelFooter.Controls.Add(this.panel4);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 589);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(5);
+            this.panelFooter.Location = new System.Drawing.Point(0, 564);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(17, 15, 17, 15);
             this.panelFooter.Size = new System.Drawing.Size(1488, 249);
@@ -1630,11 +1630,11 @@
             this.flowLayoutPanel2.Controls.Add(this.btnVenta);
             this.flowLayoutPanel2.Controls.Add(this.btnSalir);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1256, 15);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1184, 15);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(215, 219);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(287, 219);
             this.flowLayoutPanel2.TabIndex = 20;
             // 
             // btnImprimir
@@ -1650,8 +1650,8 @@
             this.btnImprimir.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.Location = new System.Drawing.Point(9, 9);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImprimir.Location = new System.Drawing.Point(12, 11);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(193, 60);
             this.btnImprimir.TabIndex = 12;
@@ -1672,8 +1672,8 @@
             this.btnVenta.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta.ForeColor = System.Drawing.Color.White;
             this.btnVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta.Image")));
-            this.btnVenta.Location = new System.Drawing.Point(10, 78);
-            this.btnVenta.Margin = new System.Windows.Forms.Padding(5);
+            this.btnVenta.Location = new System.Drawing.Point(14, 82);
+            this.btnVenta.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(193, 60);
             this.btnVenta.TabIndex = 13;
@@ -1694,7 +1694,7 @@
             this.btnSalir.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(12, 149);
+            this.btnSalir.Location = new System.Drawing.Point(14, 154);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(193, 60);
@@ -1717,8 +1717,8 @@
             this.panel11.Controls.Add(this.lbSubtotal);
             this.panel11.Controls.Add(this.label1);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(718, 15);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4);
+            this.panel11.Location = new System.Drawing.Point(719, 15);
+            this.panel11.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(509, 219);
             this.panel11.TabIndex = 17;
@@ -1726,8 +1726,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(328, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox1.Location = new System.Drawing.Point(317, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(123, 97);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1840,7 +1840,7 @@
             this.panel5.Controls.Add(this.chbxGuiaRemision);
             this.panel5.Controls.Add(this.chbxNotaEntrada);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(451, 15);
+            this.panel5.Location = new System.Drawing.Point(452, 15);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(267, 219);
@@ -1851,7 +1851,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(53, 92);
+            this.label19.Location = new System.Drawing.Point(53, 88);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(99, 19);
             this.label19.TabIndex = 62;
@@ -1875,7 +1875,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(53, 131);
+            this.label20.Location = new System.Drawing.Point(53, 130);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(115, 19);
@@ -1891,8 +1891,8 @@
             this.chbxPagarCompra.Checked = true;
             this.chbxPagarCompra.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxPagarCompra.ForeColor = System.Drawing.Color.White;
-            this.chbxPagarCompra.Location = new System.Drawing.Point(23, 91);
-            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(5);
+            this.chbxPagarCompra.Location = new System.Drawing.Point(23, 88);
+            this.chbxPagarCompra.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.chbxPagarCompra.Name = "chbxPagarCompra";
             this.chbxPagarCompra.Size = new System.Drawing.Size(20, 20);
             this.chbxPagarCompra.TabIndex = 59;
@@ -1906,7 +1906,7 @@
             this.chbxGuiaRemision.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chbxGuiaRemision.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbxGuiaRemision.ForeColor = System.Drawing.Color.White;
-            this.chbxGuiaRemision.Location = new System.Drawing.Point(23, 130);
+            this.chbxGuiaRemision.Location = new System.Drawing.Point(23, 129);
             this.chbxGuiaRemision.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.chbxGuiaRemision.Name = "chbxGuiaRemision";
             this.chbxGuiaRemision.Size = new System.Drawing.Size(20, 20);
@@ -1934,7 +1934,7 @@
             this.panel4.Location = new System.Drawing.Point(17, 15);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(434, 219);
+            this.panel4.Size = new System.Drawing.Size(435, 219);
             this.panel4.TabIndex = 15;
             // 
             // tableLayoutPanel1
@@ -1956,7 +1956,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 219);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(435, 219);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel12
@@ -1968,7 +1968,7 @@
             this.panel12.Location = new System.Drawing.Point(3, 2);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(428, 39);
+            this.panel12.Size = new System.Drawing.Size(429, 39);
             this.panel12.TabIndex = 0;
             // 
             // label17
@@ -1999,7 +1999,7 @@
             this.panel13.Location = new System.Drawing.Point(3, 45);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(428, 39);
+            this.panel13.Size = new System.Drawing.Size(429, 39);
             this.panel13.TabIndex = 1;
             // 
             // label22
@@ -2030,7 +2030,7 @@
             this.panel14.Location = new System.Drawing.Point(3, 88);
             this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(428, 39);
+            this.panel14.Size = new System.Drawing.Size(429, 39);
             this.panel14.TabIndex = 2;
             // 
             // label24
@@ -2060,7 +2060,7 @@
             this.panel15.Location = new System.Drawing.Point(3, 131);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(428, 39);
+            this.panel15.Size = new System.Drawing.Size(429, 39);
             this.panel15.TabIndex = 3;
             // 
             // label26
@@ -2092,7 +2092,7 @@
             this.panel16.Location = new System.Drawing.Point(3, 174);
             this.panel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(428, 43);
+            this.panel16.Size = new System.Drawing.Size(429, 43);
             this.panel16.TabIndex = 4;
             // 
             // label32
@@ -2138,12 +2138,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1924, 838);
+            this.ClientSize = new System.Drawing.Size(1924, 813);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panelDatos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "FormVentaNewR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Venta ";

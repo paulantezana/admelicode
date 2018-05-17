@@ -56,7 +56,7 @@
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 416);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(473, 60);
@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(32, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(409, 59);
             this.panel1.TabIndex = 6;
@@ -85,7 +85,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(13, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 37);
             this.btnAceptar.TabIndex = 4;
@@ -105,7 +105,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnClose.Location = new System.Drawing.Point(243, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 37);
             this.btnClose.TabIndex = 5;
@@ -118,7 +118,8 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label6.Location = new System.Drawing.Point(51, 172);
+            this.label6.Location = new System.Drawing.Point(68, 212);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 19);
             this.label6.TabIndex = 109;
@@ -131,8 +132,8 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(18, 170);
-            this.chkActivo.Margin = new System.Windows.Forms.Padding(5);
+            this.chkActivo.Location = new System.Drawing.Point(24, 209);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 108;
@@ -158,10 +159,10 @@
             this.errorProvider1.SetIconPadding(this.textPuntoVenta, -30);
             this.textPuntoVenta.isPassword = false;
             this.textPuntoVenta.Location = new System.Drawing.Point(17, 86);
-            this.textPuntoVenta.Margin = new System.Windows.Forms.Padding(5);
+            this.textPuntoVenta.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textPuntoVenta.Name = "textPuntoVenta";
-            this.textPuntoVenta.Padding = new System.Windows.Forms.Padding(3, 0, 7, 2);
-            this.textPuntoVenta.Size = new System.Drawing.Size(439, 60);
+            this.textPuntoVenta.Padding = new System.Windows.Forms.Padding(4, 0, 9, 2);
+            this.textPuntoVenta.Size = new System.Drawing.Size(439, 65);
             this.textPuntoVenta.TabIndex = 114;
             this.textPuntoVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textPuntoVenta.Validated += new System.EventHandler(this.textPuntoVenta_Validated);
@@ -183,7 +184,7 @@
             this.panel12.Controls.Add(this.cbxSucursalPV);
             this.panel12.Controls.Add(this.lblNivel3);
             this.panel12.Location = new System.Drawing.Point(19, 26);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(437, 49);
             this.panel12.TabIndex = 112;
@@ -200,7 +201,7 @@
             this.cbxSucursalPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSucursalPV.FormattingEnabled = true;
             this.cbxSucursalPV.Location = new System.Drawing.Point(4, 17);
-            this.cbxSucursalPV.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxSucursalPV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxSucursalPV.Name = "cbxSucursalPV";
             this.cbxSucursalPV.Size = new System.Drawing.Size(427, 28);
             this.cbxSucursalPV.TabIndex = 1;
@@ -247,7 +248,7 @@
             this.Controls.Add(this.panelFooter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormPuntoVentaNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ASIGNAR PUNTO VENTA";

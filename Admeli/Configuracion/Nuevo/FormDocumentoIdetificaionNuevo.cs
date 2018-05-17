@@ -124,11 +124,9 @@ namespace Admeli.Configuracion.Nuevo
         {
             /////// 
 
-
+            Bloqueo.bloquear(this, true);
             try
             {
-                btnAceptar.Enabled = false;
-
                 // Verificando el documento
                 int documentID = (nuevo) ? 0 : currentIDDocI;
                 List<DocumentoIdentificacion> listAlmacenes = await documentoModel.verificar(textNombreDocumentoIdenti.Text, documentID);
@@ -152,6 +150,7 @@ namespace Admeli.Configuracion.Nuevo
                     Response response = await documentoModel.modificar(currentDocument);
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Bloqueo.bloquear(this, false);
                 this.Close();
             }
             catch (Exception ex)
@@ -160,7 +159,7 @@ namespace Admeli.Configuracion.Nuevo
             }
             finally
             {
-                btnAceptar.Enabled = true;
+                Bloqueo.bloquear(this, false);
             }
         }
 

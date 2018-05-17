@@ -242,7 +242,7 @@ namespace Admeli.Configuracion.Modificar
         {
             bloquear(true);
             Response response=null;
-            if (!validarCampos()) return;
+            if (!validarCampos()) { bloquear(false); return; }
             try
             {
 

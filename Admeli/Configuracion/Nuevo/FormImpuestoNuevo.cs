@@ -77,6 +77,7 @@ namespace Admeli.Configuracion.Nuevo
 
         private async void guardar()
         {
+            Bloqueo.bloquear(this, true);
             try
             {
                 if (nuevo)
@@ -89,11 +90,13 @@ namespace Admeli.Configuracion.Nuevo
                     Response response = await impuestoModel.modificar(impuesto);
                     MessageBox.Show(response.msj, "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Bloqueo.bloquear(this, false);
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Bloqueo.bloquear(this, false);
             }
         }
 

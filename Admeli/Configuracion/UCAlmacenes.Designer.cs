@@ -580,6 +580,7 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+
             // UCAlmacenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

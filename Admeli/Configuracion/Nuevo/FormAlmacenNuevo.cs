@@ -329,14 +329,13 @@ namespace Admeli.Configuracion.Nuevo
         {
             guardarSucursal();
         }
-
+        
         private async void guardarSucursal()
         {
-            if (!validarCampos()) return;
+            Bloqueo.bloquear(this, true);
+            if (!validarCampos()) { Bloqueo.bloquear(this, false); return; }
             try
             {
-                btnAceptar.Enabled = false;
-
                 // Validacion
                 int almacenID = (nuevo) ? 0 : currentIDAlmacen;
                 int sucursalID = Convert.ToInt32(cbxSucursal.SelectedValue);
@@ -371,7 +370,7 @@ namespace Admeli.Configuracion.Nuevo
             }
             finally
             {
-                btnAceptar.Enabled = true;
+                Bloqueo.bloquear(this, false);
             }
         }
 
