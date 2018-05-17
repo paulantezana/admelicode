@@ -75,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(36, 96);
+            this.label1.Location = new System.Drawing.Point(28, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 20);
             this.label1.TabIndex = 111;
@@ -86,7 +86,7 @@
             this.lblMonedaPorDefecto.AutoSize = true;
             this.lblMonedaPorDefecto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonedaPorDefecto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.lblMonedaPorDefecto.Location = new System.Drawing.Point(20, 167);
+            this.lblMonedaPorDefecto.Location = new System.Drawing.Point(28, 167);
             this.lblMonedaPorDefecto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMonedaPorDefecto.Name = "lblMonedaPorDefecto";
             this.lblMonedaPorDefecto.Size = new System.Drawing.Size(258, 19);
@@ -107,7 +107,7 @@
             this.textNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombre.isPassword = false;
-            this.textNombre.Location = new System.Drawing.Point(32, 119);
+            this.textNombre.Location = new System.Drawing.Point(24, 119);
             this.textNombre.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textNombre.Name = "textNombre";
             this.textNombre.Padding = new System.Windows.Forms.Padding(9, 0, 9, 0);
@@ -124,7 +124,7 @@
             this.dtpFechaIngreso.ForeColor = System.Drawing.Color.DodgerBlue;
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaIngreso.FormatCustom = null;
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(32, 22);
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(24, 18);
             this.dtpFechaIngreso.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
