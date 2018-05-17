@@ -11,4 +11,11 @@ namespace Entidad
         public int nro_registros { get; set; }
         public List<T> datos { get; set; }
     }
+
+    public class RootObject<T,K>
+    {
+        public int nro_registros { get; set; }
+        public List<T> datos { get; set; }
+        public List<K> combinaciones { get; set; }
+    }
 }

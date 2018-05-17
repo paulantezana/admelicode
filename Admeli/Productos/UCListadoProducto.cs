@@ -17,8 +17,10 @@ using Entidad.Configuracion;
 
 namespace Admeli.Productos
 {
+    
     public partial class UCListadoProducto : UserControl
     {
+
         private ProductoModel productoModel = new ProductoModel();
         private CategoriaModel categoriaModel = new CategoriaModel();
         private SucursalModel sucursalModel = new SucursalModel();
@@ -42,6 +44,7 @@ namespace Admeli.Productos
         private FormPrincipal formPrincipal;
 
         public bool lisenerKeyEvents { get; set; }
+        private List<CombinacionStock> combinaciones { get; set; }
         private List<Producto> productos { get; set; }
         private List<Sucursal> listSuc { get; set; }
         private List<Sucursal> listSucCargar { get; set; }
@@ -186,12 +189,19 @@ namespace Admeli.Productos
         #region =========================== Decoration ===========================
         private void decorationDataGridView()
         {
-            /*
-            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            if (dataGridView.Rows.Count == 0) return;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                var estado = dataGridView.Rows[i].Cells.get.Value.ToString();
-                dataGridView.Rows[i].DefaultCellStyle.BackColor = Color.DeepPink;
-            }*/
+                int idProducto = Convert.ToInt32(row.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
+                currentProducto = productos.Find(x => x.idProducto == idProducto);
+                if (currentProducto.estado == false)
+                {
+                    dataGridView.ClearSelection();
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 224, 224);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(250, 5, 73);
+                }
+            }
         }
         #endregion
 
@@ -259,7 +269,7 @@ namespace Admeli.Productos
                 treeViewCategoria.Nodes.Clear(); // limpiando
                 treeViewCategoria.Nodes.Add(lastCategori.idCategoria.ToString(), lastCategori.nombreCategoria); // Cargando categoria raiz
 
-
+                treeViewCategoria.Nodes[0].Checked = true;
                 List<TreeNode> listNode = new List<TreeNode>();
 
                 foreach (Categoria categoria in categoriaList)
@@ -393,14 +403,16 @@ namespace Admeli.Productos
                 list.Add("id0", 0);
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
 
-                RootObject<Producto> productosRoot = await productoModel.productosPorCategoria(sendList, paginacion.currentPage, paginacion.speed);
+                //RootObject<Producto> productosRoot = await productoModel.productosPorCategoria(sendList, paginacion.currentPage, paginacion.speed);
+                RootObject<Producto,CombinacionStock> productos_combinacion = await productoModel.productosPorCategoria(sendList, paginacion.currentPage, paginacion.speed);
 
                 // actualizando datos de páginacón
-                paginacion.itemsCount = productosRoot.nro_registros;
+                paginacion.itemsCount = productos_combinacion.nro_registros;
                 paginacion.reload();
 
                 // Ingresando
-                productos = productosRoot.datos;
+                this.productos = productos_combinacion.datos;
+                this.combinaciones = productos_combinacion.combinaciones;
                 productoBindingSource.DataSource = null;
                 productoBindingSource.DataSource = productos;
                 dataGridView.Refresh();
@@ -416,9 +428,10 @@ namespace Admeli.Productos
             }
             finally
             {
+                decorationDataGridView();
                 loadState(false);
                
-                currentProducto = productos.Find(x => x.idProducto == 808);
+                //currentProducto = productos.Find(x => x.idProducto == 808);
             }
         }
 
@@ -430,16 +443,17 @@ namespace Admeli.Productos
                 Dictionary<string, int> list = new Dictionary<string, int>();
                 list.Add("id0", 0);
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
-
-                RootObject<Producto> productos = await productoModel.productosPorCategoriaBuscar(sendList, textBuscar.Text, paginacion.currentPage, paginacion.speed);
+                //RootObject<Producto> productos = await productoModel.productosPorCategoriaBuscar(sendList, textBuscar.Text, paginacion.currentPage, paginacion.speed);
+                RootObject<Producto,CombinacionStock> productos_combinacion= await productoModel.productosPorCategoriaBuscar(sendList, textBuscar.Text, paginacion.currentPage, paginacion.speed);                
 
                 // actualizando datos de páginacón
-                paginacion.itemsCount = productos.nro_registros;
+                paginacion.itemsCount = productos_combinacion.nro_registros;
                 paginacion.reload();
-                this.productos = productos.datos;
+                this.productos = productos_combinacion.datos;
+                this.combinaciones = productos_combinacion.combinaciones;
                 // Ingresando
                 productoBindingSource.DataSource = null;
-                productoBindingSource.DataSource = productos.datos;
+                productoBindingSource.DataSource = productos;
                 dataGridView.Refresh();
                 mostrarPaginado();
             }
@@ -449,6 +463,7 @@ namespace Admeli.Productos
             }
             finally
             {
+                decorationDataGridView();
                 loadState(false);
             }
         }
@@ -467,16 +482,17 @@ namespace Admeli.Productos
                 int idSucursal = cbxSucursales.SelectedIndex == -1 ? 0 : Convert.ToInt32(cbxSucursales.SelectedValue);
 
 
-                RootObject<Producto> productos = await productoModel.productosStock(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
-
+                //RootObject<Producto> productos = await productoModel.productosStock(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
+                RootObject<Producto, CombinacionStock> productos_combinacion = await productoModel.productosStock(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
                 // actualizando datos de páginacón
-                paginacion.itemsCount = productos.nro_registros;
+                paginacion.itemsCount = productos_combinacion.nro_registros;
                 paginacion.reload();
 
                 // Ingresando
-                this.productos = productos.datos;
+                this.productos = productos_combinacion.datos;
+                this.combinaciones = productos_combinacion.combinaciones;
                 productoBindingSource.DataSource = null;
-                productoBindingSource.DataSource = productos.datos;
+                productoBindingSource.DataSource = productos;
                 dataGridView.Refresh();
                 mostrarPaginado();
             }
@@ -486,6 +502,7 @@ namespace Admeli.Productos
             }
             finally
             {
+                decorationDataGridView();
                 loadState(false);
             }
         }
@@ -501,17 +518,19 @@ namespace Admeli.Productos
 
                 int idAlmacen = cbxAlmacenes.SelectedIndex==-1?0:    Convert.ToInt32(cbxAlmacenes.SelectedValue);
                 int idSucursal = cbxSucursales.SelectedIndex ==-1 ? 0 : Convert.ToInt32(cbxSucursales.SelectedValue);
-
-                RootObject<Producto> productos = await productoModel.productosStockLike(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
+                //RootObjectData productos=await productoModel.productoDatos;
+                RootObject<Producto,CombinacionStock> productos_combinacion = await productoModel.productosStockLike(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
+                //RootObject<Producto> productos = await productoModel.productosStockLike(sendList, textBuscar.Text, idAlmacen, idSucursal, paginacion.currentPage, paginacion.speed);
 
                 // actualizando datos de páginacón
-                paginacion.itemsCount = productos.nro_registros;
+                paginacion.itemsCount = productos_combinacion.nro_registros;
                 paginacion.reload();
 
                 // Ingresando
-                this.productos = productos.datos;
+                this.productos = productos_combinacion.datos;
+                this.combinaciones = productos_combinacion.combinaciones;
                 productoBindingSource.DataSource = null;
-                productoBindingSource.DataSource = productos.datos;
+                productoBindingSource.DataSource = productos;
                 dataGridView.Refresh();
                 mostrarPaginado();
             }
@@ -521,6 +540,7 @@ namespace Admeli.Productos
             }
             finally
             {
+                decorationDataGridView();
                 loadState(false);
             }
         }
@@ -713,21 +733,37 @@ namespace Admeli.Productos
                 return;
             }
 
-            // Pregunta de seguridad de eliminacion
-            DialogResult dialog = MessageBox.Show("¿Está seguro de eliminar este registro?", "Eliminar",
-                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (dialog == DialogResult.No) return;
-
-
             try
             {
-                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
-                currentProducto = new Producto(); //creando una instancia del objeto categoria
-                currentProducto.idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idCategoria del datagridview
-
                 loadState(true); // cambiando el estado
-                Response response = await productoModel.eliminar(currentProducto); // Eliminando con el webservice correspondiente
-                MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+
+                int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+                currentProducto = productos.Find(x => x.idProducto == idProducto); // Buscando la registro especifico en la lista de registros
+
+                if (currentProducto.enUso == true)
+                {
+                    // Pregunta de seguridad de eliminacion
+                    DialogResult dialog = MessageBox.Show("¿Está seguro de inhabilitar este registro?", "Inhabilitar",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (dialog == DialogResult.No) { return; }
+                    currentProducto = new Producto(); //creando una instancia del objeto categoria
+                    currentProducto.idProducto = idProducto;
+                    Response response = await productoModel.inhabilitar(currentProducto); // Eliminando con el webservice correspondiente
+                    MessageBox.Show(response.msj, "Inhabilitar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Pregunta de seguridad de eliminacion
+                    DialogResult dialog = MessageBox.Show("¿Está seguro de eliminar este registro?", "Eliminar",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (dialog == DialogResult.No) { return; }
+                    currentProducto = new Producto(); //creando una instancia del objeto categoria
+                    currentProducto.idProducto = idProducto;
+                    Response response = await productoModel.eliminar(currentProducto); // Eliminando con el webservice correspondiente
+                    MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 cargarRegistros(); // recargando el datagridview
             }
             catch (Exception ex)
@@ -865,7 +901,7 @@ namespace Admeli.Productos
                 dataGridView.Columns[3].Visible = false;
 
                 if(ConfigModel.asignacionPersonal.idPuntoCompra!=0)
-                    dataGridView.Columns[4].Visible = true;
+                dataGridView.Columns[4].Visible = true;
                 dataGridView.Columns[5].Visible = false;
                 dataGridView.Columns[6].Visible = false;
                 dataGridView.Columns[7].Visible = true;
@@ -908,12 +944,9 @@ namespace Admeli.Productos
                 }
                 else
                 {
-                    cargarRegistros(); }
-               
-
-                
+                    cargarRegistros();
+                }   
             }
-
         }
 
         private void chkActivoAlmacen_OnChange(object sender, EventArgs e)
@@ -987,6 +1020,32 @@ namespace Admeli.Productos
         private void textBuscar_KeyUp_1(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Cambiar el nombre del btnEliminar
+            cambiarNombreEliminar();
+
+        }
+        private void cambiarNombreEliminar()
+        {
+            if (dataGridView.Rows.Count == 0)
+            {
+                return;
+            }
+            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idProducto = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value); // obteniedo el idRegistro del datagridview
+            currentProducto = productos.Find(x => x.idProducto == idProducto); // Buscando la registro especifico en la lista de registros
+
+            if (currentProducto.enUso == true)
+            {
+                btnEliminar.Text = " Desactivar (F6)";
+            }
+            else
+            {
+                btnEliminar.Text = " Eliminar (F6)";
+            }
         }
     }
 }

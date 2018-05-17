@@ -101,15 +101,28 @@ namespace Modelo
                 throw ex;
             }
         }
+        
+        public async Task<Response> inhabilitar(Producto param)
+        {
+            try
+            {
+                //http://localhost:8085/ad_meli/xcore/services.php/producto/inhabilitar
+                return await webService.POST<Producto, Response>("producto", "inhabilitar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-        public async Task<RootObject<Producto>> productosPorCategoria(Dictionary<string, int> dictionary, int page, int items)
+        public async Task<RootObject<Producto, CombinacionStock>> productosPorCategoria(Dictionary<string, int> dictionary, int page, int items)
         {
             try
             {
                 // www.lineatienda.com/services.php/productos/categoria/1/100
                 Dictionary<string, int>[] dataSend = { dictionary };
 
-                RootObject<Producto> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto>>("productos", String.Format("categoria/{0}/{1}",page,items), dataSend);
+                RootObject<Producto, CombinacionStock> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto, CombinacionStock>>("productos", String.Format("categoria/{0}/{1}",page,items), dataSend);
                 return productos;
             }
             catch (Exception ex)
@@ -118,14 +131,14 @@ namespace Modelo
             }
         }
 
-        public async Task<RootObject<Producto>> productosPorCategoriaBuscar(Dictionary<string, int> dictionary, string like, int page, int items)
+        public async Task<RootObject<Producto, CombinacionStock>> productosPorCategoriaBuscar(Dictionary<string, int> dictionary, string like, int page, int items)
         {
             try
             {
                 // www.lineatienda.com/services.php/productos/categoria/1/100/pantalla
                 Dictionary<string, int>[] dataSend = { dictionary };
 
-                RootObject<Producto> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto>>("productos", String.Format("categoria/{0}/{1}/{2}", page, items,like), dataSend);
+                RootObject<Producto, CombinacionStock> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto, CombinacionStock>>("productos", String.Format("categoria/{0}/{1}/{2}", page, items,like), dataSend);
                 return productos;
             }
             catch (Exception ex)
@@ -134,14 +147,14 @@ namespace Modelo
             }
         }
 
-        public async Task<RootObject<Producto>> productosStock(Dictionary<string, int> dictionary, string like, int idAlmacen, int idSucursal, int page, int items)
+        public async Task<RootObject<Producto, CombinacionStock>> productosStock(Dictionary<string, int> dictionary, string like, int idAlmacen, int idSucursal, int page, int items)
         {
             try
             {
                 // www.lineatienda.com/services.php/productos/categoria/stock/1/100/1/1
                 Dictionary<string, int>[] dataSend = { dictionary };
 
-                RootObject<Producto> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto>>("productos", String.Format("categoria/stock/{0}/{1}/{2}/{3}", page, items, idAlmacen, idSucursal), dataSend);
+                RootObject<Producto, CombinacionStock> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto, CombinacionStock>>("productos", String.Format("categoria/stock/{0}/{1}/{2}/{3}", page, items, idAlmacen, idSucursal), dataSend);
                 return productos;
             }
             catch (Exception ex)
@@ -149,14 +162,14 @@ namespace Modelo
                 throw ex;
             }
         }
-        public async Task<RootObject<Producto>> productosStockLike(Dictionary<string, int> dictionary, string like, int idAlmacen, int idSucursal, int page, int items)
+        public async Task<RootObject<Producto, CombinacionStock>> productosStockLike(Dictionary<string, int> dictionary, string like, int idAlmacen, int idSucursal, int page, int items)
         {
             try
             {
                 // www.lineatienda.com/services.php/productos/categoria/stock/1/100/pantalla/1/1
                 Dictionary<string, int>[] dataSend = { dictionary };
 
-                RootObject<Producto> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto>>("productos", String.Format("categoria/stock/{0}/{1}/{2}/{3}/{4}", page, items, like, idAlmacen, idSucursal), dataSend);
+                RootObject<Producto, CombinacionStock> productos = await webService.POST<Dictionary<string, int>[], RootObject<Producto, CombinacionStock>>("productos", String.Format("categoria/stock/{0}/{1}/{2}/{3}/{4}", page, items, like, idAlmacen, idSucursal), dataSend);
                 return productos;
             }
             catch (Exception ex)

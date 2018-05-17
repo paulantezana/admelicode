@@ -49,6 +49,7 @@ namespace Admeli.Productos.Importar
                 progressBarApp.Visible = false;
                 progressBarApp.Style = ProgressBarStyle.Blocks;
             }
+            this.Enabled = !state;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace Admeli.Productos.Importar
         }
         private async void guardarProductos()
         {
-            btnGuardar.Enabled = false;
+            
             appLoadState(true);
             try
             {
@@ -72,7 +73,6 @@ namespace Admeli.Productos.Importar
             {
                 MessageBox.Show("Error: " + ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            btnGuardar.Enabled = true;
             appLoadState(false);
         }
         private void extraerProductos()
