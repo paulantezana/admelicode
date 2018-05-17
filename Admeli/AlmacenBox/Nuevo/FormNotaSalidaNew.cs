@@ -395,8 +395,6 @@ namespace Admeli.AlmacenBox.Nuevo
                 {
                     /// Buscando el producto seleccionado
                     cbxUnidad.Enabled = true;
-
-
                     int idProducto = Convert.ToInt32(cbxCodigoProducto.SelectedValue);
                     currentProducto = listProducto.Find(x => x.idProducto == idProducto);
                     cbxUnidad.Items.Add(currentProducto.nombreProducto);
@@ -420,10 +418,9 @@ namespace Admeli.AlmacenBox.Nuevo
                     /// 
                     int idPresentacion = Convert.ToInt32(cbxDescripcion.SelectedValue);
                     currentPresentacion = listPresentacion.Find(x => x.idPresentacion == idPresentacion);
+                    cbxCodigoProducto.Text = currentPresentacion.codigo;
+                    cargarAlternativas(tipo);
 
-                    cbxCodigoProducto.SelectedValue = currentPresentacion.idProducto;
-
-                 
                 }
                 catch (Exception ex)
                 {
@@ -436,12 +433,12 @@ namespace Admeli.AlmacenBox.Nuevo
         }
 
 
-        private async void cargarPresentaciones(int idProducto, int tipo)
+        private  void cargarPresentaciones(int idProducto, int tipo)
         {
             try
             {
-                List<Presentacion> listPresentacionaux = await presentacionModel.presentacionVentas(idProducto);
-                currentPresentacion = listPresentacionaux[0];
+                currentPresentacion = listPresentacion.Find (X=>X.idProducto==idProducto);
+                
                 cbxDescripcion.Text = currentPresentacion.nombrePresentacion;
             }
             catch (Exception ex)
@@ -456,7 +453,7 @@ namespace Admeli.AlmacenBox.Nuevo
             if (cbxCodigoProducto.SelectedIndex == -1) return; /// validacion
             try
             {
-                List<AlternativaCombinacion> alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxCodigoProducto.SelectedValue));
+                List<AlternativaCombinacion> alternativaCombinacion = await alternativaModel.cAlternativa31(Convert.ToInt32(cbxDescripcion.SelectedValue));
                 alternativaCombinacionBindingSource.DataSource = alternativaCombinacion;
             }                                                  /// cargando las alternativas del producto
             catch (Exception ex)
@@ -701,7 +698,7 @@ namespace Admeli.AlmacenBox.Nuevo
             {
                 ResponseNotaSalida responseNotaSalida = await notaSalidaModel.verifcar(comprobarNota);
 
-                if (responseNotaSalida.cumple.cumple == 1)
+                if (responseNotaSalida.cumple.cumple == 1  && responseNotaSalida.abastece.abastece==1)
                 {
 
 
@@ -770,7 +767,7 @@ namespace Admeli.AlmacenBox.Nuevo
                 else
                 {
 
-                    MessageBox.Show(" no cumple" + "exite: " + responseNotaSalida.abastece.cantidades + "  producto: " + responseNotaSalida.abastece.productos, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(" no cumple" + " exite: " + responseNotaSalida.abastece.cantidades + "  producto: " + responseNotaSalida.abastece.productos, "verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     dictionary.Clear();
                     DetallesNotaSalida.Clear();

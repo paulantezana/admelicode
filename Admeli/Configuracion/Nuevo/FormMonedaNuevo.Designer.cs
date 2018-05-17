@@ -156,7 +156,7 @@
             this.textSimboloMoneda.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textSimboloMoneda.BorderThickness = 1;
             this.textSimboloMoneda.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textSimboloMoneda.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSimboloMoneda.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSimboloMoneda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textSimboloMoneda.isPassword = false;
             this.textSimboloMoneda.Location = new System.Drawing.Point(25, 185);
@@ -186,7 +186,7 @@
             this.textNombreMoneda.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNombreMoneda.BorderThickness = 1;
             this.textNombreMoneda.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreMoneda.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreMoneda.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreMoneda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreMoneda.isPassword = false;
             this.textNombreMoneda.Location = new System.Drawing.Point(25, 103);

@@ -36,9 +36,8 @@ namespace Admeli.Configuracion.Nuevo
 
             this.nuevo = false;
             this.currentIDPuntoVenta = puntoDeVenta.idPuntoVenta;
-
+            this.puntoVenta = puntoDeVenta;
             textPuntoVenta.Text = puntoDeVenta.nombre;
-            cbxSucursalPV.SelectedValue = puntoDeVenta.idSucursal;
             chkActivo.Checked = Convert.ToBoolean(puntoDeVenta.estado);
         } 
         #endregion
@@ -52,6 +51,8 @@ namespace Admeli.Configuracion.Nuevo
         private async void cargarSucursal()
         {
             sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+            if(!nuevo)
+                cbxSucursalPV.SelectedValue = puntoVenta.idSucursal;
         } 
         #endregion
 

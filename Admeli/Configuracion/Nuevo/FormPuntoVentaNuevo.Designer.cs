@@ -118,7 +118,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label6.Location = new System.Drawing.Point(52, 151);
+            this.label6.Location = new System.Drawing.Point(51, 172);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 19);
             this.label6.TabIndex = 109;
@@ -131,7 +131,7 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(19, 149);
+            this.chkActivo.Location = new System.Drawing.Point(18, 170);
             this.chkActivo.Margin = new System.Windows.Forms.Padding(5);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
@@ -153,15 +153,15 @@
             this.textPuntoVenta.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textPuntoVenta.BorderThickness = 1;
             this.textPuntoVenta.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textPuntoVenta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPuntoVenta.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPuntoVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textPuntoVenta, -30);
             this.textPuntoVenta.isPassword = false;
             this.textPuntoVenta.Location = new System.Drawing.Point(17, 86);
             this.textPuntoVenta.Margin = new System.Windows.Forms.Padding(5);
             this.textPuntoVenta.Name = "textPuntoVenta";
-            this.textPuntoVenta.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textPuntoVenta.Size = new System.Drawing.Size(439, 49);
+            this.textPuntoVenta.Padding = new System.Windows.Forms.Padding(3, 0, 7, 2);
+            this.textPuntoVenta.Size = new System.Drawing.Size(439, 60);
             this.textPuntoVenta.TabIndex = 114;
             this.textPuntoVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textPuntoVenta.Validated += new System.EventHandler(this.textPuntoVenta_Validated);

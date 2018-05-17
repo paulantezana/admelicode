@@ -1131,6 +1131,7 @@
             this.cbxDescripcion.DataSource = this.presentacionBindingSource;
             this.cbxDescripcion.DisplayMember = "nombrePresentacion";
             this.cbxDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxDescripcion.DropDownWidth = 400;
             this.cbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDescripcion.FormattingEnabled = true;
             this.cbxDescripcion.Location = new System.Drawing.Point(3, 74);
@@ -1182,6 +1183,7 @@
             this.cbxCodigoProducto.DataSource = this.productoBindingSource;
             this.cbxCodigoProducto.DisplayMember = "codigoProducto";
             this.cbxCodigoProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxCodigoProducto.DropDownWidth = 200;
             this.cbxCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCodigoProducto.FormattingEnabled = true;
             this.cbxCodigoProducto.Location = new System.Drawing.Point(3, 74);

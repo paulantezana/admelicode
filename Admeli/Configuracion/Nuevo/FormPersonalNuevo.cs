@@ -739,7 +739,7 @@ namespace Admeli.Configuracion.Nuevo
             currentPersonalAux = new PersonalAux();
             if (nuevo)
             {
-                currentPersonalAux.usuario = " ";
+                currentPersonalAux.usuario = "";
                 currentPersonalAux.password = "";
             }
             else
@@ -983,6 +983,11 @@ namespace Admeli.Configuracion.Nuevo
                 MessageBox.Show("Error" +ex.Message, "seleccionar treeview ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             loadStateApp(false);
+        }
+
+        private void cbxTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     public class PersonalAux

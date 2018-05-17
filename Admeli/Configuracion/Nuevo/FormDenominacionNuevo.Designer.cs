@@ -202,14 +202,14 @@
             this.textNombre.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombre.BorderThickness = 1;
             this.textNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombre.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombre, -30);
             this.textNombre.isPassword = false;
             this.textNombre.Location = new System.Drawing.Point(21, 178);
             this.textNombre.Margin = new System.Windows.Forms.Padding(5);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Padding = new System.Windows.Forms.Padding(7, 22, 7, 0);
+            this.textNombre.Padding = new System.Windows.Forms.Padding(7, 3, 7, 0);
             this.textNombre.Size = new System.Drawing.Size(519, 62);
             this.textNombre.TabIndex = 2;
             this.textNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -280,7 +280,7 @@
             this.textValor.Location = new System.Drawing.Point(21, 261);
             this.textValor.Margin = new System.Windows.Forms.Padding(5);
             this.textValor.Name = "textValor";
-            this.textValor.Padding = new System.Windows.Forms.Padding(7, 22, 7, 0);
+            this.textValor.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.textValor.Size = new System.Drawing.Size(519, 62);
             this.textValor.TabIndex = 7;
             this.textValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

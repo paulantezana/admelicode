@@ -154,7 +154,7 @@
             this.textNombreGCL.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNombreGCL.BorderThickness = 1;
             this.textNombreGCL.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreGCL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreGCL.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreGCL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreGCL.isPassword = false;
             this.textNombreGCL.Location = new System.Drawing.Point(25, 98);

@@ -52,7 +52,7 @@
             this.panelContainer.Controls.Add(this.panel1);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(11, 10);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(4);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(1);
             this.panelContainer.Size = new System.Drawing.Size(1085, 398);
@@ -108,12 +108,13 @@
             this.textNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombre.isPassword = false;
             this.textNombre.Location = new System.Drawing.Point(24, 97);
-            this.textNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombre.Margin = new System.Windows.Forms.Padding(5);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Padding = new System.Windows.Forms.Padding(7, 22, 7, 0);
+            this.textNombre.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.textNombre.Size = new System.Drawing.Size(468, 68);
             this.textNombre.TabIndex = 104;
             this.textNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNombre_KeyPress);
             // 
             // dtpFechaIngreso
             // 
@@ -123,7 +124,7 @@
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaIngreso.FormatCustom = null;
             this.dtpFechaIngreso.Location = new System.Drawing.Point(24, 18);
-            this.dtpFechaIngreso.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpFechaIngreso.Margin = new System.Windows.Forms.Padding(5);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(468, 65);
             this.dtpFechaIngreso.TabIndex = 103;
@@ -134,7 +135,7 @@
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(1, 321);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1083, 76);
             this.panel1.TabIndex = 101;
@@ -150,7 +151,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(23, 16);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(468, 41);
             this.btnAceptar.TabIndex = 98;

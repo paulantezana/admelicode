@@ -159,7 +159,7 @@
             this.textDigitosDocumentoIdenti.Location = new System.Drawing.Point(20, 92);
             this.textDigitosDocumentoIdenti.Margin = new System.Windows.Forms.Padding(5);
             this.textDigitosDocumentoIdenti.Name = "textDigitosDocumentoIdenti";
-            this.textDigitosDocumentoIdenti.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textDigitosDocumentoIdenti.Padding = new System.Windows.Forms.Padding(3, 0, 7, 2);
             this.textDigitosDocumentoIdenti.Size = new System.Drawing.Size(439, 49);
             this.textDigitosDocumentoIdenti.TabIndex = 4;
             this.textDigitosDocumentoIdenti.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -174,14 +174,14 @@
             this.textNombreDocumentoIdenti.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombreDocumentoIdenti.BorderThickness = 1;
             this.textNombreDocumentoIdenti.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreDocumentoIdenti.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreDocumentoIdenti.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreDocumentoIdenti.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombreDocumentoIdenti, -30);
             this.textNombreDocumentoIdenti.isPassword = false;
             this.textNombreDocumentoIdenti.Location = new System.Drawing.Point(21, 33);
             this.textNombreDocumentoIdenti.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreDocumentoIdenti.Name = "textNombreDocumentoIdenti";
-            this.textNombreDocumentoIdenti.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textNombreDocumentoIdenti.Padding = new System.Windows.Forms.Padding(3, 3, 7, 2);
             this.textNombreDocumentoIdenti.Size = new System.Drawing.Size(439, 49);
             this.textNombreDocumentoIdenti.TabIndex = 2;
             this.textNombreDocumentoIdenti.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

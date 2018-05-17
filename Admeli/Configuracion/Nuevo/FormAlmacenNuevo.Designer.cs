@@ -202,9 +202,9 @@
             // 
             // chkPrincipalAlmacen
             // 
-            this.chkPrincipalAlmacen.BackColor = System.Drawing.Color.DodgerBlue;
+            this.chkPrincipalAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.chkPrincipalAlmacen.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chkPrincipalAlmacen.Checked = true;
+            this.chkPrincipalAlmacen.Checked = false;
             this.chkPrincipalAlmacen.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkPrincipalAlmacen.ForeColor = System.Drawing.Color.White;
             this.chkPrincipalAlmacen.Location = new System.Drawing.Point(33, 230);
@@ -249,14 +249,14 @@
             this.textDirecionAlmacen.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textDirecionAlmacen.BorderThickness = 1;
             this.textDirecionAlmacen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textDirecionAlmacen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDirecionAlmacen.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDirecionAlmacen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textDirecionAlmacen, -30);
             this.textDirecionAlmacen.isPassword = false;
             this.textDirecionAlmacen.Location = new System.Drawing.Point(28, 162);
             this.textDirecionAlmacen.Margin = new System.Windows.Forms.Padding(5);
             this.textDirecionAlmacen.Name = "textDirecionAlmacen";
-            this.textDirecionAlmacen.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textDirecionAlmacen.Padding = new System.Windows.Forms.Padding(3, 3, 7, 2);
             this.textDirecionAlmacen.Size = new System.Drawing.Size(439, 49);
             this.textDirecionAlmacen.TabIndex = 5;
             this.textDirecionAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -270,17 +270,18 @@
             this.textNombreAlmacen.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombreAlmacen.BorderThickness = 1;
             this.textNombreAlmacen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreAlmacen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreAlmacen.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreAlmacen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombreAlmacen, -30);
             this.textNombreAlmacen.isPassword = false;
             this.textNombreAlmacen.Location = new System.Drawing.Point(28, 103);
             this.textNombreAlmacen.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreAlmacen.Name = "textNombreAlmacen";
-            this.textNombreAlmacen.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textNombreAlmacen.Padding = new System.Windows.Forms.Padding(3, 3, 7, 2);
             this.textNombreAlmacen.Size = new System.Drawing.Size(439, 49);
             this.textNombreAlmacen.TabIndex = 3;
             this.textNombreAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textNombreAlmacen.OnValueChanged += new System.EventHandler(this.textNombreAlmacen_OnValueChanged);
             this.textNombreAlmacen.Validated += new System.EventHandler(this.textNombreAlmacen_Validated);
             // 
             // progressBarApp

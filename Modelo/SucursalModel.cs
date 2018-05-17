@@ -32,6 +32,25 @@ namespace Modelo
                 throw ex;
             }
         }
+        public async Task<Response> guardarTotal(UbicacionGeografica ubicacionGeografica, Sucursal param)
+        {
+            try
+            {
+                // Obteniendo de la ubicacion geografica del sucursal
+                Response res = await locationModel.guardarUbigeo(ubicacionGeografica);
+                param.idUbicacionGeografica = res.id;
+
+                // localhost/admeli/xcore2/xcore/services.php/sucursal/guardar
+                return await webService.POST<Sucursal, Response>("todosucursal", "guardar", param);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
         public async Task<Response> modificar(UbicacionGeografica ubicacionGeografica, Sucursal param)
         {
             try

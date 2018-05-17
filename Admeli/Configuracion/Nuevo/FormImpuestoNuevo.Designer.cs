@@ -159,7 +159,7 @@
             this.textNombreImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textNombreImpuesto.BorderThickness = 1;
             this.textNombreImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreImpuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreImpuesto.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreImpuesto.isPassword = false;
             this.textNombreImpuesto.Location = new System.Drawing.Point(25, 96);
@@ -189,7 +189,7 @@
             this.textSiglasImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textSiglasImpuesto.BorderThickness = 1;
             this.textSiglasImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textSiglasImpuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSiglasImpuesto.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSiglasImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textSiglasImpuesto.isPassword = false;
             this.textSiglasImpuesto.Location = new System.Drawing.Point(25, 177);
@@ -219,7 +219,7 @@
             this.textValorImpuesto.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.textValorImpuesto.BorderThickness = 1;
             this.textValorImpuesto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textValorImpuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textValorImpuesto.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textValorImpuesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textValorImpuesto.isPassword = false;
             this.textValorImpuesto.Location = new System.Drawing.Point(25, 298);

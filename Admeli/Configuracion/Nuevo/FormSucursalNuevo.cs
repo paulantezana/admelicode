@@ -364,7 +364,7 @@ namespace Admeli.Configuracion.Nuevo
                 crearObjetoSucursal();
                 if (nuevo)
                 {
-                    Response response = await sucursalModel.guardar(ubicacionGeografica, currentSucursal);
+                    Response response = await sucursalModel.guardarTotal(ubicacionGeografica, currentSucursal);
                     currentSucursal.idSucursal = response.id;
                    
                     MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -419,7 +419,7 @@ namespace Admeli.Configuracion.Nuevo
             //caja puntoventa/modificar
             cajaS cajaS = new cajaS();
             cajaS.estado =Convert.ToInt32( chkCajaSucursal.Checked);
-            cajaS.idCaja = cajas[0].idCaja;
+            cajaS.idCaja =cajas.Count>0?  cajas[0].idCaja:0;
             cajaS.idSucursal = currentSucursal.idSucursal;
             await sucursalModel.modificarCaja(cajaS);
             //puntoadministracion

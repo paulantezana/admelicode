@@ -1262,13 +1262,11 @@ namespace Admeli.Ventas.Nuevo
             {
                 if (CurrentCliente != null)
                 {
-
                     txtDocumentoCliente.removePlaceHolder();
                     txtDocumentoCliente.Text = CurrentCliente.numeroDocumento;
                     txtDireccionCliente.Text = CurrentCliente.direccion;
                     cbxNombreRazonCliente.Text = CurrentCliente.nombreCliente;
                     cbxTipoDocumento.SelectedValue = CurrentCliente.idDocumento;
-
                 }
             }
             catch (Exception ex)
