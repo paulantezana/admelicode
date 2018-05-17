@@ -83,10 +83,11 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(508, 37);
+            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label4.Location = new System.Drawing.Point(381, 30);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 16);
+            this.label4.Size = new System.Drawing.Size(61, 14);
             this.label4.TabIndex = 6;
             this.label4.Text = "Código Sku";
             // 
@@ -102,11 +103,11 @@
             this.textCodigo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textCodigo.isPassword = false;
-            this.textCodigo.Location = new System.Drawing.Point(503, 33);
-            this.textCodigo.Margin = new System.Windows.Forms.Padding(5);
+            this.textCodigo.Location = new System.Drawing.Point(377, 27);
+            this.textCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textCodigo.Name = "textCodigo";
-            this.textCodigo.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textCodigo.Size = new System.Drawing.Size(332, 49);
+            this.textCodigo.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textCodigo.Size = new System.Drawing.Size(249, 40);
             this.textCodigo.TabIndex = 7;
             this.textCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textCodigo.Validated += new System.EventHandler(this.textCodigo_Validated);
@@ -120,10 +121,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(508, 113);
+            this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label1.Location = new System.Drawing.Point(381, 92);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 16);
+            this.label1.Size = new System.Drawing.Size(108, 14);
             this.label1.TabIndex = 8;
             this.label1.Text = "Nombre Combinación";
             // 
@@ -139,11 +141,11 @@
             this.textNombreCombinacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreCombinacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textNombreCombinacion.isPassword = false;
-            this.textNombreCombinacion.Location = new System.Drawing.Point(503, 108);
-            this.textNombreCombinacion.Margin = new System.Windows.Forms.Padding(5);
+            this.textNombreCombinacion.Location = new System.Drawing.Point(377, 88);
+            this.textNombreCombinacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textNombreCombinacion.Name = "textNombreCombinacion";
-            this.textNombreCombinacion.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textNombreCombinacion.Size = new System.Drawing.Size(332, 49);
+            this.textNombreCombinacion.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textNombreCombinacion.Size = new System.Drawing.Size(249, 40);
             this.textNombreCombinacion.TabIndex = 9;
             this.textNombreCombinacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -152,10 +154,11 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(508, 271);
+            this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label2.Location = new System.Drawing.Point(381, 220);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 16);
+            this.label2.Size = new System.Drawing.Size(34, 14);
             this.label2.TabIndex = 12;
             this.label2.Text = "Stock";
             // 
@@ -171,11 +174,11 @@
             this.textStock.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textStock.isPassword = false;
-            this.textStock.Location = new System.Drawing.Point(503, 266);
-            this.textStock.Margin = new System.Windows.Forms.Padding(5);
+            this.textStock.Location = new System.Drawing.Point(377, 216);
+            this.textStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textStock.Name = "textStock";
-            this.textStock.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textStock.Size = new System.Drawing.Size(332, 49);
+            this.textStock.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textStock.Size = new System.Drawing.Size(249, 40);
             this.textStock.TabIndex = 13;
             this.textStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -184,10 +187,11 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(508, 192);
+            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label3.Location = new System.Drawing.Point(381, 156);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.Size = new System.Drawing.Size(37, 14);
             this.label3.TabIndex = 10;
             this.label3.Text = "Precio";
             // 
@@ -203,11 +207,11 @@
             this.textPrecio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textPrecio.isPassword = false;
-            this.textPrecio.Location = new System.Drawing.Point(503, 187);
-            this.textPrecio.Margin = new System.Windows.Forms.Padding(5);
+            this.textPrecio.Location = new System.Drawing.Point(377, 152);
+            this.textPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textPrecio.Name = "textPrecio";
-            this.textPrecio.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textPrecio.Size = new System.Drawing.Size(332, 49);
+            this.textPrecio.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textPrecio.Size = new System.Drawing.Size(249, 40);
             this.textPrecio.TabIndex = 11;
             this.textPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -216,10 +220,11 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(508, 428);
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label5.Location = new System.Drawing.Point(381, 348);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 16);
+            this.label5.Size = new System.Drawing.Size(69, 14);
             this.label5.TabIndex = 16;
             this.label5.Text = "Stock Mínimo";
             // 
@@ -235,11 +240,11 @@
             this.textStockMinimo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStockMinimo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textStockMinimo.isPassword = false;
-            this.textStockMinimo.Location = new System.Drawing.Point(503, 423);
-            this.textStockMinimo.Margin = new System.Windows.Forms.Padding(5);
+            this.textStockMinimo.Location = new System.Drawing.Point(377, 344);
+            this.textStockMinimo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textStockMinimo.Name = "textStockMinimo";
-            this.textStockMinimo.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textStockMinimo.Size = new System.Drawing.Size(332, 49);
+            this.textStockMinimo.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textStockMinimo.Size = new System.Drawing.Size(249, 40);
             this.textStockMinimo.TabIndex = 17;
             this.textStockMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -248,10 +253,11 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(508, 350);
+            this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label6.Location = new System.Drawing.Point(381, 284);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 16);
+            this.label6.Size = new System.Drawing.Size(59, 14);
             this.label6.TabIndex = 14;
             this.label6.Text = "Stock Ideal";
             // 
@@ -267,11 +273,11 @@
             this.textStockIdeal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStockIdeal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textStockIdeal.isPassword = false;
-            this.textStockIdeal.Location = new System.Drawing.Point(503, 345);
-            this.textStockIdeal.Margin = new System.Windows.Forms.Padding(5);
+            this.textStockIdeal.Location = new System.Drawing.Point(377, 280);
+            this.textStockIdeal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textStockIdeal.Name = "textStockIdeal";
-            this.textStockIdeal.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textStockIdeal.Size = new System.Drawing.Size(332, 49);
+            this.textStockIdeal.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textStockIdeal.Size = new System.Drawing.Size(249, 40);
             this.textStockIdeal.TabIndex = 15;
             this.textStockIdeal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -280,10 +286,11 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(508, 507);
+            this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label7.Location = new System.Drawing.Point(381, 412);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 16);
+            this.label7.Size = new System.Drawing.Size(66, 14);
             this.label7.TabIndex = 18;
             this.label7.Text = "Alerta Stock";
             // 
@@ -299,11 +306,11 @@
             this.textAlertaStock.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textAlertaStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textAlertaStock.isPassword = false;
-            this.textAlertaStock.Location = new System.Drawing.Point(503, 502);
-            this.textAlertaStock.Margin = new System.Windows.Forms.Padding(5);
+            this.textAlertaStock.Location = new System.Drawing.Point(377, 408);
+            this.textAlertaStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textAlertaStock.Name = "textAlertaStock";
-            this.textAlertaStock.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
-            this.textAlertaStock.Size = new System.Drawing.Size(332, 49);
+            this.textAlertaStock.Padding = new System.Windows.Forms.Padding(2, 10, 5, 2);
+            this.textAlertaStock.Size = new System.Drawing.Size(249, 40);
             this.textAlertaStock.TabIndex = 19;
             this.textAlertaStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -311,11 +318,10 @@
             // 
             this.panelFooter.Controls.Add(this.panel1);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 584);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelFooter.Location = new System.Drawing.Point(0, 474);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.panelFooter.Size = new System.Drawing.Size(867, 60);
+            this.panelFooter.Size = new System.Drawing.Size(650, 49);
             this.panelFooter.TabIndex = 20;
             // 
             // panel1
@@ -323,10 +329,9 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.btnAceptar);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(221, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(166, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 59);
+            this.panel1.Size = new System.Drawing.Size(319, 48);
             this.panel1.TabIndex = 0;
             // 
             // btnAceptar
@@ -339,10 +344,9 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(21, 11);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Location = new System.Drawing.Point(16, 9);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(203, 37);
+            this.btnAceptar.Size = new System.Drawing.Size(152, 30);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -359,10 +363,9 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnClose.Location = new System.Drawing.Point(251, 11);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Location = new System.Drawing.Point(188, 9);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(152, 37);
+            this.btnClose.Size = new System.Drawing.Size(114, 30);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -371,10 +374,9 @@
             // 
             this.panel12.Controls.Add(this.cbxAlmacenes);
             this.panel12.Controls.Add(this.label8);
-            this.panel12.Location = new System.Drawing.Point(16, 30);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Location = new System.Drawing.Point(12, 24);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(460, 49);
+            this.panel12.Size = new System.Drawing.Size(345, 40);
             this.panel12.TabIndex = 22;
             // 
             // cbxAlmacenes
@@ -388,10 +390,9 @@
             this.cbxAlmacenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxAlmacenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAlmacenes.FormattingEnabled = true;
-            this.cbxAlmacenes.Location = new System.Drawing.Point(4, 17);
-            this.cbxAlmacenes.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxAlmacenes.Location = new System.Drawing.Point(3, 14);
             this.cbxAlmacenes.Name = "cbxAlmacenes";
-            this.cbxAlmacenes.Size = new System.Drawing.Size(449, 28);
+            this.cbxAlmacenes.Size = new System.Drawing.Size(338, 24);
             this.cbxAlmacenes.TabIndex = 1;
             this.cbxAlmacenes.ValueMember = "idAlmacen";
             // 
@@ -403,10 +404,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(4, 4);
+            this.label8.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label8.Location = new System.Drawing.Point(3, 3);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 16);
+            this.label8.Size = new System.Drawing.Size(61, 14);
             this.label8.TabIndex = 0;
             this.label8.Text = "Almacenes";
             // 
@@ -416,9 +418,10 @@
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(501, 239);
+            this.label9.Location = new System.Drawing.Point(376, 194);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(309, 16);
+            this.label9.Size = new System.Drawing.Size(237, 14);
             this.label9.TabIndex = 23;
             this.label9.Text = "Precio extra del producto por esta combinación.";
             // 
@@ -428,9 +431,10 @@
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DimGray;
-            this.label10.Location = new System.Drawing.Point(500, 475);
+            this.label10.Location = new System.Drawing.Point(375, 386);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(176, 16);
+            this.label10.Size = new System.Drawing.Size(132, 14);
             this.label10.TabIndex = 24;
             this.label10.Text = "Stock mínimo del almacén.";
             // 
@@ -440,9 +444,10 @@
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(500, 554);
+            this.label11.Location = new System.Drawing.Point(375, 450);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 16);
+            this.label11.Size = new System.Drawing.Size(82, 14);
             this.label11.TabIndex = 25;
             this.label11.Text = "Stock de alerta.";
             // 
@@ -451,12 +456,12 @@
             this.progressBarApp.BackColor = System.Drawing.Color.White;
             this.progressBarApp.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBarApp.Location = new System.Drawing.Point(0, 0);
-            this.progressBarApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.progressBarApp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBarApp.MarqueeAnimationSpeed = 10;
             this.progressBarApp.Maximum = 200;
             this.progressBarApp.Name = "progressBarApp";
             this.progressBarApp.RightToLeftLayout = true;
-            this.progressBarApp.Size = new System.Drawing.Size(867, 6);
+            this.progressBarApp.Size = new System.Drawing.Size(650, 5);
             this.progressBarApp.TabIndex = 26;
             // 
             // errorProvider1
@@ -564,21 +569,20 @@
             this.stockMinimoDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.alternativaCombinacionBindingSource;
             this.dataGridView.GridColor = System.Drawing.Color.LightGray;
-            this.dataGridView.Location = new System.Drawing.Point(16, 108);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView.Location = new System.Drawing.Point(12, 88);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersWidth = 30;
-            this.dataGridView.Size = new System.Drawing.Size(460, 443);
+            this.dataGridView.Size = new System.Drawing.Size(345, 360);
             this.dataGridView.TabIndex = 21;
             // 
             // FormgGenerar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(867, 644);
+            this.ClientSize = new System.Drawing.Size(650, 523);
             this.Controls.Add(this.progressBarApp);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -601,7 +605,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textCodigo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormgGenerar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormgGenerar";

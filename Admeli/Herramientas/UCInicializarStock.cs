@@ -105,7 +105,7 @@ namespace Admeli.Herramientas
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "mostrar combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: " + ex.Message, "Mostrar Combinaciones", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             
@@ -848,22 +848,18 @@ namespace Admeli.Herramientas
         {
 
             loadState(true);
-                try
+            try
             {
-
-
-               BindingSource bindingSource=    dataGridView.DataSource as BindingSource ;
-               productos= bindingSource.DataSource as List<ProductoData>;
-               ProductoStockGuardar productoStockGuardar = new ProductoStockGuardar();
+                BindingSource bindingSource=    dataGridView.DataSource as BindingSource ;
+                productos= bindingSource.DataSource as List<ProductoData>;
+                ProductoStockGuardar productoStockGuardar = new ProductoStockGuardar();
                 productoStockGuardar.datos = productos;
                 Response response=  await stockModel.guardarproductosp(productoStockGuardar);
                 if (response.id >0)
                 {
-
                     MessageBox.Show("Mensaje: " + response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
-                }
 
+                }
             }
             catch (Exception ex)
             {
@@ -1033,6 +1029,87 @@ namespace Admeli.Herramientas
                 }  
                 cargarRegistrosBuscar();
                            
+            }
+        }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cambiarNombreEliminar();
+        }
+        private void cambiarNombreEliminar()
+        {
+            if (dataGridView.Rows.Count == 0)
+            {
+                return;
+            }
+            int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+            int idPresentacion = Convert.ToInt32(dataGridView.Rows[index].Cells["idPresentacionDataGridViewTextBoxColumn"].Value); // obteniedo el idRegistro del datagridview
+            currentProdcuto = productos.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+
+            if (currentProdcuto.enUso == true)
+            {
+                btnEliminar.Text = " Desactivar (F6)";
+            }
+            else
+            {
+                btnEliminar.Text = " Eliminar (F6)";
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            executeEliminar();
+        }
+
+        private async void executeEliminar()
+        {
+            // Verificando la existencia de datos en el datagridview
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay un registro seleccionado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            try
+            {
+                loadState(true); // cambiando el estado
+                int index = dataGridView.CurrentRow.Index; // Identificando la fila actual del datagridview
+
+                int idPresentacion = Convert.ToInt32(dataGridView.Rows[index].Cells["idPresentacionDataGridViewTextBoxColumn"].Value); // obteniedo el idRegistro del datagridview
+                currentProdcuto = productos.Find(x => x.idPresentacion == idPresentacion); // Buscando la registro especifico en la lista de registros
+
+                if (currentProdcuto.enUso == true)
+                {
+                    // Pregunta de seguridad de eliminacion
+                    DialogResult dialog = MessageBox.Show("¿Está seguro de inhabilitar este registro?", "Inhabilitar",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (dialog == DialogResult.No) { return; }
+                    Producto sendProducto = new Producto(); //creando una instancia del objeto categoria
+                    sendProducto.idProducto = idPresentacion;
+                    Response response = await productoModel.inhabilitar(sendProducto); // Eliminando con el webservice correspondiente
+                    MessageBox.Show(response.msj, "Inhabilitar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Pregunta de seguridad de eliminacion
+                    DialogResult dialog = MessageBox.Show("¿Está seguro de eliminar este registro?", "Eliminar",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (dialog == DialogResult.No) { return; }
+                    Producto sendProducto = new Producto(); //creando una instancia del objeto categoria
+                    sendProducto.idProducto = idPresentacion;
+                    Response response = await productoModel.eliminar(sendProducto); // Eliminando con el webservice correspondiente
+                    MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                cargarRegistros(); // recargando el datagridview
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                loadState(false); // cambiando el estado
             }
         }
     }

@@ -29,6 +29,8 @@ namespace Admeli
         public FormLogin()
         {
             InitializeComponent();
+            //Configuracion de decimales
+            this.configuracionRegional();
             this.nLoads = 0;
         }
 
@@ -252,6 +254,15 @@ namespace Admeli
         private void FormLogin_Load(object sender, EventArgs e)
         {
 
+        }
+        private void configuracionRegional()
+        {
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-PE");
+            culture.NumberFormat.CurrencyDecimalSeparator = ".";
+            culture.NumberFormat.CurrencyGroupSeparator = "";
+            culture.NumberFormat.NumberDecimalSeparator = ".";
+            culture.NumberFormat.NumberGroupSeparator = "";
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
         }
     }
 }

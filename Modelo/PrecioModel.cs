@@ -30,7 +30,7 @@ namespace Modelo
         {
             try
             {
-                // www.lineatienda.com/services.php/precio/producto/445
+                // www.lineatienda.com/services.php/precio/modificar
                 Response rpt = await webService.POST<Precio, Response>("precio", "modificar", precio);
                 return rpt;
             }

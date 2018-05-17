@@ -200,7 +200,7 @@ namespace Admeli.Productos.Nuevo.PDetalle
                 cargarValores();
                 //Guardamos el PrecioProducto
                 Response response = await precioModel.precioModificar(currentPrecio);
-                MessageBox.Show(response.msj, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)

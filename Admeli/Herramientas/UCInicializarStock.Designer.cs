@@ -101,7 +101,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelCategoriaContainer = new System.Windows.Forms.Panel();
@@ -248,6 +248,7 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(1120, 444);
             this.dataGridView.TabIndex = 2;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -909,7 +910,7 @@
             this.panelCrud.Controls.Add(this.btnNuevo);
             this.panelCrud.Controls.Add(this.btnModificar);
             this.panelCrud.Controls.Add(this.btnActualizar);
-            this.panelCrud.Controls.Add(this.btnAnular);
+            this.panelCrud.Controls.Add(this.btnEliminar);
             this.panelCrud.Controls.Add(this.btnGuardar);
             this.panelCrud.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCrud.Location = new System.Drawing.Point(0, 0);
@@ -991,28 +992,31 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
-            // btnAnular
+
+            // btnEliminar
             // 
-            this.btnAnular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnular.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(225)))), ((int)(((byte)(228)))));
-            this.btnAnular.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.btnAnular.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.btnAnular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnular.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(47)))), ((int)(((byte)(67)))));
-            this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
-            this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(596, 18);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(0, 0, 13, 0);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnAnular.Size = new System.Drawing.Size(168, 49);
-            this.btnAnular.TabIndex = 6;
-            this.btnAnular.Text = "  Anular (F7)";
-            this.btnAnular.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(225)))), ((int)(((byte)(228)))));
+            this.btnEliminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(47)))), ((int)(((byte)(67)))));
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(448, 15);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnEliminar.Size = new System.Drawing.Size(126, 40);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = " Eliminar  (F7)";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+
             // 
             // btnGuardar
             // 
@@ -1229,7 +1233,7 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnAnular;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;

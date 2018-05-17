@@ -48,7 +48,8 @@ namespace Admeli.Productos.Nuevo.PDetalle.sub
             try
             {
                 /// ========================================================
-                almacenBindingSource.DataSource = await almacenModel.almacenesPorSucursales(ConfigModel.sucursal.idSucursal);
+                //almacenBindingSource.DataSource = await almacenModel.almacenesPorSucursales(ConfigModel.sucursal.idSucursal);
+                almacenBindingSource.DataSource = await almacenModel.almacenes();
 
                 /// ========================= Cargando registros en la tabla
                 int almacenId = (cbxAlmacenes.SelectedIndex == -1) ? ConfigModel.currentIdAlmacen : Convert.ToInt32(cbxAlmacenes.SelectedValue);
@@ -86,7 +87,7 @@ namespace Admeli.Productos.Nuevo.PDetalle.sub
                 /// Guardando
                 Response response1 = await alternativaModel.modificarAlternativa(currentAlternativaCombinacion);
                 Response response2 = await alternativaModel.modificarCombinacionAlternativa(currentAlternativaCombinacion);
-                MessageBox.Show(String.Format("{0}\n{1}", response1.msj, response2.msj), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(String.Format("Alternativa:{0}\nCombinacion:{1}", response1.msj, response2.msj), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //this.cargarAlmacenes();
             }
             catch (Exception ex)

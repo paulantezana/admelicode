@@ -105,14 +105,14 @@ namespace Admeli.Reportes
                 list.Add("id0", 0);
                 Dictionary<string, int> sendList = (ConfigModel.currentProductoCategory.Count == 0) ? list : ConfigModel.currentProductoCategory;
 
-                RootObject<Producto> productosRoot = await productoModel.productosPorCategoria(sendList, paginacion.currentPage, paginacion.speed);
+                RootObject<Producto,CombinacionStock> productos_combinacion = await productoModel.productosPorCategoria(sendList, paginacion.currentPage, paginacion.speed);
 
                 // actualizando datos de páginacón
-                paginacion.itemsCount = productosRoot.nro_registros;
+                paginacion.itemsCount = productos_combinacion.nro_registros;
                 paginacion.reload();
 
                 // Ingresando
-                productos = productosRoot.datos;
+                productos = productos_combinacion.datos;
                 productoBindingSource.DataSource = productos;
                 dgvProductos.Refresh();
 
