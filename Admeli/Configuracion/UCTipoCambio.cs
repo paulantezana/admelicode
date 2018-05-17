@@ -12,6 +12,7 @@ using Entidad.Configuracion;
 using Bunifu.Framework.UI;
 using Entidad;
 using System.Globalization;
+using Admeli.Componentes;
 
 namespace Admeli.Configuracion
 {
@@ -141,14 +142,14 @@ namespace Admeli.Configuracion
                 Location = new System.Drawing.Point(18, y),
                 Name = moneda.idMoneda.ToString(),
                 TabIndex = 91,
-                Text = string.Format(CultureInfo.GetCultureInfo("en-US"), "{0:n" + 2 + "}", moneda.tipoCambio)
+                Text = string.Format(CultureInfo.GetCultureInfo("en-US"), "{0:n" + ConfigModel.configuracionGeneral.numeroDecimales + "}", moneda.tipoCambio)
 
             //OnValueChanged += new System.EventHandler(this.bunifuMetroTextbox1_OnValueChanged);
         };
 
            
 
-            textMoneda1.OnValueChanged += new EventHandler(this.textMoneda1_OnValueChanged);
+            textMoneda1.KeyPress += new KeyPressEventHandler(this.textMoneda1_OnValueChanged);
 
 
             // Agreganto los dos elementos
@@ -163,29 +164,11 @@ namespace Admeli.Configuracion
             //}
         }
 
-        private void textMoneda1_OnValueChanged(object sender, EventArgs e)
+        private void textMoneda1_OnValueChanged(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                string currentIDMoneda = ((BunifuMetroTextbox)sender).Name;
-                if (currentIDMoneda != "")
-                {
-                    for (int i = 0; i < monedas.Count; i++)
-                    {
-                        if (monedas[i].idMoneda == Convert.ToInt32(currentIDMoneda))
-                        {
 
-                            
-                            monedas[i].tipoCambio = double.Parse(((BunifuMetroTextbox)sender).Text,CultureInfo.GetCultureInfo("en-US"));
-                            
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            BunifuMetroTextbox textMoneda1 = sender as BunifuMetroTextbox;
+            Validator.isDecimal(e, textMoneda1.Text);
         }
         #endregion
 
@@ -249,6 +232,11 @@ namespace Admeli.Configuracion
         private void loadState(bool state)
         {
             formPrincipal.appLoadState(state);
+        }
+
+        private void textNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validator.isDecimal(e, textNombre.Text);
         }
     }
 }

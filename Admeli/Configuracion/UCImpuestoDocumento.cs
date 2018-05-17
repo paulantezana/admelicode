@@ -169,6 +169,9 @@ namespace Admeli.Configuracion
                 dgvImpuestoDocumento.Refresh();
                 
                 loadState(true);
+
+                if (listImpuestosDocumentos == null)
+                    listImpuestosDocumentos = new List<ImpuestoDocumento>();
                 foreach (ImpuestoGeneral IG in listImpuestosDocumentos)
                 {
                     if (BuscarElementos(IG.idImpuesto)!=null)
@@ -257,7 +260,7 @@ namespace Admeli.Configuracion
 
         private void cbxSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxSucursal.SelectedIndex == -1) return;
+            if (cbxSucursal.SelectedIndex == -1  || cbxDocumento.SelectedIndex == -1) return;
             TodosImpuestos();
             loadState(true);
             try

@@ -49,6 +49,7 @@ namespace Admeli.Configuracion.Nuevo
             textDirecionAlmacen.Text = currentAlmacen.direccion;
             chkPrincipalAlmacen.Checked = currentAlmacen.principal;
             chkActivoAlmacen.Checked = Convert.ToBoolean(currentAlmacen.estado);
+            
         }
 
         #region ======================= Paint =======================
@@ -96,6 +97,13 @@ namespace Admeli.Configuracion.Nuevo
             try
             {
                 sucursalBindingSource.DataSource = await sucursalModel.sucursales();
+                if (!nuevo)
+                {
+
+                    cbxSucursal.SelectedValue = currentAlmacen.idSucursal;
+
+                }
+                
             }
             catch (Exception ex)
             {
@@ -332,7 +340,7 @@ namespace Admeli.Configuracion.Nuevo
                 int almacenID = (nuevo) ? 0 : currentIDAlmacen;
                 int sucursalID = Convert.ToInt32(cbxSucursal.SelectedValue);
 
-                List<Almacen> listAlmacenes = await almacenModel.verificarAlmacen(textNombreAlmacen.Text, sucursalID, almacenID);
+                List<Almacen> listAlmacenes = await almacenModel.verificarAlmacen(textNombreAlmacen.Text.Trim(), sucursalID, almacenID);
                 if (listAlmacenes.Count > 0)
                 {
                     errorProvider1.SetError(textNombreAlmacen, "Ya existe un almacén con mismo nombre.");
@@ -509,6 +517,11 @@ namespace Admeli.Configuracion.Nuevo
         private void FormAlmacenNuevo_Shown(object sender, EventArgs e)
         {
             cbxSucursal.Focus();
+        }
+
+        private void textNombreAlmacen_OnValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

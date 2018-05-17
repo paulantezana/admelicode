@@ -1241,17 +1241,8 @@ namespace Admeli.Ventas.Nuevo
                 }
                 else
                 {
-                    if (stockPresentacion < 0)
-                    {
-                        lbStock1.Text = "no exite stock suficiente";
-                        lbStock1.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-
-                        lbStock1.Text = "no hay stock";
-                        lbStock1.ForeColor = Color.Yellow;
-                    }
+                    lbStock1.Text = "no exite stock suficiente";
+                    lbStock1.ForeColor = Color.Red;
 
                 }
 

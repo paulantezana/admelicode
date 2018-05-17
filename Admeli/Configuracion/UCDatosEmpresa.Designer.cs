@@ -125,7 +125,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 51);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.panel1.Size = new System.Drawing.Size(1285, 602);
@@ -136,7 +136,7 @@
             this.panelFooter.Controls.Add(this.panel13);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFooter.Location = new System.Drawing.Point(238, 523);
-            this.panelFooter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFooter.Margin = new System.Windows.Forms.Padding(4);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.panelFooter.Size = new System.Drawing.Size(1034, 60);
@@ -147,7 +147,7 @@
             this.panel13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel13.Controls.Add(this.btnAceptar);
             this.panel13.Location = new System.Drawing.Point(392, 1);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(251, 59);
             this.panel13.TabIndex = 0;
@@ -163,7 +163,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(24, 7);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(203, 44);
             this.btnAceptar.TabIndex = 0;
@@ -178,7 +178,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.ItemSize = new System.Drawing.Size(58, 30);
             this.tabControl1.Location = new System.Drawing.Point(238, 12);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1034, 511);
@@ -202,9 +202,9 @@
             this.tabDatosEmpresa.Controls.Add(this.textFormaDePago);
             this.tabDatosEmpresa.Controls.Add(this.label7);
             this.tabDatosEmpresa.Location = new System.Drawing.Point(4, 34);
-            this.tabDatosEmpresa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabDatosEmpresa.Margin = new System.Windows.Forms.Padding(4);
             this.tabDatosEmpresa.Name = "tabDatosEmpresa";
-            this.tabDatosEmpresa.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabDatosEmpresa.Padding = new System.Windows.Forms.Padding(4);
             this.tabDatosEmpresa.Size = new System.Drawing.Size(1026, 473);
             this.tabDatosEmpresa.TabIndex = 0;
             this.tabDatosEmpresa.Text = "Datos Empresa";
@@ -234,9 +234,9 @@
             this.errorProvider1.SetIconPadding(this.textNumeroIdentificacion, -30);
             this.textNumeroIdentificacion.isPassword = false;
             this.textNumeroIdentificacion.Location = new System.Drawing.Point(20, 150);
-            this.textNumeroIdentificacion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNumeroIdentificacion.Margin = new System.Windows.Forms.Padding(5);
             this.textNumeroIdentificacion.Name = "textNumeroIdentificacion";
-            this.textNumeroIdentificacion.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textNumeroIdentificacion.Padding = new System.Windows.Forms.Padding(3, 10, 7, 2);
             this.textNumeroIdentificacion.Size = new System.Drawing.Size(439, 49);
             this.textNumeroIdentificacion.TabIndex = 5;
             this.textNumeroIdentificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -262,14 +262,14 @@
             this.textEmail.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textEmail.BorderThickness = 1;
             this.textEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEmail.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textEmail, -30);
             this.textEmail.isPassword = false;
             this.textEmail.Location = new System.Drawing.Point(20, 91);
-            this.textEmail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textEmail.Margin = new System.Windows.Forms.Padding(5);
             this.textEmail.Name = "textEmail";
-            this.textEmail.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textEmail.Padding = new System.Windows.Forms.Padding(3, 10, 7, 2);
             this.textEmail.Size = new System.Drawing.Size(439, 49);
             this.textEmail.TabIndex = 3;
             this.textEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -295,14 +295,14 @@
             this.textNombreEmpresa.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textNombreEmpresa.BorderThickness = 1;
             this.textNombreEmpresa.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textNombreEmpresa.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreEmpresa.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreEmpresa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textNombreEmpresa, -30);
             this.textNombreEmpresa.isPassword = false;
             this.textNombreEmpresa.Location = new System.Drawing.Point(20, 31);
-            this.textNombreEmpresa.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNombreEmpresa.Margin = new System.Windows.Forms.Padding(5);
             this.textNombreEmpresa.Name = "textNombreEmpresa";
-            this.textNombreEmpresa.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textNombreEmpresa.Padding = new System.Windows.Forms.Padding(3, 10, 20, 2);
             this.textNombreEmpresa.Size = new System.Drawing.Size(439, 49);
             this.textNombreEmpresa.TabIndex = 1;
             this.textNombreEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -328,14 +328,14 @@
             this.textDireccion.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(157)))));
             this.textDireccion.BorderThickness = 1;
             this.textDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDireccion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.errorProvider1.SetIconPadding(this.textDireccion, -30);
             this.textDireccion.isPassword = false;
             this.textDireccion.Location = new System.Drawing.Point(475, 272);
-            this.textDireccion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textDireccion.Margin = new System.Windows.Forms.Padding(5);
             this.textDireccion.Name = "textDireccion";
-            this.textDireccion.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textDireccion.Padding = new System.Windows.Forms.Padding(3, 10, 7, 2);
             this.textDireccion.Size = new System.Drawing.Size(439, 49);
             this.textDireccion.TabIndex = 12;
             this.textDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -345,7 +345,7 @@
             this.panelLevel3.Controls.Add(this.cbxNivel3);
             this.panelLevel3.Controls.Add(this.lblNivel3);
             this.panelLevel3.Location = new System.Drawing.Point(476, 209);
-            this.panelLevel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevel3.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevel3.Name = "panelLevel3";
             this.panelLevel3.Size = new System.Drawing.Size(437, 49);
             this.panelLevel3.TabIndex = 11;
@@ -364,7 +364,7 @@
             this.cbxNivel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel3.FormattingEnabled = true;
             this.cbxNivel3.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxNivel3.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNivel3.Name = "cbxNivel3";
             this.cbxNivel3.Size = new System.Drawing.Size(427, 28);
             this.cbxNivel3.TabIndex = 1;
@@ -390,7 +390,7 @@
             this.panelLevel2.Controls.Add(this.cbxNivel2);
             this.panelLevel2.Controls.Add(this.lblNivel2);
             this.panelLevel2.Location = new System.Drawing.Point(476, 149);
-            this.panelLevel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevel2.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevel2.Name = "panelLevel2";
             this.panelLevel2.Size = new System.Drawing.Size(437, 49);
             this.panelLevel2.TabIndex = 10;
@@ -409,7 +409,7 @@
             this.cbxNivel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel2.FormattingEnabled = true;
             this.cbxNivel2.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxNivel2.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNivel2.Name = "cbxNivel2";
             this.cbxNivel2.Size = new System.Drawing.Size(427, 28);
             this.cbxNivel2.TabIndex = 1;
@@ -436,7 +436,7 @@
             this.panelLevel1.Controls.Add(this.cbxNivel1);
             this.panelLevel1.Controls.Add(this.lblNivel1);
             this.panelLevel1.Location = new System.Drawing.Point(476, 90);
-            this.panelLevel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevel1.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevel1.Name = "panelLevel1";
             this.panelLevel1.Size = new System.Drawing.Size(437, 49);
             this.panelLevel1.TabIndex = 9;
@@ -455,7 +455,7 @@
             this.cbxNivel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel1.FormattingEnabled = true;
             this.cbxNivel1.Location = new System.Drawing.Point(4, 17);
-            this.cbxNivel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxNivel1.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNivel1.Name = "cbxNivel1";
             this.cbxNivel1.Size = new System.Drawing.Size(427, 28);
             this.cbxNivel1.TabIndex = 1;
@@ -482,7 +482,7 @@
             this.panelLevelPais.Controls.Add(this.cbxPaises);
             this.panelLevelPais.Controls.Add(this.label2);
             this.panelLevelPais.Location = new System.Drawing.Point(476, 31);
-            this.panelLevelPais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLevelPais.Margin = new System.Windows.Forms.Padding(4);
             this.panelLevelPais.Name = "panelLevelPais";
             this.panelLevelPais.Size = new System.Drawing.Size(437, 49);
             this.panelLevelPais.TabIndex = 8;
@@ -500,7 +500,7 @@
             this.cbxPaises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPaises.FormattingEnabled = true;
             this.cbxPaises.Location = new System.Drawing.Point(4, 17);
-            this.cbxPaises.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxPaises.Margin = new System.Windows.Forms.Padding(4);
             this.cbxPaises.Name = "cbxPaises";
             this.cbxPaises.Size = new System.Drawing.Size(427, 28);
             this.cbxPaises.TabIndex = 1;
@@ -528,7 +528,7 @@
             this.textFormaDePago.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.textFormaDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFormaDePago.Location = new System.Drawing.Point(20, 247);
-            this.textFormaDePago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textFormaDePago.Margin = new System.Windows.Forms.Padding(4);
             this.textFormaDePago.Multiline = true;
             this.textFormaDePago.Name = "textFormaDePago";
             this.textFormaDePago.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -561,9 +561,9 @@
             this.tabConfiguraciones.Controls.Add(this.label16);
             this.tabConfiguraciones.Controls.Add(this.chkArquearMarcador);
             this.tabConfiguraciones.Location = new System.Drawing.Point(4, 34);
-            this.tabConfiguraciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabConfiguraciones.Margin = new System.Windows.Forms.Padding(4);
             this.tabConfiguraciones.Name = "tabConfiguraciones";
-            this.tabConfiguraciones.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabConfiguraciones.Padding = new System.Windows.Forms.Padding(4);
             this.tabConfiguraciones.Size = new System.Drawing.Size(1026, 473);
             this.tabConfiguraciones.TabIndex = 1;
             this.tabConfiguraciones.Text = "Configuraciones";
@@ -629,9 +629,9 @@
             this.errorProvider1.SetIconPadding(this.textPorcentajeUtilidad, -30);
             this.textPorcentajeUtilidad.isPassword = false;
             this.textPorcentajeUtilidad.Location = new System.Drawing.Point(15, 203);
-            this.textPorcentajeUtilidad.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textPorcentajeUtilidad.Margin = new System.Windows.Forms.Padding(5);
             this.textPorcentajeUtilidad.Name = "textPorcentajeUtilidad";
-            this.textPorcentajeUtilidad.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textPorcentajeUtilidad.Padding = new System.Windows.Forms.Padding(3, 10, 7, 2);
             this.textPorcentajeUtilidad.Size = new System.Drawing.Size(439, 49);
             this.textPorcentajeUtilidad.TabIndex = 6;
             this.textPorcentajeUtilidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -661,9 +661,9 @@
             this.errorProvider1.SetIconPadding(this.textItemPagina, -30);
             this.textItemPagina.isPassword = false;
             this.textItemPagina.Location = new System.Drawing.Point(15, 107);
-            this.textItemPagina.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textItemPagina.Margin = new System.Windows.Forms.Padding(5);
             this.textItemPagina.Name = "textItemPagina";
-            this.textItemPagina.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textItemPagina.Padding = new System.Windows.Forms.Padding(3, 10, 7, 2);
             this.textItemPagina.Size = new System.Drawing.Size(439, 49);
             this.textItemPagina.TabIndex = 3;
             this.textItemPagina.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -694,9 +694,9 @@
             this.errorProvider1.SetIconPadding(this.textNumeroDigitos, -30);
             this.textNumeroDigitos.isPassword = false;
             this.textNumeroDigitos.Location = new System.Drawing.Point(15, 15);
-            this.textNumeroDigitos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textNumeroDigitos.Margin = new System.Windows.Forms.Padding(5);
             this.textNumeroDigitos.Name = "textNumeroDigitos";
-            this.textNumeroDigitos.Padding = new System.Windows.Forms.Padding(3, 22, 7, 2);
+            this.textNumeroDigitos.Padding = new System.Windows.Forms.Padding(3, 10, 7, 2);
             this.textNumeroDigitos.Size = new System.Drawing.Size(439, 49);
             this.textNumeroDigitos.TabIndex = 0;
             this.textNumeroDigitos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -721,7 +721,7 @@
             this.chkArquearMarcador.CheckedOnColor = System.Drawing.Color.DodgerBlue;
             this.chkArquearMarcador.ForeColor = System.Drawing.Color.White;
             this.chkArquearMarcador.Location = new System.Drawing.Point(15, 289);
-            this.chkArquearMarcador.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.chkArquearMarcador.Margin = new System.Windows.Forms.Padding(5);
             this.chkArquearMarcador.Name = "chkArquearMarcador";
             this.chkArquearMarcador.Size = new System.Drawing.Size(20, 20);
             this.chkArquearMarcador.TabIndex = 9;
@@ -735,7 +735,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(13, 12);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(225, 578);
             this.panel2.TabIndex = 1;
@@ -745,7 +745,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(61, 57);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(103, 81);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -764,12 +764,13 @@
             this.btnSuburFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuburFoto.ForeColor = System.Drawing.Color.White;
             this.btnSuburFoto.Location = new System.Drawing.Point(24, 165);
-            this.btnSuburFoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSuburFoto.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuburFoto.Name = "btnSuburFoto";
             this.btnSuburFoto.Size = new System.Drawing.Size(176, 41);
             this.btnSuburFoto.TabIndex = 1;
             this.btnSuburFoto.Text = "Cargar imagen";
             this.btnSuburFoto.UseVisualStyleBackColor = false;
+            this.btnSuburFoto.Click += new System.EventHandler(this.btnSuburFoto_Click);
             // 
             // label3
             // 
@@ -901,10 +902,10 @@
         private System.Windows.Forms.Label label15;
         private Bunifu.Framework.UI.BunifuMetroTextbox textDireccion;
         private System.Windows.Forms.Label label4;
-        private Bunifu.Framework.UI.BunifuMetroTextbox textNombreEmpresa;
         private System.Windows.Forms.Label label17;
         private Bunifu.Framework.UI.BunifuMetroTextbox textNumeroIdentificacion;
         private System.Windows.Forms.Label label12;
         private Bunifu.Framework.UI.BunifuMetroTextbox textEmail;
+        public Bunifu.Framework.UI.BunifuMetroTextbox textNombreEmpresa;
     }
 }

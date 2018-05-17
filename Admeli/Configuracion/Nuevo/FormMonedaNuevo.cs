@@ -126,7 +126,13 @@ namespace Admeli.Configuracion.Nuevo
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        } 
+        }
         #endregion
+
+        private void textSimboloMoneda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            Validator.isDecimal(e, textSimboloMoneda.Text);
+        }
     }
 }

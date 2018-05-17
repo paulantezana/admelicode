@@ -108,6 +108,8 @@ namespace Admeli.Configuracion
             textNumeroDigitos.Text = configuracionGeneral.numeroDecimales.ToString();
             textPorcentajeUtilidad.Text = configuracionGeneral.porcentajeUtilidad;
             chkArquearMarcador.Checked = configuracionGeneral.arquearMarcador;
+
+            textNombreEmpresa.Padding = new Padding(3, 10, 20, 2);
         }
         #endregion
 
@@ -411,5 +413,10 @@ namespace Admeli.Configuracion
             drawShape.lineBorder(panelLevel3, 157, 157, 157);
         }
         #endregion
+
+        private void btnSuburFoto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

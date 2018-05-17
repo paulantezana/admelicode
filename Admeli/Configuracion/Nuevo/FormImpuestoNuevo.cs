@@ -129,7 +129,7 @@ namespace Admeli.Configuracion.Nuevo
 
         private void textValorImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validator.isNumber(e);
+            Validator.isDecimal(e, textValorImpuesto.Text);
         }
     }
 }

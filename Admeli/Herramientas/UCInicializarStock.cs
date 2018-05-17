@@ -729,10 +729,11 @@ namespace Admeli.Herramientas
             }
 
             int idProducto = Convert.ToInt32(dataGridView.CurrentRow.Cells["idProductoDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
+            int idAlmacen = Convert.ToInt32(dataGridView.CurrentRow.Cells["idAlmacenDataGridViewTextBoxColumn"].Value); // obteniedo el idCategoria del datagridview
 
 
-            ProductoData data = productos.Find(X => X.idProducto == idProducto);
-            combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion).ToList(); ;
+            ProductoData data = productos.Find(X => X.idProducto == idProducto && X.idAlmacen== idAlmacen );
+            combinacionesProducto = combinaciones.Where(X => X.idPresentacion == data.idPresentacion && X.idAlmacen == idAlmacen).ToList(); ;
 
             dataGridView.Rows[index].ReadOnly = false;
 
@@ -829,7 +830,8 @@ namespace Admeli.Herramientas
             // Mostrando el formulario de modificacion
             FormProductoNuevo formProducto = new FormProductoNuevo(auxProducto);
             formProducto.ShowDialog();
-            cargarRegistros(); // recargando loas registros en el datagridview
+            cargarRegistrosBuscar(); // recargando loas registros en el datagridview
+            
         }
 
         
@@ -856,7 +858,7 @@ namespace Admeli.Herramientas
                 if (response.id >0)
                 {
                     MessageBox.Show("Mensaje: " + response.msj, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargarRegistrosBuscar();
+
                 }
             }
             catch (Exception ex)
@@ -867,6 +869,7 @@ namespace Admeli.Herramientas
             {
 
                 loadState(false);
+                cargarRegistrosBuscar();
 
             }
 
@@ -899,10 +902,7 @@ namespace Admeli.Herramientas
            
         }
 
-        private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+        
 
         private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
@@ -922,6 +922,9 @@ namespace Admeli.Herramientas
                 {
                     txt.KeyPress -= new KeyPressEventHandler(dataGridview_KeyPress);
                     txt.KeyPress += new KeyPressEventHandler(dataGridview_KeyPress);
+                    txt.TextChanged -= new EventHandler(dataGridview_text);
+                    txt.TextChanged += new EventHandler(dataGridview_text);
+
                 }
 
             }
@@ -931,10 +934,67 @@ namespace Admeli.Herramientas
             string texto = txt.Text;
 
             Validator.isDecimal(e, texto);
+           
+            
+        }
+
+        private void dataGridview_text(object sender, EventArgs e)
+        {
+
+            TextBox text = sender as TextBox;
+            if(text.Text == "") return;
+            int index = dataGridView.CurrentRow.Index;
+            int y = dataGridView.CurrentCell.ColumnIndex;
+            int idpresentacion = (int)dataGridView.Rows[index].Cells["idPresentacionDataGridViewTextBoxColumn"].Value;
+            int idSucursal = (int)dataGridView.Rows[index].Cells["idSucursalDataGridViewTextBoxColumn"].Value;
+            
+
+            if(y == 5 || y == 8)
+            {
+                
+                decimal dato = Convert.ToDecimal(text.Text);
+
+                if (y == 5)// modificar precio de compra
+                {
+                    List<ProductoData> listPCompra = productos.Where(X => X.idPresentacion == idpresentacion).ToList();
+
+                    foreach (ProductoData p in listPCompra)
+                    {
+
+                        p.precioCompra = dato;
+                    }
+                }
+
+
+                if (y == 8)// modificar precio producto
+                {
+
+                    List<ProductoData> listPventa = productos.Where(X => X.idPresentacion == idpresentacion && X.idSucursal == idSucursal).ToList();
+                    foreach (ProductoData p in listPventa)
+                    {
+
+                        p.precioVenta = dato;
+
+
+
+                    }
+                }
+            }
+           
+            
+            
+            productoDataBindingSource.DataSource = productos;
+            dataGridView.Refresh();
 
         }
 
 
+        private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+
+        }
         private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             //string valor = dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
